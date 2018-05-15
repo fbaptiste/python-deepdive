@@ -1,0 +1,136 @@
+WEBVTT
+
+00:01.240 --> 00:05.260
+High in this video of a little fun challenge for you.
+
+00:05.290 --> 00:11.420
+You remember in the last video we looked at salted and how we can use salted salt a little salt any
+
+00:11.430 --> 00:12.290
+iterable.
+
+00:12.820 --> 00:20.800
+Well what I'd like you to try and do is to randomize a list or in any iterable for that matter.
+
+00:20.800 --> 00:28.260
+Also using the sorted function but instead of actually solving the thing I would like it to be randomized.
+
+00:28.630 --> 00:29.880
+So I'll give you a hint.
+
+00:29.980 --> 00:34.630
+You're going to have to import the random library.
+
+00:34.870 --> 00:36.760
+So we'll import random.
+
+00:36.940 --> 00:41.100
+And then in the random There is another function called random.
+
+00:41.110 --> 00:49.660
+So we can do it on random random and basically it's going to return a random number between 0 and 1
+
+00:50.020 --> 00:51.280
+not including 1.
+
+00:51.280 --> 00:56.720
+So if we call random dart random a few times we'll get different values on this.
+
+00:56.740 --> 00:58.910
+We execute that we execute.
+
+00:58.930 --> 01:01.710
+You can see we're getting different values.
+
+01:01.840 --> 01:08.530
+So now using what we learned in the previous section and using this right a piece of code that will
+
+01:08.740 --> 01:13.490
+randomize or if you want to think of shuffling right there will shuffle a list.
+
+01:13.510 --> 01:19.570
+Let's say the list is 1 2 3 4 5 6 7 8 9.
+
+01:19.690 --> 01:20.330
+That's good enough.
+
+01:20.330 --> 01:23.520
+And then ok whatever it doesn't matter it can be any list.
+
+01:23.620 --> 01:28.760
+So you should be able to produce that using a single line of code.
+
+01:28.780 --> 01:32.090
+So why don't you pause the video and tried up for yourself.
+
+01:32.090 --> 01:39.310
+First.
+
+01:39.470 --> 01:40.140
+All right.
+
+01:40.140 --> 01:41.880
+Hopefully you manage to do it.
+
+01:41.970 --> 01:44.100
+It's pretty straightforward right.
+
+01:44.100 --> 01:47.030
+Because remember how the sorted function works.
+
+01:47.100 --> 01:51.930
+It's going to sort whatever iterable is if you want and you can specify the key.
+
+01:51.930 --> 01:54.350
+Now what can we make with key in this case.
+
+01:54.480 --> 01:59.720
+Well we can make the key a random number and if we make the key a random number right.
+
+01:59.760 --> 02:04.410
+That means that we're going to essentially all do that list randomly.
+
+02:04.410 --> 02:05.500
+So what are we going to do.
+
+02:05.510 --> 02:11.820
+Well we're going to specify Alamdar and the land is going to take the element in the list but we're
+
+02:11.820 --> 02:13.780
+not going to worry about where the element is.
+
+02:13.790 --> 02:19.200
+So now we still have to provide that as a parameter because we still have to take that in.
+
+02:19.230 --> 02:19.470
+Right.
+
+02:19.470 --> 02:23.370
+The key is going to apply the function and pass it the element.
+
+02:23.520 --> 02:30.720
+But instead of using the element itself we're just going to call random random and so that will then
+
+02:30.720 --> 02:38.100
+get evaluated every time this function is applied and we're going to end up with a randomized list.
+
+02:38.100 --> 02:39.180
+So there you go.
+
+02:39.210 --> 02:41.880
+Now as you can see that's the thing we have here.
+
+02:41.880 --> 02:44.100
+We can run it again different right.
+
+02:44.120 --> 02:45.160
+Different sort.
+
+02:45.180 --> 02:47.210
+So that's kind of fun.
+
+02:47.520 --> 02:52.840
+On using the sort of method to actually create something that's randomized.
+
+02:53.110 --> 02:55.330
+Anyway thanks for watching and I'll see you in the next video.

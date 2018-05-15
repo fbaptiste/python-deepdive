@@ -1,0 +1,757 @@
+WEBVTT
+
+00:00.330 --> 00:06.360
+Hi and welcome to this video on decimals now we'll be looking at floats so far which was one way of
+
+00:06.360 --> 00:13.740
+representing real numbers decimals is another way another mechanism that we have in Python to represent
+
+00:13.890 --> 00:17.010
+floating point numbers to represent real numbers.
+
+00:17.800 --> 00:21.320
+So this will use the decimal mondial.
+
+00:21.480 --> 00:27.090
+And if you want detailed information about the implementation and the standards that we use to implement
+
+00:27.150 --> 00:33.810
+decimals as an alternative to floats then you can look at the pepped 3:27 documentation online but I'll
+
+00:33.810 --> 00:35.660
+cover the important stuff here.
+
+00:36.330 --> 00:38.750
+So let's just recall what happens.
+
+00:38.760 --> 00:40.160
+Right what our issues are.
+
+00:40.200 --> 00:47.450
+If we take a look at 0.1 expressed as a float in Python which Remember we really call a binary float.
+
+00:47.460 --> 00:51.340
+It uses binary numbers to store those numbers.
+
+00:51.480 --> 00:55.340
+Then we end up with an infinite binary expansion and we've seen that before.
+
+00:55.380 --> 00:59.440
+That's how infinite binary expansion infinite series essentially.
+
+00:59.490 --> 01:06.600
+So we don't have an exact representation of the number in memory but it does have a finite decimal expression.
+
+01:06.600 --> 01:07.100
+Right.
+
+01:07.320 --> 01:11.100
+Expansion at zero point 1 which is one tenth it's finite.
+
+01:11.100 --> 01:18.300
+So we're dealing with the fact that we're used to working with decimal numbers like you know 0.1 or
+
+01:18.300 --> 01:23.160
+zero point to five things like that which are finite right they're exact.
+
+01:23.340 --> 01:29.850
+And yet when we try and put them in a computer they become inexact because we have to basically stop
+
+01:29.850 --> 01:31.410
+the expansion at some point.
+
+01:31.420 --> 01:35.190
+We don't have an infinite amount of memory to work with.
+
+01:35.340 --> 01:39.160
+So we need an alternative to using the binary float type.
+
+01:39.210 --> 01:44.590
+You know how we can represent one tenth exactly in the computer right.
+
+01:44.680 --> 01:48.430
+And we want to do that because we want to avoid the approximation issues.
+
+01:48.880 --> 01:56.980
+And I just want to bring back and talk back about that discussion on our rational numbers now with rational
+
+01:56.980 --> 02:04.390
+numbers so that if you have any real number that has a finite number of digits in it then it is always
+
+02:04.390 --> 02:05.640
+a rational number.
+
+02:05.830 --> 02:11.470
+So it doesn't matter how many digits you have before and after the decimal point as long as it's finite
+
+02:11.740 --> 02:16.410
+it will always be a rational number it can always be expressed as a fraction.
+
+02:16.660 --> 02:20.690
+If you don't remember that you can go back and check the videos on the rationals.
+
+02:20.740 --> 02:24.190
+So the question might be why don't we just use the fraction class.
+
+02:24.190 --> 02:26.430
+I mean it's there it already exists.
+
+02:26.650 --> 02:29.980
+We know that 0.1 is 110 for example.
+
+02:29.980 --> 02:31.370
+That is a rational number.
+
+02:31.390 --> 02:33.970
+Zero Point 2 5 is 25 over 100.
+
+02:33.970 --> 02:35.410
+That's a rational number.
+
+02:35.620 --> 02:36.230
+And so on.
+
+02:36.250 --> 02:38.300
+So why not use the fraction class.
+
+02:38.560 --> 02:43.590
+Well let's take a look let's say if we say one tenth plus one fifth What do we need to do.
+
+02:43.600 --> 02:50.410
+Well the first thing we need to do is we need to come up with a common denominator one tenth plus two
+
+02:50.410 --> 02:56.250
+fifths is 110 plus two Firth's would be for 10 so we're looking at five tenths right.
+
+02:56.260 --> 02:57.950
+That's our result five tenths.
+
+02:58.210 --> 02:58.820
+But wait a minute.
+
+02:58.840 --> 03:02.860
+Now we have to simplify five tenses one over to sort of one half.
+
+03:02.860 --> 03:07.470
+So you can see the amount of computations you have to do to add let's say.
+
+03:07.510 --> 03:10.140
+And just to add two fractions together.
+
+03:10.660 --> 03:16.780
+So it takes up you know a lot more computational effort and also requires more memory because you need
+
+03:16.780 --> 03:22.600
+to store these things as you're doing the computation right you need memory to store the common denominator
+
+03:22.600 --> 03:27.550
+you need you know some operations to go ahead and calculate the common denominator.
+
+03:27.550 --> 03:29.960
+Then you need to do the simplification after that.
+
+03:30.070 --> 03:34.500
+So it's more complex it requires extra memory you know compared to a float.
+
+03:34.510 --> 03:35.680
+It is much slower.
+
+03:35.860 --> 03:37.950
+So it's not ideal.
+
+03:37.990 --> 03:40.670
+Is there a better approach to that potentially.
+
+03:42.040 --> 03:47.680
+So the next question you may ask before we get on to is there a better approach is why do we even care
+
+03:47.680 --> 03:48.310
+about this.
+
+03:48.310 --> 03:50.250
+Why don't we just use binary floats.
+
+03:50.260 --> 03:50.700
+I mean.
+
+03:50.740 --> 03:51.180
+Yeah.
+
+03:51.190 --> 03:57.640
+You know it's not exact but you know 0.1 might be 0.1 0 0 0 a bunch of zeros and a few digits after
+
+03:57.640 --> 03:57.970
+that.
+
+03:57.970 --> 03:58.870
+That's close enough.
+
+03:58.870 --> 03:59.760
+Right.
+
+03:59.780 --> 04:05.530
+You know I mean we're maybe we're off at the 17th or 18th digit after the decimal point.
+
+04:05.530 --> 04:06.530
+Big deal.
+
+04:06.940 --> 04:10.320
+Well in some cases actually it is a big deal.
+
+04:10.450 --> 04:11.080
+Right.
+
+04:11.110 --> 04:12.990
+Whether a number is small or big.
+
+04:13.000 --> 04:14.960
+Kind of depends on the context.
+
+04:15.770 --> 04:23.710
+You know it kind of depends and in the end in our industries like finance or banking you know having
+
+04:23.950 --> 04:28.160
+exact finite representations you know is highly desirable.
+
+04:28.180 --> 04:32.290
+You want bank accounts you know balances to be exact.
+
+04:32.290 --> 04:36.050
+You don't want them to be approximate it's better if they can be exact.
+
+04:36.100 --> 04:36.930
+Why.
+
+04:37.180 --> 04:43.150
+Well let's take a look at an example right because you may think again that a you know if my or my bank
+
+04:43.150 --> 04:51.880
+account is 100 point 0 1 0 0 0 0 0 0 7 and no big deal but let's say that we're adding up financial
+
+04:51.880 --> 04:55.010
+transactions that took place over a certain time period.
+
+04:55.030 --> 05:00.910
+Let's say that the financial transaction is one hundred point zero or one for simplicity and keeping
+
+05:00.910 --> 05:01.670
+them equal.
+
+05:01.690 --> 05:03.620
+Right they're all going to be the same value.
+
+05:03.940 --> 05:09.670
+But let's say we have these transactions and we want to add them up and let's say that we have a billion
+
+05:09.700 --> 05:11.050
+transactions.
+
+05:11.050 --> 05:12.210
+I know what you're thinking.
+
+05:12.250 --> 05:12.760
+Wait a minute.
+
+05:12.760 --> 05:14.940
+A billion transactions I'm exaggerating right.
+
+05:14.950 --> 05:18.560
+Which bank does a billion transactions over a certain time period.
+
+05:18.650 --> 05:21.730
+Maybe over you know 5 10 year period.
+
+05:21.730 --> 05:23.340
+Well no that's not true.
+
+05:23.350 --> 05:25.300
+That happens quite often.
+
+05:25.300 --> 05:32.040
+In fact the New York stock exchange trades about two to six billion shares daily every day.
+
+05:32.380 --> 05:39.580
+So you know adding up a billion of those numbers is you know is actually peanuts right compared to what
+
+05:39.580 --> 05:42.850
+you might actually be really doing in reality.
+
+05:42.970 --> 05:48.920
+And some of those places so let's take a look at the problem that this causes.
+
+05:49.120 --> 05:50.620
+So let's say 100.0 one.
+
+05:50.650 --> 05:57.750
+And so this is the float the binary float representation as you can see were off by tiny about amounts
+
+05:57.820 --> 05:59.170
+like right over here.
+
+05:59.220 --> 06:00.810
+Right.
+
+06:00.910 --> 06:06.190
+So the problem though is when we add up these things and the problem is that this inexactitude that
+
+06:06.190 --> 06:13.410
+we have compounds as we do more and more operations and it's compounding that causes the problem.
+
+06:13.640 --> 06:18.680
+Yeah if it was just the single time 100.0 one to say hey your balance is one hundred point zero or 1
+
+06:18.680 --> 06:19.680
+000.
+
+06:19.740 --> 06:20.020
+Yeah.
+
+06:20.030 --> 06:21.180
+That doesn't matter.
+
+06:21.530 --> 06:26.770
+But as we add things together it does as we compound the errors it does.
+
+06:26.810 --> 06:31.860
+So the real sum right which would be the exact decimal sum is this value here.
+
+06:32.270 --> 06:37.630
+And if we do that using a float and all I did was just write a small python program that basically adds
+
+06:37.640 --> 06:40.720
+that number one hundred point zero or one billion times.
+
+06:40.760 --> 06:42.420
+This is the result that I got.
+
+06:42.650 --> 06:47.580
+And as you can see now that is far off right.
+
+06:47.720 --> 06:51.920
+It is a thousand two hundred thirty eight dollars which is a big deal.
+
+06:52.250 --> 06:55.370
+Yes relatively speaking it's a small difference.
+
+06:55.370 --> 06:56.150
+Right.
+
+06:56.300 --> 07:04.100
+But if you look at it in real terms in absolute terms you know it's if you're producing a report or
+
+07:04.100 --> 07:09.230
+you're producing you know a result for somebody and you tell them hey you know this is how much money
+
+07:09.230 --> 07:15.110
+we're transacted today by the way it's probably off you know thousand to a couple thousand dollars but
+
+07:15.110 --> 07:17.550
+no big deal no big deal.
+
+07:17.630 --> 07:17.870
+Right.
+
+07:17.870 --> 07:25.730
+So anyways that's why we're interested in having exact representations for our you know base 10 numbers
+
+07:25.730 --> 07:34.700
+for all Zero Point 1 0 0 1 2 5 0 0 point 0.3 4 which are things that we use daily in financial sectors.
+
+07:36.520 --> 07:37.080
+OK.
+
+07:37.250 --> 07:39.620
+So how are we going to work with decimals.
+
+07:39.620 --> 07:46.910
+Well there's a couple of things we need to look at the decimal module has the decimal class which is
+
+07:46.910 --> 07:49.550
+what we'll use to actually create decimal numbers.
+
+07:49.550 --> 07:55.460
+But when you work with decimal numbers you want to also be able to specify the precision that you're
+
+07:55.460 --> 08:02.630
+interested in because you don't yes you can say my Precision is you know 28 but that's maybe not what
+
+08:02.630 --> 08:04.700
+you needed maybe too much for what you need.
+
+08:04.820 --> 08:10.370
+You know in your particular application maybe in your particular application having you know five digits
+
+08:10.910 --> 08:11.850
+is good enough.
+
+08:11.990 --> 08:12.740
+Right.
+
+08:12.740 --> 08:15.120
+So it kind of depends.
+
+08:15.140 --> 08:22.100
+So you have a context and this context is basically nothing more than a way to specify certain characteristics
+
+08:22.160 --> 08:23.650
+of your decimal numbers.
+
+08:23.840 --> 08:29.870
+And there are quite a few but the two main ones that we're going to look at are the precision and the
+
+08:30.050 --> 08:30.820
+rounding.
+
+08:30.860 --> 08:38.110
+So you can set your precision Now this precision only actually applies to the arithmetic operations.
+
+08:38.210 --> 08:38.450
+Right.
+
+08:38.450 --> 08:44.930
+So basically it's how far does it keep the precision as it's doing addition multiplication and other
+
+08:44.930 --> 08:48.270
+mathematical functions that you may apply to decimal numbers.
+
+08:48.650 --> 08:50.940
+And then the other one is the rounding algorithm.
+
+08:50.940 --> 08:56.270
+Now if you remember our discussion in the floats videos we talked about the rounding algorithm that
+
+08:56.270 --> 09:02.240
+float implements which is not the algorithm that will necessarily use to write our algorithm.
+
+09:02.240 --> 09:07.820
+We tie to the closest value but we then have a tiebreaker rule right.
+
+09:07.940 --> 09:13.190
+And the tiebreaker rule used for floats is a little different than what we normally use you know commonly
+
+09:13.190 --> 09:16.490
+which is you know moving away from 0.
+
+09:16.810 --> 09:20.640
+So in the decimals you can actually specify the rounding algorithm.
+
+09:20.650 --> 09:21.960
+You can't do that for floats.
+
+09:21.980 --> 09:25.460
+You're stuck with that one if you want to do your own rounding algorithm.
+
+09:25.600 --> 09:32.040
+You had to basically prove provide your own round function but not so with decimals.
+
+09:32.040 --> 09:34.840
+Now this context comes in kind of two flavors.
+
+09:34.860 --> 09:38.870
+You can have a global context which is basically the default context.
+
+09:38.910 --> 09:39.410
+Right.
+
+09:39.690 --> 09:43.420
+That context basically allows you to set your precision and your rounding.
+
+09:43.650 --> 09:49.390
+But you can also have a local context which is temporary where you can set.
+
+09:49.470 --> 09:54.690
+You can change those settings without affecting the global context so it's just a convenience thing.
+
+09:54.690 --> 09:54.950
+Right.
+
+09:54.960 --> 10:03.260
+Because let's say that you're working in you know in a global context that uses 10 for the precision.
+
+10:03.420 --> 10:08.520
+But now you're doing some kind of calculation then you say well wait a minute I need to extend the precision
+
+10:08.520 --> 10:13.890
+a little bit because that's that's not enough what I need to do right now in this particular case.
+
+10:13.890 --> 10:17.820
+So then you change your global context precision to maybe 20.
+
+10:17.970 --> 10:22.690
+And then when you're done you need to remember to set your global context precision back to 10.
+
+10:22.740 --> 10:25.460
+So that can you know if you forget to do that.
+
+10:25.470 --> 10:26.820
+It might cause problems.
+
+10:26.970 --> 10:32.880
+So instead what you can do is create a local temporary context change a precision to 20 do whatever
+
+10:32.880 --> 10:33.910
+you need to do.
+
+10:34.110 --> 10:39.500
+And then the local context goes away and you're back to your global context that you'll never change.
+
+10:39.630 --> 10:41.890
+So it's still set up the way it was before.
+
+10:41.910 --> 10:46.240
+So that's really all the differences between global and local contexts.
+
+10:46.260 --> 10:47.970
+So the way you work with those as well.
+
+10:47.970 --> 10:53.510
+First of all you're going to import the decimal module and you get the default context.
+
+10:53.550 --> 10:59.280
+You just say decimal does get context that's it that returns the global context and you can view the
+
+10:59.280 --> 11:03.300
+settings and then you can change the settings in there for the local context.
+
+11:03.300 --> 11:04.560
+It's very similar.
+
+11:04.650 --> 11:06.830
+You do decimal that local context.
+
+11:06.840 --> 11:14.100
+Now it does take a single optional parameter and that parameter just defines the context that you want
+
+11:14.100 --> 11:15.130
+to huse.
+
+11:15.180 --> 11:16.570
+So it's like what's going on.
+
+11:16.590 --> 11:21.660
+Well if you want to create a local context you may want to create it with some initial values and the
+
+11:21.660 --> 11:28.050
+way that it generally does it if you don't pass anything it will actually default to the global context
+
+11:28.050 --> 11:33.380
+so it will take a copy of the global context and give it back to you as a local context.
+
+11:33.630 --> 11:36.190
+Or you can specify your own from scratch.
+
+11:36.290 --> 11:38.100
+You can do that as well.
+
+11:38.100 --> 11:45.080
+The only difference between local context and get context is that it returns a context manager which
+
+11:45.070 --> 11:49.460
+is means that something you use will be with statement and we'll take a look at that.
+
+11:50.010 --> 11:51.160
+In a few seconds.
+
+11:51.510 --> 11:57.150
+If you haven't used context managers before don't worry too much we will cover context managers later
+
+11:57.150 --> 11:57.960
+on in the scores.
+
+11:57.960 --> 12:03.930
+In fact we'll be looking at how to create our own contact's manages contracts managers are nice because
+
+12:03.930 --> 12:08.640
+they allow you to basically manage certain things automatically.
+
+12:08.640 --> 12:13.800
+So for example like if you use files right you can use a context manager with files when you open your
+
+12:13.800 --> 12:19.230
+file and then you can work with the file and then when you're done you don't have to explicitly close
+
+12:19.230 --> 12:20.890
+the file which you need to do.
+
+12:20.940 --> 12:26.180
+The context manager will then basically exit and say oh OK I need to clean up.
+
+12:26.180 --> 12:32.220
+I need to go cause the file and in our case we'll look maybe at how to create a context manager to close
+
+12:32.220 --> 12:35.190
+off a database connections very useful for that.
+
+12:35.220 --> 12:36.880
+So use a context manager.
+
+12:36.990 --> 12:42.480
+You open up your database connection you do your queries and then when you're done the context manager
+
+12:42.510 --> 12:48.570
+automatically goes off and maybe closes the connection or releases the connection back into a pool whatever
+
+12:48.570 --> 12:50.180
+it is that you're trying to do.
+
+12:50.880 --> 12:51.950
+So that's the difference.
+
+12:51.960 --> 13:00.880
+Local contacts will return a context manager get contacts will return the default global context so
+
+13:00.880 --> 13:02.170
+the precision and rounding.
+
+13:02.230 --> 13:03.510
+Well it's very simple.
+
+13:03.520 --> 13:08.710
+And we'll take a look at an example where we use the global context but it works the same with the local
+
+13:08.710 --> 13:09.790
+context as well.
+
+13:09.820 --> 13:15.530
+So let's say we have decimal that get context that returns the global context.
+
+13:15.670 --> 13:25.600
+And now we can just say context that are easy for precision or we can say context CTX dot rounding which
+
+13:25.600 --> 13:30.520
+will return the rounding mechanism or set the rounding mechanism depending on what we want to do.
+
+13:30.580 --> 13:32.420
+And that's defined using a string.
+
+13:32.440 --> 13:38.760
+There are constants defined in the decimal module that will define those strings for us so we you know
+
+13:38.760 --> 13:43.580
+we don't have to worry about making a mistake in the string itself.
+
+13:44.290 --> 13:50.080
+And here are the various constants that are available in the decimal module for the rounding algorithm.
+
+13:50.080 --> 13:56.560
+Now if you remember this round half even which rounds to nearest with ties to even is what the float
+
+13:56.560 --> 13:58.140
+rounding algorithm is.
+
+13:58.340 --> 14:00.030
+And if you remember we couldn't change it.
+
+14:00.070 --> 14:02.590
+That's what it was when we called the round method.
+
+14:02.590 --> 14:03.690
+That's what it was.
+
+14:04.000 --> 14:11.170
+And if we want to you use round half up which routes to nearest ties away from 0 which is the rounding
+
+14:11.170 --> 14:15.340
+that we may be more used to we have to write our own algorithm.
+
+14:15.520 --> 14:20.680
+Well that's not the case with the decimal module decimal module provides us these two rounding algorithms
+
+14:20.710 --> 14:22.280
+and a bunch of others as well.
+
+14:22.300 --> 14:28.960
+So depending on your use case you can pick what you want but it defaults to around half even just like
+
+14:28.960 --> 14:29.780
+with the floats.
+
+14:29.800 --> 14:33.910
+But if you want to change it to something else you can and you don't have to write your own implementation
+
+14:34.050 --> 14:34.530
+at.
+
+14:34.630 --> 14:43.340
+As long as it's within this set of rounding algorithms so working with global and local contexts.
+
+14:43.340 --> 14:44.090
+Let's take a look.
+
+14:44.090 --> 14:53.040
+Very quickly how we work with both so let's say we're now Maggio or in our function and we want to do
+
+14:53.040 --> 14:58.140
+some stuff we want to change let's say the rounding which I know defaults to around half of let's say
+
+14:58.170 --> 15:00.420
+was changed before and we want to change it now.
+
+15:00.630 --> 15:03.560
+So it's a decimal to get context.
+
+15:03.600 --> 15:08.470
+Now remember this is the Maggio get context as a method in that module.
+
+15:08.520 --> 15:15.060
+So we don't have an instance of a class at this point that rounding equals decimal up around half way
+
+15:15.060 --> 15:15.580
+up.
+
+15:15.660 --> 15:22.770
+Right so this get contacts whittles the global context we'll look at the global context rounding attributes
+
+15:22.830 --> 15:24.880
+and then we set it equal to some value.
+
+15:25.020 --> 15:32.130
+And then every thing we do from this point forward we'll use the current default contacts which we use
+
+15:32.220 --> 15:34.330
+round half up right.
+
+15:34.330 --> 15:38.500
+Everything we do from this point forward until we change the global context again.
+
+15:39.490 --> 15:45.970
+Unless we use a local context for a local context the way it works is that we call decimal that local
+
+15:45.970 --> 15:53.920
+context which will create a copy of the current default context and return it as a context manager.
+
+15:53.920 --> 16:03.520
+So we say with decimal that local context as CTX and now ctx is the context and we can set different
+
+16:03.520 --> 16:08.090
+things so now we could change the precision and say well that's equal to 2 or the rounding.
+
+16:08.090 --> 16:14.680
+And we can change the rounding and then every operation we perform here within the with block will be
+
+16:14.680 --> 16:17.760
+within that local context.
+
+16:17.830 --> 16:18.070
+Right.
+
+16:18.070 --> 16:23.980
+So the global context may have a precision of 28 for this global local context may have a precision
+
+16:24.160 --> 16:31.480
+to only once you're finished once you exit the local context any operations you perform afterwards will
+
+16:31.480 --> 16:35.580
+be again based on the global context which hasn't changed.
+
+16:35.650 --> 16:39.310
+So it's a little more convenient than changing the global context.
+
+16:39.310 --> 16:43.890
+Doing your computations and then changing the global context back to what it should be.
+
+16:45.080 --> 16:48.140
+So let's take a look at some code which will do in the next video.
+
+16:48.290 --> 16:48.990
+So you know it.

@@ -1,0 +1,2149 @@
+WEBVTT
+
+00:00.480 --> 00:05.460
+High in this video we're going to look at a slightly different take on decorating.
+
+00:05.460 --> 00:11.010
+In particular we've been looking at decorating functions and we saw how we can create decorator functions.
+
+00:11.010 --> 00:17.550
+We even saw how to decorate using classes by using the fact that classes can be callable here.
+
+00:17.550 --> 00:19.170
+I want to do something slightly different.
+
+00:19.230 --> 00:23.490
+I want to decorate a class as opposed to decorating a function.
+
+00:23.700 --> 00:24.620
+We can do that.
+
+00:24.630 --> 00:30.240
+But before we get to that I want to talk about something called Monkey patching Now now Python is a
+
+00:30.240 --> 00:37.620
+dynamic language which means that we can actually modify things in objects and classes at runtime while
+
+00:37.620 --> 00:39.690
+our code is executing.
+
+00:39.690 --> 00:43.730
+We can go ahead and modify something that's been previously defined.
+
+00:43.740 --> 00:45.360
+Now we can't do this.
+
+00:45.390 --> 00:51.810
+Objects and classes that are in the built in Python for example anything that's written in C basically
+
+00:51.810 --> 00:53.020
+we can do this too.
+
+00:53.250 --> 00:58.500
+But anything think than in Python is fair game including our own classes but also a lot of the things
+
+00:58.500 --> 01:02.450
+that are for example in the standard library such as let's say a fraction.
+
+01:02.460 --> 01:04.500
+So I'm going to use that as an example.
+
+01:04.860 --> 01:07.850
+So let's go ahead and say from fractions.
+
+01:08.070 --> 01:09.850
+Important fractions.
+
+01:10.200 --> 01:12.370
+And if I can type it.
+
+01:12.570 --> 01:14.440
+And we've seen fractions before.
+
+01:14.550 --> 01:21.900
+OK so we've dealt with it before you basically can say you know every cold's fraction that say two thirds
+
+01:22.200 --> 01:30.360
+we can look at f dupped denominator ryot f dot numerator we have all these properties all these attributes
+
+01:30.360 --> 01:32.800
+essentially that are on the fractioned class.
+
+01:32.850 --> 01:38.700
+But one thing that it doesn't have for example is a speak method right which kind of makes sense because
+
+01:38.760 --> 01:41.470
+while fractions shouldn't be able to speak.
+
+01:41.790 --> 01:42.840
+But this is Python.
+
+01:42.870 --> 01:49.530
+So let's go ahead and let's make fractions speak and we can do that very very simply.
+
+01:49.530 --> 01:57.270
+All we need to do is to take the fraction class and specify dot speak and set it equal to something.
+
+01:57.270 --> 02:01.470
+So now we are actually at runtime when this code is going to run.
+
+02:01.650 --> 02:05.270
+It's going to create this speak attribute.
+
+02:05.490 --> 02:08.380
+Now the speak attribute could just be let's say a value.
+
+02:08.400 --> 02:14.740
+So now I could look at my fractioned that I just created and I could say speak and I get a 100 back.
+
+02:14.900 --> 02:15.260
+OK.
+
+02:15.270 --> 02:20.700
+So this is just an attribute but we can make this more interesting.
+
+02:20.910 --> 02:27.550
+Let's go ahead and redefine speak again but this time I'm going to make it into a function so callable.
+
+02:27.780 --> 02:35.110
+Now we're going to be creating essentially a fraction we're going to be creating an instance method.
+
+02:35.430 --> 02:37.500
+So it needs that self parameter.
+
+02:37.690 --> 02:38.150
+OK.
+
+02:38.160 --> 02:41.460
+And we can also use that say an extra parameter as well.
+
+02:41.460 --> 02:42.460
+So this.
+
+02:42.540 --> 02:46.170
+Think of this as us creating an instance method.
+
+02:46.380 --> 02:52.110
+So self is going to be basically receiving the instance that we're working with of the object and then
+
+02:52.110 --> 02:54.120
+we have this extra parameter message.
+
+02:54.240 --> 03:02.070
+And this is going to return something like Fraction and then whatever the message was.
+
+03:02.110 --> 03:05.040
+OK so we'll format that message.
+
+03:05.230 --> 03:06.070
+OK.
+
+03:06.750 --> 03:14.520
+So now all fractioned class has a speak method and so we can use our old friend F here the lowercase
+
+03:14.520 --> 03:22.440
+f which is a great name for a variable and we can tell it to squeak now and we can say this is a late
+
+03:22.980 --> 03:26.840
+Carrick's on the square brackets.
+
+03:27.200 --> 03:30.180
+And as you can see fractions now have that property.
+
+03:30.180 --> 03:37.890
+I can go ahead and create a new Fraction let's say F two equals fraction ten fifths K and I can say
+
+03:37.890 --> 03:47.970
+F two adults speak and say this is all this parrot is no more and we can see that.
+
+03:48.000 --> 03:50.020
+Now we have this as well.
+
+03:50.430 --> 03:56.390
+So this is how we can add attributes dynamically at runtime.
+
+03:56.460 --> 03:58.430
+And this is called monkey patching.
+
+03:59.100 --> 04:06.570
+So if you think about this we can really use this to essentially modify classes from outside while our
+
+04:06.570 --> 04:07.970
+code is running.
+
+04:08.040 --> 04:13.780
+Now this is pretty stupid example but let's say you wanted something maybe a little bit more interesting.
+
+04:13.800 --> 04:19.650
+The freshman class and maybe you want to know if the fraction is an integral number and there is no
+
+04:19.650 --> 04:21.700
+method in the fraction class to do that.
+
+04:21.720 --> 04:26.730
+But it's something that you use all the time and you could certainly write a function outside of the
+
+04:26.730 --> 04:28.470
+fraction class to do it.
+
+04:28.470 --> 04:34.340
+But if you wanted to you could also monkey patch the fraction class and add in that thing is a property.
+
+04:34.590 --> 04:37.430
+So I saw as a method as an instance method.
+
+04:37.500 --> 04:41.180
+Let's go ahead a monkey patch it with an integral method.
+
+04:41.250 --> 04:46.050
+So we're going to say fraction doffed is integral.
+
+04:46.110 --> 04:51.780
+Now that's going to be a lambda that's going to be a function that takes in the single argument which
+
+04:51.780 --> 04:54.190
+is going to be the object that we're using.
+
+04:54.480 --> 04:56.750
+And how do we know if a number is integral.
+
+04:56.770 --> 05:02.250
+Well refractions It's very simple we just need to check the denominator that's equal to 1.
+
+05:02.290 --> 05:03.900
+We have an integral number.
+
+05:03.970 --> 05:09.130
+It will never have a denominator of 0 because that means that the numerator will be 0.
+
+05:09.130 --> 05:11.110
+The denominator will never be zero.
+
+05:11.110 --> 05:15.550
+We can't have a fraction of 0 in the denominator so we don't need to worry about that case.
+
+05:15.580 --> 05:23.590
+So all we're going to need to do is to return and to check if self datt denominator you nominate total
+
+05:23.860 --> 05:25.290
+equals 1.
+
+05:25.360 --> 05:28.970
+That's all we need to check if a fraction is an integral number.
+
+05:29.050 --> 05:34.080
+So let's go ahead and create two fractions let's say f one is two thirds.
+
+05:34.090 --> 05:35.950
+So that's obviously not integral.
+
+05:36.310 --> 05:43.760
+And let's say that we have an ordinal 64 comma 8 and that is an integral number.
+
+05:43.810 --> 05:48.300
+So if we look at F 1 it's two thirds f two that's eight ones.
+
+05:48.310 --> 05:48.550
+Right.
+
+05:48.550 --> 05:49.430
+So it's 8.
+
+05:49.450 --> 05:58.810
+So now we can also just say f one dot is integral and we get false because yeah that's the case and
+
+05:58.810 --> 06:04.010
+then is integral and we get true.
+
+06:04.030 --> 06:09.070
+So here you can see we monkey patched all fraction class with something a little bit more interesting
+
+06:09.910 --> 06:12.620
+with this is integral method.
+
+06:12.670 --> 06:16.260
+Now let's actually monkey patch this class.
+
+06:16.450 --> 06:22.450
+But instead of writing this directly this way let's use a function that we can call that will decorate
+
+06:22.540 --> 06:27.240
+the fraction that will decorate that will modify that will monkey patch the fraction class.
+
+06:27.330 --> 06:27.890
+OK.
+
+06:28.510 --> 06:34.570
+So let's go ahead and let's call it decorate and let's say decorate integral.
+
+06:34.690 --> 06:36.870
+Well let's do decorate speak right.
+
+06:36.890 --> 06:39.870
+Fraction class right now already has that is integral method.
+
+06:40.000 --> 06:44.790
+Let's put back that silly example that would speak.
+
+06:44.800 --> 06:49.370
+So we're going to pass in a class to this function.
+
+06:49.510 --> 06:54.960
+And we're going to implement now the speak method in that class.
+
+06:54.970 --> 06:56.810
+So how do we go about doing that.
+
+06:56.830 --> 07:04.720
+Well it's the same as before we just say class thought speak equals lambda self Khama message and we'll
+
+07:04.720 --> 07:09.590
+just return class says.
+
+07:09.650 --> 07:15.290
+Now actually let's do this let's say something like that that says one.
+
+07:15.520 --> 07:24.110
+And if we're going to format it with self DOPs Dunder class that's going to be the class of self Dondre
+
+07:24.160 --> 07:26.130
+name that's going to be the name.
+
+07:26.410 --> 07:26.980
+OK.
+
+07:27.310 --> 07:31.790
+And then we're also going to then put in our message.
+
+07:31.930 --> 07:33.120
+OK.
+
+07:34.420 --> 07:37.670
+And what we're going to do here we don't really have to do it.
+
+07:37.870 --> 07:40.010
+I'm going to return the class as well.
+
+07:40.060 --> 07:43.910
+We really don't have to because we've modified this object right.
+
+07:43.930 --> 07:47.450
+So we've mutated the class object we don't need to return it.
+
+07:47.620 --> 07:52.510
+I just want to return it just so that it starts looking familiar in terms of decorators.
+
+07:52.510 --> 07:53.990
+Because now here's what I can do.
+
+07:54.010 --> 08:02.370
+I can say fraction fraction equals fraction K equals sorry Dec.
+
+08:03.310 --> 08:06.610
+Speak fraction.
+
+08:06.970 --> 08:10.960
+Now hopefully this is reminding you of decorator's k.
+
+08:11.380 --> 08:12.400
+So there we go.
+
+08:12.520 --> 08:15.030
+Now technically I didn't have to return fraction.
+
+08:15.040 --> 08:20.320
+I can just call decks speak on fraction on mutating the fractioned class here I'm just returning it
+
+08:20.320 --> 08:23.410
+so I can show you this kind of syntax over here.
+
+08:23.810 --> 08:26.150
+OK so now what can we do.
+
+08:26.380 --> 08:32.010
+Well now we can say arm with decorated the fraction class essentially.
+
+08:32.020 --> 08:40.330
+Right so we can create a fraction fraction two thirds OK and we can say f one got speak and we can say
+
+08:40.420 --> 08:41.640
+you know Hello.
+
+08:41.710 --> 08:45.970
+Let's just do something simple and so we get fractions says hello.
+
+08:46.450 --> 08:48.540
+Now I could do this with other classes as well.
+
+08:48.550 --> 08:54.940
+If I have my own custom class let's say I have a class for them and I'm not going to have that class
+
+08:54.940 --> 08:57.610
+do anything just want to create a class.
+
+08:57.730 --> 08:58.690
+I could decorate it.
+
+08:58.720 --> 08:59.640
+I could save both.
+
+08:59.680 --> 09:04.280
+Person equals DEC speak Paulson.
+
+09:04.540 --> 09:08.010
+And not if I say p equals an instance of Coalson.
+
+09:08.140 --> 09:15.670
+I can say Speak OK and I can say you know this walks and I say I get that.
+
+09:15.670 --> 09:17.770
+Paulson says this works.
+
+09:17.810 --> 09:25.330
+This is why use that self under-class done the name I wanted to get the name of the class of this object.
+
+09:25.330 --> 09:31.360
+So this is kind of the approach we're going to take to decorating classes and those are some pretty
+
+09:31.960 --> 09:35.920
+useful use cases for doing that as a first example.
+
+09:35.950 --> 09:40.770
+Let's see how we might add some debugging info to our classes to all objects.
+
+09:40.780 --> 09:46.090
+We want to be able to let's say we're creating objects in our code and for debugging purposes we want
+
+09:46.090 --> 09:50.860
+to be able to write out some debug info about that entire object.
+
+09:50.860 --> 09:52.970
+I'm going to do it here to the stand it out.
+
+09:53.080 --> 09:57.540
+But you could do it to logfile you could write it to a database or whatever you want.
+
+09:57.550 --> 09:59.650
+So in this case let's just do it.
+
+09:59.820 --> 10:01.460
+And keep it pretty simple.
+
+10:01.800 --> 10:09.060
+So from day time I'm going to import date time and time zone because I want to use UTC times I want
+
+10:09.060 --> 10:14.670
+to log the time at which we've created the debug information for the object.
+
+10:14.670 --> 10:17.150
+So let's go ahead and see how we might do this.
+
+10:17.160 --> 10:25.500
+So let's go ahead and write to decorate it so debug info is going to take a class and it's going to
+
+10:25.500 --> 10:27.920
+do something to the class that's going to say class.
+
+10:27.920 --> 10:32.410
+DOD debug it equals and now want to make it some function right.
+
+10:32.430 --> 10:36.930
+I'm going to create a method essentially on the class that gets passed in.
+
+10:37.140 --> 10:39.960
+So let's say that the function name is called info.
+
+10:39.990 --> 10:42.400
+I need to define that function somewhere.
+
+10:42.510 --> 10:43.520
+I can't use a lambda.
+
+10:43.520 --> 10:47.920
+I want something that's more complicated or more complex than a lambda expression.
+
+10:47.940 --> 10:52.950
+So what I'm going to do here is I'm going to create my info function right in here and it's going to
+
+10:52.950 --> 10:54.870
+take an object.
+
+10:54.890 --> 10:56.840
+OK now I'm calling itself.
+
+10:56.850 --> 11:02.290
+But really I don't have to it's just taking any object so let's call it will be.
+
+11:03.390 --> 11:09.470
+And once I've defined the function I will then a sign that function to the debug method.
+
+11:09.640 --> 11:17.980
+OK so you have to realize that this function is something that's going to have to receive that self.
+
+11:18.000 --> 11:25.290
+Right because just as we did here when we created our speak it was Alamdar that took self right just
+
+11:25.380 --> 11:32.190
+as we had initially as well because we need to remember that this is going to be an instance method.
+
+11:32.250 --> 11:39.210
+So the first argument that that method needs to receive will receive is the instance of the class is
+
+11:39.210 --> 11:40.320
+the object.
+
+11:40.350 --> 11:41.730
+So I called it here RBJ.
+
+11:41.730 --> 11:47.260
+But in reality if you think about if you were writing this directly in the class you would have info's
+
+11:47.290 --> 11:48.150
+self right.
+
+11:48.150 --> 11:52.130
+So think about this function here simply as the function.
+
+11:52.130 --> 11:55.850
+I would be writing inside the class if I was writing my own class.
+
+11:55.920 --> 11:57.870
+In this case I'm outside of the class.
+
+11:57.870 --> 12:00.000
+I'm going to add it dynamically.
+
+12:00.540 --> 12:02.630
+So let's go ahead and do that.
+
+12:02.670 --> 12:09.000
+I'm going to create basically a list so I'm going to create a list of results and I'm going to append
+
+12:09.000 --> 12:10.440
+a few things.
+
+12:10.470 --> 12:16.500
+One is I'm going to spend the time at which we are writing this information out.
+
+12:16.590 --> 12:18.060
+So very simple.
+
+12:18.090 --> 12:19.300
+Date time.
+
+12:19.320 --> 12:29.060
+Now the thing is I want the time zone to be in UTC but I have to worry about locales then.
+
+12:29.760 --> 12:33.710
+Let's go ahead and append the memory address.
+
+12:33.770 --> 12:42.750
+So let's say that the ID of this object and we'll just print out the hex so we'll do the hex off of
+
+12:42.770 --> 12:45.250
+the ID of self.
+
+12:45.270 --> 12:49.760
+Right because this is what the object we're looking at is in the variable self.
+
+12:49.770 --> 12:52.330
+I also want the class that this thing is.
+
+12:52.380 --> 12:54.310
+So let me go ahead and put it here.
+
+12:54.390 --> 13:01.110
+Let's say it results that append and I want the class and we saw how to do that just now to get the
+
+13:01.110 --> 13:11.250
+class so we're going to format and we're going to take self under-class Dondre name can.
+
+13:11.580 --> 13:14.800
+So that will tell us the class that we're looking at.
+
+13:14.820 --> 13:22.140
+We have the ID and then let's take all the variables all the attributes the properties really that we
+
+13:22.140 --> 13:26.060
+have in this object and print the values out.
+
+13:26.190 --> 13:33.870
+So we're going to do this for key and value in advance so we can use this function as built in function
+
+13:33.870 --> 13:41.820
+called vals which will return all the properties of that object self and will look at the items because
+
+13:41.820 --> 13:49.100
+I want both the key and the value and then we'll just say results not append and we'll put that will
+
+13:49.110 --> 13:53.780
+string a FI that whole thing this way.
+
+13:54.350 --> 13:58.180
+OK so we'll get string representations for the keys which are just going to be named.
+
+13:58.350 --> 14:03.030
+There'll be strings already but then will also get string representations of the value whatever that
+
+14:03.030 --> 14:07.990
+value is and then will return the results.
+
+14:08.490 --> 14:09.770
+So that's what the function is.
+
+14:09.780 --> 14:13.530
+Now be careful this is not a closure.
+
+14:13.560 --> 14:20.370
+There are no free variables in this case so I could have defined this function outside of debug info
+
+14:20.700 --> 14:26.450
+but because it's so closely tied to debug info I'm just nesting it inside.
+
+14:26.640 --> 14:27.780
+But you don't have to.
+
+14:27.780 --> 14:28.740
+It can be outside.
+
+14:28.740 --> 14:33.260
+There is no closure going on here so don't get confused with that.
+
+14:33.300 --> 14:38.700
+So we've created this function and now I'm going to go ahead and do that now.
+
+14:38.700 --> 14:43.540
+In fact writing this outside would be more efficient.
+
+14:43.910 --> 14:44.270
+OK.
+
+14:44.280 --> 14:47.590
+Think about why every time.
+
+14:47.620 --> 14:50.710
+This is inside every time I call debug info.
+
+14:50.730 --> 14:55.610
+It's going to essentially recreate this function and that's needless.
+
+14:55.620 --> 15:01.110
+I don't need it so the only reason I keep it in here is because when I'm working on code like this and
+
+15:01.140 --> 15:04.600
+Jupiter notebooks you know I may be copying and pasting things around.
+
+15:04.610 --> 15:10.550
+And so so that I don't forget to do something I'll put it together like sometimes I'll do imports there
+
+15:10.550 --> 15:11.020
+as well.
+
+15:11.030 --> 15:16.070
+Not something I would do in production code but just here the Jupiter notebooks it kind of helps me
+
+15:16.490 --> 15:18.020
+but I'll keep it out.
+
+15:18.290 --> 15:22.940
+You don't have to and it's preferable to keep it out because we don't want to recreate that function
+
+15:22.940 --> 15:23.600
+every time.
+
+15:23.600 --> 15:25.890
+It doesn't need to be recreated every time.
+
+15:25.910 --> 15:30.190
+You'll notice what's happening here is that I'm not returning the class.
+
+15:30.230 --> 15:36.250
+So let's keep that consistent as if we were writing a decorator and I'll return the class as well.
+
+15:36.540 --> 15:39.100
+OK so now let's go ahead and use that.
+
+15:39.110 --> 15:40.890
+Let's create our own class.
+
+15:40.910 --> 15:43.050
+That's a class person.
+
+15:43.640 --> 15:54.270
+And in this case I actually want to have some properties so let's say name and birth year.
+
+15:55.340 --> 16:03.570
+And I'll just self-taught name calls name and self dobbed both equals both.
+
+16:03.890 --> 16:05.120
+Yeah.
+
+16:06.140 --> 16:10.860
+And then I also have a method let's say say hi.
+
+16:11.360 --> 16:14.600
+And I will just say return Hello there.
+
+16:14.860 --> 16:15.260
+OK.
+
+16:15.260 --> 16:18.020
+So something kind of pretty stupid.
+
+16:18.290 --> 16:20.510
+But here's a very simple person class.
+
+16:20.510 --> 16:21.960
+Now we can decorate it.
+
+16:22.430 --> 16:31.640
+Doing this person equals debug info of course and we saw we've seen how to do that.
+
+16:31.970 --> 16:41.250
+But remember this is a long form of a slightly shortened possibility which was the decorator syntax.
+
+16:41.270 --> 16:46.310
+So let's go ahead and decorate our class this way.
+
+16:46.580 --> 16:52.070
+So you'll notice I have a decorator syntax here that's short you know decorator syntax with the at symbol
+
+16:52.400 --> 16:54.340
+and then I have my own class over here.
+
+16:56.380 --> 17:01.790
+So now I'm my person class has been decorated and in this case I don't.
+
+17:01.810 --> 17:05.690
+Again the return class is not technically necessary.
+
+17:05.780 --> 17:10.380
+I'm just doing it so I could use the long form to show you that it looks similar.
+
+17:10.540 --> 17:12.770
+So let's go ahead and make sure this works.
+
+17:12.790 --> 17:22.510
+Let's go ahead and create a person and let's say the person's name is John and John was born in 1939.
+
+17:22.810 --> 17:26.430
+I'm sure you can find out and figure out which John I'm talking about here.
+
+17:27.000 --> 17:27.480
+OK.
+
+17:27.520 --> 17:33.250
+So now I can say John P. de-bug and I get my debug information.
+
+17:33.250 --> 17:34.450
+It's a class pulser.
+
+17:34.450 --> 17:36.120
+This is the memory address.
+
+17:36.130 --> 17:38.710
+This is the name and the value of name.
+
+17:38.710 --> 17:41.640
+This is the both the property and the value of the both here.
+
+17:43.040 --> 17:47.280
+So now let's go ahead and let's say that I do not have this over here.
+
+17:47.340 --> 17:53.430
+So what I'm going to do is I'm going to pull back and I'm going to delete course of OK.
+
+17:53.610 --> 17:58.340
+So I want to make sure all that goes away and I'm going to delete P as well make sure I don't have them
+
+17:58.460 --> 18:02.480
+you know hanging references Well I have to take that out.
+
+18:03.060 --> 18:03.770
+OK.
+
+18:04.200 --> 18:11.100
+So I've cleaned up and I just want to see if this works if I don't return the class because remember
+
+18:11.430 --> 18:15.010
+I'm mutating the class so I don't technically need to return it.
+
+18:15.090 --> 18:19.240
+Let's see what happens if I try now for the same thing as before.
+
+18:19.500 --> 18:27.540
+So I'm going to say debug info and class person.
+
+18:28.260 --> 18:31.290
+I probably shouldn't have deleted that code.
+
+18:32.160 --> 18:36.150
+Let's just do a single property here just to keep it short.
+
+18:36.210 --> 18:38.090
+I'm not going to do a method as well.
+
+18:38.100 --> 18:45.820
+And now let's say I want to create a new person and I get that the nun type object is not callable.
+
+18:45.840 --> 18:49.250
+Well what happens when you use this right.
+
+18:49.260 --> 18:50.490
+Remember what it means.
+
+18:50.520 --> 18:51.470
+It's doing this.
+
+18:51.490 --> 18:57.000
+It's saying Palsson equals debug info.
+
+18:57.910 --> 18:59.160
+I'll pass.
+
+18:59.760 --> 19:01.710
+What is debug in for returning.
+
+19:01.710 --> 19:04.410
+Even though I am modifying Pilson directly.
+
+19:04.410 --> 19:04.700
+Right.
+
+19:04.710 --> 19:12.240
+So if I wanted to really in this case because I'm not returning the class I can also just mutate this
+
+19:12.330 --> 19:15.180
+Palsson class by calling debug info on it.
+
+19:15.300 --> 19:21.240
+But if I want to use the decorator syntax what it's really doing in long form is this what is debugging
+
+19:21.240 --> 19:22.770
+for returning now.
+
+19:22.920 --> 19:23.990
+None.
+
+19:24.090 --> 19:26.340
+So nothing is being returned right.
+
+19:26.340 --> 19:31.700
+We're not returning explicitly therefore there's none returned and so personnel.
+
+19:31.740 --> 19:34.240
+The Paulson class is now none.
+
+19:34.270 --> 19:34.770
+All right.
+
+19:34.890 --> 19:38.220
+And so this is why it tells us that the Nunn type is not callable.
+
+19:38.220 --> 19:41.280
+I tried to call my Paulson class.
+
+19:41.280 --> 19:48.810
+So technically you don't need to return the class but if you're going to use the Shaab decorator syntax
+
+19:48.990 --> 19:51.150
+then you have to do that right.
+
+19:51.210 --> 19:52.600
+And now that will work.
+
+19:52.830 --> 19:56.660
+And the long form will work to.
+
+19:57.600 --> 20:00.710
+And because I need to pass in the name let's say John.
+
+20:00.750 --> 20:01.560
+OK.
+
+20:02.160 --> 20:05.800
+And now we have the debug info.
+
+20:06.630 --> 20:09.500
+And the person object has no attributes.
+
+20:09.540 --> 20:10.530
+Debug info.
+
+20:10.530 --> 20:13.890
+Why I thought I ran that let's do that again.
+
+20:14.340 --> 20:15.320
+And it's got no.
+
+20:15.330 --> 20:18.690
+All because Nakul debug info it's called debug.
+
+20:18.690 --> 20:19.330
+Right.
+
+20:19.650 --> 20:20.380
+OK.
+
+20:20.730 --> 20:25.140
+Now the thing is that this decorated here will work for other classes too.
+
+20:25.140 --> 20:30.450
+That's one of the key kind of points of decorators that they need to be general you know general enough
+
+20:30.450 --> 20:32.970
+that they can apply to other classes.
+
+20:33.030 --> 20:40.260
+Yes I could write a decorator to monkey past the fraction class to test if is integral but this will
+
+20:40.320 --> 20:47.320
+only walk on classes which have you know a representation of numbers using a numerator and denominator
+
+20:47.670 --> 20:51.320
+because I need to check to see if the denominator is equal to 1.
+
+20:51.330 --> 20:57.990
+So Munky about using you know a decorator to monkey patch the fraction class with an integral function
+
+20:58.500 --> 20:59.520
+doesn't make much sense.
+
+20:59.520 --> 21:03.240
+It's non-reusable so we wouldn't do it that way would do it this way.
+
+21:03.240 --> 21:07.040
+Right if we really wanted to monkey patch the fractions class would do it that way.
+
+21:07.410 --> 21:13.270
+So in general of decorator's we're looking for something that's going to be reusable.
+
+21:13.440 --> 21:17.980
+So decorator can be reused with other classes as well.
+
+21:18.150 --> 21:24.340
+Let's go ahead and let me create a new class and I'm going to decorate it using debug info as well.
+
+21:24.810 --> 21:34.230
+And I'm going to create this class and let's call it automobile auto mode play a label and let's say
+
+21:34.230 --> 21:39.930
+that it's going to have a few properties that say we have the make we have the model we have the year
+
+21:39.930 --> 21:41.460
+and we have the top speed.
+
+21:41.620 --> 21:41.960
+OK.
+
+21:42.090 --> 21:43.250
+Let's say we have these things.
+
+21:43.470 --> 21:49.970
+So we're going to say self-taught make people make self-drive model equals model self-doubting year
+
+21:49.980 --> 21:58.030
+equals year type and self-taught top speed equals top speed.
+
+21:58.920 --> 22:03.190
+And the other thing too that I want is I want to use current speed property.
+
+22:03.300 --> 22:07.380
+So I'm going to do this using a private variable.
+
+22:07.380 --> 22:12.240
+Again we have no such thing as private variables refer back to if you don't know about that.
+
+22:12.240 --> 22:18.610
+I did talk about that in the video on classes right in the beginning when I kind of do a quick refresher.
+
+22:18.780 --> 22:21.110
+So I go back and take a look at that if you're unsure.
+
+22:21.120 --> 22:27.390
+So I'm just marking this as a private pseudo private variable and currently the speed is going to be
+
+22:27.390 --> 22:28.070
+zero.
+
+22:28.200 --> 22:32.560
+So these are my instance properties.
+
+22:32.580 --> 22:38.460
+Now I'm going to go ahead and create a speed property which is going to be a property that I can set
+
+22:38.520 --> 22:41.810
+and get and I could certainly do it this way.
+
+22:41.850 --> 22:45.580
+I could just say self-doubt speed and then let the person change it with self.
+
+22:45.630 --> 22:51.450
+You know with object speed equals something but here what I want to do is I want to make sure that the
+
+22:51.450 --> 22:54.060
+speed cannot exceed the top speed.
+
+22:54.060 --> 23:00.920
+So I'm going to write this now that if we're using getters and setters so I'm going to use a decorator.
+
+23:00.960 --> 23:07.920
+So you'll notice I'm decorating now a function and the function is really a method.
+
+23:08.190 --> 23:09.470
+It's going to be an instance method.
+
+23:09.480 --> 23:14.970
+So it's going to get the object as its first argument and I'm decorating this.
+
+23:14.970 --> 23:21.950
+Using the built in decorator property and again I mention that in that video on classes.
+
+23:21.960 --> 23:23.910
+So what am I going to do here.
+
+23:23.910 --> 23:26.110
+I'm just going to return self-taught
+
+23:28.370 --> 23:29.730
+underscores speed.
+
+23:29.740 --> 23:31.350
+So here let me go back.
+
+23:31.350 --> 23:33.500
+Make sure I'm doing it this way.
+
+23:33.610 --> 23:40.520
+OK so I'm going to return that and then I'm going to set the setter for the speed
+
+23:44.190 --> 23:46.410
+using another instance method.
+
+23:46.740 --> 23:49.160
+And so what do I want to do here.
+
+23:49.170 --> 23:54.960
+Well I want to check that the new speed is great you know is less than the top speed.
+
+23:54.960 --> 23:59.960
+So if I'm trying to go faster than my top speed I should raise an error.
+
+24:00.000 --> 24:09.240
+So here I'm just going to raise a value error and say speed cannot exceed the top speed.
+
+24:09.390 --> 24:11.900
+OK something like that.
+
+24:12.030 --> 24:14.500
+Otherwise I will set the speed.
+
+24:14.530 --> 24:22.120
+I would say self speed equals speed.
+
+24:23.370 --> 24:29.640
+So that's the only reason I created you know and I use getters and setters to have a speed property
+
+24:29.640 --> 24:32.730
+instead of just using a bare property like here.
+
+24:32.990 --> 24:34.920
+If you come from a Java world.
+
+24:34.950 --> 24:37.980
+You'd probably be horrified at how I'm doing this year.
+
+24:38.100 --> 24:42.110
+If you are go back to my very own classes and take a look at that.
+
+24:42.150 --> 24:48.580
+If you're not already aware of why this is perfectly OK to do in Python these bare properties over here.
+
+24:48.750 --> 24:49.260
+OK.
+
+24:49.440 --> 24:50.900
+So I got my automobile class.
+
+24:50.910 --> 24:52.490
+I can create a new automobile.
+
+24:52.500 --> 24:54.920
+I can say favorite
+
+24:57.730 --> 24:58.520
+equals.
+
+24:58.540 --> 25:03.900
+We're going to make an automobile instance and let's say it's a Ford.
+
+25:04.150 --> 25:06.400
+It's a model T.
+
+25:06.550 --> 25:10.770
+It was built in 1908 and a top speed of 45 mph.
+
+25:11.090 --> 25:11.800
+OK.
+
+25:12.040 --> 25:17.200
+So now I've got my automobile right now there's other things I should do to that class and so on.
+
+25:17.200 --> 25:20.950
+I'm not going to get into the string and the representations and all that stuff.
+
+25:21.190 --> 25:28.750
+But for now if I want to print all the debug info that's very easy I just say favorites debug because
+
+25:28.750 --> 25:33.890
+remember I decorated it using my debug info and so there we go.
+
+25:33.900 --> 25:35.910
+I've got my debug information.
+
+25:36.040 --> 25:39.330
+Now you'll notice my private variable shows up right.
+
+25:39.340 --> 25:42.770
+Because that speed is not a property.
+
+25:43.020 --> 25:46.240
+These are property getters and setters what's the underlying property.
+
+25:46.240 --> 25:48.940
+It's the underscore speed and we still have it here.
+
+25:49.060 --> 25:52.060
+So we're still able to debug our class that way.
+
+25:52.090 --> 25:55.950
+So now I can say favorite's dark speed.
+
+25:56.170 --> 26:01.330
+He calls y if I try and set it to 100 I'm going to get a value error that you know the name Top speed
+
+26:01.330 --> 26:02.990
+is not defined.
+
+26:03.010 --> 26:04.630
+That's a different one.
+
+26:04.690 --> 26:12.410
+Yes top speed is not the fun because these are instance variables.
+
+26:12.490 --> 26:14.630
+So let's make sure that this is correct.
+
+26:14.630 --> 26:15.730
+New speed.
+
+26:15.900 --> 26:19.100
+OK so let's try that again.
+
+26:19.100 --> 26:23.910
+And now we should get a value error that the speed cannot exceed the top speed.
+
+26:24.100 --> 26:24.880
+And that's good.
+
+26:24.880 --> 26:28.930
+So let's say we're driving at 40 miles per hour we're really pushing it.
+
+26:28.930 --> 26:32.610
+And now I can go again and say favorite don't debug it.
+
+26:32.740 --> 26:36.160
+And again I get now my debug information the time.
+
+26:36.280 --> 26:38.290
+You know what the idea was and so on.
+
+26:38.290 --> 26:42.580
+So this can be useful for many other classes than just you know one.
+
+26:42.730 --> 26:44.950
+Hence why I wrote it as a decorator.
+
+26:44.950 --> 26:49.800
+And obviously you know in practice you may choose to maybe parameterize it.
+
+26:49.930 --> 26:55.000
+And so that will allow you to direct where the output is going to be does it go to the standard output
+
+26:55.010 --> 26:58.900
+is it going to go into a file you know maybe you are using the logger database.
+
+26:58.900 --> 27:00.010
+What happened.
+
+27:00.660 --> 27:06.130
+So next I want to take a look at another use case where decorating classes can be really handy.
+
+27:06.400 --> 27:10.490
+And let's go ahead and we're going to create a point class.
+
+27:10.870 --> 27:19.180
+So point is really just you know a pair of values x and y whether you actually use a class to define
+
+27:19.180 --> 27:22.310
+a point that kind of depends on what you're going to do right.
+
+27:22.330 --> 27:23.650
+You can also use tuples.
+
+27:23.860 --> 27:30.310
+And we'll get to that later in this course where we'll talk about tuples as records as data structures.
+
+27:30.340 --> 27:32.680
+Here I'm just going to use a class.
+
+27:32.680 --> 27:35.070
+And let's go ahead.
+
+27:38.210 --> 27:45.350
+And the initialiser should take the x and y coordinates of the point so self that X equals x self-help
+
+27:45.350 --> 27:48.770
+y y get them just using their properties
+
+27:52.100 --> 27:54.200
+and let's say we want to get the absolute value.
+
+27:54.260 --> 28:02.990
+So while I'm implementing these are done the ABS special method which means that I'll be able to call
+
+28:02.990 --> 28:09.240
+the absolute function the built in absolute function ABS function on a point object.
+
+28:09.380 --> 28:09.620
+Right.
+
+28:09.620 --> 28:13.030
+So by implementing that and basically providing that functionality.
+
+28:13.340 --> 28:14.660
+And how do we calculate it.
+
+28:14.690 --> 28:21.830
+Well we're going to use that square root function that we imported and we're going to take self x square
+
+28:21.830 --> 28:24.780
+and plus self-doubt Y squared.
+
+28:24.890 --> 28:25.360
+OK.
+
+28:25.460 --> 28:29.710
+That's how we're going to find the absolute value of a point.
+
+28:29.780 --> 28:32.740
+Basically it's going to be the distance from the origin.
+
+28:32.780 --> 28:37.750
+The next thing I want to do is to set up the representation.
+
+28:38.030 --> 28:39.940
+So that's pretty straightforward.
+
+28:39.950 --> 28:45.660
+We're going to say return point 0 1.
+
+28:45.680 --> 28:47.880
+I could also use class name right.
+
+28:47.950 --> 28:50.690
+The object self Dondre class under name.
+
+28:50.690 --> 28:55.560
+I'm just going to use this instead I'm going to have code.
+
+28:55.880 --> 29:01.070
+The class name for expediency.
+
+29:01.610 --> 29:07.410
+OK so now we have that we can go ahead and create let's say three points I'm going to unpack a tuple.
+
+29:07.520 --> 29:09.680
+My tuple is going to be created packed.
+
+29:09.680 --> 29:15.590
+Basically on this side I'm going to point to another point that's going to be the same point and then
+
+29:15.590 --> 29:17.250
+another point that's not the same.
+
+29:17.420 --> 29:17.810
+OK.
+
+29:17.870 --> 29:22.920
+So I got three different points but I can now of course call absolute of P1.
+
+29:22.940 --> 29:29.630
+I can actually look at the representation of P1 and you'll notice that P1 is P2 is false.
+
+29:29.630 --> 29:37.120
+And then obviously P2 is P3 is false as well and so is P1 P1 is not P3.
+
+29:37.700 --> 29:40.810
+However what about P1 equal to P2.
+
+29:41.060 --> 29:41.290
+Right.
+
+29:41.300 --> 29:42.790
+And that's the point I want to make here.
+
+29:42.950 --> 29:45.590
+Well at this point and this point all the same.
+
+29:45.590 --> 29:45.820
+Right.
+
+29:45.830 --> 29:47.330
+But I get false.
+
+29:47.630 --> 29:51.630
+Well that's because I need to implement the Dunder EQM method again.
+
+29:51.650 --> 29:55.850
+This is something I've mentioned in that short video that I had on classes right in the beginning when
+
+29:55.850 --> 29:57.550
+I did a recap.
+
+29:57.650 --> 30:03.890
+So what we need to do because by default we haven't implemented equality so Python doesn't know how
+
+30:03.890 --> 30:06.500
+it should handle equality for our class.
+
+30:06.500 --> 30:09.920
+So what does it default to using the memory address.
+
+30:09.920 --> 30:13.390
+It's got a different memory address because we saw P is not true.
+
+30:13.550 --> 30:17.860
+So therefore one equals equals two by default will be false.
+
+30:17.990 --> 30:19.440
+So we can fix that.
+
+30:19.570 --> 30:21.640
+OK we can fix that by going in.
+
+30:21.650 --> 30:32.300
+And let me just copy paste and let's go ahead and define the equals method and equals we'll have self
+
+30:32.300 --> 30:33.210
+and others.
+
+30:33.860 --> 30:44.260
+And all I'm going to do here is basically say OK if it is instance other off point game.
+
+30:44.270 --> 30:49.940
+So if I have it my other that I'm comparing to is an instance of point then how do I know if they're
+
+30:49.940 --> 30:50.650
+equal.
+
+30:50.840 --> 30:59.030
+Well I'm going to return self-taught X equals equals other Daltex and self-taught y equals equals other
+
+30:59.230 --> 30:59.720
+Y.
+
+30:59.840 --> 31:05.200
+That's how I'm going to consider two points to be equal if they have the same x and y coordinates.
+
+31:05.400 --> 31:06.080
+OK.
+
+31:06.380 --> 31:08.200
+Else what am I going to do.
+
+31:08.210 --> 31:09.920
+I'm going to return false.
+
+31:09.930 --> 31:14.990
+OK I'm going to say hey two things you don't appoint point can't compare equal to anything other than
+
+31:14.990 --> 31:17.770
+a point or it or a subclass of the point.
+
+31:17.890 --> 31:18.930
+OK.
+
+31:19.700 --> 31:25.450
+So now I have that let me go ahead and redefine so I'll just copy paste this.
+
+31:25.460 --> 31:26.880
+Let's go ahead and redefine this.
+
+31:26.900 --> 31:30.520
+And now P1 P2 you'll notice is false.
+
+31:30.530 --> 31:36.270
+But p one equals equals P2 is true because they have the same coordinates.
+
+31:36.430 --> 31:38.770
+So we implemented the equals method.
+
+31:38.780 --> 31:42.980
+Now we want to go ahead and also implement some kind of ordering on the point.
+
+31:43.070 --> 31:44.360
+So let's go ahead.
+
+31:44.450 --> 31:50.800
+Because right now if we try this one is less than P2 we get that you know less than is not supported.
+
+31:50.870 --> 31:53.340
+How do we get that functionality in.
+
+31:53.510 --> 31:55.570
+Well again pretty straightforward.
+
+31:55.790 --> 32:04.120
+So you delete all this stuff and let's go ahead and implement another special method called LTE and
+
+32:04.130 --> 32:08.910
+LTE works very similar in concept.
+
+32:08.930 --> 32:16.000
+We're going to basically provide functionality for the less than operator which also takes two arguments
+
+32:16.010 --> 32:16.280
+right.
+
+32:16.280 --> 32:21.840
+It has the object that we're comparing with the other object that we're comparing it to.
+
+32:21.860 --> 32:24.950
+So this will be the left hand side of the less than sign.
+
+32:24.980 --> 32:27.940
+This will be the right hand side of the less than sign.
+
+32:28.160 --> 32:29.890
+So how do we go ahead and do that.
+
+32:30.140 --> 32:32.900
+Well let's go ahead and implement that.
+
+32:32.900 --> 32:39.910
+We're going to test again if it's an instance of other point.
+
+32:39.990 --> 32:46.060
+OK we want to make sure that we're only comparing those two things and here how am I going to order
+
+32:46.070 --> 32:46.750
+points.
+
+32:46.890 --> 32:50.190
+I'm going to order points based on how far they are from the origin.
+
+32:50.250 --> 32:57.580
+So here I'm just going to return the absolute of self less than the absolute of other and I know that
+
+32:57.590 --> 33:05.670
+an absolute is defined four points K and if it's not then I'm going to return the not implemented value
+
+33:06.030 --> 33:10.830
+saying hey this was the All we can compare point to something else.
+
+33:10.830 --> 33:15.770
+So now we have this point class again we can redefine those things.
+
+33:15.870 --> 33:18.790
+We still have p one equals two right.
+
+33:18.840 --> 33:19.700
+That's true.
+
+33:19.860 --> 33:23.090
+What about p 1 or p 3.
+
+33:23.100 --> 33:28.990
+Less than 1 that should be true because 0 0 is closer to the origin than that.
+
+33:29.040 --> 33:35.170
+And as you can see that works and in fact now if we try let's say P4 equals point.
+
+33:35.190 --> 33:41.550
+Let's take something really from the origin and let's make sure that you know P for less than p 1 is
+
+33:41.550 --> 33:42.400
+false.
+
+33:42.630 --> 33:44.790
+Yeah that's right.
+
+33:44.790 --> 33:52.950
+Now what about the opposite is P1 greater than before all these p for greater than p 1.
+
+33:52.950 --> 33:56.950
+Now we then define greater than k but that works.
+
+33:56.970 --> 33:57.540
+Why.
+
+33:57.600 --> 34:02.780
+Well because when Python looked at this it tried to see let me see if there's a greater then.
+
+34:02.820 --> 34:08.580
+And you know implemented for this point before it looked we didn't find a greater then.
+
+34:08.730 --> 34:12.360
+So instead it said well it's the same thing as doing one less than before.
+
+34:12.360 --> 34:15.840
+So it kind of did a reflection on that inequality.
+
+34:16.050 --> 34:21.030
+And therefore it ran this in order to get this in general.
+
+34:21.060 --> 34:22.380
+You know that's fine.
+
+34:22.590 --> 34:30.430
+Usually our you know we have this kind of reflexivity I guess in our wrong comparison operators.
+
+34:30.540 --> 34:33.210
+But if you don't want that then you'd have to implement the greater then.
+
+34:33.320 --> 34:33.880
+OK.
+
+34:34.080 --> 34:36.810
+What about P1 less than or equal to P4.
+
+34:37.050 --> 34:37.640
+Wow.
+
+34:37.650 --> 34:38.620
+OK.
+
+34:38.880 --> 34:40.260
+It's not supported.
+
+34:40.260 --> 34:40.640
+Right.
+
+34:40.650 --> 34:44.330
+We have a less than we have an equals that doesn't work.
+
+34:44.340 --> 34:47.570
+Python isn't going to magically throw that in for us.
+
+34:47.610 --> 34:57.240
+So instead we're going to have to define you know define less than or equal to K self-tanner other.
+
+34:57.570 --> 35:04.170
+And I'll just pass that then we're going to have to define greater than K might as well defined that
+
+35:04.170 --> 35:04.900
+one.
+
+35:04.920 --> 35:05.420
+Okay.
+
+35:05.580 --> 35:11.860
+And then we'd probably have to define greater than or equal to K and we have that one.
+
+35:11.880 --> 35:14.520
+And let's pass that.
+
+35:14.520 --> 35:18.050
+And then we probably also have to define not equals.
+
+35:18.080 --> 35:21.590
+We are to complete that whole series.
+
+35:21.840 --> 35:29.700
+So we have 1 2 3 4 5 6 things that we have to implement right beyond just those with needed for more.
+
+35:29.700 --> 35:37.010
+Beyond the first two that we did so I'm going to delete all of this because if you think about it once
+
+35:37.010 --> 35:43.790
+you have less then how would you find out if something is less than or equal to while you check to see
+
+35:43.790 --> 35:45.980
+is it less than or equal.
+
+35:46.010 --> 35:46.460
+All right.
+
+35:46.580 --> 35:48.660
+How would I find out if it's greater then.
+
+35:48.710 --> 35:52.210
+Well if it's greater then that means it's not less than a week or two.
+
+35:52.250 --> 35:52.570
+Right.
+
+35:52.580 --> 35:57.940
+Or greater then means it's not less then but possibly and not equal either.
+
+35:58.130 --> 36:03.690
+So you can always build every one of those using those two over here.
+
+36:05.130 --> 36:09.080
+And you can build it in the same way it's a very consistent way of doing it.
+
+36:09.090 --> 36:11.470
+So what does that mean.
+
+36:11.760 --> 36:18.440
+Well how about using a decorator to given the fact that we've implemented each cue in LTE.
+
+36:18.540 --> 36:24.420
+It will go ahead and create the rest of those things and inject them basically monkey patch our class
+
+36:24.750 --> 36:30.420
+with the you know the full ordering operators the remaining Oldring operators.
+
+36:30.420 --> 36:34.370
+So here we're going to do a very simple assumption or simplifying assumption.
+
+36:34.410 --> 36:39.990
+We're going to assume that LTE has been defined and AQ has been defined.
+
+36:40.440 --> 36:46.230
+What you may want to start with one of the other inequalities and then build the other ones from that
+
+36:46.230 --> 36:46.470
+one.
+
+36:46.470 --> 36:47.450
+You can always do that.
+
+36:47.450 --> 36:53.400
+You can take any one of the less than greater than less than or equal to greater than or equal to one
+
+36:53.400 --> 36:58.110
+of those and build the remaining three out from that.
+
+36:58.110 --> 37:04.800
+So let's go ahead and do that because this means that every time we implement you know ordering we can
+
+37:05.010 --> 37:08.190
+put the full ordering on a class by just decorating.
+
+37:08.610 --> 37:12.640
+And that's a pretty useful way of using decorators class decorators.
+
+37:13.260 --> 37:16.770
+So let me show you let me just print this out.
+
+37:16.830 --> 37:22.080
+Put this out copy paste that from my notes and that's of course in the notebook that you can download
+
+37:22.320 --> 37:24.160
+in the Jupiter notebook.
+
+37:24.390 --> 37:30.630
+So you'll see that we can define less than or equal to you know if it is less than B or is equal to
+
+37:30.630 --> 37:37.770
+B is greater than B if we do not have a less than B and is not equal to B and then a is greater than
+
+37:37.770 --> 37:41.630
+or equal to B if A is not less than be fine.
+
+37:41.700 --> 37:47.760
+So this is how we can build the remaining three comparison operators by just using the less than.
+
+37:47.820 --> 37:53.570
+And then the equality because this a not equal be just the same thing as not a equals equals B.
+
+37:53.820 --> 37:54.330
+OK.
+
+37:54.660 --> 37:58.070
+So let's go ahead and write a decorator that's going to do that.
+
+37:58.080 --> 38:04.800
+So let's call it complete ordering and I'm going to keep this pretty simple.
+
+38:04.800 --> 38:10.850
+There's a lot more of kind of code that should go into here for type checking and that kind of stuff.
+
+38:10.860 --> 38:13.290
+I'm going to keep it pretty straightforward.
+
+38:13.350 --> 38:22.230
+I'm not going to do all that so first is I'm going to at least make sure that the equality is in my
+
+38:22.230 --> 38:23.050
+class.
+
+38:23.340 --> 38:25.380
+So I'm going to test it this way.
+
+38:25.800 --> 38:30.560
+And I also want to make sure that less then is also in my class.
+
+38:30.630 --> 38:35.220
+In other words I can't complete the ordering if I don't have the equals in the less them.
+
+38:35.220 --> 38:39.750
+So this is why I was saying I'm making the assumption that we have less then and then what I want to
+
+38:39.750 --> 38:40.280
+do.
+
+38:40.320 --> 38:49.770
+Well I want to monkey patch these now monkey patching these these methods is safe to do but some but
+
+38:49.770 --> 38:55.830
+very often you shouldn't be monkey patching and monkeying around with these donder the special methods
+
+38:55.860 --> 38:58.230
+because of the way Python calls them.
+
+38:58.230 --> 38:58.500
+Right.
+
+38:58.500 --> 39:01.180
+So in this case though it's safe to do.
+
+39:01.350 --> 39:05.270
+But in general you want to try and stay away from doing things like that.
+
+39:05.670 --> 39:11.250
+And the only reason I'm doing it this way and why I'm saying it's safe to do is because Python itself
+
+39:11.250 --> 39:11.870
+does that.
+
+39:11.910 --> 39:14.820
+And I'll show you where in a little while.
+
+39:15.360 --> 39:21.410
+So let's go ahead and that's Krater lambda.
+
+39:21.630 --> 39:27.870
+So again the Lamda remember we're just creating these instance methods so Thors argument is the object
+
+39:28.260 --> 39:29.880
+that we're using.
+
+39:30.000 --> 39:33.690
+And then the second argument is the other object that we're comparing to.
+
+39:33.810 --> 39:34.200
+Right.
+
+39:34.200 --> 39:36.410
+This is not for the less than or equal to.
+
+39:36.450 --> 39:39.730
+So here we want that self is less than others.
+
+39:39.990 --> 39:43.250
+All self is equal to others.
+
+39:43.770 --> 39:49.370
+And we know we can use less than and equals because we check to make sure we could care.
+
+39:49.890 --> 39:55.320
+Now technically in here I should be writing things so that I have you know I'm looking at the types
+
+39:55.320 --> 39:59.880
+and if it's not the same type then I should be you know really you know returning that not implemented
+
+39:59.880 --> 40:01.240
+value and things like that.
+
+40:01.430 --> 40:06.660
+I'm just going to keep it simple here because I'm actually not going to end up using this particular
+
+40:06.750 --> 40:08.130
+decorator's.
+
+40:09.090 --> 40:15.230
+But I want to show you how we would go about building it if we were to build it ourselves.
+
+40:15.780 --> 40:16.110
+All right.
+
+40:16.110 --> 40:27.120
+So for greater then well greater than if it's not less than so not self less than other k and not self
+
+40:27.540 --> 40:30.560
+equal to other k.
+
+40:30.930 --> 40:34.400
+So again and this is class with a single s.
+
+40:34.610 --> 40:36.430
+We just use the second rule here.
+
+40:36.600 --> 40:41.040
+And then the last one that we need to monkey patch is the greater than equal to.
+
+40:41.090 --> 40:42.910
+So G.
+
+40:44.220 --> 40:50.220
+And again lammed self cannot other.
+
+40:50.490 --> 40:59.100
+And how we're going to do that if it's not a self is less than obvious.
+
+41:00.270 --> 41:03.120
+And then we're going to return the class.
+
+41:03.120 --> 41:07.660
+Remember we're returning the class even though we're actually modifying we're mutating the class we
+
+41:07.660 --> 41:09.080
+don't need to return it.
+
+41:09.190 --> 41:13.610
+We're returning though because we want to use the decorator syntax.
+
+41:14.080 --> 41:15.050
+So that's it.
+
+41:15.130 --> 41:15.820
+Right.
+
+41:15.880 --> 41:17.620
+So not a good implementation.
+
+41:17.620 --> 41:19.060
+Don't don't think this is good.
+
+41:19.060 --> 41:19.990
+Python code.
+
+41:20.020 --> 41:27.610
+There's lots of stuff missing but it will prove the point of what we want to do get so.
+
+41:27.710 --> 41:31.490
+And in the notes I will show you how you could actually improve on this.
+
+41:31.490 --> 41:36.170
+I would actually bust each one of those out as a separate function and then assign it.
+
+41:36.520 --> 41:41.790
+And you can see that in the Jupiter notebook but I'm not going to spend time on the video to do that.
+
+41:43.430 --> 41:46.560
+So now let's go ahead and let's go back to our point class.
+
+41:46.580 --> 41:52.180
+So I'm going to take this code copy it and I'm going to paste that down here.
+
+41:52.280 --> 41:58.880
+And now I'm going to decorate it using complete ordering like so.
+
+41:59.060 --> 41:59.870
+OK.
+
+42:00.230 --> 42:04.050
+And now I've decorated this point class.
+
+42:04.080 --> 42:07.860
+So let me go ahead and pick all this stuff up again.
+
+42:10.460 --> 42:16.280
+And we'll add in the fourth point Soval unpack and we'll pack.
+
+42:17.110 --> 42:17.730
+OK.
+
+42:17.780 --> 42:24.770
+So we've got four points and you'll notice now that I have P1 is less than or equal to P4 that exists
+
+42:24.830 --> 42:29.690
+right p 1 or P for greater than or equal to 2.
+
+42:29.720 --> 42:30.570
+That works as well.
+
+42:30.570 --> 42:36.200
+So now we have all our drawings done and you'll notice that we didn't have to create the orderings in
+
+42:36.200 --> 42:36.630
+here.
+
+42:36.680 --> 42:40.850
+What happened is that the complete ordering did it for us.
+
+42:40.940 --> 42:45.240
+We even have one not or we are not equal to two.
+
+42:45.290 --> 42:47.740
+That would be false because P1 is equal to Peter.
+
+42:47.950 --> 42:48.500
+OK.
+
+42:48.620 --> 42:53.410
+So you'll notice that basically the decorator allowed us to complete the ordering.
+
+42:54.460 --> 42:57.280
+By only having equals and less then.
+
+42:57.520 --> 43:02.710
+But as I mentioned before we could maybe start with greater than not less then and then we need to complete
+
+43:02.710 --> 43:03.430
+the ordering well.
+
+43:03.520 --> 43:05.980
+That means that this isn't going to work properly.
+
+43:06.250 --> 43:09.080
+So it's actually gets a lot more complicated than that.
+
+43:10.430 --> 43:16.250
+And in fact because of that there is actually something available in the standard library that will
+
+43:16.250 --> 43:17.720
+do it for us.
+
+43:17.720 --> 43:19.530
+So let's go ahead and see what that is.
+
+43:21.930 --> 43:32.520
+From phunk tools import total folder and so this is the decorator it's in the frontals module and it's
+
+43:32.520 --> 43:33.930
+called total ordering.
+
+43:34.020 --> 43:42.160
+So all I need to do is basically do this I'm going to copy paste but I'm not going to use complete ordering.
+
+43:42.180 --> 43:45.740
+I'm going to use total ordering.
+
+43:46.010 --> 43:49.230
+OK so I'm going to use the one from the standard library.
+
+43:49.230 --> 43:54.750
+Now what's interesting about the one from the standard library is that as long as you have one of the
+
+43:54.750 --> 44:00.390
+comparisons you can have less than greater than less than or equal to greater than or equal two it doesn't
+
+44:00.390 --> 44:01.180
+matter.
+
+44:01.200 --> 44:06.540
+It will fill out the rest so it will figure out which ones are missing and fill out the rest.
+
+44:06.540 --> 44:12.910
+So let's go ahead and test it with you know just having P1 and or just having the less then defined.
+
+44:13.230 --> 44:14.100
+And let's go ahead.
+
+44:14.100 --> 44:17.390
+And I'm just going to copy paste this again.
+
+44:19.440 --> 44:22.630
+And there we go.
+
+44:22.680 --> 44:23.140
+OK.
+
+44:23.190 --> 44:24.870
+So now I've got these points.
+
+44:24.880 --> 44:28.660
+Now I can have one less than or equal to two.
+
+44:28.710 --> 44:29.510
+That's true.
+
+44:29.550 --> 44:35.600
+Because it is equal to p to be one less than a week or two for this Dupee one greater then we will take
+
+44:35.740 --> 44:39.840
+folder's to show that the greater than or equal to is there as well and so on.
+
+44:40.020 --> 44:46.680
+So the built in the standard library built in total ordering does what I was showing you before and
+
+44:46.680 --> 44:51.080
+were trying to write it ourselves as just a little bit more complicated than what we did.
+
+44:51.180 --> 44:55.550
+And the reason why I didn't spend much time on it is because we've got to really build 10.
+
+44:55.560 --> 44:59.870
+I just wanted to show you how you might go about building something like that.
+
+45:00.030 --> 45:09.780
+And just to prove the last point that we can build this using any of the arm operators Let's go ahead
+
+45:09.780 --> 45:11.900
+and set an implement greater then.
+
+45:11.970 --> 45:15.490
+So here what are we going to want to change this to greater than.
+
+45:15.560 --> 45:23.470
+OK so now we have this implemented and again I'm going to copy paste these.
+
+45:24.750 --> 45:31.020
+And we have greater then defined soapie one or for greater than one well we know that we define that
+
+45:31.020 --> 45:31.760
+function.
+
+45:31.890 --> 45:37.320
+But I could say P2 less than equal to p 3 which would be false as well.
+
+45:37.350 --> 45:42.030
+And you'll notice it was implemented and it was it did the calculation correctly.
+
+45:42.720 --> 45:46.570
+So that's the total ordering built in.
+
+45:46.620 --> 45:49.220
+Decorator was built in it's in the standard library.
+
+45:49.230 --> 45:54.840
+When I say built in or just means that it comes with Python when you install it but it's part of the
+
+45:54.840 --> 45:56.990
+standard library it's not written in C..
+
+45:57.030 --> 45:58.800
+In fact it's written in Python.
+
+45:58.890 --> 45:59.130
+Right.
+
+45:59.130 --> 46:01.460
+A lot of the standard library is written in Python.
+
+46:01.620 --> 46:05.710
+And let me actually show you how you might look at that code.
+
+46:06.570 --> 46:12.780
+Ok so here's where I imported from tools or total ordering from font tools.
+
+46:12.900 --> 46:13.340
+OK.
+
+46:13.410 --> 46:19.800
+And then I just had that class point that we're talking about before I you know implemented the less
+
+46:19.800 --> 46:23.480
+than using the same idea that we had.
+
+46:23.670 --> 46:28.480
+But what I want to show you here and I'm running this inside of Python.
+
+46:28.740 --> 46:35.880
+So what I can do in Python I can actually go to total ordering I can highlight it right click and say
+
+46:35.880 --> 46:44.460
+go to declaration and it takes me to where this takes me to the code the Python code where this decorator
+
+46:44.790 --> 46:46.090
+is implemented.
+
+46:46.170 --> 46:49.000
+And so I can see that it's doing a bunch of stuff right.
+
+46:49.020 --> 46:51.330
+It's finding the roots if not roots.
+
+46:51.450 --> 46:55.140
+And you'll notice here it's actually monkey patching.
+
+46:55.140 --> 46:58.160
+This is where it's monkey patching it's using a set attribute.
+
+46:58.170 --> 46:59.930
+We'll get to that later on in the schools.
+
+47:00.000 --> 47:02.620
+But essentially it's monkey patching.
+
+47:02.620 --> 47:06.700
+And here's where the whole implementation is.
+
+47:07.770 --> 47:10.780
+So it's Stout's little further up there we go.
+
+47:10.800 --> 47:12.570
+Total ordering class decorator.
+
+47:12.690 --> 47:18.630
+So if you want to see how this decorator actually implemented and the ideas are exactly what we've had
+
+47:18.630 --> 47:19.450
+before.
+
+47:19.500 --> 47:20.010
+Right.
+
+47:20.220 --> 47:23.250
+So it's really very similar to what we've done.
+
+47:23.250 --> 47:27.060
+It's just fleshed out with proper error handling and things like that.
+
+47:27.390 --> 47:33.510
+So you can take a look at the standard library methods and all the implementations and see how they're
+
+47:33.510 --> 47:39.240
+done you know same thing for example here I just type this line in I'm not actually using it but I can
+
+47:39.240 --> 47:44.640
+go and see how the fraction is implemented because fractured is not a builtin fraction is a standard
+
+47:44.640 --> 47:45.410
+library.
+
+47:45.690 --> 47:46.900
+And here's my class.
+
+47:46.920 --> 47:48.270
+Fraction OK.
+
+47:48.450 --> 47:53.620
+And you can see how the fraction class is implemented in Python.
+
+47:54.270 --> 48:00.000
+So lots of really good code that you can see in all those libraries to see how certain things are actually
+
+48:00.000 --> 48:00.460
+built.
+
+48:00.480 --> 48:01.380
+If you want.
+
+48:01.380 --> 48:05.910
+When it comes to the built ins you know like lists and dictionaries then you don't you're not going
+
+48:05.910 --> 48:08.380
+to get that because they're not written in Python.
+
+48:08.580 --> 48:13.620
+But certainly for the standard library a lot of the standard library modules are written in Python and
+
+48:13.620 --> 48:15.410
+it's really great that you can do.
+
+48:15.450 --> 48:18.230
+And you know check out the code that's in there.
+
+48:18.270 --> 48:18.870
+All right.
+
+48:18.870 --> 48:21.140
+So that's how we can decorate.
+
+48:21.390 --> 48:23.080
+Thanks for watching and I'll see you in a bit.

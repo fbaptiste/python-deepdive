@@ -1,0 +1,595 @@
+WEBVTT
+
+00:00.240 --> 00:06.270
+So let's talk about some additional resources that I regularly use to learn Python that I've used over
+
+00:06.270 --> 00:09.770
+the years and I really you know find them great.
+
+00:09.780 --> 00:14.400
+The first thing is the Python documentation that really should be a top bookmark for Python It certainly
+
+00:14.400 --> 00:15.560
+is mine.
+
+00:15.580 --> 00:20.620
+You know all the information you could possibly want about Python in the standard library is there.
+
+00:20.850 --> 00:26.490
+Sometimes you can find you know maybe clear explanation somewhere else but usually that's the place
+
+00:26.490 --> 00:30.580
+to start looking when are looking at anything that you want to know about Python.
+
+00:30.720 --> 00:33.610
+So that's located at duckster Python dot org.
+
+00:33.900 --> 00:37.170
+Now don't forget to make sure that you're looking at your version of Python right.
+
+00:37.170 --> 00:39.790
+If you're running let's say 3.5.
+
+00:39.840 --> 00:42.340
+First of all please run 3.6 or above.
+
+00:42.550 --> 00:49.080
+That's you know really we're almost at 3.7 and three point six point four is the current version.
+
+00:49.080 --> 00:50.520
+So that's what you want to be looking at.
+
+00:50.550 --> 00:55.980
+Make sure that you change whenever you link to these pages if you've done that so Google search it may
+
+00:55.980 --> 01:02.250
+actually link you to a version to documentation you want to make sure that you change that to version
+
+01:02.270 --> 01:06.840
+3 and specifically to your version as well that you're currently using.
+
+01:06.930 --> 01:08.910
+So make sure that you get that right.
+
+01:08.910 --> 01:14.730
+Otherwise you could run into trouble the library reference is basically all the standard library stuff
+
+01:14.730 --> 01:15.120
+is.
+
+01:15.150 --> 01:20.170
+So all these things that we did for example in the school so far are like name topples that's in there.
+
+01:20.430 --> 01:25.220
+And then you have the language reference as well.
+
+01:25.300 --> 01:31.330
+So you also have the Pep's now the perps are called are just schul for Python enhancement proposals
+
+01:31.390 --> 01:37.390
+and they're a fantastic resource to understand how certain things work in Python and why they were implemented
+
+01:37.390 --> 01:38.890
+in a certain way.
+
+01:39.130 --> 01:41.740
+These Pep's don't actually all make it into Python.
+
+01:41.740 --> 01:46.510
+Some are rejected some are deferred some are even withdrawn after a while by the original authors.
+
+01:46.960 --> 01:53.770
+But reading the Pep's that have been rejected is actually also really useful because it helps you start
+
+01:53.770 --> 01:58.630
+to think about maybe a certain feature in the language that you were thinking Well I'd be nice if we
+
+01:58.630 --> 01:59.270
+had that.
+
+01:59.320 --> 02:04.810
+And there's a pebble on it then you can read it and if it was withdrawn or if it was rejected you can
+
+02:04.810 --> 02:07.320
+actually understand why it was rejected.
+
+02:07.330 --> 02:11.270
+A lot of thought goes into these Pep's a lot of people work on them.
+
+02:11.330 --> 02:16.630
+A lot of intelligent highly intelligent people even the ones that are rejected you can gain a lot of
+
+02:16.630 --> 02:18.270
+information and insights from.
+
+02:18.280 --> 02:20.860
+So I love reading those as well.
+
+02:20.860 --> 02:26.440
+So for example you know if you're looking at a tablet say Pepp 274 for dictionary comprehensions what
+
+02:26.440 --> 02:29.110
+you're going to be interested in is knowing the status you know.
+
+02:29.110 --> 02:34.840
+Final for example means OK it was except it was finalized and then the Python version is the version
+
+02:34.840 --> 02:36.940
+in which that Pep was actually implemented.
+
+02:36.940 --> 02:43.110
+If this was let's say a you know the type is the standard Strat you have other types as well.
+
+02:43.230 --> 02:45.180
+And I like language features like this one.
+
+02:45.190 --> 02:46.840
+Or it could be informational only.
+
+02:46.870 --> 02:55.550
+It depends so the index page for that is on Python that all is well under dev slash Pep's and they have
+
+02:55.550 --> 03:01.490
+also a meta index that groups that by for example you know language features or informational things
+
+03:01.490 --> 03:02.230
+like that.
+
+03:02.510 --> 03:05.960
+You can also just search on that page for the term that you're interested in.
+
+03:06.050 --> 03:08.000
+Maybe you're searching for dictionaries.
+
+03:08.060 --> 03:11.730
+So just do a search you know using a browser to search on that page.
+
+03:11.900 --> 03:17.810
+And sometimes just a simple web search in Google like Python Pepp style guide will take you directly
+
+03:17.810 --> 03:18.840
+to the pet.
+
+03:18.890 --> 03:25.570
+So you've got different ways of searching for information some notable ones that I think you should
+
+03:25.570 --> 03:27.440
+look at is for example pep 8.
+
+03:27.460 --> 03:29.210
+I think that's a really fundamental one.
+
+03:29.230 --> 03:32.380
+It's a style guide and it provides kind of idiomatic Python.
+
+03:32.380 --> 03:35.370
+It shows you the kind of the do's and don'ts of certain things.
+
+03:35.450 --> 03:39.310
+It explains why certain styles should be used you know.
+
+03:39.400 --> 03:45.580
+So it's really good to read obviously as they themselves say you don't have to follow this blindly.
+
+03:45.580 --> 03:51.330
+You have to use your judgment as well but in general you tend to follow the guide.
+
+03:51.350 --> 03:56.700
+It's got some good ideas in there and it basically in many cases not to do so.
+
+03:57.160 --> 04:01.030
+The other one is pepped 20 I really like that one that's called the Zen of Python.
+
+04:01.030 --> 04:06.240
+I don't want to get philosophical here but what you can do is well just go into your put a notebook
+
+04:06.250 --> 04:11.940
+or go into a python console interactive console and just type import this right and see what you get.
+
+04:11.950 --> 04:15.120
+You'll get the Zen of Python that will show up.
+
+04:15.250 --> 04:16.720
+They are the one that's really interesting.
+
+04:16.720 --> 04:19.670
+Right now I think is Taipans pet 484.
+
+04:19.750 --> 04:24.910
+And I think there's some follow up ones as well that you can search for that talks about type hinting.
+
+04:24.910 --> 04:26.470
+Remember that Python is dynamic.
+
+04:26.470 --> 04:33.370
+We don't have static typing but type Hince kind of gets us pound of the way there where we can check
+
+04:33.400 --> 04:37.110
+for Taiping Consistency's but it doesn't actually affect the language itself.
+
+04:37.120 --> 04:42.730
+The language still remains dynamically typed but Taipans will show you some of the ideas behind type
+
+04:42.730 --> 04:49.280
+hinting and some of the kind of the discussions about static vs. dynamic typing as well.
+
+04:49.300 --> 04:50.780
+So a really interesting read.
+
+04:51.310 --> 04:52.810
+And then you have these release.
+
+04:52.810 --> 04:56.710
+For example pep 4 6 8 is the 3.6 release schedule.
+
+04:56.740 --> 05:03.640
+5:37 is the 3.7 release schedule which you always got to come up soon you know or whatever you're interested
+
+05:03.670 --> 05:05.910
+you know whatever released you're particularly interested in.
+
+05:05.910 --> 05:11.350
+What's nice about that it kind of tells you also the Pep's that are relevant to the release and they
+
+05:11.350 --> 05:15.940
+give a little you know the link so you can link out and read about you know what features are being
+
+05:15.940 --> 05:16.980
+implemented and so on.
+
+05:16.990 --> 05:22.470
+In that particular release and there's many many more depending on what topic you're interested in.
+
+05:22.600 --> 05:29.800
+Just you know hundreds and hundreds of those that you can search through and read up on Wikipedia.
+
+05:29.810 --> 05:31.060
+Don't forget Wikipedia.
+
+05:31.070 --> 05:36.890
+Now I don't go to Wikipedia for Python stuff specifically but for general computer science concepts
+
+05:36.950 --> 05:41.810
+that's where I would go you know if I want for example to look up something about hash tables then I
+
+05:41.810 --> 05:47.420
+can go in here and find out about more about hash tables or maybe it's binary trees or it's you know
+
+05:47.420 --> 05:50.200
+search algorithms what you know what have you.
+
+05:50.330 --> 05:53.830
+Usually all that information is in there and it's really well written.
+
+05:53.840 --> 05:56.480
+So we're looking at that.
+
+05:56.990 --> 05:58.130
+Books.
+
+05:58.490 --> 06:03.830
+Books is another one that I use a lot of and I use printed books I know that most of these books you
+
+06:03.830 --> 06:07.020
+can get you know an ebook format.
+
+06:07.040 --> 06:13.280
+I tend to prefer the paper version I can carry that around with me and just leaf through it it all from
+
+06:13.280 --> 06:18.230
+time to time without necessarily looking for something specific in the book and I found that to be a
+
+06:18.230 --> 06:20.060
+really good way to learn Python as well.
+
+06:20.060 --> 06:25.400
+I'll just take those books and some of them are pretty thick and I'll just randomly open it and start
+
+06:25.400 --> 06:26.570
+reading.
+
+06:26.570 --> 06:30.390
+So these are my favorite specific Python specific go to books.
+
+06:30.440 --> 06:33.070
+I'm not going to list them in any particular order of importance.
+
+06:33.110 --> 06:34.790
+I like all of them.
+
+06:34.940 --> 06:38.920
+So learning Python by Mark Lutz is a really good book.
+
+06:38.960 --> 06:42.320
+It's both an introductory book and an advance book.
+
+06:42.320 --> 06:49.090
+It's a pretty thick volume of walk right there and it takes you know a while to read it.
+
+06:49.530 --> 06:54.920
+And but it's really good because it starts at the beginning so if you're a beginner in Python you can
+
+06:54.920 --> 07:00.830
+actually use this book right away and then it just gradually you know transitions you into the more
+
+07:00.830 --> 07:04.120
+intermediate and then the advanced stuff in Python.
+
+07:04.160 --> 07:05.690
+So that's a really good book.
+
+07:05.720 --> 07:08.380
+The next one that I really like is called fluent Python.
+
+07:08.410 --> 07:10.140
+That's by Luciano Ramil hall.
+
+07:10.160 --> 07:15.590
+Hopefully I'm pronouncing his name correctly but that's a really really good Python book.
+
+07:15.590 --> 07:17.050
+It's more advanced or purer.
+
+07:17.060 --> 07:21.560
+You know if you don't know anything about Python This is probably not where you want to start.
+
+07:21.710 --> 07:28.210
+You'll want to know more about Python first and then get into this book.
+
+07:28.340 --> 07:30.040
+The next one is called a cookbook.
+
+07:30.040 --> 07:33.250
+It's a Python Cookbook by David Beazeley and Brian Jones.
+
+07:33.740 --> 07:38.800
+And that's really good for showing you how to solve very specific problems.
+
+07:38.810 --> 07:45.920
+And usually it's quite short on you know problems to look at the the solution is quite short but it's
+
+07:45.920 --> 07:51.950
+really well explained and it covers a lot of different topics and you actually also learn a lot because
+
+07:51.950 --> 07:57.260
+by solving may or may be a particular problem in the cookbook and understanding how they've solved that
+
+07:57.260 --> 08:03.230
+problem you've not opened up your repertoire of coding to be able to solve related problems in a similar
+
+08:03.230 --> 08:03.740
+way.
+
+08:06.200 --> 08:10.290
+And then I really like this one as well effective Python by Bretts LAPKIN.
+
+08:10.340 --> 08:17.000
+It basically talks about you know idiomatic Python it talks about how you should write things in Python
+
+08:17.180 --> 08:21.560
+in order to you know be Pythonic and to write better Python code.
+
+08:21.560 --> 08:25.450
+So again these are fairly short and very specific items.
+
+08:25.460 --> 08:28.780
+But it's it's really a good read it's not a very thick book.
+
+08:28.820 --> 08:34.640
+You know you can read through the book very quickly of course to actually understand and implement everything
+
+08:34.640 --> 08:40.370
+will take just practice you know and I keep going back to this book again and again and again and you
+
+08:40.370 --> 08:42.830
+know and then I see something like Oh yeah that's right.
+
+08:42.830 --> 08:44.110
+This works better.
+
+08:44.180 --> 08:45.400
+And I haven't been doing that.
+
+08:45.410 --> 08:46.220
+And then I'll try.
+
+08:46.220 --> 08:51.500
+And you don't correct my mistake and use these kinds of techniques moving forward.
+
+08:51.500 --> 08:53.010
+So really good book as well.
+
+08:55.350 --> 08:57.390
+And then we have also Python in a nutshell.
+
+08:57.390 --> 08:59.150
+I use that one as a reference book.
+
+08:59.160 --> 09:01.830
+It's it's more than just a reference book.
+
+09:01.830 --> 09:07.410
+It also really explains things very well it was written by Alex Martelli and Ravenscroft and Steve Holden
+
+09:07.820 --> 09:15.150
+and the they're really good authors and the content in this book is condensed but it's really good as
+
+09:15.150 --> 09:15.550
+well.
+
+09:15.620 --> 09:17.690
+And I use that one you know all the time.
+
+09:19.820 --> 09:22.300
+So other online resources are regularly used.
+
+09:22.340 --> 09:24.740
+I do have a lot of online resources I use.
+
+09:24.740 --> 09:32.210
+One of the kind of ones that I look at daily is Raymond heading his Twitter feed and he's one of the
+
+09:32.210 --> 09:33.520
+core developers on Python.
+
+09:33.530 --> 09:39.660
+He's the one actually who implemented the latest implementation of dictionaries and Python 3:6 and there's
+
+09:39.670 --> 09:42.320
+some YouTube videos by him where he actually explains that.
+
+09:42.560 --> 09:43.800
+And I will.
+
+09:43.820 --> 09:49.850
+I am planning on developing a video later on in the course that will actually take that content and
+
+09:49.850 --> 09:54.440
+then put it into the schools and you know probably go into a little more detail and more explanation
+
+09:54.950 --> 09:56.050
+on some of the stuff.
+
+09:56.270 --> 09:59.000
+But if you look at his Twitter feed and Raymond H.
+
+09:59.030 --> 10:00.660
+That's just awesome stuff.
+
+10:00.710 --> 10:07.460
+I mean for example he here's one of his more recent tweets how you can transpose data section you got
+
+10:07.460 --> 10:13.450
+a matrix rank you've got a list of tuples and you want to transpose that if you do walk with matrices
+
+10:13.460 --> 10:15.080
+you often have to transpose.
+
+10:15.260 --> 10:19.610
+And I know that you are thinking well non-pilot sure but if you're not using non-pay you don't want
+
+10:19.610 --> 10:20.520
+to use an umpire.
+
+10:20.640 --> 10:27.080
+Well here's how you can transpose your matrix essentially using a single statement list the zip star.
+
+10:27.440 --> 10:33.080
+And at this point actually you know if you've done my course so far you should be able to understand
+
+10:33.170 --> 10:34.960
+what this does and how it works.
+
+10:35.150 --> 10:38.050
+But those are the kind of nuggets that you get out of that feed.
+
+10:38.060 --> 10:39.680
+So really awesome feat.
+
+10:39.680 --> 10:40.730
+I really love it.
+
+10:40.920 --> 10:45.780
+You've got YouTube of course there's lots of great video content on our Python on YouTube.
+
+10:45.890 --> 10:49.050
+In particular the ones that I look out for are like the python videos.
+
+10:49.100 --> 10:52.370
+These are usually really good anything by GVR.
+
+10:52.380 --> 10:54.200
+Ben Rosten Guido van Rossum.
+
+10:54.200 --> 10:56.590
+He's the originator of Python.
+
+10:56.960 --> 11:02.150
+Raymond head injury or Hettinger sorry who is also you know one of the core developers in Python as
+
+11:02.150 --> 11:04.850
+well as Alex Materi who's also one of the core developers.
+
+11:04.850 --> 11:08.060
+They really have you know great videos on YouTube.
+
+11:08.330 --> 11:11.740
+Many of them actually all through python so go ahead and do a search.
+
+11:11.840 --> 11:13.700
+And of course there's a ton more.
+
+11:13.850 --> 11:16.530
+There are some good some not so good.
+
+11:17.150 --> 11:21.530
+And you know probably any library you're interested in so if you're interested in flask you're going
+
+11:21.530 --> 11:27.750
+to find some videos on that are you know doing your know redtape eyes or using the requests library.
+
+11:27.770 --> 11:29.570
+You know third party libraries.
+
+11:29.750 --> 11:32.850
+You'll get a lot of videos on those things too.
+
+11:33.130 --> 11:35.810
+Then this one I go to occasionally plan the python blog.
+
+11:35.810 --> 11:36.610
+That's pretty good.
+
+11:36.630 --> 11:42.320
+There's a different blog posts on there which are sometimes really really interesting so I use that
+
+11:42.320 --> 11:47.570
+one as well and then stack overflow cause you know this wouldn't be complete without mentioning stack
+
+11:47.570 --> 11:48.260
+overflow.
+
+11:48.290 --> 11:50.400
+Lot of questions that are answered there.
+
+11:50.600 --> 11:57.830
+And before you ask a question on Stack Overflow sort for you or your question the odds are you know
+
+11:57.860 --> 12:01.950
+probably 90 percent that what you're asking has already been answered by somebody.
+
+12:02.150 --> 12:07.510
+And if you ask a question that's already been answered you're going to take some heat for that.
+
+12:07.610 --> 12:11.520
+So first check to make sure it's been answered.
+
+12:11.870 --> 12:15.070
+You want to make sure it hasn't been answered before you ask your question.
+
+12:15.830 --> 12:18.750
+So that's located at Stack Overflow dot com.
+
+12:19.100 --> 12:22.310
+And of course Google searches I use that all the time.
+
+12:22.310 --> 12:26.100
+I'll type in a particular topic that I want and I'll see what comes back.
+
+12:26.120 --> 12:32.360
+And usually I'll start focusing on links that come back linking to the Python documentation to the Papps
+
+12:32.540 --> 12:38.780
+to stack overflow things like that or two blogs that I've seen before and where I know that the quality
+
+12:38.780 --> 12:39.680
+is good.
+
+12:39.710 --> 12:43.210
+So lots of other online resources that you can use.
+
+12:43.280 --> 12:48.740
+And of course you have you know your Demy for example that has also courses in various on various topics
+
+12:48.740 --> 12:53.250
+and Python and and general computer science as well as well as some other platforms.

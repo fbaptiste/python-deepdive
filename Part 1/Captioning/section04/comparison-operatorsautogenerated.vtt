@@ -1,0 +1,934 @@
+WEBVTT
+
+00:00.540 --> 00:05.200
+High in this video we're going to look at the comparison operators.
+
+00:05.400 --> 00:12.540
+Now the comparison operators can be categorized into different groups but in general they are all binary
+
+00:12.540 --> 00:15.420
+operators which means that they have two operands.
+
+00:15.420 --> 00:20.660
+That's what I mean by binary operators for example plus is a binary operator.
+
+00:20.670 --> 00:25.530
+It takes two operands A plus B on the other hand upgrade is it like not.
+
+00:25.530 --> 00:32.380
+For example are unitary operators they only take a single operand like not a.
+
+00:32.490 --> 00:35.010
+They also evaluate to a bool value.
+
+00:35.010 --> 00:38.760
+So the comparison operators evaluates to a boolean.
+
+00:38.800 --> 00:40.820
+So we have identity operations.
+
+00:40.820 --> 00:43.360
+For example IS and IS NOT.
+
+00:43.460 --> 00:48.360
+We've seen those before and they compare memory address of all variables.
+
+00:48.560 --> 00:50.400
+And so it really works for any type.
+
+00:50.420 --> 00:51.920
+We don't have to worry about the type.
+
+00:52.070 --> 00:57.860
+Every object has a memory address so therefore we can always do a comparison between memory addresses
+
+00:58.850 --> 01:00.740
+that also have value comparisons.
+
+01:00.740 --> 01:02.360
+Again we've seen this one before.
+
+01:02.390 --> 01:04.300
+Equals equals and not equals.
+
+01:04.340 --> 01:09.320
+These compare values so different types are OK but the types have to be compatible with each other.
+
+01:09.380 --> 01:11.740
+You can compare a number to a string.
+
+01:11.740 --> 01:18.680
+For example then we have the ordering comparisons the ordering comparisons are things like less than
+
+01:18.800 --> 01:20.470
+greater than less than a week or two.
+
+01:20.470 --> 01:26.180
+And so on and those don't work for all types and we'll see when it comes to an muri times hard works.
+
+01:27.090 --> 01:32.070
+And then we have membership operations membership operations or things like in and not in.
+
+01:32.160 --> 01:37.730
+And this is used for iterable types and we'll get to those later in the schools.
+
+01:38.400 --> 01:40.640
+So we'll focus on the numeric types here.
+
+01:40.680 --> 01:46.260
+And then the other types including it for goals and you know with the membership operations we'll look
+
+01:46.260 --> 01:53.310
+at when we get to the section on sequences and dictionaries and sets and so on so that your comparisons
+
+01:53.310 --> 02:01.080
+will work of all numeric types but the mixed types except complex involving or in comparison is supported.
+
+02:01.110 --> 02:05.470
+So we can work with equality like equals equals and not equals.
+
+02:05.490 --> 02:12.330
+We're all numeric types but the comparison operator is like less than greater than will not work with
+
+02:12.330 --> 02:18.390
+complex numbers but it will work with mixed types so you can compare an end to a float or an end to
+
+02:18.390 --> 02:21.000
+a fraction or a decimal to a fraction.
+
+02:21.030 --> 02:29.320
+All those work the only one that doesn't work in here is the complex numbers so you have to be careful
+
+02:29.320 --> 02:29.530
+though.
+
+02:29.530 --> 02:35.080
+Remember when we were looking at floats and decimals you know if you try and compare two floats at the
+
+02:35.110 --> 02:37.420
+equals equals doesn't really work that well.
+
+02:37.450 --> 02:37.710
+Right.
+
+02:37.710 --> 02:41.470
+So equality operations don't work that well with floats.
+
+02:41.470 --> 02:44.570
+And then the same thing if you try and do floats and decimals together.
+
+02:44.630 --> 02:45.130
+Right.
+
+02:45.160 --> 02:51.250
+So decimals to decimals sure that we can use that equals equals but floats to decimals or floats with
+
+02:51.250 --> 02:51.910
+floats.
+
+02:51.910 --> 02:57.850
+We really have to be careful there because of the binary representation of floats we have inexact representations
+
+02:58.180 --> 03:00.920
+and therefore we run into issues.
+
+03:00.940 --> 03:06.550
+So for example you could say ten point zero equals equals decimal 10.0 that will work.
+
+03:06.580 --> 03:10.680
+So we're comparing a float to a decimal and that will actually return true.
+
+03:10.840 --> 03:16.270
+But that's because 10.0 has an exact flow representation which would be ten point zero.
+
+03:16.300 --> 03:21.850
+So that works on the other hand as we've seen before if we try and do 0.1 where we know that has an
+
+03:21.850 --> 03:28.750
+inexact representation that's an infinite expansion whereas decimal in you know in the binary 10 in
+
+03:28.750 --> 03:32.890
+the base 10 system there what one is exact.
+
+03:32.890 --> 03:39.620
+So 0.1 is exact as a decimal but it's not exact as a float and therefore we get you know a false.
+
+03:39.730 --> 03:41.250
+So we're going to be careful there.
+
+03:41.920 --> 03:44.290
+But we can also compare decimals to fractions.
+
+03:44.290 --> 03:48.090
+So 0.1 to five as a decimal is precisely equal to one eighth.
+
+03:48.220 --> 03:55.150
+So this would actually evaluate to TRUE TRUE is as we've seen before actually equal to 1.
+
+03:55.150 --> 03:56.730
+So that would evaluate to true.
+
+03:57.040 --> 04:02.510
+And the same thing here with comparing a boolean to a fraction but that fraction 3 over 3 is 1.
+
+04:02.560 --> 04:04.320
+So this would be true as well.
+
+04:06.360 --> 04:09.600
+So next let's look at the ordering comparisons.
+
+04:09.600 --> 04:15.300
+So again these work across all numeric types except for complex numbers.
+
+04:15.300 --> 04:20.840
+So for example we can say one is less than 3.1 for that will evaluate to true.
+
+04:20.850 --> 04:26.690
+So as you can see we're comparing an int to a float with this come order in comparison.
+
+04:26.940 --> 04:28.500
+And that was same thing.
+
+04:28.500 --> 04:33.630
+We can compare a fraction to a float that will work as well 22 over 7 Zak's a little bit bigger than
+
+04:33.630 --> 04:34.250
+pi.
+
+04:34.440 --> 04:36.300
+So that will evaluate to true.
+
+04:36.750 --> 04:43.260
+Then we can compare decimals to fractions that will evaluate to true as well a half 0.5 is less than
+
+04:43.260 --> 04:45.350
+two thirds So that's true.
+
+04:45.720 --> 04:52.290
+We can also look at booleans and compare them to other types so a boolean compared to a decimal 1 1
+
+04:52.380 --> 04:54.780
+which is true is less than 3.1 4.
+
+04:54.780 --> 04:57.180
+So again that will evaluate to true.
+
+04:57.630 --> 05:00.780
+And then you have a fraction that you can also compare to a boolean.
+
+05:00.810 --> 05:06.290
+So two thirds is greater than zero which is what the value is a false as an integer.
+
+05:06.480 --> 05:08.750
+So that will evaluate to true as well.
+
+05:10.370 --> 05:15.770
+Now what's really interesting were these comparison operators and the equality operators too is that
+
+05:15.830 --> 05:17.660
+we can train them.
+
+05:17.660 --> 05:22.060
+So for example you could say eight equals equals B equals equals C.
+
+05:22.130 --> 05:26.660
+Now that's just a syntax basically which really means the following.
+
+05:26.660 --> 05:31.550
+It means that a is equal to B and B is equal to see.
+
+05:31.610 --> 05:36.940
+So all it does is that it just basically pairs them up and it puts an end in between.
+
+05:37.310 --> 05:40.220
+And the same thing works with the comparison operators.
+
+05:40.220 --> 05:46.760
+The you know the older a comparison operator so a less then be less than c simply means that is less
+
+05:46.760 --> 05:55.230
+than B and B is less than c and so it will test that boolean expression So for example we can say one
+
+05:55.230 --> 05:58.880
+equals equals decimal 1.0 equals equals fractioned one.
+
+05:58.890 --> 05:59.680
+Come one.
+
+05:59.850 --> 06:06.940
+Well one is equal to decimal 1.0 and one point only as a decimal is equal to the fraction one on one.
+
+06:07.110 --> 06:10.310
+So this will return true.
+
+06:10.550 --> 06:12.160
+On the other hand if we look at this one.
+
+06:12.170 --> 06:14.570
+One equals equals decimal 1.5.
+
+06:14.750 --> 06:15.980
+Well that's false.
+
+06:15.980 --> 06:21.390
+So that is not equal even though decimal 1.5 is equal to fractions 3.2.
+
+06:21.620 --> 06:25.060
+We don't satisfy both of the conditions in the end.
+
+06:25.070 --> 06:28.180
+And so this will evaluate to false.
+
+06:28.180 --> 06:29.390
+Same thing with the ordering.
+
+06:29.410 --> 06:31.910
+We can say one less than two less than three.
+
+06:31.930 --> 06:35.300
+Well one is less than 2 and 2 is less than three.
+
+06:35.320 --> 06:38.250
+That's in fact what we're trying to evaluate here.
+
+06:38.320 --> 06:40.150
+And of course this is true.
+
+06:40.750 --> 06:42.180
+You can also do something like this.
+
+06:42.220 --> 06:43.570
+One is less than math.
+
+06:43.600 --> 06:45.420
+Pi is less than fraction 22.
+
+06:45.420 --> 06:47.290
+Com so we can mix the types.
+
+06:47.410 --> 06:51.470
+So it's perfectly fine to mix types in the chain comparisons to.
+
+06:51.550 --> 06:58.960
+So this just means one is less than math of Pi and math pi is less than fraction 22 over 7 which happens
+
+06:58.960 --> 07:02.130
+to be true.
+
+07:02.200 --> 07:07.410
+So for the chain comparisons you don't always have to keep the you know the comparison operator of the
+
+07:07.410 --> 07:08.040
+same.
+
+07:08.070 --> 07:13.290
+You can mix it so you can write an expression like this which really kind of looks weird from a mathematical
+
+07:13.290 --> 07:15.500
+standpoint this doesn't make any sense.
+
+07:15.510 --> 07:16.680
+We wouldn't write that.
+
+07:16.830 --> 07:23.560
+But remember all this means is that we're looking at is less than B and B is greater than c.
+
+07:23.670 --> 07:31.300
+So from Python's perspective this makes total sense so for example five is less than six is greater
+
+07:31.300 --> 07:32.010
+than two.
+
+07:32.170 --> 07:36.900
+Well this is five is less than six and six is greater than two.
+
+07:36.970 --> 07:38.950
+That's what it actually means.
+
+07:38.950 --> 07:43.120
+So this is true because five is less than six and six is greater than two.
+
+07:43.330 --> 07:46.560
+Those both both operands are true so the and is.
+
+07:48.370 --> 07:51.970
+On the other hand five less than six greater than 10.
+
+07:52.360 --> 07:56.460
+Well that means five is less than six and six is greater than 10.
+
+07:56.490 --> 07:58.100
+Six is no greater than 10.
+
+07:58.180 --> 08:05.920
+So this expression here will evaluate to false we can of course train more than just three.
+
+08:06.150 --> 08:07.980
+We can have as many as we want.
+
+08:08.010 --> 08:11.210
+So you can write a less than B is less than c is less than D.
+
+08:11.220 --> 08:12.560
+That's perfectly fine.
+
+08:12.750 --> 08:20.110
+It's just going to evaluate it as A's less than B and B is less than c and c is less than D.
+
+08:20.130 --> 08:26.270
+It just basically keeps splitting it up and replacing the pairs you know pairwise Wolfen and in between.
+
+08:27.820 --> 08:32.580
+So for example we could say one is less than two is less than three is less than four.
+
+08:32.590 --> 08:34.430
+This is what we actually evaluating.
+
+08:34.450 --> 08:36.200
+And of course this is true.
+
+08:36.400 --> 08:39.530
+And when you read this expression that kind of makes sense.
+
+08:39.580 --> 08:39.900
+Yeah.
+
+08:39.940 --> 08:44.650
+You know even in math we would write it this way that would be perfectly fine.
+
+08:44.680 --> 08:50.800
+Now of course just as before where you didn't have to keep the same operator Well same thing here.
+
+08:50.890 --> 08:53.020
+We can't have you know these things mixed in.
+
+08:53.020 --> 08:56.900
+So we have one is less than 10 is greater than four is less than five.
+
+08:56.990 --> 09:03.190
+That's starting to look a little weird but this really just evaluates to one is less than 10 and 10
+
+09:03.190 --> 09:06.310
+is greater than four and four is less than five.
+
+09:06.310 --> 09:08.330
+Well in this case all of these things are true.
+
+09:08.350 --> 09:09.750
+So the result is true.
+
+09:11.480 --> 09:14.030
+Now you can go overboard with this hand.
+
+09:14.060 --> 09:20.560
+You could write code like this if myman is equal equals C.A. is less than Val is greater than other
+
+09:20.560 --> 09:24.520
+is less than or equal to my emacs and not ls t.
+
+09:24.650 --> 09:25.480
+That works fine.
+
+09:25.490 --> 09:31.370
+Again it's just doing the pairwise things with the ands in between so saying myman equals equal C.A.
+
+09:31.670 --> 09:38.750
+and C.A. is less than thou and value is greater than other and other is less than or equal to my math
+
+09:38.990 --> 09:47.820
+and my match is not in LSD where LSD is some sequence type some iterable So yeah you can write that.
+
+09:47.960 --> 09:50.000
+But it's really confusing.
+
+09:50.030 --> 09:54.470
+In fact Bob would actually be horrified to see code like this.
+
+09:54.470 --> 09:59.780
+So you can write it and maybe in some cases it might make sense to write some expression like this but
+
+09:59.780 --> 10:01.260
+in general stay away from it.
+
+10:01.260 --> 10:03.620
+That makes code quite unreadable.
+
+10:03.650 --> 10:07.650
+So are you going to keep it to a level that's a little more appropriate.
+
+10:08.420 --> 10:11.420
+So now let's switch to some code and see all this in action.
+
+10:11.420 --> 10:14.270
+Let's take a quick look at these comparison operators.
+
+10:14.480 --> 10:20.480
+So we'll start with the identity and membership operators and the identity operator is is you know of
+
+10:20.480 --> 10:21.750
+course that is not.
+
+10:21.920 --> 10:28.100
+And this will walk across any data type since any data type is an object and every object obviously
+
+10:28.100 --> 10:32.120
+is a memory therefore it has a memory address and therefore you can compare it.
+
+10:32.120 --> 10:39.950
+You can do things like zero point one is and you can even compare that to let's say a complex number.
+
+10:39.950 --> 10:42.270
+Of course that would be false.
+
+10:42.830 --> 10:49.490
+You know and we have three is free will that of course is true since it's the same object remember that
+
+10:49.490 --> 10:55.750
+up to a certain limit the integers or singleton objects in Python.
+
+10:56.210 --> 11:04.880
+But if you take like two lists for example that will return false since they are not created equal.
+
+11:04.940 --> 11:10.610
+In other words they are from a value perspective they are equal but from a memory standpoint they are
+
+11:10.610 --> 11:11.130
+not.
+
+11:11.170 --> 11:16.920
+And we covered in more detail in some of your videos in the scores.
+
+11:17.030 --> 11:22.030
+So we have the identity operators now that will walk across any type.
+
+11:22.190 --> 11:28.440
+We also have the in and the not in which our membership operators and this will work with iterable types.
+
+11:28.440 --> 11:33.840
+So typically you might do something like a in.
+
+11:34.490 --> 11:36.010
+This is a test.
+
+11:36.020 --> 11:41.330
+For example and of course that returns true since the character is present in that string.
+
+11:41.330 --> 11:44.470
+It works also with lists which are troubles.
+
+11:44.540 --> 11:49.190
+So you can say for example three in one to three.
+
+11:49.430 --> 11:56.990
+And of course that returns true to three knots in one and three that will return false and 3 is in that
+
+11:56.990 --> 11:59.090
+list.
+
+11:59.600 --> 12:04.000
+So that's for the membership operations in and not in.
+
+12:04.010 --> 12:10.430
+We'll take a look at those and a lot more detail when we start looking at troubles in general.
+
+12:10.430 --> 12:16.760
+You can also actually do it for our dictionaries as well so dictionaries for example you could check
+
+12:16.760 --> 12:19.900
+to see if a key exists in a dictionary.
+
+12:19.940 --> 12:23.020
+So let's say the dictionary is the one with a value of one.
+
+12:23.240 --> 12:25.000
+And the key is present in the dictionary.
+
+12:25.000 --> 12:32.240
+So by default the membership operator will look for membership of keys in dictionaries and mapping types
+
+12:33.050 --> 12:41.360
+for example we might do something like this we might check to see is one in key one one.
+
+12:41.450 --> 12:47.620
+And the answer is no because it only checks the keys not the van.
+
+12:47.730 --> 12:50.610
+The next thing I want to look at are the comparison operators.
+
+12:50.610 --> 12:58.290
+Now the comparison operators will again work with mixed types and most data types will support comparisons
+
+12:58.290 --> 12:59.130
+as well.
+
+12:59.130 --> 13:01.490
+Certainly most of the numeric types.
+
+13:01.490 --> 13:06.450
+Actually all of the numeric types except for complex numbers support and ordering.
+
+13:06.450 --> 13:11.740
+So if you try and do that say three less than five yeah that works that's pretty obvious.
+
+13:12.000 --> 13:15.040
+But if you have let's say one plus one J.
+
+13:15.240 --> 13:17.870
+Less than three plus four J.
+
+13:18.060 --> 13:23.190
+While that's not going to work because the less the ordering the less than and therefore greater than
+
+13:23.190 --> 13:29.220
+and the you know equal variance are not supported with complex numbers but for the numeric types you
+
+13:29.220 --> 13:31.050
+can mix any other data type.
+
+13:31.050 --> 13:40.350
+So for example let's import from decimal let's import decimal and from fractions low into fraction.
+
+13:40.590 --> 13:45.660
+So now we've got these two classes that we can use and you can start mixing things together.
+
+13:45.660 --> 13:53.390
+So for less than decimal arm ten point five for example you can compare an end to a decimal.
+
+13:53.470 --> 13:58.630
+You can compare a fraction fraction two thirds less than decimal.
+
+13:58.680 --> 14:01.200
+Let's make it something that smaller this time.
+
+14:01.200 --> 14:03.090
+So it's two zero point five.
+
+14:03.090 --> 14:04.500
+So we get false.
+
+14:04.560 --> 14:08.210
+Two thirds is actually greater than one half and so on.
+
+14:08.220 --> 14:10.280
+So you can mix your data types.
+
+14:10.350 --> 14:14.960
+That's not a problem in terms of equality.
+
+14:15.280 --> 14:17.290
+Which also compares values.
+
+14:17.290 --> 14:18.580
+You don't need the Oldring.
+
+14:18.790 --> 14:22.620
+And again you can mix all the numeric types together.
+
+14:22.690 --> 14:25.310
+And this one includes the complex numbers.
+
+14:25.420 --> 14:30.760
+So you can say four equals four plus 0 J if you want.
+
+14:30.820 --> 14:31.880
+That will be true.
+
+14:32.170 --> 14:38.590
+But you know I mean comparing using equality for complex numbers is the same problem that we have using
+
+14:38.590 --> 14:41.040
+equality for comparing floats.
+
+14:41.440 --> 14:46.720
+You don't have an exact representation since Remember that the real imaginary pounds of complex numbers
+
+14:46.720 --> 14:48.340
+are stored using floats.
+
+14:48.340 --> 14:50.370
+So we can run to a problem there.
+
+14:50.740 --> 14:55.570
+And in general if you're dealing of real numbers and complex numbers all they're really going to be
+
+14:55.570 --> 14:57.270
+equal if you have an imaginary power.
+
+14:57.270 --> 15:00.580
+So it's not that useful but it can work.
+
+15:00.610 --> 15:04.540
+You know you may you may need it for certain things and then you have other weird things like.
+
+15:04.750 --> 15:12.430
+For example you can test to see that's equal to fraction to come common to count or two.
+
+15:12.520 --> 15:17.560
+And the answer is yes because true is really just one and fraction to come up to 1.
+
+15:17.560 --> 15:20.070
+So again you can mix those things together.
+
+15:20.290 --> 15:26.870
+And of course you can also do it this way you can ask whether true is less than fraction three comma
+
+15:26.910 --> 15:27.860
+two that say.
+
+15:28.210 --> 15:31.920
+And the answer is yes because one is less than three house.
+
+15:32.260 --> 15:33.730
+So that's kind of getting weird.
+
+15:33.790 --> 15:36.280
+But you can certainly do that as well.
+
+15:36.280 --> 15:38.810
+The booleans are the ones that are a little bit weird that way.
+
+15:38.980 --> 15:46.270
+But you can mix and match any numeric type that you want with the Oldring operations except for complex
+
+15:46.270 --> 15:46.720
+numbers.
+
+15:46.720 --> 15:49.120
+Those are not supported.
+
+15:49.130 --> 15:56.630
+All right then the last thing that I really want to look at is the chained comparisons and we saw before
+
+15:56.630 --> 16:01.330
+that if we have a chain comparison like one is less than two is less than three.
+
+16:01.340 --> 16:02.500
+All it means.
+
+16:02.810 --> 16:03.620
+And this is true.
+
+16:03.630 --> 16:09.040
+All it means is that it's evaluating one is less than 2 and is less than three.
+
+16:09.320 --> 16:10.030
+OK.
+
+16:10.490 --> 16:14.900
+Now what's interesting with this is that you also get short circuiting because if you think about this
+
+16:14.910 --> 16:15.520
+this isn't.
+
+16:15.660 --> 16:21.540
+And we saw that if this is false then the end is going to short circuit and just return false.
+
+16:21.800 --> 16:25.560
+And that actually happens in the chained comparisons as well.
+
+16:25.580 --> 16:31.050
+So we might say something like three is less than two.
+
+16:31.070 --> 16:33.130
+That's going to be false is less than.
+
+16:33.140 --> 16:35.680
+And I'm going to do a division by zero error here.
+
+16:36.050 --> 16:39.010
+And when we run this it doesn't error out.
+
+16:39.200 --> 16:43.690
+And that's because it never tried to evaluate one divided by zero.
+
+16:43.760 --> 16:46.010
+It's short circuited because what did we have.
+
+16:46.010 --> 16:52.270
+In fact we have three less than two and two less than 1 divided by zero.
+
+16:52.440 --> 16:53.900
+OK that's short circuits.
+
+16:53.990 --> 16:55.940
+We don't have this problem here.
+
+16:56.150 --> 16:57.960
+So that's kind of weird.
+
+16:57.980 --> 17:01.480
+But it does actually work it does short circuits.
+
+17:01.760 --> 17:04.870
+Now of goes to show you that the short circuiting is in place.
+
+17:04.880 --> 17:10.520
+Well I mean you should see it from here that we didn't get an error but if we were to write three at
+
+17:10.520 --> 17:13.350
+less than four in less than one divided by zero.
+
+17:13.400 --> 17:18.250
+Now we get a division by zero error because this evaluated to true.
+
+17:18.260 --> 17:20.830
+So now it had to test this.
+
+17:20.900 --> 17:29.650
+And of course it has to evaluate then the side here because this was a non-zero number it was false.
+
+17:30.230 --> 17:38.750
+So what started this entire thing has to be evaluated because this was true was not false.
+
+17:40.100 --> 17:40.600
+OK.
+
+17:40.670 --> 17:42.980
+Now you can start doing some really weird stuff too.
+
+17:42.980 --> 17:47.960
+You don't have to always use the same operator so you could say one there's less than two is greater
+
+17:47.960 --> 17:49.980
+than negative five pride.
+
+17:50.000 --> 17:51.310
+And this of course is true.
+
+17:51.350 --> 17:54.650
+One is less than two and two is greater than negative five.
+
+17:54.650 --> 18:00.450
+So this is just shorthand notation that really just gets you think about it gets rewritten this way.
+
+18:00.500 --> 18:02.750
+That's kind of how it's being evaluated.
+
+18:02.750 --> 18:04.700
+So you can do other weird things too.
+
+18:04.700 --> 18:10.950
+You can say one is less than two is greater than negative five which is equal to decimal.
+
+18:11.150 --> 18:13.520
+Let's say is negative five point zero.
+
+18:13.700 --> 18:14.200
+OK.
+
+18:14.390 --> 18:19.640
+And this works as well because one is less than two and two is greater than negative five and negative
+
+18:19.640 --> 18:22.210
+five is equal to decimal negative five.
+
+18:22.280 --> 18:24.500
+So that works just fine.
+
+18:24.500 --> 18:27.080
+Now you can do work even weirder things.
+
+18:27.080 --> 18:34.110
+Let's import the string module we can get a couple of constants cause we can work with our strings.
+
+18:34.110 --> 18:39.580
+Now the default ordering of stringers lexicographic will take a look at that.
+
+18:39.590 --> 18:48.080
+When we look at strings in our sections on the on list on sequences later in the schools but capital
+
+18:48.080 --> 18:53.420
+A comes before Little A in the ASCII table if you take a look at that arm you'll see that it's got a
+
+18:53.510 --> 18:55.820
+smaller numerical value.
+
+18:55.910 --> 19:01.020
+So capital is less than negative a less than a lowercase a sorry.
+
+19:01.040 --> 19:07.350
+So let's go ahead and expand this a little bit so we can again start changing things together.
+
+19:07.600 --> 19:08.340
+OK.
+
+19:08.540 --> 19:09.830
+So this is all fine.
+
+19:09.830 --> 19:10.490
+All right.
+
+19:10.510 --> 19:15.900
+Capital a less than a and a less than z and z greater than capital Z.
+
+19:15.970 --> 19:21.280
+So of course all these things are true pairwise And so they get anded and they're true as a result.
+
+19:21.500 --> 19:27.980
+But you can also if you want mixin other operators as I said you don't have to keep just the same operators
+
+19:28.400 --> 19:33.150
+already here we saw that we mixed in less than and greater than operators.
+
+19:33.290 --> 19:39.660
+We can also throw in a membership operator in let's say string dark ASCII letters.
+
+19:39.790 --> 19:40.970
+OK that's fine too.
+
+19:40.970 --> 19:43.800
+And capital Z is in straight ASCII letters.
+
+19:43.820 --> 19:46.920
+So again with things fully evaluates to true.
+
+19:47.360 --> 19:49.430
+So you can do all those things.
+
+19:49.430 --> 19:53.620
+There's nothing really that stops you from you know doing that.
+
+19:53.660 --> 19:59.300
+It's kind of confusing right if you want to see in code something you know written like this obviously
+
+19:59.300 --> 20:02.360
+you'd have variables you wouldn't necessarily have literals everywhere.
+
+20:02.360 --> 20:06.740
+You'd have variables in some places it gets confusing.
+
+20:06.860 --> 20:14.160
+So I would recommend not doing that but you know it's it's pretty easy to read it.
+
+20:14.240 --> 20:19.010
+It's just that you have to spend time reading and it's not immediately obvious anyway up to you whether
+
+20:19.010 --> 20:23.960
+you want to use that or not the option is there and certainly for things like you know testing like
+
+20:23.960 --> 20:27.440
+for example men is less than a is less than max.
+
+20:27.560 --> 20:33.960
+Let's say this is you know we have a man is equal to zero Max equals 100.
+
+20:34.130 --> 20:42.200
+And let's say we have an age which is equal to 44 and we want to check to see that age is between min
+
+20:42.200 --> 20:43.000
+and max.
+
+20:43.190 --> 20:43.710
+OK.
+
+20:43.850 --> 20:46.690
+This is the kind of thing where it really does make sense.
+
+20:46.700 --> 20:50.720
+And it really shines in terms of being able to change these operators.
+
+20:50.720 --> 20:50.990
+All right.
+
+20:50.990 --> 20:53.420
+Thanks for watching and I'll see you in the next video.

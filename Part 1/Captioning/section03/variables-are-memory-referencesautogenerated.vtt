@@ -1,0 +1,298 @@
+WEBVTT
+
+00:00.510 --> 00:05.900
+Hi and welcome to the section on variables and memory references.
+
+00:06.090 --> 00:11.480
+And in fact we'll see very shortly that variables are memory references.
+
+00:11.490 --> 00:17.520
+So first let's talk about memory a little bit and we'll do a conceptual diagram of memory.
+
+00:18.480 --> 00:26.160
+And we can think of memory as a series of slots of boxes that exist in our computer and we can store
+
+00:26.160 --> 00:30.000
+and retrieve data from those slots.
+
+00:30.000 --> 00:32.820
+We can also compare it to the mail system.
+
+00:32.820 --> 00:39.360
+Now when you send a letter to somebody you usually have to write an address on that letter and that
+
+00:39.360 --> 00:44.770
+address corresponds to a unique mailbox somewhere in the world.
+
+00:44.880 --> 00:51.210
+And by writing that address you make sure that the contents of your letter is delivered to that mailbox
+
+00:51.990 --> 00:55.620
+and it's pretty much the same in computers and with memory.
+
+00:55.620 --> 00:59.580
+We need a unique address for each of those slots.
+
+00:59.760 --> 01:06.430
+And typically they're just numbers so we can number them arbitrarily a thousand thousand one thousand
+
+01:06.450 --> 01:07.220
+two.
+
+01:07.410 --> 01:13.810
+And so on and those are called memory addresses.
+
+01:13.810 --> 01:20.920
+Now when we store data in memory addresses we may actually use more than one slot at a time certain
+
+01:21.250 --> 01:29.160
+amounts of data will fit nicely inside a single slot but those slots have a finite amount of space.
+
+01:29.440 --> 01:34.260
+But as long as we know where the object Stults in memory that's good enough.
+
+01:34.780 --> 01:40.750
+And so for example object number one is stored at address 1000.
+
+01:40.750 --> 01:43.680
+Now it overflows into another memory address.
+
+01:43.690 --> 01:45.910
+Let's say a thousand one.
+
+01:45.940 --> 01:52.210
+Same thing of object number two object number two standard memory address 1002 and overflows into two
+
+01:52.340 --> 01:54.150
+more of those slots.
+
+01:54.190 --> 02:00.270
+Object number 3 happens to fit precisely in one slot and it's that address.
+
+02:00.920 --> 02:10.390
+And that's is called the heap and storing and retrieving objects from the heap is taken care of for
+
+02:10.390 --> 02:18.430
+us by something called the python memory manager which we'll look at in more detail in a later lesson.
+
+02:18.870 --> 02:25.370
+So let's take a look at what happens when we write a line of code such as my vaule one equals ten.
+
+02:25.770 --> 02:29.770
+So let's bring back our conceptual diagram of memory.
+
+02:29.850 --> 02:31.900
+And here we have those empty slots.
+
+02:32.130 --> 02:36.940
+So when we execute the statement my Volle one equals 10.
+
+02:36.960 --> 02:42.830
+The first thing Python does is it creates an object in memory at some address.
+
+02:42.840 --> 02:47.900
+Let's say a thousand and it stores the value 10 inside that object.
+
+02:48.270 --> 02:57.270
+And my vote one is simply a name an alias if you will for the memory address where that object is stored
+
+02:57.830 --> 03:02.600
+or the starting address of the object if it overflows into multiple slots.
+
+03:02.730 --> 03:11.340
+And so my vote one is said to be a reference to the object at address 1000.
+
+03:11.340 --> 03:14.650
+Now you'll note my vote one is not equal to 10.
+
+03:14.940 --> 03:18.050
+My vote one in fact is equal to 1000.
+
+03:18.050 --> 03:25.290
+In this case by the thousand represents the memory address of the data we're actually interested in.
+
+03:25.290 --> 03:33.900
+So as developers when we write code we kind of think my vol 1 is equal to 10 and for all practical purposes
+
+03:34.020 --> 03:34.890
+it is.
+
+03:35.190 --> 03:39.990
+But we have to remember my vol 1 is not equal to 10.
+
+03:39.990 --> 03:46.480
+It is a reference to an object at that location.
+
+03:46.480 --> 03:54.510
+Similarly if we write my vault two equals Hello it's first gets created and stone somewhere in memory
+
+03:54.540 --> 03:56.970
+that said address one thousand two.
+
+03:57.420 --> 04:00.170
+And if it overflows into more slots that's fine.
+
+04:01.330 --> 04:10.390
+And my vote to now becomes an alias or a reference to that memory address and we say that my velt to
+
+04:10.390 --> 04:15.600
+reference's the object at address 1002.
+
+04:15.760 --> 04:21.100
+So again it's kind of important to understand variables in Python.
+
+04:21.130 --> 04:26.050
+Always references and the references to objects in memory.
+
+04:28.220 --> 04:35.230
+So in python we can find out what the memory address is of a variable by using the ID function.
+
+04:35.240 --> 04:40.940
+Now it's not something you will typically be using as you write Python programs but we will be using
+
+04:40.940 --> 04:47.960
+it quite a bit in order to understand what's happening in the Python programs we run and especially
+
+04:47.960 --> 04:53.070
+what is happening to variables as we pass them along in our code throughout their lifetime.
+
+04:53.090 --> 04:57.230
+It is important to understand what's really happening.
+
+04:59.170 --> 05:02.270
+So the ID function will return a base 10 numbers.
+
+05:02.440 --> 05:09.270
+And if you want you can convert that to a hex number by using the built in hex function and Python.
+
+05:09.880 --> 05:18.000
+So for example if we have a equals 10 we can find the hexadecimal version of the memory address of a.
+
+05:18.100 --> 05:21.420
+By printing out hex of ID of a.
+
+05:21.970 --> 05:26.590
+So let's take a look at a quick example in Python and see how that works.
+
+05:27.080 --> 05:27.770
+OK.
+
+05:28.180 --> 05:30.100
+So let's create a variable.
+
+05:30.160 --> 05:33.370
+Let's say my VAR equals 10.
+
+05:33.820 --> 05:35.580
+So now we've created this variable.
+
+05:35.740 --> 05:44.380
+And remember what is really happening is that 10 was saved somewhere in memory and my VAR is now a reference
+
+05:44.470 --> 05:46.020
+to that object.
+
+05:46.030 --> 05:51.710
+Now we can print out my vote and we can see it returns 10.
+
+05:51.730 --> 05:59.080
+Now what actually happened is that Python looked at my VAR and then looked at what is the memory address
+
+05:59.080 --> 06:00.890
+that my VAR is referencing.
+
+06:02.020 --> 06:09.190
+It found that memory address it went to the memory retrieved the data from memory and then brought it
+
+06:09.190 --> 06:18.920
+back so that we can display it in our code so we can look at the memory address by using the ID function
+
+06:19.600 --> 06:25.660
+so we can look at the memory address of my VAR by using the ID function.
+
+06:25.900 --> 06:26.540
+And there we go.
+
+06:26.590 --> 06:28.120
+It's this big number there.
+
+06:28.180 --> 06:31.600
+1 7 1 8 3 4 8 5 2 8.
+
+06:31.630 --> 06:37.630
+Now when you run this code you probably won't get the same numbers right because the memory addresses
+
+06:37.630 --> 06:38.350
+will be different.
+
+06:38.350 --> 06:44.600
+In fact if we rerun this code later on we'll have a different memory address.
+
+06:45.940 --> 06:54.570
+We can also print the hexadecimal version of the memory address by using the hex function
+
+06:57.570 --> 07:03.130
+passing it the ID which is the decimal version of the memory address of my father.
+
+07:03.450 --> 07:09.590
+And when we run that we get a slightly shorter number which is why I like using the hex versions.
+
+07:09.590 --> 07:13.980
+So six six six BHF zero.
+
+07:14.010 --> 07:15.420
+Now let's do another one.
+
+07:15.690 --> 07:16.320
+Let's do.
+
+07:16.320 --> 07:19.630
+Greeting equals Let's use a string this time.
+
+07:19.830 --> 07:20.310
+OK.
+
+07:20.430 --> 07:24.120
+So we have greeting equals Hello we can print it out.
+
+07:24.340 --> 07:27.600
+OK so we'll print it out.
+
+07:27.600 --> 07:34.680
+There we go it retrieved the data that was at the memory address referenced by greeting.
+
+07:34.770 --> 07:36.670
+Now what is the memory address.
+
+07:36.690 --> 07:37.920
+Well we can look it up
+
+07:42.090 --> 07:48.670
+and this big number here which as you can see is different from the memory address of my VAR.
+
+07:49.470 --> 07:58.130
+If we want the hex version which is to hex an ID of greeting and there we go.
+
+07:58.140 --> 08:04.570
+That's the hex number for the memory address that greeting references.
+
+08:04.590 --> 08:05.220
+All right.
+
+08:05.220 --> 08:08.970
+So bottom line variables are just memory addresses.
+
+08:08.990 --> 08:12.030
+They're not actually equal to the value we think they're equal to.
+
+08:12.180 --> 08:14.450
+Logically we can think of it that way.
+
+08:14.850 --> 08:18.400
+But in real terms the memory references.
+
+08:18.510 --> 08:18.770
+All right.
+
+08:18.780 --> 08:20.940
+Thanks for watching and I'll see in the next video.

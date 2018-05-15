@@ -1,0 +1,1936 @@
+WEBVTT
+
+00:01.150 --> 00:07.750
+High in this video we're going to start looking at a very important topic of closures.
+
+00:07.870 --> 00:14.400
+So let's talk about closure and free variables and let's think back to what we did in a few videos or
+
+00:14.400 --> 00:19.000
+go we we're looking at non-local variables.
+
+00:19.090 --> 00:24.970
+So just as a reminder let's say we've got this out-of function that creates a local variable x currently
+
+00:24.970 --> 00:26.630
+set to Python.
+
+00:26.650 --> 00:33.400
+Then inside our we defined another function that referenced X they didn't assign any value to X it just
+
+00:33.400 --> 00:34.650
+referenced it.
+
+00:34.690 --> 00:38.610
+So Python saw that when it was created at creation time.
+
+00:38.650 --> 00:42.830
+Which happens when it will happen when al-Dura is called right.
+
+00:42.970 --> 00:45.540
+When outer is created it doesn't create it.
+
+00:45.640 --> 00:52.360
+Because remember the contents of outer don't get executed until the function is called Just the creation
+
+00:52.360 --> 00:53.250
+happens.
+
+00:53.290 --> 01:02.910
+So in his creation doesn't happen until order is called When Andrew is called it sees this X where it's
+
+01:02.910 --> 01:03.910
+creating.
+
+01:04.020 --> 01:06.700
+And so it says ok x will be non-local.
+
+01:06.870 --> 01:08.520
+Then we've done all that before.
+
+01:08.820 --> 01:11.320
+So this X and this X are the same.
+
+01:11.340 --> 01:15.900
+We sometimes said very loosely that this X refers to this one.
+
+01:16.260 --> 01:17.740
+But it's not a direct reference.
+
+01:17.760 --> 01:22.590
+And this is going to become really important when we talk about closures and I'll explain that more
+
+01:22.590 --> 01:24.090
+in a bit.
+
+01:24.110 --> 01:27.200
+So this X and this X are the same.
+
+01:27.350 --> 01:31.570
+Then after we've defined inner we call inner from inside out.
+
+01:32.000 --> 01:36.380
+And so this X refers to the one in the outer scope.
+
+01:36.440 --> 01:37.440
+Right.
+
+01:38.120 --> 01:41.690
+This non-local variable x is also called a free variable.
+
+01:41.690 --> 01:43.120
+That's the more technical term.
+
+01:43.190 --> 01:49.610
+When we talk about these kinds of non-local variables We also refer to them as free variables.
+
+01:49.610 --> 01:51.270
+Now we can call our.
+
+01:51.440 --> 01:54.990
+And what happens when we call out we get Python rocks right.
+
+01:55.010 --> 01:58.420
+It actually went looked up the value for x.
+
+01:58.430 --> 02:02.880
+Now remember when it was created when Outer was called.
+
+02:02.990 --> 02:03.800
+Right.
+
+02:03.800 --> 02:05.830
+First thing it did was create energy.
+
+02:05.900 --> 02:09.290
+It didn't look up the value for X until it was called.
+
+02:09.290 --> 02:12.910
+So at that point that's when X was evaluated.
+
+02:12.920 --> 02:18.140
+Python so that its value was Python and so it printed up Python rocks.
+
+02:18.350 --> 02:24.110
+So I'm keep stressing this creation time and run time because that's really important.
+
+02:24.290 --> 02:28.700
+So when we consider here in ASH we're really looking at two things right.
+
+02:28.700 --> 02:30.680
+We're looking at the function.
+
+02:30.860 --> 02:35.370
+Yeah because we've got the in a function but we also have this X right.
+
+02:35.390 --> 02:42.300
+So the inner function has its local scope but X is not in the local scope of its living somewhere else.
+
+02:42.320 --> 02:42.590
+Right.
+
+02:42.590 --> 02:46.520
+It's this free variable that's living outside of it.
+
+02:46.940 --> 02:52.410
+So when we consider dinner when you go in here we're really talking about two things in here.
+
+02:52.550 --> 02:58.470
+And the free variable x those two things along with it right because X isn't inside her.
+
+02:58.880 --> 03:03.770
+So we have to consider that these two things kind of live together.
+
+03:03.770 --> 03:08.400
+They have to be bound together and that's called a closure.
+
+03:08.660 --> 03:08.980
+Right.
+
+03:08.990 --> 03:14.990
+And that's because we say in a basically encloses it's free variables so it's a closure.
+
+03:17.360 --> 03:19.550
+So now let's do something a little different.
+
+03:19.550 --> 03:20.020
+Right.
+
+03:20.030 --> 03:25.490
+Instead of calling enter from inside the outer function which is going to return right you can return
+
+03:25.490 --> 03:28.570
+functions in Python it's just going to be a higher order function.
+
+03:28.640 --> 03:29.750
+So let's go ahead and do that.
+
+03:29.750 --> 03:30.900
+So it's the same code.
+
+03:30.950 --> 03:36.350
+The only difference is that I'm removing the call to enter and I'm just returning it.
+
+03:36.500 --> 03:39.390
+I'm not calling it I'm just returning the function.
+
+03:40.280 --> 03:42.350
+So we still have a closure right.
+
+03:42.410 --> 03:44.200
+When we are.
+
+03:44.240 --> 03:47.550
+Oliver we are still going to have a closure in there.
+
+03:47.600 --> 03:49.410
+Plus it's free variable right.
+
+03:49.430 --> 03:51.900
+So we have those two things.
+
+03:51.920 --> 04:00.350
+Now this happens when outer runs then the the closure is created but the inner is not called anymore
+
+04:00.440 --> 04:01.420
+inside out.
+
+04:01.670 --> 04:03.940
+Instead it's returned.
+
+04:04.090 --> 04:06.000
+So we have this closure.
+
+04:06.400 --> 04:13.690
+What are we returning when we say return if we're returning the closure not just the function bearing
+
+04:13.990 --> 04:15.520
+off it's free variables.
+
+04:15.520 --> 04:19.830
+It's the function plus it's free variables is the function plus the little extra bit.
+
+04:19.870 --> 04:21.240
+Right.
+
+04:21.340 --> 04:29.010
+So when we return an error we're returning the closure we have to consider that now we can assign that
+
+04:29.010 --> 04:32.070
+return value to a variable name right when we call our.
+
+04:32.130 --> 04:33.350
+We get a function back.
+
+04:33.360 --> 04:39.360
+We get a closure back but we get this function with it's extra variables so we can assign it a label
+
+04:39.400 --> 04:40.000
+FM.
+
+04:40.050 --> 04:43.120
+So now FLN is that closure.
+
+04:43.830 --> 04:50.640
+And if we call AFN since fm is really nothing more than in-air with the free variables it will print
+
+04:50.640 --> 04:52.180
+up Python rocks.
+
+04:52.210 --> 04:56.440
+Kind of makes sense but does it really.
+
+04:56.480 --> 05:04.640
+So when we called F-in remember that Python doesn't evaluate x until it needs it which means we when
+
+05:04.640 --> 05:10.190
+we call enter then it will go and look up the value for x.
+
+05:10.400 --> 05:16.940
+So it's going to look at the value for x where is it going to find X X was a local variable in outer
+
+05:17.030 --> 05:22.100
+When we called in or from inside the out of function that kind of made sense that yeah you know Python
+
+05:22.100 --> 05:27.760
+sees this X so it just looks fine is an hour and then it says oh it's equal to Python.
+
+05:28.160 --> 05:33.710
+But in this case when we call F-in by that time Aalto has finished running.
+
+05:34.040 --> 05:35.100
+Right.
+
+05:35.120 --> 05:36.040
+It's finished running.
+
+05:36.040 --> 05:37.400
+It's Scopus gone.
+
+05:38.300 --> 05:39.250
+How can FM.
+
+05:39.260 --> 05:44.230
+Now go ahead and see oh you know ex-secret to python in the outer scope.
+
+05:44.240 --> 05:45.340
+The audio is gone.
+
+05:46.140 --> 05:47.990
+And yet it still worked.
+
+05:48.000 --> 05:49.720
+It still retained its value.
+
+05:49.890 --> 05:50.390
+Right.
+
+05:50.550 --> 05:52.380
+So that should be weird.
+
+05:52.380 --> 05:53.880
+That should sound odd.
+
+05:53.880 --> 05:59.120
+It's like what's going on how can it possibly retain that value of x.
+
+05:59.310 --> 06:00.070
+Right.
+
+06:00.150 --> 06:05.520
+Even though the function that defined it the scope what X was defined went away.
+
+06:06.030 --> 06:11.300
+Well that's because of that closure that closure captured this variable x.
+
+06:11.340 --> 06:11.690
+Right.
+
+06:11.700 --> 06:17.370
+And so it did something a little special to handle it so that when outer finishes running the closure
+
+06:17.370 --> 06:20.670
+still has whatever that variable was.
+
+06:21.150 --> 06:22.840
+So let's take a look at how that works.
+
+06:22.980 --> 06:28.890
+And we're going to take a look at Python cells and in general multis scoped variables what happens when
+
+06:28.890 --> 06:34.240
+you have a variable that is inside two scopes as we have here with the closure.
+
+06:34.320 --> 06:34.780
+Right.
+
+06:34.800 --> 06:40.130
+The variable inside the function and the variable in the enclosing function.
+
+06:40.140 --> 06:42.100
+Two different scopes same variable.
+
+06:42.120 --> 06:44.180
+So it's shared between those two.
+
+06:44.220 --> 06:48.150
+So we set that that variable has multiple scopes.
+
+06:48.420 --> 06:50.430
+So just to keep it very very simple.
+
+06:50.430 --> 06:52.670
+Here we have out of X equals Python.
+
+06:52.710 --> 06:58.290
+We have our inner function which prints x x is a reference to the outdoors x.
+
+06:58.320 --> 07:02.430
+So therefore in there an X is a closure right.
+
+07:02.490 --> 07:05.320
+So the value of x is shared between two scopes.
+
+07:05.400 --> 07:10.140
+The outer function and the closure the inner function.
+
+07:10.290 --> 07:16.140
+So this label X is in two different scopes but it's really the same x.
+
+07:16.170 --> 07:16.560
+Right.
+
+07:16.560 --> 07:18.960
+It has to be the same x.
+
+07:18.990 --> 07:21.520
+So that's kind of weird right.
+
+07:21.520 --> 07:23.320
+It's the X label.
+
+07:23.340 --> 07:25.970
+We have to differentiate between the label and the value.
+
+07:26.010 --> 07:32.260
+So the label is in two different scopes but the value that it's referencing is the same.
+
+07:32.570 --> 07:39.380
+How does Python do that what Python does that by creating an intermediary object.
+
+07:39.480 --> 07:41.570
+And so here's how it does it.
+
+07:41.570 --> 07:46.890
+We we let's we're going to call this a cell phone calls it's a cell it's an object that has a memory
+
+07:46.890 --> 07:55.440
+address just like any object but what it does it basically contains a reference to another object and
+
+07:55.440 --> 08:02.310
+that object is all string object that was set x to right and it has a memory address and a value of
+
+08:02.340 --> 08:02.880
+Python.
+
+08:02.880 --> 08:04.690
+In this case.
+
+08:04.950 --> 08:09.790
+So what happens is that under normal circumstances if we have an error in print X here.
+
+08:10.020 --> 08:10.310
+Right.
+
+08:10.320 --> 08:17.620
+If we just had Def our exit Python return x for example then what would happen is that x would be a
+
+08:17.620 --> 08:23.610
+pointer directly to this object which in memory the string object however is here because we have a
+
+08:23.610 --> 08:29.640
+closure because we have a shared variable right between two different scopes.
+
+08:29.670 --> 08:33.590
+Python sees that and says OK I need to do something special here.
+
+08:34.020 --> 08:36.390
+And it creates this cell.
+
+08:36.810 --> 08:40.820
+And now what happens is that the X in the outer scope.
+
+08:40.830 --> 08:41.340
+Right.
+
+08:41.370 --> 08:45.330
+So I'm writing it as are the dot X don't think of this as object notation it's not.
+
+08:45.330 --> 08:52.860
+I'm just saying this is the X and the Alt-A scope points to this cell and the cell in turn points to
+
+08:52.950 --> 08:59.180
+the string Python and the inner X the x inside inner does the same thing.
+
+08:59.190 --> 09:04.570
+It points to that cell and that seldom turns points to Python.
+
+09:04.830 --> 09:07.350
+And this is what happens when you deal with non-local variables.
+
+09:07.380 --> 09:07.650
+Right.
+
+09:07.650 --> 09:10.020
+This has nothing to do with just being a closure.
+
+09:10.020 --> 09:12.720
+It's just that you have a variable in two different scopes.
+
+09:12.720 --> 09:18.030
+So thinking back to when we discussed non-local variables and roomer we're thinking of changing things
+
+09:18.030 --> 09:20.170
+and I said well that's not really a chain.
+
+09:20.340 --> 09:26.190
+It's really pointing to the same object but I couldn't really explain how a can of point to the same
+
+09:26.190 --> 09:33.510
+object it points to the same object by using this intermediary this cell that cell is going to have
+
+09:33.510 --> 09:34.740
+the same memory address.
+
+09:34.740 --> 09:37.550
+In this case I took an example a five hundred.
+
+09:37.560 --> 09:41.630
+So the real memory address of x is a 500.
+
+09:41.640 --> 09:46.370
+The real memory address of x which is also a 500.
+
+09:46.770 --> 09:53.010
+But when we referred to X when we want to get the value for x for example then Python is going to use
+
+09:53.010 --> 09:54.450
+this indirect reference.
+
+09:54.450 --> 09:57.630
+It's going to essentially do a double hop.
+
+09:57.750 --> 09:58.190
+Right.
+
+09:58.200 --> 10:02.130
+So the variable x and outer and inner point to the same cell.
+
+10:02.490 --> 10:07.630
+But Python knows that we're dealing with a cell and so it will go and look at the end direct reference.
+
+10:07.650 --> 10:11.970
+You'll think of it that way it's double hopping every time we retrieve the value.
+
+10:12.210 --> 10:18.000
+And then when we work with setting the value it will be the same thing will be changing what this cell
+
+10:18.000 --> 10:19.120
+points to.
+
+10:19.260 --> 10:19.710
+Right.
+
+10:19.830 --> 10:27.620
+So if we had non-local X and X equals hello then what would happen when we called the inner function
+
+10:27.660 --> 10:28.840
+that gets returned.
+
+10:28.920 --> 10:32.990
+Is that it would change what cell points to to now point to Hello.
+
+10:33.320 --> 10:33.730
+Right.
+
+10:33.780 --> 10:35.180
+That's a shared variable.
+
+10:35.250 --> 10:43.410
+So the value changes but Python is able to keep track of what's what by using this intermediate cell.
+
+10:43.410 --> 10:49.200
+So now you should understand why when that out of function finishes running and we call the returned
+
+10:49.290 --> 10:55.430
+value it still knows what X is because it still knows what cell is cell.
+
+10:55.530 --> 10:55.940
+Right.
+
+10:55.950 --> 11:02.070
+Then go away cell was the reference that X that outer X pointed to with out of finished running.
+
+11:02.100 --> 11:02.940
+This goes away.
+
+11:02.940 --> 11:08.480
+But in a dot X still points to the same cell that object is still reference it's not garbage collected
+
+11:08.480 --> 11:09.420
+yet.
+
+11:09.570 --> 11:09.950
+All right
+
+11:13.120 --> 11:17.760
+so now sometimes you want to think of closures in more practical terms.
+
+11:17.830 --> 11:23.200
+You kind of need to remember that whole cell thing that whole indirect right way of getting to the value
+
+11:23.200 --> 11:26.540
+because it helps understand how variables are shared.
+
+11:26.680 --> 11:28.460
+What happens with shared scopes.
+
+11:28.540 --> 11:28.740
+Right.
+
+11:28.740 --> 11:31.540
+It will help you kind of you know keep that straight.
+
+11:31.540 --> 11:34.920
+But very often we just think of it would say hey it's the same variable.
+
+11:34.930 --> 11:36.160
+However Python does it.
+
+11:36.190 --> 11:38.050
+Yeah it uses this intermediate cell.
+
+11:38.050 --> 11:45.530
+That's fine right but so you think of the closure as a function plus the free variables that extend
+
+11:45.590 --> 11:50.050
+scope that contains the free variables.
+
+11:50.070 --> 11:54.480
+Now the free variables values is the object that the cell points to.
+
+11:54.480 --> 11:54.870
+Right.
+
+11:54.930 --> 11:57.120
+So that could change over time.
+
+11:57.180 --> 11:57.620
+Right.
+
+11:57.750 --> 12:02.850
+The cell address won't change but what it points to can change.
+
+12:02.850 --> 12:09.840
+So every time the function in the closure is called then and the free variable is referenced then Python
+
+12:09.840 --> 12:15.330
+looks up the cell object that the free variable points to and does the double hop right it basically
+
+12:15.330 --> 12:18.250
+does that double hop to see OK what's the actual value.
+
+12:18.420 --> 12:22.910
+But it doesn't do that until you call the function right when you create the function.
+
+12:22.980 --> 12:29.090
+It's just creating the pointer to cell and then when you call the function it does the double hop to
+
+12:29.090 --> 12:30.110
+look up the value.
+
+12:32.160 --> 12:34.180
+So in this case you're right.
+
+12:34.230 --> 12:40.350
+Let's say we have the function OutServe has local variable A's 100 local variable x equals Python.
+
+12:40.350 --> 12:43.020
+Then we define a function inside.
+
+12:43.110 --> 12:44.710
+It also defines a equal 10.
+
+12:44.730 --> 12:46.480
+But you'll notice there's an assignment.
+
+12:46.530 --> 12:48.000
+I didn't say non-local.
+
+12:48.000 --> 12:50.750
+So a is a local variable to enter.
+
+12:51.120 --> 12:53.260
+It's not the same as the one in our.
+
+12:53.310 --> 12:54.660
+We've seen that before.
+
+12:55.080 --> 13:00.250
+And then we print something that references X while this X wasn't assigned a value.
+
+13:00.300 --> 13:04.020
+So Python when inner is created says Ah ha.
+
+13:04.080 --> 13:06.860
+This is going to be a non local variable.
+
+13:06.870 --> 13:11.860
+In other words it is a closure and it's going to create that double hop.
+
+13:11.880 --> 13:18.870
+So a is going to be a direct pointer to the object 100 but X is going to be a pointer to a cell and
+
+13:18.870 --> 13:21.960
+this X is going to point to the same cell as well.
+
+13:21.960 --> 13:22.220
+Right.
+
+13:22.230 --> 13:23.550
+So this is our closure.
+
+13:23.760 --> 13:29.550
+And these two axes point to the cell which indirectly references the string Python.
+
+13:31.300 --> 13:34.520
+You'll notice that a is not part of the closure.
+
+13:34.630 --> 13:38.150
+Right because as a local variable here it is a local variable here.
+
+13:38.320 --> 13:39.070
+They're not the same.
+
+13:39.070 --> 13:41.740
+Is that not part of the closure therefore.
+
+13:42.470 --> 13:48.640
+OK so now we can call out here and assign that to FM and is going to return what it's going to return
+
+13:48.640 --> 13:49.580
+a function.
+
+13:49.660 --> 13:50.030
+Right.
+
+13:50.050 --> 13:54.310
+So this function is going to be what one is going to be in a function that gets returned.
+
+13:54.340 --> 13:55.990
+But remember this is a closure.
+
+13:56.140 --> 14:00.170
+So it really also includes its captured variables its extended scope.
+
+14:00.220 --> 14:07.390
+So it includes the free variable x which again is what the X the free variable x in this closure is.
+
+14:07.390 --> 14:14.360
+Remember this cell over here and Python will know to do the double hop when it needs to evaluate x when
+
+14:14.370 --> 14:16.580
+it does the print then.
+
+14:16.750 --> 14:19.360
+Right so at this point it hasn't evaluated X.
+
+14:19.360 --> 14:20.940
+Right now I just said OK.
+
+14:20.990 --> 14:29.300
+He has enough and it has this variable x that points to this value here right to the cell when we call
+
+14:29.560 --> 14:35.670
+fen right if we call FLN then it's going to execute enter and then that will print out Python rocks
+
+14:35.670 --> 14:42.290
+that we saw before at that point X will get evaluated via the double hop and Python will come back and
+
+14:42.290 --> 14:44.410
+so will print up Python rocks.
+
+14:44.730 --> 14:45.360
+OK.
+
+14:45.800 --> 14:48.070
+Let's look at introspection.
+
+14:48.260 --> 14:50.740
+So again same example as before.
+
+14:50.810 --> 14:51.570
+Right.
+
+14:51.590 --> 14:53.790
+So remember again we have these.
+
+14:53.880 --> 14:55.340
+This X is part of the closure.
+
+14:55.340 --> 15:00.050
+Therefore it's us pointing to a cell and indirectly referencing Python.
+
+15:00.500 --> 15:02.000
+So we run out.
+
+15:02.060 --> 15:09.200
+We assign it to effen and we can look at this our property called Dondre code and that Dunta code property
+
+15:09.410 --> 15:11.890
+itself has another property called free variables.
+
+15:11.900 --> 15:18.530
+Cofre Yvonne's that will tell you that will give you a tuple listing out all the free variable labels
+
+15:18.610 --> 15:19.650
+that are in use.
+
+15:19.850 --> 15:25.700
+And this case it tells us X is a free variable and that's the only one because a you'll notice is not
+
+15:25.700 --> 15:28.010
+a free variable.
+
+15:28.290 --> 15:33.400
+Now we can also call f n double underscore Dondre closure.
+
+15:33.690 --> 15:38.470
+That's kind of an interesting one that's going to give us the following back.
+
+15:38.620 --> 15:42.510
+It's going to give us that this is an object so again it's going to be a tuple because there could be
+
+15:42.510 --> 15:45.150
+more than one free variable in the closure.
+
+15:45.420 --> 15:51.840
+But it's going to contain the tuple this cell object the same cell object we talked about and it's going
+
+15:51.840 --> 15:54.970
+to tell us the cell object is that this memory address.
+
+15:55.230 --> 15:59.790
+And you'll notice that the same memory address as this one here in the diagram.
+
+15:59.790 --> 16:02.180
+And it contains a string object.
+
+16:02.190 --> 16:05.970
+It's pointing to a string object at some other memory address.
+
+16:05.980 --> 16:07.480
+Yes this one over here.
+
+16:07.710 --> 16:08.130
+Right.
+
+16:08.310 --> 16:14.300
+So when you do done the closer it actually tells you exactly what's going on with your free variable.
+
+16:14.400 --> 16:19.400
+And if you have more than one you'll get multiple entries in the tuple.
+
+16:19.480 --> 16:25.160
+Now the one thing I was telling you about this double hop is that you know one of the reasons why you
+
+16:25.160 --> 16:29.750
+don't really have to think about that double hop all the time is because Python takes care of that for
+
+16:29.750 --> 16:30.150
+you.
+
+16:30.320 --> 16:30.880
+Right.
+
+16:30.890 --> 16:34.550
+So when we're in here when we print x.
+
+16:34.700 --> 16:41.090
+Python knows that yeah x is in the cell at a 500 but I need to go and look up the value of f.f.
+
+16:41.090 --> 16:44.590
+One hundred and so it does that automatically we don't have to think about it.
+
+16:44.600 --> 16:47.090
+And so we get Python rocks right.
+
+16:47.480 --> 16:52.910
+But now what's interesting is what about the memory address of x in the outer function and the memory
+
+16:52.910 --> 16:54.550
+address of X and the inner function.
+
+16:54.620 --> 16:56.510
+What are we going to get back.
+
+16:56.510 --> 16:58.260
+Are we going to get back the cell.
+
+16:58.270 --> 17:00.600
+That's technically what X is pointing to.
+
+17:01.010 --> 17:04.880
+Well again Python does kind of some heavy lifting for us.
+
+17:04.910 --> 17:10.100
+Not that we really need to work with memory addresses but still it's useful for debugging purposes to
+
+17:10.100 --> 17:14.760
+know what what you're what object is X pointing to in the double hop.
+
+17:14.870 --> 17:16.820
+So that's what Python gives us back.
+
+17:16.820 --> 17:18.960
+It gives us the indirect reference back.
+
+17:19.190 --> 17:27.790
+So if we print Hecht's of ID of X here we'll get our first 100 which is the the object that contains
+
+17:27.790 --> 17:29.430
+the string Python right.
+
+17:29.440 --> 17:31.010
+This one over here.
+
+17:31.330 --> 17:33.050
+And the same thing inside the inner function.
+
+17:33.060 --> 17:36.840
+It will give us the indirect reference right to the Python object.
+
+17:36.850 --> 17:39.610
+So it's it's kind of hidden from us right.
+
+17:39.610 --> 17:45.190
+It's very opaque that Python is using this intermediary cell but it is doing that.
+
+17:45.210 --> 17:51.840
+Can you should think of it that way and that will help sometimes figure out what's happening with scopes.
+
+17:51.880 --> 17:54.360
+OK how about modifying the free variables.
+
+17:54.550 --> 18:01.120
+Well remember when we did non-local and one of the past videos right we were able to basically change
+
+18:01.420 --> 18:04.150
+the value of the non-local variable count.
+
+18:04.190 --> 18:04.530
+Right.
+
+18:04.540 --> 18:05.630
+In this case.
+
+18:05.720 --> 18:10.720
+So here's a very simple closure but pretty typical of what you might do for closures.
+
+18:10.720 --> 18:12.660
+So here's the count function.
+
+18:12.670 --> 18:16.960
+It creates a local variable called Count that creates a function Inc.
+
+18:16.990 --> 18:17.230
+Right.
+
+18:17.230 --> 18:18.840
+Or defines a function.
+
+18:19.330 --> 18:25.120
+And the function Enke says I'm going to use this variable count and it's going to be non-local when
+
+18:25.120 --> 18:27.630
+counter is called Right.
+
+18:27.670 --> 18:33.880
+What it's called at that time Inc will be created and count will be a non-local variable which means
+
+18:33.880 --> 18:41.240
+that pythoness is going to create a cell and count in counter and count in ink are getting referenced.
+
+18:41.250 --> 18:42.830
+That's right.
+
+18:42.910 --> 18:44.300
+Just as we saw before.
+
+18:44.320 --> 18:50.260
+So the closer the free variable is counts or the closure is ink and count right count the free variable.
+
+18:50.260 --> 18:54.730
+It's bound to the cell count to the cell right.
+
+18:54.730 --> 18:59.740
+Not to the variable count not to the object that count was pointing to that cell because it's a free
+
+18:59.740 --> 19:01.190
+variable enclosure.
+
+19:01.750 --> 19:05.130
+So we call Kelner we get the closure back right.
+
+19:05.170 --> 19:06.460
+We get ink and count.
+
+19:06.460 --> 19:11.960
+So F-in is the closure ink and count which is currently 0.
+
+19:12.430 --> 19:15.040
+So when we call F.M. What do we get back.
+
+19:15.040 --> 19:16.740
+Well initially count as zero.
+
+19:16.780 --> 19:17.050
+Right.
+
+19:17.050 --> 19:23.640
+So when we call think what happens it says count is equal to count plus 1.
+
+19:23.650 --> 19:29.580
+So County 2 1 rights sets of to 1 returns count and we get one back.
+
+19:29.620 --> 19:31.210
+Makes sense right.
+
+19:31.220 --> 19:33.980
+Count indirect reference change from the object 0.
+
+19:34.030 --> 19:41.500
+So the object 1 we call f and again we get to well yeah count was 1 we add 1 to it.
+
+19:41.500 --> 19:42.950
+That's two and then we're right on that.
+
+19:43.000 --> 19:45.400
+We get two back right.
+
+19:46.110 --> 19:46.830
+OK.
+
+19:47.110 --> 19:49.590
+What about multiple instances of closures.
+
+19:49.660 --> 19:56.110
+And that's really again important to understand but if you understand when that cell is created and
+
+19:56.110 --> 19:59.810
+how it's created then this is very easy.
+
+19:59.910 --> 20:02.930
+So every time we run a function a new scope is created.
+
+20:03.000 --> 20:07.930
+So that function generates a closure while a new closure is created every time as well.
+
+20:08.190 --> 20:10.350
+So give an example of what that really means.
+
+20:10.410 --> 20:13.010
+So just going to use the same example as before.
+
+20:13.110 --> 20:13.410
+Right.
+
+20:13.410 --> 20:19.230
+This is our closure and now we're going to call counter and assign it one within a call counter and
+
+20:19.230 --> 20:20.850
+assign it to two.
+
+20:21.440 --> 20:25.500
+OK what happens when we call counter what we call counter.
+
+20:25.530 --> 20:27.840
+It creates at that point the closure.
+
+20:28.050 --> 20:29.520
+Right because we've called countersue.
+
+20:29.640 --> 20:31.270
+So it creates Inc.
+
+20:31.350 --> 20:32.490
+And the closure.
+
+20:32.970 --> 20:39.670
+But now because Count is a free variable count is going to point to some cell some memory address some
+
+20:39.670 --> 20:40.140
+way.
+
+20:40.300 --> 20:40.810
+OK.
+
+20:41.010 --> 20:44.260
+And then we return the closure and assign it to 1.
+
+20:44.280 --> 20:46.250
+Now we call counter again.
+
+20:46.770 --> 20:48.880
+Well this is now different call to counter.
+
+20:48.900 --> 20:52.430
+It has its own local scope and it creates its own closure.
+
+20:52.440 --> 20:58.440
+So guess what the cell that gets created with the free variable count and the second time around.
+
+20:58.710 --> 21:02.800
+Well that cell doesnt have the same memory address as the first time it was created.
+
+21:02.880 --> 21:03.240
+Right.
+
+21:03.240 --> 21:11.160
+Theres no reason why it should have so we have two different closures that don't have a shared scope.
+
+21:11.160 --> 21:11.540
+Right.
+
+21:11.550 --> 21:17.990
+The though that cell that's being used for Count has a different memory address with EF 1 and EF 2.
+
+21:18.000 --> 21:24.030
+And in fact if you do EF 1 Dunder closure for EF 1 and EF 2 you'll see that it doesn't.
+
+21:24.030 --> 21:30.870
+The cell doesn't live in the same memory address even though you might notice the value that both cells
+
+21:30.870 --> 21:32.180
+point to is the same.
+
+21:32.250 --> 21:32.540
+Right.
+
+21:32.550 --> 21:37.080
+Because remember that zero is just going to be a singleton object if you don't remember that.
+
+21:37.080 --> 21:44.340
+Go back to some of the earlier videos that we had on integers and how some of them are stored in pre-built
+
+21:44.370 --> 21:47.650
+into memory as Singleton objects.
+
+21:48.210 --> 21:51.600
+OK so when we call EF 1 what happens while we get one right.
+
+21:51.600 --> 21:56.120
+Same thing as before we call EF 1 again we get two and then again we get three and so on.
+
+21:56.400 --> 22:02.310
+What happens when we call ef to it's its own closure at this point we call f 2.
+
+22:02.340 --> 22:06.110
+What's the value for count 0.
+
+22:06.180 --> 22:06.770
+Right.
+
+22:06.870 --> 22:09.910
+We call f to count is currently zero.
+
+22:10.040 --> 22:10.260
+Right.
+
+22:10.270 --> 22:11.350
+It's a different scope.
+
+22:11.610 --> 22:13.230
+And then it adds one to it.
+
+22:13.230 --> 22:14.750
+So it's going to return one.
+
+22:15.120 --> 22:16.090
+All right.
+
+22:16.350 --> 22:21.930
+So EF 1 an EF 2 do not have the same extended scope that different instances of the closure because
+
+22:21.930 --> 22:25.140
+they were created inside different scopes right.
+
+22:25.140 --> 22:30.780
+Every time we call a function a new scope is created and if the closure is Creadon that new scope but
+
+22:30.810 --> 22:38.370
+obviously the closures can have the same scope and thats because the cells are different are created
+
+22:38.370 --> 22:43.030
+differently from one call to the next.
+
+22:43.050 --> 22:45.750
+So can we share extended scopes.
+
+22:45.870 --> 22:50.180
+And the answer to that is yes lets see how we might do something like that.
+
+22:50.310 --> 22:55.380
+So its OK we've got this out of function and we have a local variable count and then we create this
+
+22:55.380 --> 22:59.540
+function called Ink 1 which references count as non-local.
+
+22:59.640 --> 23:01.060
+So thats a closure right.
+
+23:01.080 --> 23:02.170
+So right away we know.
+
+23:02.240 --> 23:08.920
+And one is a closure count here and count there have the same cell reference right there reference the
+
+23:08.930 --> 23:09.960
+same cell.
+
+23:10.460 --> 23:17.720
+So count the free variable and its bound to count in the extended scope but Inc 2 does the same thing
+
+23:17.730 --> 23:23.830
+so it also is a closure and its count is the same as the count that's out here.
+
+23:24.000 --> 23:30.540
+In other words what's happening is that this count is pointing to the same cell as this count and this
+
+23:30.540 --> 23:35.020
+count points to the same cell so all three counts are pointing to the same cell.
+
+23:35.250 --> 23:41.430
+So you can see that count inside the first closure and count inside that second closure all the same
+
+23:41.510 --> 23:41.750
+right.
+
+23:41.760 --> 23:42.720
+It's the same count.
+
+23:42.720 --> 23:45.160
+So we have a shared scope right there.
+
+23:45.390 --> 23:45.680
+Right.
+
+23:45.690 --> 23:53.550
+Or count is shared between multiple scopes not just our it's shared between these two closures as well.
+
+23:53.880 --> 23:56.180
+And now we can return the two closures in a tuple.
+
+23:56.250 --> 24:03.300
+So if we do that then we can assign we can call out and unpack the tuple into the labels.
+
+24:03.300 --> 24:09.570
+EF 1 an EF 2 if one is going to be the closure Enke one and count and EF 2 is going to be the closure
+
+24:09.630 --> 24:16.960
+end to and count but the count is going to be the same between the two offical EF 1 we get 1 for call
+
+24:16.960 --> 24:17.820
+EF 2.
+
+24:17.880 --> 24:18.940
+What do we get.
+
+24:19.200 --> 24:20.860
+Well it's the same count right.
+
+24:20.910 --> 24:29.910
+So when EF 1 is finished running what's County equal to 1 when we call EF 2 at that point when we call
+
+24:29.910 --> 24:31.920
+EF 2 we're calling Inc 2.
+
+24:32.220 --> 24:37.950
+At that point when we say count equals count plus one Python goes and says All I need to look up the
+
+24:37.950 --> 24:39.050
+value for count.
+
+24:39.060 --> 24:42.810
+So remember I I was harping upon that right in the beginning.
+
+24:42.930 --> 24:50.300
+You've got to understand when is the closure created versus when are the free variables evaluated.
+
+24:50.370 --> 24:50.900
+Right.
+
+24:50.940 --> 24:56.810
+The closure is created when the function is created that's when Python decides it's a closure.
+
+24:56.850 --> 24:58.110
+It's going to use that cell.
+
+24:58.140 --> 25:04.200
+You know it's going to do the double hop eventually but it doesn't actually evaluate the value of the
+
+25:04.200 --> 25:08.480
+free variable until you call the function in that closure at that point.
+
+25:08.580 --> 25:11.590
+It runs the function and then it needs to evaluate count.
+
+25:11.610 --> 25:12.770
+In this case.
+
+25:12.770 --> 25:18.270
+So when EF 2 is called then it needs to go evaluate count what counts already 1.
+
+25:18.270 --> 25:23.670
+So it's going to add 1 to 1 that's going to be to assign it to count and then return count which is
+
+25:23.730 --> 25:24.470
+2.
+
+25:24.870 --> 25:27.900
+So when we call if we actually get 2 back.
+
+25:27.900 --> 25:33.690
+So that's an example of how you can share the extended scope between two different closures.
+
+25:33.690 --> 25:37.860
+Those are two different poses but they have a shared free variable.
+
+25:38.040 --> 25:42.300
+So you might think that well this is kind of highly unusual right.
+
+25:42.300 --> 25:44.600
+I mean how often are you going to do something like that.
+
+25:44.610 --> 25:46.190
+Probably not that often.
+
+25:46.650 --> 25:51.260
+Well it's actually it actually happens a lot more than you might think.
+
+25:51.270 --> 25:54.580
+And it happens by mistake and I think that's the main thing.
+
+25:54.630 --> 25:58.440
+That's why I want to point it out because it's very easy to fall into a trap here.
+
+25:58.740 --> 26:00.700
+Let me show you what I mean.
+
+26:00.850 --> 26:03.360
+That's what we want to create this function.
+
+26:03.710 --> 26:10.210
+So it is going to take a parameter n and it's going to define inside another function inner.
+
+26:10.340 --> 26:14.960
+That itself takes another parameter x and it's going to return x plus n.
+
+26:15.080 --> 26:20.980
+So essentially I'm adding two values together but I'm using closer or closer to do that.
+
+26:21.180 --> 26:21.790
+OK.
+
+26:23.000 --> 26:24.640
+So what's the closure.
+
+26:24.740 --> 26:27.980
+Well in this case the closure is inner and end.
+
+26:28.070 --> 26:28.370
+Right.
+
+26:28.370 --> 26:30.300
+Because and is being referenced.
+
+26:30.530 --> 26:31.980
+But it's the one that's in Adam.
+
+26:32.120 --> 26:36.810
+So the closure is inner and this and this and point to the same cell.
+
+26:37.030 --> 26:37.510
+OK.
+
+26:38.360 --> 26:40.890
+So now I can call out a with a value of 1.
+
+26:40.940 --> 26:46.520
+So this is going to give me a closure which is going to be this in a function with and pointing to some
+
+26:46.520 --> 26:52.550
+cell that currently points to the value one I can call at or Again it's going to return another function
+
+26:52.680 --> 26:53.360
+in age.
+
+26:53.570 --> 26:54.020
+Right.
+
+26:54.200 --> 26:59.450
+But this time it's going to point to another cell that is itself going to point to some object that
+
+26:59.450 --> 27:03.800
+contains the integer 2 and then the same thing with three.
+
+27:03.800 --> 27:09.860
+So in fact when we call add 1 it's going to add 1 to whatever we pass in as the parameter for ADD 1
+
+27:09.860 --> 27:11.560
+because remember add 1 is just in it.
+
+27:11.690 --> 27:14.540
+So it expects one parameter as well.
+
+27:14.690 --> 27:15.980
+Right.
+
+27:16.190 --> 27:19.270
+The point though is that those are three different closures no shared scopes.
+
+27:19.280 --> 27:23.510
+They were created from different calls to the function different scopes.
+
+27:23.530 --> 27:25.600
+There are four different closures.
+
+27:26.180 --> 27:28.480
+So we will add one on ten right.
+
+27:28.490 --> 27:34.970
+X is now 10 and it's going to say OK we'll add one X closer the value for N What is it.
+
+27:35.000 --> 27:35.550
+Oh it's one.
+
+27:35.550 --> 27:35.770
+OK.
+
+27:35.780 --> 27:37.220
+And want to add in return.
+
+27:37.280 --> 27:43.370
+We get 11 when we call add 2 on 10 that says OK what's add 2.
+
+27:43.380 --> 27:49.780
+Well it's the closure and right in there with an equal to 2 different cell and it's references to.
+
+27:49.820 --> 27:53.710
+OK I'm going to add 2 to X and returns there for 12.
+
+27:53.810 --> 27:57.800
+And the same thing with ADD three returns the team.
+
+27:57.890 --> 28:00.450
+So so far no shift scopes right.
+
+28:00.510 --> 28:01.740
+Good.
+
+28:01.790 --> 28:07.210
+The only thing is though as soon as you start writing code like this add one and two and three you notice
+
+28:07.220 --> 28:08.530
+it's so repetitive.
+
+28:09.510 --> 28:11.480
+Immediately we think of loops right.
+
+28:11.500 --> 28:16.260
+We think well I don't want to write the same thing more than once so I'm going to write a loop in this
+
+28:16.260 --> 28:22.290
+case I probably wouldn't for three three times the same thing and it's such easy code but you may have
+
+28:22.290 --> 28:24.540
+more than that or you may have something more complicated.
+
+28:24.540 --> 28:26.600
+It's like I'm going to write it in a loop.
+
+28:26.720 --> 28:28.050
+OK fair enough.
+
+28:28.260 --> 28:30.250
+So we can do that.
+
+28:30.570 --> 28:33.370
+But there's a caveat I'd say we tried it this way.
+
+28:33.780 --> 28:37.920
+So I'm going to create this empty list adder's and essentially add it is going to contain my closures
+
+28:37.920 --> 28:40.830
+and I'm going to build those corridors inside a loop.
+
+28:41.040 --> 28:43.840
+I'm going to create a loop for n in range 1 through 4.
+
+28:43.890 --> 28:45.700
+So it's going to go 1 2 and 3 right.
+
+28:45.730 --> 28:51.900
+And this is going to start at 1 and then the next iteration and will become two and then and will become
+
+28:51.900 --> 28:52.760
+three.
+
+28:52.770 --> 28:54.960
+You'll notice I'm saying and will become.
+
+28:55.110 --> 29:01.320
+It's not creating a new and every time this iteration runs right every iteration is still the same variable
+
+29:01.380 --> 29:07.000
+and it's the same label n it just that it's going to point to different values 1 2 and 3.
+
+29:07.110 --> 29:07.390
+Right.
+
+29:07.410 --> 29:09.530
+But it's still the same label and.
+
+29:10.150 --> 29:10.670
+OK.
+
+29:10.710 --> 29:14.320
+So now we still need to create the adder function.
+
+29:14.520 --> 29:19.440
+So we're going to use a lambda expression and what is the lambda do while it's going to take in a single
+
+29:19.440 --> 29:21.020
+parameter x just like that.
+
+29:21.030 --> 29:23.520
+And you know that increment function did.
+
+29:23.520 --> 29:30.780
+And we're going to return x plus n now n is not defined as a parameter for lambda.
+
+29:30.930 --> 29:33.090
+So and is a free variable.
+
+29:33.180 --> 29:35.840
+We've just created a closure.
+
+29:36.750 --> 29:41.020
+And what do we do with an appended to the Adders array to the Adams list.
+
+29:41.130 --> 29:42.330
+Now a side note.
+
+29:43.670 --> 29:50.590
+There's a misconception that lambda expressions are the same thing as closures the not lambda expressions
+
+29:50.600 --> 29:52.010
+just create functions.
+
+29:52.010 --> 29:59.810
+A function is a function a function only becomes a closure if it has a free variable lambda expressions
+
+30:00.050 --> 30:00.920
+of functions.
+
+30:00.920 --> 30:02.700
+They don't have to have a free variable.
+
+30:02.810 --> 30:04.020
+They don't have a free variable.
+
+30:04.040 --> 30:05.260
+Then all the closer.
+
+30:05.270 --> 30:05.690
+Right.
+
+30:05.840 --> 30:11.500
+So the thing is that we often create closures using lambdas like in this example here.
+
+30:11.690 --> 30:18.020
+And so very often we are lambdas and closures are introduced at the same time but they have nothing
+
+30:18.020 --> 30:24.970
+to do right write a lambda is not necessarily a closure and a closure is not necessarily a lambda closure
+
+30:24.980 --> 30:26.740
+just means this expanded scope right.
+
+30:26.770 --> 30:28.710
+The concept we talked about.
+
+30:29.280 --> 30:35.360
+OK so what's happening here when the free variable is and what end is this.
+
+30:35.390 --> 30:40.940
+While it's obviously not the end inside the scope of love that Lambro function because it wasn't defined
+
+30:40.940 --> 30:42.290
+in there right.
+
+30:42.410 --> 30:46.330
+So it has to be from the outer scope which outer scope is that.
+
+30:46.370 --> 30:47.920
+Well this one out here.
+
+30:48.110 --> 30:52.520
+So it's this label n so this n and this and mean the same thing.
+
+30:52.850 --> 30:58.790
+So what happens Lascelle now is created and this end points to that cell and that end points to the
+
+30:58.790 --> 31:03.940
+same cell and that cell currently points to the value and equals one.
+
+31:03.980 --> 31:05.950
+When we have our first iteration.
+
+31:06.050 --> 31:11.210
+So when N equals 1 the free variable in the lambdas and it's bound to the end that we created in the
+
+31:11.210 --> 31:12.440
+loop essentially.
+
+31:12.500 --> 31:16.400
+Right now when we run unequals to what happens.
+
+31:16.610 --> 31:20.020
+Well again we create another closure right.
+
+31:20.030 --> 31:22.850
+X plus end equals to now.
+
+31:22.910 --> 31:24.490
+But what does that mean.
+
+31:24.500 --> 31:30.210
+It means that remember n is going to point to the same cell as the end in the loop.
+
+31:30.530 --> 31:38.460
+Right and then it's going to set that an equal to two right because an equals two.
+
+31:38.480 --> 31:44.700
+So what's happening is that it's bound to the same end we traded in the loop but any equals to now right.
+
+31:44.720 --> 31:52.260
+We set n equal to 2 in the outside scope but all it does remember is that it changes the indirect value.
+
+31:52.340 --> 31:59.210
+The direct value of the direct pointer of this and this and that was created in these two different
+
+31:59.210 --> 32:01.880
+loops is all pointing to the same cell.
+
+32:03.350 --> 32:07.790
+And if you do that again third time same thing happens it's bound to the same end.
+
+32:08.070 --> 32:09.910
+Which means it's bound to the same cell.
+
+32:09.930 --> 32:16.620
+But now the cell is pointing to a new value and equals three because we changed the value of n in the
+
+32:16.620 --> 32:21.620
+outside right in the external scope in the in the enclosing scope to 3.
+
+32:21.630 --> 32:28.740
+So now we have three levels three closures that each have this free variable and that are all pointing
+
+32:28.890 --> 32:34.080
+to the same cell and the end in the for loop is also pointing to the same cell.
+
+32:35.670 --> 32:38.630
+So now you can hopefully see the problem right.
+
+32:38.640 --> 32:41.090
+I can call the closures this way right.
+
+32:41.100 --> 32:46.050
+I've got my three closures and the arrows when we call the last one we get 13 back 10 plus three that's
+
+32:46.050 --> 32:47.340
+what we expected.
+
+32:47.340 --> 32:50.990
+But if we call the first one back we also get 14 y.
+
+32:51.230 --> 32:51.800
+Wow.
+
+32:51.840 --> 32:53.380
+And was changed to three.
+
+32:53.460 --> 32:55.150
+And the very last iteration.
+
+32:55.470 --> 33:02.820
+So now all the ends are pointing to one cell that points to three now because we changed it to three.
+
+33:02.910 --> 33:04.510
+When the last iteration ran.
+
+33:04.680 --> 33:07.310
+And remember when does end get evaluated.
+
+33:07.320 --> 33:15.400
+And I keep going back to that because it's important that N gets evaluated when the closure is called.
+
+33:15.420 --> 33:20.930
+So when we call as 0 on 10 at that point Python says OK what's.
+
+33:21.040 --> 33:24.450
+And I need to know what N is O N is an indirect thing.
+
+33:24.480 --> 33:25.330
+Go to the cell.
+
+33:25.350 --> 33:26.760
+So points to three.
+
+33:26.760 --> 33:27.760
+OK it's three.
+
+33:27.850 --> 33:32.580
+Return time plus three it returns the team and you get the same thing if you add one.
+
+33:32.860 --> 33:33.220
+Right.
+
+33:33.390 --> 33:37.640
+So I've seen this problem come up again and again in various discussions online.
+
+33:37.860 --> 33:42.900
+And this is why it's because of that seldom gets used when you have a closure.
+
+33:43.080 --> 33:43.380
+Right.
+
+33:43.380 --> 33:47.680
+And in this case we're sharing it with this and out here which is the same.
+
+33:47.700 --> 33:51.130
+And so it's a shame these free variables are sharing.
+
+33:51.230 --> 33:51.530
+Right.
+
+33:51.540 --> 33:52.930
+The same cell.
+
+33:53.550 --> 33:57.450
+So not uncommon to get into situations like that.
+
+33:59.620 --> 34:04.660
+All right the last thing I want to talk about are nested closures.
+
+34:04.670 --> 34:07.210
+We can nest closures we can nest functions right.
+
+34:07.210 --> 34:07.700
+You can.
+
+34:07.730 --> 34:13.520
+We saw that we had one level of nesting outer and inner But you can nest multiple levels.
+
+34:13.550 --> 34:15.400
+So let's see what I mean by that.
+
+34:15.440 --> 34:17.260
+Let's say we have this incremental function.
+
+34:17.360 --> 34:23.330
+And basically I want to kind of expand on the increment closure that we had where Remember the count
+
+34:23.330 --> 34:28.160
+was just set to zero inside the counter of the outer function.
+
+34:28.160 --> 34:28.420
+Right.
+
+34:28.430 --> 34:30.960
+And then the increment function just added 1 to it.
+
+34:31.160 --> 34:36.440
+So what I want to do is I want to be able to set the start value and the step value for something like
+
+34:36.440 --> 34:37.010
+this.
+
+34:37.010 --> 34:39.670
+So a very simple way of doing it might be this.
+
+34:39.740 --> 34:45.650
+And here we're going to define this increment and the incremental is going to take in the step that
+
+34:45.740 --> 34:47.850
+so end is going to be the step.
+
+34:48.020 --> 34:49.390
+And what does incremental do.
+
+34:49.460 --> 34:51.120
+It defines inner.
+
+34:51.340 --> 34:54.630
+That itself takes in a parameter stumped.
+
+34:54.790 --> 34:55.130
+Okay.
+
+34:55.160 --> 35:01.750
+So end is local to incremented stuff is local to and here I said current equal to stuff that's just
+
+35:01.750 --> 35:03.480
+because I want to rename that label.
+
+35:03.520 --> 35:09.430
+So just to keep it more consistent with this to forward to make more sense inside the not nested function
+
+35:09.460 --> 35:11.250
+below.
+
+35:11.370 --> 35:15.140
+And the next thing that I do inside in air is I create another function right.
+
+35:15.180 --> 35:21.930
+So you see now with two levels deep and I say non-local current or which current is that while it's
+
+35:21.930 --> 35:22.990
+this one over here.
+
+35:23.100 --> 35:23.610
+Right.
+
+35:23.610 --> 35:32.560
+So Inc has a free variable current then I say current equals current plus and I haven't assigned N..
+
+35:32.640 --> 35:38.850
+So Python looks at that and says well that's non-local and therefore this is a free variable as well.
+
+35:39.150 --> 35:41.030
+So if you look at Inc.
+
+35:41.140 --> 35:41.770
+Right.
+
+35:41.880 --> 35:48.120
+The closure is ink with current and N that's the closure current lives here.
+
+35:48.180 --> 35:55.110
+And where does any live and doesn't live in NF and is actually lives in incrementals that's where it
+
+35:55.110 --> 35:56.010
+was defined.
+
+35:56.040 --> 35:57.890
+It was the parameter to increment.
+
+35:58.020 --> 36:05.760
+So this n and this n share the same cell and this current And this current share the same cell right
+
+36:06.640 --> 36:09.460
+should be pretty straightforward to understand what's going on.
+
+36:11.340 --> 36:14.470
+So now let's look at what happens when we call incremental.
+
+36:14.480 --> 36:20.830
+We give it a value of two while we've just called increment for what is going to return.
+
+36:20.880 --> 36:26.760
+It's going to return that inner closure right that inner function with the closure.
+
+36:27.010 --> 36:30.350
+But what's the closure of pinners while it's ignorant.
+
+36:30.380 --> 36:31.320
+M right.
+
+36:31.350 --> 36:37.260
+So if you look at the freezer free variables the free vars in Python it will give you a tuple of a single
+
+36:37.260 --> 36:38.260
+element.
+
+36:38.660 --> 36:46.400
+And the current value of N is to so now F-in is itself a function that we can call in a function.
+
+36:46.480 --> 36:49.920
+So we can call it a start value let's say 100.
+
+36:49.960 --> 36:50.530
+Right.
+
+36:50.740 --> 36:52.100
+So what happens here.
+
+36:52.150 --> 36:54.060
+Well it's going to return Inc.
+
+36:54.070 --> 36:57.940
+Right so it's going to return another function another closure.
+
+36:58.180 --> 36:59.460
+What is the closure.
+
+36:59.740 --> 37:02.760
+Well the closure is current and N.
+
+37:02.950 --> 37:03.880
+Right.
+
+37:03.880 --> 37:09.410
+Because we're referencing current and m so the free vars will tell you it's current and not.
+
+37:09.430 --> 37:15.310
+You'll notice that in there right or the end of closure included.
+
+37:15.340 --> 37:20.570
+And even though we didn't reference and directly inside there was still reference to it within an hour.
+
+37:20.590 --> 37:26.980
+But inside another function that's still inside the inner function so end is still you know a free variable
+
+37:26.980 --> 37:27.610
+in it.
+
+37:27.670 --> 37:32.980
+Even though it's not used directly in the body of inner it's used indirectly inside this.
+
+37:32.980 --> 37:34.510
+Nested closures.
+
+37:35.460 --> 37:36.490
+But it's still there.
+
+37:36.720 --> 37:38.010
+Right.
+
+37:38.010 --> 37:40.890
+So currently current is 100 and is equal to 2.
+
+37:40.890 --> 37:46.970
+So if you go back to what happens well current is 100 and equal to what is it going to do.
+
+37:47.010 --> 37:49.460
+It's going to add two to it and return it.
+
+37:49.500 --> 37:51.060
+So it's going to return.
+
+37:51.090 --> 37:51.880
+It's going to call.
+
+37:51.900 --> 37:57.580
+And it's going to turn 102 and then current will now be 102 and stays at two.
+
+37:57.790 --> 38:06.800
+And if you call again you'll get 104 current will be 104 and will be called to so nested closures is
+
+38:06.800 --> 38:08.090
+actually pretty common.
+
+38:08.090 --> 38:12.870
+It's something that we'll see when we get to decorator's later on in the section.
+
+38:12.890 --> 38:16.510
+We'll start with simpler decorator's that don't require nested functions.
+
+38:16.550 --> 38:23.600
+They do require closures but we'll see where we might start requiring nested closures in order to do
+
+38:23.600 --> 38:25.670
+certain types of decorators.
+
+38:25.670 --> 38:26.190
+All right.
+
+38:26.210 --> 38:27.590
+So thanks for watching.
+
+38:27.590 --> 38:28.790
+It's an important topic.
+
+38:28.790 --> 38:29.790
+It's been long.
+
+38:29.840 --> 38:32.910
+Take a break and come back and we'll dive into the code.
+
+38:32.960 --> 38:34.040
+So thanks for watching.
+
+38:34.040 --> 38:35.020
+I'll see you in a bit.

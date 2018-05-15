@@ -1,0 +1,1198 @@
+WEBVTT
+
+00:00.390 --> 00:05.590
+High in this video we're going to look at something called named topples.
+
+00:05.600 --> 00:11.240
+So first let's remember that we've been considering topples as a data structure and we've seen how we
+
+00:11.240 --> 00:18.320
+interpreted table as data structures essentially by letting the position of the elements in that container
+
+00:18.680 --> 00:20.540
+give it meaning.
+
+00:20.540 --> 00:28.040
+So for example we could represent 2D coordinates as 10 comma 20 and by convention we said OK the first
+
+00:28.100 --> 00:30.700
+item in the top all will be the x coordinate.
+
+00:30.710 --> 00:33.800
+The second item will be the y coordinates.
+
+00:33.800 --> 00:39.910
+So if point is a position Tapazole we can retrieve the x and y coordinates using for example trouble
+
+00:39.950 --> 00:45.590
+unpacking X come a y equals P T that will unpack the 10 into X and 20 into y.
+
+00:45.770 --> 00:51.260
+We can also just access them directly this way X equals P T and use indexing to reach into the table
+
+00:51.290 --> 00:54.830
+and grab the first element and then grab the second element.
+
+00:54.830 --> 01:00.530
+So for example if we wanted to calculate the distance of this point from the origin right that would
+
+01:00.530 --> 01:06.800
+be the square root of the x component squared plus the y component squared.
+
+01:06.860 --> 01:14.070
+So we'd have to write something like this math dot s q r t point zero squared plus point 1 squared.
+
+01:14.510 --> 01:20.120
+So this isn't very readable and if someone sees the code they're going to have to know ahead of time
+
+01:20.150 --> 01:27.040
+that Petey's 0 means the x coordinate and Peetie Y means the y coordinates so this isn't very transparent.
+
+01:27.080 --> 01:32.360
+So we may be thinking that to make this clearer to the reader we should use a class.
+
+01:32.360 --> 01:35.000
+Now obviously we're not trying to clarify this to the compiler.
+
+01:35.000 --> 01:36.470
+The compiler doesn't care.
+
+01:36.470 --> 01:41.900
+Remember that very often we want the code to be readable by human beings by other developers or even
+
+01:41.900 --> 01:43.490
+ourselves six months later.
+
+01:43.820 --> 01:46.980
+So we might want to approach this using a class instead.
+
+01:47.150 --> 01:48.760
+So we might try something like this.
+
+01:48.770 --> 01:55.820
+Class point to d death on Dunder Inet Celcom X come y self-doubt as we set up the two properties X and
+
+01:55.820 --> 02:00.020
+Y we usually give the same name for the parameters.
+
+02:00.020 --> 02:05.450
+That way when we actually instantiate the class we can also use keyword arguments to instantiate the
+
+02:05.450 --> 02:06.200
+class and so on.
+
+02:06.200 --> 02:11.720
+So we might do something like that which means now we can create a point by just saying point to the
+
+02:11.780 --> 02:19.100
+10 comma 20 or we could say point to the 10 comma Weigelt 20 and then for the distance.
+
+02:19.110 --> 02:24.040
+Well that's more readable not makes more sense to a human being reading our code.
+
+02:24.090 --> 02:29.370
+We say that distance is the square root of pizzicato x squared plus Y squared.
+
+02:29.520 --> 02:35.470
+That's a lot more readable and understandable than using the positional indices 0 1 1 for a point.
+
+02:35.550 --> 02:41.610
+I think that's probably acceptable but let's say that we have this class we have class stock and this
+
+02:41.610 --> 02:45.050
+has Simbel year month day open high low close.
+
+02:45.060 --> 02:47.640
+And then we set up all our properties this way.
+
+02:47.910 --> 02:51.930
+And you might actually run across Python code that does exactly this.
+
+02:51.930 --> 02:54.220
+And that's all the class does.
+
+02:54.240 --> 03:00.570
+Maybe it has a few other things like your done the repr for the representation maybe a dozen recalls
+
+03:00.600 --> 03:06.240
+because you want to be able to compare two different instances of the same point and see if they're
+
+03:06.300 --> 03:12.210
+equal using the equals equals equality and you check to see that the are the x and y coordinates are
+
+03:12.210 --> 03:13.950
+equal.
+
+03:13.950 --> 03:17.790
+If you find yourself doing stuff like this take a step back.
+
+03:17.850 --> 03:22.330
+You really do not need to define your own classes to do this.
+
+03:22.340 --> 03:27.020
+It is a much better approach to doing that Python of course batteries included.
+
+03:27.060 --> 03:28.130
+There's got to be a better way.
+
+03:28.290 --> 03:33.570
+So using a class approach it's a little simpler because in order to get let's say I have an instance
+
+03:33.570 --> 03:39.990
+of stock which is the Dow Jones and I can retrieve the symbol for that particular stock by just saying
+
+03:39.990 --> 03:46.430
+dot symbol for the tuple I'd have to say the Dow Jones and then index 0 because this is a tuple.
+
+03:46.440 --> 03:51.880
+If I use a tuple as a data structure I have to now know what index value I'm looking for.
+
+03:52.080 --> 03:58.500
+Sampling with open the open which is the 0 1 2 3 4 index 4.
+
+03:58.530 --> 04:04.110
+Therefore I'd have to index that for the close while the causes that last one over here which would
+
+04:04.110 --> 04:08.330
+be 0 1 2 3 4 5 6 7 8 7.
+
+04:08.850 --> 04:11.460
+So again this is more opaque to the user.
+
+04:11.520 --> 04:17.160
+They would have to every time go back and think OK what is the you know what is the value stored at
+
+04:17.160 --> 04:22.280
+index for IDEs the open get lot more difficult to read code that way.
+
+04:22.380 --> 04:26.980
+In fact also look at how I calculate the difference between the high and the low.
+
+04:27.300 --> 04:33.270
+Well I just have to say Dow Jones Dornheim mine is Dow Jones Dattilo that will give me that spread if
+
+04:33.270 --> 04:34.390
+I have the tuple approach.
+
+04:34.410 --> 04:36.340
+I have to write something like this.
+
+04:36.390 --> 04:38.770
+This is not self-documenting code.
+
+04:38.820 --> 04:40.620
+The use is going to have to go figure outside.
+
+04:40.690 --> 04:44.540
+OK so 5 is high six is low.
+
+04:44.580 --> 04:47.020
+That's what that that's what's going on here.
+
+04:47.400 --> 04:54.870
+So the class approach has some distinct advantages in terms of readability but this extra stuff that
+
+04:54.870 --> 04:59.940
+we really need to provide to that class at the very least we should you know implement the Dunder wrap
+
+05:00.060 --> 05:04.680
+method so that we get this nice output of your point.
+
+05:04.740 --> 05:06.460
+I'm just using our point as our example.
+
+05:06.540 --> 05:09.570
+So we'd have to implement the Dunder repr method.
+
+05:09.570 --> 05:14.340
+The other thing too is that we should probably implement that done requires method as well because we
+
+05:14.340 --> 05:17.630
+want this to evaluate to true if we have two different points.
+
+05:17.670 --> 05:20.330
+Two different objects two different IDs.
+
+05:20.340 --> 05:23.460
+Obviously this point is not this point.
+
+05:23.460 --> 05:29.580
+However in terms of using the double equality then we actually want this to return true because they
+
+05:29.580 --> 05:31.550
+have the same coordinates.
+
+05:31.560 --> 05:32.670
+That doesn't come for free.
+
+05:32.670 --> 05:35.270
+We have to implement that ourselves in the class.
+
+05:35.310 --> 05:38.150
+So now we have this code for our class.
+
+05:38.160 --> 05:42.840
+We started with something that was pretty straightforward just two properties and now all of a sudden
+
+05:42.870 --> 05:46.240
+we have to add more things in there.
+
+05:46.260 --> 05:50.870
+There are other reasons to seek another approach and I'll cover some of those in the coding video.
+
+05:51.210 --> 05:56.550
+But amongst other things one thing that's important to note with this point to the class that we just
+
+05:56.670 --> 06:02.030
+created is that point to the objects are actually mutable which may not be something we want.
+
+06:02.030 --> 06:09.150
+We may want to keep our points immutable now tuples are immutable but that class is not right or the
+
+06:09.150 --> 06:11.290
+class instances are not.
+
+06:11.340 --> 06:15.720
+So there's a lot to like using tables to represent simple data structures.
+
+06:15.720 --> 06:19.700
+The real drawback is that we have to know what the positions mean.
+
+06:19.830 --> 06:22.850
+And we have to remember this in our code and other people reading our code.
+
+06:22.850 --> 06:28.860
+It may not be that transparent and if we ever need to change the structure of our table in our code.
+
+06:28.890 --> 06:32.720
+For example let's say we forgot to add a value to the table.
+
+06:32.730 --> 06:34.500
+It's very easy to break out code.
+
+06:34.500 --> 06:36.320
+Let's see what I mean by that.
+
+06:36.870 --> 06:41.090
+Let's say I start off and I have this you know Eric equals idle comma 42.
+
+06:41.160 --> 06:45.760
+So that's you know a person and I've got the last name and the age.
+
+06:45.990 --> 06:50.080
+And so now I can unpack it using a last name comma age equals Eric.
+
+06:50.280 --> 06:56.410
+Now I go back and so let's say that this is at the top of my you know function or something or it's
+
+06:56.470 --> 07:02.630
+maybe you know somewhere in a in a variable and then this happens later on you know there's no.
+
+07:02.850 --> 07:04.740
+I have no separation between the two lines of code.
+
+07:04.740 --> 07:07.190
+Imagine that you've got a ton of separation between them.
+
+07:07.260 --> 07:11.730
+This might actually be in a function that receives this as a parameter.
+
+07:11.730 --> 07:16.110
+Now the problem is that I go back and I say oh wait a minute I forgot the first name.
+
+07:16.140 --> 07:19.050
+So I go back and I change my top all in my code.
+
+07:19.050 --> 07:19.360
+Right.
+
+07:19.370 --> 07:21.210
+I mean I'm not changing this at runtime.
+
+07:21.210 --> 07:23.510
+Once the code runs the table is immutable.
+
+07:23.520 --> 07:24.710
+But this is just code.
+
+07:24.720 --> 07:26.000
+This is a text file.
+
+07:26.010 --> 07:28.220
+So I add in Eric.
+
+07:28.290 --> 07:34.820
+Now the problem is that every time I do this unpacking things broke because now this is this is broken.
+
+07:34.830 --> 07:36.900
+This is not going to work anymore.
+
+07:36.900 --> 07:40.190
+First of all we're only unpacking two values and there are three.
+
+07:40.440 --> 07:43.440
+And even if that worked there's still going to be a problem.
+
+07:43.440 --> 07:46.090
+Eric is going to go into last name right there.
+
+07:46.110 --> 07:47.560
+That's not going to be correct.
+
+07:47.580 --> 07:48.870
+Anyway it's not going to work.
+
+07:49.020 --> 07:50.490
+So that's broken.
+
+07:50.520 --> 07:55.800
+Now if we had to use the class approach then we would all probably have in our code things like last
+
+07:55.800 --> 07:59.770
+name equals Eric dot last name and age equals Eric dot age.
+
+07:59.910 --> 08:05.130
+So that's another thing to like about classes versus Stupples it it's that the code is a little bit
+
+08:05.160 --> 08:13.520
+more robust so what if we could combine kind of these two approaches essentially creating couples where
+
+08:13.520 --> 08:20.590
+we can in addition to having the positional you know meaning assigned names to the positions so that
+
+08:20.600 --> 08:23.760
+now we have meaningful names against each position.
+
+08:24.470 --> 08:27.740
+And that's exactly what named topples do.
+
+08:27.830 --> 08:34.730
+So they subclass topple so named topples all subclasses of toppled they inherit from topples So they
+
+08:34.820 --> 08:36.380
+are topples.
+
+08:36.380 --> 08:43.460
+But this named topples thing adds a layer of property names to the positional elements.
+
+08:43.480 --> 08:45.250
+Non-name table is not a type.
+
+08:45.260 --> 08:49.640
+It's located in the collection's standard library module but named topples.
+
+08:49.640 --> 08:55.070
+So we would use it this way would have to say from collections import topple but name topple is a function.
+
+08:55.100 --> 08:57.350
+It is not a type.
+
+08:57.350 --> 09:03.990
+It is a function though that generates new classes it generates classes it generates new types.
+
+09:04.040 --> 09:07.110
+It is a class factory.
+
+09:07.350 --> 09:13.320
+So the classes that are generated by calling them will inherit from topple.
+
+09:13.410 --> 09:18.480
+So Trouble is not a class that inherits from topple name topple is a function that generates a class
+
+09:18.960 --> 09:21.690
+that generate a class inherits from topple.
+
+09:22.050 --> 09:26.220
+And it also provides name properties to access the elements of the top.
+
+09:26.790 --> 09:29.310
+But the instance of that class is a topple.
+
+09:29.700 --> 09:32.080
+And it would become clear now.
+
+09:32.670 --> 09:36.480
+So just remember name topple is a class factory.
+
+09:36.480 --> 09:42.270
+When we use it we're creating a new class just as if we had used that class keyword ourselves aka we
+
+09:42.270 --> 09:51.270
+said Class point to the name top all essentially does that but for us so it needs a few things to generate
+
+09:51.270 --> 09:51.720
+the class.
+
+09:51.720 --> 09:53.250
+What do you need to create a class.
+
+09:53.250 --> 09:59.040
+Well you need a name so it's you know name topple is a function that's going to require the class name
+
+09:59.040 --> 10:00.470
+that we want to create.
+
+10:00.480 --> 10:03.140
+It also is going to require the field names.
+
+10:03.150 --> 10:04.850
+What are the properties that we want.
+
+10:05.040 --> 10:11.370
+And the only thing is that the field names have to be passed to name top all in the same order in which
+
+10:11.370 --> 10:17.580
+the values are going to be stored in the table because remember we use tool using a tuple as the underlying
+
+10:17.580 --> 10:26.350
+data structure here because we are inheriting from topple so field names can be any valid variable name.
+
+10:26.350 --> 10:32.410
+The only thing that's that we can do is that the variable names the field names that we pass to name
+
+10:32.420 --> 10:34.810
+toppled cannot contain an underscore.
+
+10:34.840 --> 10:37.990
+This is not a limitation of classes and class property names.
+
+10:37.990 --> 10:41.940
+This is something that names topple and forces.
+
+10:41.950 --> 10:48.910
+Now the return value of calling names topple will be a class the class name will be whatever class name
+
+10:48.910 --> 10:55.990
+we provided and it will have properties you know mapping to the field names that we provided.
+
+10:55.990 --> 11:02.200
+So now we need to assign that return value which is a class by not not a not an object instance of a
+
+11:02.200 --> 11:02.540
+class.
+
+11:02.570 --> 11:08.980
+It's a class so we can use that now to create objects so we need to assign whatever gets returned from
+
+11:08.980 --> 11:16.090
+named topple to a label to a variable name so that we can use it to construct instances so in general
+
+11:16.090 --> 11:19.470
+we use the same name as the name of the class that was generated.
+
+11:19.540 --> 11:24.820
+So we might do something like this we might say point to D and you'll notice that I'm capitalizing this
+
+11:24.820 --> 11:27.460
+because this is not a variable or regular variable.
+
+11:27.460 --> 11:29.770
+This is a class point to these a class.
+
+11:29.770 --> 11:33.570
+That's what gets returned from name topple what is the name of the class.
+
+11:33.580 --> 11:35.210
+It's point to D.
+
+11:35.250 --> 11:40.450
+This name here and the name of this variable here have nothing to do with each other.
+
+11:40.450 --> 11:42.700
+We just typically choose them that way.
+
+11:42.880 --> 11:47.620
+And I'll explain what what's happening and why we do that in the next slide.
+
+11:48.010 --> 11:52.150
+So we passed a name top all the name of the class so that's just a string.
+
+11:52.160 --> 11:54.260
+Here's the name of the class we want to create.
+
+11:54.460 --> 11:57.430
+And here's a list of the fields that we're going to want.
+
+11:57.430 --> 12:02.310
+So in this case point to D is basically going to have tables with two values.
+
+12:02.470 --> 12:04.740
+The first value is going to be labeled x.
+
+12:04.750 --> 12:10.900
+The second value is going to be labeled y.
+
+12:11.080 --> 12:17.280
+So we can create instances of point to D just as we would with any class since it is a class.
+
+12:17.290 --> 12:24.090
+So now we can say some point equals point to the 10 20 point to D.
+
+12:24.100 --> 12:26.440
+Is this a label here.
+
+12:26.560 --> 12:27.960
+It's not this one over here.
+
+12:28.060 --> 12:29.440
+It's this label here.
+
+12:29.440 --> 12:30.160
+Point to D.
+
+12:30.160 --> 12:31.780
+This is the variable that I have.
+
+12:31.960 --> 12:37.650
+I'm using that variable which is pointing to a class and I'm passing it 10 and 20.
+
+12:37.750 --> 12:43.670
+So the variable name that we use to assign to the class generated returned by name table is arbitrary.
+
+12:43.780 --> 12:48.080
+We could have said to d equals named topple point to D.
+
+12:48.340 --> 12:55.000
+So now what's happening is that to create instances of this point to declasse we need to use whatever
+
+12:55.090 --> 12:56.550
+name we have here.
+
+12:56.800 --> 12:59.270
+So to d ted Konrad 20.
+
+12:59.610 --> 13:03.560
+OK so be careful don't get confused between those two things.
+
+13:03.760 --> 13:06.200
+It's no different than the following.
+
+13:06.280 --> 13:11.380
+Let's say that we actually defined the class ourselves and we say class my class and I'll just pass
+
+13:12.310 --> 13:13.610
+what's happening here.
+
+13:13.810 --> 13:17.630
+Well there's actually two things that Python does for us here.
+
+13:17.650 --> 13:22.620
+The first thing is it creates an object of type class.
+
+13:22.660 --> 13:29.680
+So this is a class object in memory at some memory address with the name of my class that's the name
+
+13:29.680 --> 13:31.170
+of the class my class.
+
+13:31.420 --> 13:39.820
+But in addition what Python also does it creates a variable in a local scope that points to that object
+
+13:39.880 --> 13:42.400
+and it calls a variable my class.
+
+13:42.400 --> 13:44.390
+So Python does that for us.
+
+13:44.410 --> 13:50.080
+It does two steps here creates the class and then assigns a label to that object.
+
+13:50.380 --> 13:54.090
+That object has a name property of my class.
+
+13:54.130 --> 13:57.530
+This is the variable name that points to that object.
+
+13:57.940 --> 13:59.260
+But of course we could do this.
+
+13:59.260 --> 14:02.140
+We could say my class alias equals my class.
+
+14:02.170 --> 14:03.080
+What have we done.
+
+14:03.100 --> 14:09.210
+We've created another variable name a label that points to the same class object.
+
+14:09.220 --> 14:19.870
+So my class alias also points to my class and now we can instantiate this my class objects using my
+
+14:19.870 --> 14:23.620
+class because my class is the label that points to that object.
+
+14:23.620 --> 14:30.030
+So we call it and we get an instance of my class but we could also do it using my class alias.
+
+14:30.100 --> 14:33.040
+That works the same way because it's pointing to the same class.
+
+14:33.100 --> 14:38.450
+Both of these instances are going to be instances of my class.
+
+14:38.690 --> 14:41.820
+They instantiate the same class.
+
+14:42.020 --> 14:42.970
+It's very so.
+
+14:42.980 --> 14:46.580
+Similarly this is what happens in name topples.
+
+14:46.580 --> 14:48.350
+We have this alias.
+
+14:48.630 --> 14:49.060
+Right.
+
+14:49.070 --> 14:53.850
+The Web just the name the variable that points to the class generated name.
+
+14:53.950 --> 14:56.570
+All you can think of it basically returns a class.
+
+14:56.600 --> 15:01.680
+So it's like having you know a lambda function that basically is a function but it's an anonymous function
+
+15:01.680 --> 15:03.610
+that doesn't have a name here.
+
+15:03.710 --> 15:08.600
+The class does have a name because classes have names but it just returns it.
+
+15:08.600 --> 15:14.150
+So we need to assign it to something just like we would assign a lambda to a variable name and that
+
+15:14.150 --> 15:16.010
+variable name is arbitrary.
+
+15:16.010 --> 15:18.240
+So the same thing when we create a name topple.
+
+15:18.500 --> 15:19.640
+So what's happening here.
+
+15:19.670 --> 15:23.570
+Well name top will creates this class and returns it to us.
+
+15:23.660 --> 15:30.900
+And now we take a variable Peetie to the alias and we pointed to that class.
+
+15:30.920 --> 15:38.600
+So now we can instantiate point two Ds by calling P-T to da alias with the parentheses you know and
+
+15:38.600 --> 15:41.620
+then passing in the values that say 10 comma 20.
+
+15:41.960 --> 15:47.330
+So this is why in general we make this variable name the same as the class name it's less confusing
+
+15:47.330 --> 15:47.990
+if we do that
+
+15:51.030 --> 15:56.520
+so there are many ways that we can provide the list of fields to the name table function we can pass
+
+15:56.520 --> 15:57.980
+it as a list of strings.
+
+15:57.990 --> 16:03.360
+And we've seen that we've seen that example but we also pass through a couple of strings and really
+
+16:03.360 --> 16:05.240
+in fact any sequence.
+
+16:05.340 --> 16:12.420
+And I say sequence because remember that the order matters because the sequence of the field names maps
+
+16:12.420 --> 16:14.690
+to the sequence of the elements in the top.
+
+16:14.770 --> 16:20.230
+So but any sequence type will work any any sequence of strings.
+
+16:20.300 --> 16:21.280
+It has to be strings.
+
+16:21.290 --> 16:22.990
+And of course they have to be valid.
+
+16:23.060 --> 16:28.480
+They have to be valid variable names valid identifier and they can start of an underscore.
+
+16:28.790 --> 16:34.410
+But we can also pass a single string where the field names are separated by whitespace or commas.
+
+16:34.410 --> 16:37.810
+It is just something that named Tapazole implements for us and does for us.
+
+16:38.000 --> 16:44.570
+So for example we could create a name or class point to d by passing in the field names as we've done
+
+16:44.570 --> 16:50.710
+before we could pass in a tuple but we could also write it this way we could have a single string with
+
+16:50.720 --> 16:57.300
+the field names just separated by a comma or if we want just by whitespace so we can use you know a
+
+16:57.310 --> 16:59.900
+single space we could use two spaces.
+
+16:59.910 --> 17:05.690
+In fact you can even use multiline strings and separate by using let's say a carriage return or a newline
+
+17:07.330 --> 17:09.670
+and we'll see examples of that in the code.
+
+17:10.480 --> 17:16.240
+So after we've created the name of class of course we can instantiate them just like any ordinary class.
+
+17:16.240 --> 17:17.960
+That's what they are.
+
+17:17.980 --> 17:24.460
+In fact the Dundon new method of the generated class uses the field names that we provided as parameter
+
+17:24.460 --> 17:25.440
+names.
+
+17:25.740 --> 17:26.010
+Right.
+
+17:26.020 --> 17:29.020
+Just like we saw when we created our own point to declasse.
+
+17:29.020 --> 17:34.360
+We did that under init method than the new we haven't talked about but that's howl's so we can create
+
+17:34.360 --> 17:37.280
+classes that comes before the initialization stage.
+
+17:37.360 --> 17:39.840
+We'll talk about that in the Object Oriented sections.
+
+17:40.330 --> 17:47.830
+But basically it's a method and the field names that is in that method that was generated by named tuple
+
+17:47.830 --> 17:52.480
+by calling names tuple is the field names that we provided in that list.
+
+17:52.480 --> 17:59.300
+So this means that after we've created this point to declasse because name tuple generates that class
+
+17:59.770 --> 18:03.890
+we can use positional arguments to create an instance then comma 20.
+
+18:04.030 --> 18:10.140
+But because the name tuple class that we have here uses the field names as the parameter names and its
+
+18:10.200 --> 18:11.540
+initialization.
+
+18:11.590 --> 18:18.730
+We can actually call it with keyword arguments so we can say point to D 10 Weichel 20.
+
+18:18.730 --> 18:20.940
+Just like we could have an ordinary class.
+
+18:21.070 --> 18:22.450
+So that's really handy.
+
+18:22.450 --> 18:26.330
+And it also makes you all sometimes coding much more readable.
+
+18:26.440 --> 18:28.760
+Which is of course important.
+
+18:29.780 --> 18:33.000
+And so in this case 10 we'll be into x 20 would be into y.
+
+18:33.340 --> 18:33.770
+OK.
+
+18:33.790 --> 18:39.460
+So how do we access data in a named topple in that point to the class for example how do we get data
+
+18:39.550 --> 18:41.120
+out of that structure.
+
+18:41.500 --> 18:47.240
+Well remember that named topples I'll just topples so we can still handle them like any other topple
+
+18:48.490 --> 18:55.720
+so we can retrieve values by index we can retrieve values by slicing the table and we can also iterate
+
+18:55.780 --> 18:57.300
+over the tuple.
+
+18:57.310 --> 19:02.800
+So for example if we have pointer equals all the same one as before and we create an instance of point
+
+19:02.800 --> 19:03.910
+to D.
+
+19:03.910 --> 19:08.470
+By the way if you then check is instance P-T one of tuple.
+
+19:08.500 --> 19:12.860
+The answer will be true because at this point one is a tuple.
+
+19:12.910 --> 19:15.600
+It's a subclass of tuple it has some extra stuff.
+
+19:15.640 --> 19:17.180
+But it is a tuple.
+
+19:17.950 --> 19:23.510
+So we can unpack it using you know unpacking of tuples just as before because it is a tuple.
+
+19:23.650 --> 19:30.060
+We can also retrieve items by index and we can also iterate over the tuple so we can say for e and P-T
+
+19:30.100 --> 19:32.740
+one print either jiggle and print 10 and then 20
+
+19:35.640 --> 19:42.220
+but now in addition we can access the data using the field names just like we did with classes.
+
+19:42.360 --> 19:49.230
+So let's do again the same example we can now access the x value of P-T one by just saying Da'ath X
+
+19:49.980 --> 19:55.410
+and we can that will return 10 and then we can access the y coordinate by just saying dot Y and I will
+
+19:55.410 --> 20:02.750
+give us 20 x and y again come from the field names that we provided.
+
+20:02.760 --> 20:09.590
+So since the name generator classes inherit from topple it's the same thing as doing class point to
+
+20:09.600 --> 20:13.610
+D and inheriting from topple and we'll see actually what it looks like.
+
+20:13.620 --> 20:19.630
+But basically this is what's going on a point to declasse is a class but it just inherits from top.
+
+20:20.070 --> 20:25.950
+But because of that what's really important here to note is that it is immutable couples are immutable.
+
+20:25.950 --> 20:28.190
+So now P-T one is immutable.
+
+20:28.200 --> 20:31.250
+I just threw in two integers that are also immutable.
+
+20:31.290 --> 20:36.950
+I can no longer change the contents of the object that P-T one is pointing to.
+
+20:36.960 --> 20:40.940
+Of course I can change what object P-T one points to refers to.
+
+20:41.070 --> 20:47.220
+But I cannot actually mutate that object and that can be quite handy.
+
+20:47.610 --> 20:50.260
+But it also means that if you're trying to write something like this.
+
+20:50.270 --> 20:52.280
+Peetie 1. X equals 100.
+
+20:52.380 --> 20:57.350
+That won't work with a class that we had earlier that point to the class that would have worked.
+
+20:57.450 --> 20:58.740
+Here it won't work.
+
+20:58.770 --> 20:59.160
+Why.
+
+20:59.190 --> 21:00.590
+Well because it's a couple.
+
+21:00.630 --> 21:06.570
+You cannot modify the contents of the top or at least you can mutate elements inside the table if they
+
+21:06.570 --> 21:07.370
+are mutable.
+
+21:07.500 --> 21:09.070
+But you cannot change.
+
+21:09.160 --> 21:14.440
+You know you cannot replace a value or add values or remove values from the couple.
+
+21:14.490 --> 21:18.190
+The couple is a container is immutable.
+
+21:18.350 --> 21:23.840
+Now also want to talk about the rename key word only argument that's in the name of function.
+
+21:23.880 --> 21:29.910
+So it does take also a keyword only argument called rename and that one might be of interest to you.
+
+21:30.300 --> 21:36.600
+And remember that field names for name topples must be valid identifiers and they cannot start of an
+
+21:36.600 --> 21:37.720
+underscore.
+
+21:37.740 --> 21:39.780
+So for example this would not work.
+
+21:39.810 --> 21:46.920
+I wouldn't be able to say name top or Paulson name age underscore SSN that underscore here is not valid.
+
+21:46.920 --> 21:51.400
+I also couldn't use that say a one or numerical value or something like that.
+
+21:51.870 --> 21:56.280
+So this will blow up if you try and do that you'll get an exception will tell you no you can.
+
+21:56.280 --> 22:03.420
+This isn't valid field name but if you use the rename keyword by default it's false but you can set
+
+22:03.420 --> 22:10.050
+rename to true when you call name topple and it will actually replace any invalid field name automatically
+
+22:10.050 --> 22:16.680
+for you and the way it will do it by basically uses a convention where it will actually use the underscore
+
+22:16.730 --> 22:21.720
+So name topple will use the underscore and it doesn't allow us to use it however.
+
+22:22.080 --> 22:23.360
+And in part that's why.
+
+22:23.400 --> 22:27.730
+Because that way you can rename without risk of collisions with other names.
+
+22:28.960 --> 22:34.570
+But then what it does it uses as the name of the field the position index.
+
+22:34.570 --> 22:39.850
+So for example this will now work if we say person equals name people person and then we have name age
+
+22:39.940 --> 22:42.300
+underscore SSN that is invalid.
+
+22:42.490 --> 22:44.140
+But we have rename equals true.
+
+22:44.410 --> 22:50.260
+What it's going to do is the field names will be name because that was a valid age was valid underscore
+
+22:50.260 --> 22:53.300
+SSN was not valid and it's an index too.
+
+22:53.410 --> 22:56.980
+So we'll actually get the field name as underscored too.
+
+22:57.460 --> 23:01.300
+So that's what the rename function does now.
+
+23:01.300 --> 23:05.350
+Introspection how do we find out what the field names are in a name.
+
+23:05.370 --> 23:06.160
+All right.
+
+23:06.160 --> 23:07.000
+We can do that.
+
+23:07.030 --> 23:11.160
+And it's a class property called underscore fields.
+
+23:11.500 --> 23:15.320
+So let's try again this name toppled here.
+
+23:15.370 --> 23:20.950
+Now we can say person dot under Schofield I'm not using an instance I'm using the class the field names
+
+23:20.950 --> 23:23.180
+are stored in the class.
+
+23:23.230 --> 23:28.710
+So by calling on the school field it will give me back a tuple with name age and underscore to one of
+
+23:28.710 --> 23:32.930
+a thing and introspection is that rember that name couple is a class factory.
+
+23:32.950 --> 23:34.510
+In other words it generates a class.
+
+23:34.570 --> 23:40.660
+So you know we could write a class that's similar to a name top all by saying you know class point to
+
+23:40.660 --> 23:44.040
+D and then we'd have to implement a lot of things.
+
+23:44.410 --> 23:48.060
+And of course we'd have to inherit from toppled as well to be more like name.
+
+23:48.340 --> 23:54.940
+In fact we can see what the code is that was generated by named topple and that's by using against the
+
+23:54.940 --> 23:57.850
+class property called underscores souls.
+
+23:57.850 --> 24:04.750
+So if we create this name table here point to d with two fields x and y we can now look at the underscore
+
+24:04.750 --> 24:09.400
+source property of point to D and if we print that out here's what we get.
+
+24:09.420 --> 24:14.850
+Now omitted a lot of the code will see all of the code in the code section and the code video.
+
+24:15.070 --> 24:21.370
+But for now here's just kind of an excerpt of what was actually written and what was created by name
+
+24:21.370 --> 24:21.980
+topple.
+
+24:22.210 --> 24:28.360
+Well it created a class in memory that could be defined using this code.
+
+24:28.360 --> 24:32.310
+So you can see we have a class point to D that inherits from topple.
+
+24:32.440 --> 24:39.010
+We've got a documentation string right here point to de X-Com why we have this new Dundon you which
+
+24:39.070 --> 24:43.020
+it's not like donder in there that something happens before the Dondre in it.
+
+24:43.090 --> 24:48.520
+That done the net is not what actually gets you or what actually creates the class creates instances
+
+24:48.520 --> 24:51.820
+of the class the Dundon new is what actually is used.
+
+24:51.820 --> 24:58.000
+So if you use a language like Java and so on the Dundon new is more like the constructor that we have
+
+24:58.000 --> 24:58.840
+in Java.
+
+24:59.200 --> 25:04.530
+The danger in it is a step that happens after the constructor is run after the object has been created.
+
+25:04.660 --> 25:10.690
+It's a second step that allows us to basically inject things into the class like values we can call
+
+25:10.720 --> 25:15.570
+parameters with arguments and then we can create class properties and things like that.
+
+25:15.730 --> 25:22.510
+But you can also do it in the new method and you'll notice those two names x and y they're exactly the
+
+25:22.510 --> 25:28.300
+field names that we had if we call them you know name and age we would see name and age over here as
+
+25:28.300 --> 25:28.920
+well.
+
+25:28.960 --> 25:33.360
+We'll see that in the code section and you'll see that it's creating a table.
+
+25:33.520 --> 25:38.180
+So and I know there's an underscore they're not going to get into that.
+
+25:38.320 --> 25:39.620
+That's for a different reason.
+
+25:39.940 --> 25:44.920
+You'll notice that it also implements dhanda repr property method.
+
+25:44.950 --> 25:49.870
+So we have here that it's going to return the class names or in this case point to d if we have an instance
+
+25:49.870 --> 25:51.070
+of point to D.
+
+25:51.310 --> 25:55.590
+The point today is not hardcoded here because we can subclass point to D.
+
+25:55.600 --> 26:02.050
+We can actually inherit from this class that gets generated by name topple if we so wish.
+
+26:02.140 --> 26:02.450
+Right.
+
+26:02.470 --> 26:07.270
+And it uses the old style formatting but essentially it's going to give us point to d x equals y equals
+
+26:07.360 --> 26:09.080
+whatever the values are.
+
+26:09.130 --> 26:13.750
+It also has these again it's a different way of creating properties.
+
+26:13.750 --> 26:15.700
+And we'll see that in the Object-Oriented section.
+
+26:15.700 --> 26:17.310
+I'm not going to worry about it now.
+
+26:17.410 --> 26:23.320
+Just think of this as essentially having you know self-doubt X equals and then it's you know it basically
+
+26:23.320 --> 26:30.460
+defines how it's going to get the assets not solved that X. It's basically a property and it figures
+
+26:30.460 --> 26:32.420
+out you know what is it going to do.
+
+26:32.440 --> 26:37.900
+It's going to go basically grab the first argument of the top all the Y properties going to grab the
+
+26:37.960 --> 26:39.680
+second element of the table.
+
+26:39.850 --> 26:46.970
+And again those names x and y are dependent on what we pass to name top.
+
+26:47.670 --> 26:48.280
+OK.
+
+26:48.340 --> 26:53.890
+And the last thing that I want to talk about in this video is that there's a way to easily extract the
+
+26:53.890 --> 26:57.110
+data from the name topple and throw it into a dictionary.
+
+26:57.520 --> 27:02.860
+And this now is an instance method because obviously the values right are going to be the values in
+
+27:02.860 --> 27:03.650
+the top also.
+
+27:03.670 --> 27:11.290
+When you do instances of the name top all and we can look at the underscore as dict method instance
+
+27:11.290 --> 27:12.000
+method.
+
+27:12.490 --> 27:17.560
+And that will create a dictionary of all the named values in the top will where the keys are going to
+
+27:17.560 --> 27:21.270
+be the field names and the values are going to be field values.
+
+27:21.280 --> 27:28.570
+So if we have this example like before if we call underscore as dict on P-T one will get a dictionary
+
+27:28.570 --> 27:33.030
+that will have X as a key 10 as a value y is a key 20 is the value.
+
+27:33.400 --> 27:37.420
+So that can be really handy to go from name Toppo to dictionary.
+
+27:37.570 --> 27:42.790
+And in the later video we'll look at how we could maybe reverse that process far more complicated but
+
+27:42.850 --> 27:43.880
+that's doable too.
+
+27:45.120 --> 27:48.740
+All right let's switch to some code and let's see all that in action.

@@ -1,0 +1,862 @@
+WEBVTT
+
+00:00.580 --> 00:07.090
+Hi and welcome to this video in this video we're going to look at the equality testing problems when
+
+00:07.090 --> 00:08.830
+we are dealing with floats.
+
+00:08.920 --> 00:15.310
+And we saw a little bit of that in the last video where I showed you that in the code section and let's
+
+00:15.310 --> 00:20.050
+take a quick look at this now and see again what the problems are.
+
+00:20.440 --> 00:26.900
+So we saw that we can have some weirdness in our code if we try and use quality testing with floats.
+
+00:26.900 --> 00:29.300
+Now this is not a Python bug.
+
+00:29.380 --> 00:37.030
+It's just simply a result of how numbers are being stored using binary representations real numbers.
+
+00:37.030 --> 00:37.270
+Right.
+
+00:37.270 --> 00:38.720
+So floats.
+
+00:38.890 --> 00:41.520
+So it's not a bug in Python.
+
+00:41.530 --> 00:46.660
+It will be the same in other languages as well but it could be a bug in our code if we don't know how
+
+00:46.660 --> 00:48.910
+to deal with it and how to work with it.
+
+00:48.910 --> 00:52.140
+So again that very simple example we looked at in the last video.
+
+00:52.300 --> 00:56.860
+Let's say we said X equal to that summation and y equal to 0.3.
+
+00:56.860 --> 01:01.600
+Now in our minds when we look at this and we're looking at these decimal representations 0 1 2 1 0 1
+
+01:01.630 --> 01:07.030
+0 1 0 1 3 These are decimal representations for remember that behind the scenes they're actually being
+
+01:07.030 --> 01:09.630
+stored as binary representations.
+
+01:10.420 --> 01:16.890
+And if we try and write X equals equals Y then that expression will actually evaluate to false.
+
+01:16.930 --> 01:18.880
+Those are not equal numbers.
+
+01:19.000 --> 01:24.580
+And so if we don't realize that and if we do expect these floats to be equal then there's going to be
+
+01:24.580 --> 01:27.600
+a bug in our code.
+
+01:27.670 --> 01:32.190
+Now we can look at what the numbers are like X while it's this number.
+
+01:32.230 --> 01:33.730
+Why is this number here.
+
+01:33.820 --> 01:35.890
+As you can see they're not exact.
+
+01:35.890 --> 01:37.850
+That's their internal representation.
+
+01:37.870 --> 01:44.740
+Convert it back to decimal mode we can see they're not the same and that's why it evaluates to false.
+
+01:44.740 --> 01:50.170
+Now using rounding isn't necessarily going to solve the problem either depending on how you use rounding
+
+01:50.650 --> 01:58.360
+because you can't expect round 0.1 come a one which is rounding 0.1 to one decimal point and we'll take
+
+01:58.360 --> 02:00.730
+a look at rounding in a future video.
+
+02:01.000 --> 02:03.990
+But that representation of this number here.
+
+02:04.120 --> 02:10.840
+Well that's the same as 0.1 it can be you know a better or a more precise representation that's going
+
+02:10.840 --> 02:11.840
+to be the same.
+
+02:11.860 --> 02:16.080
+So if we try and do something like this well we end up with the same problem.
+
+02:16.090 --> 02:23.500
+This also evaluates to false but you could use it if you use it around the entirety of the left hand
+
+02:23.500 --> 02:26.630
+side and right hand side of your equality comparison.
+
+02:26.680 --> 02:33.890
+So you could write it this way instead you might say round the summation to five decimal points or five
+
+02:33.960 --> 02:41.020
+are digits after the decimal point and test that that's equal to round 0.3 to 5 digits after the decimal
+
+02:41.020 --> 02:41.490
+point.
+
+02:41.500 --> 02:44.890
+And obviously that will be true.
+
+02:44.920 --> 02:46.310
+So that's one way of doing it.
+
+02:46.510 --> 02:48.790
+But this isn't very flexible right.
+
+02:48.790 --> 02:50.580
+You're just rounding basically.
+
+02:50.620 --> 02:54.690
+And then we also get into issues with rounding because what does rounding mean.
+
+02:54.700 --> 03:01.720
+And as we'll see later it's not you know necessarily what we're accustomed to with rounding.
+
+03:01.720 --> 03:05.260
+So there's probably a better way to do that.
+
+03:05.350 --> 03:10.960
+But at this point we have these two methods we can round both sides of the equality expression to some
+
+03:11.110 --> 03:13.040
+real number of significant digits.
+
+03:13.910 --> 03:19.510
+So something like this but more generally we could use an appropriate range.
+
+03:19.510 --> 03:25.870
+Let's say some value let's call it Epsilon within which two numbers are considered are deemed to be
+
+03:25.930 --> 03:27.620
+equal to each other.
+
+03:28.000 --> 03:32.800
+So formally the definition would be something like this for some Epsilon greater than zero.
+
+03:32.800 --> 03:33.940
+Epsilon is your choice.
+
+03:33.940 --> 03:37.390
+You can pick it as small as you want but a positive number.
+
+03:37.390 --> 03:43.810
+So zero point 0 0 0 1 if you want numbers to be within zero point zero zero zero or one of each other
+
+03:45.160 --> 03:52.900
+then eight will be equal to B if and only if the absolute value the distance between A and B is less
+
+03:52.990 --> 03:55.640
+than this Epsilon value is specified.
+
+03:55.660 --> 04:01.540
+So as long as the difference between the two numbers is less than some small you know positive number
+
+04:01.840 --> 04:04.410
+then we can consider those two numbers to be equal.
+
+04:04.410 --> 04:05.820
+There are approximately equal.
+
+04:05.820 --> 04:07.870
+They're close to each other.
+
+04:08.590 --> 04:10.250
+So you could write your own method.
+
+04:10.270 --> 04:16.620
+Let's say there is equal we pass in the two numbers x and y we pass in this tolerance the epsilon value.
+
+04:16.930 --> 04:23.290
+And we look at the absolute value of X minus Y and we use the floating point absolute value that's in
+
+04:23.290 --> 04:28.330
+the math Mondial and we test whether that's less than that Epsilon we passed them.
+
+04:28.420 --> 04:29.790
+If it is they close.
+
+04:29.800 --> 04:33.200
+If it's not they're not considered cause.
+
+04:33.370 --> 04:40.180
+So this can be tweaked by specifying that the difference between the two numbers the percentage of their
+
+04:40.180 --> 04:41.170
+size.
+
+04:41.200 --> 04:46.180
+In other words the smaller the number the smaller the tolerance the larger the number the larger the
+
+04:46.180 --> 04:48.100
+tolerance.
+
+04:48.100 --> 04:52.100
+Now the words are two numbers within a percentage of each other.
+
+04:52.240 --> 04:52.510
+Right.
+
+04:52.510 --> 04:54.620
+Within a certain percentage of each other.
+
+04:54.780 --> 04:58.240
+That's just a tweak instead of your using an absolute value here.
+
+04:58.240 --> 05:00.240
+We're using a relative value.
+
+05:00.640 --> 05:03.170
+Now there's a reason why we want to do that.
+
+05:03.190 --> 05:05.320
+And we're going to get into that in a minute.
+
+05:05.500 --> 05:11.280
+And we are however have to be careful because this looks pretty straightforward right.
+
+05:11.290 --> 05:13.180
+Even this one looks very straightforward.
+
+05:13.180 --> 05:18.140
+This one's maybe just a tad more complicated but there are issues with both of these.
+
+05:18.220 --> 05:18.540
+Right.
+
+05:18.550 --> 05:24.370
+They look very simple but there's actually some minor issues that we're going to have to resolve using
+
+05:24.370 --> 05:31.490
+these two approaches and typically it occurs when the numbers are very close to zero versus numbers
+
+05:31.490 --> 05:33.080
+that are away from zero.
+
+05:33.260 --> 05:35.190
+And let's take a look at that.
+
+05:35.210 --> 05:39.640
+So let's start by using absolute tolerances so that Epsilon that we talked about.
+
+05:39.650 --> 05:47.630
+So again let's take our typical example and if we you know print out X to that number of decimal values
+
+05:47.660 --> 05:48.860
+and print out y.
+
+05:48.950 --> 05:50.080
+That's what we get.
+
+05:50.090 --> 05:59.070
+Now the difference between them is this small number of k that digit 5 is in the 17th position after
+
+05:59.070 --> 06:06.260
+the decimal point let's take a look at another example where a and b now are the variables and we're
+
+06:06.260 --> 06:11.720
+looking at ten thousand point one plus ten thousand point one and so on and then B is thirty thousand
+
+06:11.720 --> 06:12.260
+point three.
+
+06:12.260 --> 06:18.410
+So technically we would expect when we're looking at decimal representations A to be equal to be just
+
+06:18.410 --> 06:21.280
+like we had X was actually equal to y.
+
+06:21.290 --> 06:26.300
+Now if we print those numbers out with more precision then we'll notice that the difference between
+
+06:26.300 --> 06:32.300
+the two again they're not exact and the difference between the two is this small number here where this
+
+06:32.300 --> 06:35.680
+digit 3 is the twelfth digit after the decimal point.
+
+06:36.780 --> 06:42.180
+Now let's say that we had to find a tolerance to be 10 to the minus 15.
+
+06:42.180 --> 06:42.500
+Right.
+
+06:42.510 --> 06:44.470
+Which is this number here.
+
+06:45.900 --> 06:51.900
+Because when you use an absolute tolerance you can't change that tolerance as the numbers of a and b
+
+06:51.900 --> 06:57.070
+are x and y change you're keeping the same tolerance you don't know you know how would you know that.
+
+06:57.090 --> 07:02.180
+All I should make the tolerance ten to the minus five year and ten to the minus 15 there.
+
+07:02.490 --> 07:02.880
+Right.
+
+07:02.880 --> 07:06.360
+We don't that's where the relative tolerances will come into play.
+
+07:06.360 --> 07:08.070
+That's why we bring that in.
+
+07:08.160 --> 07:11.280
+But for now we're using an absolute tolerance.
+
+07:11.280 --> 07:19.140
+So if we do that then if we make this test that the absolute value of X minus Y these x minus Y is less
+
+07:19.140 --> 07:24.450
+than the absolute tolerance where the absolute tolerance is this number over here.
+
+07:24.630 --> 07:30.480
+And as you notice right the absolute tolerance is at this position the first significant digit is at
+
+07:30.480 --> 07:34.690
+this position which means the delta is less than the tolerance.
+
+07:34.920 --> 07:37.230
+And so that will evaluate to true.
+
+07:37.710 --> 07:42.560
+But take a look at the second example where we look at the absolute value of a mine is B.
+
+07:42.810 --> 07:43.210
+Right.
+
+07:43.230 --> 07:47.970
+And now we're looking at that Delta basically and comparing it to their absolute tolerance.
+
+07:48.210 --> 07:51.200
+Well the delta is greater than this.
+
+07:51.270 --> 07:53.170
+They'll the same tolerance.
+
+07:53.220 --> 07:57.770
+So in fact this will actually actually evaluate to false.
+
+07:57.810 --> 08:04.230
+So we have a problem because technically if we look at this we probably would consider these two numbers
+
+08:04.440 --> 08:06.210
+to be close enough right.
+
+08:06.210 --> 08:06.510
+Why.
+
+08:06.510 --> 08:09.020
+Because it's a large number to the left hand side.
+
+08:09.180 --> 08:14.420
+So in relative terms these two numbers are close in relative terms.
+
+08:14.460 --> 08:22.020
+These two numbers are close right but in absolute terms when we have to specify an absolute tolerance
+
+08:22.380 --> 08:25.790
+then these two numbers are close but these two are not.
+
+08:26.130 --> 08:30.870
+Hence why we probably want to also look at relative tolerances.
+
+08:32.170 --> 08:34.500
+So let's take a look at that example again.
+
+08:34.770 --> 08:35.080
+Right.
+
+08:35.080 --> 08:37.330
+So the same two examples.
+
+08:37.620 --> 08:45.660
+And let's say we specify a relative tolerance of some percentage 0.00 1 percent which is 10 to the negative
+
+08:45.660 --> 08:46.940
+five.
+
+08:46.950 --> 08:55.050
+In other words that's the maximum allowed difference between the two numbers but relative to the larger
+
+08:55.050 --> 08:56.700
+magnitude of the two numbers.
+
+08:56.700 --> 09:01.050
+So we're going to make that we're going to calculate an absolute tolerance.
+
+09:01.140 --> 09:05.310
+But it's going to be based on the magnitude of the numbers we're looking at.
+
+09:05.340 --> 09:10.020
+So we'll look at let's say and we will look at the larger of the two numbers.
+
+09:10.020 --> 09:11.570
+Calculate what is zero.
+
+09:11.580 --> 09:12.140
+What is it.
+
+09:12.180 --> 09:14.760
+You know what is 0 1 0 0 or 1 percent.
+
+09:14.760 --> 09:20.770
+What does it mean to be within zero point zero zero or 1 percent of the larger of the two numbers.
+
+09:21.060 --> 09:25.310
+If that second number is within that amount then they're of course.
+
+09:25.350 --> 09:28.020
+So let's just take a look at what that means.
+
+09:28.050 --> 09:32.940
+That means that we are going to calculate an absolute tolerance which is going to be our relative tolerance
+
+09:33.120 --> 09:35.550
+times the maximum magnitude.
+
+09:35.700 --> 09:37.250
+We don't care about the signs.
+
+09:37.290 --> 09:37.560
+Right.
+
+09:37.560 --> 09:39.120
+We only care about we're.
+
+09:39.150 --> 09:42.600
+I mean we'll care about the science when we look at the difference between the two numbers.
+
+09:42.720 --> 09:47.420
+But when looking at the tolerance we only need to look at the magnitude of the numbers.
+
+09:48.500 --> 09:55.940
+So in this case the tolerance would be if we use this formula which would be zero point 0 0 0 0 0 3.
+
+09:56.300 --> 10:00.030
+And in the second example our tolerance would be much bigger.
+
+10:00.050 --> 10:02.950
+Zero Point 3 0 0 0 0 3.
+
+10:03.110 --> 10:03.350
+Right.
+
+10:03.350 --> 10:10.190
+So you notice that the tolerance that we would use as an absolute tolerance is smaller here than here.
+
+10:10.280 --> 10:13.880
+And that kind of makes sense because this is a much larger number.
+
+10:14.120 --> 10:21.470
+So to be within zero point 0 0 1 percent means that you know we can be a little bit more off than in
+
+10:21.470 --> 10:22.910
+this example here.
+
+10:23.760 --> 10:27.250
+And again it makes intuitive sense when we look at it mathematically.
+
+10:27.510 --> 10:28.100
+Yeah.
+
+10:28.140 --> 10:30.340
+You know these two numbers are close.
+
+10:30.360 --> 10:35.970
+If they're within a certain amount but if you know if these are within a certain amount after the decimal
+
+10:35.970 --> 10:36.570
+point.
+
+10:36.660 --> 10:40.800
+Well that's OK because it's a big number in front.
+
+10:41.220 --> 10:46.470
+So in this case if we calculate that now using this talent these tolerance tolerances we calculated
+
+10:46.470 --> 10:51.750
+here for years the same formula as before that we used for an absolute tolerance that will evaluate
+
+10:51.750 --> 10:52.480
+to true.
+
+10:52.770 --> 10:54.460
+And the second one with a minus B.
+
+10:54.480 --> 10:56.540
+We'll also evaluate to true.
+
+10:56.730 --> 10:59.850
+Now the words success we've solved it.
+
+10:59.990 --> 11:00.970
+What have we.
+
+11:01.340 --> 11:03.380
+And the answer is not quite.
+
+11:03.410 --> 11:04.700
+We're not quite there yet.
+
+11:04.700 --> 11:07.060
+Remember I said it gets tricky.
+
+11:07.260 --> 11:09.370
+So let's take a look.
+
+11:09.680 --> 11:11.990
+Let's take a look at this example.
+
+11:12.140 --> 11:12.430
+Right.
+
+11:12.430 --> 11:15.970
+So we have X which is a number that's very close to zero.
+
+11:16.190 --> 11:19.680
+And for simplicity made y actually exactly equal to zero.
+
+11:21.250 --> 11:27.050
+So turned to the negative 10 knife which is a relative tolerance here.
+
+11:27.740 --> 11:31.060
+Then let's even have a lounge one you know 0.1 percent.
+
+11:31.070 --> 11:33.000
+That means 10 to the negative three.
+
+11:33.350 --> 11:37.850
+But what does it mean according to that formula that says that the absolute tolerance is going to get
+
+11:37.850 --> 11:42.010
+calculated as the relative tolerance times the maximum of those two numbers.
+
+11:42.320 --> 11:43.880
+Well why is zero.
+
+11:43.970 --> 11:50.480
+So it's always going to be the relative tolerance times the magnitude of X itself which is going to
+
+11:50.480 --> 11:53.540
+work out to tend to the negative 13.
+
+11:53.540 --> 11:58.770
+In other words we want these two numbers to be within 10 to the negative 13 of each other.
+
+11:59.150 --> 12:02.190
+But look at this number that's 10 to the negative 10.
+
+12:02.630 --> 12:06.150
+So if we do the calculation that comes out to false.
+
+12:06.290 --> 12:06.670
+Right.
+
+12:06.770 --> 12:10.300
+And it will always be the case because these numbers are close to zero.
+
+12:10.310 --> 12:17.660
+And this one in this case is actually equal to zero tolerance we calculate here is always going to become
+
+12:17.660 --> 12:21.180
+greater than the actual difference between the two.
+
+12:21.800 --> 12:27.940
+So using a relative tolerance technique doesn't work well and sometimes doesn't work at all.
+
+12:27.960 --> 12:30.570
+Awful numbers that are close to zero.
+
+12:30.730 --> 12:31.530
+Right.
+
+12:31.630 --> 12:36.120
+So using absolute and relative tolerances in isolation.
+
+12:36.340 --> 12:41.890
+Right and using either one or the other makes it very difficult to get a solution that works kind of
+
+12:41.890 --> 12:47.490
+uniformly across any number you might encounter as your program is running.
+
+12:47.710 --> 12:49.950
+So we can combine both methods.
+
+12:50.050 --> 12:51.370
+That's the better approach.
+
+12:51.370 --> 12:57.310
+We're going to combine both methods where we're going to specify an absolute tolerance and a relative
+
+12:57.310 --> 12:58.440
+tolerance.
+
+12:58.570 --> 13:04.300
+And then after we've done that we'll use the larger of the two tolerances the larger number because
+
+13:04.300 --> 13:09.780
+remember they're always positive so we're going to take the number that's closer to zero.
+
+13:09.900 --> 13:16.300
+Sorry that's further away from 0 and use that as our tolerance in our calculation.
+
+13:16.300 --> 13:21.970
+So in other words our tolerance will become the max of the relative tolerance times the max of x and
+
+13:21.970 --> 13:28.480
+y which was you know this thing we calculated here when we were using relative tolerances and the max
+
+13:28.480 --> 13:31.520
+with the absolute tolerance that we would specify.
+
+13:31.900 --> 13:33.980
+So let's see how that really works.
+
+13:34.000 --> 13:39.840
+Now if you want to read more about that it's specified in the Pepp 485 document.
+
+13:39.880 --> 13:45.180
+You can just do a search for that in your browser and you'll see the documentation for that.
+
+13:45.310 --> 13:48.080
+But basically it's exactly what we've defined here.
+
+13:48.090 --> 13:54.550
+What we're talking about using a combination of the absolute and relative tolerances.
+
+13:54.820 --> 13:57.250
+Now the math module has that built in for us.
+
+13:57.250 --> 13:59.620
+We don't have to write that method ourselves.
+
+13:59.620 --> 14:04.570
+I just wanted to explain to you you know how it works because we need to understand what those parameters
+
+14:04.570 --> 14:08.230
+are in this method called is close.
+
+14:08.230 --> 14:14.600
+Again you can reference pet 45 if you want to get it you know an explanation of how this works but essentially
+
+14:14.600 --> 14:16.120
+that's just what I've said.
+
+14:16.210 --> 14:22.030
+So there is close method is in the math module and it takes in at least two parameters the two values
+
+14:22.030 --> 14:28.420
+that we want to compare and optional you can specify the relative tolerance which will default to tend
+
+14:28.420 --> 14:36.190
+to the negative 9 and the absolute tolerance that defaults to 0 which means that when that happens it's
+
+14:36.610 --> 14:40.250
+the same as if we hadn't specified an absolute tolerance at all.
+
+14:40.270 --> 14:47.500
+So in other words by default if you just say it's close a combi you are ditching the absolute tolerance
+
+14:47.500 --> 14:53.350
+part and you're only using a relative tolerance comparison which may be fine but remember that doesn't
+
+14:53.350 --> 14:55.800
+work well for numbers that are close to zero.
+
+14:55.990 --> 15:02.620
+So a word of warning if you do not specify the absolute tolerance it is zero and you'll face that problem
+
+15:02.620 --> 15:07.990
+that we saw just now when using relative tolerances with numbers close to zero.
+
+15:07.990 --> 15:13.350
+So let's take a look at an example let's take two numbers that are quite different from zero right that
+
+15:13.390 --> 15:14.850
+far away from zero.
+
+15:15.190 --> 15:18.320
+And if we look at math that is close x Khama y.
+
+15:18.340 --> 15:23.470
+So we let these defaults you know fall through then that will evaluate to true.
+
+15:23.560 --> 15:24.940
+That's great.
+
+15:24.940 --> 15:27.930
+Now let's take two numbers that are close to zero.
+
+15:28.480 --> 15:33.430
+And if we evaluate math that is close a comma B then that will be false.
+
+15:33.430 --> 15:38.920
+And that's because the absolute tolerance is 0 and therefore the relative tolerances is creating a problem
+
+15:38.950 --> 15:39.400
+here.
+
+15:39.640 --> 15:45.940
+So probably not a good idea to not specify the absolute tolerance unless you know that that's what you
+
+15:45.940 --> 15:52.110
+want so you should probably always specify the absolute tolerance until you know you don't need it.
+
+15:53.430 --> 15:58.140
+So if we use the absolute tolerance and specify it let's say you know we'll use tend to the negative
+
+15:58.140 --> 15:58.890
+5.
+
+15:59.220 --> 16:04.110
+Then this will evaluate to true and using the same absolute tolerance here.
+
+16:04.380 --> 16:07.420
+And that is close we'll also evaluate to true.
+
+16:07.590 --> 16:11.130
+So that solves the problem.
+
+16:11.180 --> 16:14.580
+It also works well in situations like this.
+
+16:14.600 --> 16:21.260
+Let's say we have this number here you know 1000 point 0 1 1000 point or two we probably consider those
+
+16:21.260 --> 16:23.150
+numbers close to each other.
+
+16:23.150 --> 16:23.760
+Right.
+
+16:23.870 --> 16:26.230
+They've Yeah they're within 0 1 0 1.
+
+16:26.300 --> 16:27.960
+But look at it's 1000.
+
+16:27.980 --> 16:30.740
+So relatively speaking they close to each other.
+
+16:31.220 --> 16:37.120
+And if we look at the close function we'll specify a relative tolerance of 10 to the negative 5 and
+
+16:37.130 --> 16:41.000
+the absolute tolerance of 10 to the negative 5 that evaluates to true.
+
+16:41.000 --> 16:43.240
+That makes sense but would expect that.
+
+16:43.310 --> 16:47.700
+However look at these two numbers 0 1 0 1 0 1 0 2.
+
+16:47.810 --> 16:51.270
+They are also within 0.01 of each other.
+
+16:51.590 --> 16:57.350
+What we probably wouldn't think of those numbers as being close because relatively speaking they are
+
+16:57.350 --> 16:58.780
+not close to each other.
+
+16:58.970 --> 17:01.040
+Right that's a pretty big difference.
+
+17:01.160 --> 17:08.440
+If you look at it in relative terms and if we use the same expression right the same tolerances as before
+
+17:08.450 --> 17:12.890
+and that's the important part is that we don't have to change tolerances at all.
+
+17:13.220 --> 17:16.260
+Then this will evaluate to false.
+
+17:16.280 --> 17:22.740
+So that's the advantage of combining relative and absolute tolerances into one method and using that.
+
+17:23.000 --> 17:28.430
+And when you want to compare floating point numbers don't use that equals equals you're going to run
+
+17:28.430 --> 17:35.120
+into issues with that use the is close method in the math module that will give you what you're looking
+
+17:35.120 --> 17:39.680
+for are the numbers close enough because you can't count on them being exact.
+
+17:39.680 --> 17:43.100
+Now if you want numbers to be exact then use fractions.
+
+17:43.100 --> 17:44.990
+Use rational numbers like fraction.
+
+17:44.990 --> 17:45.930
+You know one over three.
+
+17:45.940 --> 17:48.750
+We saw that in the fractions section.
+
+17:48.770 --> 17:50.950
+So use those things.
+
+17:51.290 --> 17:53.880
+We also have the option of using decimals.
+
+17:53.960 --> 17:57.340
+And we'll look at decimals in a future video coming soon.
+
+17:58.260 --> 18:05.740
+But for now working with floats you're as close to compare for equality between floating point numbers.
+
+18:05.850 --> 18:08.150
+You should also play around with these a little bit.
+
+18:08.160 --> 18:12.870
+I think you know after this video is finished and after we've gone through the code play around with
+
+18:12.870 --> 18:15.960
+different numbers and test and see how it works.
+
+18:15.960 --> 18:17.450
+Start getting a feel for it.
+
+18:17.450 --> 18:22.590
+It's kind of important that you kind of have an understanding of how this works so then when you're
+
+18:22.590 --> 18:26.320
+writing your code you kind of know what tolerances you want to use.
+
+18:26.370 --> 18:29.920
+Sometimes the tolerances I actually dictated by the problem that you're working on.
+
+18:30.120 --> 18:32.530
+But sometimes you have to come up with them yourself.
+
+18:32.730 --> 18:36.750
+And so you know you want to try and strike a good balance.
+
+18:37.910 --> 18:39.370
+So let's take a look at some code.
+
+18:39.380 --> 18:42.610
+We'll do that in the next video and I'll see you in a bit.

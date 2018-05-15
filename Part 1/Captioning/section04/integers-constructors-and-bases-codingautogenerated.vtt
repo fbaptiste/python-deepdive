@@ -1,0 +1,841 @@
+WEBVTT
+
+00:00.590 --> 00:06.160
+Hi and welcome to part two of our video on integer constructors and numerical bases.
+
+00:06.450 --> 00:11.050
+So without further ado let's jump into the code and see how that works.
+
+00:11.860 --> 00:15.700
+So integers have two constructors integers are classes right.
+
+00:15.760 --> 00:19.940
+If we say type of 10 then we get an integer right.
+
+00:19.960 --> 00:27.310
+And in the class we can actually look at the internal documentation for integers by doing this by doing
+
+00:27.310 --> 00:27.800
+help.
+
+00:27.820 --> 00:30.860
+And then just typing in the type that we're interested in the class.
+
+00:31.090 --> 00:35.700
+And as you can see we have two constructors we have indexical zero.
+
+00:35.920 --> 00:38.390
+So by default it will default to 0.
+
+00:38.440 --> 00:46.040
+So if we do something like a equals int with no value then when we look at it it will be equal to zero.
+
+00:48.360 --> 00:50.930
+Or we can pass in other numbers as well.
+
+00:50.970 --> 00:59.100
+So for example we can say end of ten point five and that will give us 10 right even end of ten point
+
+00:59.100 --> 01:00.710
+nine 9 9 9 9.
+
+01:00.840 --> 01:01.770
+That will still be 10.
+
+01:01.770 --> 01:03.960
+Remember we're truncating.
+
+01:03.960 --> 01:08.220
+Now we can pass in other values that are not flawed or not integers.
+
+01:08.220 --> 01:09.840
+We can pass any numerical type.
+
+01:09.840 --> 01:16.700
+We can do end of true for example which is one end of the false which is zero.
+
+01:16.710 --> 01:20.220
+We can also use other numerical types for example fractions.
+
+01:20.220 --> 01:24.640
+Now we haven't covered fractions yet but I'll just show you very quickly how to do that.
+
+01:24.660 --> 01:27.680
+And we'll look at the details of it in an upcoming video.
+
+01:27.990 --> 01:29.580
+So let's import
+
+01:32.370 --> 01:35.900
+fractions so we can import the fractions mondial.
+
+01:36.210 --> 01:43.910
+And we're going to say equals fractions d'arte fraction and maybe we'll do a fraction 22 over 7.
+
+01:43.950 --> 01:44.580
+OK.
+
+01:44.880 --> 01:49.010
+So if we look at 8 it's the fraction 22 over 7.
+
+01:49.230 --> 01:55.410
+But it obviously has a decimal representation and we can see what its decimal representation would be
+
+01:55.410 --> 01:56.880
+with a decimal point.
+
+01:56.880 --> 02:00.910
+We can convert it to a float and we can float a.
+
+02:01.350 --> 02:04.510
+And this is what it is three point 1 4 2 8 5 7.
+
+02:04.530 --> 02:07.660
+Now we can of course convert it to an integer.
+
+02:07.830 --> 02:12.410
+And again we will get the truncated version of that number here.
+
+02:12.420 --> 02:17.520
+So the next constructor we want to look at is the constructor that has the two parameters were passed
+
+02:17.520 --> 02:18.550
+in a string.
+
+02:18.570 --> 02:24.690
+So remember we can do something like 1 2 3 1 2 3 4 5.
+
+02:24.750 --> 02:27.970
+We don't specify a base so the default base will be 10.
+
+02:28.020 --> 02:34.590
+So we get 1 2 3 4 5 by thumbprints of integers and base 10 but we don't have to stick to base 10.
+
+02:34.590 --> 02:44.060
+We could let's say Look at 1 0 1 and base 2 and we get 5 right 1 0 1 base 2 5 and base 10.
+
+02:44.310 --> 02:47.900
+Now we can use other bases as well.
+
+02:47.910 --> 02:51.960
+We can say maybe f f in base 16.
+
+02:52.130 --> 02:56.010
+Well f f in base 16 is 255 and base 10.
+
+02:56.130 --> 03:01.320
+And again the uppercase lowercase of these letters don't matter.
+
+03:01.320 --> 03:07.200
+They both work the same way with lowercase f f we get 255 as well.
+
+03:07.200 --> 03:11.320
+Now obviously Python is using 0 for nine and a through Z.
+
+03:11.400 --> 03:20.130
+So we can code things using up to base 36 but we have to be careful if we use digits that are beyond
+
+03:20.220 --> 03:20.850
+the base.
+
+03:20.850 --> 03:22.280
+So what I mean by that.
+
+03:22.320 --> 03:27.580
+Let's take a look at B in base 11.
+
+03:28.550 --> 03:31.050
+Well first let's look at a base 11.
+
+03:31.490 --> 03:32.810
+What is a base 11.
+
+03:32.810 --> 03:34.800
+It's 10 and base 10.
+
+03:35.000 --> 03:40.810
+But what would it be if we put the well B doesn't exist in base 11 right.
+
+03:40.850 --> 03:43.240
+Base 11 is going to have 0 through 9 and 8.
+
+03:43.250 --> 03:44.340
+That's it.
+
+03:44.390 --> 03:46.330
+If we do that we'll get a value error.
+
+03:46.370 --> 03:49.270
+As we mentioned in the slide we get this value error.
+
+03:49.280 --> 03:50.540
+Invalid literal.
+
+03:50.540 --> 03:53.780
+So the next thing we want to look at all the different base representations.
+
+03:53.780 --> 03:56.010
+Now we do have built in methods.
+
+03:56.030 --> 03:59.510
+Remember the been up and hex that we can use.
+
+03:59.510 --> 04:02.390
+So for example we can save then 10.
+
+04:02.390 --> 04:09.740
+Now 10 is the decimal number and the binary equivalent of 10 is 1 0 1 0 1 0 5 which was the example
+
+04:09.740 --> 04:13.580
+we use just now we get the binary number 1 0 1.
+
+04:13.580 --> 04:15.570
+Note the prefix zero.
+
+04:15.830 --> 04:17.190
+We can also look at octal.
+
+04:17.210 --> 04:25.640
+We can look at the octal representation for the base 10 number 10 and that's octal 1 2 and same thing
+
+04:25.640 --> 04:26.420
+we have hex.
+
+04:26.420 --> 04:28.250
+Let's say we take 255.
+
+04:28.430 --> 04:31.150
+Then it tells us it's 0 x f f.
+
+04:31.170 --> 04:34.920
+Now these prefixes are there to tell us that this number here.
+
+04:34.970 --> 04:38.690
+Well first of all it's a number but this number here is in binary.
+
+04:38.750 --> 04:46.100
+This number here is an octal this number there is an X so we can also use that same notation for literals.
+
+04:46.100 --> 04:58.640
+So instead of saying they equals and you know 1 0 1 base to we can also say the equals and we don't
+
+04:58.640 --> 04:59.640
+use quotes here.
+
+04:59.660 --> 05:04.770
+So no strings 0 3 1 0 1.
+
+05:05.360 --> 05:06.780
+And if we look at a.
+
+05:07.030 --> 05:07.820
+It's 5.
+
+05:07.910 --> 05:09.950
+And B is 5 as well.
+
+05:10.610 --> 05:21.040
+Come so we can use these literals by you know in binary octal and hex by using these prefixes 0 be binary
+
+05:21.040 --> 05:24.390
+0 0 for octal and 0 x 4 hexadecimal.
+
+05:24.480 --> 05:30.190
+OK so now let's take a look at our customer base conversion.
+
+05:30.190 --> 05:35.490
+So the first method we're going to implement is that one that creates those digits.
+
+05:35.490 --> 05:35.870
+OK.
+
+05:35.920 --> 05:44.140
+So we're going to call this def from base and we'll pass in from base 10 right.
+
+05:44.140 --> 05:50.620
+We're going to convert from base 10 to some other base and we'll use end for our number and B for the
+
+05:50.620 --> 05:54.370
+base that we want to change our representation to.
+
+05:54.400 --> 05:57.810
+Now we're not going to handle bases that are less than 2.
+
+05:57.850 --> 05:59.610
+So these are less than 2.
+
+05:59.770 --> 06:10.990
+We're going to raise a value error and we might pass the message base b must be greater than or equal
+
+06:11.000 --> 06:13.080
+to 2.
+
+06:13.240 --> 06:15.030
+So we'll do that.
+
+06:15.040 --> 06:21.580
+Now if n is less than zero we're not going to handle negative numbers here.
+
+06:21.670 --> 06:24.280
+We will handle negative numbers but later.
+
+06:24.730 --> 06:30.760
+So if end is less than zero we're going to raise a value error.
+
+06:30.760 --> 06:34.530
+Number must be greater than or equal to zero.
+
+06:34.750 --> 06:38.170
+OK so we're not going allow those two things.
+
+06:38.170 --> 06:41.550
+Next we know that if our number is zero we can just return.
+
+06:41.560 --> 06:45.130
+So if and is equal to zero returns.
+
+06:45.130 --> 06:49.100
+Now remember we're going to be returning a list of digits.
+
+06:49.120 --> 06:55.180
+So in this case we have to create a list that contains 0 not just 0 itself.
+
+06:57.110 --> 07:03.170
+Now we're going to create our empty list which is all digits and we're going to say Wow.
+
+07:03.200 --> 07:06.240
+And so now we're just implementing that algorithm we saw.
+
+07:06.440 --> 07:08.920
+So while and is greater than zero.
+
+07:08.990 --> 07:16.460
+Now we could say M equals an MA to be an N equals and div B.
+
+07:16.460 --> 07:22.280
+Not really important for us to take the model falls right because we have to take the model of an.
+
+07:22.520 --> 07:29.090
+And then we have to do and div B and then the next time around this end will actually be end of B and
+
+07:29.090 --> 07:32.040
+so will be doing and B must be OK.
+
+07:32.060 --> 07:35.140
+But it's important that we take the models first.
+
+07:35.150 --> 07:39.840
+Otherwise we're going to be taking the model of that div right away.
+
+07:39.890 --> 07:41.470
+So that's not what we want to do.
+
+07:41.540 --> 07:43.010
+So we can do it this way.
+
+07:43.340 --> 07:45.680
+And then we would do.
+
+07:45.680 --> 07:50.030
+Digits dot insert zero comma.
+
+07:50.060 --> 07:56.990
+We want to insert that modulo inside the digits as the first element because we're working our way from
+
+07:56.990 --> 07:58.390
+right to left.
+
+07:58.400 --> 08:00.220
+So this is one way of doing it.
+
+08:00.260 --> 08:11.940
+An alternative way might be to do and comma and equals and not be an div B that would work as well.
+
+08:12.120 --> 08:16.250
+OK so we're basically using this type of notation to do that.
+
+08:16.490 --> 08:23.300
+But there is actually a function in Python called div mob and the did not function returns a table that
+
+08:23.300 --> 08:25.060
+contains the div and the MOD.
+
+08:25.280 --> 08:27.760
+So that's exactly what we're going to do now.
+
+08:27.800 --> 08:36.070
+The div we are storing in n the mud with storing an M and Dave Marsh returns the demat in that order.
+
+08:36.250 --> 08:36.880
+OK.
+
+08:36.980 --> 08:40.930
+And comma B right.
+
+08:42.400 --> 08:48.340
+Because we're doing an div B and an MoD B.
+
+08:48.370 --> 08:51.130
+So this is an equivalent way of doing it as well.
+
+08:51.130 --> 08:53.340
+So that's the diff nod function.
+
+08:53.350 --> 08:59.860
+Quite useful it does both operations at once and returns the results as a table that we can then assign
+
+08:59.860 --> 09:00.960
+to whatever we want.
+
+09:02.130 --> 09:03.240
+So that's it.
+
+09:03.240 --> 09:06.540
+Now all we have to do is return digits
+
+09:09.070 --> 09:14.470
+and if yes if B if the base is less than that.
+
+09:15.060 --> 09:19.480
+OK so that's a function that's going to generate all digits so let's test that out.
+
+09:19.520 --> 09:23.200
+Let's look at from base 10.
+
+09:23.390 --> 09:29.500
+Let's look at the value 10 the decimal base 10 value 10 in base 2.
+
+09:29.510 --> 09:31.920
+Where do we get we get 1 0 1 0.
+
+09:31.970 --> 09:35.210
+That's what we expected from base 10.
+
+09:35.210 --> 09:38.840
+Let's say we do 255 in base 16.
+
+09:38.840 --> 09:40.810
+Where do we get.
+
+09:41.060 --> 09:49.880
+If I can type we get 15 comr 15 which is if we using these encodings right with F meaning 15 this would
+
+09:49.880 --> 09:51.650
+be f f.
+
+09:51.680 --> 09:53.630
+So this is not been coding yet.
+
+09:53.630 --> 09:57.600
+This is just the algorithm to generate the digits in that different base.
+
+09:57.620 --> 09:59.440
+But we're looking at.
+
+09:59.450 --> 10:04.330
+So the next step then we have to do is to do the encoding.
+
+10:04.420 --> 10:07.100
+So let's write it in code.
+
+10:07.150 --> 10:09.430
+Now what are we going to pass to the encode function.
+
+10:09.430 --> 10:11.730
+Well we would need to pass the digits right.
+
+10:11.740 --> 10:16.280
+That list of digits and then the other thing we need to pass it is the mapping right.
+
+10:16.300 --> 10:17.550
+That encoding map.
+
+10:17.620 --> 10:19.040
+So we'll pass it.
+
+10:19.150 --> 10:21.130
+We're not going to hardcoded inside the method.
+
+10:21.130 --> 10:26.500
+We'll pass that as a parameter and we will encode then using that map.
+
+10:26.740 --> 10:29.330
+So the one thing I want to do is a little bit of error checking.
+
+10:29.350 --> 10:36.190
+So if the max of the digits is greater than or equal to length of the digit mouth.
+
+10:36.310 --> 10:44.560
+Right so if the highest number that we have in digits is greater than or equal to the number of characters
+
+10:44.650 --> 10:48.550
+we have in that string in that mapping then that's not going to work.
+
+10:48.670 --> 10:49.150
+Right.
+
+10:49.180 --> 10:52.050
+Because remember that mapping is an ordinal mapping.
+
+10:52.050 --> 10:56.150
+So we're going to map the first character of the string is going to represent 0.
+
+10:56.230 --> 10:59.700
+The second character in the string is going to represent 1 and so on.
+
+10:59.890 --> 11:01.570
+So we need to make sure that we have that.
+
+11:01.570 --> 11:04.280
+Otherwise we're going to run into problems.
+
+11:04.330 --> 11:06.950
+So that's the case we'll raise an error right here.
+
+11:06.970 --> 11:17.550
+We'll say this is a value error and we'll say digits map is not long enough to encode the digits or
+
+11:17.590 --> 11:18.650
+something like that.
+
+11:18.660 --> 11:20.840
+So I mean that makes sense to our users.
+
+11:22.460 --> 11:25.700
+K then we need to create our encoding.
+
+11:25.940 --> 11:30.490
+So remember we can do it this way and coding equals empty string.
+
+11:30.710 --> 11:37.750
+And then we can say for D in digits encoding flossed equals.
+
+11:37.940 --> 11:49.870
+We look at the digit map of the right and then we'll just return the encoding.
+
+11:50.700 --> 11:54.740
+So now if we want to encode remember now we can try that.
+
+11:54.750 --> 11:56.340
+And now we need to passen.
+
+11:56.430 --> 12:00.580
+So let's pass in this result we had here 15 comma 15.
+
+12:01.050 --> 12:10.500
+And the math that we want to use is going to be 0 1 2 3 4 5 6 7 8 9 and that a b c d f k so that's the
+
+12:10.950 --> 12:12.990
+mapping that we want to use to encode.
+
+12:13.320 --> 12:19.160
+So we run that we get f f that looks small like our regular hex numbers.
+
+12:19.170 --> 12:26.160
+Now I remember what I said about this always we can actually change into a much simpler expression.
+
+12:26.160 --> 12:27.710
+So I'll just comment the salt
+
+12:32.480 --> 12:37.410
+and we can use list comprehensions instead.
+
+12:37.530 --> 12:45.900
+So we can say encoding equals and we need to do a join to get into a single string and then we're going
+
+12:45.900 --> 12:53.580
+to say our digit map d for d n digits.
+
+12:53.700 --> 12:56.430
+So we can do that and then return the encoding.
+
+12:56.470 --> 13:01.350
+Or if we want even simpler we just return that k.
+
+13:01.530 --> 13:04.310
+So this is probably a better way of coding this.
+
+13:04.320 --> 13:10.150
+And then when we run the code we get the same thing right supposed to generate the same thing.
+
+13:10.190 --> 13:19.290
+OK so now we have something that you know takes all number in base 10 and gives us its base b representation
+
+13:20.400 --> 13:23.070
+and then we have a way to encode it in different ways.
+
+13:23.070 --> 13:27.900
+So now we can actually combine those two if we want to in a different function.
+
+13:28.110 --> 13:37.520
+So let's do that and let's call it def rebase from base 10 and we'll do the numbers.
+
+13:37.830 --> 13:38.460
+And the base.
+
+13:38.460 --> 13:44.610
+And in this case we're going to hand-code the R mapping string inside this method.
+
+13:44.670 --> 13:47.810
+So we're going to do something very similar to Python.
+
+13:48.630 --> 13:54.150
+So the digit map and there's more than one way of generating the string.
+
+13:54.150 --> 14:02.130
+But I'm just going to do it by hand 0 1 2 3 4 5 6 7 8 9 and then I'm going to use uppercase letters
+
+14:02.130 --> 14:07.390
+a b c d f g a b c d f g h i j k l m and
+
+14:11.010 --> 14:12.130
+there we go.
+
+14:12.660 --> 14:14.650
+And that should be enough.
+
+14:16.750 --> 14:19.540
+So that's going to be our map right.
+
+14:19.570 --> 14:21.490
+Our encoding map.
+
+14:21.650 --> 14:27.240
+Now if the base is less than 2 k we don't handle Bass's less than 2.
+
+14:27.250 --> 14:32.170
+But in this case we also can handle a base that's going to be higher than 36 right.
+
+14:32.170 --> 14:35.640
+We've got 36 characters in the string.
+
+14:35.950 --> 14:41.100
+And so we can handle base greater than 36 so we have to make that test.
+
+14:41.170 --> 14:51.820
+And if that's the case we're going to raise a value error and we're going to say Invalid base to less
+
+14:51.820 --> 14:58.600
+than or equal to base less than or equal to 36 something like that just to indicate what the problem
+
+14:58.600 --> 14:59.060
+is.
+
+14:59.170 --> 15:01.930
+OK so base must be in that range.
+
+15:02.980 --> 15:03.370
+OK.
+
+15:03.370 --> 15:07.880
+We're also going to handle negative numbers here another way we're going to handle negative numbers
+
+15:07.920 --> 15:11.210
+is we're going to look at the sign of the number see if it's negative.
+
+15:11.530 --> 15:17.950
+We're going to then keep that sign we're going to make the number positive do our regular you know base
+
+15:18.670 --> 15:24.510
+change and our encoding and then we'll add the minus sign right at the end before we return the string.
+
+15:24.550 --> 15:30.280
+So we'll add the minus sign as a string as a string character essentially before we return it.
+
+15:30.820 --> 15:36.580
+So let's do that and we're going to use the term relief which if you don't know that's OK we'll cover
+
+15:36.580 --> 15:38.380
+it in an upcoming video.
+
+15:38.580 --> 15:40.500
+We'll say sign equals minus one.
+
+15:40.570 --> 15:44.830
+If the number is less than zero else one.
+
+15:45.100 --> 15:55.370
+So this is equivalent to saying if number is less than zero sine equals minus one else sine equals one.
+
+15:55.450 --> 16:01.560
+Write this code here is equivalent to this code right here.
+
+16:02.050 --> 16:10.090
+So I'm going to keep the first one more more concise and still very expressive.
+
+16:10.510 --> 16:15.640
+And the next thing we want to do is want to change the sign number to a positive right.
+
+16:15.640 --> 16:18.000
+We want to make sure that it's a positive number.
+
+16:18.010 --> 16:19.450
+Different ways we can do that.
+
+16:19.450 --> 16:25.370
+We could you know use the absolute value from the math library we could again use an IF statement.
+
+16:25.450 --> 16:30.830
+What I'm going to do is just multiply the number by the sign if the number was positive.
+
+16:30.970 --> 16:32.550
+We're going to multiply by 1.
+
+16:32.560 --> 16:35.160
+It won't change if the number was negative.
+
+16:35.260 --> 16:40.000
+We're going to multiply by negative 1 which means that the magnitude of the number won't change but
+
+16:40.000 --> 16:42.550
+the sign will change to a positive number.
+
+16:42.550 --> 16:46.460
+So we're just going to say a number of times equals sign.
+
+16:46.500 --> 16:51.310
+OK so now we know we have a positive numbers next.
+
+16:51.310 --> 16:53.290
+Now we need to get the digits.
+
+16:53.320 --> 16:55.710
+So we're going to say digits equals.
+
+16:55.750 --> 16:57.940
+We called it from base 10.
+
+16:58.270 --> 17:01.560
+We're going to give it the number that we're interested in and the vase.
+
+17:01.680 --> 17:04.240
+OK that's it.
+
+17:04.240 --> 17:15.750
+And then our encoding is going to be encoded the digits using the digit map that we created here inside
+
+17:15.830 --> 17:17.050
+our function.
+
+17:17.480 --> 17:18.760
+OK we're almost done.
+
+17:18.880 --> 17:21.390
+We still have to put in the sign right.
+
+17:21.400 --> 17:29.500
+So now we're going to use a regular if statement if sine equals minus 1 then the encoding is going to
+
+17:29.500 --> 17:36.420
+be equal to the minus signs concatenated with encoding.
+
+17:37.240 --> 17:43.860
+So if there was a negative side we'll add a back here and now we just return and coding.
+
+17:44.740 --> 17:45.540
+And that's it.
+
+17:45.640 --> 17:53.170
+We're done that function we now have a method that will take a number and give us its representation
+
+17:53.200 --> 17:54.100
+in a different base.
+
+17:54.100 --> 17:58.610
+The number is in base 10 hence why call that rebase from base 10.
+
+17:58.990 --> 18:00.040
+So we can try that out.
+
+18:00.070 --> 18:04.830
+Let's say a equals rebase from 10.
+
+18:05.050 --> 18:13.510
+Let's take 10 and put it in base 2 and then we'll print me and then just to check we'll print and we'll
+
+18:13.510 --> 18:17.290
+take that string representation that we have that easy.
+
+18:17.530 --> 18:25.190
+But now we'll use the constructor of the int class that also specifies the base K like this.
+
+18:25.240 --> 18:28.110
+And let's make sure that we get the same things.
+
+18:28.210 --> 18:28.980
+So there we go.
+
+18:29.020 --> 18:33.900
+When we rebase from 10 we had 1 0 1 0.
+
+18:34.150 --> 18:41.440
+And when we took that string and put it into the constructor that uses a string with a base we got 10
+
+18:41.440 --> 18:43.260
+back which was our original number.
+
+18:43.270 --> 18:49.690
+So if we were to do you know three hundred and fourteen here then we would get this right.
+
+18:49.690 --> 18:53.620
+This would be the binary representation of 314 base 10.
+
+18:53.920 --> 18:56.990
+And if we put that back into the constructor we get it back.
+
+18:57.070 --> 18:58.870
+So it looks like it's working.
+
+18:58.930 --> 19:01.560
+Now we can try other ones we could try.
+
+19:01.560 --> 19:05.260
+E equals rebase from 10.
+
+19:05.320 --> 19:07.350
+Maybe we'll try.
+
+19:07.990 --> 19:22.100
+I don't know 3000 451 in base 16 and then we'll print int he and we'll say the base was 16 K
+
+19:25.340 --> 19:30.450
+and maybe we should print it as well while we're at it.
+
+19:30.650 --> 19:36.020
+OK so this is the representation of three thousand four hundred fifty one in base 16.
+
+19:36.020 --> 19:42.290
+It is DS 7 B and if we pump it back into the constructor and we get the same value back.
+
+19:42.380 --> 19:47.720
+So it looks like our code is working obviously in order to really be sure we would have to write more
+
+19:47.720 --> 19:52.330
+exhaustive unit tests.
+
+19:52.330 --> 19:53.540
+Now let's try.
+
+19:53.740 --> 19:58.540
+Lastly a negative number that makes all the negative numbers are getting carried through.
+
+19:58.600 --> 20:02.170
+I'm just going to change it up here and make it a minus 3:14.
+
+20:02.470 --> 20:08.830
+And indeed we get that we get minus our binary numbers and then we get negative that decimal back right.
+
+20:08.830 --> 20:10.470
+So that seems to work.
+
+20:10.660 --> 20:18.370
+And if we do that with our base 16 we get negative 7 B and then we get negative 3 4 5 1 back.
+
+20:18.370 --> 20:20.280
+So looks like it's working.
+
+20:20.380 --> 20:20.860
+All right.
+
+20:20.860 --> 20:23.030
+Thanks for watching and I'll see you in the next video.

@@ -1,0 +1,844 @@
+WEBVTT
+
+00:00.240 --> 00:05.940
+High in this video we're going to continue our look at Python optimizations and in particular we're
+
+00:05.940 --> 00:11.570
+going to look at peephole optimizations which is just another variety of optimizations that happens.
+
+00:11.730 --> 00:17.830
+Now these happen at compile time and of course your Python code gets compiled before it can run.
+
+00:17.970 --> 00:18.210
+Right.
+
+00:18.210 --> 00:24.630
+It doesn't get pre-compiled the way a typical you know C language for example might get compiled into
+
+00:24.630 --> 00:25.790
+an executable.
+
+00:25.920 --> 00:31.680
+You know once it gets linked this occurs as it's running but it does compile your code and it doesn't
+
+00:31.680 --> 00:39.780
+have to recompile the same bit of code every time that your that code runs within the scope within the
+
+00:39.780 --> 00:41.690
+context of running your application.
+
+00:41.730 --> 00:45.130
+Every time you restart your application it may recompile.
+
+00:45.360 --> 00:50.640
+But as long as your application is running Watson's once it's compiled a piece of code it's going to
+
+00:50.640 --> 00:53.680
+keep using that compiled version of the code.
+
+00:53.950 --> 00:56.340
+So certain things get optimized.
+
+00:56.340 --> 01:02.860
+For example constant expressions and what I mean by that is let's say you have a piece of code that
+
+01:02.860 --> 01:07.330
+assigns this value to a variable April 24 times 60.
+
+01:07.360 --> 01:14.050
+Now if that line of code gets executed many many times during the lifetime of your program while it's
+
+01:14.350 --> 01:18.230
+going to have to calculate 24 times 60 again and again and again.
+
+01:18.430 --> 01:23.650
+So you might think as a developer while heck you know if it's going to do that I'm just going to put
+
+01:23.650 --> 01:26.190
+the value 14:14 there.
+
+01:26.860 --> 01:32.130
+But let's say that you know your line of code was minutes equals twenty four times sixty.
+
+01:32.410 --> 01:37.930
+Well now if you read that from a readability standpoint it's easy to understand that.
+
+01:37.960 --> 01:40.450
+OK well this means the number of minutes in a day.
+
+01:40.510 --> 01:40.770
+Right.
+
+01:40.770 --> 01:43.130
+Twenty four hours time 60 Minutes.
+
+01:43.300 --> 01:49.300
+But if you were at a store you know if you were to say minutes equals 14 40 it might not be immediately
+
+01:49.300 --> 01:51.920
+evident that this is the number of minutes in a day.
+
+01:52.060 --> 01:56.230
+So it would be better if you could just leave 24 times 60.
+
+01:56.380 --> 02:02.470
+But for optimization reasons if this line of code is going to run thousands of times then you may say
+
+02:02.470 --> 02:04.430
+well I'm going to stow 14:14.
+
+02:04.480 --> 02:06.690
+I'm going to write 14:14 there.
+
+02:07.030 --> 02:08.630
+But in fact you don't have to do that.
+
+02:08.740 --> 02:14.240
+Python will actually do that for us so we can leave our code is 24 times 60.
+
+02:14.410 --> 02:20.710
+But when Python compiles this line of code it's actually going to replace it with 14:14 it's going to
+
+02:20.710 --> 02:22.220
+calculate Y.
+
+02:22.360 --> 02:24.250
+While this is a constant expression.
+
+02:24.340 --> 02:25.660
+So it's safe to do that.
+
+02:25.810 --> 02:31.780
+You know as your program is running this line of code 24 times 60 isn't going to change.
+
+02:31.780 --> 02:38.800
+It's essentially a constant and so constant expressions or expressions that evaluate to a constant get
+
+02:39.130 --> 02:45.710
+pre-calculated and Stone are also short sequences short sequences.
+
+02:45.730 --> 02:47.380
+Lenth less than 20.
+
+02:47.410 --> 02:52.960
+So sequence types things like lists tuples and strings will also get pre-calculated.
+
+02:52.960 --> 03:00.030
+So for example this topple one comma two times five which evaluates to this long table here.
+
+03:00.220 --> 03:02.740
+Well that's less than 20 in length.
+
+03:02.860 --> 03:07.100
+And so that is also going to get pre-calculated and stoned.
+
+03:07.150 --> 03:12.190
+Same thing with ABC times three that evaluates to ABC ABC ABC.
+
+03:12.190 --> 03:18.490
+Again these are all constants and it's going to get pre-calculated and stored.
+
+03:18.490 --> 03:19.600
+Same thing with this one.
+
+03:19.600 --> 03:20.810
+Hello Plus world.
+
+03:20.830 --> 03:22.510
+There is also a constant.
+
+03:22.700 --> 03:25.950
+It's a constant string It's also less than 20 characters.
+
+03:26.290 --> 03:29.050
+And that will also get pre-calculated and so on.
+
+03:29.050 --> 03:33.850
+So every time those lines run it will use the pre-calculated values.
+
+03:33.850 --> 03:39.980
+It will not really run or re-evaluate the expressions on the other hand.
+
+03:40.120 --> 03:42.470
+You know the quick brown fox times 10.
+
+03:42.640 --> 03:45.170
+Well that is more than 20 characters.
+
+03:45.250 --> 03:46.860
+So that will not get stoned.
+
+03:47.050 --> 03:47.290
+Right.
+
+03:47.290 --> 03:52.240
+There's a tradeoff between you know storage and computation.
+
+03:52.270 --> 03:58.970
+So how much overhead do you want to have by storing pre-calculated expressions versus the speed.
+
+03:59.140 --> 04:01.920
+And so Python decides to do the tradeoff.
+
+04:02.030 --> 04:03.040
+20 characters
+
+04:05.640 --> 04:10.570
+OK the next type of peephole optimization will look at his membership tests.
+
+04:10.830 --> 04:13.910
+And what I mean by membership test is something like this.
+
+04:13.950 --> 04:17.500
+If he in this list one two three.
+
+04:17.790 --> 04:20.800
+Now this list is actually a constant.
+
+04:20.880 --> 04:23.140
+Yes lists are mutable.
+
+04:23.310 --> 04:25.920
+But in this case this is all your code.
+
+04:25.920 --> 04:27.810
+This is the string in your code.
+
+04:27.970 --> 04:33.570
+While that is not going to change as your program is running you don't change you know your actual Python
+
+04:33.570 --> 04:36.050
+code as the code is running.
+
+04:36.060 --> 04:38.750
+So this is actually a constant expression.
+
+04:38.760 --> 04:44.640
+Now if you had like variable names in here instead that would no longer apply because the variables
+
+04:44.640 --> 04:48.020
+values could change and therefore you don't.
+
+04:48.030 --> 04:52.080
+This list expressions evaluation could change.
+
+04:52.200 --> 04:56.670
+So that doesn't apply but here this is just a constant.
+
+04:56.700 --> 05:06.900
+So you know when that is encountered then Python is going to replace the constant mutable expression
+
+05:07.320 --> 05:10.400
+by its immutable counterpart.
+
+05:10.410 --> 05:18.510
+So for example it will transform essentially the list 1 to 3 into the top or 1 to 3 to the more efficient
+
+05:18.750 --> 05:21.020
+for membership testing than lists.
+
+05:22.350 --> 05:29.160
+So lists will get converted to topples and sets will get converted to frozen sets which are the immutable
+
+05:29.160 --> 05:35.250
+counterpart of sets and will look at sets and frozen sets and lists and tuples and a lot more detail
+
+05:35.250 --> 05:36.790
+later on in the schools.
+
+05:36.930 --> 05:43.810
+And we're also going to look at this replacement in code just now just a little later in the video and
+
+05:43.850 --> 05:46.610
+it might make a little more sense as to what's happening.
+
+05:46.950 --> 05:54.240
+But before we do that I want to talk about set membership set membership is much faster than lists or
+
+05:54.240 --> 05:58.900
+topical membership because sets are basically dictionaries.
+
+05:59.100 --> 06:05.070
+It may not look like it but sets are basically implemented just like dictionaries are implemented in
+
+06:05.070 --> 06:11.300
+Python so it is much faster to do a lookup of a dictionary right.
+
+06:11.320 --> 06:14.640
+If I want to see is you know if e in the set.
+
+06:14.640 --> 06:15.910
+One two three.
+
+06:16.050 --> 06:19.130
+I want to see if something is in the set.
+
+06:19.170 --> 06:24.960
+It's a dictionary lookup but when it's in a list or a top all you essentially have to sequentially move
+
+06:24.960 --> 06:31.620
+through until you find what you're looking for or you don't find it so much easier using you all kind
+
+06:31.620 --> 06:37.110
+of hash maps than using lists for membership testing.
+
+06:37.110 --> 06:43.350
+So if you are ever in a situation in your code where you're writing something like if in this constant
+
+06:43.350 --> 06:51.070
+list or this constant topple then you should really think hard and probably write it this way.
+
+06:51.210 --> 06:53.310
+If e in the set.
+
+06:53.340 --> 06:54.570
+One two three.
+
+06:54.600 --> 06:58.630
+Now if it's a line of code that's going to get executed once and the list is short.
+
+06:58.700 --> 07:00.610
+Yeah it doesn't really matter.
+
+07:00.750 --> 07:06.900
+But you know if this is code that's going to get executed again and again and again and again you really
+
+07:06.900 --> 07:09.950
+start thinking about maybe using sets for membership.
+
+07:09.960 --> 07:14.100
+Especially with constant expressions instead of lists or topples.
+
+07:14.100 --> 07:19.150
+So it is more efficient and will look at that in code and will do that right now.
+
+07:19.200 --> 07:26.390
+So let's start by looking at some of the peephole optimizations with constant expressions.
+
+07:26.550 --> 07:33.870
+So we'll create a function that's called my func and first thing will set a call to that say 24 times
+
+07:34.080 --> 07:43.020
+60 then will do B will make that a top all that's repeated so times 5 right and that's the top or one
+
+07:43.020 --> 07:47.540
+comma to come one come up to come one come to 5 times.
+
+07:47.670 --> 07:56.720
+So the 10 elements then wold say C is equal to some string with say ABC times 3.
+
+07:56.730 --> 08:01.140
+Then we'll do another string will do a b times 11.
+
+08:01.140 --> 08:05.060
+So this is now going to be a string that will be 22 characters long.
+
+08:05.280 --> 08:13.960
+So that should not get pre-calculated and Staun because that is more than 20 characters and we can look
+
+08:14.230 --> 08:15.900
+at another string if you want.
+
+08:15.900 --> 08:19.590
+The quick brown fox and will do that.
+
+08:19.590 --> 08:21.790
+Times 5 let's say.
+
+08:22.260 --> 08:32.700
+And lastly we'll look at let's say a list containing no maybe a and b two strings and we'll multiply
+
+08:32.700 --> 08:34.340
+that by three.
+
+08:34.440 --> 08:39.660
+So this will be a list of six elements in that list.
+
+08:39.660 --> 08:43.420
+However if a list is mutable it's not a constant technically.
+
+08:43.680 --> 08:46.230
+So that list is not constant.
+
+08:46.230 --> 08:50.020
+So that also is not going to get calculated.
+
+08:50.570 --> 08:58.270
+OK so we executed that block of code which means that Python went through and actually compiled it.
+
+08:58.290 --> 08:59.660
+So now we can look at.
+
+08:59.670 --> 09:03.050
+What are the constants that are associated with that function.
+
+09:03.420 --> 09:11.460
+So to do that we can look at this kind of arcane piece of code and we'll get back into these kinds of
+
+09:11.460 --> 09:16.590
+expressions when we look at object programming with the double underscores and we'll see a lot more
+
+09:16.590 --> 09:20.820
+functions that have double underscores as well as properties and so on.
+
+09:20.820 --> 09:27.390
+So in this case we're looking at the property that contains all the constants that are associated with
+
+09:27.390 --> 09:28.440
+that function.
+
+09:28.440 --> 09:30.870
+Now that it's been compiled.
+
+09:31.200 --> 09:39.330
+So when we do that you'll notice that we have in our 24 sixty one to all these are numbers right in
+
+09:39.330 --> 09:42.800
+that code they're all present that string ABC is here.
+
+09:42.810 --> 09:44.550
+The string AB is here.
+
+09:45.030 --> 09:48.060
+But take a look at one two times five.
+
+09:48.060 --> 09:51.310
+It's actually this right here.
+
+09:51.450 --> 09:53.860
+So that was pre-calculated right.
+
+09:53.910 --> 09:58.010
+The 24 times 60 which is 14 40 is right here.
+
+09:58.170 --> 10:01.170
+So that was pre-calculated as well.
+
+10:01.260 --> 10:08.970
+You'll find a B and you'll find 11 but you're not going to find a B 11 times because that's too long.
+
+10:09.000 --> 10:11.400
+So it did not get pre-calculated.
+
+10:11.430 --> 10:12.650
+Same thing with E.
+
+10:12.750 --> 10:19.920
+You'll find the quick brown fox is present but not the quick brown fox 5 times and then the same thing
+
+10:19.920 --> 10:20.780
+with the list.
+
+10:20.810 --> 10:25.790
+It's is not pre-calculated as a comma become a comma become a comma.
+
+10:25.800 --> 10:29.700
+B because that is not a constant expression right.
+
+10:29.720 --> 10:33.960
+A list is a mutable object and therefore it's not constant.
+
+10:34.010 --> 10:38.060
+So Python isn't going to pre-calculated OK.
+
+10:38.520 --> 10:42.950
+So the next thing we're going to look at is the membership tests.
+
+10:43.050 --> 10:43.430
+OK.
+
+10:43.500 --> 10:49.680
+So what I mean by the membership tests I remember was using the in operator so we can go ahead and we
+
+10:49.680 --> 10:56.040
+can look at my funk and we'll pass in let's say E which is going to be the element we want to search
+
+10:56.040 --> 11:00.000
+for and if e in and we'll use the list.
+
+11:00.000 --> 11:01.640
+One two three.
+
+11:02.010 --> 11:02.780
+And then we'll pass.
+
+11:02.780 --> 11:05.080
+We're not actually going to do anything with it.
+
+11:05.730 --> 11:07.620
+And we'll run that piece of code.
+
+11:07.710 --> 11:14.970
+So that function now has been compiled and we can go ahead and pull up the constants that are associated
+
+11:15.210 --> 11:16.880
+with that function.
+
+11:17.100 --> 11:25.080
+And you'll notice that with this membership testing the list 1 to 3 became the top or one to three.
+
+11:25.080 --> 11:33.390
+So remember when we do list our and sequence memberships basically then the people optimizer is going
+
+11:33.390 --> 11:40.040
+to transform any kind of mutable element into an immutable version of that element when it can.
+
+11:40.050 --> 11:42.990
+So in particular lists become topples.
+
+11:42.990 --> 11:49.470
+And if we were to do the same thing again but this time we'll use a set.
+
+11:49.470 --> 11:52.210
+So we'll use the set one two three.
+
+11:52.530 --> 11:59.910
+Then when we look at the associated constants you'll see that the cert 1 to 3 has become the frozen
+
+11:59.910 --> 12:00.380
+set.
+
+12:00.390 --> 12:01.290
+One two three.
+
+12:01.340 --> 12:07.110
+Again we'll look at sets and frozen sets and a lot of detail in a later section.
+
+12:08.060 --> 12:14.570
+So the last thing that I want to do is kind of a quick and dirty benchmark if we can call it Aben benchmarks
+
+12:14.570 --> 12:19.850
+are more complicated you have to take averages run multiple times and so on we're just going to do some
+
+12:20.120 --> 12:27.790
+basic timings basically on set membership versus let's say list membership or Popple membership and
+
+12:27.790 --> 12:35.870
+ruga what I said in the slides a little earlier but set membership is very much more efficient than
+
+12:35.960 --> 12:39.850
+searching inside a list or a tuple or a string for that matter.
+
+12:40.060 --> 12:40.620
+OK.
+
+12:41.000 --> 12:43.310
+So let's take a look at how we're going to do that.
+
+12:43.520 --> 12:46.250
+Well we're going to import the string library.
+
+12:46.310 --> 12:48.170
+We're going to get something out of the string library.
+
+12:48.170 --> 12:49.880
+I'll show you a second.
+
+12:49.880 --> 12:52.730
+We're going to import the time library we need to do timings.
+
+12:52.840 --> 12:59.780
+OK so let's import those two libraries then I want to show you that the string library has some constants
+
+13:00.320 --> 13:04.160
+that are pre-created for us like ASCII letters.
+
+13:04.250 --> 13:10.850
+So if we look at that it's basically a string which remembers a sequence type that contains all the
+
+13:10.850 --> 13:14.820
+ASCII characters lowercase and uppercase in that order.
+
+13:14.930 --> 13:15.760
+Right.
+
+13:16.310 --> 13:21.630
+So what we're going to do here is we're going to create a few variables.
+
+13:21.650 --> 13:31.180
+We're going to create one which is going to be a list and that list is going to contain the ASCII letters.
+
+13:32.360 --> 13:37.440
+Then we're going to create a Toughbook in the same way we're going to create a top.
+
+13:38.030 --> 13:45.660
+And we're going to create it using the ASCII letters.
+
+13:45.910 --> 13:52.380
+Now you'll notice that this is a I'm using the constructor for the list the list has multiple constructors
+
+13:52.740 --> 13:58.390
+one of which it can handle basically strings and a string is just a sequence type.
+
+13:58.500 --> 14:03.330
+But what it does when you pass it inside the constructor it takes every character in the string and
+
+14:03.330 --> 14:08.520
+makes it an element of the list and then Same thing with topple which is just the immutable version
+
+14:08.580 --> 14:10.350
+of a list.
+
+14:10.350 --> 14:16.660
+Now we can also do that move a set so we can call the constructor for the set Brassington.
+
+14:16.680 --> 14:19.840
+Also the string.
+
+14:19.920 --> 14:23.080
+Now we'll look at sets and a lot more detail later.
+
+14:23.310 --> 14:28.080
+But for now basically set is the set constructor is going to do the same thing it's going to take this
+
+14:28.440 --> 14:33.420
+sequence of characters and it's going to create a set of those characters.
+
+14:33.420 --> 14:35.950
+If they were repeating characters it would ignore them.
+
+14:36.000 --> 14:39.150
+The cassettes did not contain repeating characters.
+
+14:39.760 --> 14:43.030
+OK so we've now got each one of those.
+
+14:43.080 --> 14:45.420
+Let's take a look at what they look like.
+
+14:45.460 --> 14:49.310
+So the list is basically just the list.
+
+14:49.380 --> 14:50.040
+Right.
+
+14:50.040 --> 14:54.630
+Let me use the print statements so there will be a little more concise
+
+14:57.310 --> 15:01.920
+care so we have the list then we have the couple.
+
+15:02.570 --> 15:03.000
+OK.
+
+15:03.040 --> 15:05.500
+So the top all it's basically exactly the same.
+
+15:05.500 --> 15:12.280
+And you'll notice that the older of the elements in the list and in the top all are basically the same
+
+15:12.310 --> 15:15.650
+as the older that we had in that string.
+
+15:15.890 --> 15:16.460
+Right.
+
+15:16.680 --> 15:16.990
+Right.
+
+15:16.990 --> 15:23.540
+It maintains the owners and that's because lists and topples are ordered sequences on the other hand
+
+15:23.620 --> 15:27.110
+set is not an ordered sequence.
+
+15:27.250 --> 15:28.390
+So if we look at the set.
+
+15:28.390 --> 15:34.630
+You'll notice that yes we have a set but there's no guarantee on the ordering of the elements inside
+
+15:34.630 --> 15:39.930
+that set all the elements are then not repeated which they want anyway in this case.
+
+15:40.210 --> 15:43.810
+But they are not repeated but they are in no particular order.
+
+15:43.990 --> 15:45.980
+Just like a dictionary.
+
+15:46.110 --> 15:46.900
+OK.
+
+15:47.560 --> 15:54.730
+So the next thing we want to do is we want to basically run a test and we want to time that test where
+
+15:54.730 --> 15:59.540
+we're going to look for a character inside the list and the top on the set.
+
+15:59.650 --> 16:02.170
+And we want to see how long it takes to do that.
+
+16:02.200 --> 16:11.500
+So we're going to write this method let's call it membership tests and we're going to pass in N which
+
+16:11.500 --> 16:16.780
+is going to be the number of times we want to test for membership because obviously it goes so fast
+
+16:16.780 --> 16:22.210
+that if we were just to try and time a single membership test we wouldn't be able to tell the difference.
+
+16:22.300 --> 16:28.150
+Right so we get to just repeat that test many times and then we're also going to pass in the container
+
+16:28.570 --> 16:34.720
+which is going to be what do we want to search What object do we want to search and we'll hand code
+
+16:34.720 --> 16:38.890
+the object that we're searching for the string that we're searching for.
+
+16:39.610 --> 16:42.730
+So for i in range and.
+
+16:42.790 --> 16:49.760
+Right we're going to repeat this test end times and we're going to say if and let's pick some letter
+
+16:49.760 --> 16:51.990
+in here maybe we'll pick p.
+
+16:52.000 --> 16:57.010
+All right so let's look for P Actually maybe there's something more in the middle.
+
+16:57.010 --> 16:59.090
+Let's go with far lower z.
+
+16:59.190 --> 16:59.480
+OK.
+
+16:59.500 --> 17:04.830
+So if the z is in the container.
+
+17:05.040 --> 17:10.600
+OK so we're going to look at whatever that container is and the container could be a string.
+
+17:10.630 --> 17:15.670
+It could be a list could be a top or could be a set could be a frozen set.
+
+17:15.700 --> 17:21.190
+This operator will figure out how to find something in that particular container.
+
+17:21.490 --> 17:26.480
+And that's one thing you'll notice with Python and we'll discuss that in more detail in the object or
+
+17:26.610 --> 17:27.500
+section.
+
+17:27.550 --> 17:29.850
+But Python is highly polymorphic.
+
+17:29.870 --> 17:37.510
+So and that's you know in general how you use Python you don't try and constrain a variable to a specific
+
+17:37.510 --> 17:38.330
+type.
+
+17:38.350 --> 17:43.260
+What you're really interested in is a type that's going to have certain properties.
+
+17:43.300 --> 17:49.330
+And in this case I don't care what you pasan you know as that second container this function doesn't
+
+17:49.330 --> 17:53.910
+care as long as it supports the in operator.
+
+17:54.370 --> 17:56.230
+That's the only thing that needs to support.
+
+17:56.600 --> 18:00.220
+OK but again we'll get to that in later sections.
+
+18:00.370 --> 18:03.130
+So if Z's in the container if we're just going to pass.
+
+18:03.130 --> 18:05.380
+We're not actually going to do anything with that.
+
+18:05.570 --> 18:06.080
+OK.
+
+18:07.880 --> 18:08.720
+All right.
+
+18:08.910 --> 18:14.620
+So let's go ahead and run some tests so time off counter.
+
+18:14.620 --> 18:21.470
+That's going to be our start time then we're going to run membership test and we'll do that 10 million
+
+18:21.860 --> 18:23.380
+times as well.
+
+18:23.690 --> 18:31.660
+And the first one we're going to look at is the call list then we'll do and the equals time dot of counter
+
+18:33.140 --> 18:37.060
+and then we will print and we'll say that this was for the list.
+
+18:37.160 --> 18:37.900
+OK.
+
+18:38.180 --> 18:45.040
+And the timing was there for and minus stuff that will give us the number of seconds that elapsed.
+
+18:45.050 --> 18:48.100
+So let's go ahead and run that will take a little while to run.
+
+18:48.130 --> 18:58.350
+Well if I am member of all men birth ship tests helps Fussball correctly.
+
+18:58.570 --> 18:59.300
+OK.
+
+18:59.910 --> 19:01.050
+So let's let that run
+
+19:03.880 --> 19:04.700
+OK.
+
+19:04.840 --> 19:13.590
+So for us running took 5.3 seconds so I'm going to copy this entire list this entire chunk of code and
+
+19:13.590 --> 19:19.290
+now instead of doing the membership test in the list we're going to do it in the top row.
+
+19:19.650 --> 19:22.280
+So this will be the timing for Toppo.
+
+19:22.860 --> 19:23.880
+Let's run that's
+
+19:28.280 --> 19:29.710
+and you want.
+
+19:29.760 --> 19:35.080
+So you know I mean again this isn't the benchmark but it's about the same maybe a little faster.
+
+19:35.180 --> 19:37.820
+But it could be a little slower in some cases too.
+
+19:37.830 --> 19:39.860
+It's about the same.
+
+19:40.610 --> 19:45.480
+And let's go ahead and run it once more.
+
+19:46.220 --> 19:51.850
+But this time we're going to look at the set and this will be all set.
+
+19:52.160 --> 19:52.910
+Let's run that.
+
+19:52.910 --> 19:55.630
+And as you can see it takes half a second.
+
+19:55.640 --> 20:02.700
+So really as you can see a lot lot faster doing set membership than doing top or list membership.
+
+20:02.870 --> 20:06.220
+So whenever you can prefer using set membership.
+
+20:06.230 --> 20:06.590
+All right.
+
+20:06.590 --> 20:09.010
+Thanks for watching and I'll see you in the next video.

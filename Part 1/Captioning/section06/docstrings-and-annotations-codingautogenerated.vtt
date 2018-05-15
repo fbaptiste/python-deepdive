@@ -1,0 +1,700 @@
+WEBVTT
+
+00:00.390 --> 00:05.950
+High in this video we're going to take a quick look at the doc strings and notations code.
+
+00:06.210 --> 00:12.930
+So you remember that if we call help on let's say and a built in function python like help on print
+
+00:13.260 --> 00:16.950
+we'll get some kind of documentation for the print function.
+
+00:17.000 --> 00:22.980
+We saw that for other things as well like we can do help let's say all class as well and we get some
+
+00:22.980 --> 00:28.110
+documentation as well for the class so far with our own functions.
+
+00:28.110 --> 00:29.590
+We can do the same thing.
+
+00:29.890 --> 00:37.620
+But again let's say say death my Kong I will take in two parameters A and B that say a default of 1
+
+00:37.950 --> 00:40.670
+and just will return 8 times b.
+
+00:40.950 --> 00:45.590
+Now we can call help on my function and you'll notice that we get something back.
+
+00:45.600 --> 00:48.990
+We get basically the function definition the function header.
+
+00:49.130 --> 00:49.430
+Right.
+
+00:49.440 --> 00:50.820
+But nothing else.
+
+00:50.820 --> 00:56.970
+So we can remedy that by putting in a documentation string which has to be the first line of code in
+
+00:56.970 --> 01:00.550
+the function and it has to be a string.
+
+01:00.600 --> 01:05.300
+It can be a single line string or a multi-line string but delimited don't matter.
+
+01:05.310 --> 01:08.100
+Some people will say well you have to use triple quotes.
+
+01:08.100 --> 01:09.090
+No you don't.
+
+01:09.090 --> 01:10.750
+You can use single quotes if you want.
+
+01:10.800 --> 01:18.410
+So you can say returns a times B and if you run on that now you get your documentation here.
+
+01:18.880 --> 01:23.460
+But of course if you want to use multi lines now you're going to have to go back here and you're going
+
+01:23.460 --> 01:25.440
+to have to put in triple quotes.
+
+01:25.440 --> 01:32.430
+So that's why people use triple quotes in general because you generally will have more than one line.
+
+01:32.460 --> 01:38.120
+And even if you don't you kind of pre-build it in such a way that you know if I have a single line and
+
+01:38.120 --> 01:44.200
+I want to add something right some additional comments here.
+
+01:44.820 --> 01:51.540
+And technically I shouldn't call it comments of call it docs here documentation because a string is
+
+01:51.540 --> 01:52.590
+not a comment.
+
+01:52.740 --> 01:53.180
+Right.
+
+01:54.150 --> 01:55.320
+So you do that.
+
+01:55.320 --> 01:59.610
+Now it's kind of pre-build in order to have multi-line documentation.
+
+02:00.000 --> 02:03.750
+So that's why people will use triple quotes in general if we do that.
+
+02:03.780 --> 02:08.590
+As you can see this comes back here as well and you can add you know more lines and get you can you
+
+02:08.600 --> 02:11.970
+know to a section that discusses your inputs.
+
+02:11.970 --> 02:18.390
+Another section that discusses the outputs may be right and song and if we run this and run that as
+
+02:18.390 --> 02:22.490
+you can see we have that as well.
+
+02:22.540 --> 02:28.500
+So remember this is not a comment a comment would look something like this.
+
+02:28.710 --> 02:31.530
+So some comments here.
+
+02:31.800 --> 02:32.080
+Right.
+
+02:32.100 --> 02:33.480
+This is a comment.
+
+02:33.510 --> 02:39.360
+Now you'll notice that the docstring is no longer the first line of the function and yet it still worked.
+
+02:39.450 --> 02:40.890
+Why.
+
+02:41.160 --> 02:44.130
+Because this is not a part of the code.
+
+02:44.130 --> 02:45.240
+It doesn't get compiled.
+
+02:45.240 --> 02:48.620
+So technically it's not the last line of this function.
+
+02:48.620 --> 02:52.080
+The first line of code in this function is this right here.
+
+02:52.380 --> 02:58.050
+Now if I put another string over here let's say some comments here.
+
+02:58.180 --> 03:03.600
+Right now if I look at help then yeah this now has changed.
+
+03:03.600 --> 03:03.900
+Right.
+
+03:03.900 --> 03:09.900
+This is now my document string not this over here because that's not the first line that's not the first
+
+03:10.320 --> 03:11.320
+line of code.
+
+03:11.430 --> 03:11.840
+Right.
+
+03:11.970 --> 03:14.120
+In the function the first line of code is this.
+
+03:14.130 --> 03:14.940
+Over here.
+
+03:15.270 --> 03:17.150
+Same thing if you put in a calls.
+
+03:17.400 --> 03:20.050
+Let's say your name was put in a dummy variable.
+
+03:20.080 --> 03:22.620
+Then you get the same thing.
+
+03:22.620 --> 03:24.230
+There is no docstring now anymore.
+
+03:24.300 --> 03:24.690
+Right.
+
+03:24.690 --> 03:25.330
+Why.
+
+03:25.530 --> 03:29.070
+Because this wasn't the first line of code this was.
+
+03:29.250 --> 03:32.520
+But of course comments true comments don't count.
+
+03:33.120 --> 03:33.480
+All right.
+
+03:33.600 --> 03:41.830
+So if we go back to that use what we have and we can see where this comment is still.
+
+03:41.840 --> 03:43.200
+So this is part of your code.
+
+03:43.250 --> 03:45.290
+It's not a comment it's a docstring.
+
+03:45.320 --> 03:49.770
+And where is it being stone words being attached to the my funk function.
+
+03:49.940 --> 03:53.490
+Functions are objects they have properties just like any object in particular.
+
+03:53.570 --> 04:00.230
+They also have the duck property and his Yodok property it's just your string it's your docstring right.
+
+04:00.230 --> 04:01.860
+That gets contained in there.
+
+04:02.420 --> 04:07.260
+Now of course you can add them documentation as much as you want.
+
+04:07.280 --> 04:09.800
+Right but it doesn't affect how your code runs.
+
+04:09.890 --> 04:14.230
+It's external applications that are going to use that like the help function for example.
+
+04:14.240 --> 04:14.540
+Right.
+
+04:14.540 --> 04:20.510
+That's just going to read the documentation string and displayed in some way this case that just does
+
+04:20.510 --> 04:20.950
+this.
+
+04:21.110 --> 04:26.450
+You might have other external applications like the Sphinx documentation system that will read that
+
+04:26.480 --> 04:31.200
+and do something with it in order to create documentation on your code.
+
+04:31.250 --> 04:37.310
+So a lot of people will use this instead of just the comments because if you use it this way instead
+
+04:37.310 --> 04:42.650
+of using a comment to you know document what the function does then it's great because now external
+
+04:42.650 --> 04:44.840
+tools can leverage that as well.
+
+04:45.110 --> 04:50.160
+And this is why sometimes people think of those as comments but they're not technically comments.
+
+04:50.180 --> 04:55.520
+This is a comment that's ignored by the python interpreted gets you know totally dumped out of your
+
+04:55.520 --> 05:01.760
+code whereas this is a string that just sits by itself it's not assigned to anything it doesn't really
+
+05:01.760 --> 05:04.250
+do much other than be there.
+
+05:04.370 --> 05:10.170
+But then when Python encounters it it recognizes it since it's the first line of code as a docstring.
+
+05:10.190 --> 05:17.510
+And so when the function is created it puts it inside the duck property the Dundalk property.
+
+05:17.540 --> 05:22.830
+So this gets assigned to the Donald Duck property when def runs OK.
+
+05:22.850 --> 05:27.890
+When this function is created at the time of creation Another time the function runs just when it gets
+
+05:27.890 --> 05:28.730
+created.
+
+05:29.240 --> 05:30.490
+So we can go a step further.
+
+05:30.530 --> 05:33.320
+We can also start documenting the parameters themselves.
+
+05:33.320 --> 05:38.960
+So let's say we have this Skeff my phunk will put in a and then we'll document it.
+
+05:38.980 --> 05:42.000
+And the annotations can be any expression.
+
+05:42.020 --> 05:43.710
+So in this case I'm just going to use a string.
+
+05:43.850 --> 05:47.280
+So you know notation a.
+
+05:47.480 --> 05:54.600
+Then we'll put in B as well and we'll say and notation then put B and we can retain the default value.
+
+05:54.600 --> 06:01.010
+Nothing changes we don't lose any functionality with annotations so we can document B and we can also
+
+06:01.040 --> 06:03.660
+specify full value equals 1.
+
+06:03.920 --> 06:07.830
+We can also document the return value of the function.
+
+06:08.120 --> 06:10.260
+And let me fix the typo.
+
+06:10.280 --> 06:12.280
+So what's the return value going to be.
+
+06:12.320 --> 06:14.040
+I don't know something right.
+
+06:14.090 --> 06:16.600
+This is really just a bogus function.
+
+06:17.850 --> 06:24.050
+And maybe something with a long notation.
+
+06:24.790 --> 06:25.590
+OK.
+
+06:25.840 --> 06:31.350
+Now you'll notice what's happening here is that it's not going off the screen.
+
+06:31.470 --> 06:31.960
+Right.
+
+06:32.100 --> 06:33.820
+I can't see everything together.
+
+06:34.050 --> 06:37.750
+So this is a great time to start using multi-line.
+
+06:37.930 --> 06:39.300
+And so here we go.
+
+06:39.310 --> 06:44.740
+Now we can finally end the function header right with the call up and then we're just going to return
+
+06:44.800 --> 06:49.530
+a times b then not we do help on my phunk.
+
+06:49.540 --> 06:50.550
+You'll notice that.
+
+06:50.650 --> 06:56.730
+We get those annotations that come back in the function header but Doulos there's no docstring while
+
+06:56.730 --> 06:59.300
+the app there's no docstring because we didn't put anything.
+
+06:59.440 --> 07:08.420
+So let's put a docstring in let's say you know documentation for my bunk or whatever it is.
+
+07:08.470 --> 07:13.380
+Now if we do that now we have the notations and we have the documentation.
+
+07:13.750 --> 07:17.950
+So this means that the notations are not stored in the docstring writes.
+
+07:17.950 --> 07:26.890
+In fact if we look at my phunk on the dock you'll see that it's just the documents string the annotations
+
+07:26.890 --> 07:31.220
+are stored in a different property called annotations.
+
+07:31.420 --> 07:36.310
+So done annotations which will be a dictionary in the dictionary will contain key value pairs the keys
+
+07:36.310 --> 07:40.020
+of your parameter names and the values or your notations.
+
+07:40.030 --> 07:42.340
+Now you can use any expression that you want.
+
+07:42.340 --> 07:45.460
+For the annotation which means we could do something like this.
+
+07:45.460 --> 07:50.930
+Let's say where X equals 3 y equals 5 and let's left my funk.
+
+07:51.040 --> 07:55.940
+It's going to take in a and b points where they can just a single parameter a.
+
+07:56.230 --> 08:00.010
+And it's going to return eight times the maximum of x and y.
+
+08:00.010 --> 08:06.060
+So now this function here is referencing X and Y right outside of its scope but still in the model.
+
+08:06.160 --> 08:11.770
+So it's it's a global you know it's these X and Y are basically all global variables on global to the
+
+08:11.770 --> 08:12.670
+model.
+
+08:13.180 --> 08:14.350
+So what does that function do.
+
+08:14.360 --> 08:21.040
+Well if I call my fonk let's say on a it's going to return a multiply by 5 right because the max of
+
+08:21.040 --> 08:22.700
+3 and 5 is fine.
+
+08:22.990 --> 08:24.580
+Now let's go ahead and rotate that.
+
+08:24.580 --> 08:32.020
+Let's just say a is going to be some character write some character.
+
+08:32.020 --> 08:33.720
+And what about the return value.
+
+08:33.820 --> 08:41.980
+Well it's going to be the character a repeated how many times.
+
+08:41.980 --> 08:45.950
+While we don't know right it's going to be repeated.
+
+08:46.120 --> 08:51.230
+We're going to concatenate the max of X and Y because that's actually what we're doing.
+
+08:51.280 --> 08:54.600
+Now of course we're going to have to just cast that to a string.
+
+08:54.610 --> 09:01.760
+So we have to create a string and repeated That's Clauss times.
+
+09:01.810 --> 09:02.690
+OK.
+
+09:03.790 --> 09:07.830
+So this is what we're doing for the return.
+
+09:08.380 --> 09:12.350
+So now let's look at my phunk of a that still works the same as before.
+
+09:12.640 --> 09:23.200
+And we can look at my func notations on the annotations and you'll see that this return was actually
+
+09:23.200 --> 09:24.310
+evaluated right.
+
+09:24.310 --> 09:27.260
+It actually evaluated a max of x and y.
+
+09:27.280 --> 09:33.780
+I probably should put in space but just to clean up are repeated.
+
+09:33.880 --> 09:36.240
+Why do I have single quotes sorry about births.
+
+09:36.270 --> 09:37.150
+It's clean that up.
+
+09:37.150 --> 09:37.920
+There we go.
+
+09:38.230 --> 09:40.140
+So the return is the character.
+
+09:40.180 --> 09:42.360
+A repeated five times.
+
+09:42.400 --> 09:48.280
+Now you'll notice that it actually did the max it calculated the mass.
+
+09:48.370 --> 09:49.600
+But you've got to be careful.
+
+09:49.600 --> 09:53.070
+Think back to when we're looking at default values for functions.
+
+09:53.210 --> 09:58.800
+Default values are evaluated when at the time at which the function is created.
+
+09:58.810 --> 10:06.630
+So when the def is encountered then the default values get evaluated right.
+
+10:06.870 --> 10:13.370
+For example we could say B to put in another one that's going to be the max of x and y right.
+
+10:13.400 --> 10:17.780
+It's going to be equal to the max of x and y so we can certainly do that.
+
+10:18.070 --> 10:19.480
+And if we print b out
+
+10:22.590 --> 10:23.420
+right.
+
+10:23.440 --> 10:24.690
+It prints out 5.
+
+10:24.970 --> 10:27.520
+So that was the default value.
+
+10:28.840 --> 10:31.240
+But it gets evaluated when the function is created.
+
+10:31.360 --> 10:34.250
+And same thing with this over here.
+
+10:34.270 --> 10:41.680
+This notation gets evaluated when the function is created which means that if I change let's say the
+
+10:41.680 --> 10:47.160
+value of x let's amik executed 10 9 I call my phunk right.
+
+10:47.380 --> 10:49.470
+With let's say a again.
+
+10:49.480 --> 10:50.500
+What are we going to get.
+
+10:50.560 --> 10:55.030
+Well it's going to return a multi all repeated how many times ten times.
+
+10:55.150 --> 10:57.560
+Because now we're looking at the max of x and y.
+
+10:58.030 --> 11:01.170
+But you'll notice that the value for B hasn't changed.
+
+11:01.330 --> 11:01.570
+Right.
+
+11:01.570 --> 11:02.760
+It's still fine.
+
+11:02.830 --> 11:03.590
+Why.
+
+11:03.640 --> 11:07.980
+Because this Max doesn't get re-evaluated every time you call the function.
+
+11:08.020 --> 11:13.390
+It only gets evaluated when the function is created at the time the function was created X was three
+
+11:13.390 --> 11:14.290
+and one was five.
+
+11:14.290 --> 11:15.650
+So the max was fine.
+
+11:15.910 --> 11:20.450
+And you'll notice that the same thing happens with the notation.
+
+11:20.530 --> 11:26.020
+So if we look at help actually let's just look at the dictionary itself.
+
+11:27.790 --> 11:32.880
+You'll notice that the return still says the character a repeated five times.
+
+11:33.340 --> 11:33.790
+Right.
+
+11:33.820 --> 11:36.210
+So it didn't change the adaptation either.
+
+11:36.370 --> 11:38.590
+So just something to be aware of.
+
+11:39.430 --> 11:42.790
+All right finally I said that you know it doesn't.
+
+11:42.820 --> 11:45.760
+These notations don't change what happens in your code.
+
+11:46.060 --> 11:52.180
+And you can still use all the ways you can define parameters of stars and the style styles and so on.
+
+11:52.180 --> 11:55.880
+You can keep doing that as well is using the annotations.
+
+11:55.980 --> 11:59.290
+So a very quick example of how you format that.
+
+11:59.430 --> 12:05.040
+So here you have a that's I'm going to say a has to be a strain and it doesn't have to be a string I'm
+
+12:05.040 --> 12:09.810
+just saying that that's the notation that I want to assign to a we'll look at something called type
+
+12:09.810 --> 12:14.730
+hinting in the next section which is a little different it kind of expands that's a recent thing you
+
+12:14.730 --> 12:21.960
+know enhancement to notations but it doesn't change the character of Python which is a dynamically typed
+
+12:22.050 --> 12:23.480
+language.
+
+12:23.580 --> 12:29.370
+They will take B and we'll say Well B should be an interpreter to then zero for example.
+
+12:29.370 --> 12:29.730
+Right.
+
+12:29.760 --> 12:31.950
+And then maybe we're going to take.
+
+12:31.980 --> 12:33.990
+And then we'll set a value equal to 1.
+
+12:34.000 --> 12:41.260
+So we'll set a default one then we'll take in some extra arguments and again and notate that as usual.
+
+12:41.310 --> 12:51.300
+So some extra positional odds then you can put in key value arguments that k k won let's say you won.
+
+12:51.360 --> 12:58.310
+You know Sam while he was the only argument won.
+
+12:58.830 --> 13:05.200
+And then we can put K to pick which is going to be a key word only argument 2.
+
+13:05.220 --> 13:09.180
+And now we can also specify a default value for it that say 100.
+
+13:09.420 --> 13:14.170
+And then finally we can pass in on some extra keyword.
+
+13:14.220 --> 13:24.680
+Our only arguments the sun extra key word only Onza and all I'm going to do here and return.
+
+13:24.690 --> 13:27.650
+You know something will return something.
+
+13:28.080 --> 13:37.200
+And here if we're just going to print right we're going to print a and b and K one and K to and Kwan's
+
+13:37.610 --> 13:38.150
+get.
+
+13:38.370 --> 13:39.840
+So that's all the function.
+
+13:39.960 --> 13:46.070
+Nothing just shows what arguments were passed then of course that can do help on my phunk right.
+
+13:46.100 --> 13:48.030
+Well we'll get this.
+
+13:48.030 --> 13:53.230
+Now if you want you can also look at my phone notations.
+
+13:54.410 --> 13:54.780
+Right.
+
+13:54.810 --> 13:55.710
+And here we go.
+
+13:55.720 --> 13:59.760
+You are either you know here's the dictionary with the key word values the key word being the parameter
+
+13:59.760 --> 14:05.880
+names the values being the annotations and of course the my funk was just as normal.
+
+14:05.880 --> 14:11.670
+So we can pass and you know A's will pass and a value of 1 B will pass and about your two will pass
+
+14:11.670 --> 14:14.220
+in a few extra positional arguments.
+
+14:14.220 --> 14:18.670
+Then we have a keyword only argument K one is equal to maybe 10.
+
+14:18.930 --> 14:22.730
+And I'm not going to specify K-2 I'm going to let it default.
+
+14:22.770 --> 14:23.290
+Right.
+
+14:23.460 --> 14:30.000
+And then we'll pass and some other stuff let's say K3 equals 300 K for equals 400.
+
+14:30.090 --> 14:35.480
+So some additional keyword only arguments and as you can see it gets handled as normal.
+
+14:35.490 --> 14:35.840
+Right.
+
+14:35.880 --> 14:43.230
+A and B were one in two three four and five went into that style and then 10 and a 100 was K-1 and K
+
+14:43.230 --> 14:49.010
+to K to use the fold in Q3 and Q4 additional key would only arguments got passed.
+
+14:49.020 --> 14:55.590
+You know I got taken into that dictionary so it doesn't change anything you can still use your parameters
+
+14:55.620 --> 14:58.340
+and still create your parameters just as before.
+
+14:58.380 --> 14:59.900
+Nothing's changed.
+
+14:59.970 --> 15:00.690
+All right.
+
+15:00.750 --> 15:01.750
+So thanks for watching.
+
+15:01.750 --> 15:02.900
+I'll see you in the next video.

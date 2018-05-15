@@ -1,0 +1,679 @@
+WEBVTT
+
+00:00.330 --> 00:07.650
+Hi and welcome to this video on variable equality so variable equality we can think of how to compare
+
+00:07.770 --> 00:11.840
+two variables in two very fundamentally different ways.
+
+00:11.880 --> 00:17.700
+The first one is by comparing the memory address right as we know variables are simply pointers to objects
+
+00:17.700 --> 00:18.500
+and memory.
+
+00:18.660 --> 00:24.810
+And so we may want to find out are these two variables pointing to the same object that's comparing
+
+00:24.810 --> 00:26.340
+the memory address.
+
+00:26.340 --> 00:30.930
+We may also want to just compare the internal state of the objects the data.
+
+00:31.110 --> 00:36.720
+For example the contents of two lists that may not reside at the same memory address but they may have
+
+00:36.720 --> 00:44.220
+the same content and the same thing with strings and number values and all all the different objects
+
+00:44.220 --> 00:47.530
+and data types that we can have in Python.
+
+00:47.640 --> 00:54.310
+So to compare memory addresses we use a special operator called is which is called the identity operator.
+
+00:54.600 --> 00:57.150
+So to compare two variables you might say.
+
+00:57.180 --> 01:04.140
+One is that two that will return a boolean true or false telling you whether they have the same memory
+
+01:04.140 --> 01:05.330
+address or not.
+
+01:05.490 --> 01:08.450
+So remember how we were checking before the memory address.
+
+01:08.700 --> 01:09.020
+Right.
+
+01:09.030 --> 01:14.030
+By doing id of a an idea of B and comparing the two and seeing if they were equal.
+
+01:14.220 --> 01:21.060
+Well you can do the same thing in code using the is operator the identity operator which compares memory
+
+01:21.060 --> 01:23.870
+addresses on the other hand.
+
+01:23.910 --> 01:30.270
+If we want to compare the internal state of the objects we use the equality operator which has this
+
+01:30.360 --> 01:32.330
+double equal sign.
+
+01:32.340 --> 01:33.310
+Now be careful.
+
+01:33.300 --> 01:38.380
+It is not a single equal sign a single equal sign is that an assignment operator.
+
+01:38.700 --> 01:46.200
+The double equal sign is the equality operator which will compare the internal state the data of the
+
+01:46.200 --> 01:47.490
+two variables.
+
+01:47.520 --> 01:54.180
+So you would say that one equals equals volume two that will tell you whether the contents of one involve
+
+01:54.180 --> 01:57.280
+two are equal.
+
+01:57.280 --> 02:02.620
+Now if you want to test the opposite if you want to test that the memory address of one variable isn't
+
+02:02.620 --> 02:05.620
+the same as the memory address of the other variable.
+
+02:05.770 --> 02:09.490
+Then you can use the special operator is not.
+
+02:09.490 --> 02:15.400
+And that will you know you can use it this way if one is not volved to and it will tell you that it
+
+02:15.400 --> 02:17.260
+will again return a boolean true or false.
+
+02:17.260 --> 02:20.260
+They will tell you whether those two things are equal or not.
+
+02:20.270 --> 02:26.780
+Now you don't have to use is not if you want you can just say not Val one is vult to.
+
+02:26.800 --> 02:29.430
+That's one alternative way of checking.
+
+02:29.770 --> 02:34.850
+But preferably use is not for the object state.
+
+02:34.850 --> 02:41.810
+We also have the negation of the equality operator which is the exclamation point equals so not equals.
+
+02:41.810 --> 02:49.130
+Remember that this exclamation point in a lot of different languages also means a boolean not well.
+
+02:49.190 --> 02:55.730
+Here we have not equals written this way even though in Python the NOT operator is actually spelt out.
+
+02:55.730 --> 02:58.120
+Not like we have here.
+
+02:58.660 --> 03:01.920
+And so you would say Val one equals vowed to.
+
+03:01.980 --> 03:04.720
+Now again there's different ways that you can write this.
+
+03:04.730 --> 03:09.610
+You could say not valid one equals equals vowed to.
+
+03:09.930 --> 03:11.890
+OK so let's look at some examples.
+
+03:12.180 --> 03:14.610
+So let's say we have April 10 and B.
+
+03:14.670 --> 03:15.150
+A.
+
+03:15.300 --> 03:17.710
+So we've created a shared reference here.
+
+03:18.240 --> 03:22.160
+So let's look at how each of these will evaluate A is B.
+
+03:22.210 --> 03:23.900
+Well that's going to return true.
+
+03:23.910 --> 03:30.450
+It's a shared reference it's got the same memory address but a equals equals B will also return true
+
+03:30.450 --> 03:34.630
+because while both a and b are integers that contain the value 10.
+
+03:34.650 --> 03:40.620
+So in terms of values they're equal let's say we look at two strings.
+
+03:40.620 --> 03:47.150
+Now this is kind of a special case we'll look at the A's beam if you remember the previous video we
+
+03:47.150 --> 03:53.610
+mentioned that the Python memory manager is actually going to create a shared reference with the string.
+
+03:53.810 --> 03:56.860
+So a is b is actually going to return true.
+
+03:56.870 --> 04:02.490
+In this case but as we'll see later do not count on it.
+
+04:02.510 --> 04:08.120
+So this is why I'm saying in general when you want to compare the whole the values of two variables
+
+04:08.540 --> 04:11.240
+you're generally going to always be using equals equals.
+
+04:11.240 --> 04:19.370
+It is rare that you're going to use is because is comparing memory addresses so equals B will return
+
+04:19.370 --> 04:20.080
+true.
+
+04:20.300 --> 04:24.690
+And in this case and this case only a is b will also return true.
+
+04:24.770 --> 04:29.620
+But if you know this was a different string is B might not return true.
+
+04:29.630 --> 04:31.470
+So don't count on it.
+
+04:31.550 --> 04:33.560
+Now let's take a look at two mutable objects.
+
+04:33.560 --> 04:36.950
+We know that these will definitely be different memory addresses.
+
+04:36.950 --> 04:37.170
+Right.
+
+04:37.180 --> 04:39.220
+These are mutable objects.
+
+04:39.470 --> 04:42.290
+So even though we've created them with the same values.
+
+04:42.380 --> 04:45.580
+Python isn't going to use a shared reference here.
+
+04:45.920 --> 04:48.440
+And so as B will return false.
+
+04:48.710 --> 04:55.550
+However the two lists are actually equal in terms of values and so that will return true and we'll look
+
+04:55.550 --> 04:59.510
+at equality of lists later because it can actually nest deeper.
+
+04:59.510 --> 05:04.010
+You can have lists within lists of dictionaries within lists within dictionaries.
+
+05:04.190 --> 05:11.330
+And that equals equals will actually dig down into all those nested data types.
+
+05:11.490 --> 05:17.140
+So now let's look at this last one which is a little bit different because equals 10 and B equals 10.00.
+
+05:17.310 --> 05:21.540
+So the first one is an integer but B is a float.
+
+05:21.540 --> 05:27.960
+So in this case Python is not going to create a shared reference like we would have equals 10 and Beagle's
+
+05:27.960 --> 05:29.060
+10.
+
+05:29.130 --> 05:36.360
+So a is b is going to be definitely false and a equals equals B even though it's not the same data type.
+
+05:36.370 --> 05:36.710
+Right.
+
+05:36.750 --> 05:38.240
+Is of type integer.
+
+05:38.280 --> 05:45.600
+And B is of type float the two values astore actually equal parts and figures that out it's a numbers
+
+05:45.840 --> 05:53.370
+right and numbers contain integers and floats and decimals booleans complex numbers and so on and so
+
+05:53.370 --> 05:55.390
+we'll get the same value.
+
+05:55.680 --> 06:01.140
+So in terms of value they're the same right 10 and 10 Pono are actually the same.
+
+06:01.140 --> 06:02.800
+We'll revisit floats later.
+
+06:02.820 --> 06:04.800
+Because we're going to be a little careful with floats.
+
+06:04.800 --> 06:07.980
+We don't have exact representations of floats in memory.
+
+06:08.070 --> 06:09.180
+So in this case we did.
+
+06:09.180 --> 06:14.620
+And therefore the two values were the same.
+
+06:14.620 --> 06:21.220
+Lastly I want to talk very quickly about the none objects now the none object can be assigned to variables
+
+06:21.220 --> 06:25.920
+to indicate that they are not set right in the way that we would expect them to be.
+
+06:25.910 --> 06:31.360
+For example let's say that we have a variable that's supposed to be a string but we don't have a value
+
+06:31.360 --> 06:32.320
+for it yet.
+
+06:32.470 --> 06:34.730
+So we may set it equal to none.
+
+06:34.890 --> 06:35.140
+Right.
+
+06:35.140 --> 06:38.660
+In other languages like C You may think of that as a null pointer.
+
+06:38.830 --> 06:39.130
+Right.
+
+06:39.130 --> 06:46.360
+You can think of it as an empty value but nonetheless this non object is a real object that is managed
+
+06:46.360 --> 06:48.250
+by the python memory manager.
+
+06:48.670 --> 06:53.610
+So the memory manager will always create a shared reference to none.
+
+06:53.620 --> 06:56.200
+So whenever you assign a variable to none.
+
+06:56.560 --> 06:59.140
+You know if you have any number of variables assigned to none.
+
+06:59.170 --> 07:05.430
+They will all have the same memory address again that's just the python manager doing that for us.
+
+07:05.530 --> 07:05.730
+Right.
+
+07:05.730 --> 07:08.030
+It's not creating a new instance of none.
+
+07:08.200 --> 07:12.320
+Every time it's just pointing to the same one all the time.
+
+07:12.400 --> 07:20.080
+So this means that if we set let's say a b and c to none right then a b and c are all pointing to the
+
+07:20.080 --> 07:26.020
+same object in memory and throughout the lifetime of your application it will always point to the same
+
+07:26.200 --> 07:28.750
+object to the same memory address.
+
+07:28.750 --> 07:34.120
+Now from you know as you run your program from one time to another that memory address may change but
+
+07:34.120 --> 07:41.040
+throughout the lifetime of your application it will be the same so we can test of a variable is not
+
+07:41.040 --> 07:46.130
+set to empty by comparing its memory address to the memory address of none.
+
+07:46.170 --> 07:47.930
+Using the is operator.
+
+07:48.150 --> 07:51.500
+So we can test a is none right.
+
+07:51.870 --> 07:54.690
+And so this is just something I wanted to point out.
+
+07:54.690 --> 08:02.230
+Now since we talk about the identity operator is it so that will evaluate to true.
+
+08:02.490 --> 08:05.940
+Now just keep in mind none is not nothing.
+
+08:05.940 --> 08:09.960
+It's not you know it's not nothing.
+
+08:09.960 --> 08:17.790
+It is an actual object but it is quite useful in terms of being able to set variables to none to indicate
+
+08:17.910 --> 08:19.220
+pay they don't have a value.
+
+08:20.130 --> 08:20.450
+Right.
+
+08:20.460 --> 08:23.080
+They do they have value just happens to be none.
+
+08:23.190 --> 08:28.860
+But that's quite useful and we'll see that throughout the schools where we can use that to our good
+
+08:28.860 --> 08:29.730
+effect.
+
+08:30.180 --> 08:34.360
+So if we have let's say X equals 10 we say x is none.
+
+08:34.630 --> 08:36.570
+That's going to return false.
+
+08:36.610 --> 08:36.830
+Right.
+
+08:36.930 --> 08:42.300
+Because X is not none X is that an actual value or an actual object.
+
+08:42.840 --> 08:45.320
+And if we test X is not None.
+
+08:45.360 --> 08:47.510
+That will however return true.
+
+08:47.580 --> 08:50.930
+Right that's the negation of the identity operator.
+
+08:51.420 --> 08:58.500
+Let's start by looking at two variables that are going to have a shared reference so we can say eight
+
+08:58.500 --> 09:01.820
+equals 10 and B equals 10.
+
+09:02.070 --> 09:07.040
+Now we know that the Python memory manager is creating a shared reference automatically for us.
+
+09:07.050 --> 09:11.370
+We can check that by looking at id of a and the ID of B.
+
+09:11.610 --> 09:14.060
+OK which happens to have the same ID.
+
+09:14.200 --> 09:20.570
+So a shared reference same memory address and therefore same internal content same value.
+
+09:20.580 --> 09:22.060
+So we can print.
+
+09:22.380 --> 09:27.090
+Let's say a is b and will print out the result of a is b.
+
+09:27.270 --> 09:31.330
+While in this case it's true because they're pointing to the same memory address.
+
+09:31.440 --> 09:39.540
+And of course in terms of a value we look at equals B will print out the result of a B.
+
+09:39.750 --> 09:40.140
+What we get.
+
+09:40.140 --> 09:41.810
+True as well which makes sense to both.
+
+09:41.820 --> 09:42.570
+10.
+
+09:42.650 --> 09:43.190
+OK.
+
+09:43.440 --> 09:45.540
+Now let's do something that's not a shared reference.
+
+09:45.540 --> 09:49.040
+We've seen that in the past as well we can create two variables.
+
+09:49.050 --> 09:52.770
+Let's say a and b both 500.
+
+09:52.770 --> 09:55.040
+Now the idea of a is that.
+
+09:55.050 --> 09:58.190
+And the idea of B is something else right.
+
+09:58.200 --> 10:08.720
+So now if we want to print and I'm just going to copy paste so we'll print is B and we get false because
+
+10:08.780 --> 10:10.580
+well they're not the same memory address.
+
+10:10.580 --> 10:13.870
+However the values are still the same.
+
+10:14.040 --> 10:14.290
+Right.
+
+10:14.300 --> 10:17.440
+So a class B will be true.
+
+10:18.270 --> 10:18.700
+OK.
+
+10:18.920 --> 10:25.840
+Now same thing we have a list let's say equals 1 2 3 and B equals 1 to 3.
+
+10:26.180 --> 10:32.250
+Well we know that the idea of a and the ID of B are going to be different.
+
+10:32.270 --> 10:32.590
+Right.
+
+10:32.600 --> 10:36.840
+As you can see 1 6 8 4 1 6 2 different memory addresses here.
+
+10:37.100 --> 10:45.650
+And so the same is going to happen where a is b is going to be false but a equals equals B is going
+
+10:45.650 --> 10:47.090
+to be true.
+
+10:47.270 --> 10:50.860
+Right because the contents of the two lists are the same.
+
+10:50.930 --> 10:51.440
+They're equal
+
+10:55.710 --> 10:58.490
+so the same thing also happens when you're looking at numbers.
+
+10:58.500 --> 11:02.400
+You can say that say equals 10 and B equals ten point.
+
+11:02.450 --> 11:03.910
+All right.
+
+11:03.930 --> 11:07.050
+So again let's print out this.
+
+11:07.050 --> 11:09.680
+Then we'll find that a is b is false.
+
+11:09.690 --> 11:12.810
+Yes absolutely because we know that this is an integer.
+
+11:12.810 --> 11:15.110
+This is a float can't be the same object.
+
+11:15.150 --> 11:17.110
+So they have to have a different memory address.
+
+11:17.340 --> 11:22.150
+But in terms of values Well they are equal 10 and 10.0 are the same number.
+
+11:22.170 --> 11:26.800
+When we think of it logically right we can also look at.
+
+11:26.820 --> 11:30.470
+Let's say we have a equals 10 Beagle's 10.
+
+11:30.600 --> 11:35.780
+We can even make a equal to 10 plus zero G.
+
+11:36.600 --> 11:38.030
+Now that's a complex number.
+
+11:38.040 --> 11:39.570
+Look at the type of a.
+
+11:39.720 --> 11:41.370
+That is a complex number.
+
+11:41.370 --> 11:41.660
+Right.
+
+11:41.670 --> 11:44.350
+And the type of B is a float.
+
+11:44.370 --> 11:52.140
+So again here's the results of using memory address comparison the equality operator and the identity
+
+11:52.140 --> 11:52.790
+operator.
+
+11:52.860 --> 12:00.040
+Right is an equals equals but we can see that in terms of identity is not B which is true.
+
+12:00.120 --> 12:02.570
+Right because A's complex is a float.
+
+12:02.760 --> 12:10.230
+But in terms of value 10 and the complex number 10 plus 0 0 0 I if you lose the notation for complex
+
+12:10.230 --> 12:12.740
+numbers are obviously the same value.
+
+12:13.110 --> 12:14.100
+All right.
+
+12:14.520 --> 12:17.520
+So next let's look at the none object.
+
+12:17.520 --> 12:18.950
+I just want to talk about that.
+
+12:18.960 --> 12:23.670
+So let's first of all look at the non-object right.
+
+12:23.700 --> 12:25.610
+It has a memory address right.
+
+12:25.620 --> 12:27.110
+Here's the idea of none.
+
+12:27.120 --> 12:28.860
+It has a type.
+
+12:28.880 --> 12:29.390
+Right.
+
+12:29.400 --> 12:32.830
+It is an object that has the type none type K.
+
+12:33.090 --> 12:35.750
+So it's a real object in memory.
+
+12:35.790 --> 12:40.410
+The only thing is that if we have a equals none B equals none.
+
+12:40.410 --> 12:42.210
+C equals none.
+
+12:42.210 --> 12:43.930
+Then the ID of a.
+
+12:43.980 --> 12:48.630
+And instead of me printing out the ID and checking if it's equal to the idea of B.
+
+12:48.750 --> 12:50.670
+How about I just do a is b.
+
+12:50.730 --> 12:50.990
+Right.
+
+12:51.000 --> 12:54.540
+That is what we use to check memory addresses.
+
+12:54.570 --> 12:58.240
+So A's B is true and a is C.
+
+12:58.410 --> 13:08.060
+Well that's true as well and in fact a is none is also true and B is none and C is none K.
+
+13:08.100 --> 13:09.230
+All these are true.
+
+13:09.510 --> 13:15.930
+So it is helpful to use the non operator to just be able to create a variable with not assign a value
+
+13:15.930 --> 13:21.030
+to it yet or maybe at some point in time to remove the value that a variable has.
+
+13:21.060 --> 13:24.000
+Say that hey it doesn't have anything in it right now.
+
+13:24.030 --> 13:27.480
+I still want to keep the variable name around for some reason.
+
+13:27.480 --> 13:33.150
+I'm going to put something in it later but for now I'm going to point to this none object and then we
+
+13:33.150 --> 13:37.630
+can test in our code to see if a variable is set to none.
+
+13:37.710 --> 13:41.650
+And then we can maybe have an if statement that says OK if it's Nandu.
+
+13:41.700 --> 13:43.910
+Otherwise do that right.
+
+13:44.010 --> 13:47.630
+So it might be something like trying to read a file you know.
+
+13:47.640 --> 13:54.600
+If the file contents exist that the file exists and the contents are there set you know equal to the
+
+13:54.600 --> 13:56.000
+contents of the file.
+
+13:56.100 --> 14:01.900
+If the file doesn't exist set a will to none right and then later on you can check to say well if he
+
+14:01.910 --> 14:04.510
+has none which means hey the file wasn't there.
+
+14:04.620 --> 14:07.130
+Do something otherwise do something else.
+
+14:07.200 --> 14:11.780
+So none is used for scenarios like that but none is an object.
+
+14:11.940 --> 14:17.040
+But it just happens to be really useful because Python's memory manager will create shared references
+
+14:17.310 --> 14:19.030
+to that none object.
+
+14:19.080 --> 14:22.000
+All right thanks for watching and I'll see you in the next video.

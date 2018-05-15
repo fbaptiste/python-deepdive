@@ -1,0 +1,457 @@
+WEBVTT
+
+00:00.360 --> 00:05.140
+High in this video I want to briefly talk about namespace packages.
+
+00:05.550 --> 00:13.200
+So what are implicit namespace packages while namespace packages are packages like in the sense that
+
+00:13.200 --> 00:21.120
+they are directories which may contain modules that may contain nested regular packages and that may
+
+00:21.120 --> 00:26.460
+also contain nested namespace packages but they do not contain a Dondre in it.
+
+00:26.460 --> 00:28.100
+Dopy why file.
+
+00:28.260 --> 00:36.180
+So the directory that's the namespace package cannot have any code associated with it on like a regular
+
+00:36.180 --> 00:41.940
+package that has associated code by using this donder in that P Why file.
+
+00:42.080 --> 00:46.700
+So these directories are implicitly made into these special types of packages.
+
+00:46.700 --> 00:50.060
+That's why they called implicit namespace packages.
+
+00:50.060 --> 00:58.970
+We don't have a donder in it to explicitly set a directory as a package and you can read all about it
+
+00:59.020 --> 01:00.550
+in Peppe full 20.
+
+01:00.590 --> 01:08.420
+That really gives a very detailed explanation of why these things were created and how they are used
+
+01:09.350 --> 01:11.080
+and how they work.
+
+01:11.180 --> 01:12.560
+The basic mechanics is this.
+
+01:12.590 --> 01:17.830
+Let's say we have this directory structure in our application so our app root is somewhere up here.
+
+01:18.020 --> 01:26.060
+And inside we've got this utils folder have a validators folder that contains two python files and it
+
+01:26.060 --> 01:29.540
+also contains a Jaison directory that has an in it.
+
+01:29.690 --> 01:32.650
+And it also contains two module fonts.
+
+01:33.110 --> 01:37.520
+So you tildes you'll notice doesn't contain a done during the p y file.
+
+01:37.550 --> 01:42.520
+If you look in the containment direction table of utils it doesn't have a danger in it.
+
+01:42.560 --> 01:50.210
+So that's a namespace package an implicit namespace package validators also doesn't contain a dunder
+
+01:50.250 --> 01:50.850
+init.
+
+01:50.960 --> 01:54.630
+So it is also a namespace package boolean.
+
+01:54.650 --> 01:59.540
+On the other hand is just a file a p y extension so that's a model.
+
+01:59.570 --> 02:01.040
+Same thing with Date.
+
+02:01.160 --> 02:06.300
+Jason is a directory but it contains a dander in it the P1 file.
+
+02:06.350 --> 02:12.340
+So it is a regular package Serializer is as just a file of AP wire extension.
+
+02:12.380 --> 02:15.320
+So it's a model and then so as validators.
+
+02:15.530 --> 02:19.350
+So essentially that's how the namespace packages are recognized.
+
+02:19.370 --> 02:24.340
+Python has to go through and basically check to see if those things hold.
+
+02:24.380 --> 02:26.060
+Does utils have a danger in it.
+
+02:26.060 --> 02:27.320
+Dopy why.
+
+02:27.320 --> 02:32.180
+You know if you're looking at boolean inside a Validate doesn't solve utos it has to recognize that
+
+02:32.240 --> 02:36.510
+this is a file of a p y extension so it's a module and things like that.
+
+02:36.510 --> 02:42.290
+So a regular module as opposed to a namespace module or a regular package module.
+
+02:42.290 --> 02:44.380
+So that's how you can figure out what's what.
+
+02:44.480 --> 02:45.420
+It has to walk.
+
+02:45.440 --> 02:49.380
+Essentially that tree to figure that out.
+
+02:49.430 --> 02:54.060
+So can we contrast regular and namespace packages.
+
+02:55.410 --> 03:00.120
+While the type the type of a regular package is a module we've seen that before.
+
+03:00.330 --> 03:04.220
+And the type of a namespace package is also a module.
+
+03:04.290 --> 03:09.750
+The big difference is that the namespace package doesn't actually have code associated with the module
+
+03:10.140 --> 03:17.210
+whereas the regular package does the Dunder init so under an adoptee Why yes we have to have that file
+
+03:17.210 --> 03:19.060
+in order to create a regular package.
+
+03:19.070 --> 03:25.710
+That's how we essentially indicate to Python that a directory is a package with a namespace package.
+
+03:25.720 --> 03:29.400
+On the other hand that init file should not be present.
+
+03:29.410 --> 03:35.080
+So basically every directory is going to get turned into something or other a regular package or a namespace
+
+03:35.080 --> 03:38.620
+package depending on whether it has the under init file or not.
+
+03:38.650 --> 03:43.850
+Of course this is for directories that are inside your Python application.
+
+03:43.950 --> 03:45.840
+What about the Dondre file property.
+
+03:45.840 --> 03:51.720
+Well yes the Dunta file property is going to basically reference the Dunder init file inside the package
+
+03:52.230 --> 03:57.230
+namespace packages don't have that Dunder init file so the Dunder file is not set.
+
+03:57.240 --> 03:59.950
+There is no associated code file.
+
+03:59.970 --> 04:01.130
+What about the paths.
+
+04:01.140 --> 04:04.200
+Well we've seen that in a regular package.
+
+04:04.200 --> 04:04.850
+Your path.
+
+04:04.860 --> 04:11.310
+If you're not using relative import as your lock loading and building up your packets at the top level
+
+04:11.670 --> 04:17.490
+if you change the name of one of the parent containers then things break and you have to either rename
+
+04:17.490 --> 04:20.910
+things or you should be using relative imports.
+
+04:20.910 --> 04:26.310
+On the other hand with namespace packages those paths will be rebuilt every time the project loads the
+
+04:26.310 --> 04:27.130
+dynamic.
+
+04:27.130 --> 04:33.060
+You know the path is dynamically computed So it's OK if the parent directories change because that path
+
+04:33.090 --> 04:34.770
+is going to get rebuilt.
+
+04:34.800 --> 04:41.010
+Now of course if you're importing something that's nested inside a namespace package while your import
+
+04:41.010 --> 04:46.020
+statements are still going to need to be modified to reflect the new names right that's still going
+
+04:46.020 --> 04:52.080
+to break but within the namespace package nothing is going to break because you have no import statements.
+
+04:52.110 --> 04:55.540
+You don't have that in your under init files to do impuls.
+
+04:55.630 --> 04:58.280
+So that's not going to break.
+
+04:58.380 --> 05:03.570
+Another difference between regular and namespace packages is that a single package typically lives in
+
+05:03.570 --> 05:04.670
+a single directory.
+
+05:04.680 --> 05:10.170
+We have you know what we saw in the last video we looked at the common package that we created.
+
+05:10.170 --> 05:16.290
+Everything was nested underneath this common directory in namespace packages your package can actually
+
+05:16.290 --> 05:19.380
+live in multiple non nested directories.
+
+05:19.380 --> 05:24.050
+They don't have to be nested within each other to be considered part of the same package.
+
+05:24.060 --> 05:29.500
+The some path manipulations that you have to do to get that to happen but you can actually do that.
+
+05:29.520 --> 05:33.550
+In fact parts of the namespace may even be in a zip file.
+
+05:33.550 --> 05:33.810
+Right.
+
+05:33.810 --> 05:36.510
+Parts of that namespace could live somewhere else.
+
+05:36.510 --> 05:38.670
+They don't even have to live inside your project.
+
+05:38.670 --> 05:42.770
+They can live somewhere else so the cycle can.
+
+05:42.830 --> 05:43.410
+Example.
+
+05:43.420 --> 05:49.050
+Let's say we have this for an application so this is our route for the app and then we have two directories
+
+05:49.110 --> 05:54.690
+utils in common and under utils we have another directory called validators and in there we've got a
+
+05:54.690 --> 05:57.230
+module file boolean on the common.
+
+05:57.240 --> 06:03.780
+We have the Dunder init file and then we have a validators folder and underneath of that we have a boolean
+
+06:03.810 --> 06:05.280
+PI module.
+
+06:05.280 --> 06:09.060
+So you'll notice that utils in common have kind of the same structure.
+
+06:09.090 --> 06:13.080
+It's utos validate as boolean common validate validators bullion.
+
+06:13.290 --> 06:15.670
+The difference is this donder init.
+
+06:15.720 --> 06:21.440
+So for utils which doesn't have a dunder in it that is a namespace package common.
+
+06:21.440 --> 06:23.530
+On the other hand has that done in it.
+
+06:23.580 --> 06:29.500
+So it's a regular package so the type is we saw both of those types are going to be modules.
+
+06:29.520 --> 06:31.330
+Nothing new there.
+
+06:31.560 --> 06:36.870
+The Dundon name property is going to be also utils for the utils namespace package.
+
+06:36.870 --> 06:42.040
+That doesn't change just as it is common for this common regular package.
+
+06:42.060 --> 06:49.800
+What about the representation if we call repr on the utils namespace package what do we get back.
+
+06:49.860 --> 06:53.120
+We get a module we get the name and then we get this.
+
+06:53.130 --> 06:59.280
+It tells us this is a namespace as opposed to of a regular package which will tell us where it came
+
+06:59.280 --> 07:00.000
+from.
+
+07:00.000 --> 07:06.150
+It's going to tell us that this module common came from apps slash common wherever that full fully qualified
+
+07:06.150 --> 07:07.690
+path is right.
+
+07:07.710 --> 07:09.120
+It's telling us where it came from.
+
+07:09.150 --> 07:10.970
+Here for the namespace it doesn't.
+
+07:11.100 --> 07:13.560
+It just tells us it's a namespace package.
+
+07:13.590 --> 07:15.160
+What about the PAF property.
+
+07:15.240 --> 07:21.930
+While the path property is going to namespace packages return the namespace object that will contain
+
+07:22.260 --> 07:26.790
+the path to the arm to the package.
+
+07:26.790 --> 07:30.370
+But basically it's an immutable thing we can't monkey around with it.
+
+07:30.480 --> 07:35.370
+On the other hand of a regular package would get a regular list back so technically we can monkey around
+
+07:35.730 --> 07:40.550
+with this and start pulling in different directories into our package.
+
+07:40.590 --> 07:48.090
+It doesn't have to be a single file structure so name spaces don't allow you to manipulate that.
+
+07:48.090 --> 07:53.460
+There's another way in which we can split a namespace package across different directories with regular
+
+07:53.460 --> 07:57.950
+packages we can do it sensibly by hacking into the path.
+
+07:57.990 --> 07:58.880
+What about the file.
+
+07:58.890 --> 08:01.230
+Well the file isn't set for a namespace package.
+
+08:01.230 --> 08:06.880
+There is no code module on the other hand for regular package we've got that under init Doppie why.
+
+08:06.990 --> 08:14.010
+So that points to that package while the utils package is a package so it's itself just like common
+
+08:14.010 --> 08:15.930
+was its own package.
+
+08:15.930 --> 08:24.810
+If we look at a sub package or a sub folder subdirectory So some namespace package or a sub namespace
+
+08:24.810 --> 08:28.080
+package here as well right because validators doesn't have a done in it.
+
+08:28.110 --> 08:35.500
+So validate is actually a namespace package that we get that validators has a package of utils that
+
+08:35.530 --> 08:41.810
+validate it that's where it moves just like validators inside common it lives inside the common package.
+
+08:41.850 --> 08:43.220
+So no difference there.
+
+08:44.920 --> 08:47.450
+How about importing from namespace packages.
+
+08:47.680 --> 08:49.500
+So suppose we have the structure right.
+
+08:49.510 --> 08:55.240
+We have a namespace package utils a namespace package validators and a regular package called Dasen.
+
+08:55.450 --> 08:58.070
+We have these files in each one of those.
+
+08:58.210 --> 09:01.770
+Then we can just say import utils that validate is a boolean.
+
+09:01.870 --> 09:05.290
+OK we're going to import this module essentially when we do that.
+
+09:05.530 --> 09:12.820
+We can also do from utos dub validators import data from utils that validated the data path notation.
+
+09:12.820 --> 09:15.560
+Import the module date.
+
+09:15.610 --> 09:22.720
+We can also reach into the regular package even though these two top level ones are namespace packages
+
+09:23.020 --> 09:28.480
+we can still use a doctor patient to traverse the namespace and the regular package.
+
+09:28.510 --> 09:36.100
+So here we have import utos validators which traversing namespace packages that Jason we're now going
+
+09:36.160 --> 09:41.740
+into a regular package and now we're traversing the regular package data serialising and we'll grab
+
+09:41.740 --> 09:46.550
+the serializer module out of the regular Jaison package.
+
+09:47.900 --> 09:51.590
+So that's really all I'm going to say about namespace packages.
+
+09:51.590 --> 09:56.740
+The first thing you should do really is to familiarize yourself with regular packages.
+
+09:56.830 --> 10:01.010
+You all do that first make sure that you're completely comfortable with them.
+
+10:01.190 --> 10:05.910
+And then if you want go and check out namespace packages it's very similar.
+
+10:05.930 --> 10:08.030
+It behaves in a very similar way.
+
+10:08.030 --> 10:13.480
+The only difference of course is that you can't manipulate your you know and flatten your namespace
+
+10:13.490 --> 10:15.830
+the way that you do that with regular packages.
+
+10:15.830 --> 10:16.810
+So you can't do that.
+
+10:16.820 --> 10:21.430
+You have to look with whatever structure you give to the namespace package.
+
+10:21.590 --> 10:27.710
+But if you want you can spread namespace packages over different parts of your disk even into zip files
+
+10:27.710 --> 10:29.740
+and things like that.
+
+10:29.840 --> 10:33.140
+And if you're interested go ahead and read Pepp 420.
+
+10:33.140 --> 10:35.510
+That should definitely be your starting point.
+
+10:35.510 --> 10:35.940
+All right.
+
+10:35.960 --> 10:36.760
+Thanks for watching.
+
+10:36.770 --> 10:37.930
+And also in the next video.

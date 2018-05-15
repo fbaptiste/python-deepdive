@@ -1,0 +1,379 @@
+WEBVTT
+
+00:00.480 --> 00:08.350
+Hi and welcome to this video on Python optimizations in turning Python optimizations we'll cover in
+
+00:08.370 --> 00:13.610
+a few videos and this one is going to focus on interning of integers in particular.
+
+00:13.830 --> 00:16.030
+And what interning is.
+
+00:16.320 --> 00:22.020
+So one important note is that a lot of what we discussed with memory management and garbage collection
+
+00:22.050 --> 00:28.140
+and what we're going to discuss now optimizations and memory footprints are really specific to the Python
+
+00:28.140 --> 00:34.560
+implementations you're using now in this cause we're using C Python which is kind of the standard the
+
+00:34.560 --> 00:37.550
+reference Python implementation which is written in C.
+
+00:37.560 --> 00:39.510
+Hence the name C Python.
+
+00:39.510 --> 00:42.370
+But that's kind of the version of Python.
+
+00:42.390 --> 00:46.330
+However there are many other versions of Python that exist.
+
+00:46.380 --> 00:52.260
+For example Python is written in Java and it can import and use any Java classes.
+
+00:52.260 --> 00:59.170
+And in fact it even compiles to Java bytecode and so it then runs in a job a virtual machine.
+
+00:59.660 --> 01:01.260
+You also have in Python.
+
+01:01.400 --> 01:09.590
+The Python is written in C Sharp and it targets the dot net allows all the Masiello you also have pie
+
+01:09.590 --> 01:09.910
+pie.
+
+01:09.940 --> 01:11.120
+Now that one's interesting.
+
+01:11.140 --> 01:14.360
+It's a python interpreter written in Python.
+
+01:14.450 --> 01:18.850
+So and it uses a specific version of Python it doesn't use C Python.
+
+01:18.850 --> 01:20.640
+It uses Python.
+
+01:20.950 --> 01:22.780
+Python is a subset.
+
+01:22.780 --> 01:30.160
+It's a statically typed subset of Python that is written in C but that is specifically built to build
+
+01:30.350 --> 01:31.210
+interpreters.
+
+01:31.480 --> 01:33.900
+In particular Python for example.
+
+01:34.030 --> 01:36.520
+So let's pipe out and there are many others.
+
+01:36.670 --> 01:42.820
+And if you're interested in that you can take a look at that your L that's down here in that link and
+
+01:42.820 --> 01:46.990
+you'll see that there are many other Python implementations as well.
+
+01:47.080 --> 01:53.440
+But for those schools and certainly for the purposes of these discussions I'm referring to see Python
+
+01:53.770 --> 01:56.760
+now the version of C Python also makes a difference.
+
+01:56.850 --> 01:57.240
+OK.
+
+01:57.400 --> 02:01.330
+Now in this version in this course I'm using version 3.6.
+
+02:01.480 --> 02:07.020
+And so depending on what you are using your results may be slightly different.
+
+02:07.940 --> 02:08.590
+OK.
+
+02:08.830 --> 02:17.110
+So earlier we saw that if we wrote that code but Python code equals 10 be equals 10 then a was a reference
+
+02:17.170 --> 02:19.060
+pointer to some object in memory.
+
+02:19.090 --> 02:26.050
+Integer value of 10 but B was also assigned the same memory address.
+
+02:26.050 --> 02:30.690
+So Python automatically created a shared reference for us.
+
+02:30.890 --> 02:31.680
+But look at this.
+
+02:31.700 --> 02:37.940
+If we write equals 500 and B equals 500 then eight points to this object in memory.
+
+02:38.300 --> 02:45.140
+But Python doesn't create a shared reference in this case it points b to a new object at a different
+
+02:45.140 --> 02:46.040
+memory address
+
+02:48.510 --> 02:54.140
+so it would be safe to create the shared reference because integers are immutable but it doesn't.
+
+02:54.150 --> 02:55.960
+So what's going on.
+
+02:56.340 --> 03:02.390
+Well it's something called interning and interning basically is reusing objects on demand.
+
+03:02.940 --> 03:12.380
+So at start up see Python pre-load caches a global list of integers in the range minus 5 to 256 inclusive.
+
+03:12.680 --> 03:19.370
+So what that means is that any time we reference or use an integer in that range Python is going to
+
+03:19.370 --> 03:23.460
+use the cached version of that object it's not going to create a new one.
+
+03:23.570 --> 03:28.290
+It's going to look it up in its list and say OK I'm going to use this existing one already.
+
+03:28.370 --> 03:30.510
+So it's going to reuse that memory address.
+
+03:30.650 --> 03:33.600
+And that's what we saw when we took an integer like 10.
+
+03:33.620 --> 03:34.840
+I was in that range.
+
+03:34.940 --> 03:38.870
+We saw that we were getting shared references when we used 500.
+
+03:38.870 --> 03:41.450
+We saw that we were getting different references.
+
+03:41.450 --> 03:43.920
+That's because we're outside of that range.
+
+03:43.940 --> 03:52.280
+So essentially the integers in the range minus 5 to 256 are singleton objects and we'll get into exactly
+
+03:52.280 --> 03:56.740
+what Singleton objects are when we get to the section on object oriented programming.
+
+03:56.870 --> 04:03.140
+But basically Singleton objects are classes that can only be instantiated once.
+
+04:03.170 --> 04:07.990
+So whenever you try and reinstate initiate them you just get the original version back.
+
+04:08.000 --> 04:11.140
+So it's kind of the same thing that's happening here.
+
+04:12.230 --> 04:12.990
+Why do this.
+
+04:13.010 --> 04:17.810
+Well it's an optimization strategy small integers show up relatively often in our code.
+
+04:18.020 --> 04:23.110
+And so Python decides OK I'm going to pre-crash a certain range of integers.
+
+04:23.120 --> 04:29.010
+You obviously don't want to precast too many right because now you're starting to incur memory overhead.
+
+04:29.120 --> 04:34.530
+This happens at startup so the startup may take too long if you're trying cache too many.
+
+04:34.620 --> 04:41.450
+And you know there's a point of diminishing returns but so they decided that minus 5 to 256 was a pretty
+
+04:41.450 --> 04:45.220
+good cross-section of intoning.
+
+04:45.230 --> 04:51.620
+So now when we write April 10 well Python just has to point to that existing reference for 10 it doesn't
+
+04:51.620 --> 04:57.890
+have to create that integer object and creating an integer object does take some work and we'll see
+
+04:57.890 --> 04:59.660
+also what the memory overhead is.
+
+04:59.780 --> 05:02.370
+Every time we create an integer.
+
+05:03.600 --> 05:10.910
+But if we write equals 2:57 while that's outside of the range minus 5 to 256 then we'd be all Python
+
+05:10.910 --> 05:16.640
+doesn't use the global list and we'll get a new object created every time.
+
+05:16.640 --> 05:20.720
+OK so let's take a look at some code and just see this in practice.
+
+05:20.840 --> 05:29.440
+So recall that the Python will create Singleton integer objects out of integers in the range minus 5
+
+05:29.790 --> 05:31.200
+to 256.
+
+05:31.260 --> 05:33.070
+OK so that's the range.
+
+05:33.080 --> 05:40.910
+So if we create a equal to some number in that range let's say 10 and then we also create B and make
+
+05:40.910 --> 05:42.890
+it equal to the same value.
+
+05:43.080 --> 05:49.510
+Then what's going to happen is that the idea of a is going to be a sort memory address.
+
+05:49.540 --> 05:52.500
+And the idea of the is going to be the same.
+
+05:52.580 --> 05:59.470
+So the python memory manager basically will point you to that shared reference.
+
+05:59.500 --> 06:02.120
+OK so you have the same object being utilized.
+
+06:02.180 --> 06:10.910
+That's safe because integers are immutable so we cannot change the value of b by modifying the contents
+
+06:11.000 --> 06:18.030
+of the reference right of the object being referenced which means that Acon never change because while
+
+06:18.140 --> 06:20.960
+we can never change the object that points to.
+
+06:20.950 --> 06:29.690
+So the only way to change a is to change A's reference to something else and changing that on B isn't
+
+06:29.690 --> 06:34.160
+going to affect what is referencing.
+
+06:34.220 --> 06:43.010
+Just to show you that if we take a equal to minus five and we take be equal to minus five then the memory
+
+06:43.010 --> 06:44.990
+address we can do it this way
+
+06:48.070 --> 06:49.750
+are the same right.
+
+06:49.760 --> 06:50.930
+Memory addresses are the same.
+
+06:50.930 --> 06:56.600
+Now the easiest way of comparing memory addresses remember is to use the identity operator is.
+
+06:56.690 --> 06:59.470
+So A is B and it tells us yes it is.
+
+06:59.480 --> 07:01.740
+It is the same memory address.
+
+07:01.880 --> 07:09.950
+And if we take a call to 256 and be equal to 256 then we can see if they have the memory address and
+
+07:09.950 --> 07:17.930
+they do what they are able to 2:57 and be equal to 2:57 then A is B will return false.
+
+07:17.930 --> 07:21.500
+Right we are no longer using this Singleton collection.
+
+07:21.530 --> 07:22.270
+Right.
+
+07:22.640 --> 07:26.060
+So the same thing minus 6 and so.
+
+07:26.090 --> 07:29.350
+Now remember we can create integers in different ways.
+
+07:29.360 --> 07:29.690
+Right.
+
+07:29.690 --> 07:32.830
+We have a equal to 10 for example.
+
+07:32.840 --> 07:41.640
+Right we can also say B equals int 10 we can declare a new integer object using the constructor.
+
+07:41.930 --> 07:47.040
+So we can pass in 10 that way we can also say C is equal to.
+
+07:47.140 --> 07:48.970
+And pass in a string.
+
+07:49.150 --> 07:49.690
+OK.
+
+07:49.850 --> 07:56.030
+And that string that constructor will default to trying to create an integer based turn based on that
+
+07:56.030 --> 07:56.390
+string.
+
+07:56.390 --> 08:03.980
+If we want to try a different base we could say int and let's do 1 0 1 0 and base 2.
+
+08:04.250 --> 08:04.610
+Right.
+
+08:04.610 --> 08:07.040
+Which is actually 10 in base 10
+
+08:09.710 --> 08:13.650
+actually when we go back and let's make that equal to D.
+
+08:13.670 --> 08:13.910
+Right.
+
+08:13.910 --> 08:17.400
+So we have a b c and d.
+
+08:17.600 --> 08:27.980
+So if we print a we will print a column B common See comedy K they're all 10 and we can now print the
+
+08:27.980 --> 08:43.670
+ID of each one ID of AA ID of B idea of C ID of D that is because I'm sure the cell type changed to
+
+08:44.010 --> 08:44.820
+marked down.
+
+08:44.860 --> 08:46.460
+So I said let's write this code.
+
+08:46.640 --> 08:47.690
+So there we go.
+
+08:47.690 --> 08:48.020
+All right.
+
+08:48.020 --> 08:54.740
+And as you can see the memory address of each of these variables is the same.
+
+08:54.740 --> 09:01.570
+So it doesn't matter how we created that because the end result was an integer of value 10.
+
+09:01.580 --> 09:08.180
+It basically then looked it up and said hey I've got that already in my list of you know Inter and integers
+
+09:08.630 --> 09:09.690
+and there it is.
+
+09:09.800 --> 09:10.930
+I'll use that one.
+
+09:11.180 --> 09:11.660
+OK.
+
+09:11.810 --> 09:13.920
+Thanks for watching and I'll see you in the next video.

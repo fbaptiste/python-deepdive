@@ -1,0 +1,910 @@
+WEBVTT
+
+00:00.550 --> 00:05.800
+High in this video we're going to start looking at tadpoles as data structures.
+
+00:05.860 --> 00:11.580
+So the first thing I want to do is I want to compare apples versus lists and those wild versus strings
+
+00:11.590 --> 00:13.770
+since they're all sequence types.
+
+00:14.850 --> 00:20.220
+So let's go ahead create three columns and let's see what topples are contains what do I mean by a container
+
+00:20.310 --> 00:25.350
+while the container type of object is an object that contains other objects and is why it's called a
+
+00:25.350 --> 00:26.140
+container.
+
+00:26.400 --> 00:32.910
+So tables are containers that contain things that contain sequences of elements lists of the same thing.
+
+00:32.910 --> 00:39.720
+They're also containers and so are strings strings actually are containers of characters which are strings
+
+00:39.720 --> 00:44.280
+of land one essentially and topples the order matters.
+
+00:44.280 --> 00:45.370
+Just like in lists.
+
+00:45.390 --> 00:47.900
+And just like in strings the other matters.
+
+00:47.910 --> 00:48.960
+It's not like a set.
+
+00:48.960 --> 00:55.360
+For example in a set the order of the elements in a set and even mathematically speaking doesn't matter.
+
+00:55.950 --> 00:58.720
+It's only the containment that matters but not the order.
+
+00:58.770 --> 01:01.440
+But that's not the case for top holds lists and strings.
+
+01:02.430 --> 01:05.090
+If you think of a string the order matters it's a word.
+
+01:05.100 --> 01:07.530
+Python is not the same as Tryfan.
+
+01:07.530 --> 01:11.200
+Right if I switch the T and the around are no longer have the same word.
+
+01:11.310 --> 01:13.650
+So all the members lists as well.
+
+01:13.650 --> 01:19.040
+All the matters we may have things where we add things to the front of the list to the end of the list
+
+01:19.050 --> 01:19.920
+things like that.
+
+01:20.070 --> 01:25.020
+The older usually matters in a list and tables as well.
+
+01:25.050 --> 01:32.250
+Now tables can be heterogeneous or homogeneous though just two big words to mean that they contain all
+
+01:32.250 --> 01:34.500
+the same data type.
+
+01:34.530 --> 01:35.930
+In other words it's homogeneous.
+
+01:35.930 --> 01:38.400
+So top of that contains only integers.
+
+01:38.520 --> 01:44.100
+We would think of as homogeneous but if it contains a mixture of strings and integers and other things
+
+01:44.100 --> 01:46.260
+then that's called heterogeneous.
+
+01:46.260 --> 01:49.890
+So couples can be either they can be heterogeneous or homogeneous.
+
+01:50.160 --> 01:55.440
+But in general you'll find especially when we deal with topples as data records that we're dealing with
+
+01:55.620 --> 01:57.250
+heterogeneous data.
+
+01:57.780 --> 02:05.660
+Lists can also be heterogeneous or homogeneous but usually you'll find that lists tend to be homogeneous.
+
+02:05.670 --> 02:11.550
+Usually it's because we want to iterate over a list and do perform some operation on each element in
+
+02:11.550 --> 02:12.290
+the list.
+
+02:12.490 --> 02:18.630
+Well if the elements of that list don't all support that operation for example maybe it's finding the
+
+02:18.780 --> 02:24.840
+fourth character while finding the first character works for a string and it might work for other sequence
+
+02:24.840 --> 02:25.520
+types.
+
+02:25.680 --> 02:28.190
+But if it's an integer that's in the middle of the list.
+
+02:28.260 --> 02:29.270
+This is going to fail.
+
+02:29.580 --> 02:36.980
+So that's why in general Lith's tend to be homogeneous and strings are definitely homogeneous.
+
+02:36.980 --> 02:38.620
+They can all be any different.
+
+02:38.670 --> 02:40.660
+Every time it's a character.
+
+02:42.590 --> 02:45.150
+Now topples up indexable they sequence types.
+
+02:45.170 --> 02:51.140
+So you can use square brackets and you don't recover an element from inside the top and using an index
+
+02:51.140 --> 02:51.700
+number.
+
+02:51.760 --> 02:52.870
+Same thing with lists.
+
+02:52.910 --> 03:00.030
+And of course Same thing with strings for the multiples of iterable we can use a for loop to iterate
+
+03:00.060 --> 03:01.640
+over the elements of a tuple.
+
+03:01.650 --> 03:02.690
+Same thing with lists.
+
+03:02.720 --> 03:03.680
+They're also iterable.
+
+03:03.670 --> 03:04.890
+Same thing with strings.
+
+03:04.950 --> 03:06.840
+They're also iterable.
+
+03:06.930 --> 03:10.610
+So at this point you're probably thinking Well topples lists and strings.
+
+03:10.620 --> 03:12.750
+It's kind of all the same thing.
+
+03:12.960 --> 03:16.030
+And in a way it is because there are all sequence types.
+
+03:16.110 --> 03:19.100
+So they have a lot of common features.
+
+03:19.110 --> 03:22.650
+Now let's look at where things are a little different.
+
+03:22.650 --> 03:24.810
+The top topple is immutable.
+
+03:24.810 --> 03:26.010
+We know that already.
+
+03:26.340 --> 03:31.980
+And the list on the other hand is mutable and the string is immutable.
+
+03:32.010 --> 03:37.500
+So at this point start noticing that we actually have a little bit more in common between tables and
+
+03:37.500 --> 03:40.790
+strings than we have with lists.
+
+03:40.800 --> 03:42.290
+Yes they have a lot of things in common.
+
+03:42.300 --> 03:48.590
+They're all indexable and iterable the sequence times but the string is immutable and so is the top.
+
+03:48.930 --> 03:49.900
+So what does it mean.
+
+03:49.920 --> 03:54.450
+Well it means that the top is a fixed length the length of the top will cannot change.
+
+03:54.510 --> 04:00.270
+On the other hand in lists of course it can change we can add and remove items and strings of fixed
+
+04:00.270 --> 04:00.920
+length as well.
+
+04:00.920 --> 04:07.170
+We cannot add or remove characters in the string the immutability of bulls also means that we have a
+
+04:07.170 --> 04:14.610
+fixed order in the elements of the table which is not the case in lists but of course it is the case
+
+04:14.670 --> 04:17.300
+and strange We have a fixed order as well.
+
+04:17.910 --> 04:21.890
+So the fact that the list is mutable means that the order of elements can change too.
+
+04:21.890 --> 04:27.870
+For example we can do in place so that we can solve a list in place in other words we're mutating the
+
+04:27.870 --> 04:29.940
+list as we're sorting it.
+
+04:30.180 --> 04:34.710
+And we can do the same thing with reversals we can reverse the items of the list in place.
+
+04:34.710 --> 04:39.990
+We're not creating a new list we're just swapping elements until we have the reversal done for example
+
+04:40.490 --> 04:42.040
+or the list sorted.
+
+04:42.450 --> 04:44.070
+That's not the case with a top.
+
+04:44.190 --> 04:49.830
+If you want to sort of top all you can but it's going to generate a new topple and the same thing with
+
+04:49.830 --> 04:50.230
+strength.
+
+04:50.250 --> 04:55.140
+We can sort the characters in a string but you're going to create a new string.
+
+04:55.140 --> 04:57.210
+You can't do that in place.
+
+04:57.390 --> 05:02.450
+It also means that you can't do in-place reversals also for topples and the same applies to strings.
+
+05:02.460 --> 05:05.890
+But I didn't have space to write it out.
+
+05:06.090 --> 05:15.050
+But what I really want to focus on is this fixed length and fixed order of the table so let's see elements
+
+05:15.050 --> 05:16.480
+can be added or removed.
+
+05:16.670 --> 05:17.100
+Right.
+
+05:17.120 --> 05:19.050
+And the order of events cannot be changed.
+
+05:19.070 --> 05:24.110
+So that's what those two characteristics that we're going to leverage.
+
+05:24.140 --> 05:28.790
+So this actually works well for representing data records data structures.
+
+05:28.790 --> 05:32.990
+And you may not realize it but you've already done this before.
+
+05:33.020 --> 05:38.780
+Have you ever done mathematics ever had to write a coordinate pair with an x y coordinates.
+
+05:38.780 --> 05:40.540
+How did you write it down.
+
+05:40.550 --> 05:44.760
+You probably wrote it down this way 10 comet 20 with parentheses around it.
+
+05:45.140 --> 05:51.600
+What were you doing that you were essentially creating a pair of values of coordinates.
+
+05:51.890 --> 05:59.020
+And you assigned meaning to the position so no what you would say the first element is the x coordinates
+
+05:59.090 --> 06:01.410
+and the second element is the y coordinate.
+
+06:01.460 --> 06:05.630
+You assign meaning to the position of the numbers in the space.
+
+06:05.930 --> 06:12.620
+Maybe you did a y x Gordon or it or an X Z called it whatever but you had the meaning associated with
+
+06:12.620 --> 06:14.500
+the position.
+
+06:14.510 --> 06:17.300
+Now I can do the same thing with let's say a circle.
+
+06:17.300 --> 06:24.390
+I'm going to represent a circle as 0 0 come at 10 and to me I know what this means because I know what
+
+06:24.390 --> 06:28.510
+position zero means and one position to you of course don't know it.
+
+06:28.560 --> 06:32.540
+So I'm going to have to tell you here's what the positions mean.
+
+06:32.640 --> 06:35.320
+The first position is the x coordinate of the center.
+
+06:35.460 --> 06:40.410
+The second is the y coordinates of the center and the third element is the radius of the circle.
+
+06:40.410 --> 06:48.210
+Now that you know this you can interpret any so-called topple but I give you I give you five five 20.
+
+06:48.240 --> 06:55.560
+You know it's a circle centered at 5 comma 5 which is the x and y coordinates with a radius of 20.
+
+06:55.680 --> 07:00.780
+So you can see how we've given meaning to the position of the elements in the top.
+
+07:01.050 --> 07:05.340
+And that's all I mean by using a tuple as a data structure.
+
+07:05.340 --> 07:08.520
+Now of course tuples don't have to be homogeneous.
+
+07:08.520 --> 07:10.810
+Here we're using homogeneous data.
+
+07:10.840 --> 07:12.480
+They're all integers.
+
+07:12.480 --> 07:13.740
+We can do something like this.
+
+07:13.740 --> 07:19.620
+We can have a city and the first element of a city top all is going to be the city name.
+
+07:19.620 --> 07:25.240
+The second element is going to be the country and the third element is going to be the population.
+
+07:25.290 --> 07:31.380
+So you could certainly do this writing let's say a custom class that has three properties of city name
+
+07:31.380 --> 07:32.400
+and population.
+
+07:32.670 --> 07:39.390
+But here we have a very lightweight data structure where the position gives it the meaning.
+
+07:39.390 --> 07:40.320
+We don't have a name.
+
+07:40.350 --> 07:41.600
+We just have the position.
+
+07:41.610 --> 07:47.280
+So again we'll just have to basically agree on a convention saying in this program that I'm writing
+
+07:47.640 --> 07:50.280
+a city topple will mean the following.
+
+07:50.280 --> 07:55.210
+It means that the first element is the city name the second element is the country that it's in.
+
+07:55.230 --> 07:58.030
+And the third element is the population of the city.
+
+07:58.140 --> 08:05.440
+And once we have that established we can use that throughout our code as a kind of a city structure.
+
+08:05.550 --> 08:07.980
+It's not a class it's just a city structure.
+
+08:07.980 --> 08:09.240
+It is a topple.
+
+08:09.330 --> 08:15.320
+So you'll notice that when we think of toppled this way we're not thinking of immutable lists right.
+
+08:15.330 --> 08:17.280
+We're not thinking of Read-Only lists.
+
+08:17.290 --> 08:19.880
+It's really there's more to it than that.
+
+08:19.930 --> 08:24.190
+This data structure that's inherent to the topple.
+
+08:24.680 --> 08:29.560
+So the position of the data has meaning but there are no names associated with that.
+
+08:29.560 --> 08:30.880
+This is just a convention
+
+08:33.460 --> 08:38.100
+so we can think of the topple as a data record with the position that the data has meaning.
+
+08:38.100 --> 08:40.590
+So for example I could have London.
+
+08:40.640 --> 08:44.810
+So London is a city that's my variable name and it's a city topple.
+
+08:44.860 --> 08:47.890
+It contains the city name the country the population.
+
+08:47.890 --> 08:52.240
+I could have New York which is going to have the same structure going to have the city name country
+
+08:52.240 --> 08:57.480
+population and I could have Beijing that's going to have the same thing the name of the city the country
+
+08:57.520 --> 09:00.550
+and the population.
+
+09:00.710 --> 09:06.860
+Now because topples and strings and integers are immutable we're guaranteed that the data and that the
+
+09:06.860 --> 09:09.130
+destruction of London will never change.
+
+09:09.130 --> 09:11.670
+Well first of all the topple is immutable.
+
+09:11.770 --> 09:18.130
+That means that once the city has been assigned to this first element it will always be here.
+
+09:18.220 --> 09:20.970
+London isn't going to suddenly switch over somewhere else.
+
+09:21.000 --> 09:24.590
+So and by convention I'm always making the city the first element.
+
+09:24.760 --> 09:31.120
+So any city topple it's always going to have the city name in the first element and I'm guaranteed that
+
+09:31.120 --> 09:37.210
+it's not going to change under me because London which is a string is also immutable.
+
+09:37.210 --> 09:39.440
+So here the topple is immutable.
+
+09:39.550 --> 09:42.420
+The strings are immutable and the integer is immutable.
+
+09:42.430 --> 09:49.240
+So in fact this record here in London UK eight point seventy eight million is totally locked down.
+
+09:49.240 --> 09:52.840
+Sure I could point London to some other top all I can do that.
+
+09:52.990 --> 09:56.190
+But this topple here is never going to change.
+
+09:56.260 --> 09:58.010
+Pass it around to another function.
+
+09:58.070 --> 10:05.120
+Nobody's going to change it on me because it's totally immutable so of course we can create lists of
+
+10:05.120 --> 10:05.870
+topples.
+
+10:05.870 --> 10:12.030
+So here's for example a cities list which contains those three topples it we'll see how we deal with
+
+10:12.030 --> 10:14.410
+that in the second.
+
+10:14.470 --> 10:17.260
+So now we want to extract data from the topples.
+
+10:17.440 --> 10:20.290
+Well obviously top rules are sequenced types.
+
+10:20.290 --> 10:20.560
+Right.
+
+10:20.560 --> 10:21.890
+So we can index them.
+
+10:21.900 --> 10:28.180
+They're indexable so we can retrieve by index so we have this table here we can say city equals London
+
+10:28.290 --> 10:29.200
+0.
+
+10:29.590 --> 10:33.620
+We can say country equals London 1 and population equals London 2.
+
+10:33.640 --> 10:39.160
+If it was New York it would be New York 0 for the country in New York one for the city of New York one
+
+10:39.160 --> 10:40.780
+for the country and so on.
+
+10:41.200 --> 10:43.700
+So we can extract the data by position.
+
+10:43.720 --> 10:49.210
+We know position to population position one country position 0 is the city.
+
+10:49.990 --> 10:57.040
+So now let's go back to this list and here's where I want to talk about homogeneity and heterogeneity.
+
+10:57.040 --> 10:58.750
+The tuples are heterogeneous.
+
+10:58.750 --> 11:05.060
+You'll notice that we have a mix of strings and integers in the top all that's fairly typical.
+
+11:05.110 --> 11:08.320
+The list however is homogeneous.
+
+11:08.320 --> 11:11.040
+It contains all city topples.
+
+11:11.050 --> 11:13.390
+These are all the same data type.
+
+11:13.390 --> 11:15.180
+They're all the same data structures.
+
+11:15.580 --> 11:17.370
+And why is that important.
+
+11:17.560 --> 11:21.920
+Well let's say that we want to calculate the total population of those three cities.
+
+11:22.000 --> 11:24.150
+A very simple way is to do this.
+
+11:24.160 --> 11:26.190
+We can say total population is zero.
+
+11:26.200 --> 11:32.350
+Then we loop through every city in the cities iterate through the cities and we just grab the element
+
+11:32.380 --> 11:36.460
+at position two in each element of the cities list.
+
+11:36.640 --> 11:42.730
+We can only do that because we have we have guaranteed ourselves in our program that we're only putting
+
+11:42.730 --> 11:48.580
+cities into the cities list it's homogeneous of course lists don't have to be homogeneous.
+
+11:48.740 --> 11:53.760
+But this is why they tend to be homogeneous because then we can do something like this safely.
+
+11:53.900 --> 11:57.870
+Imagine that the next element of this list was 100.
+
+11:58.160 --> 12:04.520
+Well this code would blow up because the you know if we take the city which is the last item but now
+
+12:04.520 --> 12:09.230
+that's going to be an integer and we try and index it we're going to have a runtime error.
+
+12:09.230 --> 12:10.860
+We're going to have an exception.
+
+12:10.970 --> 12:13.170
+So that's why they tend to be homogeneous.
+
+12:13.220 --> 12:17.370
+We'll see other ways by the way of writing this as a much better way of writing something like that
+
+12:18.760 --> 12:21.650
+but we'll see that later when we get into sequence types.
+
+12:21.790 --> 12:27.580
+So you'll notice again how the list of cities is homogeneous it only contains cities but the cities
+
+12:27.580 --> 12:29.570
+themselves are heterogeneous.
+
+12:30.940 --> 12:35.870
+Now there's other ways that we can unpack that we can extract data from a tuple and that's called unpacking.
+
+12:35.890 --> 12:39.620
+We've seen this before we saw that new function arguments.
+
+12:39.820 --> 12:45.300
+For example if this is marked up all New York which is this tunnel here these three values.
+
+12:45.550 --> 12:52.090
+Now I just want to point out that the parentheses is not necessary to declare or to create a topple.
+
+12:52.110 --> 12:54.220
+What creates a top or is the commons.
+
+12:54.250 --> 12:56.980
+It is not the parentheses.
+
+12:56.980 --> 13:01.180
+This here what we've done is called Packing with pack those three values.
+
+13:01.180 --> 13:05.310
+NEW YORK USA 8.5 million into a topple.
+
+13:05.500 --> 13:12.040
+That's just called Packing and we can reverse that process by doing something called unpacking where
+
+13:12.100 --> 13:20.980
+we can assign basically a topple to a list or to a another topple to basically three values right in
+
+13:20.980 --> 13:21.700
+a topple.
+
+13:21.700 --> 13:23.300
+But here we have labels.
+
+13:23.320 --> 13:23.620
+Right.
+
+13:23.620 --> 13:26.150
+The left hand side of the assignment or the labels.
+
+13:26.230 --> 13:31.180
+So what Python is going to do it's going to take the first element of New York the New York topple and
+
+13:31.180 --> 13:32.930
+assign it to the label city.
+
+13:33.070 --> 13:39.760
+Second element to country third element to population and that's called unpacking the tuple.
+
+13:39.850 --> 13:43.350
+We could of course do it this way we can pack and unpack on the same line.
+
+13:43.360 --> 13:43.690
+Right.
+
+13:43.690 --> 13:45.010
+So we can do it this way.
+
+13:45.010 --> 13:48.220
+And of course we don't need the parentheses to pack the tuple.
+
+13:48.220 --> 13:50.130
+This is how we create the tuple.
+
+13:50.140 --> 13:56.140
+The parentheses is just something that we can add in to you know highlight the fact that this is a tuple.
+
+13:56.230 --> 14:00.480
+And in certain cases especially with function parameters things like that are function arguments.
+
+14:00.610 --> 14:05.460
+We need the parentheses to differentiate between the tuple and the other arguments.
+
+14:05.590 --> 14:11.280
+Let's say in a function that many variables is something we've seen before.
+
+14:11.280 --> 14:16.140
+I just want to quickly mention this again with so many variables when we were doing the single dispatch
+
+14:16.140 --> 14:21.360
+generic functions we were using dummy variable names essentially for functions.
+
+14:21.360 --> 14:24.110
+This is the same thing when we were unpacking.
+
+14:24.710 --> 14:30.330
+You know suppose we're only interested in the city and the city name and the population of the city
+
+14:30.330 --> 14:31.280
+record.
+
+14:31.590 --> 14:37.800
+So we could do it this way we could say city underscore population and then we're unpacking Beijing
+
+14:37.830 --> 14:41.380
+China 21 million into this.
+
+14:41.580 --> 14:47.980
+These three variables now the underscore is a variable name it's a legal variable name.
+
+14:48.090 --> 14:49.730
+There's nothing magical about it.
+
+14:49.890 --> 14:56.160
+It's just a convention that many Python programmers use to indicate that yes I am extracting China into
+
+14:56.160 --> 14:59.180
+a variable but I don't actually care about this thing.
+
+14:59.190 --> 15:01.440
+I'm going to throw it away I'm never going to use it.
+
+15:01.440 --> 15:07.010
+So then you know we tend to use an underscore and will reuse the underscore in other places too for
+
+15:07.020 --> 15:08.520
+things that we don't care about.
+
+15:08.520 --> 15:13.350
+Now once you've done this unpacking you could actually print underscore you could say print parentheses
+
+15:13.380 --> 15:14.150
+underscore.
+
+15:14.280 --> 15:16.700
+That will work and it will print China.
+
+15:16.710 --> 15:20.860
+In this case so it's just a variable name.
+
+15:20.860 --> 15:22.400
+There's nothing special about it.
+
+15:22.450 --> 15:24.070
+It's just a convention.
+
+15:25.410 --> 15:29.300
+In fact we could have used city ignored population right.
+
+15:29.310 --> 15:33.930
+We could have unpacked it this way and indicated maybe more explicitly that hey we're ignoring this
+
+15:34.380 --> 15:37.610
+but people are used to using the underscore for ignored fields.
+
+15:37.650 --> 15:42.280
+So you might as well use it less typing to do than ignored.
+
+15:42.280 --> 15:44.350
+Now we also have extended unpacking.
+
+15:44.500 --> 15:45.680
+And what I mean by that.
+
+15:45.700 --> 15:46.850
+Again we've seen it before.
+
+15:46.870 --> 15:52.900
+But let's have this record and this record again has meaning because of the positions what it means
+
+15:52.900 --> 15:55.730
+is that this position is the ticker symbol.
+
+15:55.900 --> 15:59.940
+This is the year the month the day this is the open price.
+
+15:59.950 --> 16:03.630
+This is the high low and then the closed price cut.
+
+16:04.210 --> 16:10.290
+And we can extract therefore all the data using unpacking and this way we get a symbol come a Uruk come
+
+16:10.300 --> 16:16.720
+a month come a day blah blah blah come close equals record and we've unpacked all of these values into
+
+16:16.930 --> 16:19.640
+these variable names.
+
+16:19.950 --> 16:25.110
+But let's say we're only interested in the symbol the year the month the day and the clothes we're not
+
+16:25.110 --> 16:32.060
+interested in retrieving open high low so we could certainly do something like this.
+
+16:32.160 --> 16:37.100
+We could say symbol equals record 0 your record one month equals record two and so on.
+
+16:37.140 --> 16:38.030
+But come on.
+
+16:38.070 --> 16:40.780
+I mean really this really looks bad.
+
+16:41.130 --> 16:43.710
+It's not that it's wrong there's nothing wrong with it.
+
+16:43.890 --> 16:47.740
+And it really only looks bad because there's a better way to do it in Python.
+
+16:47.790 --> 16:49.130
+So it looks bad because.
+
+16:49.140 --> 16:49.530
+Yeah.
+
+16:49.650 --> 16:51.220
+And so Bob thinks Yeah.
+
+16:51.240 --> 16:54.070
+BLAIR So resurrected Bob for today.
+
+16:55.510 --> 16:59.840
+So we don't want to go about it this way there's a better way to do this.
+
+16:59.890 --> 17:04.440
+Maybe it's this we could say Simbel come a year come close are left of month and day just to keep a
+
+17:04.460 --> 17:08.200
+shorter equals record 0 record one record seven.
+
+17:08.560 --> 17:15.660
+Well that's actually a terrible idea because I mean it walks there's nothing logically wrong with this
+
+17:15.670 --> 17:16.350
+code.
+
+17:16.690 --> 17:18.580
+But think about what we're doing.
+
+17:18.760 --> 17:23.020
+We're going to record grabbing the element at index 0.
+
+17:23.290 --> 17:29.290
+Then the element that index one then the element that index 7 we're packing it into a tuple and then
+
+17:29.290 --> 17:32.250
+we're unpacking it into symbole or enclose.
+
+17:32.320 --> 17:33.380
+We're going to do that.
+
+17:33.400 --> 17:35.870
+We may as well just do it this way.
+
+17:36.140 --> 17:36.710
+OK.
+
+17:36.880 --> 17:38.220
+This isn't really the cleanest.
+
+17:38.220 --> 17:41.280
+Now if you get maybe one or two maybe that's OK.
+
+17:41.290 --> 17:47.200
+But if you're doing this because you're trying to avoid having to deal with the ones that you're going
+
+17:47.200 --> 17:51.390
+to ignore open high low for example that's really not a good thing.
+
+17:51.460 --> 17:55.110
+So it's pretty awful looking cold in fact poor Bob just threw up.
+
+17:55.310 --> 17:56.850
+We don't want that to happen.
+
+17:57.250 --> 17:59.840
+So there's a better way much better way in Python.
+
+18:00.220 --> 18:03.310
+And it's this start this extended unpacking again.
+
+18:03.310 --> 18:04.720
+We've seen it before.
+
+18:05.230 --> 18:10.300
+What we can do it this way we can say Simbel your month day calmer stuff and then some variable name
+
+18:10.330 --> 18:14.790
+we need a variable name because we're going to unpack into this variable as well.
+
+18:14.980 --> 18:15.970
+How is this going to work.
+
+18:15.970 --> 18:21.730
+Python is going to take the first second third and fourth elements of rocket and put them into these
+
+18:21.820 --> 18:24.190
+four variables respectively.
+
+18:24.190 --> 18:30.010
+It's going to take the last element of rocket and put it into close and then anything else in between
+
+18:30.160 --> 18:34.950
+it's going to create a list out of that and throw it into this variable here.
+
+18:35.290 --> 18:40.630
+And I've just used an underscore as a dummy variable to indicate that I don't care about it.
+
+18:40.720 --> 18:45.610
+So you can see that this is a much cleaner way of doing it than over here.
+
+18:47.170 --> 18:49.990
+In fact of course I could have used star ignored as well.
+
+18:49.990 --> 18:53.440
+I don't have to use the underscore that's just a convention.
+
+18:53.440 --> 18:54.950
+So a better way of doing it.
+
+18:55.000 --> 18:57.130
+It's more pythoness stick.
+
+18:57.130 --> 18:57.670
+All right.
+
+18:57.670 --> 18:58.600
+Thanks for watching.
+
+18:58.600 --> 19:01.080
+Let's switch to some code and I'll see you in a bit.

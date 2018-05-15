@@ -1,0 +1,868 @@
+WEBVTT
+
+00:00.630 --> 00:06.270
+High in this video we're going to start looking at decorator's now decorator's is something we've actually
+
+00:06.270 --> 00:07.570
+already seen.
+
+00:07.620 --> 00:13.510
+We didn't call it that but we've actually dealt with decorator's before in particular in the last video.
+
+00:13.860 --> 00:19.800
+So let's recall a very simple closure for example that we did in the last video which is the one that
+
+00:19.800 --> 00:23.930
+allowed us to maintain a count of how many times a function was called.
+
+00:23.970 --> 00:25.500
+And we'll take the simple version of it.
+
+00:25.500 --> 00:32.460
+The very first version that we did so we had the counting function that took as a parameter a function.
+
+00:32.460 --> 00:36.480
+This was a higher order function and it had one argument a function.
+
+00:36.510 --> 00:40.810
+In our case we used functions like ADD and mult and factorial.
+
+00:41.460 --> 00:47.850
+And then it created a local variable count with an initial value of 0 and then it created this inner
+
+00:47.940 --> 00:54.420
+function and the inner function took an arbitrary number of arguments and Keywood only arguments and
+
+00:54.510 --> 00:58.170
+it was a closure because we have this non-local count over here.
+
+00:58.440 --> 01:04.830
+And what it did is every time we called in her it would then increment the non-local count by 1 and
+
+01:04.830 --> 01:12.030
+it would print out that f and name had been called the you know count the number of times and then it
+
+01:12.030 --> 01:19.350
+would actually call this function f n using the parameters that we pass into the closure every time
+
+01:19.350 --> 01:21.020
+we called the closure.
+
+01:21.510 --> 01:27.840
+So to create the closure we specify the function and you can see the function doesn't change over time
+
+01:27.850 --> 01:29.790
+once the closure has been created.
+
+01:30.090 --> 01:36.420
+The count does every time we call the closure count is created and then we can call the closure using
+
+01:36.420 --> 01:38.190
+different arguments every time.
+
+01:38.250 --> 01:42.210
+But we will still use the same count as long as we're using the same closure.
+
+01:42.720 --> 01:51.270
+So for example we would define this add function that can take in two parameters A and B B just happens
+
+01:51.270 --> 01:52.980
+to have a default value of 0.
+
+01:53.010 --> 01:55.460
+And it would return a plus b.
+
+01:55.620 --> 01:59.410
+We can now essentially use AD as F-in.
+
+01:59.490 --> 02:00.870
+So we would do the following.
+
+02:00.920 --> 02:04.380
+We would call counter passing in the function.
+
+02:04.380 --> 02:06.900
+And what is going to return.
+
+02:06.930 --> 02:10.390
+It's going to return this inner function closure.
+
+02:10.860 --> 02:17.850
+And so we can now execute this in a closure and we can pass in arbitrary positional and keyword on the
+
+02:17.850 --> 02:19.080
+arguments.
+
+02:19.140 --> 02:24.350
+So in the case of ADD it will require two arguments A and B.
+
+02:24.420 --> 02:29.220
+So when we call the in a function we'll need to give it two arguments.
+
+02:29.220 --> 02:35.190
+But how we call the in a function that's returned by Kelner kind of depends on what offends arguments
+
+02:35.220 --> 02:38.130
+are hence why we made starts and stops.
+
+02:38.160 --> 02:39.120
+Kw.
+
+02:39.240 --> 02:45.890
+So generic so we get a closure back from counter by passing in the function.
+
+02:45.910 --> 02:47.730
+And so remember what is this.
+
+02:47.770 --> 02:51.880
+And it's simply a label that points to this function.
+
+02:51.890 --> 03:00.040
+And over here we get a closure back from calling counter and we assign it back to the same label which
+
+03:00.040 --> 03:05.020
+means that this ad now is no longer referencing this add function.
+
+03:05.020 --> 03:10.060
+It's instead referencing the closure that we created when we ran counter on.
+
+03:10.090 --> 03:17.900
+And so the label is the same but the exact function that it's pointing to is technically different.
+
+03:17.920 --> 03:23.830
+However the reason we call it the same is because at the end of the day the closure functions in her
+
+03:24.220 --> 03:25.860
+is going to execute that.
+
+03:25.900 --> 03:28.880
+And for us and return the value.
+
+03:28.930 --> 03:35.830
+So we'll still get the value back as if we had called the original add function but the closure is doing
+
+03:35.830 --> 03:37.890
+something extra in this case.
+
+03:37.900 --> 03:42.850
+It's maintaining the count and printing out some information about how many times the function has been
+
+03:42.850 --> 03:44.920
+called.
+
+03:45.170 --> 03:54.060
+So we can say result equals and one comma to it will then print function add was called 1 times because
+
+03:54.060 --> 03:56.570
+at this point this is the first time we're calling it.
+
+03:56.820 --> 04:02.820
+And the result will have a value of three which is as if we are called and directly with one and two
+
+04:03.060 --> 04:06.030
+because that's what the function did.
+
+04:06.030 --> 04:12.130
+So again this is just going back over what we've already seen in the last video.
+
+04:12.160 --> 04:19.150
+So we essentially modified our add function by wrapping it inside another function that added some functionality
+
+04:19.150 --> 04:27.550
+to it and we also say that we decorated our function and with the function counter.
+
+04:27.550 --> 04:27.840
+Right.
+
+04:27.850 --> 04:30.100
+So we decorated ad with counters.
+
+04:30.130 --> 04:37.480
+Essentially we wrapped ad inside another function and that function would execute the original And so
+
+04:37.480 --> 04:43.200
+we wrapped it inside something else and we say we decorated the function and we call this counter function
+
+04:43.210 --> 04:49.750
+here a decorator function because it's the function that we use to decorate our function that's being
+
+04:49.870 --> 04:51.090
+decorated.
+
+04:51.460 --> 04:57.190
+So it's just a sense really a technical definition for what we've already been doing when we were looking
+
+04:57.190 --> 04:59.020
+at our quarter examples.
+
+04:59.210 --> 05:02.640
+It's just now we have a name for this specifically.
+
+05:02.860 --> 05:08.650
+So in general what's happening with these decorators while the decorator function takes a function as
+
+05:08.650 --> 05:14.310
+an argument because at the end of the day we're going to need to execute that function that returns
+
+05:14.310 --> 05:17.890
+a closure usually it returns a closure.
+
+05:18.090 --> 05:24.000
+And in fact even if it does nothing more than just calling the function itself that will always be a
+
+05:24.000 --> 05:29.870
+closure because that in a function is going to have to call a friend which is a parameter of the outer
+
+05:29.880 --> 05:30.740
+function.
+
+05:30.750 --> 05:37.540
+In other words it's always going to be a closure that gets returned now the closure usually accept any
+
+05:37.540 --> 05:40.000
+combination of parameters using that stuff.
+
+05:40.060 --> 05:46.510
+And Stan Star-K w o rings because that allows us to very generically then be able to call that function
+
+05:46.540 --> 05:54.540
+f n that we pass in right when we create the closure with any arguments and then it will in a function
+
+05:54.540 --> 06:00.750
+we'll then run some code right inside that in a function so that closure that we have as a function
+
+06:00.750 --> 06:01.980
+in that closure.
+
+06:01.980 --> 06:02.940
+It will run.
+
+06:03.120 --> 06:08.610
+It will usually run some extra bit of code in this case we had the count going on we had the print to
+
+06:08.610 --> 06:16.020
+the console going on could be any other things to and then the closure function finally calls and you
+
+06:16.020 --> 06:22.450
+know calls the function that we passed in originally when we created the closure and the arguments when
+
+06:22.450 --> 06:29.350
+we are calling the closure they will run that function get the result back from that and return that
+
+06:29.350 --> 06:30.510
+result back.
+
+06:30.820 --> 06:35.480
+So at the end of the day we end up with the result as if we had to call that original function.
+
+06:35.740 --> 06:40.570
+But then because it was inside this closure it was able to do some extra work.
+
+06:40.580 --> 06:43.560
+So let's take a look at this diagrammatic Ali.
+
+06:43.720 --> 06:49.720
+So we have this outer function and the function usually takes in a parameter of function some function
+
+06:49.720 --> 06:56.800
+that we passing like ADD or mult or fact as we saw in the last example this out of function defines
+
+06:56.850 --> 07:04.180
+an inner function within it and that in a function usually takes a variable number of arguments so we
+
+07:04.330 --> 07:06.060
+try and make it as generic as possible.
+
+07:06.070 --> 07:08.750
+We use dogs and starstuff KW And.
+
+07:08.920 --> 07:11.510
+But you by no means have to do that.
+
+07:11.590 --> 07:17.740
+You could have a closure that is going to require specific arguments and so it will only work with specific
+
+07:17.740 --> 07:23.200
+functions that take those specific types of arguments that could be you know fine too depending on your
+
+07:23.200 --> 07:24.880
+circumstance.
+
+07:24.880 --> 07:29.070
+That in a function does something or other that function doesn't really do.
+
+07:29.080 --> 07:35.440
+It's not being done by FLN it's being done by the in a function and now case incrementing that counts
+
+07:35.460 --> 07:42.360
+maintaining the count and then printing out to the council and then it will evaluate at some point the
+
+07:42.360 --> 07:45.870
+function F-in that we used when we created the closure.
+
+07:45.870 --> 07:51.990
+In other words when we called the out-of function and will then execute that function with the arguments
+
+07:51.990 --> 07:55.140
+that were passed in to the closer to the in a function.
+
+07:55.140 --> 07:56.780
+So when we call the closures.
+
+07:57.000 --> 07:57.390
+Right.
+
+07:57.510 --> 08:04.140
+So F-in is set when we define the closure when we create the closure by calling our.
+
+08:04.470 --> 08:10.680
+And the function is executed when we execute the function in the closure passing in the arguments to
+
+08:10.680 --> 08:17.910
+the closure as we saw with the ad example just previously so the closure I remember is the in function
+
+08:17.970 --> 08:23.970
+and then right now we also had more things going on with our closure in the previous example we had
+
+08:24.000 --> 08:25.080
+count as well.
+
+08:25.230 --> 08:31.230
+But as I was saying you're always going to end up with a closure because at the very least FM is being
+
+08:31.230 --> 08:38.190
+referenced inside the in a function and then being a parameter of our function is therefore a local
+
+08:38.250 --> 08:46.830
+variable to our and therefore becomes a non-local variable in and hence it's a free variable so let's
+
+08:46.830 --> 08:50.350
+look now at the at symbol that Python has for us.
+
+08:50.370 --> 08:52.630
+And it's really just a convenience thing.
+
+08:52.740 --> 08:57.310
+So you can do decorator's in Python without ever using the at symbol.
+
+08:57.390 --> 08:58.440
+It's just a convenience.
+
+08:58.440 --> 09:00.370
+And let's see what this is.
+
+09:00.390 --> 09:03.840
+So in our previous example we saw that counter was a decorator.
+
+09:03.900 --> 09:04.170
+Right.
+
+09:04.170 --> 09:12.210
+We were able to pass a function to counter and get a closure back and it was a decorated function in
+
+09:12.210 --> 09:17.980
+the sense that it was then executed that some extra code was executed and the result was returned.
+
+09:18.000 --> 09:26.200
+So Cantor was a decorator and so we could decorate up and function by essentially calling it right from
+
+09:26.200 --> 09:26.800
+counting.
+
+09:26.980 --> 09:33.580
+So we called Kelner we passed our function at it as a parameter as an argument to counter.
+
+09:33.730 --> 09:39.520
+And then we assign it back to and and this is in general how you create how you create decorator's how
+
+09:39.520 --> 09:45.300
+you decorate a function and by using this other function counter which we call it decorator.
+
+09:45.580 --> 09:53.180
+So in general that's it that's what you use to create decorators or decorator functions but it's pretty
+
+09:53.180 --> 09:54.800
+common to do that.
+
+09:54.800 --> 10:00.230
+So in general if func is a decorator we can decorate another function.
+
+10:00.230 --> 10:01.880
+My phunk using the following.
+
+10:01.880 --> 10:05.190
+My phone calls equals phunk of my phunk.
+
+10:05.390 --> 10:11.050
+OK so it's just a generic way of writing this.
+
+10:11.090 --> 10:17.120
+Now this is so common that Python gives us an alternative way of defining this so instead of having
+
+10:17.210 --> 10:21.990
+to create the function and then run articles equals counter add.
+
+10:22.310 --> 10:29.180
+If we decorate our function and using this at counter so counter is the decorator that hasn't changed
+
+10:29.180 --> 10:31.420
+it's still the same function we defined.
+
+10:31.730 --> 10:38.480
+But the only difference is that instead of doing you know instead of writing this way for us to find
+
+10:38.480 --> 10:39.060
+the function.
+
+10:39.070 --> 10:42.740
+And now we've already defined counter that already exists.
+
+10:42.740 --> 10:43.830
+But how do we decorate.
+
+10:43.850 --> 10:49.950
+And what we have to create add first and then we run and through our decorator's and then we assign
+
+10:49.950 --> 10:53.410
+a back to add and that's how we decorated add.
+
+10:53.600 --> 10:56.440
+Well you can do this all in one step.
+
+10:56.480 --> 11:01.300
+Defining and decorating a function at the same time by using this as symbol.
+
+11:01.370 --> 11:05.990
+So use at and the name of the decorating function the decorator.
+
+11:06.010 --> 11:10.760
+So in general you have at func and def my funk would be the same as writing.
+
+11:10.870 --> 11:17.650
+Def my phunk for separately and then decorating my phunk by running through phunk the decorator function
+
+11:17.900 --> 11:19.180
+in this way.
+
+11:19.720 --> 11:21.950
+So this is just syntax again.
+
+11:21.970 --> 11:23.830
+You can use whichever one you prefer.
+
+11:23.830 --> 11:24.710
+It doesn't matter.
+
+11:24.880 --> 11:30.840
+And even when you do use this at notation just remember what it's doing.
+
+11:30.880 --> 11:33.580
+It's really just running this function.
+
+11:33.610 --> 11:42.670
+And as a parameter of the decorator function counts and assigning a back to the label add.
+
+11:42.910 --> 11:43.500
+Right.
+
+11:43.750 --> 11:47.040
+So just remember that.
+
+11:47.120 --> 11:51.020
+Now let's look at introspection of decorated functions.
+
+11:51.110 --> 11:52.670
+Let's use the same count decorator.
+
+11:52.670 --> 11:54.850
+Here's the code again just to remind you.
+
+11:56.420 --> 11:59.630
+And let's say that we decorate a mult function.
+
+11:59.630 --> 12:03.810
+So here I'm going to use the decorator syntax using the at symbol.
+
+12:04.160 --> 12:07.910
+So Def mulct a b and c c has a default value.
+
+12:08.030 --> 12:09.530
+I also created a docstring.
+
+12:09.620 --> 12:16.930
+Right returns the product with three values and then returns a b and c Now remember we could equally
+
+12:16.930 --> 12:20.070
+well have written mult equals counter of melt.
+
+12:20.080 --> 12:24.100
+It's the same thing as what we're doing here with this at counter.
+
+12:24.500 --> 12:25.070
+OK.
+
+12:25.510 --> 12:30.030
+So now let's look at the Name property of the Dundon Name property of mold.
+
+12:30.070 --> 12:36.520
+After it's been decorated which means either after this code is run or after we've decorated using this
+
+12:36.530 --> 12:38.480
+syntax either one it doesn't matter.
+
+12:38.470 --> 12:39.730
+They're equivalent.
+
+12:40.240 --> 12:41.440
+What do we get back for.
+
+12:41.450 --> 12:50.560
+Not for the name for most well molt at this point is no longer original multiplication function it's
+
+12:50.560 --> 12:51.400
+the closure.
+
+12:51.550 --> 12:54.410
+It's not the original multiplication function.
+
+12:54.430 --> 12:56.520
+So what is the name going to be of mouth.
+
+12:56.530 --> 12:58.840
+Which function is mult really.
+
+12:59.140 --> 13:02.560
+Well mult really in this case is the quotient.
+
+13:02.610 --> 13:04.610
+It's this inner function.
+
+13:04.930 --> 13:08.680
+And so when we ask for the name of mult it's now thinner.
+
+13:09.070 --> 13:13.710
+So you'll notice that if we decorate this way or this way would we ask for the name of mult.
+
+13:13.740 --> 13:15.010
+It's been changed.
+
+13:15.040 --> 13:16.540
+It looks like it's been changed.
+
+13:16.540 --> 13:19.570
+It's not molt anymore it's in it now.
+
+13:19.600 --> 13:22.880
+We haven't changed the name of mold mold.
+
+13:22.930 --> 13:26.590
+The label mold simply points to a different function.
+
+13:26.590 --> 13:29.420
+It's not the same function after all.
+
+13:29.500 --> 13:35.340
+One was this function here after we've decorated this in a function here instead.
+
+13:35.380 --> 13:42.500
+So it makes sense that it would be in and the same thing if you call help on mult you'll see that you
+
+13:42.500 --> 13:47.200
+get help on function in our in module main not help on function.
+
+13:47.450 --> 13:52.260
+And look at the signature of the function it's energy star star star.
+
+13:52.280 --> 14:00.530
+KW And we've also lost all the information that we had in our original moĂŤt because this new mold is
+
+14:00.530 --> 14:07.430
+not the original mold the F-in that's inside the clothes or the free variable air is pointing to our
+
+14:07.430 --> 14:15.260
+original mode but the closure that gets returned inor no longer is and never was activated it never
+
+14:15.260 --> 14:18.220
+pointed to that function.
+
+14:18.270 --> 14:23.820
+But when you're debugging that could be a problem it'd be nice if and even after decorating a function
+
+14:23.850 --> 14:30.100
+we got the original name of the function back in the original documents string and the original signature
+
+14:31.170 --> 14:37.260
+instead of having this thing because now you can have def mall def add def fact and then if you call
+
+14:37.260 --> 14:39.740
+help on each one of those you'll get the same thing.
+
+14:39.810 --> 14:43.740
+Help on function in every module main in a style art style Stockwell's.
+
+14:43.920 --> 14:49.260
+It doesn't help you for debugging or figuring out what is the function that information is now hidden
+
+14:49.260 --> 14:53.560
+from us because it's now inside a free variable inside the closure.
+
+14:55.930 --> 15:01.440
+So and even using By the way the inspect module signature isn't going to get you any better results.
+
+15:01.450 --> 15:08.150
+It's also going to see her as the function Melk not because that's what it is so there's ways that we
+
+15:08.150 --> 15:14.810
+can fix this and let's look at a very simple way that we could try this and we're going to fix the function
+
+15:14.810 --> 15:17.290
+name and the documentation string.
+
+15:17.870 --> 15:21.380
+And we've taken the same code as before this is no different.
+
+15:21.380 --> 15:27.700
+The only differences here are two things that are added in before we return the in a function.
+
+15:27.930 --> 15:34.760
+I go ahead and override the name and the documentation string for enter by looking at the name and the
+
+15:34.760 --> 15:38.540
+documentation string of F-in which is the variable.
+
+15:38.540 --> 15:42.900
+The argument that was passed in write the function that was passed in.
+
+15:42.950 --> 15:48.800
+So I take its name assign it to in his name some basically overriding the name property of init.
+
+15:48.890 --> 15:54.020
+And I'm also overriding the dock property that does the dock property of dinner with whatever we had
+
+15:54.020 --> 15:54.760
+an event.
+
+15:54.770 --> 15:56.450
+Then our return in a.
+
+15:56.780 --> 15:59.190
+So now when you do that that's fine.
+
+15:59.210 --> 16:05.030
+You will now get the proper name and the docstring for your decorated function.
+
+16:05.030 --> 16:08.860
+It will be what the original function was when you created the closures.
+
+16:09.680 --> 16:14.390
+But you'll notice that it hasn't fixed the problem with the function signature.
+
+16:14.510 --> 16:17.860
+And so that is quite complicated to do by hand.
+
+16:18.140 --> 16:20.800
+And so Python actually gives us a way to do this.
+
+16:20.810 --> 16:23.350
+It's built in of course.
+
+16:23.580 --> 16:29.810
+And let's see how we do that the frontals Mondial has a wrapper function that we can use to kind of
+
+16:29.930 --> 16:37.270
+fix the meta data of our inner function in our decorator we'd have to import it from the phunk tools
+
+16:37.270 --> 16:42.850
+modules called wraps and the wraps function is actually itself a decorator.
+
+16:43.330 --> 16:50.120
+And we're going to pass the closure in a function to that decorator and it's going to fix up the metadata.
+
+16:50.440 --> 16:57.850
+But if we only pass in the in a function that wraps function it's not going to know where to copy the
+
+16:57.850 --> 16:59.780
+meta data from it needs to know.
+
+16:59.900 --> 17:00.210
+OK.
+
+17:00.220 --> 17:05.230
+This is the function that whose method data you want to change right you want to change the name you
+
+17:05.230 --> 17:11.200
+want to change the docstring you want to change the signature but based on which function it needs to
+
+17:11.200 --> 17:13.580
+know what that original function is.
+
+17:13.600 --> 17:17.060
+So it needs to know that that's FM.
+
+17:17.080 --> 17:19.420
+In our case in our example.
+
+17:19.420 --> 17:25.720
+So this is itself a decorator but this is a decorator that takes a parameter as well and we'll get to
+
+17:25.720 --> 17:28.130
+that in the next set of videos I haven't covered.
+
+17:28.200 --> 17:31.960
+Parameterised decorator's quite yet a little bit more complicated.
+
+17:32.050 --> 17:37.330
+I just want to use it here though and it will start introducing you to this notion that decorator's
+
+17:37.810 --> 17:43.720
+over and above just taking the function that we want to decorate can also have parameters.
+
+17:44.170 --> 17:46.840
+So we can call it this way.
+
+17:46.840 --> 17:52.240
+So we do this so instead of having our own custom code in here that modifies the meta data in-air we
+
+17:52.240 --> 17:54.840
+do it this way we call wraps of FM.
+
+17:55.090 --> 18:03.640
+Now wraps of fen phen is this function right which is the original function that wraps and call is itself
+
+18:03.640 --> 18:10.840
+going to return a function and that function now is going to take inner has its parameters and then
+
+18:10.840 --> 18:14.860
+that's going to return a closure and we're going to assign that in her.
+
+18:14.860 --> 18:16.270
+And then we return it.
+
+18:16.330 --> 18:17.950
+So it's a little convoluted.
+
+18:18.010 --> 18:22.450
+It will be a little easier to understand when we use this notation here here.
+
+18:22.780 --> 18:29.600
+We're decorating her using the wraps function but the wraps function takes in an additional parameter
+
+18:29.600 --> 18:31.580
+of this argument.
+
+18:32.020 --> 18:37.060
+So FM is an argument wraps to this decorator and now we decorate it.
+
+18:37.450 --> 18:40.570
+And then we return in here which is going to be decorated in.
+
+18:40.780 --> 18:43.970
+But this and this is exactly the same thing.
+
+18:44.080 --> 18:47.950
+And we'll see more examples of that in upcoming videos.
+
+18:47.980 --> 18:54.340
+So let's put all this together and here we have our original function counter of decorators.
+
+18:54.370 --> 18:57.580
+It has this in a function which is a closure.
+
+18:57.580 --> 18:58.660
+It gets returned.
+
+18:58.660 --> 19:05.080
+The only difference now is that we decorate inner itself using this wraps function that Python makes
+
+19:05.080 --> 19:06.140
+available to us.
+
+19:06.340 --> 19:10.420
+But of course wraps needs to know what is the original function we're working with.
+
+19:10.420 --> 19:13.060
+It can't guess that it's this parameter here.
+
+19:13.090 --> 19:17.980
+There might be other parameters that we want to put in here for some reason so we need to tell it which
+
+19:17.980 --> 19:18.280
+one.
+
+19:18.280 --> 19:23.300
+What's the function that this counter is decorating needs to know.
+
+19:23.440 --> 19:30.160
+And then it's going to use the information from that function in order to fix up or modify the method
+
+19:30.160 --> 19:37.190
+data the signature the documents tracing the name and so on of the closure of the end.
+
+19:37.720 --> 19:44.080
+So now we can decorate our own multifunction just like we did before when we can use this syntax here
+
+19:44.170 --> 19:45.100
+at counter's.
+
+19:45.280 --> 19:49.260
+All we can say multi-course counter of molt whichever way you prefer.
+
+19:49.810 --> 19:53.490
+But we've decorated involves using our decorator counters.
+
+19:54.010 --> 20:00.850
+So now when we call help on mult we get what we expect as if we are called Help on the original function
+
+20:00.850 --> 20:01.410
+Mole's.
+
+20:01.570 --> 20:03.900
+We get that it's molts in module main.
+
+20:04.030 --> 20:05.740
+We get the proper signature.
+
+20:05.740 --> 20:06.810
+Everything's there.
+
+20:06.910 --> 20:10.110
+And you know all the documentation string is there as well.
+
+20:10.450 --> 20:15.020
+And if you use introspection using the inspect module we've seen that in your videos.
+
+20:15.130 --> 20:17.260
+It will also work as expected.
+
+20:17.260 --> 20:23.320
+So if you say inspect that signature of molts of course the melt being decorated mold you will get the
+
+20:23.320 --> 20:32.120
+signature of the original melt the melt which was the melt that was passed into wraps in the decorator's.
+
+20:32.140 --> 20:32.820
+All right.
+
+20:33.040 --> 20:38.020
+So you don't have to use wraps it will just make life easier if you're debugging either yourself or
+
+20:38.020 --> 20:41.610
+somebody else maybe you're writing a decorator for somebody else to use.
+
+20:41.800 --> 20:49.060
+And if you don't do this you're essentially going to hide the information about the decorated function
+
+20:49.150 --> 20:56.050
+the original decorated function from the user of your closure of your decorator so you probably want
+
+20:56.050 --> 20:58.040
+to use it but you don't have to.
+
+20:58.300 --> 21:00.470
+And just up to you if you want to use it or not.
+
+21:00.910 --> 21:04.600
+So that said that switch to some code and let's see all this in action.
+
+21:04.600 --> 21:06.290
+Thanks for watching and I'll see you in a bit.

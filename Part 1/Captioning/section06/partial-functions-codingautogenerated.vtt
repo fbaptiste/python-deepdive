@@ -1,0 +1,1153 @@
+WEBVTT
+
+00:00.570 --> 00:01.850
+Hi and welcome back.
+
+00:02.280 --> 00:03.920
+We're going to take a look at Parshall's.
+
+00:03.960 --> 00:06.980
+So the first thing we'll need to do is actually impled it.
+
+00:06.990 --> 00:13.330
+So the Parshall's function is a higher order function and it isn't phunk tools module.
+
+00:13.440 --> 00:14.520
+It's a how to function.
+
+00:14.520 --> 00:15.000
+Why.
+
+00:15.030 --> 00:18.360
+Well it takes a function as one of its parameters.
+
+00:18.360 --> 00:20.820
+That's a higher order function.
+
+00:20.820 --> 00:24.880
+So from frontals and both partial and let's just do the example that we did in lectures.
+
+00:24.930 --> 00:31.710
+So let's say I have a function which takes in three parameters and all I'm going to do is just print
+
+00:32.070 --> 00:33.390
+a b and c o.
+
+00:33.450 --> 00:34.860
+Ok so I'll print that.
+
+00:35.790 --> 00:46.020
+So if we call my fonk 10 comma 20 30 we'll just get 10 20 30 so we can reduce the number of arguments
+
+00:46.050 --> 00:52.650
+needed to call my func by essentially specifying one or more of its values ahead of time and then using
+
+00:52.650 --> 00:56.970
+those values plus whatever additional values need to be passed in.
+
+00:57.000 --> 00:58.030
+How might we do that.
+
+00:58.080 --> 01:06.100
+Well we can say define f and f is going to take let's say X and Y as two parameters.
+
+01:06.150 --> 01:12.440
+And this is going to return to my funk and is going to pass in turn for a.
+
+01:12.480 --> 01:21.810
+It's going to pass an X for B and why C so now we can call f 20 or 30 and we get 10 20 30.
+
+01:21.840 --> 01:27.470
+We can call f 100 200 and we get 10 100 200.
+
+01:27.480 --> 01:34.110
+All right so we've reduced the number of arguments needed to call my func by specifying a value for
+
+01:34.170 --> 01:34.590
+a.
+
+01:34.680 --> 01:36.100
+There's no magic around here.
+
+01:36.120 --> 01:38.730
+My phunk still needs three values right.
+
+01:38.730 --> 01:40.290
+It requires three values.
+
+01:40.290 --> 01:41.770
+We can get around that.
+
+01:41.850 --> 01:48.480
+However we might come into situations where we want to pass my phunk along to something else but that's
+
+01:48.480 --> 01:49.160
+something else.
+
+01:49.170 --> 01:51.920
+What's a function that only takes two values.
+
+01:52.020 --> 01:55.350
+And of course we wouldn't be able to pass my phunk as is.
+
+01:55.380 --> 01:59.930
+However we could pass it f because f only takes two arguments.
+
+01:59.940 --> 02:02.750
+We'll see examples of that shortly.
+
+02:02.760 --> 02:03.900
+How else might we do that.
+
+02:03.900 --> 02:09.840
+Well obviously you could use a lambda you could say Oracle's lambda which takes an x and y and it does
+
+02:09.870 --> 02:11.170
+exactly the same thing.
+
+02:11.210 --> 02:16.690
+It don't have to return of course it's just going to return my func X come y.
+
+02:16.860 --> 02:22.780
+So now we can say f 100 200 and what did I do wrong.
+
+02:22.790 --> 02:25.510
+My phunk is missing one positional argument.
+
+02:25.760 --> 02:26.510
+Yes.
+
+02:26.510 --> 02:27.220
+Sorry.
+
+02:27.410 --> 02:30.840
+We need to hard code the value for a right.
+
+02:30.840 --> 02:32.580
+Remember what I said there's no magic.
+
+02:32.750 --> 02:35.110
+Well yeah this is what happens right.
+
+02:35.180 --> 02:38.380
+In this case it's still called my phunk who have only two variables.
+
+02:38.390 --> 02:39.160
+Two arguments.
+
+02:39.200 --> 02:40.290
+That's not going to work.
+
+02:40.290 --> 02:45.000
+So three to find the lambda and now let's call it and not works as before.
+
+02:45.740 --> 02:49.420
+So you can certainly do it this way using a def were using a lambda.
+
+02:49.760 --> 02:52.100
+You can also use the partial function.
+
+02:52.100 --> 02:53.480
+So how might we do that.
+
+02:53.510 --> 02:56.640
+Well we say every cause partial.
+
+02:57.380 --> 03:01.170
+And now we need to try to tell it what callable we're interested in.
+
+03:01.190 --> 03:07.660
+In this case I want the function my funk and I'm going to pass in one value.
+
+03:07.730 --> 03:11.870
+So that's a positional value and that's the first positional argument.
+
+03:11.900 --> 03:16.650
+So it's going to get assigned to the first positional argument of my funk.
+
+03:16.940 --> 03:21.880
+So now if we do this I can say F 20 coming 30 and now we have.
+
+03:22.180 --> 03:25.150
+We have the output 10 20 30.
+
+03:25.160 --> 03:31.920
+Now obviously I could do this I could say f Paschall my phunk are 10 20.
+
+03:32.240 --> 03:33.260
+That would work as well.
+
+03:33.270 --> 03:39.620
+So now if I call f now if only needs one right f is only going to need one argument.
+
+03:39.770 --> 03:45.340
+We get that if we try and call f with let's say two arguments we're going to have an error as well.
+
+03:45.380 --> 03:45.780
+Right.
+
+03:45.830 --> 03:52.200
+Because what's going to happen is that the Paschall is going to pass in 10 20 and then again 10 20 so
+
+03:52.200 --> 03:58.750
+we've passed in full positional arguments to my funk and my funk only takes in a maximum of three.
+
+03:59.000 --> 04:00.730
+So of course that will fail.
+
+04:04.080 --> 04:08.700
+OK so you might be wondering well you know I'm in the land there really isn't that much more complicated
+
+04:08.720 --> 04:14.250
+to write or to understand than the partial here but things can get a little bit more complicated when
+
+04:14.250 --> 04:18.570
+you have more you know esoteric arguments.
+
+04:18.570 --> 04:24.110
+Maybe you've got a mixture of keyword arguments and you've got named arguments you know or you know
+
+04:24.120 --> 04:28.860
+positional arguments that you want to pass in as named arguments or maybe you want to be able to swap
+
+04:28.860 --> 04:29.590
+around maybe.
+
+04:29.690 --> 04:33.470
+I want to specify what should be be but not.
+
+04:33.480 --> 04:38.610
+And then pass an ANC So you start getting into things I get maybe a little more complex.
+
+04:38.730 --> 04:41.010
+So let's take a look and we saw that in the lecture.
+
+04:41.010 --> 04:42.260
+So let's try it out.
+
+04:42.350 --> 04:43.650
+Def my funk.
+
+04:43.980 --> 04:53.910
+Let's say it takes a and b and c and it takes a key word value one keyword only argument 2 and then
+
+04:53.910 --> 04:57.650
+we'll take a variable number of these keyword arguments as well.
+
+04:57.930 --> 05:06.560
+And all we're going to do here is just print a B print out for print K-1 K-2 and we'll print dogs out
+
+05:06.570 --> 05:07.390
+as well.
+
+05:08.190 --> 05:08.540
+All right.
+
+05:08.580 --> 05:15.140
+So what the function does is simple but it takes you know some pretty complex arguments here.
+
+05:15.180 --> 05:23.510
+So if we call my fonk let's say we pass in turn for a 24 B maybe we'll pass in 100 and 200 is extra
+
+05:23.510 --> 05:24.480
+positional.
+
+05:24.690 --> 05:25.750
+Then we have K-1.
+
+05:25.770 --> 05:33.450
+Let's say a and k two is B and maybe we'll pass in a few extra Keywood only arguments as well.
+
+05:33.450 --> 05:37.230
+Let's say K-3 equals.
+
+05:37.880 --> 05:45.950
+I don't know which we make it let's say 1000 and K for equals two thousand k.
+
+05:46.200 --> 05:51.320
+So when we have that here we have 10 and 20 which were are a and b are positional.
+
+05:51.630 --> 05:56.780
+Then we had a very small number of positions that were put into a top or 100 and 200.
+
+05:57.000 --> 06:02.180
+Then we had our key only arguments that were had they had values the string values a and b.
+
+06:02.340 --> 06:06.720
+And then we had a variable number of keyword arguments that were written in a dictionary that would
+
+06:06.720 --> 06:08.180
+put into a dictionary.
+
+06:08.200 --> 06:08.800
+OK.
+
+06:09.300 --> 06:15.690
+So now let's say that we want to be able to call my phunk but we want to admit having to pass in a and
+
+06:15.690 --> 06:16.560
+k one.
+
+06:16.770 --> 06:24.850
+So we want to be able to pass B star K to and start was but we don't want to pass in K-1 and we want
+
+06:24.850 --> 06:29.070
+to try and basically almost like having a default value for them.
+
+06:29.200 --> 06:29.460
+Right.
+
+06:29.460 --> 06:30.840
+So how might we do that.
+
+06:31.050 --> 06:32.300
+Well we can do that again.
+
+06:32.340 --> 06:40.480
+We can use a lambda or we can use a function you know we can define a function we could say def f how
+
+06:40.490 --> 06:41.700
+what are we going to do here.
+
+06:41.700 --> 06:45.120
+Now I'm going to use the same names so we don't get confused.
+
+06:45.120 --> 06:47.460
+So it's going to take in one positional only.
+
+06:47.610 --> 06:52.220
+It's going to take in a bunch of extra positional is optionally.
+
+06:52.620 --> 06:55.410
+Now we don't want K-1 we want k to.
+
+06:55.440 --> 06:58.770
+So we'll take in a single keyword value here.
+
+06:59.580 --> 07:02.360
+And we want the start Stockwell's as well.
+
+07:02.520 --> 07:03.120
+OK.
+
+07:03.390 --> 07:05.400
+Now I can rename them something else.
+
+07:05.400 --> 07:06.690
+The name doesn't matter.
+
+07:06.790 --> 07:07.980
+So let me do that.
+
+07:08.010 --> 07:11.220
+Right so b I'm going to rename X K-2.
+
+07:11.400 --> 07:16.980
+I'm going to call this keyword like that for example and then start OGs again.
+
+07:16.990 --> 07:18.480
+And it really doesn't matter.
+
+07:18.480 --> 07:24.630
+This could be you know vowels and this could be key word vowels.
+
+07:24.780 --> 07:27.320
+K so we can do something like that.
+
+07:28.230 --> 07:30.180
+So now how are we going to call my funk.
+
+07:30.180 --> 07:33.160
+Well we're just going to return my funk.
+
+07:33.300 --> 07:35.350
+We're going to hard code the value for a.
+
+07:35.400 --> 07:43.170
+So I'm going to have quarter to 10 then I'm going to pass an X for B then I'm going to pass in on right.
+
+07:43.170 --> 07:45.780
+So I need to pass.
+
+07:46.910 --> 07:52.880
+Then we have the key word value k 1 we need to specify K-1 Maybe I'll make K-1 equal to 8.
+
+07:53.060 --> 07:56.790
+And then K-2 has to be well this key word value there.
+
+07:57.150 --> 08:05.730
+And then we need the starstuff KW vowels and I just noticed that I'm going to call this angst then I
+
+08:05.730 --> 08:08.820
+should call that one as well or I'd need to call this one but.
+
+08:09.000 --> 08:09.910
+OK.
+
+08:10.680 --> 08:17.170
+So here we have reduced the number of parameters of arguments that we need to call my phunk.
+
+08:17.200 --> 08:22.230
+So now we can call f and we can specify a value of twenty four.
+
+08:22.260 --> 08:27.990
+What will be be right because this is the first positional arguments are going to go into X but X is
+
+08:27.990 --> 08:28.670
+being passive.
+
+08:28.680 --> 08:31.170
+The second positional argument to my phone.
+
+08:31.380 --> 08:38.490
+So 20 is going to go into B then we'll put in an extra couple of positional arguments or 100 and 200
+
+08:38.610 --> 08:44.400
+that's going to go into style vowels that will go into Starling's right style as we're going to start
+
+08:44.400 --> 08:49.580
+vowels here which is Starns we need a keyword only argument.
+
+08:49.590 --> 08:54.060
+So we need KW equals here I'll specify B.
+
+08:54.300 --> 08:54.780
+Okay.
+
+08:54.900 --> 09:02.240
+And then maybe we'll put in a few others we'll put in K3 equals 1000 and K four equals two thousand.
+
+09:02.430 --> 09:08.190
+So now when we call that you'll notice we have exactly the same thing as before 10 20 100 200 in the
+
+09:08.190 --> 09:13.300
+top or then we have A and B and then we have our keyword arguments or extras.
+
+09:14.510 --> 09:20.270
+So that's how we were able to reduce the number of arguments that my phunk needs to be called by essentially
+
+09:20.270 --> 09:23.980
+creating another function that acts as a proxy right.
+
+09:23.990 --> 09:28.740
+It it it puts in certain values for some of the parameters of my funk.
+
+09:28.880 --> 09:32.630
+And this way I don't have to specify them every time.
+
+09:32.640 --> 09:35.430
+Now of course we can do the same thing using just a partial.
+
+09:35.550 --> 09:39.160
+We can just say Paschall and this case what's the function.
+
+09:39.190 --> 09:41.990
+Well we want the callable is my phunk.
+
+09:42.060 --> 09:42.990
+So there we go.
+
+09:43.170 --> 09:44.620
+And what are we going to do.
+
+09:44.820 --> 09:49.770
+Well we need to pass in the first positional argument which is going to be a.
+
+09:49.800 --> 09:52.020
+We want to hand-code that to 10 right.
+
+09:52.020 --> 09:52.980
+So there we go.
+
+09:53.010 --> 09:54.270
+It's 10.
+
+09:54.270 --> 09:59.970
+Next we want to specify k 1 will k 1 is a keyword argument.
+
+10:00.150 --> 10:04.800
+So it has to be passed in as a keyword and we just specify it with the same name.
+
+10:04.830 --> 10:05.110
+Right.
+
+10:05.130 --> 10:09.720
+That name K-1 has to match the name in my phunk.
+
+10:09.750 --> 10:17.810
+So when we do that then we can specify let's say value of a and we leave it at that.
+
+10:18.030 --> 10:18.920
+OK that's it.
+
+10:18.920 --> 10:25.460
+So we didn't have to do the whole rigamarole of taking in the vase an X and kw right.
+
+10:25.490 --> 10:30.980
+We just said OK you're going to call my funk cause the first positional And here's one of the key word
+
+10:30.980 --> 10:31.670
+arguments.
+
+10:31.690 --> 10:33.460
+Ok one equals a.
+
+10:33.480 --> 10:35.790
+So now if we call f where.
+
+10:36.030 --> 10:38.740
+Well what are we going to call it to call with 20.
+
+10:38.760 --> 10:43.830
+So that's going to go into B because this is going to be now the second positional because 10 is the
+
+10:43.830 --> 10:50.910
+fourth positional 20 then we're going to put in a few extra positions then we're going to specify k
+
+10:50.940 --> 10:59.180
+2 because we really have k wanted to find people to be and it's a case three equals 1000 and K4 equals
+
+10:59.210 --> 11:00.720
+2000.
+
+11:01.110 --> 11:05.040
+And so when we do that we again get the same result as before.
+
+11:05.040 --> 11:09.280
+You'll notice that we just have the same thing right.
+
+11:09.360 --> 11:15.990
+So it's a little easier as you can see using a partial as opposed to using a function or lambda.
+
+11:15.990 --> 11:17.660
+You can also do this using Alamdar.
+
+11:17.700 --> 11:19.840
+The syntax is a little cleaner.
+
+11:20.160 --> 11:26.420
+The next thing I want to show is that we don't have to always specify the forced positional in the Paschall.
+
+11:26.430 --> 11:31.050
+You'll notice that I've been doing that so far so you might be thinking well it only works by specifying
+
+11:31.050 --> 11:37.230
+the positional that's in the first place and I was I wouldn't be able to specify B without specifying
+
+11:37.290 --> 11:40.150
+a and then having a being specified later.
+
+11:40.410 --> 11:41.350
+No you can.
+
+11:41.580 --> 11:48.270
+And the trick there is to remember that you can have named parameters even though and be oppositional.
+
+11:48.570 --> 11:51.570
+Remember that they can still be passed in as named arguments.
+
+11:51.720 --> 11:53.360
+So let's see an example of that.
+
+11:53.370 --> 11:57.510
+Let's go ahead and define a function called Power or P.W..
+
+11:57.840 --> 12:01.140
+And it's going to take in a base and an exponent.
+
+12:01.140 --> 12:08.010
+And you'll notice these are just positional and what it's going to do is return base to the power of
+
+12:08.580 --> 12:09.380
+exponent.
+
+12:09.750 --> 12:15.120
+OK so now we have this function and we're going to define a few of the functions we're going to say
+
+12:15.180 --> 12:19.650
+Square or let's call it Eskew equals.
+
+12:19.650 --> 12:21.730
+So again we're going to do it partial.
+
+12:21.820 --> 12:23.470
+We're going to call power.
+
+12:23.730 --> 12:27.870
+But now I'm not going to specify I want to specify 2 for the exponent.
+
+12:27.870 --> 12:32.160
+Now if I put two like this two is going to get passed into the base.
+
+12:32.160 --> 12:32.690
+Right.
+
+12:32.910 --> 12:36.960
+And if I say Eskew of 10 I'm not going to get 10 squared.
+
+12:37.110 --> 12:41.310
+I'm going to get two to the power of 10 right which is 10:24.
+
+12:41.310 --> 12:42.680
+So that's not what I want.
+
+12:42.720 --> 12:47.900
+I want to be able to pass in two to the exponent and turn to the base.
+
+12:47.910 --> 12:49.250
+So how might we do that.
+
+12:49.470 --> 12:54.670
+Well we're just going to use a named variable right.
+
+12:54.720 --> 12:57.600
+So we're saying no no 2 is going to go into xponent.
+
+12:57.750 --> 13:03.270
+So now you'll notice that what's missing when we're calling power is the forced positional.
+
+13:03.300 --> 13:11.490
+So if we do that and now we call square of let's say 5 we get indeed 5 squared which is 25.
+
+13:11.790 --> 13:12.800
+Now we can do the same thing.
+
+13:12.810 --> 13:17.330
+We can say Kubik is partial O.W. count of three.
+
+13:17.670 --> 13:22.220
+But we have to specify that it's the exponent that's going to be equal to 3.
+
+13:22.440 --> 13:27.910
+And so if we do cube of 5 we should get 125.
+
+13:27.920 --> 13:35.200
+Now of course because we're using named parameters you could also just say cube base equals five right.
+
+13:35.240 --> 13:36.830
+And we still get 125.
+
+13:36.860 --> 13:40.140
+It's OK to make this a named parameter as well.
+
+13:43.320 --> 13:46.460
+You've got to be careful though because there is one thing you can do.
+
+13:46.620 --> 13:53.510
+We can save five base equals five and I can read a fine when exponent is going to make it two.
+
+13:53.670 --> 13:56.470
+And I'm actually going to square not cube.
+
+13:56.850 --> 13:58.660
+And indeed we get 25 out.
+
+13:58.830 --> 14:04.620
+So you got to be careful because what's happening is that this xponent equals two is essentially overriding
+
+14:04.620 --> 14:07.950
+what we had in the partial.
+
+14:08.030 --> 14:14.490
+So even though the partial has basically kind of hand-coded or pre-determine the value of xponent you
+
+14:14.490 --> 14:18.780
+actually still can't change it if you want to after the fact.
+
+14:18.780 --> 14:22.790
+So it's not completely you know rigid that way.
+
+14:22.890 --> 14:24.000
+So that's actually pretty cool.
+
+14:24.000 --> 14:29.400
+In some cases the other thing too that I won't talk about is we talk about that in the letter is the
+
+14:29.400 --> 14:34.380
+fact that if you use a variable You're got to be careful because the variable label isn't what gets
+
+14:34.710 --> 14:39.620
+input or gets baked into the Paschall it's the reference of that label.
+
+14:39.840 --> 14:44.820
+What I mean by that is let's say we have a equals 10 let's say equals 2.
+
+14:44.970 --> 14:45.480
+OK.
+
+14:45.660 --> 14:57.700
+And I'm going to make square equals partial of P though p o w were the exponent equal to a K.
+
+14:58.340 --> 15:01.690
+So now I can call Square a 5 and we get 25.
+
+15:01.980 --> 15:03.720
+Now if I make April to 3
+
+15:07.240 --> 15:09.840
+you might think OK well nigh Farkle square of 5.
+
+15:09.850 --> 15:12.640
+That's going to give me 125.
+
+15:13.060 --> 15:13.590
+Right.
+
+15:13.690 --> 15:16.450
+And the answer is no it's still going to be 25.
+
+15:16.450 --> 15:22.300
+Because what got baked into the special isn't a it's whatever it was pointing to which happened to be
+
+15:22.300 --> 15:25.410
+the memory address where the integer 2 was living.
+
+15:25.480 --> 15:28.940
+That's what get what gets passed in the reference.
+
+15:29.200 --> 15:32.560
+And we haven't changed what gets what lives at that reference.
+
+15:32.560 --> 15:33.570
+Integers are immutable.
+
+15:33.580 --> 15:36.690
+We cannot change what lives inside that integer.
+
+15:36.980 --> 15:37.340
+Right.
+
+15:37.390 --> 15:41.680
+We can change with a points too but we cannot change the integer itself.
+
+15:42.160 --> 15:45.060
+So the Paschall will keep that to.
+
+15:45.110 --> 15:46.560
+So just something to be careful of.
+
+15:46.690 --> 15:52.030
+And it's really no different than when we were looking at default values for arguments in function calls.
+
+15:52.040 --> 15:57.040
+Now if you have something that's mutable that's different than I alluded to then intellectual let's
+
+15:57.040 --> 15:58.160
+try this out.
+
+15:58.540 --> 16:03.260
+So let's go ahead and write a small function again.
+
+16:06.330 --> 16:11.640
+We're just going to print this case I'm only going to take two parameters not three and I want to do
+
+16:11.640 --> 16:19.470
+a partial where I'm going to pre-specified what a is and I'm going to specify a however by using a variable
+
+16:19.470 --> 16:20.650
+just like we did.
+
+16:20.760 --> 16:24.450
+So I'm going to set a equal to now a list let's say 1 and 2.
+
+16:24.480 --> 16:26.240
+So as a mutable type no.
+
+16:26.640 --> 16:34.110
+And I'm going to make every call to a partial of my func passing in a as the first positional.
+
+16:34.170 --> 16:36.870
+So basically one and two is going to be in there.
+
+16:36.870 --> 16:43.710
+So if I call f of 100 I'm going to get one into that list and then 100.
+
+16:43.720 --> 16:46.070
+So now what I can do I can say ought to append.
+
+16:46.290 --> 16:49.350
+Let's say arm 3 right.
+
+16:49.340 --> 16:56.040
+So if you look at a is now 1 2 and 3 and if we call F again the same way before as before with a hundred
+
+16:56.340 --> 17:02.280
+you'll notice that one to three is also showing up and that's normal right because partial is pointing
+
+17:02.280 --> 17:04.690
+to the object that is referencing.
+
+17:04.860 --> 17:11.190
+We haven't changed what is references when we append we just modify the object mutable we were allowed
+
+17:11.190 --> 17:15.390
+to do that and hence therefore it shows up in the partial as well.
+
+17:15.390 --> 17:18.300
+So again something to be careful of next.
+
+17:18.300 --> 17:23.310
+Let's take a look at some applications of this and why we might want to be able to decrease the number
+
+17:23.310 --> 17:30.030
+of arguments that a function as you know requires for example the sort of math the sort of function
+
+17:30.270 --> 17:31.100
+in Python.
+
+17:31.110 --> 17:36.660
+Remember that sort of the function it allows us to sort a list for example and then we can specify a
+
+17:36.660 --> 17:45.390
+key and that key argument is basically a function that's going to take in one value one argument which
+
+17:45.390 --> 17:51.120
+all the elements of the list we want to sort and it's going to return a value that is then going to
+
+17:51.120 --> 17:55.040
+be used to determine the sold order of each element.
+
+17:55.110 --> 17:57.200
+And we've seen that before.
+
+17:57.210 --> 18:01.530
+So next let's look at some examples of applying Parshall's.
+
+18:01.770 --> 18:06.930
+And let's see why we may want to reduce the number of arguments that a function requires in order to
+
+18:06.930 --> 18:07.720
+be called.
+
+18:08.130 --> 18:10.390
+A very typical example is two sold.
+
+18:10.500 --> 18:14.120
+There is a built in function in Python we've seen it before called standard.
+
+18:14.340 --> 18:22.520
+And we want to sort things and a and we can specify a sold order we can specify essentially a another
+
+18:22.560 --> 18:29.520
+function that is applied to each element of the list that returns a value and then that value is used
+
+18:29.760 --> 18:33.870
+as the sole key for the sorting.
+
+18:33.870 --> 18:39.000
+So what I mean by that what we've seen it before but let's say that we want a we we have a bunch of
+
+18:39.000 --> 18:40.810
+points on the x y plane.
+
+18:40.880 --> 18:41.120
+Right.
+
+18:41.130 --> 18:47.190
+We have a bunch of coordinates x y coordinates and we want to sort this list of coordinates based on
+
+18:47.190 --> 18:54.850
+the distance from the origin so to work out the distance between two points we need two arguments we
+
+18:54.850 --> 18:55.170
+need.
+
+18:55.180 --> 19:02.680
+Point one point to nine this case Point two is always going to be the origin is going to be the 0 0
+
+19:02.920 --> 19:03.510
+0.
+
+19:03.640 --> 19:05.480
+If you think of Cartesian coordinates.
+
+19:05.680 --> 19:12.250
+So this way we can look at the distance between a point in our list and the origin as a function of
+
+19:12.250 --> 19:15.910
+really just one argument not two.
+
+19:15.990 --> 19:19.120
+So let's go ahead and do this.
+
+19:19.800 --> 19:22.910
+So we get to define the origin as just the point 0 0 0.
+
+19:22.920 --> 19:24.050
+I'm just going to use a top.
+
+19:24.090 --> 19:26.630
+There's no need to create a class or anything fancy for this.
+
+19:26.790 --> 19:30.020
+I'm just going to use topples to represent x y coordinates.
+
+19:30.150 --> 19:31.530
+So origin is 0 0 0.
+
+19:31.890 --> 19:43.600
+And let's say we have a list 1 Common 1 and maybe 0 comic to type and then minus 3 and 2.
+
+19:43.740 --> 19:48.490
+I really can't type minus 3 and 2.
+
+19:48.540 --> 19:49.080
+OK.
+
+19:49.110 --> 19:55.290
+Negative 3 and 2 0 0 0 we can have the origin in there itself and maybe something for there are 10 and
+
+19:55.290 --> 19:55.790
+10.
+
+19:55.980 --> 19:57.000
+OK.
+
+19:57.480 --> 19:58.630
+So this is our list.
+
+19:58.650 --> 20:04.300
+It's just basically a list of top balls which represent x y coordinates.
+
+20:04.320 --> 20:07.510
+So now what's the distance between 1 1 and 0 0.
+
+20:07.520 --> 20:12.810
+What's the square root of one minus 0 squared plus one minus zero squared.
+
+20:12.810 --> 20:18.000
+Now in order to do the sort we don't actually have to use the distance we you know we don't have to
+
+20:18.000 --> 20:19.220
+have the square root.
+
+20:19.320 --> 20:24.940
+We could just use the N square root add value so 1 minus zero squared plus 1 minus zero squared.
+
+20:25.140 --> 20:31.170
+Because the square root maintains soaring right so if a is less than B then squirt of A's going to be
+
+20:31.170 --> 20:35.490
+less than squared of B and other way around as well the square root of A is less than square root of
+
+20:35.490 --> 20:38.070
+B then is less than B as well.
+
+20:38.070 --> 20:39.570
+So what's either way.
+
+20:40.140 --> 20:45.200
+So let's define a function that's going to calculate the distance between two points.
+
+20:45.270 --> 20:56.170
+So let's call it distance squared equals lambda and it's going to take two points x and y.
+
+20:56.580 --> 20:58.220
+And how are we going to calculate that.
+
+20:58.230 --> 21:01.020
+Well remember now x and y are going to be topples right.
+
+21:01.020 --> 21:05.850
+X is going to be a top all y is going to be a top Also X is going to have its x y coordinate.
+
+21:06.000 --> 21:08.370
+Y is going to have its x x y coordinates.
+
+21:08.400 --> 21:09.970
+Maybe I should call this a and b.
+
+21:10.210 --> 21:10.740
+OK.
+
+21:10.920 --> 21:14.940
+So we'll will have an x y coordinate and B will have an x y coordinates.
+
+21:14.970 --> 21:16.340
+So how are we going to do that.
+
+21:16.380 --> 21:31.390
+Well we're just going to say x zero while not X not a zero minus B 0 squared plus a 1 minus be one squared.
+
+21:31.440 --> 21:31.790
+Right.
+
+21:31.860 --> 21:36.350
+That's going to be the square of the distance between two points and the Cartesian plane.
+
+21:36.360 --> 21:45.140
+So now we could look at distance squared let's say of one column or one and the origin right.
+
+21:45.840 --> 21:47.120
+Which is two right.
+
+21:47.130 --> 21:50.490
+That would be correct if we have a right triangle right.
+
+21:50.490 --> 21:52.880
+We're square with side of one side of 1.
+
+21:53.010 --> 21:55.240
+Then the distance to hypothenuse the square root of 2.
+
+21:55.260 --> 21:58.110
+But in this case we have it squared so it's just two.
+
+21:58.560 --> 22:03.630
+So that's the distance so we can use that to sort this list how would we do that with say solid.
+
+22:04.080 --> 22:07.990
+And here we want to do what we want to sort l now.
+
+22:08.190 --> 22:13.830
+If we try and just do that that's really going to not work according to how we want it what it's going
+
+22:13.830 --> 22:19.570
+to do by default is going to look at let's say the first element of the top all right.
+
+22:19.590 --> 22:23.590
+And if the top is equal then it's going to look at the second element of the topple and so on.
+
+22:23.760 --> 22:25.230
+It's not quite what we want.
+
+22:25.230 --> 22:27.330
+We want to sort by the distance to the origin.
+
+22:27.360 --> 22:29.740
+So we need to change the sort order.
+
+22:30.120 --> 22:32.470
+And we can do that by using the key.
+
+22:32.850 --> 22:40.320
+So we'd say key equals now key is what key needs to be a function that takes in a single parameter which
+
+22:40.320 --> 22:42.490
+is going to be each element of the list.
+
+22:42.750 --> 22:50.500
+So if we try and use distance 2 and say well I want distance 2 of the element and the origin.
+
+22:50.790 --> 22:55.040
+That's not going to work because this isn't a function right.
+
+22:55.050 --> 22:56.670
+This is a function call.
+
+22:56.760 --> 23:01.430
+It doesn't know what is key has to be a callable it has to be a function.
+
+23:01.470 --> 23:02.910
+So how are we going to do this.
+
+23:02.910 --> 23:07.300
+We just want to calculate the distance between whatever the point is and the origin.
+
+23:07.350 --> 23:15.480
+So we need some other function that's going to say hey calculate you know distance from Origin right
+
+23:16.830 --> 23:22.050
+and distance from Origin should only take a single parameter which is the point whose distance from
+
+23:22.050 --> 23:24.080
+the origin we want to find.
+
+23:24.150 --> 23:25.720
+So we can do that.
+
+23:25.740 --> 23:28.080
+We can certainly write a function that does that.
+
+23:28.380 --> 23:31.920
+But since we already have the distance function why don't we use it.
+
+23:31.920 --> 23:34.200
+So let's go ahead and do it this way.
+
+23:34.200 --> 23:38.050
+Let's say this square well actually.
+
+23:38.250 --> 23:44.110
+Yeah let's go ahead and say F equals partial distance squared.
+
+23:44.460 --> 23:47.060
+And now what do I want to do well for the distance.
+
+23:47.070 --> 23:49.900
+I want to make one of those points equal to the origin.
+
+23:49.940 --> 23:50.680
+So yeah.
+
+23:50.700 --> 23:53.510
+OK we'll make one of the points equal to the origin.
+
+23:53.790 --> 24:00.430
+So now we have a function f that really not only requires a single point.
+
+24:00.750 --> 24:04.940
+And when we do that we again get that this square is to.
+
+24:04.950 --> 24:11.520
+So you see that we were able to reduce the number of arguments that distance square needed down to 1.
+
+24:11.700 --> 24:17.840
+So now we can actually call f we can use F because f is a single thing.
+
+24:17.910 --> 24:22.130
+So if we do that we now get the things sorted in the order that we want.
+
+24:22.240 --> 24:24.170
+0 0 is the closest to the origin.
+
+24:24.180 --> 24:28.520
+Then 1 1 then 0 2 then negative 3 2 and then 10 10.
+
+24:28.680 --> 24:33.840
+So that achieves what we wanted but we wouldn't have been able to do it had we not reduced the number
+
+24:33.840 --> 24:40.930
+of parameters that distance needed now obviously you could have done it using lambda for example you
+
+24:40.930 --> 24:47.900
+could ask that lambda X and it's going to return Disston square of origin x.
+
+24:48.070 --> 24:49.390
+We could do that as well.
+
+24:49.570 --> 24:53.970
+And you would get the same effect here.
+
+24:54.830 --> 24:56.620
+All right we get the same sort order.
+
+24:59.070 --> 25:02.580
+The other thing too I want to point out is that you don't have to assign a to f..
+
+25:02.610 --> 25:04.100
+So you could also do this.
+
+25:04.140 --> 25:08.240
+So I wanted L key equals Paschall.
+
+25:08.250 --> 25:09.820
+Or you could use lambda as well.
+
+25:09.870 --> 25:15.980
+You could say key equals lambda x distance squared origin X it could just type this right in here.
+
+25:16.160 --> 25:16.810
+OK.
+
+25:17.070 --> 25:24.210
+So we could do it this way that will work as well or you can just use whatever we used here and type
+
+25:24.210 --> 25:27.320
+this in here like so.
+
+25:27.450 --> 25:30.080
+And this will work equally well.
+
+25:30.100 --> 25:32.440
+Thanks for watching and I'll see you in the next video.

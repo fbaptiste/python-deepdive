@@ -1,0 +1,730 @@
+WEBVTT
+
+00:00.540 --> 00:06.520
+High in this video we're going to look at the Operate of mondial.
+
+00:06.730 --> 00:10.850
+Now we have functional equivalents to operators in the operator module.
+
+00:10.890 --> 00:11.670
+What does that mean.
+
+00:11.710 --> 00:16.990
+Well think back to the last lecture where we wrote code such as the following Right.
+
+00:16.990 --> 00:22.150
+We had a list let's say two three and four and then we called reduce on that list and we wanted to find
+
+00:22.240 --> 00:27.420
+the multiplication of each of the elements so we wanted to find two times three times four.
+
+00:27.610 --> 00:29.840
+So we could use a reduced function.
+
+00:30.010 --> 00:33.230
+And of course we did that to multiply A and B together.
+
+00:33.250 --> 00:35.680
+So we use the lambda expression to do that.
+
+00:35.770 --> 00:40.570
+And so this would have reduced back down to two times three six times for 24.
+
+00:41.230 --> 00:43.720
+So we don't have to do that however.
+
+00:43.900 --> 00:49.240
+We can use the operator module the Upper Room module was created to give us a functional equivalent
+
+00:49.450 --> 00:51.380
+to a lot of the operators in Python.
+
+00:51.550 --> 00:53.770
+Like for example the multiplication operator.
+
+00:53.980 --> 00:59.620
+So instead of using our own lambda here we can use a function that's defined in the operator module
+
+00:59.650 --> 01:05.540
+and pass that in as the function instead of having to create our own function or a lambda.
+
+01:05.580 --> 01:09.690
+So it's really a convenience but you only of course you can always use your own functions and lambda
+
+01:09.690 --> 01:11.000
+expressions instead.
+
+01:11.160 --> 01:15.920
+You don't have to use what's in the operator module but it's handy to have them around.
+
+01:15.930 --> 01:20.000
+So for example let's see some functions that are available in the operating model.
+
+01:20.280 --> 01:23.280
+But we have a bunch of arithmetic functions like for example.
+
+01:23.280 --> 01:29.670
+And so instead of doing it all lambda a comma B colon A plus B that would return the sum.
+
+01:29.670 --> 01:36.330
+You can just call and you can pass an ad that say to reduce function and I will then add all the elements
+
+01:36.330 --> 01:37.810
+of that list.
+
+01:37.830 --> 01:43.050
+Or you can use Muhl for the multiplication operator that will multiply and B.
+
+01:43.050 --> 01:45.580
+You have also the power of the power of B.
+
+01:45.600 --> 01:48.660
+You have the modulus a modulus B.
+
+01:48.660 --> 01:50.050
+You also have floor division.
+
+01:50.070 --> 01:52.240
+A slash slash bean.
+
+01:52.350 --> 01:58.380
+And you also have the nation of A is a urinary operated only takes a single argument but it basically
+
+01:58.380 --> 01:59.790
+returns the negative of a.
+
+01:59.820 --> 02:04.500
+So these are just some of the arithmetic functions available in the operator module and many more.
+
+02:04.680 --> 02:10.800
+So you can always look at the documentation and see what's there but if you're going to be using a lambda
+
+02:10.860 --> 02:16.560
+expression or a function that basically just takes an existing operator and rewrites it so that you
+
+02:16.560 --> 02:21.420
+can use it in a function write passing it as a function because you can't pass an operator you have
+
+02:21.420 --> 02:25.030
+to pass a function in a lot of these higher order functions.
+
+02:25.200 --> 02:27.090
+Then look at the operator model.
+
+02:27.120 --> 02:30.280
+You most likely will have what you're looking for in there.
+
+02:30.330 --> 02:34.560
+Now if it's more complicated we have more things that you're doing that obviously not.
+
+02:34.710 --> 02:40.360
+But if it's really just equivalent to an operator it's probably in the operating module fact.
+
+02:40.380 --> 02:42.030
+Let's look at some more.
+
+02:42.060 --> 02:47.260
+We have the comparison and the boolean operators as well that are available like LTE for less than.
+
+02:47.310 --> 02:49.870
+So this will test if a is less than B.
+
+02:49.950 --> 02:50.130
+Right.
+
+02:50.130 --> 02:50.920
+That's equivalent.
+
+02:50.910 --> 02:56.680
+That's the functional equivalent to the less than operator will save less than or equal to.
+
+02:56.700 --> 02:59.690
+We also have greater than and greater than or equal to.
+
+03:00.030 --> 03:01.900
+We also have the equal operator.
+
+03:01.980 --> 03:04.520
+Now this is the equals equals operator.
+
+03:04.790 --> 03:05.010
+Right.
+
+03:05.010 --> 03:08.720
+This is not the is he Q is for 8 equals equals B.
+
+03:08.730 --> 03:10.950
+That's the functional equivalent.
+
+03:10.950 --> 03:13.000
+We also have not equals.
+
+03:13.000 --> 03:13.270
+Right.
+
+03:13.290 --> 03:14.280
+A and B.
+
+03:14.760 --> 03:19.970
+So we also have the Is and now is is a built in our name right.
+
+03:19.980 --> 03:21.250
+So we can't use that.
+
+03:21.250 --> 03:24.390
+So what's all that the operating model does.
+
+03:24.390 --> 03:29.220
+It basically redefines it using an underscore at the end.
+
+03:29.220 --> 03:35.680
+So it differentiated from the built in is function but it basically will test A is B and is not a good
+
+03:35.700 --> 03:40.050
+test if it is not be so just functional equivalence.
+
+03:40.050 --> 03:46.410
+And we also have functional equivalents for the main boolean operators and or and not are all built
+
+03:46.410 --> 03:46.980
+in as well.
+
+03:46.980 --> 03:52.070
+Again they have the underscore to differentiate them from the built in operators in Python.
+
+03:53.520 --> 03:56.570
+We also have a bunch of sequence and mapping operators.
+
+03:56.580 --> 04:02.420
+So for example you can concatenate two sequences or two strings using this Concat.
+
+04:02.510 --> 04:05.180
+Right so it's the same thing as concatenating.
+
+04:05.190 --> 04:12.240
+We also have contains this basically tests as in the oh sorry value in S.
+
+04:12.240 --> 04:16.020
+This will test to see if the value is present in the sequence.
+
+04:16.020 --> 04:19.140
+Now we'll see that again when we look at sequence.
+
+04:19.170 --> 04:23.480
+In more detail we'll look at the in operator particular.
+
+04:23.700 --> 04:30.450
+But in this case the Contains is the functional equivalent of that in operator will serve count of where
+
+04:30.450 --> 04:35.180
+we can see how many times does Velle occur in S.
+
+04:35.190 --> 04:36.460
+This basically counts.
+
+04:36.510 --> 04:39.670
+You also are able to get items by index.
+
+04:39.690 --> 04:41.280
+So this get item Eskom.
+
+04:41.340 --> 04:49.720
+I will return the item at index i in s assuming that s of course is large enough to retrieve that item.
+
+04:50.280 --> 04:54.660
+So this is the same thing as really saying as square bracket I right.
+
+04:54.680 --> 04:58.920
+But this is not a functional equivalent of that operation.
+
+04:58.950 --> 05:07.620
+You also have the set item set item is going to set S I so as square bracket I equal to.
+
+05:07.800 --> 05:10.140
+That's the equivalent expression.
+
+05:10.140 --> 05:13.680
+But now you have a functional equivalent if you need it.
+
+05:13.680 --> 05:20.080
+You can also have the Lieschen so you can delete items by index in some sequence as.
+
+05:20.350 --> 05:24.940
+Now of course said item and the lead item will only work if S is a mutable object.
+
+05:24.940 --> 05:31.270
+So it's not going to work for topples but it will just fine with lists and you have variants that use
+
+05:31.360 --> 05:36.820
+slices as well and we'll get to that later because we still have to look at slices in more detail when
+
+05:36.820 --> 05:38.230
+we get to sequence types.
+
+05:38.230 --> 05:42.830
+So we'll come back to this and then we'll come back to the operator module and see what other you know
+
+05:43.030 --> 05:47.060
+other equivalent functions that we have that allow us to do slicing.
+
+05:47.530 --> 05:50.380
+Let's take a look at the item get a function.
+
+05:50.410 --> 05:58.380
+Now the item get a function is something that returns not a value but it returns a callable.
+
+05:58.390 --> 05:59.400
+So what I mean by that.
+
+05:59.410 --> 06:00.780
+Well let's look at an example.
+
+06:00.880 --> 06:07.810
+Let's say that we create this we say get item and we pass in some sequence and then an index value.
+
+06:08.420 --> 06:09.810
+So it takes two parameters.
+
+06:09.820 --> 06:15.700
+Right so it's going to return the value s at I that we just saw that's what get item does.
+
+06:15.700 --> 06:17.810
+It returns the value.
+
+06:17.840 --> 06:23.660
+So if we take Ezekial to 1 2 3 we can say get item Ask.com or 1 What is that going to return.
+
+06:23.720 --> 06:28.110
+That's going to return to right the value at index 1.
+
+06:28.640 --> 06:35.210
+Now item getter on the other hand you don't pass in the sequence you're just passing the index that
+
+06:35.210 --> 06:41.100
+you're interested in and what it does essentially think of it as a partial function.
+
+06:41.300 --> 06:46.940
+It's a right really to get item needs to things it needs to the sequence and it needs the index.
+
+06:46.970 --> 06:51.040
+Here we're essentially creating a partial function that only takes the index.
+
+06:51.050 --> 06:53.070
+So now this is a callable.
+
+06:53.120 --> 06:58.870
+So it's still it's going to be a function but it's still expecting it still needs the sequence itself.
+
+06:58.910 --> 07:04.460
+So I didn't get a I is a callable which takes a single parameter the sequence object.
+
+07:04.460 --> 07:04.810
+Right.
+
+07:04.820 --> 07:06.000
+The one that's missing.
+
+07:06.200 --> 07:08.890
+We had get item we have two parameters s.
+
+07:09.050 --> 07:09.280
+Right.
+
+07:09.320 --> 07:10.270
+And the index I.
+
+07:10.310 --> 07:11.370
+Here we only have eyes.
+
+07:11.380 --> 07:14.100
+So we still need to pass it the sequence.
+
+07:14.120 --> 07:17.400
+So for example we can say F equals item get a 1.
+
+07:17.510 --> 07:18.650
+So what is this going to be.
+
+07:18.650 --> 07:22.820
+Well this is going to be a function call f is not callable.
+
+07:22.820 --> 07:29.270
+That will take a single parameter which will be a sequence object and that will always return the second
+
+07:29.300 --> 07:34.920
+element of that sequence object if it exists no matter what the sequence is.
+
+07:34.920 --> 07:42.660
+So for example if S is 1 2 3 then f of S will return to if s on the other hand is a string also a sequence
+
+07:42.660 --> 07:43.370
+type.
+
+07:43.440 --> 07:45.390
+Then after the s is going to return.
+
+07:45.390 --> 07:45.910
+Why.
+
+07:46.020 --> 07:49.020
+Because that's the second element in the string.
+
+07:49.020 --> 07:52.820
+So you can see that item getter and get item are very related.
+
+07:52.830 --> 07:54.490
+There's a little bit of a difference here though.
+
+07:54.600 --> 08:01.530
+Get item requires two arguments item get it only requires one argument because it returns a callable
+
+08:01.530 --> 08:02.570
+it returns a function.
+
+08:02.590 --> 08:08.570
+And now you can pass that in maybe to something that requests a function that only takes a single parameter.
+
+08:08.620 --> 08:11.190
+Same reason why we had partial functions.
+
+08:11.190 --> 08:13.160
+The same thing might be happening here.
+
+08:13.200 --> 08:20.870
+We'll get to some examples later on in the in the code video and also throughout the course so continuing
+
+08:20.870 --> 08:25.430
+to item get as we can actually use more than one index and item getters.
+
+08:25.610 --> 08:30.950
+So for example let's say we have this list and we have this string.
+
+08:30.950 --> 08:34.520
+Now we can say F equals item Geter 1 Common 3 come full.
+
+08:34.520 --> 08:38.210
+So it takes a variable number of arguments of positional arguments.
+
+08:38.210 --> 08:44.570
+So we're saying that this callable is something that's going to return the elements at index 1 3 and
+
+08:44.570 --> 08:48.080
+4 and will return it in a tuple.
+
+08:48.140 --> 08:57.070
+So if we call half of all we'll get to 4 and 5 because that's at position 1 3 and 4 and if we do f of
+
+08:57.160 --> 09:04.930
+s we'll get something very similar we will get a tuple again containing the elements at index 1 which
+
+09:04.930 --> 09:14.400
+is why and then 3 and 4 8 and all so item get a can take more than one argument and only does it just
+
+09:14.400 --> 09:17.570
+returns that tuple OK.
+
+09:17.570 --> 09:19.070
+So let's talk about attributes.
+
+09:19.070 --> 09:20.890
+Objects have attributes.
+
+09:21.020 --> 09:21.340
+Right.
+
+09:21.380 --> 09:24.190
+Objects going to have methods that can have properties.
+
+09:24.200 --> 09:31.790
+All these are grouped under the generic name attributes so attribute getter is similar to the item get
+
+09:31.790 --> 09:36.290
+a function but it's used to retrieve object attributes.
+
+09:36.470 --> 09:39.280
+So it also returns a callable disliked item.
+
+09:39.310 --> 09:45.800
+It's actually going to return a function but that function will then take the object as its argument.
+
+09:46.570 --> 09:48.280
+So let's take a look at an example.
+
+09:48.280 --> 09:51.070
+Suppose my object is an object with three properties.
+
+09:51.070 --> 09:55.600
+Let's say it has properties A B and C and maybe it's got a bunch of other ones it's got methods as well
+
+09:55.630 --> 09:56.290
+and so on.
+
+09:56.440 --> 09:58.800
+Let's focus on properties right now.
+
+09:59.350 --> 10:04.350
+And we know of three A B and C is 10 B 20 and 30.
+
+10:04.380 --> 10:06.140
+For this particular instance right.
+
+10:06.160 --> 10:10.180
+My object is an object not a class an instance.
+
+10:10.240 --> 10:14.300
+So now we set f equal to attribute getter a.
+
+10:14.440 --> 10:19.740
+So now this is a callable that's going to look at the attribute a.
+
+10:20.110 --> 10:21.880
+But it still needs the object.
+
+10:21.880 --> 10:25.330
+Right it doesn't know where it's going to get the attribute from.
+
+10:25.540 --> 10:27.670
+And this is why f is a callable.
+
+10:27.670 --> 10:33.130
+So now we can call f passing in my object so it doesn't matter what the object is.
+
+10:33.280 --> 10:38.880
+If it has this attribute a f of y object will return whatever a is.
+
+10:38.890 --> 10:42.340
+Either it's a value that's a property or maybe it's a method.
+
+10:42.460 --> 10:42.730
+Right.
+
+10:42.730 --> 10:51.190
+If it's an instance method in this case they will return 10 because we're looking for a similarly attribute
+
+10:51.190 --> 10:53.890
+get a can take more than one positional parameters.
+
+10:53.980 --> 10:56.490
+So here we have let's say and see.
+
+10:56.560 --> 11:00.850
+So we're looking for the other properties a and c right.
+
+11:00.850 --> 11:02.060
+The attributes a and c.
+
+11:02.080 --> 11:07.560
+So if we do that we'll get a tuple that will contain 10 and 40 just like we had one item get it.
+
+11:07.810 --> 11:12.570
+The only difference is that here it's looking at attributes of an object.
+
+11:12.820 --> 11:16.490
+Now of course we can also call it directly in the same thing with item getter.
+
+11:16.570 --> 11:22.930
+You don't have to assign attribute Geter to a variable and then call that variable on the object.
+
+11:22.930 --> 11:25.550
+You can do that all in one shot if you want to.
+
+11:25.600 --> 11:27.370
+That's perfectly fine right.
+
+11:27.400 --> 11:33.910
+This attribute of ABC is nothing more than just saying F equals attribute gather a b c and then applying
+
+11:33.970 --> 11:40.450
+F to my object to note the parentheses that I have here to indicate then we're calling because this
+
+11:40.510 --> 11:43.450
+attribute of ABC is returning a callable.
+
+11:43.510 --> 11:47.060
+So we need to call it and then we'll return the tuple.
+
+11:47.100 --> 11:50.710
+Ten twenty three we'll see examples of that in the code as well.
+
+11:52.710 --> 11:55.200
+Now we can also call another callable.
+
+11:55.250 --> 11:57.300
+I see what I mean by that.
+
+11:57.330 --> 11:59.310
+So consider the string class.
+
+11:59.310 --> 12:04.220
+Now the string class provides a method called up and that's an attribute as well.
+
+12:04.500 --> 12:12.440
+So if S is python we can say s dot operator and that will return the upper string variant of Python.
+
+12:12.510 --> 12:16.400
+So in this case this capital capitalized Python essentially.
+
+12:16.920 --> 12:18.830
+Now upper is an attribute.
+
+12:18.900 --> 12:23.670
+So we can get a hold of it using attribute getter just like before.
+
+12:23.670 --> 12:24.180
+Right.
+
+12:24.220 --> 12:31.920
+But attribute getter is going to return what it's going to return the attribute approach which is a
+
+12:31.920 --> 12:32.650
+method.
+
+12:32.730 --> 12:34.230
+So f is a callable.
+
+12:34.230 --> 12:36.940
+Remember it can't really execute this yet.
+
+12:36.960 --> 12:43.020
+It's saying OK once you pass in the object I will go and get up for you.
+
+12:43.500 --> 12:50.010
+So f is a callable but when you call f it's going to return a callable because it's going to return
+
+12:50.010 --> 12:55.320
+the upper method but Boente to that object it's going return the upper method for whatever object you
+
+12:55.320 --> 12:56.800
+pass to f..
+
+12:56.820 --> 12:58.470
+So let's see what I mean by that.
+
+12:58.470 --> 13:01.930
+That said we call f of S S is the string Python.
+
+13:02.190 --> 13:03.190
+So what are we getting.
+
+13:03.210 --> 13:05.740
+It's returning the upper method of.
+
+13:05.790 --> 13:07.630
+The upper method of Python.
+
+13:07.650 --> 13:09.940
+But it hasn't called it right.
+
+13:09.990 --> 13:12.690
+It's just the method that's being returned.
+
+13:12.960 --> 13:18.160
+If we actually want to get Python in upper case out we still have to call it.
+
+13:18.210 --> 13:21.770
+So now I can be called Using step just like we did here.
+
+13:21.780 --> 13:22.120
+Right.
+
+13:22.140 --> 13:27.450
+As Dot upper without the parentheses is what is being written by effervesce.
+
+13:27.480 --> 13:31.790
+Now we still have to call it by putting in the empty parentheses.
+
+13:31.800 --> 13:33.190
+So now we can do it this way.
+
+13:33.210 --> 13:34.560
+F of s.
+
+13:34.590 --> 13:40.920
+So that's going to return the upper method and then we call the method and then we'll get Python.
+
+13:40.950 --> 13:42.510
+So that's a little convoluted.
+
+13:42.510 --> 13:43.020
+Right.
+
+13:43.200 --> 13:45.540
+So there's a better way.
+
+13:45.540 --> 13:50.850
+I mean you can write it this way obviously you don't have to use this kind of f in between you can call
+
+13:50.850 --> 13:58.010
+it this way but now look it even gets worse attribute getter upper as and that all it's doing.
+
+13:58.020 --> 14:04.740
+Think of it this way attribute getter upper is a partial that will return the upper property the upper
+
+14:05.130 --> 14:09.270
+attribute of whatever gets passed in which is the object.
+
+14:09.270 --> 14:15.350
+Since upper is a callable we have to call it in order to call a start up.
+
+14:16.080 --> 14:18.430
+And I will return Python as well.
+
+14:18.540 --> 14:22.620
+So there's a simpler way that the operator module provides us called the method call.
+
+14:22.620 --> 14:27.400
+There's a method called a function which essentially kind of wraps this up for us.
+
+14:27.840 --> 14:33.840
+So we would say method call the Upper on Python so we would say call this method.
+
+14:33.960 --> 14:38.080
+So basically it removes the need to call the method separately.
+
+14:38.260 --> 14:43.680
+It's saying call this method the method is going to be called up here and it's going to be found in
+
+14:43.740 --> 14:46.090
+whatever object is passed in here.
+
+14:46.170 --> 14:49.170
+Here I specified a string string has an upper.
+
+14:49.170 --> 14:51.050
+So Python has an upper method.
+
+14:51.120 --> 14:55.490
+So this is going to call the upper method on the object string python.
+
+14:55.890 --> 14:57.820
+And that will return Python as well.
+
+14:57.910 --> 14:59.840
+So it's a lot simpler to use.
+
+15:00.300 --> 15:05.280
+I will see that in the code as well but it's really just more of a convenience thing.
+
+15:05.280 --> 15:10.550
+You can definitely do it using attribute getter that works just fine just a little convoluted.
+
+15:10.560 --> 15:14.010
+This might be a little simpler.
+
+15:14.010 --> 15:21.270
+All right so it can also handle more arguments we'll see that in the code as well where we can actually
+
+15:21.540 --> 15:23.790
+have more than one method being called.
+
+15:23.800 --> 15:28.330
+And we'll see that because obviously remember attribute Goetic and also get more than one attribute.
+
+15:28.330 --> 15:30.000
+So we'll see that in the code.
+
+15:30.000 --> 15:32.910
+So let's switch to code and see all that in action.
+
+15:32.910 --> 15:34.800
+Thanks for watching and I'll see you in a bit.

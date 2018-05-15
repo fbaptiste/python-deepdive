@@ -1,0 +1,127 @@
+WEBVTT
+
+00:00.120 --> 00:05.080
+Hi and welcome to the section on module's packages and package name spaces.
+
+00:05.840 --> 00:10.190
+So the first thing is we're going to take a much closer look at all these things and so modules will
+
+00:10.220 --> 00:13.990
+see what modules are exactly and I'll give you a hint.
+
+00:14.090 --> 00:17.890
+There are objects of type module type.
+
+00:17.900 --> 00:24.200
+Next we'll look at how Python loads modules will see the mechanism that Python uses to load modules
+
+00:24.240 --> 00:30.650
+and we'll try and actually replicated ourselves using Python code and then we'll also look at how then
+
+00:30.680 --> 00:35.840
+we can import without the import statement and we'll look at things like the global module cache and
+
+00:35.840 --> 00:37.190
+things like that.
+
+00:37.400 --> 00:43.850
+Then we'll look at reloading modules that's a topic that often comes up but will also examine why we
+
+00:43.850 --> 00:45.300
+should not do that.
+
+00:45.350 --> 00:46.930
+It's not safe.
+
+00:47.090 --> 00:53.990
+Then we'll look at the various impled variants like import from you know a module name or package name
+
+00:54.050 --> 01:01.230
+import a specific symbol from a package of module import stuff and we'll discuss these various variants.
+
+01:01.220 --> 01:07.580
+We'll discuss some of the pitfalls of them but we'll also look at some misconceptions that are related
+
+01:07.580 --> 01:09.830
+to imports.
+
+01:09.830 --> 01:16.900
+Next we'll look at the Dundon Maine and done domain can be used inside modules but it can also be used
+
+01:16.900 --> 01:17.860
+as filenames.
+
+01:17.930 --> 01:20.820
+And it does something special in both of these cases.
+
+01:20.960 --> 01:22.760
+So we'll take a look at what that is.
+
+01:22.850 --> 01:28.610
+They will take a look at Zip archives and we'll see that Python can actually import directly from code
+
+01:28.640 --> 01:32.780
+inside the archive so Python can reach insides of archives.
+
+01:33.020 --> 01:36.800
+So we'll see how we can do that by importing from the archive.
+
+01:37.010 --> 01:42.570
+We'll see how we can actually run an entire application that's been zipped up and is about time.
+
+01:43.040 --> 01:45.020
+And then this is on Bash only.
+
+01:45.020 --> 01:50.180
+So if you're running on Mac or Linux you already have that if you're on Windows you could always load
+
+01:50.180 --> 01:58.740
+up the bash or you could install I should say bash on Windows or you could just run a virtual machine.
+
+02:00.370 --> 02:03.900
+And then lastly will look at packages and what is a package.
+
+02:04.000 --> 02:06.180
+You know why would we use a package.
+
+02:06.190 --> 02:07.940
+How is it different from a module.
+
+02:07.960 --> 02:12.810
+Because they are very related but we'll see how that works and how they're related and we'll look therefore
+
+02:12.830 --> 02:19.720
+at the role of the Dundreary net that p y file in packages and how it can be leveraged to do useful
+
+02:19.720 --> 02:20.770
+stuff.
+
+02:20.800 --> 02:26.310
+And then lastly we'll look at the implicit namespace packages now that only showed up in Python 3.3
+
+02:26.350 --> 02:27.150
+and above.
+
+02:27.310 --> 02:33.370
+So hopefully though you're running Python 3.6 and then what are they.
+
+02:33.520 --> 02:39.010
+How do we create and use them and then how they related to standard packages.
+
+02:39.010 --> 02:45.730
+And then lastly I will also give you some additional online resources that you can use such as the Python
+
+02:45.730 --> 02:50.690
+documentation Papps and so on because the documentation is kind of spread out.
+
+02:50.710 --> 02:57.460
+There isn't a single place where you can read everything about modules and packages and implicit namespace
+
+02:57.460 --> 02:58.940
+packages.
+
+02:58.990 --> 02:59.440
+All right.
+
+02:59.440 --> 03:01.840
+Thanks for watching and I'll see in the next video.

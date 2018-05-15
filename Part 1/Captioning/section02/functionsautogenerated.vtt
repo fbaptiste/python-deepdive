@@ -1,0 +1,592 @@
+WEBVTT
+
+00:00.770 --> 00:04.620
+High in this video we're going to take a quick look at functions.
+
+00:04.630 --> 00:08.520
+So functions well there's lots of functions that are built in to Python.
+
+00:08.690 --> 00:14.030
+Some are available just by default as soon as you start running python you have a lot of things that
+
+00:14.030 --> 00:15.090
+are available.
+
+00:15.110 --> 00:23.660
+For example if we take s to be some kind of list then we have the len function which just returns the
+
+00:23.660 --> 00:25.670
+number of elements in S.
+
+00:25.700 --> 00:27.260
+So that's built in.
+
+00:27.440 --> 00:33.730
+Sometimes you have other built in functions that Python provides that you have to import from some model.
+
+00:33.740 --> 00:37.530
+So for example we might have from map import a square root.
+
+00:37.760 --> 00:40.830
+So now we have this square root function available to us.
+
+00:41.020 --> 00:43.500
+So we can just call it this way.
+
+00:43.660 --> 00:43.890
+Right.
+
+00:43.900 --> 00:45.980
+So we had to go to Forest too.
+
+00:46.070 --> 00:51.020
+You can also just import the entire module in which case you'll have access to everything that's inside
+
+00:51.020 --> 00:52.630
+that module for example.
+
+00:52.740 --> 00:57.630
+Doc pi which is a constant that's available in there or all the functions as well.
+
+00:57.650 --> 00:59.970
+So we can take maybe the exponent.
+
+01:00.140 --> 01:04.190
+So each of the power of one so that will give us the value of each.
+
+01:04.190 --> 01:06.330
+So those are things that are built in.
+
+01:06.470 --> 01:09.200
+But we can also define our own functions.
+
+01:09.200 --> 01:16.430
+Now functions are just objects that basically contain some stuff including our code when we write a
+
+01:16.430 --> 01:22.820
+function and then we assign that to a name to a variable and that's what the def statement does the
+
+01:22.820 --> 01:29.200
+def statement essentially you specify the name of the function that you want so maybe phunk one.
+
+01:29.210 --> 01:32.750
+Then we have parentheses that we use to put in parameters.
+
+01:32.750 --> 01:37.040
+In this case I'm not going to define any parameters but we still need the parentheses there.
+
+01:37.400 --> 01:39.140
+And we might say Prince
+
+01:42.250 --> 01:45.600
+running phunk one day.
+
+01:46.060 --> 01:47.860
+So here we have our function.
+
+01:47.860 --> 01:52.410
+Now we can call this function we can invoke the function and at that time.
+
+01:52.540 --> 01:55.440
+Then Python will go ahead and run.
+
+01:55.480 --> 01:57.890
+What's defined for that function.
+
+01:58.000 --> 01:59.230
+Now you have to be careful.
+
+01:59.320 --> 02:01.120
+You cannot just call a function like this.
+
+02:01.120 --> 02:04.310
+If you do that what you're really getting is the function itself.
+
+02:04.300 --> 02:04.540
+Right.
+
+02:04.540 --> 02:11.590
+The function exists as an object and it's called phunk underscore one to call the function to run the
+
+02:11.590 --> 02:14.260
+function or to invoke the function.
+
+02:14.260 --> 02:20.320
+You have to say func underscore one of the parentheses in this case we have no parameters so no arguments.
+
+02:20.680 --> 02:21.410
+And there we go.
+
+02:21.460 --> 02:22.600
+We see that it ran.
+
+02:22.630 --> 02:24.330
+Running from one.
+
+02:24.530 --> 02:28.870
+And we can define variables parameters.
+
+02:28.870 --> 02:33.340
+Basically that we're going to pass into the function and we just give them a name and this is going
+
+02:33.340 --> 02:40.600
+to be a name that's going to be local to the function and maybe we're going to return a times b.
+
+02:40.600 --> 02:42.100
+Now you'll notice that there are no types.
+
+02:42.110 --> 02:43.060
+We'll get to that later.
+
+02:43.060 --> 02:46.180
+But you know there are there are no static types.
+
+02:46.180 --> 02:50.590
+We don't define the type in Python of what you have in your function.
+
+02:50.590 --> 02:57.310
+Now if you want you can actually put in something called an annotation or something like maybe and same.
+
+02:57.360 --> 03:01.810
+And so basically you're saying hey I'm you know I'm going to be passing to integers that's what I expect
+
+03:01.870 --> 03:02.870
+in this function.
+
+03:03.190 --> 03:09.070
+But this is just a documentation thing it's got nothing to do with the python interpreter actually looking
+
+03:09.070 --> 03:09.720
+at this.
+
+03:09.940 --> 03:18.590
+And if you pass in because we do this we can certainly pass in two common three paths in some integers.
+
+03:18.760 --> 03:22.880
+But we can also Pasay in let's say a string and an integer.
+
+03:23.020 --> 03:30.370
+So let's do that which returns the string times b which just repeats the string a certain number of
+
+03:30.370 --> 03:30.830
+times.
+
+03:30.970 --> 03:34.810
+We can also call maybe a list
+
+03:38.840 --> 03:40.280
+and we'll repeat it three times.
+
+03:40.280 --> 03:43.890
+And here we go we have the elements repeated three times in that list.
+
+03:44.120 --> 03:49.900
+So this really didn't stop us from you know calling either of these functions with these parameters
+
+03:49.900 --> 03:50.530
+here.
+
+03:50.990 --> 03:53.690
+So it's just a documentation thing.
+
+03:53.690 --> 03:58.920
+Many IDS will use that so that as you're typing your code and as you're calling phunk underscored to
+
+03:58.940 --> 04:04.340
+it will tell you hey you know you need a parameter of type and you need a parameter of type in you know
+
+04:04.360 --> 04:06.960
+or whatever the case may be.
+
+04:07.070 --> 04:12.350
+You know other libraries or libraries can use that to understand what it's supposed to do what it's
+
+04:12.350 --> 04:13.860
+supposed to pass then.
+
+04:14.030 --> 04:16.950
+But really that's not built into Python.
+
+04:17.090 --> 04:20.270
+Python is very polymorphic And here we see an example of that right.
+
+04:20.270 --> 04:27.950
+We can pass to integers and the staff operator will walk and you can pass in a string and an integer
+
+04:27.950 --> 04:29.030
+that will walk as well.
+
+04:29.030 --> 04:32.530
+You can pass in a list and an integer that will work as well.
+
+04:32.530 --> 04:34.070
+No it doesn't work in all cases.
+
+04:34.070 --> 04:34.340
+Right.
+
+04:34.340 --> 04:35.750
+Sometimes things don't work.
+
+04:35.750 --> 04:41.630
+So if we pass in two strings that's not going to work because while it's not defined we don't have multiplication
+
+04:41.990 --> 04:45.020
+defined for two for two strings.
+
+04:45.020 --> 04:50.510
+So this is an example of polymorphism will come back to par for them and a lot more detail later in
+
+04:50.510 --> 04:53.720
+the course when we start looking at object oriented programming.
+
+04:54.760 --> 05:01.740
+So anyway back to functions so we can create our own functions and to call and invoke the function.
+
+05:01.750 --> 05:05.770
+We just have to pay to put in you know the square the round brackets.
+
+05:05.920 --> 05:11.030
+And if we have any parameters we put our arguments in there as we call the function.
+
+05:11.050 --> 05:13.550
+So pretty straightforward.
+
+05:13.600 --> 05:20.410
+The next thing is that functions are just like a variable in the sense that it's just a name funk to
+
+05:20.410 --> 05:22.000
+here is just a name.
+
+05:22.030 --> 05:27.610
+And as we saw earlier if we don't call phunk to just do this
+
+05:31.130 --> 05:35.140
+then it tells us that this is a function of the function that exists.
+
+05:35.150 --> 05:38.620
+And it was assigned to the name and that's what def does.
+
+05:38.660 --> 05:44.240
+Basically as soon as Python encounters this statement over here this def statement it looks at this
+
+05:44.240 --> 05:48.710
+and say OK you want to create a function which is going to be named func to.
+
+05:48.890 --> 05:50.510
+It's going to have these parameters.
+
+05:50.630 --> 05:53.240
+And this is the code that's inside.
+
+05:53.250 --> 05:58.700
+Fun too but it doesn't execute the code inside func to at this point it doesn't even really look at
+
+05:58.700 --> 05:58.850
+it.
+
+05:58.850 --> 06:01.920
+It kind of stalls it and puts it away into an object.
+
+06:02.150 --> 06:07.910
+The only thing it does is it creates the function and the meta data around the function to include things
+
+06:07.910 --> 06:09.710
+like the parameter list and so on.
+
+06:09.800 --> 06:16.110
+And also the code block that's associated with the function but it's not the function itself.
+
+06:16.130 --> 06:26.170
+In fact what we can do therefore is we can call functions inside this that haven't been defined yet.
+
+06:26.300 --> 06:29.000
+So if you have a piece of code like this.
+
+06:29.000 --> 06:32.770
+Def phunk one that's redefined fonk one.
+
+06:32.990 --> 06:37.910
+And here I'm going to return the result of calling func to.
+
+06:37.910 --> 06:41.180
+Now you'll notice that phunk too hasn't been defined yet.
+
+06:41.240 --> 06:45.000
+So here I'm going to now define func too.
+
+06:45.640 --> 06:49.990
+And actually we really have fun Quon and fun too.
+
+06:50.150 --> 06:52.610
+And so you might think that this is working because we have that.
+
+06:52.610 --> 06:57.650
+So let me go ahead and call it phunk three and we'll call phunk for we've never seen those functions
+
+06:57.650 --> 06:59.820
+before that don't exist they're not built in.
+
+07:00.020 --> 07:05.430
+So let's see if this works and then we'll return.
+
+07:05.990 --> 07:08.920
+Running fun for OK.
+
+07:10.240 --> 07:16.080
+So at this point I can just run this code and these functions have been defined.
+
+07:16.100 --> 07:16.590
+They're fine.
+
+07:16.600 --> 07:18.330
+They exist they're there.
+
+07:18.760 --> 07:24.670
+But you'll notice we didn't get an error because even though we called phunk for here it didn't exist.
+
+07:24.670 --> 07:27.420
+It wasn't even defined yet but that's ok.
+
+07:27.640 --> 07:31.770
+Python doesn't care about that because it's just creating the function right now.
+
+07:32.110 --> 07:33.150
+So this will work.
+
+07:33.160 --> 07:40.740
+And if we call phunk free now at this point now it's going to look at the code inside Phong 3 and execute.
+
+07:40.750 --> 07:44.290
+And so at that point it's going to require some form to exist.
+
+07:44.470 --> 07:46.650
+And of course it works just fine.
+
+07:46.960 --> 07:48.570
+If we had done this instead.
+
+07:48.580 --> 07:51.370
+Def phunk now use 5.
+
+07:51.430 --> 07:56.750
+Are phunk 5 and will return phunk 6.
+
+07:57.280 --> 08:10.600
+If now I call phunk five from here and then define form 6 which will print running function 6 K if we
+
+08:10.600 --> 08:11.460
+do that.
+
+08:11.500 --> 08:18.310
+Now we get an error because func 5 is being evaluated right here is being invoked being executed which
+
+08:18.310 --> 08:21.250
+means that it needs to execute this line of code.
+
+08:21.460 --> 08:24.040
+But of course phunk 6 isn't defined.
+
+08:24.220 --> 08:26.110
+So now it has a problem.
+
+08:26.140 --> 08:29.590
+So as you can see it's OK in most modules that's what happens.
+
+08:29.590 --> 08:34.060
+You define you put your functions at the top and then if you have code that actually runs inside the
+
+08:34.060 --> 08:39.580
+module then you put it after all your definitions but the order in which you put in your definition
+
+08:39.580 --> 08:40.970
+of your functions in your model.
+
+08:40.990 --> 08:42.690
+As long as they're not being invoked.
+
+08:42.760 --> 08:43.480
+Doesn't matter.
+
+08:43.540 --> 08:49.600
+You can you know invoke a function before where you can write a statement that is going to invoke a
+
+08:49.600 --> 08:53.430
+function before you've actually defined the function itself in the module.
+
+08:53.470 --> 08:54.250
+That's fine.
+
+08:54.250 --> 08:55.330
+That will work just fine.
+
+08:55.570 --> 08:58.710
+So the next thing I want to look at is another way of defining a function.
+
+08:58.720 --> 09:03.320
+We saw how to define a function using death but we also have something called a lambda.
+
+09:03.340 --> 09:06.570
+And we'll take a look at lambdas then a lot more detail later.
+
+09:06.760 --> 09:09.210
+But for now let's just see how that works.
+
+09:09.220 --> 09:16.570
+Lambda is basically something that allows you to create the function but it doesn't use this syntax
+
+09:16.570 --> 09:17.040
+here.
+
+09:17.080 --> 09:18.350
+It doesn't.
+
+09:18.350 --> 09:21.970
+You don't have to define a name for the function at that point.
+
+09:22.030 --> 09:25.270
+You don't even have to give the function a name.
+
+09:25.270 --> 09:30.730
+Basically it's just an expression that's going to create a function for you and return the function
+
+09:30.740 --> 09:35.190
+since the function is just you know a type like an integer or like a float.
+
+09:35.200 --> 09:36.280
+It's no different.
+
+09:36.370 --> 09:38.770
+It's still just a regular object.
+
+09:38.770 --> 09:45.720
+In fact we can take a look at the type of func 6 and we'll see that.
+
+09:45.940 --> 09:49.880
+I don't have 1:06 or never defined fonk since that was the whole idea.
+
+09:49.980 --> 09:52.090
+So let's go ahead and look at from 5.
+
+09:52.170 --> 09:53.460
+OK it's a function.
+
+09:53.730 --> 09:56.870
+So it's just another object in memory.
+
+09:56.880 --> 10:01.650
+In fact we can even assign that function to another variable.
+
+10:01.650 --> 10:05.900
+We can't say maybe my func equals funk.
+
+10:06.170 --> 10:06.930
+Funk.
+
+10:07.470 --> 10:08.920
+Well let's use phunk for.
+
+10:09.010 --> 10:13.590
+I want something that actually works ok for my Frankel's equals funk for now.
+
+10:13.620 --> 10:21.610
+If I call funk for I get running from for but I can also call my funk because it's the same thing.
+
+10:21.690 --> 10:23.940
+And so it also says running funk 4.
+
+10:24.030 --> 10:27.740
+So as you can see we can just assign a function to a variable name.
+
+10:27.750 --> 10:31.540
+That's what does lambda does the same thing then there.
+
+10:31.560 --> 10:33.180
+But it doesn't assign it a name.
+
+10:33.180 --> 10:39.000
+You don't have to give it a name so we'd write something like this lambda let's say and it takes a parameter
+
+10:39.030 --> 10:42.720
+x and it's going to return x square k.
+
+10:42.960 --> 10:44.430
+And so what does this do.
+
+10:44.430 --> 10:48.240
+Well as you can see it returned a function.
+
+10:48.360 --> 10:52.720
+So we're going to have to give it a name if we want to be able to use it in this context.
+
+10:52.800 --> 10:58.860
+In other contexts you may not do that you may just pass that to as the argument to some other function
+
+10:59.220 --> 11:01.210
+that needs a function to evaluate.
+
+11:01.350 --> 11:05.010
+And we'll get into that in detail and see how all that works that might be confusing.
+
+11:05.130 --> 11:14.160
+For now I just want to point out that I can say you know phone 1 is equal to lambda X and I will return
+
+11:14.160 --> 11:15.370
+x squared.
+
+11:15.390 --> 11:21.960
+So now we've given it a name we have given this thing here this function a name called efen 1 and now
+
+11:21.960 --> 11:26.410
+we can call f and what we can best in a parameter or two and we get fallback.
+
+11:26.430 --> 11:27.680
+So those are all lambdas.
+
+11:27.810 --> 11:31.250
+We'll take a look at Lander's and a lot more detail later on in this course.
+
+11:31.440 --> 11:35.560
+But what I want to point out is that it's just a function right.
+
+11:35.580 --> 11:41.520
+Just like Def is and functions are just objects that we can assign to variables and then invoke them
+
+11:41.820 --> 11:45.850
+by using this parentheses over here.
+
+11:46.050 --> 11:47.770
+So that's how we invoke the functions.
+
+11:47.850 --> 11:52.230
+But efen one itself it's just that lambda function.
+
+11:52.230 --> 11:55.450
+All right so it's no different than a regular function.
+
+11:55.470 --> 11:58.330
+The thing is with lambdas you can't have big code blocks.
+
+11:58.350 --> 12:04.320
+It can has to fit on one line of course you can do line continuations that's OK but it's not meant to
+
+12:04.320 --> 12:05.880
+replace the def.
+
+12:05.880 --> 12:12.480
+It's just meant to be for kind of inline anonymous functions that you can pass to another function because
+
+12:12.480 --> 12:16.810
+you can pass functions to functions and we'll see that later on in the course as well.
+
+12:17.130 --> 12:20.430
+So that's functions in a nutshell.
+
+12:20.490 --> 12:24.390
+Just the basics and they will dig much deeper into them throughout the schools.
+
+12:24.390 --> 12:24.990
+All right.
+
+12:24.990 --> 12:26.890
+Thanks for watching and I'll see you in a bit.

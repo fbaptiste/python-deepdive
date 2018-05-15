@@ -1,0 +1,925 @@
+WEBVTT
+
+00:00.420 --> 00:01.850
+Hi and welcome back.
+
+00:02.190 --> 00:07.800
+I want to point out another pitfall of using default values and function parameters and in particular
+
+00:07.890 --> 00:10.980
+when we're looking at mutable values.
+
+00:11.040 --> 00:13.540
+So this is something that's pretty easy to fall into.
+
+00:13.560 --> 00:14.780
+And let me show you what I mean.
+
+00:14.790 --> 00:21.390
+Let's start by saying that we want to create a function that's going to add grocery items to a list
+
+00:21.960 --> 00:24.740
+and we'll provide the list to the function.
+
+00:24.750 --> 00:26.490
+So that's a mutable type.
+
+00:26.490 --> 00:31.680
+And then will provide information like the name of the item the quantity and the units that say of the
+
+00:31.680 --> 00:32.340
+items.
+
+00:32.520 --> 00:37.530
+So let's go ahead and write that kind of function let's call it an item.
+
+00:37.650 --> 00:39.480
+And we're going to provided a name.
+
+00:39.690 --> 00:46.430
+We're going to provided a quantity and we're going to provided the unit and we're also going to provide
+
+00:46.430 --> 00:48.840
+it the grocery list.
+
+00:50.340 --> 00:57.910
+And what we'll do is that will append essentially a uniform way the item to the grocery list.
+
+00:57.960 --> 01:00.290
+So let's go ahead and do that.
+
+01:00.360 --> 01:07.750
+So we'll say grocery list a append and we're just going to format this nicely.
+
+01:07.770 --> 01:13.800
+So we'll take the name then we'll put it in maybe the number of units
+
+01:18.050 --> 01:24.140
+or the quantity and then the units that format it that way.
+
+01:24.340 --> 01:31.380
+So then we'll have format name quantity get it.
+
+01:31.870 --> 01:34.660
+So this will append that to the grocery list.
+
+01:34.660 --> 01:40.480
+Now technically we don't have to return the grocery list because it is a mutable type it's being passed
+
+01:40.480 --> 01:44.470
+in to the function and therefore we don't need to return it.
+
+01:44.470 --> 01:49.690
+In fact that's a better approach if you're going to mutate something that's getting passed into a function
+
+01:50.140 --> 01:56.650
+a better approach is not to return it this way the user when they use the function knows that something's
+
+01:56.650 --> 02:01.960
+going on if they're not getting the list back then they're going to realize they're going to have to
+
+02:01.960 --> 02:05.500
+realize that grocery list is being mutated.
+
+02:05.620 --> 02:08.140
+So that's a better approach than doing this.
+
+02:08.140 --> 02:14.940
+However I want to do this I have to do this because I want to point out a flaw in this kind of approach.
+
+02:14.950 --> 02:20.800
+Not not this particular approach but we'll make a slight modification to this in a minute and see how
+
+02:20.800 --> 02:22.290
+we get a problem.
+
+02:22.970 --> 02:23.380
+OK.
+
+02:23.410 --> 02:24.760
+So we have this function.
+
+02:24.850 --> 02:32.710
+So let's say that I have two stores that I need to visit so I'm going to want to create two grocery
+
+02:32.710 --> 02:36.650
+lists that score it's stole one and still two.
+
+02:36.970 --> 02:37.390
+OK.
+
+02:37.420 --> 02:42.430
+So now we've got these two grocery lists and I'm going to start adding items to my grocery list so I'm
+
+02:42.430 --> 02:47.930
+going to say and item and let's say we want to buy some bananas.
+
+02:48.010 --> 02:52.450
+We want to buy two bananas and these are just going to be units.
+
+02:52.450 --> 02:57.540
+Let's say two units of bananas and we're going to add that in store one
+
+03:00.330 --> 03:02.880
+then we're going to add another item.
+
+03:03.240 --> 03:05.970
+Let's say we want to buy some milk.
+
+03:05.970 --> 03:14.500
+We want to buy one the leader of milk let's say and we'll go ahead and buy that install one as well.
+
+03:14.910 --> 03:15.410
+OK.
+
+03:15.720 --> 03:18.690
+So we now have our grocery list.
+
+03:18.720 --> 03:22.920
+Let's go ahead and print store one.
+
+03:24.330 --> 03:26.850
+And you can see we have our banana and milk.
+
+03:27.060 --> 03:27.550
+OK.
+
+03:27.660 --> 03:28.530
+Good enough.
+
+03:28.600 --> 03:31.500
+Now let's go ahead and start adding items to the second story.
+
+03:31.650 --> 03:38.130
+So let's say and item and we're going to add let's say Python right.
+
+03:38.160 --> 03:39.390
+We're going to buy a python.
+
+03:39.390 --> 03:40.840
+We're going to buy one python.
+
+03:40.860 --> 03:42.300
+And what kind of unit.
+
+03:42.300 --> 03:49.290
+Well we wanted medium rare so high school headed by a python.
+
+03:49.290 --> 03:55.450
+And let's just add one item to that list and sorry we're missing the store that we want to add it to.
+
+03:55.650 --> 03:59.240
+So we want to add it to the list for store number two.
+
+03:59.430 --> 04:08.560
+So now if we print store number two we see that we have one medium rare Python in that grocery list.
+
+04:08.640 --> 04:08.960
+OK.
+
+04:08.970 --> 04:11.200
+So that's working out pretty good.
+
+04:11.610 --> 04:13.280
+But you notice what I had to do here.
+
+04:13.380 --> 04:17.820
+I had to first create my empty list and then pass that into the function.
+
+04:17.850 --> 04:22.440
+So let's go ahead and change this function and make it a little easier for all users.
+
+04:22.500 --> 04:24.790
+You know I we figure we want to make their life easier.
+
+04:24.810 --> 04:25.810
+So let's go ahead.
+
+04:25.830 --> 04:31.090
+I'm just going to take the same functions so copy paste and here.
+
+04:31.310 --> 04:32.160
+Well I'm going to do that.
+
+04:32.160 --> 04:37.040
+If they don't provide us an existing grocery list I'm going to create a new one.
+
+04:37.140 --> 04:37.380
+Right.
+
+04:37.380 --> 04:42.480
+So instead of appending to the grocery list I'm going to create a new one and then append to it.
+
+04:42.540 --> 04:52.630
+So I'm going to do here is just start an empty list keep the list not a dictionary or a set.
+
+04:52.650 --> 04:53.420
+OK.
+
+04:53.640 --> 04:54.650
+So now we have this growth.
+
+04:54.660 --> 04:57.240
+This empty grocery list.
+
+04:57.640 --> 05:00.530
+So let's go ahead and run our examples again.
+
+05:00.820 --> 05:06.490
+So I'm going to add these items.
+
+05:06.660 --> 05:07.100
+OK.
+
+05:07.110 --> 05:07.410
+Sorry.
+
+05:07.410 --> 05:13.440
+What I want to do first is I want to delete these two grocery lists.
+
+05:13.500 --> 05:17.620
+So I want to delete those things so you'll notice that one doesn't exist anymore.
+
+05:17.790 --> 05:18.630
+OK.
+
+05:19.170 --> 05:21.740
+All right so now let's go ahead and do that.
+
+05:21.750 --> 05:25.530
+That same store one store one doesn't exist.
+
+05:25.530 --> 05:30.210
+But since I'm returning from the function and that's why I needed to return the list from the function
+
+05:30.220 --> 05:35.670
+it's when it gets created I need to somehow get a handle on that object back.
+
+05:35.670 --> 05:39.260
+So let's go ahead and just add the item as we did before.
+
+05:39.330 --> 05:42.450
+Let's go ahead and add this
+
+05:45.760 --> 05:46.940
+I'm going to copy paste.
+
+05:46.940 --> 05:48.070
+I'm lazy.
+
+05:48.480 --> 05:48.920
+OK.
+
+05:49.010 --> 05:50.290
+So we have that.
+
+05:50.570 --> 05:56.270
+And now what I can do is I can add item again to store one.
+
+05:56.270 --> 06:03.230
+Now I don't have to assign it to store one anymore because store one is being mutated so I can just
+
+06:03.230 --> 06:06.090
+keep doing that.
+
+06:06.560 --> 06:08.330
+Still one is not defined.
+
+06:08.420 --> 06:09.580
+Sorry.
+
+06:09.680 --> 06:12.300
+What do we want to do here is not pass it in.
+
+06:12.350 --> 06:12.740
+OK.
+
+06:12.830 --> 06:13.810
+So I apologize.
+
+06:14.590 --> 06:16.040
+So we don't want to pass it in.
+
+06:16.120 --> 06:17.630
+So it will get created.
+
+06:17.830 --> 06:24.100
+And now the second time around still one has been created as a list as a new list from an item and we're
+
+06:24.100 --> 06:26.090
+going to use that to append.
+
+06:26.860 --> 06:29.350
+OK so now let's see what we have in store.
+
+06:29.370 --> 06:34.130
+One and we have our data and our milk.
+
+06:34.130 --> 06:34.830
+OK.
+
+06:35.070 --> 06:36.010
+Good enough.
+
+06:36.150 --> 06:39.350
+Now let's go ahead and do the same thing with our second store.
+
+06:39.360 --> 06:44.990
+Now we wanted to store two equals and item.
+
+06:45.210 --> 06:50.130
+And we're going to and the python that we want to purchase.
+
+06:50.760 --> 06:54.950
+But again I'm not going to specify the list so this will start a new list.
+
+06:54.960 --> 06:55.530
+OK.
+
+06:55.920 --> 07:00.740
+And so now we've added our Python to store number two.
+
+07:00.750 --> 07:04.260
+So let's go ahead and see what's in store number two.
+
+07:05.220 --> 07:07.020
+And you'll notice we have a problem.
+
+07:07.140 --> 07:10.530
+We have the items from store one showing up and still two.
+
+07:10.560 --> 07:14.010
+And what about store one what's going on.
+
+07:14.010 --> 07:15.840
+We've got the same items.
+
+07:15.840 --> 07:23.010
+Well in fact what you have is that store one the memory address of one is the same as the memory address
+
+07:23.010 --> 07:23.670
+of still two.
+
+07:23.670 --> 07:25.790
+They're both the same lists.
+
+07:26.080 --> 07:26.560
+OK.
+
+07:26.760 --> 07:31.520
+So what's happening here is let's go back to the function.
+
+07:31.600 --> 07:39.880
+Remember when this line of code runs it runs in this case are in the triple A notebook when I it when
+
+07:39.880 --> 07:43.090
+I do the shift and turn to execute this cell.
+
+07:43.240 --> 07:47.120
+This function is created in a regular Python program.
+
+07:47.140 --> 07:53.140
+When you load the module up that contains the function at that point that function will get created
+
+07:53.800 --> 08:01.210
+and that is when the default parameter values are evaluated they get evaluated once when the function
+
+08:01.210 --> 08:02.170
+is created.
+
+08:02.470 --> 08:09.580
+So every time I call this function an item the default list has already been created.
+
+08:09.580 --> 08:10.950
+It was created once.
+
+08:10.960 --> 08:17.380
+So you get a single object and every time I call an item and even if I don't specify the grocery list
+
+08:18.070 --> 08:24.280
+it's going to use the default and that default will be the same no matter when I call add item.
+
+08:24.280 --> 08:30.610
+So when I called add items here with nothing for the grocery list it used the default object which was
+
+08:30.610 --> 08:37.270
+some memory address when I called it again without using a list again without passing in the grocery
+
+08:37.270 --> 08:37.790
+list.
+
+08:37.810 --> 08:41.550
+It went ahead and used the same list object.
+
+08:41.560 --> 08:46.510
+So we've got this shirred essentially instance of the grocery list right.
+
+08:46.510 --> 08:50.400
+That's always being used when we call add item.
+
+08:50.470 --> 08:52.230
+So that's a problem in this case.
+
+08:52.240 --> 08:53.910
+We don't want this to happen.
+
+08:54.040 --> 08:55.470
+So how do we solve that.
+
+08:55.570 --> 09:01.790
+Well it's very simple and it's a standard pattern that we use we use none.
+
+09:02.110 --> 09:09.910
+So do not use basically mutable default types in your function definitions unless you actually want
+
+09:09.910 --> 09:14.470
+to do that and we'll see an example of where we might want to do something like that and actually leverage
+
+09:14.470 --> 09:17.690
+something like that in a few minutes.
+
+09:17.710 --> 09:25.450
+So the standard pattern is to do it this way use none for your default values.
+
+09:25.450 --> 09:31.280
+Now of course if you're using a non mutable type like an integer and so on it's perfectly fine to set
+
+09:31.300 --> 09:31.910
+you know it.
+
+09:31.930 --> 09:38.460
+Let's say you want your unit default to be one that's perfectly OK because remember that this is not
+
+09:38.470 --> 09:43.300
+we're not going to change the number of units here the problems happening because we're mutating grocery
+
+09:43.300 --> 09:47.270
+list since units since one here is not mutable.
+
+09:47.270 --> 09:48.230
+It doesn't matter.
+
+09:48.510 --> 09:49.080
+OK.
+
+09:49.420 --> 09:52.640
+So I'll leave that unit equals one in there.
+
+09:52.690 --> 09:59.920
+And so the pattern here is that we're going to say if narks grocery list in other words if grocery list
+
+09:59.920 --> 10:07.570
+was not supplied if it is none because non-HD remember we'll evaluate to false to the truth value of
+
+10:07.600 --> 10:08.860
+None is false.
+
+10:08.860 --> 10:12.790
+So if not grocery list then we start a new grocery list
+
+10:16.030 --> 10:17.020
+so we can do that.
+
+10:17.050 --> 10:23.710
+And now this will work because remember this code will run every time the function is called.
+
+10:23.740 --> 10:29.720
+So every time the function is called without passing in the grocery list it will then execute this.
+
+10:29.740 --> 10:33.570
+And of course this is a different function scope each time.
+
+10:33.640 --> 10:36.220
+This will be a new object every time.
+
+10:36.990 --> 10:41.850
+So now if we have this we can now do the same thing that we did before.
+
+10:42.150 --> 10:44.530
+So I'm just going to copy paste.
+
+10:45.090 --> 10:45.620
+OK.
+
+10:45.750 --> 10:48.700
+And so we have the list for store number one.
+
+10:48.750 --> 10:50.710
+Let's go ahead and print that out.
+
+10:52.760 --> 10:58.670
+We have that and then we have also the list for store number two that we can start creating where we
+
+10:58.670 --> 11:00.670
+just do it this way.
+
+11:00.880 --> 11:02.170
+And I would love to talk to.
+
+11:02.410 --> 11:04.630
+And now we can print still too.
+
+11:04.910 --> 11:06.720
+And you can see we have a different list.
+
+11:06.770 --> 11:12.550
+And in fact store one is still to is false them not the same object.
+
+11:12.560 --> 11:15.110
+So that's the way that you can fix this problem.
+
+11:15.140 --> 11:20.780
+So be very careful when you use mutable default types in function parameters.
+
+11:20.780 --> 11:25.200
+It can really cause problems because you're using the same object.
+
+11:25.400 --> 11:30.390
+And when it's immutable it doesn't matter because you can't change the contents of that object.
+
+11:30.440 --> 11:33.670
+But when you're working with a mutable type it does matter right.
+
+11:33.680 --> 11:41.370
+As we saw in this example here OK let's take a look now at an example where we might actually want to
+
+11:41.370 --> 11:43.590
+leverage something like this.
+
+11:44.010 --> 11:47.640
+So let's go ahead and let's do a very simple factorial function
+
+11:50.820 --> 11:57.420
+and we're going to use a recursive definition for red soil and there's less than one we're going to
+
+11:57.420 --> 12:04.370
+return one else we're going to print Calcott.
+
+12:04.380 --> 12:05.760
+The fact that we're calculating
+
+12:10.160 --> 12:20.550
+and factorial so we'll print that and then we'll return and times factorial of and minus one.
+
+12:20.760 --> 12:27.570
+OK so that's a very very simple approach to calculating a factorial using a recursive approach of the
+
+12:27.570 --> 12:29.180
+most effective.
+
+12:29.220 --> 12:31.450
+But it works.
+
+12:31.630 --> 12:32.250
+OK.
+
+12:32.470 --> 12:33.650
+So now how do we call it.
+
+12:33.670 --> 12:35.850
+Well we just call it like let's say this way.
+
+12:35.850 --> 12:36.770
+Factorial 3.
+
+12:36.850 --> 12:39.900
+And you'll notice that it's calculating three factorial.
+
+12:40.120 --> 12:44.950
+But in order to calculate three factors it also has to calculate two factorial.
+
+12:45.080 --> 12:50.920
+But in order to calculate two factorial it has to calculate one factorial and then one just returns
+
+12:50.920 --> 12:51.540
+one.
+
+12:51.610 --> 12:53.940
+So you can see that you calculate three factorial.
+
+12:53.950 --> 12:57.890
+We had to calculate three factorial to factor and one factor all.
+
+12:57.940 --> 13:00.130
+And finally we got our answer of 6.
+
+13:00.370 --> 13:01.720
+So great.
+
+13:01.720 --> 13:06.160
+Now let's run that again with the same number.
+
+13:06.610 --> 13:11.630
+And you'll notice that it had to calculate again three factorial to factor a 1 factorial.
+
+13:11.770 --> 13:15.690
+So in other words it had to redo those calculations once more.
+
+13:16.000 --> 13:19.160
+So now let's go ahead and do it a different way.
+
+13:19.330 --> 13:22.390
+Let's say that we want to cache those results.
+
+13:22.400 --> 13:27.760
+So what I'm going to do is I'm going to define another function factorial.
+
+13:27.920 --> 13:31.770
+I'm going to redefine this and I'm going to make a for starters.
+
+13:31.790 --> 13:32.840
+I'm going to do it this way.
+
+13:32.840 --> 13:35.800
+I'm going to make a keyword only parameter.
+
+13:36.140 --> 13:39.260
+I'm going to make it mandatory and that's going to be a dictionary.
+
+13:39.260 --> 13:44.570
+So in other words we're going to have to create outside of the functionality and how to tell how user
+
+13:44.900 --> 13:50.720
+when you use the factorial function you have to create a cache variable which is going to be an empty
+
+13:50.720 --> 13:54.860
+dictionary and you need to pass it to us every time you use it.
+
+13:54.890 --> 13:57.820
+So that's probably not very user friendly.
+
+13:57.890 --> 13:59.270
+So we'll want to fix that up.
+
+13:59.300 --> 14:04.490
+But for now I just want to put it outside and let's see how we would do it this way.
+
+14:04.670 --> 14:10.920
+So the factorial now takes this mandatory cache dictionary and we have to make a few tweaks to this.
+
+14:11.210 --> 14:17.130
+So we're going to say if any is less than one written one otherwise we have to calculate the factorial.
+
+14:17.150 --> 14:24.920
+But what we're going to do is first check to see if that any value that key is in our cash if it is
+
+14:25.180 --> 14:29.510
+we're just going to return the value out of the cash that we've stored associated with that key.
+
+14:29.750 --> 14:40.220
+So we're going to say if and then cash return cash and if it's not then we're going to have to calculate
+
+14:40.370 --> 14:41.780
+the factorial.
+
+14:41.780 --> 14:45.140
+So let's go ahead and calculate the factorial.
+
+14:45.140 --> 14:46.810
+Now of course it's not in the cash.
+
+14:46.810 --> 14:48.580
+So we want it added to the cash.
+
+14:48.590 --> 14:53.230
+So now we're going to say cash n equals results.
+
+14:53.370 --> 14:54.080
+Okay.
+
+14:54.450 --> 14:59.150
+Now the only other difference to here is that factorial requires cash.
+
+14:59.150 --> 15:01.460
+So we need to pass it the cash.
+
+15:01.610 --> 15:06.200
+Now in this case I made cash a keyword only parameter.
+
+15:06.200 --> 15:09.440
+So I'm going to have to pass that as a keyword parameter keyword arguments.
+
+15:09.650 --> 15:12.470
+So there we have cash equals cash.
+
+15:12.710 --> 15:15.310
+And then finally we can now return our results.
+
+15:15.650 --> 15:18.340
+So here we have our factorial function.
+
+15:18.560 --> 15:24.650
+But what it means is in order to call it we have to first create the cash over here will be delivered
+
+15:24.650 --> 15:29.530
+from here because we actually don't need it to be defined to define the factorial function.
+
+15:29.840 --> 15:33.520
+But before we call it we have to define that empty dictionary.
+
+15:33.650 --> 15:35.310
+Our cash basically.
+
+15:35.630 --> 15:40.880
+And now we can call factorial so that we can save vectorial 3.
+
+15:40.910 --> 15:43.020
+Now we have to specify that cash.
+
+15:43.040 --> 15:43.760
+Okay.
+
+15:44.300 --> 15:48.730
+And then we have calculating 3 factorial to factor a 1 factorial.
+
+15:48.740 --> 15:50.460
+Let's go ahead and run this again.
+
+15:50.660 --> 15:57.770
+Now what's in the cash by the way we can print cash and you can see that we have 1 is 1 2 is 2 and 3
+
+15:57.770 --> 15:58.380
+6.
+
+15:58.490 --> 16:02.430
+So those items have been castrates prefectural has been cash.
+
+16:02.440 --> 16:08.860
+So if I call factorial of 3 again you'll notice that we don't get any other calculations.
+
+16:08.870 --> 16:13.050
+None of these lines of code were run OK.
+
+16:13.070 --> 16:15.260
+We ended up hitting the cash every time.
+
+16:15.260 --> 16:19.120
+Now if we want to do cash full factorial what's going to happen.
+
+16:19.190 --> 16:20.770
+Well four is not in the cash.
+
+16:20.780 --> 16:26.510
+So it's going to get calculated but the remaining ones like 3 factorial which is needed to calculate
+
+16:26.510 --> 16:28.690
+for factorial wasn't called.
+
+16:28.790 --> 16:29.360
+Right.
+
+16:29.420 --> 16:33.890
+We got that those results directly out of the cash and so on.
+
+16:33.890 --> 16:38.930
+So this is a really interesting technique and we'll come back to this in more detail when we look at
+
+16:38.930 --> 16:42.500
+closures and we'll see a better approach to this really.
+
+16:42.830 --> 16:46.770
+But this is at this point we can still fix this up quite a bit.
+
+16:46.790 --> 16:48.140
+This isn't very user friendly.
+
+16:48.140 --> 16:52.880
+Every time we have to remember to pass you know the cash and we've got to tell the user before you can
+
+16:52.880 --> 16:58.550
+call the factorial function you need to procreate or cash dictionary that you have to pass in every
+
+16:58.550 --> 16:59.300
+time.
+
+16:59.300 --> 17:00.240
+That's kind of a pain.
+
+17:00.380 --> 17:01.580
+It's not very good code.
+
+17:01.580 --> 17:03.840
+It's not easy to read.
+
+17:03.890 --> 17:04.460
+It's a pain.
+
+17:04.490 --> 17:10.110
+So let's fix that up by using this caveat that we just saw.
+
+17:10.580 --> 17:13.770
+So I'm not going to make this a key word on the parameter.
+
+17:13.790 --> 17:20.600
+In fact I'm going to make it an optional parameter and I'm going to define the cache as a default value
+
+17:20.600 --> 17:21.870
+of an empty dictionary.
+
+17:22.740 --> 17:26.200
+For now look what happens if I don't pass the cash in.
+
+17:26.310 --> 17:27.920
+It will create that one.
+
+17:28.140 --> 17:34.120
+And every time I call the factorial function it's code you use the same dictionary just as we saw with
+
+17:34.120 --> 17:38.110
+the grocery list that was using the same default grocery list here.
+
+17:38.160 --> 17:42.260
+We're going to use the same default dictionary to mutable type.
+
+17:42.270 --> 17:44.940
+We're going to modify that default.
+
+17:44.940 --> 17:48.150
+So now we don't even have to pass it in here.
+
+17:48.510 --> 17:56.280
+We're just going to say factorial and minus one K and we're done with just fix this up.
+
+17:56.460 --> 17:58.090
+So now let's give it a try.
+
+17:58.320 --> 17:59.610
+Let's see.
+
+17:59.610 --> 18:02.510
+Factorial 3.
+
+18:02.790 --> 18:06.530
+You'll notice we recalculated three factor all factor of one factor.
+
+18:06.530 --> 18:07.180
+Well sure.
+
+18:07.230 --> 18:08.260
+The cash is empty.
+
+18:08.310 --> 18:10.510
+We have to make all those calculations.
+
+18:10.540 --> 18:17.300
+But if we get a call that again vectorial 3 you'll notice that we just get the result six back.
+
+18:17.310 --> 18:18.950
+That was a cash hit right.
+
+18:18.960 --> 18:21.450
+This line of code then execute.
+
+18:21.450 --> 18:23.350
+We never got into the statement.
+
+18:23.400 --> 18:25.900
+We hit the cash value instead.
+
+18:26.100 --> 18:29.900
+And the same thing occurs if we try and factorial fourth.
+
+18:30.030 --> 18:35.010
+You'll notice that we calculate four factorial but none of the other remaining ones in the recursion
+
+18:35.290 --> 18:36.610
+are calls.
+
+18:37.140 --> 18:43.410
+So this is an example of how you can actually use to your advantage what's going on with the mutable
+
+18:43.410 --> 18:44.680
+default parameters.
+
+18:44.970 --> 18:46.920
+But be very careful with it.
+
+18:46.920 --> 18:51.660
+The other thing that I don't particularly like about this approach it's that it's a little harder to
+
+18:51.660 --> 18:57.570
+understand than what we'll see when we do the memorization using decorators.
+
+18:57.660 --> 19:02.510
+And also by using decorators and closures we get something that will be all reusable.
+
+19:02.590 --> 19:06.900
+Here we kind of have coding our cash into our function.
+
+19:06.900 --> 19:09.400
+There's a better approach to this and we'll see that.
+
+19:09.540 --> 19:14.910
+But certainly this technique works it's called memoization and we're caching these values and it certainly
+
+19:14.910 --> 19:16.760
+works and it can be very helpful.
+
+19:16.770 --> 19:18.640
+There just are better ways of doing it.
+
+19:18.960 --> 19:19.320
+All right.
+
+19:19.320 --> 19:21.540
+Thanks for watching and I'll see in the next video.

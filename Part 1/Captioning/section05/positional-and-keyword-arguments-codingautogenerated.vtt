@@ -1,0 +1,289 @@
+WEBVTT
+
+00:01.360 --> 00:01.980
+Hi.
+
+00:02.310 --> 00:07.080
+So this is video we're going to continue our discussion on positional and keyword arguments and we'll
+
+00:07.080 --> 00:09.120
+just jump straight into the code.
+
+00:09.120 --> 00:15.550
+So let's look at a regular function the way that we've been used to defining them so far.
+
+00:15.630 --> 00:22.770
+So we'll take my fun with three parameters a b and c and so we defined them this way and we'll just
+
+00:22.770 --> 00:25.620
+do a function that prints out whatever gets passed in.
+
+00:25.620 --> 00:35.400
+So a equals print the first value of b equals print the second valure and we'll print the third valure
+
+00:35.490 --> 00:40.330
+and we'll format that by passing and a b and c k.
+
+00:40.680 --> 00:47.310
+So this function takes three parameters a b and c that's the local names in this context and we can
+
+00:47.310 --> 00:51.420
+call it by just calling my func passing in three different values.
+
+00:51.420 --> 00:53.560
+These are the arguments of the function.
+
+00:53.820 --> 01:01.590
+So when we do that as we can see a was one B was 2 and C was 3 and that was determined by the position
+
+01:01.650 --> 01:02.420
+of the arguments.
+
+01:02.430 --> 01:03.680
+This was the fourth position.
+
+01:03.680 --> 01:05.050
+So it went into a.
+
+01:05.070 --> 01:07.720
+This was the second when it to be and so on.
+
+01:08.040 --> 01:14.910
+So the one thing is you cannot just call my Phunk with less than three arguments if you try and call
+
+01:14.910 --> 01:18.380
+my font with two arguments you'll get a runtime error.
+
+01:18.390 --> 01:21.560
+So my phunk is missing one required positional argument.
+
+01:21.560 --> 01:23.700
+See it even tells you which one.
+
+01:23.700 --> 01:24.030
+Right.
+
+01:24.030 --> 01:24.870
+Fair enough.
+
+01:25.080 --> 01:29.370
+So to avoid that we can go ahead and create default values.
+
+01:29.370 --> 01:35.520
+So if we don't pass something let's say we set a default for B will set the default for be equal to
+
+01:35.520 --> 01:36.650
+2.
+
+01:36.660 --> 01:40.260
+Now this as we saw in the lecture will not work right.
+
+01:40.270 --> 01:48.460
+If we try and do that I'll just say that if we try and run this then Python complains and says no you
+
+01:48.460 --> 01:49.150
+can't do that.
+
+01:49.150 --> 01:53.160
+You have a non-default argument that follows a default argument.
+
+01:53.290 --> 01:54.330
+What we said.
+
+01:54.430 --> 02:01.540
+Once you specify a default argument right a default parameter every parameter after that has to have
+
+02:01.780 --> 02:02.810
+a default value.
+
+02:03.040 --> 02:06.670
+So we can fix that by saying that the default for C will be 3.
+
+02:06.760 --> 02:08.170
+So that works.
+
+02:08.170 --> 02:10.260
+Now we can call my phunk.
+
+02:10.260 --> 02:13.110
+Now we can certainly pass it just as before.
+
+02:13.240 --> 02:20.440
+Let's say three different values and I'll make it 10 20 30 so we can differentiate the 20 and the 30
+
+02:20.440 --> 02:23.010
+from the default values 2 and 3.
+
+02:23.380 --> 02:27.460
+And when we do that we see that it actually got the values 10 20 and 30.
+
+02:27.460 --> 02:30.090
+As expected we passed three arguments.
+
+02:30.120 --> 02:31.960
+Go map to the three parameters.
+
+02:32.170 --> 02:37.750
+But now because of the default values we can call my phunk without passing everything and we can just
+
+02:37.750 --> 02:44.540
+past 10 and 20 and we won't specify the third argument which is the C parameter.
+
+02:44.890 --> 02:51.090
+And so when you do that you can see that A's 10 B is 20 that's what was specified in the arguments here.
+
+02:51.250 --> 02:56.740
+But C defaulted to its value of 3 which was defined right there.
+
+02:56.750 --> 03:00.980
+Of course we can go one step further and just pass in the 10.
+
+03:01.180 --> 03:04.070
+And as you can see B is 2 and sees three.
+
+03:04.090 --> 03:06.370
+It took the default values.
+
+03:06.370 --> 03:13.870
+Now of course you can always if you want make everything have a default in which case all the parameters
+
+03:14.040 --> 03:14.610
+are optional.
+
+03:14.620 --> 03:16.650
+All the arguments on the app optional.
+
+03:16.810 --> 03:18.330
+So if we say my phunk.
+
+03:18.640 --> 03:22.610
+Well then you can see was one B was 2 and C was three.
+
+03:22.720 --> 03:24.980
+So that's how that defaults work.
+
+03:25.210 --> 03:30.550
+The next thing we want to look at are keyword arguments or named arguments.
+
+03:30.550 --> 03:33.510
+Now that doesn't have anything to do with the function.
+
+03:33.550 --> 03:38.380
+So I'm just going to redefine my funk and let me just copy paste.
+
+03:38.380 --> 03:43.510
+We'll keep it very similar except I won't let a have a default.
+
+03:43.510 --> 03:50.170
+So in this case we always have to specify at least one argument when we call my func and it will do
+
+03:50.170 --> 03:53.570
+the same thing as before to print out the values for A B and C.
+
+03:53.800 --> 03:57.700
+So with named arguments we can do something like this.
+
+03:57.700 --> 04:01.920
+We can say C equals 20 B equals 10.
+
+04:02.140 --> 04:03.250
+We actually make it.
+
+04:03.400 --> 04:12.640
+So it's an increasing also sees 30 B is 20 and A is 10 and we call that you can see that A has a value
+
+04:12.640 --> 04:16.690
+of 10 B has a value of 20 and C has a value of 30.
+
+04:16.870 --> 04:23.080
+The names that we use in these keyword arguments when we call the function must match the parameter
+
+04:23.080 --> 04:26.110
+names that were used where we defined the function.
+
+04:26.110 --> 04:27.290
+That's the only thing.
+
+04:27.610 --> 04:30.070
+But the order is not irrelevant.
+
+04:30.190 --> 04:31.450
+It is not positional.
+
+04:31.450 --> 04:40.780
+It is based on the name that we give to the argument now you can mix that with say my phunk 10 and then
+
+04:40.780 --> 04:43.690
+C equals 30 and B equals 20.
+
+04:43.930 --> 04:49.630
+That's perfectly fine to do what will happen here is that this is going to be the first argument is
+
+04:49.630 --> 04:51.310
+going to be positional.
+
+04:51.550 --> 04:53.280
+So it's going to go into a.
+
+04:53.380 --> 04:58.930
+These are keyword arguments and therefore it will use the name that we have.
+
+04:58.960 --> 05:04.720
+So even though it's in the second position it will assign 30 to see which is the third parameter and
+
+05:04.720 --> 05:06.190
+20 will be B.
+
+05:06.190 --> 05:12.940
+So we call that we have as expected a twin then B is 20 and 30.
+
+05:12.940 --> 05:15.520
+Now of course B and C have default values.
+
+05:15.550 --> 05:18.150
+So we don't have to specify everything.
+
+05:18.190 --> 05:24.550
+So we could say 10 for the first argument which will be a positional argument therefore it's going to
+
+05:24.550 --> 05:25.940
+go straight into a.
+
+05:26.200 --> 05:30.990
+And we could say C is equal to 30 and we are meant to be equal to 20.
+
+05:31.360 --> 05:39.040
+So now we have A's 10 B is the default that we have here and c is 30 because we specified that.
+
+05:39.040 --> 05:45.080
+So if you have default values and you are using keywords you don't have to specify all the values.
+
+05:45.120 --> 05:45.990
+Are optional.
+
+05:46.180 --> 05:52.270
+And unlike the case when you have optional values or optional arguments by having a default parameter
+
+05:52.270 --> 05:56.880
+values where you do have to specify them in the same order when you call.
+
+05:56.920 --> 05:57.190
+Right.
+
+05:57.190 --> 06:05.980
+So in a case like this 10 20 30 20 went into B 30 went into C we could not have written 10 20 and expect
+
+06:05.980 --> 06:08.360
+20 here to go into C..
+
+06:08.380 --> 06:13.440
+It has to go into B with the keywords we don't have that problem.
+
+06:13.440 --> 06:18.750
+So that's how we can get around it is by using keyword arguments or named arguments.
+
+06:18.750 --> 06:19.560
+All right that's it.
+
+06:19.560 --> 06:21.700
+Thanks for watching and I'll see you in the next video.

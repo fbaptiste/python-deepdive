@@ -1,0 +1,220 @@
+WEBVTT
+
+00:00.450 --> 00:07.100
+High in this video we are going to continue looking at our representation of floats.
+
+00:07.110 --> 00:13.530
+So the first thing we can do is look at the help if we want for follow up so we can use the help command.
+
+00:13.830 --> 00:20.760
+And you can see that the float has a single constructor that takes some parameter x and it will try
+
+00:20.760 --> 00:25.260
+to convert a string or number to a floating point number if possible.
+
+00:25.290 --> 00:27.560
+So this means we can do something like float.
+
+00:27.570 --> 00:31.820
+Then we can take an integer and we can make a float out of it.
+
+00:31.820 --> 00:37.900
+As you can see we get 10.0 because we can also use a floating point number already.
+
+00:38.130 --> 00:39.420
+So that will work.
+
+00:39.510 --> 00:40.630
+It's kind of superfluid.
+
+00:40.650 --> 00:42.140
+But we can do it.
+
+00:42.390 --> 00:46.290
+We can also use strings that can be evaluated as numbers.
+
+00:46.290 --> 00:48.160
+So let's say twelve point five.
+
+00:48.360 --> 00:50.120
+That will come back as the float.
+
+00:50.160 --> 00:51.880
+Twelve point five.
+
+00:51.900 --> 00:56.980
+Now you remember we're dealing with fractions we could do something like 22 over 7.
+
+00:57.180 --> 00:59.080
+Well that's not going to work here right.
+
+00:59.100 --> 01:01.590
+We are going to get this value error.
+
+01:01.590 --> 01:05.560
+It could not convert it if you really want to be able to do that.
+
+01:05.580 --> 01:11.520
+You're going to have to first create a fraction and then cast it as a float.
+
+01:11.520 --> 01:12.790
+So we can do it this way.
+
+01:12.810 --> 01:13.080
+Right.
+
+01:13.080 --> 01:24.430
+So we can import fractions fractions and actually let me do this from fractions in thought.
+
+01:24.430 --> 01:26.730
+Fraction we're just going to call the fraction class itself.
+
+01:26.740 --> 01:27.980
+We don't need the other ones.
+
+01:28.180 --> 01:34.230
+So here we might say A equals fraction of twenty two over seven.
+
+01:34.450 --> 01:40.820
+And now we can say flow out of a we can take a fraction and convert that to a float.
+
+01:40.840 --> 01:42.210
+That's perfectly fine.
+
+01:46.360 --> 01:51.760
+So the next thing I want to show point out very quickly is this whole problem that we have with the
+
+01:51.760 --> 01:59.510
+internal representations being infinite and we can take a look at something like you know zero point
+
+01:59.520 --> 02:00.940
+one.
+
+02:01.150 --> 02:03.540
+Well if we print 0.1 it looks just fine.
+
+02:03.550 --> 02:04.830
+So what's the problem.
+
+02:04.910 --> 02:06.130
+That's 0.1.
+
+02:06.340 --> 02:11.770
+Well the problem is that Python is kind of you know fooling us here with the display when we're printing
+
+02:11.770 --> 02:12.930
+0.1.
+
+02:13.060 --> 02:20.050
+It's kind of we are formatting it to a you know smaller number of digits you know or smaller precision
+
+02:20.050 --> 02:21.470
+if you want to think of it that way.
+
+02:21.670 --> 02:25.820
+But in fact behind the scenes that number is not 0.1.
+
+02:26.290 --> 02:28.750
+And we can do something like this to show it.
+
+02:28.780 --> 02:33.710
+So maybe we think well you know I'm not sure that 0.1 is exact.
+
+02:33.790 --> 02:39.980
+What if I decide to show you know maybe 15 decimal points.
+
+02:40.360 --> 02:42.420
+Well that's looks pretty good right.
+
+02:42.460 --> 02:49.630
+Even with your 15 digits after the decimal point we still have a zero point one it looks like it is.
+
+02:49.660 --> 02:51.070
+It is exact.
+
+02:51.070 --> 02:53.110
+So let's push that out a little bit more.
+
+02:53.410 --> 02:55.870
+And let's go to 25.
+
+02:56.650 --> 03:02.950
+And now you see you can see that we do not have exactly zero point 1.
+
+03:02.950 --> 03:06.060
+It's slightly off.
+
+03:06.080 --> 03:06.780
+All right.
+
+03:06.950 --> 03:11.690
+And of course now if we use something that can be represented exactly.
+
+03:11.960 --> 03:15.900
+And remember that we looked at 0.1 to five.
+
+03:16.100 --> 03:16.440
+Right.
+
+03:16.460 --> 03:22.500
+And we saw that we can represent 0.1 to five as an exact value right.
+
+03:22.610 --> 03:25.760
+Because what is one divided by eight is 0.1 to five.
+
+03:25.770 --> 03:27.140
+So one eighth.
+
+03:27.200 --> 03:33.170
+That's one over two to the power of three which is basically you know part of that expansion that representation
+
+03:33.170 --> 03:35.430
+that we had using powers of 2.
+
+03:35.630 --> 03:45.340
+So if we format the 0.1 to 5 and we go to 25 digits after the decimal point you'll see that it is exact.
+
+03:45.350 --> 03:50.370
+So we have 0.1 to 5 and everything else after that are zeros.
+
+03:50.420 --> 03:52.840
+So just something we have to watch out for.
+
+03:52.970 --> 03:55.230
+And why do we have to watch out for that.
+
+03:55.430 --> 04:00.510
+Well I'll give you a little preview of what we're going to look at in the next video.
+
+04:00.740 --> 04:05.350
+Let's say we define age to be 0.1 plus 0.1 plus 0.1.
+
+04:05.570 --> 04:13.010
+And then with the find be to be equal to 0.3 now we test the equality is equal to B and the answer to
+
+04:13.010 --> 04:16.070
+that is no they're not equal to each other.
+
+04:16.370 --> 04:17.210
+Why.
+
+04:17.210 --> 04:20.920
+Well again let's just look at format of a.
+
+04:20.930 --> 04:31.180
+At twenty five digits this is where we get and let's format be 25 digits after the decimal point.
+
+04:31.460 --> 04:38.420
+And as you can see they're not exactly equal and that's because we have these approximate representations
+
+04:38.720 --> 04:44.330
+for all floating point numbers even though they have an exact representation in base 10.
+
+04:44.330 --> 04:49.520
+0.3 is exact in base 10 0.1 is exact in base 10.
+
+04:49.550 --> 04:53.980
+There are however not exact when you use these two representations.
+
+04:53.990 --> 04:56.330
+All right thanks for watching and I'll see you in the next video.

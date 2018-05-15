@@ -1,0 +1,724 @@
+WEBVTT
+
+00:00.670 --> 00:03.360
+High in this video we're going to look at colorable.
+
+00:03.370 --> 00:06.410
+And so this is just a little bit of terminology.
+
+00:06.520 --> 00:11.570
+So what is a colorable or a callable is any object that can be called.
+
+00:11.660 --> 00:14.080
+You say the parentheses operator.
+
+00:14.170 --> 00:20.860
+That's really all it means is that you can take an object you use then these parentheses after the object
+
+00:20.860 --> 00:27.580
+name potentially with something inside like parameters or without and then it does something it makes
+
+00:27.580 --> 00:29.020
+a call.
+
+00:29.020 --> 00:31.440
+Now callable will always return a value.
+
+00:31.510 --> 00:34.410
+The value could be none but it will always return a value.
+
+00:35.670 --> 00:38.530
+So things like functions and methods those are callable.
+
+00:38.670 --> 00:40.500
+But it goes beyond just those two.
+
+00:40.500 --> 00:47.130
+There's a lot of objects in Python that are callable that are not technically functions and methods
+
+00:48.430 --> 00:50.020
+to see if an object is callable.
+
+00:50.020 --> 00:53.000
+We can use the built in function called callable.
+
+00:53.050 --> 00:58.180
+There's a built in function and Python code callable you put it in an object you pass a parameter an
+
+00:58.180 --> 01:01.660
+object and it will tell you whether that object is callable or not.
+
+01:01.660 --> 01:04.860
+In other words can you put that parentheses operator.
+
+01:04.990 --> 01:11.420
+Essentially can you apply the call operation to that object using the parentheses.
+
+01:11.650 --> 01:13.870
+And if it's true it will tell you.
+
+01:13.880 --> 01:15.210
+Yes you can do so.
+
+01:15.670 --> 01:18.530
+And of course then we'll always return a value.
+
+01:18.940 --> 01:24.160
+So for example we can say callable of print will print as a function so it is callable right.
+
+01:24.170 --> 01:28.110
+You say print parentheses and then maybe something inside the parentheses.
+
+01:28.180 --> 01:29.160
+So it's true right.
+
+01:29.170 --> 01:33.690
+It is a callable saying they give a string of strings have methods.
+
+01:33.700 --> 01:37.510
+So if you take ABC dubbed upper and you put your parentheses.
+
+01:37.510 --> 01:41.960
+That's going to call the upper method on that string and it's going to change.
+
+01:41.970 --> 01:49.480
+ABC lowercase to ABC uppercase right so it is also a callable string not upper.
+
+01:49.630 --> 01:50.590
+So this is a little different.
+
+01:50.590 --> 01:57.310
+You'll notice in the first example I had a string instance of the String class and the String class
+
+01:57.310 --> 01:59.850
+while upper isn't bound to the class.
+
+01:59.860 --> 02:03.570
+Right upper is bound to the instance but it's for a callable.
+
+02:03.610 --> 02:10.610
+We'll see that in detail in later sections on object oriented programming finally callable.
+
+02:10.630 --> 02:12.390
+Well that's callable too right.
+
+02:12.400 --> 02:16.230
+Collabo is a built in functions are callable is callable So that's kind of weird.
+
+02:16.240 --> 02:18.330
+But that returns true.
+
+02:18.460 --> 02:23.320
+Now if you pass something else like an integer for example a callable of ten is false then 10 is not
+
+02:23.350 --> 02:29.620
+callable you can say 10 and parentheses it doesn't do anything it won't work right so even if you pass
+
+02:29.620 --> 02:34.990
+in a string or a list so there's also a ton of objects that are not callable.
+
+02:35.950 --> 02:39.260
+So let's see what different types of quotables can be.
+
+02:39.640 --> 02:44.570
+So we've seen already a lot of the built in functions like print Lenn and callable.
+
+02:44.590 --> 02:45.690
+All these are callable.
+
+02:45.700 --> 02:49.370
+They're just regular built in functions built in methods right.
+
+02:49.450 --> 02:56.880
+Like the string dot operator of an append method on a list right then you have user defined functions
+
+02:56.890 --> 02:59.890
+things that we defined using def and lambda expressions.
+
+02:59.890 --> 03:02.120
+These are all callable as well.
+
+03:02.380 --> 03:07.360
+Our own methods writing classes things are bound to an object provide other bound to an instance or
+
+03:07.360 --> 03:08.710
+bound to a class.
+
+03:08.710 --> 03:13.150
+Those are also callable but they called methods that we have classes.
+
+03:13.150 --> 03:14.890
+Classes are Goebels right.
+
+03:14.920 --> 03:18.570
+This is kind of the first one that's a little bit different than a function.
+
+03:18.700 --> 03:23.920
+It's a class well when we create a new instance of a class what do we say we say my class and then we
+
+03:23.920 --> 03:26.170
+have these parentheses.
+
+03:26.260 --> 03:32.440
+Calling my class and we're passing in potentially some parameters for what happens during that whole
+
+03:32.440 --> 03:33.350
+process.
+
+03:33.550 --> 03:38.950
+Well the first thing a python does is it actually calls the done the new method that's defined in my
+
+03:38.950 --> 03:40.000
+class.
+
+03:40.010 --> 03:42.600
+Now you may or may not have to find the new method.
+
+03:42.790 --> 03:49.270
+But if you haven't then the parent object like you know what will actually have the new method and so
+
+03:49.330 --> 03:51.420
+it will know how to instantiate them.
+
+03:51.430 --> 03:56.520
+Now you can override this done to a new method and will get it to that detail later on in the schools
+
+03:56.550 --> 04:03.230
+object on honor programming but for now just realize that if you call my class write it is callable.
+
+04:03.250 --> 04:07.130
+You can call it and it will actually call this method.
+
+04:07.150 --> 04:12.670
+Now this method will actually create the new object then it will call the Dondre init method which is
+
+04:12.670 --> 04:17.100
+what we've been using so far to instantiate our object.
+
+04:17.110 --> 04:21.140
+Well it's not actually instantiating the object it's initializing the object.
+
+04:21.250 --> 04:27.460
+By the time init is reached the objects actually already been created and it's passed in to this self
+
+04:27.790 --> 04:29.320
+parameter here.
+
+04:30.040 --> 04:34.270
+And then it returns the object finally as a reference of course.
+
+04:34.300 --> 04:37.220
+Now class instances can also be callable.
+
+04:37.300 --> 04:42.780
+So once you have an instance let's say of my class it may be callable and we'll see how to do that.
+
+04:42.850 --> 04:49.470
+But essentially you just have to implement the done to call method and we'll see that in the code and
+
+04:49.480 --> 04:54.880
+then you have also other things like generators and code routines and asynchronous generators.
+
+04:54.920 --> 04:59.410
+They're all kind of related to generators and we'll see that later on in this course as well.
+
+04:59.560 --> 05:02.580
+But those are also callable.
+
+05:02.700 --> 05:03.360
+All right.
+
+05:03.540 --> 05:06.700
+So let's switch to some code and let's take a look at this in action.
+
+05:06.710 --> 05:08.890
+It will make a lot more sense.
+
+05:08.940 --> 05:15.630
+So let's look at callable the collabo built in function so we can look at whether something is callable
+
+05:16.170 --> 05:19.290
+by simply passing it to this collabo build in function.
+
+05:19.500 --> 05:21.950
+For example print print is callable right.
+
+05:21.950 --> 05:25.670
+We can call print print Hello print you know we can call print.
+
+05:25.860 --> 05:32.760
+Basically with this call Operation right this call operator these parentheses here is saying call the
+
+05:32.760 --> 05:34.690
+object immediately preceding it.
+
+05:35.480 --> 05:37.910
+And we can pass in parameters we don't have to.
+
+05:38.120 --> 05:45.480
+We can just call print by itself was Brenta blank line or we can pass in some parameter or parameters.
+
+05:45.520 --> 05:48.300
+Now every callable returns a value.
+
+05:48.610 --> 05:51.850
+So in fact the print actually returns a value.
+
+05:51.850 --> 05:55.140
+Let's take a look.
+
+05:55.930 --> 05:57.030
+We'll do the same thing.
+
+05:57.280 --> 05:59.410
+And then we're also going to print the result out.
+
+05:59.410 --> 06:01.210
+So we should get two lines here.
+
+06:01.620 --> 06:04.990
+And you'll notice the first one is hello because that's what the print statement does.
+
+06:04.990 --> 06:07.200
+It just prints hello to the console.
+
+06:07.480 --> 06:09.250
+And here we printed the result.
+
+06:09.250 --> 06:10.780
+The result was none.
+
+06:11.110 --> 06:14.580
+So it's still returned about yes it's none and that's perfectly OK.
+
+06:14.590 --> 06:19.240
+That's legitimate but it's still returning something and you're always guaranteed that if something
+
+06:19.240 --> 06:25.120
+is callable it will return a value which means you can always assign it to some variable on the left
+
+06:25.120 --> 06:26.560
+hand side.
+
+06:26.560 --> 06:29.160
+Now this works the same way with methods.
+
+06:29.170 --> 06:33.050
+For example let's say we have a list of 1 to 3.
+
+06:33.070 --> 06:40.090
+Now we have the append method on lists so we can check if it's callable.
+
+06:40.210 --> 06:46.230
+And the answer is true it is callable right because we can say Eldard append.
+
+06:47.590 --> 06:48.770
+Let's say for.
+
+06:48.940 --> 06:53.140
+And then I'm also going to assign whatever word returns to the result.
+
+06:53.140 --> 06:54.490
+And let's see what it does.
+
+06:54.660 --> 06:58.350
+Here we're going to print up and then we're going to print the result.
+
+06:58.480 --> 06:59.040
+OK.
+
+06:59.380 --> 07:05.150
+So as you can see we printed l out so L has that element added in at the end right appended.
+
+07:05.260 --> 07:08.400
+And then the return was actually none.
+
+07:08.410 --> 07:13.720
+Now other methods do return something like If I have a string string equals ABC and let's say I want
+
+07:13.720 --> 07:17.040
+to check if s dot upper right.
+
+07:17.050 --> 07:23.290
+The upper property the upper method sorry is callable and the answer is true.
+
+07:23.290 --> 07:28.910
+Now keep in mind I am not saying as Dot oper and then calling it right.
+
+07:28.930 --> 07:30.120
+This is not the same thing.
+
+07:30.130 --> 07:36.370
+If I call callable on that one am I going to get I'm going to get a false because what is the result
+
+07:36.430 --> 07:37.910
+of estop upper.
+
+07:38.320 --> 07:39.550
+Well it's a string.
+
+07:39.550 --> 07:40.250
+Right.
+
+07:40.300 --> 07:42.500
+So if I do that I get false.
+
+07:42.520 --> 07:43.620
+So be careful with that.
+
+07:43.630 --> 07:49.180
+We're testing to see if something is callable but don't call it because then you're testing what the
+
+07:49.240 --> 07:51.270
+return value of that is.
+
+07:51.400 --> 07:53.320
+And that may not be callable.
+
+07:54.030 --> 07:54.640
+OK.
+
+07:54.760 --> 08:01.300
+So let's take a look at the results of that upper right.
+
+08:01.300 --> 08:02.450
+Now we're calling it.
+
+08:02.570 --> 08:09.780
+And let's go ahead and print the results and the result is just the uppercase variant of S.
+
+08:09.820 --> 08:10.090
+Right.
+
+08:10.090 --> 08:13.240
+So that's again the return value.
+
+08:13.270 --> 08:19.300
+In this case the return value is something we you know we actually want to work with the return of print.
+
+08:19.300 --> 08:21.600
+Yeah probably not.
+
+08:21.980 --> 08:24.560
+Now classes are also callable.
+
+08:24.650 --> 08:30.110
+So for example let's look at a built in class let's say from decimal.
+
+08:30.200 --> 08:33.140
+Let's look at the decimal class import decimal.
+
+08:33.140 --> 08:41.230
+So let's import the decimal class from the decimal module and you'll see that decimal is indeed COBOL.
+
+08:41.270 --> 08:44.650
+And yes we know that because we can say 8 equals decimal.
+
+08:44.660 --> 08:51.140
+And now we can call it like we use the call operator and we can pass in a argument that's going to be
+
+08:51.140 --> 08:54.260
+the value that's going to use for initializing it.
+
+08:54.260 --> 08:57.860
+And we have that a is the decimal object ten point five.
+
+08:57.860 --> 09:05.930
+And you'll notice that the result of calling the decimal class was the object itself was the instance.
+
+09:05.930 --> 09:09.620
+Right so I'd return something and the return is something we're interested in.
+
+09:09.620 --> 09:14.400
+It's the actual instance of decimal point type Bheag is decimal.
+
+09:14.870 --> 09:17.820
+So 8 is the decimal is callable.
+
+09:17.870 --> 09:19.660
+Now is a callable.
+
+09:20.270 --> 09:21.250
+And the answer is No.
+
+09:21.260 --> 09:30.290
+It's not coal but some classes can be callable Well sorry all classes are called some object some instances
+
+09:30.410 --> 09:32.840
+of classes can actually also be callable.
+
+09:32.870 --> 09:33.530
+They don't have to.
+
+09:33.530 --> 09:35.300
+In this case obviously it's not right.
+
+09:35.300 --> 09:38.400
+The instance of the decimal class is not callable.
+
+09:38.510 --> 09:42.040
+So let's go ahead and take a quick look at how we might do that ourselves.
+
+09:42.230 --> 09:49.160
+Let's go ahead and create a class let's say in my class and we're going to deaf in it so we're going
+
+09:49.160 --> 09:51.380
+to create an initializer.
+
+09:51.980 --> 09:58.970
+And that's the initialiser We'll take a parameter x and we'll default to zero and here we're going to
+
+09:58.970 --> 10:02.630
+do something you probably wouldn't want to do this in general in your code.
+
+10:02.630 --> 10:04.530
+But I just want to show where something is running.
+
+10:04.530 --> 10:10.760
+So I'm going to say print initialising and then I'm going to actually create an instance variable an
+
+10:10.820 --> 10:16.870
+instance property called counter and I'm going to set that equal to whatever was passed in for x K.
+
+10:16.970 --> 10:18.530
+So this is my class.
+
+10:18.530 --> 10:22.470
+It's a callable now right.
+
+10:22.670 --> 10:28.550
+My class is callable because my class has this new method that we have over.
+
+10:28.570 --> 10:32.800
+You know we didn't do an override of this method but it is there right.
+
+10:32.810 --> 10:33.770
+It exists.
+
+10:33.770 --> 10:36.370
+And then we also implemented the init method.
+
+10:36.620 --> 10:43.020
+So now we can say a equals my class and we pass it may be an initial value of 100.
+
+10:43.100 --> 10:43.330
+Right.
+
+10:43.330 --> 10:51.030
+So you can see if printed initialising and random under init method and our counter property counter
+
+10:51.050 --> 10:57.900
+attribute has a value of 100 as expected but 8 is callable or not.
+
+10:58.110 --> 11:04.580
+It's not callable right just like we saw the decimal object wasn't callable object or instance of my
+
+11:04.580 --> 11:06.400
+class is not callable.
+
+11:06.720 --> 11:10.100
+However we can make a call by doing the following.
+
+11:10.280 --> 11:12.320
+So I'm just going to copy paste the code.
+
+11:12.500 --> 11:13.910
+And let's change that.
+
+11:14.180 --> 11:17.250
+Let's say def Dunder call.
+
+11:17.380 --> 11:17.730
+OK.
+
+11:17.750 --> 11:20.770
+So we we're going to implement the special method called Call.
+
+11:20.790 --> 11:22.520
+Now it is an instance method.
+
+11:22.520 --> 11:28.790
+So we need to use the instance he has the first variable and then we'll use another parameter as well
+
+11:28.850 --> 11:35.420
+some X and we'll set its default to one close thing we're going to do his will to say updating Kelner
+
+11:36.610 --> 11:38.500
+and we are all going to update the counting.
+
+11:38.900 --> 11:43.440
+And we're going to make it equal to itself plus whatever X was.
+
+11:43.520 --> 11:44.060
+OK.
+
+11:44.660 --> 11:48.510
+So now we have this my class this new version of my class.
+
+11:48.590 --> 11:51.400
+So let's create an instance of it.
+
+11:52.260 --> 11:52.670
+Right.
+
+11:52.730 --> 11:58.480
+So here with calling my class my classes callable and of course it ran the initialising right.
+
+11:58.490 --> 12:01.220
+It ran the init method.
+
+12:01.220 --> 12:04.980
+Now how about this done the call how we're going to call that.
+
+12:05.180 --> 12:09.230
+Well there's one way of doing it and we'll see this again in more detail later on in the course.
+
+12:09.230 --> 12:12.560
+But one way of doing it would be to do it this way.
+
+12:12.620 --> 12:16.150
+So my class datt done the call right.
+
+12:16.160 --> 12:19.780
+This is just a function here is defined in my class.
+
+12:19.790 --> 12:20.340
+Right.
+
+12:20.630 --> 12:21.690
+But what does it expect.
+
+12:21.710 --> 12:24.750
+While it expects the object that we are interested in.
+
+12:24.820 --> 12:29.720
+So in this case maybe and then it expects this x value here.
+
+12:29.750 --> 12:32.840
+While it doesn't expect it but it will take it if we provide it right.
+
+12:32.840 --> 12:34.290
+It has a default songa.
+
+12:34.460 --> 12:37.650
+It's provided though and set it equal to 10.
+
+12:37.690 --> 12:41.830
+So if we do that you can see that it called this method right.
+
+12:41.900 --> 12:43.240
+This updating can.
+
+12:43.430 --> 12:48.460
+And if we look at the calendar then indeed we have that it's equal to 10.
+
+12:48.470 --> 12:51.860
+Our initial value was 0 we added tenth to that.
+
+12:52.490 --> 12:55.330
+But you can certainly call this call it this way.
+
+12:55.370 --> 13:01.880
+And by the way any instance method can be called this way and we'll see that later on in the course
+
+13:01.880 --> 13:02.750
+as well.
+
+13:03.110 --> 13:08.790
+But really the way that we need to Koehler's so we should call this is much simpler if we look at where
+
+13:08.790 --> 13:11.510
+the B is now callable.
+
+13:11.720 --> 13:18.560
+The answer now is true right before our instance of my class was not callable but because we defined
+
+13:18.560 --> 13:24.770
+this special method here called done the call it became callable which means that now we can just say
+
+13:25.110 --> 13:31.970
+be we can Coleby right we can apply this call operation to B and you can see it ran down the call method
+
+13:31.970 --> 13:35.060
+for us for a look at the counter.
+
+13:35.240 --> 13:36.140
+It's now 11.
+
+13:36.200 --> 13:36.530
+Right.
+
+13:36.530 --> 13:42.950
+Or we could say be 100 and now it ran again and we can look at the new count of value and that's 100
+
+13:42.980 --> 13:44.420
+and 11.
+
+13:44.420 --> 13:49.430
+So this is how you can make instances of your classes callable as well.
+
+13:49.850 --> 13:53.160
+So as you can see it's not just functions that are callable.
+
+13:53.330 --> 13:53.680
+Right.
+
+13:53.810 --> 13:58.280
+Yes at the end of the day a function is run right at the end of the day something is going to run a
+
+13:58.280 --> 14:05.300
+function some way if you're running a if you're calling my class like my class it's going to run the
+
+14:05.300 --> 14:07.370
+new and the methods.
+
+14:07.400 --> 14:12.060
+If you're calling an instance of your class it's going to try and call the call method.
+
+14:12.110 --> 14:14.310
+You know the Dunder versions of those things.
+
+14:14.360 --> 14:18.650
+So at the end of the day yes it's running a function it's making a call so you're going to think that
+
+14:18.860 --> 14:22.310
+hey everything is a function but they're not quite the same right.
+
+14:22.310 --> 14:24.260
+My class is not a function.
+
+14:24.290 --> 14:24.560
+Right.
+
+14:24.560 --> 14:28.760
+What's the type of class.
+
+14:29.260 --> 14:30.250
+It's a type.
+
+14:30.280 --> 14:30.800
+Right.
+
+14:30.940 --> 14:33.040
+So the type in my class is a type.
+
+14:33.220 --> 14:33.490
+Right.
+
+14:33.490 --> 14:36.650
+Same thing if you look at the type of decimal right.
+
+14:36.670 --> 14:37.990
+It's a type as well.
+
+14:38.110 --> 14:39.100
+That's not a function.
+
+14:39.160 --> 14:44.100
+That's not the same thing but it is for a callable.
+
+14:44.110 --> 14:44.450
+All right.
+
+14:44.470 --> 14:46.570
+Thanks for watching and I'll see you in the next video.

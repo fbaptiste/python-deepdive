@@ -1,0 +1,412 @@
+WEBVTT
+
+00:00.510 --> 00:06.560
+High in this video we're going to take a look at how we can use classes to decorate functions.
+
+00:06.810 --> 00:12.440
+So we've seen how to use functions to decorate functions but we can actually also use classes.
+
+00:12.570 --> 00:17.450
+And that's because Python class instances can be made callable themselves.
+
+00:17.560 --> 00:18.960
+So we'll get to that in a minute.
+
+00:19.170 --> 00:25.480
+Let's start by recalling how we did our decorators and we wanted a parameterised decorator.
+
+00:25.620 --> 00:27.690
+So we had to use a parameter factory.
+
+00:27.720 --> 00:36.410
+So let's do a very simple one let's say def my deck will take two parameters in a week.
+
+00:36.450 --> 00:41.120
+Then inside we're going to now create our decorator the final decorator
+
+00:45.700 --> 00:48.570
+and looks here.
+
+00:51.470 --> 01:00.620
+End here we're just going to say print decorated a function called a quolls and B equals
+
+01:03.180 --> 01:04.150
+k.
+
+01:04.160 --> 01:09.120
+Now that A and B remember is coming from the outer function from the factory function.
+
+01:10.450 --> 01:18.490
+And then finally we're just going to call and return the value of the function called with ons and Starns
+
+01:19.570 --> 01:21.750
+and stuffs start walking.
+
+01:21.850 --> 01:28.570
+Then we have to return energy and then we have to return the decorator itself because this is a decorated
+
+01:28.720 --> 01:29.620
+factory.
+
+01:29.680 --> 01:30.350
+So there we go.
+
+01:30.370 --> 01:34.330
+That was very very simple decorator factory example.
+
+01:34.330 --> 01:46.490
+Now we can decorate a function this way and let's say def life funk and S and will say print hello.
+
+01:48.640 --> 01:49.990
+Yes.
+
+01:51.130 --> 01:56.010
+So now we have this function my fungous been decorated using my deck.
+
+01:56.190 --> 01:56.530
+Right.
+
+01:56.530 --> 02:03.490
+We passed in the parameters to the factory function and they were referenced inside the decorators in
+
+02:03.490 --> 02:04.180
+a function.
+
+02:04.210 --> 02:06.210
+So the inner function was a closure.
+
+02:06.340 --> 02:12.040
+DEC itself is also a closure and we can reference a and b Those are the three variables that came from
+
+02:12.100 --> 02:13.020
+my deck.
+
+02:13.030 --> 02:15.010
+So if we call my phunk
+
+02:17.650 --> 02:22.890
+world we get that decorator's function called I'll fix the typo.
+
+02:25.790 --> 02:27.530
+A was 10 B was 20.
+
+02:27.550 --> 02:29.020
+And then we get hello world.
+
+02:29.110 --> 02:31.040
+The result of call it my funk.
+
+02:31.180 --> 02:35.220
+So this was a very simple decorator factory type of example.
+
+02:37.040 --> 02:43.550
+Now I want to switch gears and talk about the fact that class instances can be callable in Python as
+
+02:43.550 --> 02:44.260
+well.
+
+02:44.600 --> 02:53.330
+So let's go ahead and create a class let's say class my class and we'll do dumb in that method.
+
+02:54.410 --> 03:01.760
+So it will take in two parameters and I'm going to set the instance variables A and B to those two parameters
+
+03:01.790 --> 03:04.180
+A and B.
+
+03:06.930 --> 03:15.170
+Now I'm going to create this special method called donder call and done the call can take in parameters.
+
+03:15.210 --> 03:17.670
+Maybe it will take in a parameter C.
+
+03:18.720 --> 03:24.590
+And all we're going to do here is just print called a equals.
+
+03:25.050 --> 03:31.340
+Parameters zero b equals from a wan and sequel's parameter to.
+
+03:31.710 --> 03:36.920
+And then we'll pass on to all four mapped cell 5 views.
+
+03:37.140 --> 03:40.170
+I have to use self-talk because this is the instance variable.
+
+03:40.190 --> 03:46.680
+A self-taught B for the instance variable b that remember where stold when we actually created an instance
+
+03:46.680 --> 03:52.780
+of my class and then C is just a parameter of this method done to call.
+
+03:52.800 --> 03:53.550
+So there we go.
+
+03:53.550 --> 03:54.650
+We have this class.
+
+03:54.690 --> 04:02.100
+So now we can create an object which is going to be an instance of my class and let's pass in 10 and
+
+04:02.100 --> 04:06.180
+20 to the initializer needs two parameters.
+
+04:06.330 --> 04:08.970
+So now we have this not object is an object.
+
+04:09.000 --> 04:16.370
+It is an instance of my class that lives at some memory address but because we actually defined this
+
+04:16.380 --> 04:17.780
+done the call method.
+
+04:17.880 --> 04:20.710
+The object is itself callable.
+
+04:20.760 --> 04:24.240
+So yes I could call code this way.
+
+04:24.240 --> 04:24.590
+Right.
+
+04:24.600 --> 04:28.020
+I could call it this way and say let's say 100.
+
+04:28.020 --> 04:31.690
+So I get called Agle 10 Beagle's 20 Segal's 100.
+
+04:31.780 --> 04:33.080
+This is just the method.
+
+04:33.140 --> 04:37.280
+It's an instance method defined in my class so I can call it this way.
+
+04:37.530 --> 04:43.860
+But because it has this special name Dunder call I can also call it this way.
+
+04:43.860 --> 04:47.360
+So I don't have to use the dumb to call the DOT dhanda call.
+
+04:47.490 --> 04:54.600
+I can just call the object and Python will see that it will look for that done the call method and execute
+
+04:54.600 --> 04:55.140
+that.
+
+04:55.470 --> 05:02.530
+And so we get the same thing haggles 10 vehicles 20 sequel's 100 so now hopefully you can start seeing
+
+05:02.530 --> 05:09.400
+some parallels between what's happening here and what's happening here in the decorator's and this decorator
+
+05:09.400 --> 05:10.180
+factory.
+
+05:10.180 --> 05:17.150
+We defined two variables a and b and initialiser we defined two variables A and B.
+
+05:17.300 --> 05:24.560
+Then this was the decorator that decorator was returned when we called my deck here.
+
+05:24.740 --> 05:26.410
+This class is callable.
+
+05:26.480 --> 05:33.750
+Well what if the Dunder call returned the decorator what if done the call was the decorator.
+
+05:34.280 --> 05:35.240
+Let's try that.
+
+05:35.240 --> 05:39.720
+So let's go ahead and let's do it this way.
+
+05:40.250 --> 05:46.040
+So instead of calling printing that out I'm going to take this over here.
+
+05:46.310 --> 05:46.760
+Right.
+
+05:46.790 --> 05:50.660
+This is the inner function that gets returned from the decorator.
+
+05:50.960 --> 05:54.870
+So my decorator now is going to be this done the call.
+
+05:54.920 --> 05:57.740
+So obviously it needs the function right.
+
+05:57.740 --> 06:04.490
+So this think of this done the call as the decorator function not the factory the factory is actually
+
+06:04.490 --> 06:05.670
+now the class.
+
+06:05.870 --> 06:10.540
+But think of this done to call as nothing more than death deck.
+
+06:10.690 --> 06:11.240
+OK.
+
+06:11.480 --> 06:13.530
+So this is the decorator function.
+
+06:13.880 --> 06:20.160
+And it's going to create this in a function so decorate a function called a B.
+
+06:20.210 --> 06:20.830
+Right.
+
+06:20.870 --> 06:22.180
+The A and B are which.
+
+06:22.250 --> 06:25.290
+Which once they the instance variables A and B.
+
+06:25.310 --> 06:30.150
+So the only difference here is I have to use self-taught a self-taught B.
+
+06:30.980 --> 06:35.450
+And then I have function which was passed into call and then it gets called and we return the value
+
+06:35.450 --> 06:39.370
+of that and then we return in.
+
+06:39.660 --> 06:45.780
+So now we have a class my class that can be instantiated we can pass in two parameters and then the
+
+06:45.780 --> 06:47.740
+call method is the decorator.
+
+06:48.030 --> 06:53.760
+So if we call the instance of my class it will actually call this function here.
+
+06:54.000 --> 06:56.430
+It will take in a single parameter the function.
+
+06:56.430 --> 06:57.840
+This is the decorator.
+
+06:58.020 --> 07:04.440
+So now we can decorate a function this way we can say my class can come to 20.
+
+07:04.440 --> 07:05.830
+So what is that going to do.
+
+07:05.850 --> 07:13.320
+That's going to return an instance of my class which is itself callable so we can use this shortened
+
+07:13.320 --> 07:17.460
+syntax and then we use the same function we had before.
+
+07:17.650 --> 07:22.910
+So let me just go ahead and copy and paste it.
+
+07:22.930 --> 07:26.980
+So now we've decorated my funk and in fact we call my funk
+
+07:30.670 --> 07:34.640
+we get decorated function call a was 10 B it was 20 Yeah.
+
+07:34.690 --> 07:40.530
+Those were the variables the parameters the arguments that we passed to my class when we instantiate
+
+07:40.530 --> 07:43.450
+it and then we just ran Hello world.
+
+07:43.900 --> 07:46.410
+We could have also decorated it this way.
+
+07:46.550 --> 07:48.060
+But take the long way around.
+
+07:48.130 --> 07:53.120
+Let's say that the objects to my class 10 comma 20.
+
+07:53.590 --> 07:55.590
+And now we have this function.
+
+07:55.600 --> 07:57.070
+Let's go ahead and recreate it.
+
+07:57.070 --> 07:58.870
+So it's undecorated.
+
+07:58.900 --> 08:01.390
+So here's our original my funk function.
+
+08:01.600 --> 08:03.510
+And now we can decorate it this way.
+
+08:03.760 --> 08:04.660
+Well what do we have.
+
+08:04.660 --> 08:05.110
+We have.
+
+08:05.110 --> 08:08.690
+Object object is our decorator.
+
+08:08.690 --> 08:14.170
+It is the decorator because it can be called with the function that we want to decorate.
+
+08:14.350 --> 08:15.310
+OK.
+
+08:15.940 --> 08:22.180
+And now we can run my funk of course my funk needs a parameter and there we go.
+
+08:22.180 --> 08:25.940
+Decorator function called a standees to any Halliwell's same as before.
+
+08:26.290 --> 08:34.420
+So this shows you how you can use the fact that Python class instances are actually can be made callable
+
+08:34.720 --> 08:36.860
+by implementing those done the call method.
+
+08:37.090 --> 08:41.980
+And so by doing that this way you're essentially creating a decorator factory.
+
+08:42.010 --> 08:45.180
+It's almost the same as what we did here.
+
+08:45.430 --> 08:47.960
+Except here we use the bunch of closures here.
+
+08:48.040 --> 08:54.750
+We use the class write the class initializer is what took in those parameters A and B and still them
+
+08:54.750 --> 09:01.530
+as class instances as instance variables I should say and then the done the call method is of course
+
+09:01.590 --> 09:07.290
+able to reference the instance variables and it's able to do whatever else it needs to do with the function
+
+09:07.320 --> 09:09.290
+and basically decorate it.
+
+09:09.300 --> 09:16.070
+So in this way we're able to decorate functions using a class not just using another function.
+
+09:16.320 --> 09:19.110
+And that's something that you'll see in code often times.
+
+09:19.200 --> 09:24.720
+And so it's important to understand that what's going on is the same as the factory really method that
+
+09:24.720 --> 09:26.020
+we have over here.
+
+09:26.340 --> 09:33.660
+Except that we're using a class and using the fact that classes are class instances can be made callable
+
+09:33.810 --> 09:36.620
+by implementing the Dunder call method.
+
+09:37.020 --> 09:37.370
+All right.
+
+09:37.370 --> 09:38.580
+So thanks for watching.
+
+09:38.580 --> 09:39.600
+I'll see you in the next video.

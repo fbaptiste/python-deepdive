@@ -1,0 +1,1642 @@
+WEBVTT
+
+00:00.360 --> 00:05.110
+High in this video we're going to start looking at and application of decorator's.
+
+00:05.130 --> 00:09.900
+So if you think back to some videos back we were doing some timing functions we were looking at how
+
+00:09.900 --> 00:12.150
+long functions take to run.
+
+00:12.150 --> 00:16.950
+So we're going to go back to that same example to a similar example but we're going to do this now using
+
+00:17.010 --> 00:18.650
+a decorator instead.
+
+00:18.690 --> 00:24.510
+So the first thing we have to do is to create our decorator so let's call the decorator timed it up
+
+00:24.510 --> 00:28.270
+close takes the function that we want to decorate as a parameter.
+
+00:28.740 --> 00:30.630
+And I'm going to need puft counted.
+
+00:30.720 --> 00:35.610
+So I'm going to import it here from time import counter.
+
+00:35.910 --> 00:38.630
+I'm not importing this at the module level.
+
+00:38.700 --> 00:44.910
+I could but in this case I want to make sure that if I reuse the decorator somewhere else the PO counter
+
+00:44.910 --> 00:46.410
+will be available to it.
+
+00:46.410 --> 00:50.550
+So I'm just putting the import right in the function itself.
+
+00:50.550 --> 00:55.490
+And I also want to use that wraps method that we saw earlier.
+
+00:55.530 --> 00:59.510
+So I'm going to import that from funk too.
+
+01:01.230 --> 01:08.650
+OK then we're going to find out in a function not in a function is going to be able to run any parameter
+
+01:08.670 --> 01:13.040
+any function when we with arbitrary parameters.
+
+01:13.050 --> 01:17.240
+So to make it as generic as possible we use these dogs and starstuff.
+
+01:17.250 --> 01:19.430
+KW arms approach.
+
+01:19.560 --> 01:23.430
+Now I want to decorate this using the wraps decorator.
+
+01:23.430 --> 01:29.190
+Now the wraps decorator actually takes a parameter which is the function that's being decorated.
+
+01:29.400 --> 01:35.850
+And we'll get to parameterised decorators in an upcoming video and we'll see exactly how that works.
+
+01:36.680 --> 01:38.100
+OK so what do we want to do.
+
+01:38.110 --> 01:41.720
+Well the inner function is going to want to basically.
+
+01:41.720 --> 01:45.060
+Time how long the function takes to run.
+
+01:45.270 --> 01:54.150
+So we're going to set up this prankish So we're going to call for calendars and we're going to add that
+
+01:54.150 --> 02:01.080
+to our start time then we're going to take the results of calling efen with the arguments that were
+
+02:01.080 --> 02:02.480
+passed in.
+
+02:03.630 --> 02:05.730
+So now we're building up our closure.
+
+02:05.820 --> 02:06.150
+Right.
+
+02:06.150 --> 02:12.400
+Because FLN is actually a parameter a variable that is local to time.
+
+02:12.450 --> 02:14.800
+So in this closure that we're creating.
+
+02:15.300 --> 02:15.800
+Okay.
+
+02:15.900 --> 02:20.660
+So then we called lbf counter again to get the end time.
+
+02:20.920 --> 02:21.160
+Okay.
+
+02:21.180 --> 02:24.010
+And then if you want elapsed equals can mine is stuck.
+
+02:24.110 --> 02:24.460
+Okay.
+
+02:24.480 --> 02:26.330
+So we have the elapsed time.
+
+02:26.430 --> 02:29.080
+Now what I want to do is I want to print this out.
+
+02:29.100 --> 02:34.570
+I want to print out the elapsed time that it took for the function to run and then I'll return the result.
+
+02:34.700 --> 02:35.340
+Okay.
+
+02:35.700 --> 02:37.100
+So how am I going to do that.
+
+02:37.110 --> 02:42.690
+Well I'm I want to print not only a function but I want to print the arguments as well that were used
+
+02:42.690 --> 02:43.740
+to call the function.
+
+02:43.740 --> 02:49.770
+So we have a nice print statement that says you know Fehn whatever effen was with whatever parameters
+
+02:49.770 --> 02:54.340
+arguments were passed then you know took X number of seconds to run.
+
+02:54.570 --> 03:02.610
+So I want to basically take ounds and kw and create a string out of them that's comma delimited and
+
+03:02.610 --> 03:03.000
+so on.
+
+03:03.000 --> 03:06.230
+So this is really just for display purposes.
+
+03:06.300 --> 03:11.260
+So I'm going to create a variable Arne's underscore to differentiate it from the.
+
+03:11.280 --> 03:18.870
+That's actually the parameter tuple and first thing I want to do is I want to convert this to a list
+
+03:18.870 --> 03:27.010
+of strings because the parameters and ends are not necessarily strings that could be integers float
+
+03:27.090 --> 03:27.770
+whatever.
+
+03:28.020 --> 03:34.290
+So in this case what I want to do is I first want to make everything into a string or the string representation
+
+03:34.770 --> 03:39.560
+and then I'm also going to do something similar with KW.
+
+03:39.720 --> 03:47.510
+I want a string representation of the keyword arguments which means I need the name equals and the value.
+
+03:47.580 --> 03:48.930
+So I need to pick that up.
+
+03:48.930 --> 03:50.180
+So how am I going to do that.
+
+03:50.190 --> 03:57.510
+Again I'm going to use a list comprehension and here it's the first is going to be a string with the
+
+03:57.570 --> 04:00.770
+first element of the string is going to be the key word.
+
+04:00.790 --> 04:05.360
+Right the name of the parameter and then the second one is going to be the value.
+
+04:05.370 --> 04:10.940
+So I'm going to need to format this using let's say the key name and the value.
+
+04:11.100 --> 04:18.970
+And this is going to be for key and value in Kwame's dobbed items.
+
+04:20.760 --> 04:28.410
+So the items function is going to return basically a an iterable of tuples of key value tuples.
+
+04:28.500 --> 04:28.750
+Right.
+
+04:28.760 --> 04:30.720
+Which key is going to be the name of the argument.
+
+04:30.750 --> 04:33.870
+V is going to be the value of the argument.
+
+04:34.020 --> 04:39.930
+And so now we're going to have basically a list of strings with K equals V where it would have a K and
+
+04:39.930 --> 04:40.860
+the was.
+
+04:41.250 --> 04:44.830
+Now what I want to do is I want to put all the arguments together like.
+
+04:44.970 --> 04:48.130
+So it's going to be a plus.
+
+04:48.130 --> 04:50.630
+KW Thanks.
+
+04:51.120 --> 04:51.790
+OK.
+
+04:51.990 --> 04:58.520
+So now I've got a list that contains my position about arguments and my key value arguments.
+
+04:58.860 --> 05:06.510
+And finally I'm going to make an arm's string where I'm going to join essentially all the elements of
+
+05:06.510 --> 05:07.510
+the arguments.
+
+05:07.720 --> 05:08.530
+Right.
+
+05:09.000 --> 05:13.920
+So using the join method on the string and using all args.
+
+05:14.070 --> 05:20.700
+So basically this is just going to create a big string that's going to be a comma delimited list of
+
+05:20.730 --> 05:22.690
+all the arguments that were passed.
+
+05:22.900 --> 05:26.660
+Again it's just for display purposes you don't have to do that if you don't want to.
+
+05:26.730 --> 05:29.440
+I just chose to do that just to make it look pretty.
+
+05:29.520 --> 05:33.160
+And then finally we're going to say that the function.
+
+05:33.180 --> 05:38.690
+So the first element of our string here is going to be the function we'll put that in the format.
+
+05:39.000 --> 05:43.300
+And it was called on these arguments right.
+
+05:43.320 --> 05:48.390
+With these arguments and we'll say OK.
+
+05:49.030 --> 05:56.380
+And here we're going to put in the number of seconds now elapsed is going to be in seconds but it's
+
+05:56.380 --> 06:02.350
+going to have some decimal point so I'm want to retain six digits after the decimal point so I'm going
+
+06:02.350 --> 06:04.510
+to format it this way.
+
+06:04.510 --> 06:06.270
+Seconds to run.
+
+06:06.490 --> 06:07.070
+OK.
+
+06:07.330 --> 06:14.710
+And then for the parameters of this we're going to pass in while 0 is the function name.
+
+06:14.710 --> 06:19.340
+So what is the function name is efen Dondre name.
+
+06:19.450 --> 06:25.880
+Then we have the arguments while the arguments is nicely formatted string now.
+
+06:25.960 --> 06:29.420
+So we'll give it odds underscore string.
+
+06:29.500 --> 06:33.740
+And then lastly the elapsed time which is just elapsed.
+
+06:34.780 --> 06:36.570
+So now that's going to print that out.
+
+06:36.820 --> 06:40.560
+And the last thing we want to do is to return the result.
+
+06:40.560 --> 06:40.950
+OK.
+
+06:41.080 --> 06:44.930
+Because remember we ran the function f n and we decorate a function.
+
+06:44.930 --> 06:48.040
+Usually we want to return the result of the original function.
+
+06:48.040 --> 06:49.460
+So that's what we're doing here.
+
+06:49.660 --> 06:53.030
+And then finally we need to return clepe closure.
+
+06:53.140 --> 06:54.040
+So we return.
+
+06:54.080 --> 06:55.870
+And so there we go.
+
+06:55.990 --> 06:58.010
+This is now all decorated.
+
+06:58.480 --> 07:05.250
+And there was a lot of extra code simply because I wanted to have this nicely formatted output you.
+
+07:05.580 --> 07:12.380
+So now let's go ahead and write a function that are that is going to calculate the Fibonacci numbers.
+
+07:12.420 --> 07:14.930
+So remember what the cabinetry numbers are.
+
+07:15.000 --> 07:17.360
+You start with 1 and 1.
+
+07:17.370 --> 07:22.590
+So these are the first two people now showing numbers and then after that you just sum up the previous
+
+07:22.590 --> 07:22.950
+two.
+
+07:22.950 --> 07:29.490
+So the next one would be one plus one which is to the next one would be two plus 1 which is three then
+
+07:29.490 --> 07:31.250
+three plus two which is five.
+
+07:31.260 --> 07:37.360
+Then five plus three which is eight an A-plus five which is 13 21 etc..
+
+07:37.470 --> 07:40.290
+OK so these are the Fibonacci numbers.
+
+07:40.380 --> 07:48.390
+So let's go ahead and let's write a function that calculates the Fibonacci Fibonacci numbers and I will
+
+07:48.390 --> 07:51.950
+assume that the first Fibonacci number is 1.
+
+07:52.050 --> 07:54.000
+So I'm going I'm not going to use a zero index.
+
+07:54.000 --> 07:58.590
+I'm going to use a one index I'm going to say Fibonacci number one is one who would actually number
+
+07:58.620 --> 08:01.790
+two is one Fibonacci number three is two.
+
+08:01.810 --> 08:06.540
+And so the way you would refer to you know a sequence of numbers if you hadn't written down would say
+
+08:06.810 --> 08:10.010
+you know number one is 1 etc..
+
+08:10.540 --> 08:11.200
+OK.
+
+08:11.220 --> 08:16.780
+But the thing is we're going to use three different methods to calculate the Fibonacci numbers.
+
+08:16.830 --> 08:20.850
+So one is we're going to use recursion.
+
+08:21.210 --> 08:24.260
+So that's going to be the first that which is pretty straightforward.
+
+08:24.600 --> 08:27.080
+The second one we're going to use a loop.
+
+08:27.360 --> 08:31.470
+And then the third one just to look at how we might do this.
+
+08:31.470 --> 08:35.240
+We're going to use that reduced function that we've seen in the past.
+
+08:35.310 --> 08:39.780
+So we're going to take a look at these three approaches and then we'll time the three different approaches
+
+08:39.780 --> 08:41.420
+and see which one works best.
+
+08:42.340 --> 08:46.500
+So let's go ahead and let's start using recursion now.
+
+08:47.140 --> 08:51.470
+I'm going to define my recursive function falls.
+
+08:51.940 --> 08:55.670
+So here we want to calculate the end Fibonacci numbers.
+
+08:55.880 --> 09:01.810
+Well if n is less than or equal to 2 we want to return 1.
+
+09:01.840 --> 09:09.110
+Right because if end is 1 or 2 and the fascinating number is 1 else if it's greater than 2 therefore
+
+09:09.720 --> 09:24.180
+whether we return we return Kelk recursive fib and minus one class calc recursive fib and minus 2 right.
+
+09:24.190 --> 09:30.800
+Which is basically adding the previous two together and that now is our next Fibonacci number.
+
+09:31.030 --> 09:31.880
+So that's it.
+
+09:31.940 --> 09:35.870
+That that is the cause I got to spell it right.
+
+09:35.890 --> 09:38.060
+I got tied correctly recursive.
+
+09:38.140 --> 09:44.860
+So that's the way to implement a recursive method or algorithm for calculating Banaji numbers it's very
+
+09:44.870 --> 09:50.930
+straightforward what I want to do is I want to time how long it takes.
+
+09:51.460 --> 09:58.330
+Now the one thing I want to point out is that if I actually decorate calc recursive fib then what's
+
+09:58.330 --> 10:02.610
+going to happen inside it's going to call calc recursive fib.
+
+10:02.920 --> 10:04.650
+Which one is going to use.
+
+10:04.680 --> 10:09.550
+One is going to use the decorated function because that labels the meaning has changed.
+
+10:09.550 --> 10:11.570
+So every time would do the recursion.
+
+10:11.590 --> 10:16.240
+It's essentially going to call the code you write that in her overhead.
+
+10:16.480 --> 10:21.070
+And therefore it's going to time each interim step in here.
+
+10:21.220 --> 10:22.970
+So let me show you what I mean by that.
+
+10:22.990 --> 10:29.780
+Let's say that I go ahead and decorate this with tined which is decorated that we just wrote.
+
+10:29.800 --> 10:31.040
+So if I do that.
+
+10:31.180 --> 10:37.180
+And now if I call Kelk recursive let's say three.
+
+10:37.600 --> 10:41.800
+You can see that it calculated two and one and then three.
+
+10:41.800 --> 10:47.920
+All right if we call this with let's say 6 you'll see that it calculated two and one.
+
+10:48.070 --> 10:50.000
+So it was able to calculate three.
+
+10:50.140 --> 10:57.100
+But look at everything else that happened in order to calculate six it needed to calculate five and
+
+10:57.100 --> 10:59.150
+it needed to calculate for.
+
+10:59.200 --> 11:06.010
+So to calculate for it had to calculate two and three and one needed calculate five calculated 3 1 and
+
+11:06.040 --> 11:08.350
+2 and then it needed four.
+
+11:08.470 --> 11:09.900
+So again we have the.
+
+11:10.030 --> 11:16.420
+So you can see that with this recursive function we have a lot of extra calculations that are taking
+
+11:16.420 --> 11:21.440
+place because you're right to calculate Sixwire to calculate five.
+
+11:21.440 --> 11:27.500
+We also have to calculate for and look for her calculated at least twice right to was calculated.
+
+11:27.500 --> 11:31.550
+One two three four five times.
+
+11:31.900 --> 11:34.810
+So there's a lot of extra work happening.
+
+11:34.850 --> 11:39.030
+So it's a very easy algorithm to write but it's not particularly efficient.
+
+11:39.260 --> 11:46.190
+And moreover what I wanted to point out is that when I timed this I'm timing right this calc recursive
+
+11:46.190 --> 11:48.440
+fervid because it's being called recursively.
+
+11:48.440 --> 11:54.880
+I'm getting the timings for each individual kind of you know nested call and that's not what I want.
+
+11:54.890 --> 11:58.270
+So what I want is not to have this timed.
+
+11:58.700 --> 12:04.730
+So that's why I defined it this way and here I'm going to calculate I'm going to create another function
+
+12:05.000 --> 12:12.500
+called for recursive that we pass in N and what does we're going to do it's just going to return Kelk
+
+12:13.070 --> 12:17.210
+recursive Fairbank and.
+
+12:17.600 --> 12:21.310
+And this one is going to be the one that I'm going to time.
+
+12:21.350 --> 12:28.340
+So basically I'm I just want to avoid timing the recursive function so I just create an outer function
+
+12:28.340 --> 12:32.960
+that's not recursive so it only gets called once for any particular number N and then it will use the
+
+12:32.970 --> 12:34.880
+record and thereafter.
+
+12:34.930 --> 12:44.660
+So I can call third recursive I can type with let's say 6 and we get a value of 8 and you can see we
+
+12:44.720 --> 12:51.540
+only had a single print that happened right that that closure was only called once.
+
+12:51.560 --> 12:52.100
+OK.
+
+12:52.220 --> 12:54.920
+So we have that and we can call it for different numbers.
+
+12:54.920 --> 13:02.070
+Let's see the recurrence 20 and because it's called recursive.
+
+13:02.450 --> 13:03.020
+OK.
+
+13:03.190 --> 13:07.490
+So that's 0.00 2 seconds so it looks fairly efficient.
+
+13:07.710 --> 13:13.230
+Let's go ahead and try this on a bigger number for recursive.
+
+13:13.830 --> 13:15.170
+Let's do 25.
+
+13:15.420 --> 13:19.590
+That's not bad 0.02 but you can see it's starting to get a little longer now.
+
+13:19.890 --> 13:22.430
+And let me just copy paste this.
+
+13:22.860 --> 13:26.580
+And let's try THAWLEY right to enter in 2025.
+
+13:26.580 --> 13:30.000
+Let's try 30 and you can see that already.
+
+13:30.040 --> 13:33.230
+You all took again 10 times longer than the previous one.
+
+13:33.270 --> 13:39.070
+So let's go ahead and try for recursive let's say 32.
+
+13:39.540 --> 13:45.990
+And that again is substantially longer if we take thirty a while we're going to be waiting there for
+
+13:45.990 --> 13:49.830
+a little while and took 2.9 two seconds.
+
+13:49.860 --> 13:51.470
+How about 36.
+
+13:51.470 --> 13:55.590
+What if I try 36 is only one more than 35 right.
+
+13:55.670 --> 13:56.780
+What happens there.
+
+13:58.590 --> 13:59.890
+We'll just have to wait.
+
+13:59.940 --> 14:00.520
+All right.
+
+14:00.520 --> 14:04.510
+Four point seven six so you can see that it's getting worse and worse.
+
+14:04.560 --> 14:11.200
+It's runtime is getting worse and worse but we're able to time a recursive approach to calculating the
+
+14:11.200 --> 14:17.990
+Fibonacci numbers using the decorator that we created here that time decorator.
+
+14:18.030 --> 14:23.260
+So now let's go ahead and write a different implementation for Banaji this time we're going to use a
+
+14:23.260 --> 14:24.070
+loop.
+
+14:24.070 --> 14:30.550
+So we're going to create this feedback loop that's also going to take N and I'm just going to decorate
+
+14:30.550 --> 14:31.720
+it right away as well
+
+14:34.600 --> 14:40.240
+with our timed decorator and basically the way it works is that we're going to start with the first
+
+14:40.420 --> 14:46.870
+two Fibonacci numbers as known numbers 1 and 1 right for Banaji one is one for Banaji 2 is 2.
+
+14:46.900 --> 14:51.640
+And then we're going to loop and we're going to calculate the next Fibonacci numbers.
+
+14:51.670 --> 14:57.430
+So the next Fibonacci number is going to be one plus one is going to be two and then the one just before
+
+14:57.430 --> 14:58.810
+that is one right.
+
+14:58.810 --> 14:59.850
+It's for Banaji too.
+
+14:59.860 --> 15:02.320
+So we're going to just keep replacing those.
+
+15:02.590 --> 15:05.940
+So let's go ahead and do this for I in range.
+
+15:05.950 --> 15:08.370
+Now we've already calculated the first two.
+
+15:08.530 --> 15:11.320
+We need to calculate the end Fibonacci.
+
+15:11.380 --> 15:19.720
+So we're going to do a range of three to an inclusive and so and plus one right we want to calculate
+
+15:19.830 --> 15:21.200
+three four five six.
+
+15:21.340 --> 15:26.860
+And then the last one and we'll be the for the auction number that we're interested in returning from
+
+15:26.860 --> 15:27.960
+the function.
+
+15:28.380 --> 15:29.700
+And what are we going to do.
+
+15:29.950 --> 15:38.660
+Well we need to basically set Fibonacci to equal to Fibonacci 1 plus Fibonacci 2.
+
+15:38.770 --> 15:46.400
+And then when we're done we now need to stick Fibonacci 2 in Fibonacci near Fibonacci 2.
+
+15:46.430 --> 15:51.440
+Is this one and Fibonacci 1 is the old Fibonacci 2.
+
+15:51.460 --> 15:57.420
+So in any other programming language you'd have to say something like tempo equals Fibonacci 1.
+
+15:57.760 --> 15:58.620
+Right.
+
+15:58.690 --> 15:59.710
+Two equals that.
+
+15:59.740 --> 16:06.340
+And then Fibonacci 1 equals temp because we want the old Fibonacci to number because remember what are
+
+16:06.340 --> 16:08.750
+we doing with calculating 1 1.
+
+16:08.890 --> 16:12.670
+Then the next step we're calculating to which is one plus one.
+
+16:12.790 --> 16:14.680
+But the previous Fibonacci is 1.
+
+16:14.680 --> 16:20.740
+So we want one to for the next one we want to calculate the next number is three and then the previous
+
+16:20.740 --> 16:22.810
+one is to right.
+
+16:22.840 --> 16:29.930
+So we need to maintain this pair every time because now we're going to calculate three and five right.
+
+16:29.980 --> 16:32.590
+And then the next one is going to be that 5 and three the eight.
+
+16:32.680 --> 16:32.900
+OK.
+
+16:32.920 --> 16:33.550
+And so on.
+
+16:33.670 --> 16:38.640
+So that's what we're just doing in this loop.
+
+16:39.040 --> 16:40.500
+Of course this is Python.
+
+16:40.630 --> 16:42.150
+So what we can do.
+
+16:42.220 --> 16:51.180
+Remember from a previous lecture we can simply do it this way we can say for Banaji one equals Fibonacci
+
+16:51.190 --> 16:56.750
+old for the analogy to and the new Fibonacci two equals the old familiar actually one plus Fibonacci
+
+16:56.800 --> 17:01.150
+two we can do this all in one step we don't need that temporary variable.
+
+17:01.660 --> 17:02.330
+OK.
+
+17:02.530 --> 17:03.770
+And then what do we do.
+
+17:03.790 --> 17:07.470
+Well we return the end Fibonacci which is taught in Fibonacci 2.
+
+17:07.480 --> 17:11.350
+That's the last calculation that we did and that's it.
+
+17:11.350 --> 17:16.210
+That's how we use a loop to implement the Fibonacci sequence.
+
+17:16.210 --> 17:17.790
+So now we can time this.
+
+17:17.950 --> 17:23.950
+So it's been timed already so we're going to say Fibonacci using a loop do it for let's say 6 and this
+
+17:23.950 --> 17:25.330
+is how long it took to run.
+
+17:25.450 --> 17:30.800
+If we do let's say one that took a while to 236.
+
+17:31.200 --> 17:36.660
+And you can see it goes really really fast much faster than the one using recursion.
+
+17:37.060 --> 17:39.570
+And why is the recursive one so slow.
+
+17:39.610 --> 17:42.130
+Well it goes back to what we saw here.
+
+17:42.160 --> 17:45.450
+We're doing a lot of extra calculations that we don't need.
+
+17:45.910 --> 17:52.870
+So we'll look later in your later in the course actually in the few coming videos how we can fix this
+
+17:52.870 --> 17:55.200
+problem here by using caching.
+
+17:55.480 --> 17:57.730
+And this is a technique called memoization.
+
+17:57.730 --> 18:01.370
+We'll take a look at that are in a little bit.
+
+18:01.380 --> 18:08.790
+So now we've done our Fibonacci using recursion and then off Bonacci using a loop but of course you
+
+18:08.820 --> 18:13.140
+might when you look at this kind of recursive thing right with the loop and so on.
+
+18:13.140 --> 18:18.140
+You're probably thinking like wait a minute Python has this reduce function right.
+
+18:18.170 --> 18:23.910
+So the reduced function you should be able to use this here to calculate the end for the natural number
+
+18:24.360 --> 18:25.950
+and indeed we can.
+
+18:26.190 --> 18:28.650
+So let's go ahead and see how we can do that.
+
+18:28.650 --> 18:31.070
+Now this is a little more complicated.
+
+18:31.320 --> 18:34.200
+And let's just take it a step at a time.
+
+18:34.290 --> 18:36.020
+So let's make a few notes here.
+
+18:36.360 --> 18:41.290
+So first we're going to start with an equal one.
+
+18:41.420 --> 18:41.810
+OK.
+
+18:41.880 --> 18:49.290
+And I'm going to put this over here just so that it retains the spacing and everything we do.
+
+18:49.500 --> 18:52.300
+So let's say we're looking at any equals one.
+
+18:52.560 --> 18:59.550
+Well what we're going to do is we're going to start off with the tuple 1 0 and from that we want to
+
+18:59.550 --> 19:02.960
+calculate the sum right.
+
+19:02.970 --> 19:07.840
+We want to zero plus 1 is going to be one that should go into the second one.
+
+19:07.890 --> 19:11.460
+So this is the if you think of this.
+
+19:11.460 --> 19:17.640
+This is the second Fibonacci number and this is the first Fibonacci number when we do that and we reduced
+
+19:17.640 --> 19:19.660
+that by adding them together.
+
+19:19.920 --> 19:25.920
+Then we're going to get 1 plus 0 in the first position and one which is the original one in the second
+
+19:25.920 --> 19:26.880
+in the first position.
+
+19:26.880 --> 19:29.380
+Now goes into the second position.
+
+19:30.000 --> 19:38.030
+And what's our result going to be our result is going to be the the element at index 0.
+
+19:38.430 --> 19:38.880
+OK.
+
+19:39.090 --> 19:39.870
+Now if you want.
+
+19:39.900 --> 19:43.680
+You could do this with 0 1 and then have 1 1 and so on.
+
+19:43.680 --> 19:45.120
+You can reverse that.
+
+19:45.210 --> 19:51.360
+But I just want to pick here my final Fibonacci number of the first element of the tuple.
+
+19:51.780 --> 19:56.520
+OK so maybe this is a little confusing let's do any calls to so any calls to.
+
+19:56.510 --> 19:58.630
+We're going to start with 1 and 0.
+
+19:58.710 --> 19:59.060
+Right.
+
+19:59.070 --> 20:02.980
+That's all starting kind of tuple.
+
+20:03.030 --> 20:04.100
+Then what do we do.
+
+20:04.170 --> 20:07.950
+Well we want to add that one and zero together.
+
+20:08.010 --> 20:10.870
+And so that's going to become our first element.
+
+20:11.070 --> 20:17.820
+And then the first element of the previous step becomes the second element in this step then we do this
+
+20:17.820 --> 20:21.530
+again because we have calquing the second Fibonacci number.
+
+20:21.540 --> 20:23.550
+So now we have a second iteration.
+
+20:23.640 --> 20:24.660
+What are we going to do here.
+
+20:24.660 --> 20:25.580
+The same thing.
+
+20:25.740 --> 20:29.690
+Our first element is going to be the sum of the previous two elements.
+
+20:29.700 --> 20:32.060
+So it's going to be one plus one which is two.
+
+20:32.400 --> 20:37.480
+And the second element is going to be the original first element.
+
+20:37.500 --> 20:41.060
+So if you think to what we did with the loop this is very similar.
+
+20:41.070 --> 20:43.340
+This is no different grid.
+
+20:43.620 --> 20:50.110
+And then our result is going to be you know at index 0 which is going to give us 2.
+
+20:50.220 --> 20:50.650
+Right.
+
+20:50.670 --> 20:54.640
+And this is not a very good way of writing this.
+
+20:54.760 --> 20:57.860
+So this is the tuple at 0 which is 1.
+
+20:57.900 --> 21:01.770
+And this is the tuple at 0 which is 2.
+
+21:01.870 --> 21:03.640
+Let's let's do at least one more.
+
+21:03.660 --> 21:05.180
+Let's do any calls 3.
+
+21:05.340 --> 21:09.190
+So for any call 3 again we're going to start with 1 and 0.
+
+21:09.420 --> 21:11.460
+And we're going to sum up.
+
+21:11.460 --> 21:14.220
+That's going to become one and then take the first element.
+
+21:14.280 --> 21:16.020
+That's the second element.
+
+21:16.020 --> 21:18.590
+Now we do this again right next iteration.
+
+21:18.600 --> 21:20.130
+Sum up we get two.
+
+21:20.280 --> 21:25.450
+And then the first element was one that becomes the second element and we do it one more time.
+
+21:25.470 --> 21:27.310
+The sum of two and one is three.
+
+21:27.450 --> 21:29.230
+And the first element was two.
+
+21:29.250 --> 21:31.770
+So now that becomes our second element right.
+
+21:31.800 --> 21:37.810
+And our result is t 0 butches 3.
+
+21:38.010 --> 21:39.720
+Let's do one more close one.
+
+21:39.960 --> 21:49.830
+So 1 and 0 will go to 1 and 1 just as before I can type 2 and 1 right.
+
+21:49.900 --> 21:54.440
+Then two plus one is three so we have three and then two and then one more time.
+
+21:54.480 --> 21:56.230
+Three plus two is five.
+
+21:56.280 --> 21:58.110
+And the previous element was three.
+
+21:58.110 --> 22:06.900
+So we put three in his K and then our result is the tuples all the element at the zero position of that
+
+22:06.920 --> 22:09.460
+table which is 5 k.
+
+22:09.810 --> 22:10.650
+So there you go.
+
+22:10.680 --> 22:13.230
+This is how we're going to essentially reduce.
+
+22:13.230 --> 22:13.540
+Right.
+
+22:13.560 --> 22:18.250
+If you think of what the reduction is we start with one comma's 0.
+
+22:18.260 --> 22:22.050
+Our reduction is going to have to produce 8 tuple.
+
+22:22.050 --> 22:28.200
+So we start with a tuple and we're going to reduce it to another tuple where the first element of the
+
+22:28.200 --> 22:34.920
+tuple will be the sum of the elements in the previous tuple and the second element will be the new tuple
+
+22:34.920 --> 22:40.060
+will be the first element of the old tuple OK.
+
+22:40.080 --> 22:41.850
+And then how many times do we want to do this.
+
+22:41.850 --> 22:48.990
+Well if you want to calculate any equals four you saw we did one two three four steps right for equals
+
+22:48.990 --> 22:50.610
+three with three steps.
+
+22:50.610 --> 22:55.730
+So we're going to need to repeat this and times so how are we going to do this.
+
+22:55.790 --> 23:04.880
+Well in general what's happening is we have this we have the previous value would be let's say the coupal
+
+23:04.910 --> 23:11.490
+a comedy and the new value is going to be the tuple Plus the comma.
+
+23:11.630 --> 23:12.020
+Right.
+
+23:12.020 --> 23:15.790
+This is just rewriting in a more general form.
+
+23:15.800 --> 23:17.030
+What we're doing here.
+
+23:17.030 --> 23:18.770
+Right so this is what we're doing.
+
+23:18.770 --> 23:20.640
+So the new value is going to be that.
+
+23:20.960 --> 23:26.870
+How does the reduce function works well it needs a function and the function will be passed to values
+
+23:27.470 --> 23:30.230
+the the current value in the old value.
+
+23:30.320 --> 23:30.610
+Right.
+
+23:30.620 --> 23:32.360
+That's essentially what's happening.
+
+23:32.720 --> 23:34.050
+But from what.
+
+23:34.100 --> 23:35.450
+From a sequence.
+
+23:35.480 --> 23:37.930
+Well we don't have a sequence here.
+
+23:38.000 --> 23:39.740
+So we're going to play a little trick.
+
+23:39.740 --> 23:45.980
+We're going to use a range function that's going to generate a sequence of and integers and we're not
+
+23:45.980 --> 23:47.920
+actually going to use those integers at all.
+
+23:47.930 --> 23:53.650
+We're only going to use them in the reduced function to make the reduced function work and times right.
+
+23:53.660 --> 23:55.400
+Repeat end times.
+
+23:55.400 --> 23:58.220
+So let's see how we might do something like that.
+
+23:58.220 --> 24:02.290
+So from phunk tools can pull reduce.
+
+24:02.390 --> 24:06.850
+So that's the first thing we need to do we need to we all grab the ridges function.
+
+24:07.210 --> 24:13.450
+Next we're going to say and reduce And we're also going to time it.
+
+24:13.570 --> 24:15.490
+So that's decorate it.
+
+24:15.700 --> 24:17.290
+So the fibered use needs again.
+
+24:17.310 --> 24:25.580
+And and our initial work is going to be zero come a 1 0 1 0.
+
+24:26.130 --> 24:26.920
+OK.
+
+24:31.450 --> 24:32.610
+And then what are we going to do.
+
+24:32.680 --> 24:40.780
+Well we're going to create this dummy kind of iterable range and it will have any elements in it from
+
+24:40.780 --> 24:42.410
+zero and minus one.
+
+24:42.590 --> 24:45.940
+I don't really care what the actual integers are in this thing.
+
+24:45.940 --> 24:51.940
+I just need a list or an iterable that's going to have an element because when I run produce I'm going
+
+24:51.940 --> 24:59.320
+to run it on that list but remember that redos so firm n equals revues.
+
+24:59.320 --> 25:01.500
+Now what does reduce take us parameters.
+
+25:01.720 --> 25:03.850
+Well it's going to need some function.
+
+25:03.850 --> 25:06.620
+So let's leave that blank just for a second.
+
+25:06.790 --> 25:09.540
+Then it needs to iterate over a iterable.
+
+25:09.580 --> 25:12.790
+So we'll use dummy for the iterable.
+
+25:12.790 --> 25:14.080
+And then what does it need.
+
+25:14.080 --> 25:15.980
+It needs an initial value.
+
+25:16.150 --> 25:18.610
+So I'm going to take initial Right.
+
+25:18.640 --> 25:22.000
+That's our initial value here.
+
+25:22.230 --> 25:26.610
+And then what we want to do now we want to create this reduction function.
+
+25:26.760 --> 25:32.670
+So lambda we can use a lambda expression and it's going to take in the previous whatever the previous
+
+25:32.670 --> 25:40.300
+thing was and the next element of the of the Arabic.
+
+25:40.320 --> 25:43.920
+Now what are we iterating with iterating dummy.
+
+25:43.920 --> 25:46.260
+So the next element of the iterable is going to be this.
+
+25:46.290 --> 25:49.020
+And here what's the previous value.
+
+25:49.140 --> 25:55.080
+While in this case here our previous first previous value is going to be initial Because that's what
+
+25:55.080 --> 25:56.620
+we said to be the initial.
+
+25:57.030 --> 25:58.800
+And what is the initial.
+
+25:58.910 --> 26:00.390
+It is a tuple.
+
+26:00.690 --> 26:02.880
+And what do we want this lambda to return.
+
+26:02.880 --> 26:04.980
+We wanted to return a tuple as well.
+
+26:05.070 --> 26:06.980
+And what you did return as a tuple.
+
+26:07.200 --> 26:09.420
+Well it should return a tuple.
+
+26:09.420 --> 26:17.310
+That's going to contain the previous 0 plus previous one.
+
+26:17.430 --> 26:21.940
+OK so it's going to sum up the previous first and second elements of the tuple.
+
+26:22.140 --> 26:25.050
+And what does it return here for its second element.
+
+26:25.050 --> 26:30.620
+The first element of the previous So previous is zero.
+
+26:31.010 --> 26:34.140
+And then we put these on different lines.
+
+26:35.980 --> 26:38.900
+So you'll see how the reduces working right.
+
+26:38.950 --> 26:46.670
+It's a little odd because we're not actually using this at all and is what end is coming out of dummy.
+
+26:46.930 --> 26:49.120
+The first element that gets returned.
+
+26:49.210 --> 26:56.270
+That goes into previous is going to be initial Because we say hey put that in front of everything else.
+
+26:56.320 --> 26:58.200
+So initial is in front of everything else.
+
+26:58.210 --> 26:59.210
+It's the tuple.
+
+26:59.440 --> 27:01.480
+What comes after that in each iteration.
+
+27:01.510 --> 27:08.290
+Whatever's in this iterable which is just a list of you know it's not a list it's an iterable of and
+
+27:08.290 --> 27:10.710
+integers from 0 to and minus one.
+
+27:10.930 --> 27:12.900
+But you'll notice we're not using it at all.
+
+27:12.970 --> 27:19.600
+So this is just a fairly standard trick of being able to use Reduce but without actually caring what
+
+27:19.600 --> 27:21.250
+the trouble is.
+
+27:21.250 --> 27:23.410
+So at the end of the day what do we get.
+
+27:23.470 --> 27:30.120
+Once we have that reduced function completed what we have a tuple and what we want to return.
+
+27:30.230 --> 27:34.520
+Well we want to return Furber and 0.
+
+27:34.570 --> 27:36.780
+We want to return the first element right.
+
+27:36.810 --> 27:40.640
+It's that first element here that's our result.
+
+27:40.660 --> 27:42.670
+So there we go that's it.
+
+27:42.670 --> 27:49.270
+That's now off the Banaji sequence but done using a reduced function.
+
+27:49.430 --> 27:52.960
+And now let's time it because this was kind of complicated.
+
+27:53.030 --> 27:53.490
+Right.
+
+27:53.570 --> 27:56.470
+But the whole Python has a reduced function.
+
+27:56.480 --> 28:01.860
+It's it's there it's useful it's it's kind of cool to use so we probably should use it.
+
+28:01.880 --> 28:04.640
+And you know why use a boring old loop.
+
+28:04.790 --> 28:05.120
+Right.
+
+28:05.120 --> 28:07.230
+Which is easier to understand.
+
+28:07.250 --> 28:09.520
+You know we know that the loop is faster than recursion.
+
+28:09.530 --> 28:14.750
+So yes recursion you know is very elegant in terms of an algorithm.
+
+28:14.750 --> 28:19.820
+The loop is just a boring thing it's like while it's a loop you know you really probably should be using
+
+28:19.820 --> 28:20.870
+reduce instead.
+
+28:20.870 --> 28:21.680
+Right.
+
+28:21.710 --> 28:23.090
+So let's go ahead and time.
+
+28:23.270 --> 28:28.500
+Let's go ahead and run this and let's do reduce of let's say 35.
+
+28:28.910 --> 28:32.840
+And it took zero point 0 0 0 0 0 0 1 3 seconds to run.
+
+28:32.840 --> 28:34.450
+So that's quite efficient.
+
+28:34.460 --> 28:35.800
+What about the loop.
+
+28:35.930 --> 28:38.160
+Efficient was that one.
+
+28:38.300 --> 28:40.230
+While it seems actually faster.
+
+28:40.340 --> 28:43.310
+So the plain old loop is faster than the reduce.
+
+28:43.310 --> 28:44.700
+I wonder if that works.
+
+28:44.880 --> 28:48.600
+You know as we start looking at higher numbers let's do a hundred.
+
+28:49.100 --> 28:51.120
+OK that's pretty fast.
+
+28:51.120 --> 28:54.560
+They reduce our food loop right.
+
+28:54.610 --> 28:58.600
+Lonnie's the loop method and that's faster.
+
+28:58.610 --> 28:59.470
+All right.
+
+29:00.540 --> 29:03.170
+So two things here.
+
+29:03.180 --> 29:08.620
+One is you can see how our decorator could be used to time any function that we want.
+
+29:08.810 --> 29:10.540
+It's pretty straightforward in order to do it.
+
+29:10.560 --> 29:16.700
+We just decorated with the time decorator The other thing too that I want to point out in this example
+
+29:16.730 --> 29:23.150
+is that just because Python has something that's cool or more complicated doesn't mean you should use
+
+29:23.150 --> 29:23.630
+it.
+
+29:23.720 --> 29:24.010
+Right.
+
+29:24.020 --> 29:26.050
+In this case yeah.
+
+29:26.060 --> 29:29.630
+I mean you know from a timing perspective that's approximately the same.
+
+29:29.630 --> 29:32.950
+I mean this one is definitely the loop is definitely faster.
+
+29:32.960 --> 29:33.310
+Right.
+
+29:33.350 --> 29:36.260
+We take maybe a thousand.
+
+29:36.530 --> 29:38.290
+You know it's really fast.
+
+29:38.330 --> 29:42.710
+Either one of those is really fast on maybe 10000.
+
+29:42.730 --> 29:44.670
+Let's go.
+
+29:44.930 --> 29:46.840
+Well I had a thousand ten thousand.
+
+29:46.880 --> 29:54.610
+So let's do 10000 riots again 0.00 for seconds that's really fast.
+
+29:54.840 --> 29:59.670
+And this one 0.00 to about half the time.
+
+29:59.800 --> 30:02.800
+So you probably don't really care one way or the other here.
+
+30:02.860 --> 30:04.060
+It runs so fast.
+
+30:04.120 --> 30:09.040
+What if you're repeating this kind of operation thousands and thousands of times in your program then
+
+30:09.070 --> 30:14.740
+the fact that this runs about 50 percent faster than the reduced can makes your kid still making a big
+
+30:14.740 --> 30:15.700
+difference.
+
+30:15.700 --> 30:22.000
+So just because something is available and is cool and is more advanced than boring loops a lot of people
+
+30:22.000 --> 30:23.650
+talk about while loops are boring.
+
+30:23.650 --> 30:27.470
+We should do this using this fancy you know functional approach.
+
+30:27.820 --> 30:32.040
+Yeah you can but it's not always the best approach.
+
+30:32.050 --> 30:36.430
+The thing that I want to point out in I me delete that because those numbers are huge.
+
+30:36.470 --> 30:42.270
+OK I want to point out with time is that it's really only running these tests one time.
+
+30:42.280 --> 30:42.570
+Right.
+
+30:42.610 --> 30:48.640
+And so we if we really want to try and time our function we probably should do more than just one test
+
+30:48.670 --> 30:49.000
+right.
+
+30:49.000 --> 30:51.420
+Maybe we do something like will I in range.
+
+30:51.640 --> 30:59.980
+And maybe you know we run this 10 times and then we just call let's say fib a loop of let's say you
+
+30:59.980 --> 31:05.740
+know 100 and you run it 10 times and then you take a look at all these numbers you can see they're not
+
+31:05.740 --> 31:08.710
+always exactly the same you know 8 9 7.
+
+31:08.890 --> 31:11.890
+So you want to run it multiple times and averages.
+
+31:12.010 --> 31:16.080
+So of course we could definitely do this by taking our time.
+
+31:16.090 --> 31:20.690
+That creative and rewriting this so we could do this.
+
+31:20.890 --> 31:26.770
+And then instead of just taking this result in the single elapsed time maybe we do something like this
+
+31:26.830 --> 31:35.830
+where we say elapsed total equals zero elapsed count equals zero.
+
+31:36.190 --> 31:40.990
+And then where do they fall in range let's say 10.
+
+31:41.020 --> 31:41.660
+Right.
+
+31:41.860 --> 31:43.940
+And we're going to do this.
+
+31:44.120 --> 31:44.730
+OK.
+
+31:45.010 --> 31:52.810
+And here's where I'm going to do once I've calculated the elapse immensely elapsed total plus equals
+
+31:53.170 --> 32:00.340
+elapsed and then elapsed callant quasi equal 1 and then over here.
+
+32:00.640 --> 32:07.900
+When before I print out the elapsed I'm going to calculate the elapsed average that's going to be the
+
+32:07.930 --> 32:17.560
+elapsed total divided by the elapsed count K and then I'm going to calculate here and say it was the
+
+32:17.560 --> 32:24.430
+elapsed average so we could certainly do this and I'm going to just copy paste this one over here.
+
+32:26.190 --> 32:28.630
+OK so now we've decorated the function.
+
+32:28.630 --> 32:33.920
+Now we won't see that this sexually has run ten times so let's go ahead and say here.
+
+32:34.220 --> 32:37.380
+Print running.
+
+32:39.160 --> 32:41.860
+Iteration.
+
+32:42.460 --> 32:43.750
+Whatever that number is
+
+32:46.610 --> 32:47.880
+correct.
+
+32:48.010 --> 32:52.300
+Let's do it this way and let's now decorate for produce with that.
+
+32:52.300 --> 32:55.920
+And let's call FEBE redos of one hundred.
+
+32:56.060 --> 32:56.590
+OK.
+
+32:56.770 --> 33:01.720
+Now you can see it's running all these iterations and then this was actually the average elapsed time
+
+33:01.840 --> 33:04.330
+not the actual elapsed time between.
+
+33:04.510 --> 33:09.010
+Now we still return the result because we're storing the result and at the end of the day we return
+
+33:09.010 --> 33:09.690
+the result.
+
+33:11.000 --> 33:12.780
+But there's a problem here.
+
+33:13.230 --> 33:14.310
+It's not a problem.
+
+33:14.400 --> 33:17.580
+But my turn is hand-coded.
+
+33:17.740 --> 33:22.870
+It's like wow OK what if I don't want to have 10 hand-coded What could I do.
+
+33:23.860 --> 33:31.690
+And it's like wow OK so maybe you know I'm passing the count over here the the you know how many times
+
+33:31.690 --> 33:36.660
+it's supposed to be repeated and then here I can just you know give it count.
+
+33:36.700 --> 33:43.880
+And so now I have a decorator that has two parameters F and count.
+
+33:44.140 --> 33:50.520
+Well the problem is that how do I write timed here knows that the function is going to be footbridges
+
+33:50.530 --> 33:54.860
+How do I tell it that I want to run this let's say you know 15 times.
+
+33:55.040 --> 33:56.940
+That's not going to work right.
+
+33:56.950 --> 34:01.120
+Because time is missing one required positional argument count.
+
+34:01.120 --> 34:04.010
+So we'll get to that in upcoming videos.
+
+34:04.030 --> 34:11.470
+And this is what I mean by having parameterised on decorators and you see that we've actually used parameterised
+
+34:11.470 --> 34:13.210
+decorator's before this one right here.
+
+34:13.220 --> 34:18.430
+This ad wraps fan so we can decorate our function this way.
+
+34:18.440 --> 34:20.270
+Now we could do it this way.
+
+34:20.590 --> 34:21.270
+Right.
+
+34:21.370 --> 34:31.650
+We could say Furber underscore reduce sequel's time look fib underscore reduced and let's do that 15
+
+34:31.660 --> 34:32.390
+times.
+
+34:32.490 --> 34:32.830
+OK.
+
+34:32.980 --> 34:37.910
+So that will work except for reduced is not reduce.
+
+34:37.960 --> 34:39.060
+Sorry.
+
+34:39.670 --> 34:41.620
+So this will work.
+
+34:41.620 --> 34:48.490
+Now we can call FEBE reduce let's say of 100 and it's going to run it 15 times.
+
+34:48.640 --> 34:57.130
+So that's fine but the problem doing it this way is we can no longer use this method over here of decorating
+
+34:57.130 --> 34:58.660
+our functions.
+
+34:58.660 --> 35:00.130
+So we'll get to that later.
+
+35:00.130 --> 35:06.040
+I just wanted to point that out right away that if we decorate our functions using this this will work
+
+35:06.100 --> 35:11.470
+this approach will work but if we want to use the shorthand notation that won't work and we'll have
+
+35:11.470 --> 35:13.380
+to figure out something else.
+
+35:13.390 --> 35:13.840
+All right.
+
+35:13.890 --> 35:14.890
+So thanks for watching.
+
+35:14.950 --> 35:16.000
+And also in the next video.

@@ -1,0 +1,1198 @@
+WEBVTT
+
+00:00.420 --> 00:09.270
+High in this video I want to start looking at Python modules and what is a module now a module is nothing
+
+00:09.270 --> 00:13.520
+more than just an object of a certain data type.
+
+00:13.510 --> 00:23.700
+So modules are instances of the module type just like a class is an instance of the class type and instances
+
+00:23.700 --> 00:29.420
+of a class or instances of that class functions are instances of the function class.
+
+00:29.610 --> 00:39.510
+So for example let's say I say def funk and I go in here and I say Akos 10 and return a something like
+
+00:39.510 --> 00:40.240
+that correct.
+
+00:40.290 --> 00:44.040
+Lets say I have that then I can look at what func is.
+
+00:44.090 --> 00:44.440
+OK.
+
+00:44.460 --> 00:48.360
+Func is a function called funk in main.
+
+00:48.360 --> 00:50.950
+So that type of phunk is function.
+
+00:51.030 --> 00:56.700
+Its in my main module because this is what I'm running inside right now the name of this module that
+
+00:56.700 --> 01:01.120
+I'm running in is my main module and that's my Jupiter notebook.
+
+01:01.140 --> 01:04.890
+So now where is this thing being located because not really.
+
+01:04.920 --> 01:10.790
+Right if I call func and I you know I referenced phunk here with func we have a call here.
+
+01:10.790 --> 01:11.830
+I can do that.
+
+01:12.090 --> 01:14.430
+Obviously Python is looking at this.
+
+01:14.430 --> 01:16.310
+Now this isn't the function itself.
+
+01:16.320 --> 01:17.750
+This is just a label.
+
+01:17.760 --> 01:20.690
+This is a symbol that represents that function.
+
+01:20.830 --> 01:27.040
+What it needs to do at the end of the day is call whatever object is stored at that memory address write
+
+01:27.060 --> 01:29.640
+my func has a memory address.
+
+01:29.640 --> 01:33.150
+So it's going to call the object stored at that location.
+
+01:33.390 --> 01:35.150
+Where does it know where to find it.
+
+01:35.220 --> 01:41.400
+Well remember we've discussed this before but that's the namespace the namespace basically holds references
+
+01:41.610 --> 01:43.200
+to all the symbols that we have.
+
+01:43.320 --> 01:45.560
+And what object they point to in memory.
+
+01:45.780 --> 01:52.650
+And we can very easily look at the namespace we can look at that dictionary that contains this by looking
+
+01:52.650 --> 01:53.920
+at Global's.
+
+01:54.240 --> 02:00.630
+So Global's tells us all the global stuff in our namespace that basically gives us a listing of our
+
+02:00.630 --> 02:02.480
+global namespace.
+
+02:02.490 --> 02:06.720
+So for example the function phunk will find down here.
+
+02:06.720 --> 02:07.870
+There it is right.
+
+02:07.890 --> 02:13.110
+Func is a function and its name is func and it's located in the main module.
+
+02:13.380 --> 02:15.780
+And this is the memory right.
+
+02:15.780 --> 02:20.390
+Address the the reference to the object in memory.
+
+02:20.630 --> 02:27.230
+So I can also recover instead of using the non-self calling func this way I could do Global's which
+
+02:27.230 --> 02:28.310
+is a dictionary.
+
+02:28.400 --> 02:30.920
+I can go and get phunk right.
+
+02:30.980 --> 02:32.850
+So now I've got my function.
+
+02:33.230 --> 02:40.490
+I can say equals that for example and I can look at f is funk and that's true because those are both
+
+02:40.490 --> 02:41.290
+the same things.
+
+02:41.290 --> 02:42.790
+And now I can call f.
+
+02:42.880 --> 02:43.260
+Right.
+
+02:43.310 --> 02:50.450
+So I could also have just called it directly this way but basically name spaces are dictionaries and
+
+02:50.450 --> 02:52.450
+dictionaries that contain the symbols.
+
+02:52.580 --> 02:55.710
+And then also contain what that symbol means.
+
+02:56.010 --> 03:02.570
+And there's a lot of stuff that got added in by Python as it loaded by Jupiter as it loaded so bunch
+
+03:02.570 --> 03:06.050
+of stuff that's happening behind the scenes.
+
+03:06.070 --> 03:13.820
+I also want to point out very quickly that let's say I'm going to redefine our funk and we can also
+
+03:13.820 --> 03:16.860
+look at the local namespace inside the function.
+
+03:16.860 --> 03:25.160
+Now we can look at the local namespace in the main module but if we do that to locals we can do that
+
+03:25.160 --> 03:32.360
+as well in here we can call locals and that's going to give us a dictionary and it looks identical to
+
+03:32.390 --> 03:36.720
+the one and is it the same though.
+
+03:40.280 --> 03:41.790
+It's not the same dictionary.
+
+03:41.810 --> 03:48.080
+And the answer is yes because when we're in the global scope which we are here when I'm typing this
+
+03:48.080 --> 03:53.140
+code then the local scope and the global scope happens to coincide it's the same thing.
+
+03:53.270 --> 03:56.730
+But if we're inside a function then it's not the same thing.
+
+03:56.780 --> 04:03.990
+So let me go ahead and say the 12 equals 10 and the last 10.
+
+04:04.250 --> 04:06.030
+And before I do that let me add the second.
+
+04:06.110 --> 04:07.800
+Let me say equals 100.
+
+04:07.910 --> 04:08.420
+OK.
+
+04:08.690 --> 04:10.670
+So now if I look at Global's
+
+04:13.880 --> 04:17.850
+then we'll see that I should have a in here somewhere.
+
+04:18.160 --> 04:18.980
+See if I can find.
+
+04:18.980 --> 04:23.360
+There we go a and a is a 100 k now in the phunk.
+
+04:23.360 --> 04:26.740
+I'm going to do that and I'm going to print the locals out.
+
+04:26.860 --> 04:28.370
+I'm not going to return anything.
+
+04:28.380 --> 04:32.480
+Now I'm going to call func and these are the locals.
+
+04:32.490 --> 04:32.710
+OK.
+
+04:32.720 --> 04:35.040
+We only had two things A and B.
+
+04:35.060 --> 04:39.330
+So there we go A and B but again local's is just a dictionary just like Global's.
+
+04:39.380 --> 04:41.060
+That's the namespace.
+
+04:41.090 --> 04:41.810
+All right.
+
+04:42.140 --> 04:46.920
+So all that was just to start looking at modules.
+
+04:46.970 --> 04:49.520
+So let me go ahead and delete all this stuff.
+
+04:49.550 --> 04:51.020
+We don't need it.
+
+04:53.680 --> 04:58.820
+And let's clear the slate let's import the math module now.
+
+04:58.970 --> 05:00.880
+Oh Cape's Python did something.
+
+05:00.890 --> 05:04.150
+And we'll take a look at exactly what happens when we import a module.
+
+05:04.160 --> 05:08.170
+But for now we just want to kind of look at what a module is.
+
+05:08.390 --> 05:14.810
+Well first of all if I type just math by itself Python tells me just like I had my phunk just now that
+
+05:14.900 --> 05:21.200
+this is a module that's a type it's a module it's called math and it's a builtin module so this is one.
+
+05:21.230 --> 05:24.160
+This one is a little special case a little different.
+
+05:24.170 --> 05:28.200
+Let's go ahead and say simple fractions.
+
+05:28.250 --> 05:28.750
+OK.
+
+05:28.990 --> 05:32.980
+And now let's look at what fractions is all fractions is a module.
+
+05:32.990 --> 05:37.610
+Fractions and it came from this file over here.
+
+05:37.630 --> 05:40.400
+I'll talk about that in a little while.
+
+05:40.400 --> 05:44.600
+But there's a little bit of a difference between the built in and the standard library stented library
+
+05:44.600 --> 05:46.660
+very often is written in Python.
+
+05:46.670 --> 05:52.190
+So you get p y files sometimes it's written in C but the built ins are written in C and they're built
+
+05:52.190 --> 05:58.090
+into the Python language that that we get the C Python.
+
+05:58.360 --> 05:58.900
+OK.
+
+06:00.480 --> 06:06.150
+So now let's take a look at our global namespace again because what is math.
+
+06:06.400 --> 06:12.100
+Well math is really not and fractions now by the way it's no different than a variable.
+
+06:12.100 --> 06:12.370
+Right.
+
+06:12.370 --> 06:17.040
+In fact we could say junk because math right.
+
+06:17.060 --> 06:22.260
+And now I could say junk that square root of two.
+
+06:22.540 --> 06:22.930
+Right.
+
+06:22.970 --> 06:25.190
+Because junk is math.
+
+06:25.210 --> 06:26.380
+It's the same thing right.
+
+06:26.380 --> 06:34.360
+These two labels these two symbols are pointing to the same object but how does Python know what that
+
+06:34.360 --> 06:37.330
+object is and where it's located in memory.
+
+06:37.360 --> 06:41.420
+Well that comes from the Global's that's stored in the namespace.
+
+06:41.560 --> 06:41.960
+Right.
+
+06:41.980 --> 06:47.470
+So the namespace Global's is now going to contain we're going to see math right.
+
+06:47.470 --> 06:49.990
+Math was imported fractions was imported.
+
+06:50.020 --> 06:51.710
+So we have all of that there.
+
+06:51.910 --> 06:54.700
+OK and we'll see it down here somewhere as well.
+
+06:54.700 --> 06:56.040
+His math right.
+
+06:56.050 --> 06:57.160
+And his fractions.
+
+06:57.220 --> 07:01.520
+So in fact I could say Global's.
+
+07:02.270 --> 07:07.750
+And I'm going to look for the math key in Global's And you'll notice it returns something and return
+
+07:07.930 --> 07:09.420
+it returned the model.
+
+07:09.550 --> 07:16.960
+So now I could say you know more math equals Global's math.
+
+07:16.960 --> 07:21.570
+Now I have a handle to that object to knock and say MMOG math.
+
+07:22.030 --> 07:24.050
+Square root of 2.
+
+07:24.400 --> 07:25.460
+And I get that again.
+
+07:25.480 --> 07:26.810
+That was the same way.
+
+07:27.100 --> 07:34.570
+So when I do this math that's something when I use math it looks in the global namespace it looks in
+
+07:34.570 --> 07:36.880
+the dictionary and it's just a plain text.
+
+07:36.910 --> 07:44.260
+We can take a look at it globose the type of that is a dict just an ordinary Python dictionary.
+
+07:44.320 --> 07:50.020
+So when we import a module it gets loaded into here but it's just an object.
+
+07:50.140 --> 07:51.470
+So we can actually look at.
+
+07:51.490 --> 07:57.580
+And we saw when we typed math that we got that we can also look at the type if you want but it's just
+
+07:57.580 --> 07:59.740
+going to tell us that it's a module.
+
+07:59.820 --> 08:00.230
+OK.
+
+08:00.250 --> 08:06.000
+So it's a module we can look at the type of fractions.
+
+08:06.670 --> 08:08.110
+That's a module too.
+
+08:08.170 --> 08:11.570
+We can also look at the idea of math for example.
+
+08:11.570 --> 08:11.730
+Right.
+
+08:11.770 --> 08:15.730
+It's got a specific memory address and I want you to remember this memory address.
+
+08:15.730 --> 08:20.980
+Well I'll scroll back up and take a look at it because I want to show you what happens if my simple
+
+08:21.100 --> 08:21.990
+math again.
+
+08:22.300 --> 08:30.420
+Let's say I do import math again a second time well what's the idea of math now.
+
+08:33.970 --> 08:41.200
+It's the same so it can actually reload the module and we'll get to that when we look at imports because
+
+08:41.200 --> 08:43.120
+there's something else that's happening.
+
+08:43.120 --> 08:46.840
+But there's a global cache that contains all the modules that get loaded.
+
+08:46.840 --> 08:53.720
+So if you're in some other module in your python program and you import math you'll get the same reference.
+
+08:53.740 --> 08:56.880
+So think of those as Singleton objects essentially.
+
+08:57.100 --> 09:04.060
+So when we import a module it's not getting loaded into queue it's getting loaded into memory and a
+
+09:04.060 --> 09:07.140
+reference is set into our global namespace.
+
+09:07.150 --> 09:11.110
+It's not it's not like the module is being loaded here.
+
+09:11.110 --> 09:17.200
+What happens is that it gets reference it gets created instantiated in memory and then a reference is
+
+09:17.260 --> 09:19.440
+added to our global dictionary.
+
+09:19.600 --> 09:27.340
+But it's also added somewhere else and it's added into the system cache and it's we can look at that
+
+09:27.340 --> 09:33.540
+system cache by importing the CIS module and we can look at the.
+
+09:33.610 --> 09:39.570
+Let's take a look at sists docked modules.
+
+09:39.620 --> 09:40.240
+It's big.
+
+09:40.280 --> 09:42.160
+It's got a lot of stuff in it.
+
+09:42.170 --> 09:48.500
+There's a lot of modules that that got loaded and a lot of them have to do with Python which is you
+
+09:48.500 --> 09:50.130
+know the Jupitus stuff.
+
+09:50.210 --> 09:54.770
+So I'm not going to look at it directly this way because it's going to be just too difficult to find
+
+09:54.770 --> 09:55.450
+what we want.
+
+09:55.490 --> 10:01.190
+But let me show you that the type of sist modules is just a dictionary.
+
+10:01.250 --> 10:09.780
+This is the dictionary that contains our module and the module symbol and where it's located in memory.
+
+10:10.860 --> 10:14.480
+So for example we could say system modules.
+
+10:14.490 --> 10:15.870
+It's just a dictionary.
+
+10:15.990 --> 10:17.610
+Let's look for the math right.
+
+10:17.610 --> 10:25.230
+It should be in there because we imported math and it is and if we look at the I.D. of that model
+
+10:31.560 --> 10:35.640
+we'll see that it's the same ID as this one over here.
+
+10:35.670 --> 10:37.440
+And as this one over here.
+
+10:37.740 --> 10:42.830
+So what actually happened the first time I imported math it got went ahead.
+
+10:42.900 --> 10:50.020
+It actually loaded the module put into memory and then it created a reference to it in six modules.
+
+10:50.370 --> 10:56.340
+And then because I was inside the main module when I was importing math it added that same symbol with
+
+10:56.340 --> 10:59.990
+the same reference inside my global namespace.
+
+11:00.060 --> 11:01.600
+So it was sitting there.
+
+11:01.800 --> 11:07.240
+Now if I now have a night program has multiple modules if I import math again from another module.
+
+11:07.680 --> 11:11.870
+The first thing Python's going to do is going to go to the cist modules look for it.
+
+11:11.870 --> 11:13.350
+It finds its going to say great.
+
+11:13.380 --> 11:14.460
+I don't need to reload it.
+
+11:14.460 --> 11:16.230
+It's already been loaded.
+
+11:16.230 --> 11:21.180
+So let's take a look and let's start doing some introspection and let's start with the math module Let's
+
+11:21.180 --> 11:24.730
+start there so we can look at the name of the math module.
+
+11:24.750 --> 11:25.830
+It's called math.
+
+11:26.250 --> 11:29.790
+We can also look at the dict.
+
+11:29.790 --> 11:33.370
+So a couple of ways of doing this but I'll use the dumb to dict.
+
+11:33.870 --> 11:39.960
+So this is a dictionary that basically contains all the standard dictionary contains all the attributes
+
+11:40.260 --> 11:44.330
+that are in the math module in this math object.
+
+11:44.350 --> 11:44.580
+Right.
+
+11:44.580 --> 11:46.880
+Just an object like any other object.
+
+11:47.260 --> 11:47.930
+OK.
+
+11:48.420 --> 11:51.420
+So for example we'll find the square root is in here somewhere.
+
+11:51.420 --> 11:53.180
+There we go square root and square root.
+
+11:53.190 --> 11:55.230
+Is this function over here.
+
+11:55.470 --> 12:04.350
+So if I wanted to get my hands onto the square root function I could say F equals math Dundon dict as
+
+12:04.400 --> 12:06.110
+Q R T.
+
+12:06.150 --> 12:07.120
+Now got a function.
+
+12:07.140 --> 12:09.000
+What is that function f.
+
+12:09.010 --> 12:13.590
+It's the math square root function Crites and I can call from too and I get that.
+
+12:13.590 --> 12:18.990
+So again everything is just basically doing lookups in the name space in that table and finding the
+
+12:19.050 --> 12:22.590
+object that it corresponds to based on the symbol.
+
+12:22.590 --> 12:25.290
+Now there's some other interesting things in here as well.
+
+12:25.380 --> 12:31.720
+For example we have this package which we'll talk about later when we're looking at creating packages
+
+12:31.720 --> 12:37.280
+will also have this module spec which tells us that the name of the package is math.
+
+12:37.470 --> 12:40.900
+It's kind of think of it as metor data regarding the module.
+
+12:41.010 --> 12:43.170
+And it says the origin is built in.
+
+12:43.170 --> 12:44.570
+It's a built in.
+
+12:44.790 --> 12:47.180
+So map behaves a little differently.
+
+12:47.190 --> 12:49.300
+It's you know it's written in C..
+
+12:49.560 --> 12:55.850
+So let's go ahead and let's import a module that's actually written in Python.
+
+12:55.850 --> 12:58.660
+That's all part of the standard library but written in Python.
+
+12:58.800 --> 13:01.420
+So let's go ahead and say import fractions.
+
+13:01.590 --> 13:01.880
+OK.
+
+13:01.890 --> 13:03.600
+So fractions another module.
+
+13:03.600 --> 13:11.690
+So now if I look at cist modules and I go and look for fractions in there I have it.
+
+13:11.790 --> 13:14.450
+And you'll notice that it says module fractions.
+
+13:14.460 --> 13:15.150
+That's the name.
+
+13:15.150 --> 13:22.010
+So this is the type to module names fractions and it doesn't say builtin here it says from this.
+
+13:22.950 --> 13:23.930
+What is that.
+
+13:24.120 --> 13:27.870
+Well that's where the fraction of p y code exists.
+
+13:27.870 --> 13:29.640
+This is where it's located.
+
+13:29.940 --> 13:30.400
+Right.
+
+13:30.540 --> 13:33.990
+And so in fact if we look at fractions dict
+
+13:37.010 --> 13:39.870
+and let me do it this way to me the dearth of fractions
+
+13:44.490 --> 13:47.460
+so here are the keys.
+
+13:47.640 --> 13:51.310
+And you'll notice that we have this file thing here.
+
+13:51.510 --> 13:52.030
+OK.
+
+13:52.230 --> 13:53.450
+We also have a name.
+
+13:53.520 --> 13:55.100
+We have a spec as well.
+
+13:55.140 --> 13:57.750
+So let's take a look at what that is.
+
+13:57.750 --> 14:00.060
+Now let me bring in now we just saw that.
+
+14:00.060 --> 14:02.060
+Let me bring that in depth.
+
+14:02.070 --> 14:04.660
+Now we got the full stuff.
+
+14:04.830 --> 14:06.940
+So there's a bunch of stuff going on.
+
+14:06.960 --> 14:08.480
+All right.
+
+14:08.910 --> 14:14.230
+But what I'm really interested in are those few kind of metal tags Mehta.
+
+14:14.400 --> 14:16.670
+Mehta attributes.
+
+14:16.780 --> 14:19.010
+So here is the name.
+
+14:19.120 --> 14:23.410
+OK so while no that's not the name of that one sorry.
+
+14:23.430 --> 14:28.540
+This is the name of some of the stuff that it's using like user wanting Unicode error.
+
+14:29.160 --> 14:33.120
+Let's go ahead and look for our own stuff.
+
+14:33.120 --> 14:33.460
+OK.
+
+14:33.480 --> 14:34.800
+There we go.
+
+14:34.800 --> 14:36.620
+So here we have the name.
+
+14:36.630 --> 14:39.140
+So the name is Fraction's this is the module.
+
+14:39.210 --> 14:41.840
+So this this attribute is at the module level.
+
+14:41.840 --> 14:45.940
+These other attributes were nested inside the file.
+
+14:45.960 --> 14:49.710
+The file indicates where it came from that's what we saw printed out.
+
+14:49.710 --> 14:55.470
+This is where Python went and looked because when we have a distribution of Python here I'm using a
+
+14:55.470 --> 15:00.040
+virtual environment that's called deep dive and it's an anaconda environment.
+
+15:00.120 --> 15:01.730
+So you can see where it's located is located.
+
+15:01.770 --> 15:08.020
+My drive uses that Anaconda three ends because that's the virtual environment the dive.
+
+15:08.190 --> 15:13.620
+And then it goes and looks in the lib directory and the Directory has all that stuff living in there.
+
+15:13.620 --> 15:16.720
+In fact let's take a look at the let's go.
+
+15:16.720 --> 15:18.720
+And so now I'm in that directory.
+
+15:18.790 --> 15:21.180
+D uses F papped Anaconda 3 right.
+
+15:21.180 --> 15:23.490
+That's what we saw over here.
+
+15:23.730 --> 15:24.210
+Right.
+
+15:24.390 --> 15:25.900
+So let's take a look now.
+
+15:26.070 --> 15:32.760
+And we're in there I want to go to the environments and I don't remember the thing it was called Deep
+
+15:32.760 --> 15:33.710
+Dive kick.
+
+15:34.010 --> 15:35.930
+So his deep dive.
+
+15:36.940 --> 15:38.330
+He got a bunch of stuff in there.
+
+15:38.400 --> 15:42.930
+But in particular I want to look at the lives because that's what it said over here that it's inside
+
+15:42.930 --> 15:43.870
+the lib.
+
+15:44.040 --> 15:44.380
+Right.
+
+15:44.450 --> 15:46.070
+The lib directory.
+
+15:46.080 --> 15:47.710
+So let's go look at that.
+
+15:47.730 --> 15:49.680
+So let's call it to live.
+
+15:49.950 --> 15:58.050
+And now let's take a look and you can see all the standard library files that are in there and sometimes
+
+15:58.050 --> 15:58.680
+packages.
+
+15:58.680 --> 16:01.220
+But for example now we're going to find math.
+
+16:01.260 --> 16:02.690
+Math isn't going to be in here.
+
+16:02.910 --> 16:04.870
+But Fraction's is going to be in there.
+
+16:04.990 --> 16:05.880
+And there it is.
+
+16:05.910 --> 16:07.410
+There's fractions right here.
+
+16:07.590 --> 16:08.150
+OK.
+
+16:08.490 --> 16:14.920
+If we were to you know impose something like our collections collections is there but a lot collection
+
+16:15.020 --> 16:17.770
+is a directory that's actually a package.
+
+16:17.790 --> 16:20.070
+It's not just a simple module.
+
+16:20.190 --> 16:21.490
+A little bit more going on.
+
+16:21.690 --> 16:24.880
+But if you all would import calendar it would come from there.
+
+16:25.040 --> 16:25.330
+OK.
+
+16:25.350 --> 16:26.080
+Let's take a look.
+
+16:26.080 --> 16:29.030
+We import calendars.
+
+16:30.450 --> 16:34.180
+It comes from Lesch.
+
+16:34.240 --> 16:37.250
+Again it tells us it comes from that location.
+
+16:37.320 --> 16:40.120
+So so far what do we know about modules.
+
+16:40.240 --> 16:47.630
+Well they get loaded from file and that's not always and I'll get to that in a bit.
+
+16:47.920 --> 16:51.390
+They're a regular data type what data type are they.
+
+16:51.430 --> 16:53.120
+They're a model data type.
+
+16:54.630 --> 17:00.390
+They have a name space and they basically are a container of global variables.
+
+17:00.390 --> 17:00.650
+Right.
+
+17:00.660 --> 17:08.340
+We saw that that dhanda dict write that that contains all that stuff but the the module itself also
+
+17:08.340 --> 17:12.710
+has a bunch of stuff right that that Dundon dick right here.
+
+17:13.680 --> 17:20.220
+And if we were in that module we could look at the name space we could look at Global's for example
+
+17:20.220 --> 17:22.950
+and would get that result back.
+
+17:24.500 --> 17:27.470
+It's also an execution environment we haven't seen that yet.
+
+17:27.490 --> 17:32.720
+And here because I can't really execute a module from here I'm inside the main module we'll switch over
+
+17:32.720 --> 17:34.420
+to PI Chan later on.
+
+17:34.430 --> 17:36.220
+And take a look at that.
+
+17:36.890 --> 17:39.200
+But it's basically has these kind of properties.
+
+17:39.210 --> 17:39.520
+Right.
+
+17:39.530 --> 17:41.370
+It gets loaded from somewhere.
+
+17:41.810 --> 17:43.890
+Usually it's from file but it doesn't have to.
+
+17:43.890 --> 17:45.520
+It has a name space.
+
+17:45.560 --> 17:48.270
+It's a container of global variables basically.
+
+17:48.470 --> 17:52.330
+And it has an execution environment you can run code inside.
+
+17:52.400 --> 17:54.210
+What are we doing here in this main notebook.
+
+17:54.230 --> 17:58.490
+We're running code rodef I say print 10.
+
+17:58.640 --> 18:02.580
+It just ran it I'm inside the module I'm inside the main module.
+
+18:03.640 --> 18:05.450
+So where is that data.
+
+18:05.500 --> 18:07.310
+Where does that data type live.
+
+18:07.360 --> 18:13.740
+Well we can import types and there is a type in there called module pipe.
+
+18:13.900 --> 18:16.930
+And let's take a look at instance
+
+18:20.640 --> 18:24.440
+of Fraction's module type.
+
+18:24.540 --> 18:28.250
+So this is the name of the type module type.
+
+18:29.070 --> 18:33.600
+And other than say pipes top model type.
+
+18:33.630 --> 18:34.390
+OK.
+
+18:34.800 --> 18:35.190
+So we get.
+
+18:35.190 --> 18:35.600
+True.
+
+18:35.640 --> 18:45.130
+So a fraction is a module type same thing with is instance I can type it lets say of mouth
+
+18:51.400 --> 18:52.960
+that's true as well.
+
+18:53.470 --> 18:59.420
+So now we can basically create our own model we can create an instance of module type.
+
+18:59.440 --> 18:59.730
+Right.
+
+18:59.740 --> 19:00.970
+What's stopping us from doing that.
+
+19:01.000 --> 19:05.020
+We can say M mod equals module type.
+
+19:05.020 --> 19:08.720
+Now module type take some parameters for the constructor.
+
+19:08.770 --> 19:11.220
+The first parameter is the name of the module.
+
+19:11.260 --> 19:19.580
+So I'm going to call this you know test for example and then I can also pass in an optional docstring.
+
+19:19.630 --> 19:23.080
+So I'm going to say you know this is a test module
+
+19:28.430 --> 19:31.100
+and I'm going to use the types module.
+
+19:31.310 --> 19:34.260
+OK so now we have a module.
+
+19:34.280 --> 19:43.950
+If I look at is an instance modeled module type fight remember you know what I'm going to do.
+
+19:44.060 --> 19:47.480
+So I'm tired of missing that every time from types.
+
+19:47.500 --> 19:50.730
+Important module type kick start.
+
+19:50.780 --> 19:54.110
+It says go ahead and do math like this I will mess up again.
+
+19:54.600 --> 19:56.760
+And of course it is an instance of the module type.
+
+19:56.760 --> 19:58.050
+That's what we just created.
+
+19:58.050 --> 20:02.730
+So OK so now we have that but it really isn't going to do much.
+
+20:02.730 --> 20:07.620
+We can look at the dictionary of maade and it really doesn't have a whole lot.
+
+20:07.650 --> 20:08.910
+It has a docstring.
+
+20:08.910 --> 20:10.750
+This is a test module.
+
+20:10.800 --> 20:15.180
+It has a name and it's not a package and there's no specification for it.
+
+20:15.180 --> 20:19.530
+It didn't get load from file so it doesn't have a file property either.
+
+20:19.530 --> 20:22.920
+It's very bare it doesn't do anything.
+
+20:22.920 --> 20:25.560
+So how are we going to get this thing functionality.
+
+20:25.880 --> 20:29.510
+Well which is going to added in we're going to set attributes to model.
+
+20:29.580 --> 20:35.590
+So let's say we say maade dot pi equals 3.1 for k.
+
+20:35.790 --> 20:42.770
+So now if I look at Marda dhanda dict you'll see pi is in there.
+
+20:42.780 --> 20:43.840
+How about a function.
+
+20:43.860 --> 20:47.950
+How about I give it a function I'm going to say mod dot.
+
+20:48.400 --> 20:49.400
+Equals.
+
+20:49.770 --> 20:52.990
+And I'm just going to use a lambda so I can define it on the same thing.
+
+20:53.280 --> 21:01.680
+And it's just going to return cloak K and it's mod mode.
+
+21:02.290 --> 21:06.840
+OK so now maade has a halo function.
+
+21:09.510 --> 21:12.990
+Now I can say from maade import payload.
+
+21:13.020 --> 21:17.450
+Because this is not you know it hasn't been really set up as a module.
+
+21:17.790 --> 21:18.680
+Not yet anyway.
+
+21:18.720 --> 21:22.910
+It is a module type but you know Python doesn't know anything about it.
+
+21:22.920 --> 21:30.480
+So if I want to do that if I want to basically mimic that all I would have to do is to say hello equals
+
+21:30.810 --> 21:32.370
+maade dot Hello.
+
+21:32.580 --> 21:36.910
+OK so now Helo's in my global namespace of my module.
+
+21:36.930 --> 21:42.650
+Right so I could check that Kellog in Global's that will be true.
+
+21:42.810 --> 21:51.120
+OK I can also check that Mada is in Global's.
+
+21:51.390 --> 21:54.670
+And of course it's true that symbol exists in my global scope.
+
+21:54.690 --> 21:55.790
+Hello now exists.
+
+21:55.800 --> 21:57.220
+Now I can call this hello.
+
+21:57.450 --> 21:57.780
+Right.
+
+21:57.780 --> 22:04.870
+And I get that I can also do other weird things I could say import named.
+
+22:05.010 --> 22:05.420
+Sorry.
+
+22:05.420 --> 22:09.460
+From collections import named topple.
+
+22:09.830 --> 22:13.730
+And now I could say maade dock point equals
+
+22:16.010 --> 22:17.650
+named top hole.
+
+22:17.870 --> 22:22.330
+It's called point and let's say two field X and Y.
+
+22:22.520 --> 22:31.630
+So now I could say more that I could say we want equal more Montauk Point 0 0 and P to be called mod
+
+22:31.640 --> 22:38.100
+MAHDAVI point 1 common one k and so P1 is a point to the point.
+
+22:38.180 --> 22:40.730
+And if we look now at maade dict.
+
+22:40.730 --> 22:47.300
+Actually I'm just going to do endeavor on it then you'll see that we have halos in there.
+
+22:47.330 --> 22:51.380
+Pi is in there in point this class right is in there as well.
+
+22:51.380 --> 22:53.780
+This name top will is in there as well.
+
+22:53.780 --> 22:58.100
+And I could add a function to that as well that you know calculates the distance between two points
+
+22:58.100 --> 23:00.150
+and things like that.
+
+23:00.290 --> 23:01.390
+So that's a module.
+
+23:01.460 --> 23:06.820
+We created a modular module is just basically another type of object.
+
+23:06.950 --> 23:11.510
+It has its name space it can execute code and it can have attributes.
+
+23:11.510 --> 23:14.150
+So you know there's little bit of magic going on.
+
+23:14.150 --> 23:21.110
+When we said attributes are using get attributes and and said attribute but you know this is we're kind
+
+23:21.110 --> 23:26.270
+of insulated from that part on those that for us when we use the dot notation but we can also do it
+
+23:26.510 --> 23:31.780
+saying get attributes Marder point for example.
+
+23:31.850 --> 23:32.160
+Right.
+
+23:32.180 --> 23:37.200
+And this is going to be the let's call it P T.
+
+23:37.220 --> 23:41.620
+Now I could say P-T 20 comma 20 right.
+
+23:41.630 --> 23:45.990
+That's what's happening when I say maade docked point.
+
+23:46.070 --> 23:49.360
+It's basically getting the attribute point from mud.
+
+23:49.370 --> 23:51.470
+How does it get the attribute point.
+
+23:51.590 --> 23:53.420
+What is it doing.
+
+23:53.450 --> 24:01.280
+It's no different than saying P-T equals Hamadi Dunder Dick point.
+
+24:01.370 --> 24:01.740
+OK.
+
+24:01.760 --> 24:03.310
+It's doing exactly the same thing.
+
+24:03.310 --> 24:07.790
+So now I can say PTV 20 comet 20 and I get a point again.
+
+24:07.910 --> 24:13.110
+So again I'm just emphasizing that the name spaces of those dictionaries are essentially right.
+
+24:13.130 --> 24:15.310
+And there's different ways of getting at stuff.
+
+24:15.530 --> 24:17.950
+But that's that's what the modulars.
+
+24:18.020 --> 24:18.450
+All right.
+
+24:18.470 --> 24:23.160
+So this is a good breaking point and we're going to take a look at a bunch of other stuff.
+
+24:23.460 --> 24:27.730
+And you know to talk about modules and packages and imports.
+
+24:27.890 --> 24:30.270
+So thanks for watching and I'll see you in the next video.

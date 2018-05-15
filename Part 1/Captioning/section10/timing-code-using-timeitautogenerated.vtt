@@ -1,0 +1,787 @@
+WEBVTT
+
+00:00.090 --> 00:06.230
+High in this video I want to take a look at the time with model that we can use for timing code.
+
+00:06.300 --> 00:12.170
+We saw how to time code earlier in the course we looked at decorators and we looked at a timing decorator
+
+00:12.780 --> 00:18.210
+and that was pretty good because now we can just decorate a function and now we're automatically timing
+
+00:18.240 --> 00:20.190
+every time that function is called.
+
+00:20.190 --> 00:25.510
+Sometimes though we just want a time a specific chunk of code not necessarily even a function.
+
+00:25.650 --> 00:28.760
+And so the timing module doesn't essentially the same thing.
+
+00:29.040 --> 00:30.570
+And it has some advantages.
+
+00:30.570 --> 00:33.500
+First of all it's going to be platform specific.
+
+00:33.500 --> 00:38.730
+So it's going to find which platform you're on Windows or Linux for example and find the best way of
+
+00:38.730 --> 00:39.300
+timing.
+
+00:39.330 --> 00:46.770
+It's going to find you know the approach that has the best way of the best resolution in the time or
+
+00:46.770 --> 00:48.200
+the best precision.
+
+00:48.210 --> 00:53.640
+It's also going to turn off for example garbage collection to make sure that that is not a factor that's
+
+00:53.700 --> 00:58.350
+you know coming into and possibly affecting the scores in the timings.
+
+00:58.380 --> 00:59.860
+So it's got a few things like that.
+
+01:00.000 --> 01:02.300
+The other thing too is that it can be called from the command line.
+
+01:02.310 --> 01:04.850
+I'm not going to show you how to do that if you're interested in that.
+
+01:05.010 --> 01:10.890
+Just go check the online docs and it's basically very similar to what we're doing here except you're
+
+01:10.890 --> 01:13.820
+going to be invoking it from the command line.
+
+01:13.860 --> 01:15.550
+So let's take a look at how we use it.
+
+01:15.720 --> 01:22.380
+And here I'm going to import time it and I'm not going to import the whole time at Madill I'm going
+
+01:22.380 --> 01:28.500
+to say from time it import the time it function which is a helper function that basically wraps most
+
+01:28.500 --> 01:31.200
+of the functionality of the time a module.
+
+01:31.230 --> 01:32.960
+So that's all I'm going to focus on.
+
+01:33.000 --> 01:38.380
+And let's take a look at what the function requires to be called.
+
+01:38.420 --> 01:42.500
+So the documentation is a little terse arm but let's go through this.
+
+01:42.530 --> 01:44.940
+So time it is a function that needs a statement.
+
+01:44.960 --> 01:50.960
+The statement is the code that's going to get timed that's going to get executed and timed and we pass
+
+01:50.960 --> 01:57.810
+it as a string and it's basically just a python string it has to be a valid Python statement.
+
+01:57.920 --> 02:01.630
+The next thing that we have before I look at these is the number.
+
+02:01.670 --> 02:07.310
+This number indicates how many times it is going to repeat this test.
+
+02:07.310 --> 02:13.100
+So it's very much like our time decorator where we had the number of times we wanted to repeat the call
+
+02:13.100 --> 02:14.220
+to the function.
+
+02:14.240 --> 02:18.800
+This is the same deal the return value from time it will be the total time taken.
+
+02:18.800 --> 02:22.250
+It's not going to be the average per loop it's just the total time taken.
+
+02:22.310 --> 02:28.060
+If you want to find the average divide by that number and then we have two other things that are important.
+
+02:28.100 --> 02:31.350
+I'm going to skip the timer that really doesn't matter much.
+
+02:32.170 --> 02:39.920
+So the set up is a piece of code again it's going to have to be a valid Python statement that gets executed
+
+02:40.040 --> 02:48.650
+once before this statement is executed you know X number of times and Global's is a way for us to provide
+
+02:49.070 --> 02:54.670
+a different namespace to time it when time it runs it creates its own namespace.
+
+02:54.680 --> 03:00.230
+And so if we have variables or functions or even imports in our global module.
+
+03:00.380 --> 03:00.670
+Right.
+
+03:00.680 --> 03:06.290
+And Hix I mean the jeopard and overcome at the global level when I call time it it has no knowledge
+
+03:06.320 --> 03:09.370
+of what's going on inside this notebook.
+
+03:09.380 --> 03:12.230
+It is basically completely local to itself.
+
+03:12.410 --> 03:20.330
+And so we can specify a global set of data basically to the time it function by passing it something
+
+03:20.900 --> 03:24.320
+and we have our own Global's that we could use.
+
+03:24.380 --> 03:24.660
+Right.
+
+03:24.680 --> 03:26.660
+This is on global namespace.
+
+03:26.660 --> 03:33.170
+We also have our local namespace which right here looks the same because while global and local is going
+
+03:33.170 --> 03:38.540
+to be the same in this context because I'm in the model right now so local's is technically kind of
+
+03:38.540 --> 03:40.880
+the same as goals from sort of function.
+
+03:40.880 --> 03:47.170
+However local's is going to be local to the function and Global's will be the global at the module level.
+
+03:47.240 --> 03:48.820
+And we've talked about scope before.
+
+03:48.860 --> 03:51.260
+So that's all that is.
+
+03:51.260 --> 03:53.700
+So let's go ahead and do the following.
+
+03:53.720 --> 03:57.450
+I want to test two different ways of doing impuls.
+
+03:57.470 --> 03:58.450
+Let me show you what I mean.
+
+03:58.580 --> 04:03.120
+Let's say we have import math and I can say now math plus square root of 2.
+
+04:03.440 --> 04:04.630
+That's one way of doing it.
+
+04:04.670 --> 04:12.980
+Or I could say from math import a square root and then I can just call the code of 2 without using the
+
+04:13.040 --> 04:13.690
+prefix.
+
+04:13.700 --> 04:15.620
+You're right the module prefix.
+
+04:15.650 --> 04:17.950
+So there's two ways of really doing the same thing.
+
+04:19.850 --> 04:20.820
+Which is better.
+
+04:21.110 --> 04:22.660
+Well it kind of depends.
+
+04:22.940 --> 04:27.900
+Personally I prefer this method here because it is explicit.
+
+04:27.950 --> 04:36.080
+If I have math of Eskew opti you know in some lounge code file and my import is all the way up the top
+
+04:36.440 --> 04:40.480
+I don't have to scroll back to the top to see where the square root function came from.
+
+04:40.490 --> 04:43.930
+I know it came from the math module.
+
+04:44.080 --> 04:48.490
+Assuming of course that you didn't import some other module an alias that is math but that's something
+
+04:48.490 --> 04:50.740
+that you would check once I guess.
+
+04:50.740 --> 04:53.620
+This way here is implicit.
+
+04:53.620 --> 05:00.210
+It's calling B s q and t function but which one while now I have to scroll back up to the top of the
+
+05:00.210 --> 05:02.990
+file where your impulse should be located.
+
+05:03.600 --> 05:04.310
+And I'll see that.
+
+05:04.320 --> 05:06.330
+OK Square came from math.
+
+05:06.780 --> 05:10.460
+So now I know where it came from and I can resume reading the code.
+
+05:10.590 --> 05:16.680
+So I prefer explicit to implicit but sometimes if you've got long you know name spaces.
+
+05:16.710 --> 05:21.410
+If you just don't want to type as much maybe you want to do something like this.
+
+05:21.510 --> 05:27.240
+First if you're trying to do this and you're importing In all 15 functions from there are 15 elements
+
+05:27.300 --> 05:28.560
+from the module.
+
+05:28.590 --> 05:30.560
+I don't think you should be doing that.
+
+05:30.630 --> 05:33.870
+You should be resorting to something like this.
+
+05:34.170 --> 05:38.280
+But now the question that I really want to answer is is one faster than the other.
+
+05:38.520 --> 05:41.280
+So let's go ahead and use time to test the socket.
+
+05:41.340 --> 05:43.800
+So for full time IT remember we need a statement.
+
+05:44.010 --> 05:45.930
+I'm going to use keyword arguments.
+
+05:45.990 --> 05:48.010
+So for the statement I'm going to say math.
+
+05:48.070 --> 05:50.180
+Dark square root of two.
+
+05:50.190 --> 05:54.430
+Now the problem is remember what I said time it has its own scope.
+
+05:54.450 --> 06:00.400
+So if I run this it's going to complain and we get the exception that math is not defined.
+
+06:00.420 --> 06:03.740
+Well sure it doesn't know what math is.
+
+06:03.750 --> 06:06.930
+Remember it's running inside its own namespace.
+
+06:06.930 --> 06:10.200
+Math is not inside time it's name space by default.
+
+06:10.200 --> 06:13.540
+We have to import it in our global namespace here.
+
+06:13.650 --> 06:17.330
+So how are we going to tell time it to also important.
+
+06:17.340 --> 06:23.520
+While the three ways of actually doing this and I'm going to show you the bad way first not so much
+
+06:23.520 --> 06:30.280
+to show you how not to do it but really to show you that we can have multiple lines of code in the statement.
+
+06:30.400 --> 06:35.240
+We could say impled math newline math a square root of two.
+
+06:35.280 --> 06:37.010
+That's two lines right.
+
+06:37.020 --> 06:41.050
+We could even potentially use a multi-line string that would work as well.
+
+06:41.130 --> 06:41.710
+Right.
+
+06:42.030 --> 06:43.980
+So I'm going to keep it this way.
+
+06:44.520 --> 06:45.840
+So now let's run this.
+
+06:45.930 --> 06:48.190
+And remember it's going to run this a million times.
+
+06:48.680 --> 06:49.120
+OK.
+
+06:49.140 --> 06:53.280
+So it ran and took 0.3 1 seconds to run this one million times.
+
+06:53.400 --> 06:57.150
+But there's something bad about this beyond the readability factor.
+
+06:57.420 --> 06:59.070
+There's also something else.
+
+06:59.100 --> 07:05.610
+Remember this statement is being run a million times which means the import is also being run a million
+
+07:05.610 --> 07:06.430
+times.
+
+07:06.450 --> 07:06.930
+Sure.
+
+07:06.960 --> 07:10.870
+It only really impuls the math module the first time it encounters it.
+
+07:11.160 --> 07:14.070
+But then everything thereafter it's trying to re-import it.
+
+07:14.130 --> 07:16.190
+So that's not efficient.
+
+07:16.410 --> 07:21.930
+And now we're wasting time trying to test just this piece of code.
+
+07:21.930 --> 07:26.650
+So what you really want to do in the statement is isolate exactly what you want to test.
+
+07:26.670 --> 07:28.540
+Import is not what we want to test.
+
+07:28.590 --> 07:30.150
+So we're going to take it out of you.
+
+07:30.390 --> 07:36.330
+And instead we were going to use this setup statement and the set up is going to have import math that
+
+07:36.330 --> 07:41.560
+will only get run once and then this statement is going to get run number of times.
+
+07:41.560 --> 07:43.510
+For now let's go ahead and do that.
+
+07:43.650 --> 07:46.580
+And remember the timing is 0 1 3 1.
+
+07:46.740 --> 07:47.400
+And when we were on it.
+
+07:47.400 --> 07:48.760
+Now we get 0.1 4.
+
+07:48.780 --> 07:50.340
+So half the time.
+
+07:50.550 --> 07:51.790
+So that was a pretty big save.
+
+07:51.840 --> 07:58.910
+And now we're really just looking at the cost the timing of running this piece of code.
+
+07:58.920 --> 08:01.290
+Now let's go ahead and do it the other way.
+
+08:01.680 --> 08:11.270
+So I don't want the math and I'm going to say from math impled square root.
+
+08:11.520 --> 08:12.950
+We're going to write it this way.
+
+08:13.290 --> 08:13.990
+And there we go.
+
+08:14.070 --> 08:14.840
+It ran.
+
+08:15.150 --> 08:21.530
+Now you can see it ran marginally faster but it's really zero point zero four seconds over 10 million.
+
+08:21.550 --> 08:25.610
+Oh sorry one million iterations it's not a big deal.
+
+08:25.920 --> 08:31.290
+And you know depending on the style of code that you write and the way that you want to be explicit
+
+08:31.320 --> 08:36.390
+or implicit You may prefer writing your code in one way versus the other.
+
+08:36.390 --> 08:42.240
+Don't let this timing difference change your mind about how you should write your inputs do it the way
+
+08:42.240 --> 08:46.300
+that you feel most comfortable with and that you feel is most expressive.
+
+08:47.370 --> 08:54.780
+At this point if you're running code square roots hundreds of millions of times then sure then maybe
+
+08:54.780 --> 08:56.430
+you need to stop worrying about this.
+
+08:56.460 --> 09:00.870
+But again don't start optimizing code until you've identified that it's a bottleneck.
+
+09:00.870 --> 09:06.360
+In this case even if I run a million times in my code throughout the life of my program does it make
+
+09:06.360 --> 09:11.550
+any difference you know at four tenths of a second isn't going to make a difference.
+
+09:11.550 --> 09:12.760
+Not going to break the bank.
+
+09:12.780 --> 09:18.570
+So in this case I'm going to keep using import math and math to Squidoo to do it's more explicit.
+
+09:18.570 --> 09:22.210
+I prefer that sometimes when I'm lazy I might do something like this.
+
+09:23.370 --> 09:25.940
+But in production code usually I'll write it this way.
+
+09:26.020 --> 09:30.910
+So now let me show you the third way in which we can pass this.
+
+09:30.940 --> 09:37.570
+Import the global namespace that we have already contains it we've imported math inside our current
+
+09:37.690 --> 09:38.670
+global namespace.
+
+09:38.670 --> 09:40.940
+This put a notebook.
+
+09:41.150 --> 09:43.960
+There is a nother parameter to time it.
+
+09:44.120 --> 09:46.840
+So let me go ahead and say this math.
+
+09:46.860 --> 09:49.520
+Dark square root of two.
+
+09:50.750 --> 09:56.290
+And now what I'm going to do is I'm going to give time at the global namespace it's global namespace.
+
+09:56.300 --> 10:01.350
+I'm going to provide it basically a starting point for its global namespace and I'm going to pass it
+
+10:01.350 --> 10:02.950
+what I'm going to pass it.
+
+10:03.020 --> 10:09.050
+My Global's so I'm going to take my Global's And if we look by the way at my Goebels we'll see that
+
+10:09.440 --> 10:16.600
+the math module in Global's is true because I'm bored with it.
+
+10:16.610 --> 10:17.410
+It's in there.
+
+10:17.600 --> 10:24.800
+So now I can go ahead and pass Global's to Tynemouth and it's therefore going to find math inside it's
+
+10:24.800 --> 10:27.030
+going to find that import inside Goebels now.
+
+10:27.050 --> 10:29.770
+So I don't need to use the set.
+
+10:30.140 --> 10:30.990
+And there we go.
+
+10:31.160 --> 10:32.900
+But you can see it was pretty slow.
+
+10:32.900 --> 10:36.870
+It's slow for it to go every time and look inside Goebels for something.
+
+10:37.250 --> 10:41.630
+So instead if we'd set it up this way that's going to be far more efficient.
+
+10:42.810 --> 10:45.130
+But I wanted to show you what happens now.
+
+10:45.120 --> 10:50.160
+Goebels isn't only used you know for let's say avoiding using the set up with input.
+
+10:50.370 --> 10:55.380
+Let's say that we define a variable inside this module here inside the Jupiter notebook.
+
+10:55.440 --> 11:01.950
+So in August in our global namespace and I want to reference that variable inside the time statement
+
+11:02.040 --> 11:05.650
+that we want to run for example let's try the following.
+
+11:05.760 --> 11:12.780
+First I'm going to import random I'm going to use some random stuff and say l equals random dots choices.
+
+11:12.840 --> 11:20.700
+I'm going to make a list of the characters in the string Python and I'm going to choose to make them
+
+11:20.700 --> 11:21.290
+500.
+
+11:21.300 --> 11:27.550
+I'm going to pick 500 random characters out of the list.
+
+11:27.550 --> 11:29.700
+P Y T H O N K.
+
+11:29.820 --> 11:31.590
+So that's my list.
+
+11:31.680 --> 11:32.550
+Not going to print it out.
+
+11:32.550 --> 11:33.430
+Got a lot of stuff.
+
+11:33.660 --> 11:38.660
+But now I want to point out that L and Global's is true.
+
+11:38.730 --> 11:44.530
+If I pick something else is and Global's either the final variable m it's not in there right.
+
+11:44.670 --> 11:46.700
+So L is an Global's.
+
+11:46.860 --> 11:48.200
+So now I want to time it.
+
+11:48.240 --> 11:53.140
+I'm going to time how long it takes to pick a single random element from that list.
+
+11:53.400 --> 11:57.540
+So a statement equals random dobbed choice.
+
+11:57.810 --> 11:59.300
+And I'm going to use L.
+
+11:59.610 --> 12:02.050
+Now of course it doesn't know what random is.
+
+12:02.070 --> 12:08.520
+So I'm going to use that in my system when I say the end goal is random and now it doesn't know what
+
+12:08.520 --> 12:14.980
+else is right so if I run it this way you'll see that we get this exception that name L is not defined.
+
+12:15.000 --> 12:16.790
+Well yeah it doesn't know what it is.
+
+12:16.800 --> 12:19.360
+Remember it's running this inside its own namespace.
+
+12:19.440 --> 12:26.680
+So here what I'm going to do now is I'm going to provide it my Global's is to its Goebels.
+
+12:26.890 --> 12:30.740
+OK now if we run this we'll see that it ran just fine.
+
+12:30.750 --> 12:36.680
+So it found L and that Goebels and random Now of course it's not always Global's that we pass through
+
+12:36.680 --> 12:37.100
+here.
+
+12:37.220 --> 12:39.160
+Let's say that we're running inside a function.
+
+12:39.270 --> 12:46.880
+So I have this like pick random and pick random is going to be nothing more than doing what I'm doing
+
+12:46.880 --> 12:47.370
+here.
+
+12:47.480 --> 12:50.170
+So I'm going to create this list.
+
+12:50.780 --> 12:51.240
+OK.
+
+12:51.350 --> 12:54.460
+And I'm going to call it something else I'm going to call it randoms.
+
+12:54.890 --> 13:00.950
+And then here I'm going to take the same time at statement and instead sort of L of course I'm going
+
+13:00.950 --> 13:03.710
+to give it randoms.
+
+13:03.860 --> 13:08.790
+Now put this over multiple lines so we can see what's going on.
+
+13:09.430 --> 13:10.260
+Well I'm going to do here.
+
+13:10.270 --> 13:15.700
+I'm going to print is randoms in locals.
+
+13:15.760 --> 13:19.410
+I want to know is it in my local's of my pick random.
+
+13:19.420 --> 13:23.230
+So my pick random has a local namespace as a local scope.
+
+13:23.320 --> 13:26.200
+That's the namespace.
+
+13:26.200 --> 13:29.830
+You'll notice that randoms is not in Globus
+
+13:32.600 --> 13:35.200
+because it was defined inside this method here.
+
+13:35.300 --> 13:37.290
+So now let's go ahead and run.
+
+13:37.460 --> 13:40.360
+Pick random and let's see what happens.
+
+13:40.760 --> 13:47.180
+Well first of all we get true so random is in local's but then you'll notice that the time it itself
+
+13:47.240 --> 13:50.060
+raised an exception as well random is not defined.
+
+13:50.090 --> 13:53.690
+While sure we told it it's Goebels should be all Global's.
+
+13:53.690 --> 13:54.570
+What's our Goebels.
+
+13:54.570 --> 13:56.030
+It's this one right here.
+
+13:56.270 --> 13:57.880
+Randoms is not in Goebels.
+
+13:57.890 --> 14:02.940
+So instead of passing an Goebels what we really have to pass it here is locals.
+
+14:03.160 --> 14:03.690
+OK.
+
+14:04.010 --> 14:08.840
+So now if we do this and we run it it runs just fine.
+
+14:08.840 --> 14:14.450
+Now we don't have an output because technically we do need to return it if we want to see what the timing
+
+14:14.450 --> 14:14.970
+was.
+
+14:15.170 --> 14:18.350
+So let's go ahead rerun this and I'll take that out.
+
+14:18.350 --> 14:19.750
+We don't need this anymore.
+
+14:20.360 --> 14:22.310
+Let's go ahead and run that.
+
+14:23.240 --> 14:24.060
+And there we go.
+
+14:24.140 --> 14:26.370
+It ran it and run it just fine.
+
+14:26.390 --> 14:28.520
+OK we'll let's about it for the time it.
+
+14:28.550 --> 14:33.820
+I do want to point out one other thing as well and that's what the statement what kind of reference.
+
+14:33.860 --> 14:38.970
+Well if we pass it Goebels it can reference anything inside a global namespace would pass at local Zic
+
+14:38.970 --> 14:42.060
+and reference anything inside the local namespace.
+
+14:42.230 --> 14:48.590
+So let me do this let me say pick random and pick random is going to be slightly different.
+
+14:48.630 --> 14:52.930
+It's going to take a list and it's just going to return random choice of the list.
+
+14:52.940 --> 14:55.800
+So it's nothing more than a wrapper around the choice.
+
+14:56.090 --> 15:01.880
+That's a stupid example but I just want to show you that I can actually reference pick random inside
+
+15:01.880 --> 15:16.040
+my time statement so I can say time it's pick up statement type equals pick random l k and now in my
+
+15:16.040 --> 15:18.600
+set up I'm going to say important.
+
+15:18.680 --> 15:20.500
+You are not even going to do that.
+
+15:20.990 --> 15:28.100
+Instead what I'm going to do I'm going to set the global scale equal to the Global's to my current goal.
+
+15:28.520 --> 15:30.110
+So what is this going to afford me.
+
+15:30.170 --> 15:34.750
+Well pick random is in my Global's dictionary right.
+
+15:34.760 --> 15:41.070
+If I look at pick random is that in Legal's.
+
+15:41.090 --> 15:42.270
+Sure it is.
+
+15:42.290 --> 15:44.490
+So pick random isn't the Global's.
+
+15:44.660 --> 15:49.910
+And by the same token by the way elde is also in Global's.
+
+15:50.430 --> 15:51.460
+OK.
+
+15:52.430 --> 15:57.950
+So now the spek random function is going to work correctly because it's going to find it in Global's
+
+15:58.250 --> 16:01.280
+it's going to find L in Global's as well.
+
+16:01.280 --> 16:03.950
+And of course it needs the random library.
+
+16:03.950 --> 16:06.270
+It's going to find random in the Goebels as well.
+
+16:06.590 --> 16:08.990
+So it's all going to work.
+
+16:09.110 --> 16:11.500
+That's Dr..
+
+16:11.550 --> 16:12.350
+And there you go.
+
+16:12.360 --> 16:13.550
+It worked as well.
+
+16:13.860 --> 16:14.220
+All right.
+
+16:14.220 --> 16:15.550
+That's it for the time function.
+
+16:15.570 --> 16:17.680
+Thanks for watching and I'll see you in the next video.

@@ -1,0 +1,760 @@
+WEBVTT
+
+00:00.720 --> 00:06.930
+High in this video we're going to take a look at an application of lambdas in Seoul.
+
+00:07.320 --> 00:13.290
+So first of all I want to point out that Python has a method for sorting called sorted we can look at
+
+00:13.290 --> 00:20.290
+it and it basically is a method that gets called a function that takes in an admirable.
+
+00:20.370 --> 00:26.700
+So you can supply a list you can supply a dictionary but because a dictionary is iterable you can specify
+
+00:26.700 --> 00:29.800
+a set or you can specify it topple whatever thing you want.
+
+00:29.800 --> 00:32.100
+That's iterable a straight even.
+
+00:32.770 --> 00:34.770
+And it will then return a list.
+
+00:34.800 --> 00:40.110
+It's always going to return a list and it's going to contain all the items from the iterable in a ascending
+
+00:40.110 --> 00:43.100
+order based on whatever the natural ordering is.
+
+00:43.100 --> 00:46.080
+So if you're dealing with numbers it's going to use numerical ordering.
+
+00:46.290 --> 00:50.630
+If you're dealing with strings it's going to do a lexicographical ordering.
+
+00:50.640 --> 00:55.080
+So it kind of depends on what you're looking at if you have a custom type that you've built.
+
+00:55.170 --> 01:01.680
+You may want to you know specify what ordering means and looks like for your particular class.
+
+01:01.830 --> 01:03.450
+So let's take a look at some examples.
+
+01:03.450 --> 01:13.650
+Let's start with a list that's going to contain some numbers let's say 1 5 4 10 9 5 while we get 5 already
+
+01:13.650 --> 01:16.110
+I don't want to do double but let's do that.
+
+01:16.440 --> 01:18.640
+And we can solve the slowest.
+
+01:18.720 --> 01:20.680
+And remember it's not going to do in place.
+
+01:20.700 --> 01:22.520
+Solving this isn't solving L.
+
+01:22.530 --> 01:27.730
+It's going to solve Albert return a new thing else will be unaffected.
+
+01:27.750 --> 01:29.500
+So here's the sorted list.
+
+01:29.550 --> 01:31.670
+L is still what it was originally.
+
+01:31.710 --> 01:36.060
+So I just want to point out that sort of is not an in-place sort.
+
+01:36.210 --> 01:36.740
+OK.
+
+01:36.810 --> 01:38.750
+So that's how sort it works.
+
+01:38.790 --> 01:45.540
+But you'll notice that it has a key word only argument comes after that stuff over here has a keyword
+
+01:45.570 --> 01:48.210
+only argument that defaults to none.
+
+01:48.210 --> 01:49.260
+Now what is that.
+
+01:49.440 --> 01:53.440
+Well that's used to change the way in which items are ordered.
+
+01:53.670 --> 01:56.460
+And it does that essentially by applying a function.
+
+01:56.460 --> 02:04.270
+So this key has to be a function that will then get applied to each element in the iterable.
+
+02:04.710 --> 02:08.880
+And so each iterable element will have an associated value.
+
+02:08.880 --> 02:16.160
+That's the result of the function being evaluated and the sort is going to happen based on that value
+
+02:16.170 --> 02:19.560
+they're not on the actual iterable item itself.
+
+02:19.890 --> 02:23.080
+So let's see an example let's see what I mean by that.
+
+02:23.100 --> 02:31.620
+So let's start with another list and let's put in some character so see and maybe capital B then we'll
+
+02:31.620 --> 02:37.330
+put a capital D and then we'll put a lowercase a k.
+
+02:37.620 --> 02:38.670
+So those are strings.
+
+02:38.700 --> 02:46.050
+Now we can solve that we can say sort of the L and that returns this list which is odd because capital
+
+02:46.050 --> 02:47.670
+B comes before a.
+
+02:47.720 --> 02:56.550
+That to us that's not necessarily you know doing a dictionary ordering because while B doesn't come
+
+02:56.760 --> 02:58.510
+before a should come after a.
+
+02:58.800 --> 03:05.340
+But remember what's happening here is that capital B is a character and lowercase A is also a character
+
+03:05.430 --> 03:07.560
+but they each have a character code.
+
+03:07.920 --> 03:11.530
+And we can see what the code is by looking at this.
+
+03:11.550 --> 03:14.630
+We can call this function called only which is the ordinal.
+
+03:14.700 --> 03:18.670
+So we can look at the ordinal of all the character code of a which is 97.
+
+03:18.800 --> 03:19.920
+We took an ASCII table.
+
+03:19.920 --> 03:24.700
+That's essentially what it is as a character code of 97 in the ASCII table.
+
+03:24.720 --> 03:28.960
+We can also look now at the character code of let's say capital A.
+
+03:29.140 --> 03:32.090
+All the character code of capital is 65.
+
+03:32.340 --> 03:38.640
+So when you do lexicographical ordering the capital letters actually precede the lower case letters.
+
+03:38.760 --> 03:43.780
+And that's why this list is sorted this way where the capital letters actually came first.
+
+03:43.830 --> 03:48.900
+They were ordered correctly became before D and little H came before little C right.
+
+03:48.910 --> 03:51.140
+Lowercase a came before lowercase c.
+
+03:51.270 --> 03:54.120
+So that's correct within the uppercase and lowercase.
+
+03:54.270 --> 03:59.670
+But of course you know because lowercase and uppercase characters are not the same characters they have
+
+03:59.670 --> 04:01.270
+different character codes.
+
+04:01.440 --> 04:03.640
+The Oldring is going to be affected.
+
+04:04.110 --> 04:08.880
+So in this case we might want to be able to do an ordering that is case insensitive.
+
+04:08.880 --> 04:14.540
+In other words it's not going to care whether we're looking at a lower case or uppercase B.
+
+04:14.550 --> 04:15.900
+So how would we do that.
+
+04:15.960 --> 04:18.590
+Well we can do it again using that key.
+
+04:18.630 --> 04:25.500
+What we're going to do is that to every element in this list L we're going to associate another element
+
+04:25.680 --> 04:27.560
+that we're going to use to sort by.
+
+04:27.780 --> 04:33.150
+And that element is going to be we can pick I'm going to pick the uppercase version of each one.
+
+04:33.420 --> 04:38.210
+So basically we're going to sort each element based on its uppercase value.
+
+04:38.520 --> 04:39.530
+So how would we do that.
+
+04:39.540 --> 04:40.800
+Well we'd say so with.
+
+04:40.890 --> 04:46.050
+We again want to say what else are sort of L but the key now is going to be something that transforms
+
+04:46.410 --> 04:49.710
+each element to its uppercase equivalent.
+
+04:49.740 --> 04:51.990
+So we're going to do Alamdar for that again.
+
+04:51.990 --> 04:58.080
+So Lamda that's going to take some element let's call it s and it's going to calculate and return as
+
+04:58.140 --> 04:59.940
+the upper.
+
+05:00.050 --> 05:00.480
+Right.
+
+05:00.490 --> 05:06.340
+So now the associated value of each element in the list is going to be the uppercase version of that
+
+05:06.340 --> 05:07.150
+element.
+
+05:07.510 --> 05:13.280
+And so when we do that now we get our case insensitive sold right here.
+
+05:14.140 --> 05:16.480
+So that's another example of where we'd use Alamdar.
+
+05:16.480 --> 05:21.850
+So I'm going to stick to the Soledad method because that's you know kind of a very typical way of using
+
+05:21.850 --> 05:22.770
+lambdas.
+
+05:23.200 --> 05:25.120
+So let's take a look at some more examples.
+
+05:25.120 --> 05:28.820
+While we're at it to see how sort of works.
+
+05:28.840 --> 05:30.360
+Now we might look at a dictionary.
+
+05:30.430 --> 05:31.870
+So let's look at a dictionary.
+
+05:31.870 --> 05:39.380
+Let's say the F is 300 ABC the key AVC.
+
+05:39.400 --> 05:42.880
+Whoops I guess I should try and keep my quotes consistent.
+
+05:43.120 --> 05:45.300
+ABC will be 200.
+
+05:45.510 --> 05:49.730
+And G.H. I will be 100 let's say.
+
+05:50.020 --> 05:50.540
+OK.
+
+05:50.890 --> 05:56.700
+So now if we look at D we have ABC 200 300 G H I.
+
+05:56.740 --> 05:57.690
+One hundred.
+
+05:57.700 --> 06:02.530
+Again we're not guaranteed of the order in which this is being displayed since this isn't an ordered
+
+06:02.860 --> 06:08.830
+kind of iterable but we can iterate it if you remember what happens when it read the dictionary.
+
+06:08.830 --> 06:11.820
+Put me in deep print please.
+
+06:12.080 --> 06:14.090
+We are iterating the keys.
+
+06:14.260 --> 06:14.500
+Right.
+
+06:14.500 --> 06:17.600
+So if we iterate a dictionary we get the keys back.
+
+06:17.830 --> 06:19.570
+So this means we can actually solve it.
+
+06:19.660 --> 06:23.710
+And if we call Soledad on D What do we get back.
+
+06:23.710 --> 06:29.920
+Well we get a list Remember we always get a list back of what of the keys that have been sorted.
+
+06:30.010 --> 06:30.270
+Right.
+
+06:30.270 --> 06:37.900
+So here when we iterated through the dictionary we got diethyl then ABC then VHI but we print we got
+
+06:37.900 --> 06:39.390
+it so ordered right.
+
+06:39.400 --> 06:42.740
+And again lexicographical ordering.
+
+06:42.750 --> 06:43.230
+OK.
+
+06:43.240 --> 06:50.350
+Well that's great but what happens if we want to sort this dictionary not by the key but by the value
+
+06:50.560 --> 06:52.110
+we still want to return the keys.
+
+06:52.240 --> 06:57.860
+But we want to return the keys in order of a sending a associated value right.
+
+06:58.090 --> 07:02.980
+Well we can do that again pretty easily using key equals.
+
+07:03.430 --> 07:07.840
+And here we're going to say lambda and now we're going to take an element let's say e right let's call
+
+07:07.840 --> 07:08.140
+it.
+
+07:08.170 --> 07:10.360
+That's what iterating in the dictionary.
+
+07:10.540 --> 07:13.410
+But what do we want to use.
+
+07:14.500 --> 07:17.110
+Well we're going to want to use the value right.
+
+07:17.110 --> 07:20.530
+So how are we going to get the value for the key.
+
+07:20.530 --> 07:24.650
+Remember this is the key that's being iterated.
+
+07:24.670 --> 07:26.650
+So we're going to take the dictionary.
+
+07:26.920 --> 07:31.280
+We're going to look at the value that's at that key.
+
+07:31.420 --> 07:32.080
+Right.
+
+07:32.080 --> 07:39.310
+So instead of sorting by the key itself we're now going to sort by the keys value and by default it's
+
+07:39.310 --> 07:44.310
+an ending so old and I go right by
+
+07:47.630 --> 07:49.490
+my lambda expression correctly.
+
+07:50.000 --> 07:50.330
+Right.
+
+07:50.330 --> 07:54.680
+So we're going to get take an element which is going to be a key because it ran through a dictionary
+
+07:55.040 --> 07:58.650
+and we're going to look at the value associated with that key in that dictionary.
+
+07:59.330 --> 08:06.480
+So when we run that we now get G.H. A B C D F and as you can see shy had a value of 100.
+
+08:06.620 --> 08:11.750
+ABC had a value of 200 and DCF had a value of 300.
+
+08:11.840 --> 08:14.370
+Hence why I came back in that order.
+
+08:14.420 --> 08:15.910
+Next we can look at something else.
+
+08:15.920 --> 08:22.040
+Maybe we want to sort a list of complex numbers and we want to solve these complex numbers based on
+
+08:22.040 --> 08:24.410
+their distance from the origin.
+
+08:24.500 --> 08:24.740
+Right.
+
+08:24.740 --> 08:29.900
+It's just going to be the Euclidean distance so it's going to be the square root of the real path squared
+
+08:30.140 --> 08:32.020
+plus the imaginary count squared.
+
+08:32.030 --> 08:32.850
+So let's try that.
+
+08:32.870 --> 08:34.580
+Let's see how we might do this.
+
+08:34.580 --> 08:37.250
+So first I might actually define a function.
+
+08:37.250 --> 08:39.620
+I just want to show you that you don't have to use a lambda.
+
+08:39.620 --> 08:42.350
+By the way in the solid method.
+
+08:42.590 --> 08:43.750
+So let's do that.
+
+08:43.850 --> 08:46.460
+Let's create something that's the distance.
+
+08:46.520 --> 08:48.620
+Now I'm not actually going to use distance.
+
+08:48.620 --> 08:50.660
+I'm going to use distance squared.
+
+08:50.990 --> 08:52.730
+I don't need in order to do the ordering.
+
+08:52.730 --> 08:54.830
+I don't need to actually take the square root.
+
+08:55.010 --> 08:55.490
+Right.
+
+08:55.630 --> 08:59.120
+Because square root retains ordering of numbers.
+
+08:59.120 --> 09:04.430
+So if A is greater than B then squirreled away is greater than the square root of b cos I'm assuming
+
+09:04.460 --> 09:10.130
+positive numbers since we don't have one or we do have a square root of negative numbers the complex
+
+09:10.130 --> 09:10.780
+numbers.
+
+09:10.940 --> 09:13.080
+But in this case we're looking at distances.
+
+09:13.100 --> 09:15.300
+So they're always going to be positive numbers.
+
+09:15.320 --> 09:20.480
+So in order to do the ordering I don't really need to go to the extra step of calculating the square
+
+09:20.480 --> 09:22.380
+root so I'm just going to admit that.
+
+09:22.550 --> 09:28.310
+And so here what we are doing to return we can return x real right.
+
+09:28.310 --> 09:38.280
+The real part of x squared plus the imaginary part of x squared.
+
+09:38.340 --> 09:39.650
+Right that's our distance.
+
+09:39.650 --> 09:48.000
+So if we look at the distance squared of let's say one plus one PI right or one j.
+
+09:48.210 --> 09:48.770
+Right.
+
+09:48.770 --> 09:54.230
+One plus one J is a distance of 1 and 1 in the real and imaginary axes.
+
+09:54.290 --> 09:56.850
+So it's the square root of two.
+
+09:56.930 --> 09:59.330
+So the distance squared would be two.
+
+09:59.480 --> 10:02.260
+And that's indeed what we get 2.0 anyways.
+
+10:02.430 --> 10:08.590
+So that's how we can find the distance of a imaginary number from the origin.
+
+10:08.600 --> 10:12.940
+So now let's go ahead and create a list that's got some numbers in it.
+
+10:13.040 --> 10:23.360
+So let's say we're going to take three plus T.J. one minus one J will take 0 which is just at the origin
+
+10:23.360 --> 10:27.570
+itself and maybe we'll just take a pure real number as well which is just 3.
+
+10:27.650 --> 10:28.460
+So we have that.
+
+10:28.460 --> 10:30.080
+Now if we try and do.
+
+10:30.150 --> 10:31.910
+Well that's not going to work.
+
+10:31.940 --> 10:35.110
+Complex Numbers do not have a built in ordering in Python.
+
+10:35.120 --> 10:41.810
+So if we do that can tell us hey the less than is not supported between instances of complex and complex.
+
+10:41.810 --> 10:45.840
+While you're right there's nothing there's no Oldring defined for complex numbers.
+
+10:45.860 --> 10:51.150
+So here we are going to use again the key we have to use a key in this case.
+
+10:51.260 --> 10:55.060
+And the key is just going to be distance rescue.
+
+10:55.240 --> 10:55.690
+Right.
+
+10:55.730 --> 10:56.490
+That's all we're going to do.
+
+10:56.480 --> 11:01.230
+We're going to apply that distance function to each element of that list.
+
+11:01.280 --> 11:03.590
+L And so based on that.
+
+11:03.860 --> 11:08.510
+And so when we get that we see obviously the one that's closest to the origin is zero.
+
+11:08.510 --> 11:09.230
+Right.
+
+11:09.590 --> 11:11.810
+Then we had one minus one J.
+
+11:11.900 --> 11:15.910
+That's a distance of squared of two three plus zero g.
+
+11:16.010 --> 11:21.140
+Well that's going to be a distance of three and then three plus three J is going to be a distance of
+
+11:21.530 --> 11:23.960
+the square root of three squared plus three squares.
+
+11:23.960 --> 11:27.430
+So 9:09 is 18 square root of 18 right.
+
+11:27.470 --> 11:30.550
+So seems like with the Oldring is working correctly.
+
+11:31.160 --> 11:32.870
+So here's how we would do it.
+
+11:32.950 --> 11:35.910
+Now we don't have to define this function for us right.
+
+11:35.910 --> 11:37.490
+I I had to think about this.
+
+11:37.500 --> 11:40.280
+Define the function first and then do my sort.
+
+11:40.370 --> 11:47.450
+Instead we can do this all in one shot using Alamdar we can say key equals lambda Landers going to take
+
+11:47.450 --> 11:49.240
+some element X right.
+
+11:49.300 --> 11:52.050
+That's going to be in that list so complex numbers.
+
+11:52.220 --> 11:57.950
+And we're just going to use that whatever we have right here is what we're going to use.
+
+11:58.000 --> 12:01.920
+I'm going to copy paste that right into here.
+
+12:02.420 --> 12:07.170
+And if we run that we get the same result because the lambda was used.
+
+12:07.580 --> 12:14.000
+So that's another way of using lambdas in the sort for you can now actually sought elements that don't
+
+12:14.000 --> 12:21.760
+have an ordering as long as you associate a function that will give you an ordering for each element.
+
+12:21.770 --> 12:25.120
+Let's look at one last example of how we might use sort of.
+
+12:25.130 --> 12:34.550
+Let's say I've got a list which contains some strengths so let's go CLI's and then idle then Pailin
+
+12:39.340 --> 12:41.570
+or Palin I guess.
+
+12:42.390 --> 12:51.000
+Chapman Gilliam and Jones the Monty Python crew.
+
+12:51.360 --> 12:52.080
+OK.
+
+12:52.290 --> 12:58.190
+So now of course we can solve the sleuth's right just in the normal lexicographical order of Oldring
+
+12:58.200 --> 13:02.530
+so Chapman CLI's Gilliam Idol Jones and Pailin.
+
+13:03.660 --> 13:10.710
+But what if we want to sort based on the last element right of each name so I don't want to start by
+
+13:10.710 --> 13:13.930
+the first character I want to sort by the last character.
+
+13:14.100 --> 13:15.460
+Well that's pretty straightforward.
+
+13:15.510 --> 13:22.710
+We can do again sort of the L key now he's going to be something we're going again going to find a function
+
+13:22.830 --> 13:26.710
+that's going to take each string and just return to the last character.
+
+13:27.030 --> 13:31.360
+So we're going to take a string s and we're going to return the last character.
+
+13:31.860 --> 13:42.310
+So if we solve this way you'll notice that now we have Klees idols so e e m and n and s.
+
+13:42.330 --> 13:46.870
+So that's definitely saw that in ascending order based on the last element.
+
+13:46.890 --> 13:50.040
+The last character of each string.
+
+13:50.040 --> 13:52.590
+Now what about the the.
+
+13:52.590 --> 13:54.870
+Basically here we had e an e.
+
+13:55.170 --> 13:57.090
+Why does CLI's come before Idol.
+
+13:57.090 --> 13:59.800
+Well it kind of makes sense see came before I.
+
+13:59.910 --> 14:01.630
+So maybe that's what's going on.
+
+14:01.860 --> 14:11.300
+But look here we have and we have Pailin and we have Chapman and and are both the same but P comes before.
+
+14:11.300 --> 14:13.450
+See if we look at the fourth character.
+
+14:13.620 --> 14:14.070
+Right.
+
+14:14.190 --> 14:16.270
+And I certainly doesn't come before.
+
+14:16.370 --> 14:18.750
+So it's not using the second last character either.
+
+14:18.750 --> 14:24.060
+What's going on while solving in Python the way they've implemented the sort it's called a stable sort
+
+14:24.510 --> 14:31.170
+which means that if you have kind of an equal right to things are actually equal not one is not greater
+
+14:31.170 --> 14:31.890
+than the other.
+
+14:31.950 --> 14:37.680
+Like for example Pailin and CHAPMAN It will retain the older in which they were specified originally
+
+14:37.680 --> 14:40.020
+in the list that you're trying to sort.
+
+14:40.020 --> 14:46.650
+So this is why CLI's came before Idol because we had actually defined CLI's before Idol in this list
+
+14:46.680 --> 14:47.880
+over here.
+
+14:48.240 --> 14:56.130
+On the other hand Pailin and Chapman while there again equal and again Pailin was defined before Chapman.
+
+14:56.130 --> 14:58.130
+Hence it comes before Chapman.
+
+14:58.320 --> 15:05.790
+So just to show you I'm going to take the same list again place the down here but instead of putting
+
+15:06.000 --> 15:10.400
+CLI's before Idol I'm going to put Idol and then clean.
+
+15:10.890 --> 15:12.030
+OK.
+
+15:12.030 --> 15:14.490
+So this is our list now.
+
+15:14.490 --> 15:21.930
+And I'm just going to rerun the salt and now you'll see that idol now comes before Klees.
+
+15:21.930 --> 15:23.760
+And that's because in terms of the sword.
+
+15:23.760 --> 15:28.790
+ALDRIN because we only using the last character that equal and because it's a stable sort.
+
+15:28.830 --> 15:30.120
+It retains that order.
+
+15:30.250 --> 15:34.040
+It's just an interesting side note on the sort of method in Python.
+
+15:34.590 --> 15:38.040
+So this is a typical example of how you might use lambda expressions.
+
+15:38.040 --> 15:38.320
+Right.
+
+15:38.320 --> 15:39.150
+The very handy.
+
+15:39.150 --> 15:42.680
+You don't have to go out and find a separate function using death.
+
+15:42.720 --> 15:44.600
+You could just in line centrally.
+
+15:44.820 --> 15:52.320
+And these are short you know very simple to understand functions that makes sense to use in this kind
+
+15:52.320 --> 15:53.700
+of context.
+
+15:53.700 --> 15:54.120
+All right.
+
+15:54.150 --> 15:56.250
+Thanks for watching and I'll see you in the next video.

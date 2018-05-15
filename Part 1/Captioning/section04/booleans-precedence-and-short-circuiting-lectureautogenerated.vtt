@@ -1,0 +1,931 @@
+WEBVTT
+
+00:00.240 --> 00:05.470
+High in this video we're going to continue our diving to booleans and we're going to look at operators.
+
+00:05.500 --> 00:10.170
+We're going to look at operator precedence and we'll also look at what short circuit evaluation is and
+
+00:10.170 --> 00:12.360
+how it works.
+
+00:12.360 --> 00:18.930
+So first of all the boolean operators are not and and Oh and here's a truth table.
+
+00:18.930 --> 00:22.650
+And if you haven't seen a truth table before it's actually pretty straightforward.
+
+00:22.680 --> 00:26.810
+We just list out all the possible combinations of our input variables.
+
+00:26.820 --> 00:30.030
+In this case I'm looking at two input variables x and y.
+
+00:30.330 --> 00:33.850
+So the variables can be false or true.
+
+00:33.900 --> 00:37.460
+I'm using a 0 for false and 1 for true.
+
+00:37.530 --> 00:43.870
+So if X is false then not X will be true not false is true.
+
+00:43.920 --> 00:52.320
+Similarly not true would be false or if we have two input variables like X and Y or X or Y Y or if we
+
+00:52.320 --> 00:59.940
+take false and false that will be false and false or false would be false as well.
+
+00:59.940 --> 01:06.890
+On the other hand True and False would be false but true or false would be true.
+
+01:07.020 --> 01:12.240
+So that's just what a truth table is it's just a pretty straightforward way of listing of all the possible
+
+01:12.240 --> 01:18.480
+combinations of your input variables and then listing out with the result of whatever boolean expression
+
+01:18.540 --> 01:19.170
+is.
+
+01:19.230 --> 01:25.410
+Another way to also look at these boolean operators is to think of electrical circuits and to think
+
+01:25.410 --> 01:27.880
+of switches in an electrical circuit.
+
+01:28.080 --> 01:30.630
+So his intellect thought of an electrical circuit.
+
+01:30.630 --> 01:36.020
+Let's say we have current that's coming into this side on the left hand we have a switch.
+
+01:36.060 --> 01:40.980
+Now the switch can be open in which case no current is flowing out of the switch.
+
+01:41.160 --> 01:44.300
+And so we would consider this to be in a false state.
+
+01:44.340 --> 01:44.580
+Right.
+
+01:44.580 --> 01:51.840
+The result would be in a fault state when all switches open or false on the other hand if we close the
+
+01:51.840 --> 01:57.330
+switch when the switch is closed we consider the switch to be in a true state and it actually allows
+
+01:57.330 --> 01:59.270
+current to flow through.
+
+01:59.310 --> 02:04.110
+And so if we have current coming in on this side then we have current coming on on this side and we
+
+02:04.110 --> 02:07.610
+will consider that as a true result.
+
+02:07.650 --> 02:16.500
+So the or can be expressed as two switches in parallel and so X or Y means that current is coming in
+
+02:16.650 --> 02:21.470
+and then bifurcates and it flows through both branches here.
+
+02:21.480 --> 02:28.950
+So you can see that if X is closed if X is true then the current will actually flow out of the switch.
+
+02:28.980 --> 02:31.450
+And so we end up with a true result.
+
+02:31.470 --> 02:33.550
+So this is the situation we have here.
+
+02:33.570 --> 02:36.120
+X is true and Y is false.
+
+02:36.120 --> 02:37.000
+It's open.
+
+02:37.140 --> 02:43.230
+And yet the result of our operation or operation is one is true.
+
+02:43.320 --> 02:43.770
+Right.
+
+02:43.770 --> 02:44.770
+So this is how it work.
+
+02:44.770 --> 02:52.340
+So if X is true it doesn't matter what the state is of the second switch the result will always be true.
+
+02:52.380 --> 02:54.780
+And in fact we see that his right.
+
+02:54.810 --> 03:00.860
+If X is true then the order is always true irrespective of what why was.
+
+03:01.200 --> 03:06.850
+Now similarly we can look at and and and we can represent as two switches in series.
+
+03:07.110 --> 03:13.230
+And again we can just make their boolean values something so we can keep X Open which would be false
+
+03:13.320 --> 03:16.120
+and we can make y close which would be true.
+
+03:16.410 --> 03:21.030
+But you'll notice that if either of the switches are open then the current can't flow through.
+
+03:21.120 --> 03:22.430
+There's no way it can.
+
+03:22.500 --> 03:29.280
+So when X is false let's say it's these first two rows then it doesn't matter what y is the result will
+
+03:29.280 --> 03:30.300
+still be false.
+
+03:30.300 --> 03:37.210
+So we have this result here false and false claim.
+
+03:37.300 --> 03:37.770
+All right.
+
+03:37.860 --> 03:41.910
+So let's look at some properties of the boolean operators.
+
+03:41.910 --> 03:48.390
+So let's look at commuter Tivoli Now community B just means that a or b is the same as B or A and A
+
+03:48.390 --> 03:55.590
+and B is the same as being a doesn't matter which order you do that we'll have distributivity.
+
+03:55.590 --> 04:04.350
+So A and B or C is the same thing as A and B or A and C we can distribute this and this and throughout
+
+04:04.470 --> 04:07.260
+the expression inside the parentheses.
+
+04:07.540 --> 04:12.890
+And that's I think here A or B and C is A or B and A or C..
+
+04:13.110 --> 04:15.130
+So hopefully you've seen all these things before.
+
+04:15.130 --> 04:17.470
+I'm just refreshing your memory.
+
+04:17.610 --> 04:23.400
+Now we'll have associativity now associativity just says that you can group your or operators if you
+
+04:23.400 --> 04:26.810
+have multiple in any order you want that it doesn't matter.
+
+04:26.850 --> 04:36.730
+So A or B or C is the same thing as saying A or B or C and so therefore we can write without any ambiguity
+
+04:36.880 --> 04:39.850
+A or B or C without parentheses.
+
+04:39.850 --> 04:46.030
+Now when we evaluate it or Python evaluates an expression such as this it will have to pick an older
+
+04:46.090 --> 04:48.590
+and which to evaluate the all the others.
+
+04:48.610 --> 04:55.000
+It's going to have to pick one right and the same thing happens with and a and b and c is the same thing
+
+04:55.000 --> 04:56.960
+as A and B and C.
+
+04:57.010 --> 05:03.850
+So again we can write it without any ambiguity as a and b and c and so what's going to happen with Python
+
+05:03.850 --> 05:06.130
+it's going to do a left to right evaluation.
+
+05:06.130 --> 05:09.310
+So in this case here it's actually going to do this.
+
+05:09.310 --> 05:16.690
+It's going to evaluate a or b and then or have C and the same thing with a and b it will evaluate that
+
+05:16.720 --> 05:21.900
+first and then and that C but of course it doesn't matter which direction you do it in.
+
+05:21.910 --> 05:28.990
+If it's left right or right to left they're all exactly equivalent then we have the Mogens laws which
+
+05:28.990 --> 05:35.260
+basically tells you how you can distribute the not operator inside the parentheses so not AOB it gives
+
+05:35.260 --> 05:37.150
+us not a and not be.
+
+05:37.150 --> 05:42.190
+You'll notice that when we did the distribution of the not the off change to n and.
+
+05:42.370 --> 05:43.760
+And then the similar thing.
+
+05:43.810 --> 05:46.750
+And except that the end changes to it all.
+
+05:46.960 --> 05:48.880
+So those are called the Morgan's laws.
+
+05:49.250 --> 05:54.130
+And then just a few other miscellaneous things that also might be helpful when you're trying to look
+
+05:54.130 --> 05:59.920
+at boolean expressions and maybe trying to simplify them so that you can make your statements for example
+
+06:00.010 --> 06:02.940
+you are a little easier to understand.
+
+06:02.950 --> 06:05.910
+Keep in mind that not X less than Y.
+
+06:05.920 --> 06:11.080
+So if x is not less than Y It means that x is greater than or equal to Y.
+
+06:11.200 --> 06:11.460
+Right.
+
+06:11.470 --> 06:15.180
+So the nub of that becomes this operate a hinge.
+
+06:15.580 --> 06:18.740
+Similarly if we have not X less than or equal to Y.
+
+06:18.760 --> 06:21.430
+So if x is not less than or equal to y.
+
+06:21.520 --> 06:24.710
+Really it just means that x is greater than Y.
+
+06:24.940 --> 06:28.830
+And then we have the same thing with the other with the greater than and the greater than or equal to
+
+06:28.920 --> 06:34.660
+works the same way we just flip the operator around and then we add or remove the equal sign depending
+
+06:34.660 --> 06:40.170
+on where it was also not not a is the same thing as a.
+
+06:40.190 --> 06:44.700
+So double not just comes back to the original value.
+
+06:44.800 --> 06:47.150
+So let's look at operator precedence.
+
+06:47.170 --> 06:52.980
+Now and I'm including the parentheses even though they're technically not an operator but they do play
+
+06:52.980 --> 06:56.010
+into the precedence of operators and we'll see that in the second.
+
+06:56.040 --> 06:57.990
+And you've seen this before already.
+
+06:58.200 --> 07:00.010
+Anyway so here we have some operators.
+
+07:00.000 --> 07:05.840
+These are comparison operators like less than greater than equal to not equal two in is.
+
+07:06.000 --> 07:08.280
+We've seen all these operators before.
+
+07:08.700 --> 07:12.120
+Then we have not we have and and we have.
+
+07:12.190 --> 07:20.610
+Oh and the way that I've listed all these things out is that this is an order of highest to lowest precedence.
+
+07:20.610 --> 07:21.650
+What does that mean.
+
+07:21.750 --> 07:25.870
+Well let's look at an example let's look at this expression.
+
+07:26.520 --> 07:30.630
+So we need to start evaluating this expression.
+
+07:30.780 --> 07:32.460
+What what where do we start.
+
+07:32.460 --> 07:33.030
+Do we do.
+
+07:33.030 --> 07:33.440
+True.
+
+07:33.450 --> 07:34.410
+All true.
+
+07:34.520 --> 07:37.530
+First and then and that were false.
+
+07:37.530 --> 07:42.340
+And the answer is no and has a higher precedence than all.
+
+07:42.540 --> 07:47.540
+So in reality we have to evaluate true and false false.
+
+07:47.820 --> 07:49.160
+So that's the first thing we do.
+
+07:49.260 --> 07:53.680
+So now we end up with true or false sense true and false is false.
+
+07:53.940 --> 07:56.150
+And now we can finally evaluate true or false.
+
+07:56.190 --> 07:57.880
+And we get true.
+
+07:58.560 --> 08:02.930
+Now this is not the same as if we had done the other way.
+
+08:02.940 --> 08:10.230
+And so to make this clear let's put true or true this will not force the off to happen first which wouldn't
+
+08:10.230 --> 08:16.140
+have happened here because of the precedence of and being higher than the precedence of or in this case
+
+08:16.140 --> 08:19.730
+because of the parentheses we have to evaluate that first.
+
+08:19.740 --> 08:25.170
+So we're going to evaluate true true and true or true is true.
+
+08:25.170 --> 08:29.680
+And then we and that were false which ends us were false.
+
+08:29.700 --> 08:35.520
+So as you can see the order in which the Poles and the ends are evaluated in an expression like this
+
+08:35.610 --> 08:36.500
+matters.
+
+08:36.810 --> 08:38.610
+It makes a difference.
+
+08:38.720 --> 08:46.050
+So because of that we need a precedence essentially definition that tells us well in the case where
+
+08:46.050 --> 08:53.490
+you haven't specified these parentheses what older should happen what order should be used.
+
+08:53.490 --> 08:56.160
+So that's what the precedence is for.
+
+08:56.430 --> 09:00.070
+But when in doubt ought to be absolutely sure used parentheses.
+
+09:00.090 --> 09:05.190
+There's nothing wrong with putting a few extra parentheses in your expressions if it helps make it clear.
+
+09:05.370 --> 09:09.900
+For example it's perfectly fine to write true or true and false.
+
+09:10.020 --> 09:10.930
+That's OK.
+
+09:11.190 --> 09:16.560
+And yes you technically don't need the parentheses but you know it that's more readable.
+
+09:16.550 --> 09:18.330
+You can understand what's going on.
+
+09:18.660 --> 09:24.810
+And that's a key part to a lot of code is you really want to try and make your code not just efficient
+
+09:24.810 --> 09:29.440
+for the machine to handle but you also don't want to make it human readable.
+
+09:29.460 --> 09:30.990
+Humans are going to read your code.
+
+09:30.990 --> 09:33.020
+Other people are going to read your code.
+
+09:33.240 --> 09:39.450
+You might read your own code and if you do it six months later and you made it very difficult to understand
+
+09:39.810 --> 09:43.740
+you'll probably be looking at it scratching your head saying What was I thinking.
+
+09:43.890 --> 09:45.580
+I know what happens to me all the time.
+
+09:45.660 --> 09:51.750
+So it's important to make code human readable and comments is one way of helping but that's not the
+
+09:51.750 --> 09:59.120
+only way just having nicely formatted code simplify your simplified code it makes a big difference.
+
+09:59.130 --> 10:00.740
+For example look at this.
+
+10:00.900 --> 10:01.860
+Look at this expression.
+
+10:01.870 --> 10:06.980
+Here's a less than B or A greater than c and not X or Y.
+
+10:06.990 --> 10:10.140
+I'm sure you're scratching your head thinking what is this thing doing.
+
+10:10.350 --> 10:14.850
+And you know what so is Bob Bob really confused like what's going on.
+
+10:14.880 --> 10:17.210
+And of course we want to make sure Bob is not confused.
+
+10:17.220 --> 10:18.330
+So let's take a look.
+
+10:18.630 --> 10:25.130
+Well the precedence here means that the less than and greater than have to be evaluated first.
+
+10:25.380 --> 10:30.510
+So those expressions are going to be evaluated before any of the other ones.
+
+10:30.780 --> 10:33.400
+Then next in the order of precedence is not.
+
+10:33.420 --> 10:38.510
+And here we have this not X so that will get evaluated next.
+
+10:38.520 --> 10:47.370
+So now we have some some value here that say X or let's say on capital 8 or capital B and capital C
+
+10:47.400 --> 10:48.150
+or Y.
+
+10:48.210 --> 10:48.450
+Right.
+
+10:48.450 --> 10:49.830
+That's kind of what we have.
+
+10:49.830 --> 10:57.330
+So we have these or and N or operators that are left but again and has a higher precedence than on.
+
+10:57.510 --> 11:07.230
+So we have to evaluate now this and felt and now we're left with just something or something or something.
+
+11:07.230 --> 11:13.480
+And as we said before it doesn't matter which order you do the O's it's a or b or c it doesn't matter.
+
+11:13.590 --> 11:14.100
+Right.
+
+11:14.340 --> 11:22.020
+So in this case now we could really have rewritten this expression equivalently this way as a set of
+
+11:22.020 --> 11:29.880
+parentheses a less than B or some expression or y is that whole expression is in parentheses and then
+
+11:29.880 --> 11:36.450
+inside of that we have Furthermore more that it's calculated as a greater than c and not X.
+
+11:36.570 --> 11:41.370
+So it's a lot simpler to understand what's happening in this piece of code.
+
+11:41.640 --> 11:45.210
+And of course Bob's happy now because he gets it all right.
+
+11:45.210 --> 11:49.210
+So my point is you know don't write things that are confusing.
+
+11:49.220 --> 11:54.920
+And one of the things that's easily confusing in code is writing boolean expressions without parentheses
+
+11:54.920 --> 11:57.920
+and only relying on precedence of operators.
+
+11:58.160 --> 11:59.150
+Yes it's fine.
+
+11:59.150 --> 12:01.180
+The machine will get it right.
+
+12:01.190 --> 12:04.700
+The machine doesn't care if you write it this way or this way.
+
+12:04.700 --> 12:10.550
+Python interpreter will work equally well with both but humans are going to have an easier time reading
+
+12:10.550 --> 12:12.600
+the second one than the first one.
+
+12:12.800 --> 12:16.140
+So enough said I'll keep quite on the subject from now on.
+
+12:16.250 --> 12:20.770
+But let's not go and look at short circuit evaluation.
+
+12:21.410 --> 12:22.580
+Let's look at all first.
+
+12:22.580 --> 12:24.360
+We've seen the truth table before.
+
+12:24.470 --> 12:30.860
+And let's you think again and something this is not something I've pointed out before but you'll notice
+
+12:30.860 --> 12:36.530
+that the result of or is true in both these cases and it was because X was true.
+
+12:36.530 --> 12:42.950
+Remember if we think of it as a switch when X is true then the result is true no matter what.
+
+12:42.950 --> 12:45.490
+Why is why can be true or false.
+
+12:45.500 --> 12:46.640
+It doesn't matter.
+
+12:46.670 --> 12:49.460
+Current will still flow through the switch.
+
+12:49.460 --> 12:55.410
+So if X is true then X or Y will be true no matter the value of y.
+
+12:55.550 --> 13:04.630
+Another was another way of saying this is that X or Y can return true without evaluating Y if X is true
+
+13:05.840 --> 13:09.040
+and so that's what happens if X is true.
+
+13:09.350 --> 13:13.360
+Then we can return true without even calculating y.
+
+13:13.790 --> 13:20.360
+That's short circuiting the calculation of why we're short circuiting the evaluation of why it works
+
+13:20.360 --> 13:22.350
+the same thing with and the same way.
+
+13:22.430 --> 13:23.220
+Except that with.
+
+13:23.240 --> 13:29.510
+And you'll notice that we have always a false value when X is false.
+
+13:29.540 --> 13:35.960
+So if you think of switches again if X is false which means the switch is open then it doesn't matter
+
+13:35.960 --> 13:38.370
+what the state of y is if it's true or false.
+
+13:38.390 --> 13:45.650
+The result will be false because nothing can flow through because of the force switch and so if X is
+
+13:45.650 --> 13:49.850
+false then x and y will be false no matter the value of y.
+
+13:49.910 --> 13:53.990
+Again we can see this in the truth table over here.
+
+13:53.990 --> 14:01.050
+Another way of saying that is that x and y will return false without evaluating y.
+
+14:01.310 --> 14:03.250
+If X is false.
+
+14:03.380 --> 14:07.950
+So again it's short circuiting the evaluation of Y when X is false.
+
+14:07.970 --> 14:09.960
+It doesn't need to because we don't care.
+
+14:09.980 --> 14:11.380
+It doesn't matter.
+
+14:11.930 --> 14:16.700
+So that is short circuiting and that can be useful in a number of cases the number of scenarios.
+
+14:16.700 --> 14:19.190
+So let's take a look at the first scenario.
+
+14:19.430 --> 14:24.960
+Let's say that you have a data feed of lists of stock symbols and some maybe associated financial data.
+
+14:24.980 --> 14:29.390
+Maybe it's the number of shares traded or real whatever it is this is just an example.
+
+14:29.390 --> 14:34.580
+So suppose that you've got this feed of data that you're getting and you've got stock symbols that come
+
+14:34.580 --> 14:35.040
+in.
+
+14:35.390 --> 14:41.420
+And your job is to monitor the feed looking for some specific stock symbols you're only interested in
+
+14:41.420 --> 14:46.500
+a few stock symbols out of the you know thousands and tens of thousands that are coming through.
+
+14:46.610 --> 14:48.100
+You only interested in a few.
+
+14:48.470 --> 14:51.420
+And you also want to take some action.
+
+14:51.440 --> 14:58.790
+If the price of that stock is above some certain threshold but getting the current price of a stock
+
+14:59.120 --> 15:01.910
+and that's the caveat here has a cost.
+
+15:01.970 --> 15:07.220
+Maybe it's a hand-cuffs Maybe every time you make a request to say hey give me the price of Apple at
+
+15:07.220 --> 15:10.360
+the at the moment it's going to maybe cost you something.
+
+15:10.460 --> 15:16.160
+Or maybe it cost you something in terms of resources you have to open up a database connection or maybe
+
+15:16.160 --> 15:22.320
+you have to set up an issue GTP connection to an API and then you get to make a call to the API in that
+
+15:22.370 --> 15:25.190
+API has to make a call to some database somewhere.
+
+15:25.190 --> 15:30.810
+So the point is that there's a cost associated with getting the price of that symbol.
+
+15:31.370 --> 15:33.580
+So let's see how we might code this.
+
+15:33.590 --> 15:38.630
+Let's assume we didn't have short circuiting it all then you would probably write it this way.
+
+15:38.720 --> 15:44.060
+The first thing is you would have an alter if if symbol in watchlist.
+
+15:44.060 --> 15:47.270
+All right so the first thing is is the symbol one that we're interested in.
+
+15:47.270 --> 15:49.940
+So this watch list would be a list of symbols.
+
+15:50.200 --> 15:50.570
+Right.
+
+15:50.600 --> 15:55.620
+And we're going to check to see if the symbol we just received in the field is in that list.
+
+15:55.850 --> 15:59.290
+If that's the case now we go and retrieve the price.
+
+15:59.420 --> 16:04.410
+And if the price of the symbol is greater than some threshold then we go ahead and do something or other.
+
+16:04.820 --> 16:08.800
+So the thing here is that coaling the price method has a cost.
+
+16:08.810 --> 16:13.940
+So you don't want to call the price method every time you want to you know make sure that you're not
+
+16:13.940 --> 16:19.090
+racking up your costs looking up the price of a symbol that you're not even interested in.
+
+16:19.520 --> 16:21.260
+So we could write it this way.
+
+16:21.260 --> 16:27.920
+However if we do have short circuiting we can write it equivalently this way if symbol in Watchlist
+
+16:27.980 --> 16:31.540
+and price of symbol is greater than threshold do something.
+
+16:31.910 --> 16:34.560
+Well that's equivalent because of the short circuiting.
+
+16:34.700 --> 16:39.920
+If the symbol is not in the watch list then this will evaluate to false.
+
+16:39.920 --> 16:46.840
+And because of short circuiting falls and anything is always false this will actually not get evaluated.
+
+16:47.010 --> 16:52.610
+Python will not run this bout of the and statement because it says while I don't need to know this is
+
+16:52.610 --> 16:53.420
+false.
+
+16:53.540 --> 17:00.440
+So I can basically skip the spout and just return false and the result of this statement's expression
+
+17:00.440 --> 17:05.990
+here would be false and we wouldn't execute the code of course on the other hand if the symbol is in
+
+17:05.990 --> 17:10.610
+the watch list then this returns true that point there is no short circuiting.
+
+17:10.670 --> 17:14.840
+And and when you are forced to operate operand is true.
+
+17:15.020 --> 17:17.740
+So it's going to have to evaluate the second operand.
+
+17:17.810 --> 17:21.910
+And and so now it will go ahead and run that.
+
+17:22.340 --> 17:27.060
+So at that point this runs but only if this thing here is true if it's false.
+
+17:27.110 --> 17:28.250
+It never runs.
+
+17:28.250 --> 17:33.530
+And so it's equivalent to writing this nested IF statement All right.
+
+17:33.530 --> 17:39.050
+Another example might be let's say you were returning a name from a database and let's suppose that
+
+17:39.050 --> 17:40.490
+it's a nullable string.
+
+17:40.550 --> 17:43.520
+So your name can be in three different states.
+
+17:43.520 --> 17:44.050
+Right.
+
+17:44.060 --> 17:45.290
+It can be a no.
+
+17:45.290 --> 17:49.810
+Which means that typically you would end up with a none object in Python.
+
+17:50.120 --> 17:54.710
+It kind of depends on you know the database connection to using what the database API that you're using
+
+17:54.710 --> 17:55.850
+the library and so on.
+
+17:55.850 --> 18:02.000
+So but typically not in the database translates back to a non object in Python.
+
+18:02.480 --> 18:04.640
+Or it could be just an empty string.
+
+18:04.640 --> 18:07.910
+It's OK to have an empty string in a text field in a database.
+
+18:07.910 --> 18:11.140
+So it might be that it's not the same thing as no though right.
+
+18:11.180 --> 18:11.630
+None.
+
+18:11.630 --> 18:13.770
+An empty string are not the same thing.
+
+18:14.180 --> 18:16.180
+Or it could actually contain characters.
+
+18:16.190 --> 18:18.970
+So those are the three possible states of a name.
+
+18:19.490 --> 18:22.480
+And let's say that we want to perform some action.
+
+18:22.490 --> 18:26.190
+If the first character in the string is a digit right.
+
+18:26.230 --> 18:27.440
+0 through 9.
+
+18:27.860 --> 18:30.290
+So you might be tempted to write something like this.
+
+18:30.290 --> 18:34.030
+We might write if name 0 in string of digits.
+
+18:34.190 --> 18:39.410
+And that just takes the first character of name and strings of digits will string is a module you can
+
+18:39.410 --> 18:45.350
+import and digits just a string that contains 0 1 2 3 4 5 6 7 8 9.
+
+18:45.470 --> 18:49.100
+We'll see that in the code when we switch to that arm.
+
+18:49.550 --> 18:55.400
+But this just basically checks to see is the first character of name in one of those digits is it.
+
+18:55.400 --> 18:56.660
+Is it a digit.
+
+18:56.660 --> 18:58.680
+If it is do something or other.
+
+18:59.060 --> 19:02.470
+Well this is OK but it's going to break right.
+
+19:02.480 --> 19:04.530
+It's going to break if name is none.
+
+19:04.730 --> 19:11.060
+Or if it's an empty string if name is none well known doesn't have you know you can't find an index.
+
+19:11.240 --> 19:14.720
+None of the non-object is not a sequence type.
+
+19:14.720 --> 19:17.260
+It's not indexable same thing.
+
+19:17.270 --> 19:19.180
+If the string is empty.
+
+19:19.280 --> 19:22.290
+Yes at this point you can use indexes.
+
+19:22.430 --> 19:28.480
+But since the string is empty there is nothing in position 0 that is also going to break our code.
+
+19:28.550 --> 19:29.870
+So that's not going to work.
+
+19:29.870 --> 19:38.090
+What we need to do is to really say well I want name to not be none to also not be empty.
+
+19:38.330 --> 19:44.280
+And then and only then do I want to check if the first character of name is a digit.
+
+19:44.360 --> 19:50.840
+So we could just write it this way by using short circuiting and truth values if name and name zero
+
+19:50.840 --> 19:52.450
+and string of digits.
+
+19:52.460 --> 19:53.700
+So let's see what this does.
+
+19:53.780 --> 19:55.600
+Well first of all name is an object.
+
+19:55.610 --> 19:58.430
+But we're looking at the truthiness of this object.
+
+19:58.460 --> 20:02.410
+And remember that name will be false if it's none.
+
+20:02.480 --> 20:09.480
+None is always falsie name will also be falsie if it's an empty sequence and otherwise it will be truthy.
+
+20:09.800 --> 20:11.490
+So look at what happens here.
+
+20:11.930 --> 20:17.880
+If name is falsie then because of short circuiting this does not get executed.
+
+20:17.900 --> 20:21.010
+Name zero does not get evaluated.
+
+20:21.590 --> 20:29.400
+So if name is truthy then it evaluates the name of zero but name can only be truthy if it contains characters.
+
+20:29.540 --> 20:33.150
+Otherwise it would be falsie would either be none or an empty string.
+
+20:33.230 --> 20:38.790
+And so we're only going to execute the second part here which was the one that was causing us a problem.
+
+20:38.990 --> 20:40.710
+If it's OK to do so.
+
+20:41.920 --> 20:42.600
+All right.
+
+20:42.940 --> 20:45.490
+So if the name is falsie I'm just gonna repeat this.
+
+20:45.490 --> 20:48.020
+Either none or an empty string then.
+
+20:48.130 --> 20:54.880
+This is not evaluated because of short circuiting so short circuiting can be really interesting and
+
+20:54.880 --> 21:01.540
+we'll see some more examples of short circuiting coming up in a future video where that will also be
+
+21:01.540 --> 21:03.210
+quite useful.
+
+21:03.280 --> 21:07.400
+All right for now let's jump into the code and just take a look at all this in action.
+
+21:07.420 --> 21:08.890
+So we'll do that in the next video.
+
+21:08.890 --> 21:10.000
+I'll see you in a bit.

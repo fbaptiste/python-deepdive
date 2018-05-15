@@ -1,0 +1,847 @@
+WEBVTT
+
+00:00.390 --> 00:06.330
+High in this video we're going to talk about default values and in particular we're going to talk about
+
+00:06.390 --> 00:09.070
+an issue that can come up.
+
+00:09.070 --> 00:13.810
+So first let's see what happens at the wrong time when a module is loaded.
+
+00:13.860 --> 00:18.360
+So when a module is loaded now can happen in different ways maybe you're importing the model from another
+
+00:18.360 --> 00:19.530
+model at that point.
+
+00:19.530 --> 00:21.200
+The module is being loaded.
+
+00:21.250 --> 00:25.560
+If it's the first time you're importing it or maybe it's your main module that you're calling from the
+
+00:25.560 --> 00:30.600
+command line right or whatever the case may be there's different ways modules can be loaded.
+
+00:30.600 --> 00:35.800
+But when they do all the code in the module is executed right away.
+
+00:36.210 --> 00:41.700
+And what do I mean by code being executed well you have things like for example a equals 10.
+
+00:41.700 --> 00:42.960
+That's pretty obvious right.
+
+00:42.960 --> 00:49.040
+We're executing a equals 10 we're essentially creating the object the integer object 10.
+
+00:49.200 --> 00:51.660
+And then we're assigning a to that object.
+
+00:51.650 --> 00:54.550
+Right we're letting a reference object.
+
+00:55.110 --> 00:57.390
+But when you have this type of code here.
+
+00:57.420 --> 00:58.660
+Def phunk A.
+
+00:58.770 --> 01:00.340
+And then some code inside.
+
+01:00.510 --> 01:03.100
+Well that actually is also being executed.
+
+01:03.150 --> 01:09.810
+Now that's not the function being executed what's being executed here is death which is something that
+
+01:09.900 --> 01:11.910
+creates the function.
+
+01:11.910 --> 01:14.880
+So it's going to create the function is going to put it in memory.
+
+01:15.240 --> 01:15.610
+Right.
+
+01:15.660 --> 01:21.750
+And then phunk you can think of is simply just a variable name that happens to point to that function
+
+01:21.750 --> 01:23.460
+object in memory.
+
+01:23.490 --> 01:30.630
+So this actually is being executed not in the way that happens when we call func a that is executing
+
+01:30.630 --> 01:31.800
+the function.
+
+01:31.800 --> 01:37.560
+This line which is still being run it's being executed as code but it's not running the function.
+
+01:37.560 --> 01:39.780
+It's just defining the function.
+
+01:40.260 --> 01:46.290
+And so by the time we reach fonk a the function has been defined and every time we call func a it's
+
+01:46.290 --> 01:52.630
+going to look at that particular object that func is pointing to and execute that function.
+
+01:54.300 --> 01:56.190
+So what about default values.
+
+01:56.340 --> 01:58.600
+Well let's look at.
+
+01:59.670 --> 02:01.050
+Well let's look at that again.
+
+02:01.050 --> 02:04.030
+So we have def phunk equals 10.
+
+02:04.050 --> 02:05.560
+So now we have a default value.
+
+02:05.580 --> 02:05.860
+Right.
+
+02:05.860 --> 02:10.060
+We've got a single positional parameter that has a default value of 10.
+
+02:10.150 --> 02:11.400
+Now def is going to run.
+
+02:11.400 --> 02:12.580
+It's going to be executed.
+
+02:12.600 --> 02:17.790
+It's going to create the function just as before and func is going to be essentially the variable name
+
+02:17.820 --> 02:21.600
+of the function going to be the name that references that object.
+
+02:21.600 --> 02:28.740
+But also what happens is that the default value is being evaluated and created as an object and the
+
+02:28.740 --> 02:33.390
+default for a is then referencing that object in memory.
+
+02:33.510 --> 02:39.410
+So that object when once def has run this object 10 now exists right.
+
+02:39.420 --> 02:45.010
+It is an object and the default for a points to that object.
+
+02:45.180 --> 02:48.110
+Again the function itself actually is not run.
+
+02:48.120 --> 02:51.590
+It's just being defined it's being created.
+
+02:51.600 --> 02:57.360
+Now when we call phunk what happens while now we execute the function but the function is this object
+
+02:57.360 --> 03:05.160
+that's been already created in memory and amongst other things is that the default has already been
+
+03:05.160 --> 03:05.670
+created.
+
+03:05.670 --> 03:11.070
+It's not being recreated or re-evaluated every time we call the function.
+
+03:11.070 --> 03:11.700
+Right.
+
+03:11.730 --> 03:18.510
+That determination and that evaluation and creation of the default value is done once when def runs
+
+03:18.780 --> 03:21.430
+not when funkiest called.
+
+03:21.580 --> 03:25.250
+So Bob here is saying also what big deal you know.
+
+03:25.480 --> 03:29.550
+Well it is a big deal in certain circumstances because consider this.
+
+03:29.590 --> 03:34.750
+Let's say that we want to create a function that's going to log a message to the console.
+
+03:34.990 --> 03:40.250
+What we want to provide a keyword only argument that's going to be optional for the date and time.
+
+03:40.270 --> 03:46.510
+So the caller can specify the message and the date and time at which they want to essentially tag that
+
+03:46.510 --> 03:47.620
+message.
+
+03:47.620 --> 03:48.970
+But we want it to be optional.
+
+03:49.000 --> 03:54.680
+So if they don't find the date and time then we want the function to fill in the current date and time.
+
+03:56.020 --> 03:58.080
+So we might try something like this.
+
+03:58.090 --> 04:03.850
+First we're going to import day time from the day time audio that will allow us now to set the default
+
+04:03.880 --> 04:05.240
+for the team.
+
+04:05.410 --> 04:11.630
+Right so we have a log function with a message and a DTA keyword only arguments since we've got the
+
+04:11.630 --> 04:14.970
+style there that is going to have a default value of.
+
+04:15.040 --> 04:18.050
+Now right of date time dupped UTC.
+
+04:18.070 --> 04:25.530
+Now the current UTC date and time and then we'll print the message but we'll print the date followed
+
+04:25.530 --> 04:26.610
+by the message.
+
+04:26.610 --> 04:30.110
+So if the user provides a date that will get printed here.
+
+04:30.240 --> 04:34.340
+If they don't we'll grab the current time and print that up.
+
+04:34.380 --> 04:36.170
+That's what we're trying to achieve.
+
+04:37.100 --> 04:44.000
+But let's see what happens in reality if we call laga message one at some point in time we'll get some
+
+04:44.000 --> 04:47.000
+time stamp and I'll message right.
+
+04:47.000 --> 04:49.910
+This just happens to be the time at which I ran this code.
+
+04:49.910 --> 04:55.440
+For example and let's say that you know the module takes a little while to run.
+
+04:55.440 --> 05:00.260
+Or maybe there's something else happens there's a pause or whatever the case is but let's say that sometime
+
+05:00.310 --> 05:00.960
+later.
+
+05:01.090 --> 05:01.400
+Right.
+
+05:01.500 --> 05:06.830
+Maybe a few minutes later or a few seconds later we call this log function again.
+
+05:06.960 --> 05:12.460
+So we called log message to and here's the output we get.
+
+05:12.480 --> 05:19.980
+Now you'll notice that the date and time is identical down to the you know dot the M.E. and micro-seconds
+
+05:21.020 --> 05:22.130
+it's identical.
+
+05:22.370 --> 05:24.170
+And that's obviously not what we want.
+
+05:24.180 --> 05:25.400
+So what's going on.
+
+05:25.430 --> 05:29.460
+Why is this identical Why is UTC now the same it can't be.
+
+05:29.500 --> 05:32.300
+We've had elapsed time between the two.
+
+05:32.420 --> 05:39.620
+Well the reason for that remember is this date time that UTC now is an object that gets created and
+
+05:39.620 --> 05:43.640
+put into memory and is thus assigned as the default for.
+
+05:43.790 --> 05:49.270
+But it is done when def runs not when the function is called.
+
+05:49.370 --> 05:52.130
+Which means that ditty stays the same.
+
+05:52.160 --> 05:54.130
+It stays that same object.
+
+05:54.170 --> 05:54.580
+Right.
+
+05:54.650 --> 05:59.000
+And so that's why it doesn't matter how many times you call the log function the date and time will
+
+05:59.000 --> 06:00.330
+remain the same.
+
+06:00.600 --> 06:02.290
+Obviously that's all we want right.
+
+06:02.300 --> 06:07.640
+We want the date and time to reflect the current date and time at the time when the log function was
+
+06:07.640 --> 06:09.140
+called.
+
+06:09.140 --> 06:11.870
+Now there might be cases when you want this to be the case.
+
+06:12.020 --> 06:12.350
+Right.
+
+06:12.470 --> 06:13.850
+But that's different.
+
+06:14.030 --> 06:15.730
+That's not what we're trying to do here.
+
+06:17.440 --> 06:23.410
+So here's a solution and this is kind of a pattern that you can use for any kind of problem like that.
+
+06:23.620 --> 06:28.320
+We're not going to set D.T. to that defaulted time.
+
+06:28.360 --> 06:28.790
+Right.
+
+06:28.900 --> 06:30.740
+Instead we're going to set it to none.
+
+06:30.910 --> 06:36.500
+And when we set to none we can then test inside the function to see if it's still none.
+
+06:36.640 --> 06:43.330
+By setting it to none by saying D equals none in the parameters we're essentially still making it an
+
+06:43.330 --> 06:49.670
+optional argument because it has a default value of the default value just happens to be this none object.
+
+06:49.690 --> 06:54.890
+So if the user passes a value for d t it will not be numb anymore.
+
+06:55.120 --> 07:00.910
+If they don't it will be none and it will know that while the user didn't pass a value in so now inside
+
+07:00.910 --> 07:06.710
+the function we can test to see if the user actually passed that argument in or not.
+
+07:06.970 --> 07:10.160
+And if they didn't then we can set it to the current date and time.
+
+07:10.180 --> 07:17.350
+But we do that inside the function because that gets run every time the function is called.
+
+07:17.370 --> 07:19.310
+So we might do something like this.
+
+07:19.500 --> 07:21.890
+So we'll def log message.
+
+07:21.960 --> 07:28.500
+We'll put the star in again and now we have our key word only argument D.T. and we said it's default
+
+07:28.560 --> 07:29.470
+to none.
+
+07:29.880 --> 07:37.320
+And inside the function we're going to test if DTC is now I'm using this or boolean operator recall
+
+07:37.320 --> 07:44.680
+from the previous lectures that when we have a or b if a is truthy it will return a.
+
+07:44.760 --> 07:49.050
+Otherwise it returns B while well is DTN to be truthy.
+
+07:49.260 --> 07:50.410
+If it has a value.
+
+07:50.730 --> 07:53.320
+In other words if the user specified a value.
+
+07:53.460 --> 07:55.820
+So if they did we'll just use the value.
+
+07:55.950 --> 08:00.880
+Otherwise we'll go ahead and grab the current UTC date and time.
+
+08:01.410 --> 08:05.890
+So this line of code is equivalent to just writing it this way if not the.
+
+08:05.940 --> 08:12.780
+In other words if D.T. is falsie then said DTA equal to the current date and time and then we can just
+
+08:12.780 --> 08:14.790
+print out DTN message.
+
+08:14.880 --> 08:16.680
+So this will fix the problem.
+
+08:16.680 --> 08:18.930
+This will do exactly what we want to do.
+
+08:20.820 --> 08:28.350
+Now in general always beware of using mutable objects or call bills for defaults on your parameters.
+
+08:28.350 --> 08:31.890
+Just be careful with that because you can run into issues.
+
+08:31.890 --> 08:38.280
+So just think about it if you're going to make a call to let's say a list right or you're going to make
+
+08:38.280 --> 08:40.560
+deals equal to a function call.
+
+08:40.560 --> 08:41.480
+Be careful.
+
+08:41.520 --> 08:44.760
+Realize that it's not going to get cold again.
+
+08:44.760 --> 08:48.950
+So if it's a function that is supposed to change over time that won't happen.
+
+08:49.050 --> 08:54.990
+On the other hand if you said equal to some other list let's say you have you know a list that's assigned
+
+08:54.990 --> 08:56.380
+a variable name somewhere.
+
+08:56.580 --> 08:59.640
+And you said quote to my list.
+
+08:59.640 --> 09:05.990
+Well be careful because now you might think oh it's never going to change because death only runs once.
+
+09:06.000 --> 09:07.050
+Well that's true.
+
+09:07.230 --> 09:13.160
+But now the default is pointing to an object that's mutable in memory which means it can change.
+
+09:13.440 --> 09:15.070
+Potentially it can change.
+
+09:15.120 --> 09:21.090
+And so now it's no longer constant drive it's no longer going to be just this one time thing that never
+
+09:21.090 --> 09:21.960
+changes.
+
+09:22.260 --> 09:23.550
+So it works both ways.
+
+09:23.550 --> 09:24.900
+You can have problems either way.
+
+09:24.900 --> 09:26.310
+So just be careful with that.
+
+09:26.310 --> 09:29.490
+Be aware of those kinds of problems.
+
+09:29.490 --> 09:30.010
+All right.
+
+09:30.060 --> 09:34.800
+So let's switch to some code and let's just try all this out and see how it works.
+
+09:34.800 --> 09:35.110
+All right.
+
+09:35.100 --> 09:44.410
+So let's first start by importing data time from the day time from date time import date time.
+
+09:45.000 --> 09:49.230
+And we are now going to call date time darte UTC.
+
+09:49.230 --> 09:56.120
+Now I just want to show you what that does that basically just returns the current date and time.
+
+09:56.490 --> 09:58.640
+And if you want to see it printed nicely.
+
+09:58.740 --> 10:02.880
+So this is an object right but it also has a string representation.
+
+10:02.880 --> 10:03.430
+There we go.
+
+10:03.450 --> 10:05.160
+That's the string representation.
+
+10:05.160 --> 10:10.100
+Now I can execute this a number of times and you'll notice that it changes right.
+
+10:10.150 --> 10:12.280
+It's time is moving along.
+
+10:12.300 --> 10:17.680
+So here we have 0 5 or 6 48 52 etc..
+
+10:18.020 --> 10:25.970
+Ok so time is moving along now let's go ahead and try and write this log function that we talked about.
+
+10:25.980 --> 10:29.670
+So here's the first approach we might take.
+
+10:29.670 --> 10:34.170
+So we're going to ask the user for a positional parameter which is going to be the message.
+
+10:34.350 --> 10:37.540
+And then we want an optional date and time.
+
+10:37.560 --> 10:43.170
+And if they don't specify the date and time we want to take the current date and time so we'll set up
+
+10:43.170 --> 10:53.960
+to date time darte UTC now and then we're just going to print out the date and time and then the message.
+
+10:54.150 --> 10:59.460
+So we'll do that and we'll print the date time first and then the message.
+
+10:59.560 --> 11:00.200
+OK.
+
+11:00.570 --> 11:01.860
+So those are function.
+
+11:02.040 --> 11:10.950
+So we can call log and we can pass in a message let's call it Message 1 and I'll pass in an actual date
+
+11:10.980 --> 11:11.440
+and time.
+
+11:11.430 --> 11:17.280
+So now I have to pass it as a keyword only argument and maybe I'll say it's two thousand and 1 0 1 0
+
+11:17.280 --> 11:23.200
+1 0 0 0 0 0 0 dot or whatever it some day.
+
+11:23.550 --> 11:28.350
+And so when we run that we get there not going to change the date to something else.
+
+11:28.350 --> 11:34.710
+Maybe I'll make that 2000 and turn and we get that as well.
+
+11:34.710 --> 11:37.090
+So all that works perfectly fine.
+
+11:37.110 --> 11:42.620
+Now let's go ahead and not specify the date and time and let's see what happens.
+
+11:44.040 --> 11:45.850
+Sort of pull this message too.
+
+11:46.090 --> 11:50.070
+And so we get the current date and time which happens to be the current date and time.
+
+11:50.200 --> 11:53.410
+As you can see it's close to the ones we were getting here.
+
+11:53.930 --> 11:54.380
+OK.
+
+11:54.400 --> 12:00.450
+So I'm talking just to wait a little bit and now I'm going to log another message.
+
+12:00.450 --> 12:02.880
+It's called message 3.
+
+12:03.280 --> 12:08.250
+And as you can see no time has elapsed right the date and time is still the same.
+
+12:08.260 --> 12:13.210
+And it doesn't matter how many times I call this it will still remain the same.
+
+12:13.210 --> 12:13.840
+Right.
+
+12:14.170 --> 12:21.070
+And the reason for that is as we discussed in the lecture is that this date time of UTC now is evaluated
+
+12:21.340 --> 12:22.780
+when death is run.
+
+12:22.780 --> 12:29.260
+At this point here the function wasn't executed the function was created and the default value was also
+
+12:29.260 --> 12:31.320
+created at that time.
+
+12:31.450 --> 12:34.630
+So it will never change throughout the lifetime of this.
+
+12:34.630 --> 12:43.690
+Now if I rerun some half hour reload the module or I'm able to rerun the definition of the lung function
+
+12:43.880 --> 12:50.380
+and I can do this by hitting shift enter here or just rerun it and you can see that my in numbers change
+
+12:50.380 --> 12:51.470
+to 14.
+
+12:51.490 --> 12:54.090
+It used to be 7 or 8 on remember.
+
+12:54.550 --> 12:59.060
+But now of course if I run this long message.
+
+12:59.370 --> 13:01.110
+Now I've got a different date and time.
+
+13:01.210 --> 13:06.100
+But if I run it again I now have the same one that keeps coming back.
+
+13:06.130 --> 13:06.600
+OK.
+
+13:06.670 --> 13:08.610
+So hopefully that illustrates what's happening.
+
+13:08.830 --> 13:15.090
+So we need to fix that and a common pattern to solve that is to use a default value of None.
+
+13:15.130 --> 13:22.710
+So we're going to redefine our log function so the same way as before but instead of setting de-th to
+
+13:22.720 --> 13:25.380
+the function call we're going to set it to none.
+
+13:25.390 --> 13:28.540
+And then inside the function we're going to test if it's still none.
+
+13:28.540 --> 13:34.520
+Now in this case here when I actually specified the date and time while this will not be numb anymore.
+
+13:34.750 --> 13:42.020
+So basically if as a caller I pass in the arguments value then that means that Dipti won't be none.
+
+13:42.070 --> 13:43.770
+So that's all I need to test for.
+
+13:44.050 --> 13:44.290
+Right.
+
+13:44.290 --> 13:51.790
+So I would say if DTA is none then D.T. is equal to I could say you know if BT is non-selling ditties
+
+13:51.800 --> 13:57.060
+falsie that I could set the date time that UTC now.
+
+13:57.330 --> 13:57.840
+OK.
+
+13:58.120 --> 13:59.350
+So that would work.
+
+13:59.530 --> 14:08.510
+And let's go ahead and then print whatever we were printing before I'm just going to copy paste it.
+
+14:08.830 --> 14:18.510
+And so now if we call log in message 1 and if we pass in a date then it will work as before.
+
+14:18.730 --> 14:20.620
+I'll just pass it this way.
+
+14:20.620 --> 14:23.440
+Sorry of course it's a key word only argument.
+
+14:23.710 --> 14:24.160
+OK.
+
+14:24.250 --> 14:24.780
+So they would
+
+14:29.750 --> 14:32.000
+Sorry if not the team right.
+
+14:32.050 --> 14:37.120
+If D.T. is faulty we want to set the default date and time.
+
+14:37.220 --> 14:37.940
+So there we go.
+
+14:37.940 --> 14:38.350
+Right.
+
+14:38.360 --> 14:46.780
+And now if we call log in without specifying DTC I can type.
+
+14:47.450 --> 14:51.220
+Then we get you know the default the current time.
+
+14:51.240 --> 14:53.220
+Now because he has none.
+
+14:53.240 --> 14:55.510
+I didn't specify it what I call the function.
+
+14:55.500 --> 15:00.620
+So DD is done took on as default value so therefore it's going to go ahead and run this.
+
+15:00.770 --> 15:05.940
+And if I run it again from talking a little bit there we go right.
+
+15:05.960 --> 15:12.110
+We've had a change in the time stamp so that that's working as we expected.
+
+15:12.110 --> 15:17.900
+Now there is a better way or maybe not a better way but certainly a more concise way of doing this.
+
+15:17.900 --> 15:24.890
+And that's by using the fact that the or Boolean OR operator works in the sense that if A or B if A's
+
+15:24.890 --> 15:26.070
+truth return.
+
+15:26.090 --> 15:27.530
+Otherwise we turn B.
+
+15:27.560 --> 15:36.870
+So we're just going to say DTC putting or dates time that UTC now and this way.
+
+15:37.040 --> 15:37.540
+Right.
+
+15:37.580 --> 15:40.560
+So if DTA is none it's going to be falsie.
+
+15:40.580 --> 15:46.970
+So if it's falsie it's then going to return be it's truthy which means I specified a value it's not
+
+15:47.000 --> 15:47.870
+none.
+
+15:47.870 --> 15:49.220
+Then it will do that.
+
+15:49.220 --> 15:54.920
+Now this means by the way that if in either case it would have worked the same way if I was to do this.
+
+15:54.920 --> 16:02.870
+Lagi on message 3 and I do specify ditty but I may be able to none.
+
+16:02.870 --> 16:04.690
+For example.
+
+16:04.730 --> 16:05.110
+Right.
+
+16:05.120 --> 16:08.330
+It's still going to work correctly it's not going to say Yeah OK.
+
+16:08.360 --> 16:13.110
+You didn't specify something other than none in here.
+
+16:13.670 --> 16:21.780
+So that's one way of fixing the problem also want to very quickly talk about the other thing I was talking
+
+16:21.780 --> 16:26.960
+about in the lecture which is let's say we have a function let's say def let's call it fun.
+
+16:27.030 --> 16:29.880
+That takes in let's say value.
+
+16:30.120 --> 16:33.120
+And I'm going to make it equal to a list.
+
+16:33.120 --> 16:38.900
+But what I'm going to do is I'm going to create my list equals one comic to come three.
+
+16:39.180 --> 16:45.100
+And here I'm going to make the default be my list and then I'll just print a k.
+
+16:45.390 --> 16:50.910
+So now if I call func while it's just going to print my list because that's the default Farkle func
+
+16:51.210 --> 16:52.340
+with a different list.
+
+16:52.350 --> 16:56.370
+Let's say a and b then it's going to print a and b.
+
+16:56.850 --> 16:59.000
+But now look at what's happens.
+
+16:59.130 --> 17:05.230
+Let's say I do my list d'arte attend and let's say I penned a value to it.
+
+17:05.270 --> 17:09.470
+OK for now my list is what my list is one two three four.
+
+17:09.630 --> 17:13.670
+And if I call func What do I get while I get one two three four.
+
+17:13.800 --> 17:14.170
+Right.
+
+17:14.220 --> 17:21.690
+So this is now the opposite problem where let's say here I expected that a diff will always default
+
+17:21.690 --> 17:28.710
+to 1 to 3 but something went ahead and changed that list right because my list is just a pointer right.
+
+17:28.740 --> 17:32.990
+It's a reference to wherever this object lives in memory.
+
+17:33.000 --> 17:38.680
+So when I change that object in memory because it's a mutable object then I have this problem.
+
+17:38.760 --> 17:44.070
+So if you want to make sure that it doesn't happen then what you really would prefer to do is use a
+
+17:44.070 --> 17:50.220
+tuple then you know that that can change right because you can't append to a taco.
+
+17:50.430 --> 17:57.840
+So now when I call my list it's 1 2 3 and the function will still default to 1 to 3.
+
+17:57.840 --> 18:01.800
+So again just be aware of those problems that you can have with default values.
+
+18:01.800 --> 18:09.360
+Basically it's just the fact that when Python encounters this right this line of code here is fully
+
+18:09.360 --> 18:15.850
+evaluated and it's kind of set but it's also set in a way that it references objects for the defaults.
+
+18:15.870 --> 18:22.200
+So if you're referencing a mutable object you can have a problem if you are instead calling a function
+
+18:22.290 --> 18:26.110
+that you expect to change over time as we did right in the beginning.
+
+18:26.130 --> 18:31.190
+Then again you can run into issues and this is actually a fairly common error right.
+
+18:31.200 --> 18:33.130
+That's easy to make.
+
+18:33.180 --> 18:35.700
+So don't fall into that trap.
+
+18:35.760 --> 18:36.080
+All right.
+
+18:36.090 --> 18:36.730
+I think that's it.
+
+18:36.750 --> 18:41.900
+That's all I have to say for default values and some of the caveats associated with them.
+
+18:41.910 --> 18:44.260
+So thanks for watching and I'll see you in the next video.

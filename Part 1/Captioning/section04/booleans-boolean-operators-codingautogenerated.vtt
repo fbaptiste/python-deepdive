@@ -1,0 +1,679 @@
+WEBVTT
+
+00:01.300 --> 00:07.000
+High in this video we're going to take a look at the boolean operators and we're just going to go jump
+
+00:07.000 --> 00:14.310
+straight into the code and this is all based of course on the previous video on the lecture as a reminder.
+
+00:14.470 --> 00:17.450
+Let's look at how often is defined in Python.
+
+00:17.740 --> 00:26.020
+So it basically works this way if X is truthy Well if X is true in a regular or operation if X is true
+
+00:26.380 --> 00:30.810
+then the result of true or anything is going to be true.
+
+00:31.030 --> 00:38.020
+So the way it works in Python is that if X is truthy it just returns X doesn't return true it returns
+
+00:38.170 --> 00:38.980
+X right.
+
+00:38.980 --> 00:41.470
+X has a true truth value.
+
+00:41.560 --> 00:48.610
+So it returns it however and if you look at a regular or operation if you have false or something else
+
+00:49.060 --> 00:52.810
+then the result is really going to be whatever that something else is.
+
+00:52.840 --> 01:03.650
+And in this case therefore if x is not truthy so otherwise it evaluates Y and returns it.
+
+01:04.680 --> 01:05.050
+OK.
+
+01:05.520 --> 01:07.920
+So that's how X or Y works.
+
+01:08.070 --> 01:09.330
+So we can see that in action.
+
+01:09.330 --> 01:13.140
+Let's take X to be truthful so we can take let's say a string.
+
+01:13.170 --> 01:13.650
+Right.
+
+01:13.860 --> 01:21.680
+So we can say string off and I'll do something really weird but we'll do that string off the list.
+
+01:21.750 --> 01:23.160
+Now the string is truthy.
+
+01:23.160 --> 01:25.370
+So it's going to return the string.
+
+01:25.740 --> 01:33.850
+But if I were to do this right then the string is going to be falsie writes an empty string.
+
+01:33.930 --> 01:35.350
+Faulty it has a length of 0.
+
+01:35.490 --> 01:40.980
+And so when that happens it's actually going to evaluate and return Y which was the list one common
+
+01:40.990 --> 01:42.990
+to.
+
+01:43.020 --> 01:45.600
+Now there's other things that this is useful for.
+
+01:45.610 --> 01:49.830
+For example you might have zero or.
+
+01:50.170 --> 01:53.860
+Let's do one on one divided by zero.
+
+01:53.890 --> 02:01.390
+And what I want to illustrate with this point is that this side doesn't get evaluated if X is truthy.
+
+02:01.450 --> 02:07.870
+If this operand of the left operand is true it has a true value of true truth value then it will not
+
+02:07.870 --> 02:09.740
+even evaluate this side.
+
+02:09.880 --> 02:11.850
+And so it returns 1.
+
+02:12.310 --> 02:14.980
+But if we were to do 0 0 1 divided by 0.
+
+02:15.040 --> 02:17.630
+Well in this case X is false.
+
+02:17.770 --> 02:21.270
+So therefore it will evaluate the right hand side and return it.
+
+02:21.280 --> 02:25.190
+And of course that's going to cause a problem we have a division by zero error.
+
+02:25.420 --> 02:26.030
+OK.
+
+02:26.230 --> 02:32.140
+So this allows us to sometimes get rid of problems like that but the point here the real point I want
+
+02:32.140 --> 02:38.440
+to make is that it is short circuiting right for precisely the reason we solve it.
+
+02:39.010 --> 02:44.230
+Now there are some uses also to using the OR operator beyond as boolean expressions and if statements
+
+02:44.710 --> 02:49.870
+we can use it for things like for example default values for variables.
+
+02:49.870 --> 02:54.810
+Let's say that we have a set of streams as equals none.
+
+02:54.940 --> 02:59.890
+OK so that's not a string that's a non object but we have this variable s one that we typically would
+
+02:59.890 --> 03:04.540
+expect to have a string in but maybe it's coming from a database so it could be no.
+
+03:04.540 --> 03:05.670
+Which would be none.
+
+03:05.740 --> 03:08.330
+It could be just the empty string right.
+
+03:08.470 --> 03:11.270
+Or it could actually contain some contents.
+
+03:12.870 --> 03:18.660
+So we have these three strings and what we want is we want to make sure that those three strings always
+
+03:18.660 --> 03:20.520
+contain a valid string.
+
+03:20.820 --> 03:26.040
+Right and an empty string is valid as far as we're concerned but we certainly don't want none to be
+
+03:26.040 --> 03:27.150
+in there right.
+
+03:27.150 --> 03:32.650
+We want to put something else and maybe if the string is empty we want to put something else as well.
+
+03:32.760 --> 03:34.530
+So we might do something like this.
+
+03:34.550 --> 03:40.810
+S want equal as one or maybe we just say not available and then we'll do the same thing we've asked
+
+03:40.830 --> 03:47.940
+to say as to who's equal to as true or not available and we'll do the same thing as three equals as
+
+03:47.970 --> 03:55.230
+three or not available OK so now we have S1 S2 S3.
+
+03:55.260 --> 03:59.500
+And let's see what they are right.
+
+03:59.880 --> 04:03.050
+Well as you can see s one is now and a while yeah.
+
+04:03.060 --> 04:04.830
+Because this was none right.
+
+04:04.850 --> 04:06.260
+So that was falsie.
+
+04:06.390 --> 04:10.830
+So it returned wiring as to whether the empty string.
+
+04:10.830 --> 04:15.040
+So it's also falsie so it returned the right operand that y.
+
+04:15.330 --> 04:19.810
+And as three however contain characters so that was truthy.
+
+04:19.830 --> 04:21.210
+So just return to itself.
+
+04:21.570 --> 04:22.960
+And so we have a b c.
+
+04:23.190 --> 04:26.700
+So that's one way of basically assigning default values.
+
+04:26.730 --> 04:30.510
+And you can do this with anything you can do this with the arm.
+
+04:30.570 --> 04:35.180
+Let's say that you're dealing with lists and you don't want to have an empty list right.
+
+04:35.190 --> 04:39.950
+You want to have a list that contains at least one element and maybe it has to default to 0.
+
+04:39.960 --> 04:41.920
+Who knows what the use cases.
+
+04:42.090 --> 04:42.940
+But there you go.
+
+04:42.990 --> 04:44.490
+You won't end up with an empty list.
+
+04:44.490 --> 04:48.330
+Same thing will work with you have none of that right.
+
+04:48.360 --> 04:49.670
+So it works the same way.
+
+04:49.680 --> 04:52.680
+So this is a great way just to get default values.
+
+04:52.680 --> 04:53.700
+All right.
+
+04:53.700 --> 04:59.160
+Next thing is to look at the end of x and y.
+
+04:59.160 --> 05:00.800
+How is that calculated.
+
+05:01.020 --> 05:08.880
+Well if you think back to the truth table for and if you take X and Y and X is false then false and
+
+05:09.060 --> 05:14.490
+anything is still false so false and false is false false and true is also false.
+
+05:14.520 --> 05:20.140
+So if X is false we don't need to even consider why we can't just return false right away.
+
+05:20.490 --> 05:28.010
+So if X is false falsie return X right because it doesn't matter what wires.
+
+05:28.260 --> 05:30.300
+But otherwise what do we need to do we'll.
+
+05:30.310 --> 05:33.290
+Otherwise everything is now dependent on Y.
+
+05:33.330 --> 05:33.600
+Right.
+
+05:33.600 --> 05:41.340
+So if we have X is true and the result of true and false is going to be false and the result of true
+
+05:41.340 --> 05:45.200
+and true is going to be true in other words it's only dependent on y.
+
+05:45.510 --> 05:50.930
+So otherwise we're going to evaluate and returned y.
+
+05:51.000 --> 05:51.440
+OK.
+
+05:51.600 --> 05:55.830
+So that's the definition of x and y and hard works in Python.
+
+05:55.830 --> 05:57.480
+It doesn't return the booleans.
+
+05:57.480 --> 06:01.970
+It returns the objects based on their truth that is same thing as with or.
+
+06:02.160 --> 06:06.600
+So for example let's say we take a false and something else.
+
+06:06.600 --> 06:08.630
+So a false might be none.
+
+06:08.850 --> 06:14.160
+For Lavely take none and zero while not zero because that's also false.
+
+06:14.160 --> 06:15.740
+I want to do something that's not.
+
+06:16.380 --> 06:24.300
+K and let's print it since that's not going to show us but it's the none right it returned none it returned
+
+06:24.390 --> 06:27.910
+X because X was faulty and it would work the same way.
+
+06:28.080 --> 06:34.480
+If you had let's say the empty list and let's say this list you.
+
+06:34.770 --> 06:35.340
+Right.
+
+06:35.400 --> 06:37.290
+So this is different from the OR right.
+
+06:37.290 --> 06:42.600
+This returns the first one when it's false the all returns the second one when the first one is false.
+
+06:42.720 --> 06:44.420
+So we have that.
+
+06:44.760 --> 06:48.370
+So that can actually be used as well in certain cases.
+
+06:48.370 --> 06:55.720
+I mean for example suppose that you have a calculation and you have a is equal to let's say to right.
+
+06:55.920 --> 06:59.310
+And then we have B is equal to maybe 4.
+
+06:59.910 --> 07:05.530
+And we want to look at a divided by V K and we have that that zero point five.
+
+07:05.790 --> 07:09.970
+But suppose now that B is going to be 0 right.
+
+07:10.000 --> 07:12.990
+Well if we have that we get a division by zero error.
+
+07:13.440 --> 07:15.200
+And we don't want that.
+
+07:15.210 --> 07:18.920
+We're going to we want to say that you know what if B is zero just returns 0.
+
+07:18.960 --> 07:21.720
+Otherwise return a divided by B.
+
+07:21.750 --> 07:22.900
+So that's what we want to do.
+
+07:22.920 --> 07:33.050
+We want to return a divided by B in general but return to 0 when B is zero.
+
+07:34.380 --> 07:43.920
+So we could do that using an if statement because say if B is equal to zero return 0 else return a divide
+
+07:43.920 --> 07:57.770
+by the K and not return sorry we're not inside a function so we'll just print it.
+
+07:58.150 --> 07:58.690
+So there we go.
+
+07:58.690 --> 08:00.150
+So it prints 0.
+
+08:00.160 --> 08:04.770
+Now let me report in a equals to B equals zero.
+
+08:04.810 --> 08:05.210
+OK.
+
+08:05.260 --> 08:06.420
+So that's where we get.
+
+08:06.430 --> 08:08.350
+Now let's make be equal to 4.
+
+08:08.710 --> 08:09.070
+OK.
+
+08:09.100 --> 08:10.650
+So it's going to print 0.5.
+
+08:10.660 --> 08:12.100
+So this is doing what we want.
+
+08:12.100 --> 08:14.180
+We can certainly write it this way.
+
+08:14.710 --> 08:18.150
+But another way of writing it would be to say the following.
+
+08:18.160 --> 08:22.450
+Print what we're going to print what we want to print 0 if B is 0.
+
+08:22.450 --> 08:26.570
+So we're going to say print B and divide it by B.
+
+08:27.160 --> 08:33.010
+And let me again put in a and b here just so that we can see it in context.
+
+08:33.370 --> 08:35.710
+And so we print 0.5 right.
+
+08:35.740 --> 08:37.050
+B was 4.
+
+08:37.180 --> 08:38.100
+That is truth.
+
+08:38.140 --> 08:44.980
+So it's going to evaluate and return a divided by B which was four on the other hand if B is 0 then
+
+08:44.980 --> 08:45.800
+we get to zero.
+
+08:45.850 --> 08:49.930
+And so we avoided this division by zero error by doing it this way.
+
+08:49.930 --> 08:53.590
+This was exactly equivalent to doing this.
+
+08:55.110 --> 08:56.630
+All right.
+
+08:56.740 --> 09:02.320
+So given that let's take a look now at a slightly different variants on this.
+
+09:02.410 --> 09:08.080
+Let's say that we have a value that we're retrieving from a database a string.
+
+09:08.080 --> 09:09.950
+So the same example that we had before.
+
+09:09.950 --> 09:13.900
+And actually I'm just going to copy paste these three examples right here.
+
+09:14.110 --> 09:18.510
+Now we saw how to assign a default value right to each one of those.
+
+09:18.790 --> 09:22.120
+But now let's say it's not a default value that we want.
+
+09:22.120 --> 09:27.850
+We want to check all we want to return the first character of the string.
+
+09:27.850 --> 09:33.340
+If that first character exists otherwise we want to return something else maybe an empty string.
+
+09:33.450 --> 09:33.950
+OK.
+
+09:34.390 --> 09:42.020
+So using this you might say well I need to do is just do as 1 0 4 x 2 0 3 0.
+
+09:42.070 --> 09:46.540
+Right these all three variants but of course that's going to cause a problem because none.
+
+09:46.660 --> 09:51.280
+Well it doesn't have you know it's not indexable it doesn't have an element.
+
+09:51.480 --> 09:52.970
+So that doesn't work.
+
+09:52.990 --> 09:54.760
+So OK let's take that out.
+
+09:54.970 --> 10:01.690
+And that still doesn't work well why this as is a string but it doesn't have characters so obviously
+
+10:01.690 --> 10:04.540
+doesn't have a first element of index 0.
+
+10:04.720 --> 10:05.760
+So that doesn't work.
+
+10:05.890 --> 10:11.380
+And the last one Harvard does work but would like something that works in general no matter what the
+
+10:11.440 --> 10:15.670
+variable S is going to be whether it's non empty string or an actual strength.
+
+10:15.940 --> 10:23.250
+So one way to go about it might be to say well let's take s one and press 1 0.
+
+10:23.650 --> 10:29.040
+So remember if S1 is truthy what is it going to do.
+
+10:29.110 --> 10:31.000
+It's going to evaluate this side.
+
+10:31.240 --> 10:35.110
+If s one is falsie it's just going to return itself right.
+
+10:35.110 --> 10:41.660
+So let's go ahead and print this and we'll do that for all three and you'll see that we're almost there.
+
+10:41.740 --> 10:43.770
+We almost have what we need.
+
+10:44.370 --> 10:47.930
+So from that.
+
+10:48.260 --> 10:51.000
+So you'll see the first one returns None.
+
+10:51.250 --> 10:53.520
+The second one returns the empty string.
+
+10:53.530 --> 10:55.190
+We don't see it but that's there.
+
+10:55.450 --> 10:58.780
+And then the third one returns the first character of a.
+
+10:59.080 --> 11:01.180
+So we were almost where we need to be.
+
+11:01.180 --> 11:03.800
+The only thing is that we don't want to return None.
+
+11:03.820 --> 11:07.270
+In this case we also want to return the empty string.
+
+11:07.540 --> 11:10.240
+So what we can do here is change this.
+
+11:10.390 --> 11:16.210
+And instead of just doing that we're going to aurat remember how we got default values while we're going
+
+11:16.210 --> 11:17.830
+to or it with the empty string.
+
+11:17.830 --> 11:21.760
+So if this evaluates to none that will be falsie.
+
+11:21.850 --> 11:24.700
+And so we'll defaulted to this by using or.
+
+11:24.940 --> 11:30.020
+And of course it actually works exactly the same way in all three cases.
+
+11:30.040 --> 11:36.340
+So the second one is obvious because you know as to the empty string it's faulty so it returns a falsie
+
+11:36.730 --> 11:42.130
+thing here which means that it's going to go ahead and then choose to return the empty string over here
+
+11:42.660 --> 11:50.170
+as three will actually work exactly as we expect because S-3 is truthy.
+
+11:50.320 --> 11:58.260
+So this expression here actually returns as 3 0 which is a single character which is also truthy.
+
+11:58.480 --> 11:59.320
+So it's.
+
+11:59.380 --> 12:04.840
+So the OR is going to return the left operand that's going to return that force characters.
+
+12:05.020 --> 12:08.400
+So now if we run this we get exactly what we expect.
+
+12:08.410 --> 12:11.400
+Empty string empty string and a.
+
+12:11.500 --> 12:15.940
+Now of course what's interesting is that this doesn't just work of the empty string for the default
+
+12:15.960 --> 12:16.320
+value.
+
+12:16.320 --> 12:18.520
+You can do whatever you want.
+
+12:18.520 --> 12:19.270
+Right.
+
+12:19.330 --> 12:25.070
+You might do something like that in which case you'll get an A and A and A.
+
+12:25.240 --> 12:25.450
+Right.
+
+12:25.450 --> 12:28.940
+So it kind of works with any default values here.
+
+12:29.320 --> 12:32.820
+So the last thing that we need to look at is the not operator.
+
+12:33.040 --> 12:36.790
+Now the not operator isn't part of the Boolean class.
+
+12:36.790 --> 12:45.200
+In fact if we look at health on the book Class we'll see that we see like and right we'll see or.
+
+12:45.490 --> 12:48.140
+And we'll even see the x or in here.
+
+12:48.220 --> 12:54.970
+But one thing that's notably missing is the not operator and the not operator doesn't work quite the
+
+12:54.970 --> 12:55.490
+same way.
+
+12:55.540 --> 12:56.890
+And and oh remember that.
+
+12:56.890 --> 13:02.560
+And and all will actually return the objects that are the operands that will return one of the objects
+
+13:02.560 --> 13:04.800
+depending on whether they're false or not.
+
+13:05.110 --> 13:09.560
+Or truthfully or not to on which operator it is but not doesn't work this way.
+
+13:09.580 --> 13:16.330
+Now the not regular booleans is pretty straightforward just negates true becomes false and not false
+
+13:16.330 --> 13:17.480
+becomes true.
+
+13:17.710 --> 13:19.930
+And these are true booleans.
+
+13:20.020 --> 13:23.800
+Now the same thing works where objects now objects have a truth value.
+
+13:23.800 --> 13:25.860
+So it will work kind of the same way.
+
+13:26.140 --> 13:32.950
+If we look at bool let's say of a string that contains characters then that truth value is true.
+
+13:32.950 --> 13:35.080
+ABC is truthy.
+
+13:35.290 --> 13:40.290
+If we look at Boole are the empty string what we get false because that's false.
+
+13:40.600 --> 13:50.680
+So if we do this we can do not rule AVC well not rule of ABC is going to return false and not all of
+
+13:51.010 --> 13:53.590
+the empty string will return true.
+
+13:53.890 --> 13:55.710
+But we don't have to put bhool in here.
+
+13:55.720 --> 14:02.140
+We can just take it out so we can just say not ABC and Python will go in and actually you don't apply
+
+14:02.140 --> 14:09.310
+the ball and look at the truth value of ABC and it will then do a not of that truth value and return
+
+14:09.370 --> 14:10.100
+the bully.
+
+14:10.270 --> 14:12.840
+So when we do not AVC we get false.
+
+14:12.970 --> 14:18.990
+And in fact look at the type just to be sure we see that the type is indeed a ball.
+
+14:19.060 --> 14:20.800
+So it's returning a ball.
+
+14:20.860 --> 14:22.330
+Same thing with none.
+
+14:22.340 --> 14:25.120
+Rule of none is false.
+
+14:25.180 --> 14:27.460
+So we can say not none.
+
+14:27.460 --> 14:28.870
+And we'll get true.
+
+14:29.290 --> 14:30.450
+So that's all it does.
+
+14:30.460 --> 14:37.490
+It really looks at the truth value of the operand and then returns not of that truth value.
+
+14:37.570 --> 14:41.640
+So in this case we always get a boolean value back.
+
+14:41.650 --> 14:42.620
+All right so that's it.
+
+14:42.640 --> 14:45.280
+Thanks for watching and I'll see you in the next video.

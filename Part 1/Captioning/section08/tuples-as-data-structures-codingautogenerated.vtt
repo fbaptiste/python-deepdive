@@ -1,0 +1,1153 @@
+WEBVTT
+
+00:01.030 --> 00:02.400
+Hi and welcome back.
+
+00:02.410 --> 00:06.310
+Let's dig right into the code on using tables as data structures.
+
+00:06.400 --> 00:10.870
+So first I just want to point out something very quickly usually we see couples written something like
+
+00:10.870 --> 00:12.600
+this 10 20 30.
+
+00:12.610 --> 00:15.160
+So here we have a homogeneous topic.
+
+00:15.640 --> 00:21.550
+But remember that the parentheses is not what actually defines the table it's just the commas that do
+
+00:21.550 --> 00:21.790
+that.
+
+00:21.790 --> 00:28.960
+So we could write this topple as you know 10 20 30 using the parentheses but we can also just write
+
+00:28.960 --> 00:30.150
+it this way.
+
+00:30.640 --> 00:35.960
+And if you look at the type of a that's a topical and the type B is a tuple as well.
+
+00:36.190 --> 00:39.770
+So the parentheses aren't required but sometimes they are.
+
+00:39.880 --> 00:43.900
+For example let's say that we have a function that expects a tuple as an argument.
+
+00:44.080 --> 00:50.580
+Let's say you know def print topple will pass in the top of T and then will iterate through the top.
+
+00:50.590 --> 00:54.040
+So let's say for the empty print.
+
+00:54.240 --> 00:55.620
+Something like that.
+
+00:55.630 --> 01:01.310
+Now if we try and call print a couple they topple inside and we don't use parentheses.
+
+01:01.510 --> 01:06.050
+Well the problem is that Python now thinks that these are three positional arguments.
+
+01:06.100 --> 01:08.080
+So that's not going to work.
+
+01:08.080 --> 01:15.240
+Instead we do have now to use the parentheses around those three values to indicate that that's a topic.
+
+01:15.610 --> 01:18.550
+And so we get the 10:23 that works correctly.
+
+01:18.550 --> 01:25.090
+So in certain cases you have to specify the wrong parentheses but very often like for example in code
+
+01:25.090 --> 01:27.580
+like this you really do not.
+
+01:27.710 --> 01:33.230
+So since tuples are actually sequences they are sequence types just like lists and just like strings
+
+01:33.710 --> 01:37.460
+we can do all the operations on top of that we can do a regular sequence.
+
+01:37.460 --> 01:45.900
+So for example if we have the top of that say we can access items by index right.
+
+01:45.940 --> 01:47.700
+A zero a 1.
+
+01:47.720 --> 01:49.160
+We can also slice them.
+
+01:49.160 --> 01:54.610
+So if I have two or slightly longer hope let's say this this is still a typo.
+
+01:54.790 --> 01:55.380
+OK.
+
+01:55.730 --> 01:56.890
+We can slice it.
+
+01:56.900 --> 02:01.630
+We can say Give me the second element up to but not including the fifth element.
+
+02:01.630 --> 02:11.370
+So we get three four and five k we can also iterate the top all we can say 40 in a print we pay.
+
+02:11.420 --> 02:16.760
+So we can iterate the top all and the thing is also we can unpack topples just like we can unpack the
+
+02:16.760 --> 02:17.530
+list.
+
+02:17.570 --> 02:26.660
+We can also unpack tables so let's say I have this table here a 10 20 we can say x y and z equals 8
+
+02:26.660 --> 02:33.100
+with unpack the three values that are in the top of a into the variables x y and z.
+
+02:33.110 --> 02:40.440
+So now if we print x we have a print Z we have 20 and we can also use something called extended unpacking.
+
+02:40.460 --> 02:41.690
+We've seen that before.
+
+02:41.900 --> 02:47.650
+Let's say I'll go back to a longer poll let's say that one and we can do something like this.
+
+02:47.650 --> 02:49.700
+We can say X comma.
+
+02:49.970 --> 02:56.480
+Now what I want to do is I want to grab let's say the last two elements so y and z but I don't care
+
+02:56.480 --> 02:58.760
+about the intermediate ones.
+
+02:58.760 --> 03:03.100
+So what am I do is actually put it into let's say another one.
+
+03:03.230 --> 03:03.840
+OK.
+
+03:04.160 --> 03:07.510
+So I'm going to put this into this variable called others.
+
+03:07.730 --> 03:12.380
+And what the stud means is that Python is going to take the first element of the topple throw it into
+
+03:12.450 --> 03:13.090
+x.
+
+03:13.190 --> 03:17.090
+It's going to take the last element put it into Z the second last.
+
+03:17.090 --> 03:21.670
+Put it into Y and then the remaining ones will go into other which will be a list.
+
+03:21.680 --> 03:33.120
+So if we do that and we have to actually unpack the top if we do that we now have that X is one Y is
+
+03:33.180 --> 03:37.860
+for z is 5 and then other is this list 2 3.
+
+03:38.040 --> 03:44.520
+Very often when we don't care about these values here we're only trying to extract some items inside
+
+03:44.520 --> 03:52.050
+the table then we'll actually do this we'll use an underscore instead of others to unpack and it works
+
+03:52.050 --> 03:52.620
+the same way.
+
+03:52.620 --> 04:00.240
+We still have X and Y and Z still 1 4 and 5 and then underscore is actually a legal variable name so
+
+04:00.300 --> 04:05.580
+it is a variable and it contains at least two common three so it's just a convention where we use the
+
+04:05.580 --> 04:09.270
+underscore to say hey we really don't care about these values.
+
+04:09.270 --> 04:10.570
+We're not going to use them.
+
+04:10.590 --> 04:12.020
+Someone reading the code.
+
+04:12.180 --> 04:13.990
+It's you know pretty easy to understand.
+
+04:14.010 --> 04:14.680
+OK.
+
+04:14.820 --> 04:17.260
+You know we don't care about those intermediate values.
+
+04:17.370 --> 04:21.750
+So we saw how we could get an element out of the top all by using an index.
+
+04:21.750 --> 04:28.530
+For example if we use our current table here a we can recover the first element using an index.
+
+04:28.710 --> 04:29.920
+But tables are immutable.
+
+04:29.940 --> 04:33.870
+So you cannot do something like that if you can't assign a value to it.
+
+04:33.960 --> 04:37.640
+Right the table object doesn't support assignment it's immutable.
+
+04:38.010 --> 04:43.290
+But we have to be careful just because a table is immutable doesn't mean that the data inside the table
+
+04:43.290 --> 04:45.900
+cannot change if the table is immutable.
+
+04:45.900 --> 04:50.610
+It just means that we cannot change the reference.
+
+04:50.660 --> 04:50.980
+Right.
+
+04:51.000 --> 04:54.850
+The memory address of the individual elements in the table.
+
+04:54.920 --> 04:57.690
+And then we can't add or remove elements from the top.
+
+04:57.960 --> 05:04.250
+But if the arm object inside the top is mutable we can certainly mutate that object.
+
+05:04.260 --> 05:12.090
+Let's do a simple example to show that let's create a class point to D and it can be very simple class.
+
+05:12.120 --> 05:18.330
+We're going to do in that we're just going to represent a two dimensional point where self-taught X
+
+05:18.330 --> 05:21.800
+equals x self-taught y equals Y camp.
+
+05:22.080 --> 05:27.150
+And then the only other thing that I want to put in here is the wrapper under the method because I want
+
+05:27.150 --> 05:31.260
+to be able to print out a point and I want it to have a nice representation.
+
+05:31.300 --> 05:35.780
+So if we're going to return I'm going to use the new strings in Python.
+
+05:36.150 --> 05:39.870
+So I want to return the name of the class first.
+
+05:39.900 --> 05:45.400
+So we'll grab the class of this instance then the name of that class k.
+
+05:45.720 --> 05:52.050
+Then we're going to put parentheses and in parentheses we'll put X equals and comma y equals and then
+
+05:52.050 --> 05:54.580
+what are we going to put in here we're going to put self-corrects.
+
+05:54.750 --> 06:00.080
+And here we are going to put self-taught y.
+
+06:00.620 --> 06:01.570
+Kirk.
+
+06:01.830 --> 06:02.820
+So this is our class.
+
+06:02.820 --> 06:10.930
+Very simple so we can create a point P-T that's a cost point to d i can convert 20 k.
+
+06:11.220 --> 06:17.600
+And the point now is 10 comr 20 but we can also now go and say point dot X equals 100.
+
+06:17.610 --> 06:21.910
+So now look at the point we can see that we mutated that point T.
+
+06:21.930 --> 06:26.000
+Now the x values changed the memory address would have been the same.
+
+06:26.040 --> 06:28.670
+Let me go ahead and rerun this.
+
+06:29.400 --> 06:35.190
+Let me just show you that the ID of point is that now we mutated right.
+
+06:35.310 --> 06:41.610
+And if we look at the idea of point again we can see that it's the same then the object's memory address
+
+06:41.700 --> 06:42.750
+has changed.
+
+06:42.750 --> 06:55.890
+So now imagine that you have a total a holes point to the 0 0 and point to the 10 20 that say this to
+
+06:55.890 --> 06:57.850
+do a table with two values in it.
+
+06:57.930 --> 06:59.280
+Then we have this.
+
+06:59.370 --> 07:06.980
+Now the idea of the first element is this value here.
+
+07:07.170 --> 07:08.680
+We can never change that.
+
+07:08.700 --> 07:12.230
+We can never change what the first element of a points to.
+
+07:12.330 --> 07:18.270
+However we can certainly change the object that add that memory address because it is mutable.
+
+07:18.480 --> 07:19.730
+So we can do this.
+
+07:19.890 --> 07:22.820
+Well we can return the value but we can also set it.
+
+07:23.010 --> 07:23.470
+OK.
+
+07:23.610 --> 07:28.140
+Because we're not changing the top or we're changing something that's inside the top.
+
+07:28.200 --> 07:32.690
+So now if we look at it we can see that the elements actually did mutate.
+
+07:32.760 --> 07:36.960
+So just be careful with topples just because you have a topple doesn't mean that you have something
+
+07:36.960 --> 07:38.460
+that cannot change.
+
+07:38.460 --> 07:39.700
+The table is immutable.
+
+07:39.720 --> 07:42.430
+But you know what it contains may be mutable.
+
+07:42.450 --> 07:44.630
+Now something is very similar to strings right.
+
+07:44.640 --> 07:51.810
+If you take a string that say we have Python and we've cut the string get s and sometimes we'll say
+
+07:51.810 --> 07:57.570
+well as equals Python plus trucks.
+
+07:58.050 --> 08:04.190
+And we now see that as this python Rux we did not mutate the string s.
+
+08:04.230 --> 08:06.690
+Strings are immutable what happened.
+
+08:06.690 --> 08:08.610
+Let me go ahead and rerun this.
+
+08:08.700 --> 08:10.360
+So we have Ezekial Python.
+
+08:10.380 --> 08:13.710
+We can look at the idea of X and we have some ID.
+
+08:13.800 --> 08:16.920
+Now we extend the string quote unquote.
+
+08:17.190 --> 08:21.030
+And if we look at the idea of s now we can see that it's changed.
+
+08:21.030 --> 08:24.270
+What happens is that this actually generates a new string.
+
+08:24.300 --> 08:29.530
+So it looks to us like we're extending the strain by currently doing this concatenation.
+
+08:29.540 --> 08:32.480
+But we're not we're just creating a new string.
+
+08:32.690 --> 08:34.320
+And the same thing happens with topples.
+
+08:34.340 --> 08:41.330
+You can have a couple 10 to one comment to come in three right and we can say equal one comma to come
+
+08:41.330 --> 08:41.960
+at three.
+
+08:42.010 --> 08:44.490
+Well that's type the idea.
+
+08:44.510 --> 08:45.340
+While we're at it.
+
+08:45.490 --> 08:45.760
+OK.
+
+08:45.770 --> 08:46.870
+So has this ivy.
+
+08:47.030 --> 08:52.610
+And let's say aik plus equals one comma to a list.
+
+08:52.640 --> 08:57.760
+Sorry for comma 5 came and now we can see that A is 1 2 3 4 5.
+
+08:57.770 --> 09:00.890
+And so we may be thinking oh we changed.
+
+09:00.890 --> 09:02.530
+You know what A was again.
+
+09:02.540 --> 09:05.580
+We did all we did was create a new topic.
+
+09:05.780 --> 09:07.320
+Essentially what this line did.
+
+09:07.510 --> 09:12.270
+And if we check the idea of a by the way you can see it's changed what this line did.
+
+09:12.290 --> 09:16.370
+It just said eight is equal to a plus for comma 5.
+
+09:16.670 --> 09:21.460
+And so it took to topple a concatenated these two values.
+
+09:21.560 --> 09:25.000
+So it formed a new top hole and then assigned it back into a.
+
+09:25.070 --> 09:26.340
+And that's how that works.
+
+09:26.450 --> 09:28.610
+So again tables are immutable.
+
+09:28.610 --> 09:30.180
+So there people just data records.
+
+09:30.230 --> 09:35.390
+We really ought to think of toppled as data records as data structures.
+
+09:35.390 --> 09:41.600
+For example we had this class over here that we created for a point and it was kind of complicated code
+
+09:41.660 --> 09:46.050
+and really all we want is to be able to hold the x and y coordinates.
+
+09:46.220 --> 09:50.960
+A much simpler way is just to use a couple of raĂşl bear Toppo.
+
+09:51.200 --> 09:57.440
+And we just by convention will agree that the first item of the table is the x coordinate and the second
+
+09:57.440 --> 09:58.720
+one is the y coordinate.
+
+09:58.850 --> 10:05.890
+So we can create a point simply saying zero from zero and point two equals 10 20 k.
+
+10:05.900 --> 10:13.640
+Now we have basically two points two x y coordinates and it's just the convention of the meaning that
+
+10:13.640 --> 10:16.070
+we've given to the position in the top.
+
+10:16.340 --> 10:20.870
+And of course because tuples are immutable we know that you know this value 10 is always going to stay
+
+10:20.870 --> 10:24.830
+in the first position and 20 is always going to stay in the second position.
+
+10:24.830 --> 10:28.070
+Furthermore these are integers they're also immutable.
+
+10:28.100 --> 10:35.060
+So in fact P-T one and two are completely immutable we can't change them at all because the table is
+
+10:35.060 --> 10:38.950
+immutable and the objects that it contains are also immutable.
+
+10:38.960 --> 10:42.200
+So this is a pretty simple example but we can go beyond that.
+
+10:42.200 --> 10:47.270
+We could for example create a city topple and we just go with the convention.
+
+10:47.270 --> 10:51.650
+This is what we're going to use in our code that the first element of the city is going to be the city
+
+10:51.650 --> 10:52.070
+name.
+
+10:52.070 --> 10:56.520
+The second element is going to be the country in the third elements going to be the population.
+
+10:56.540 --> 11:02.720
+So again it's just a convention that we agree on when we write on our program and different programs
+
+11:02.720 --> 11:04.760
+may have different conventions.
+
+11:04.970 --> 11:07.090
+So let's go ahead and see some examples of that.
+
+11:07.280 --> 11:10.120
+Let's go ahead and create London.
+
+11:10.340 --> 11:12.890
+So the city name is London.
+
+11:13.100 --> 11:20.520
+The country is U.K. and the population is 8 million 780000 about.
+
+11:20.680 --> 11:21.380
+OK.
+
+11:21.950 --> 11:23.080
+Then we'll do in New York.
+
+11:23.090 --> 11:28.180
+I'm looking at my notes here because I don't remember the populations offhand.
+
+11:28.610 --> 11:34.030
+So New York that's in the U.S. and the population is eight million.
+
+11:34.040 --> 11:36.870
+Five hundred thousand.
+
+11:37.250 --> 11:42.700
+And then we have Beijing which is in China.
+
+11:44.240 --> 11:51.080
+And it has 21 million population.
+
+11:51.210 --> 11:57.600
+So now we have these three temples and they're just ordinary couples but we know that the first element
+
+11:57.600 --> 11:58.290
+is the city.
+
+11:58.290 --> 12:01.990
+The second element is the country and the thought of the population.
+
+12:02.010 --> 12:04.080
+So now we can put them together into a list.
+
+12:04.080 --> 12:11.090
+For example we can say cities is London New York and Beijing.
+
+12:12.600 --> 12:17.560
+So one thing I want to point out here you'll notice that these temples are heterogeneous.
+
+12:17.580 --> 12:19.640
+They have different data types in them.
+
+12:19.650 --> 12:22.400
+The first two are a strange glass one is an integer.
+
+12:22.440 --> 12:25.510
+Here however my cities list is homogeneous.
+
+12:25.590 --> 12:28.650
+It has three top walls that have the same structure.
+
+12:28.980 --> 12:34.770
+And very often you'll find that lists unlike topples or homogeneous because we want to be able to do
+
+12:34.770 --> 12:40.170
+the same thing over and over again to a list of elements in the top all Hiva we're using that as a data
+
+12:40.170 --> 12:40.860
+structure.
+
+12:40.860 --> 12:42.490
+We don't require that.
+
+12:42.540 --> 12:43.730
+So here's what I mean by that.
+
+12:43.800 --> 12:50.670
+Let's say we want to find the total population in this list of cities Well we know that every item in
+
+12:50.670 --> 12:52.250
+this list is the same.
+
+12:52.290 --> 12:53.620
+It's a city Toppo.
+
+12:53.790 --> 12:59.240
+And so we know therefore that the third element at index 2 is going to be the population.
+
+12:59.460 --> 13:01.550
+So we could do something like this.
+
+13:02.160 --> 13:04.350
+Total equals zero.
+
+13:04.380 --> 13:07.090
+We could then loop through the list.
+
+13:07.110 --> 13:08.010
+It's an edible.
+
+13:08.040 --> 13:16.180
+So we can say for city in cities and then we're just going to say total plus equals City 2.
+
+13:16.560 --> 13:18.840
+And then we'll print the total.
+
+13:19.120 --> 13:21.250
+OK that's one way of doing it.
+
+13:21.300 --> 13:25.940
+And so we get our total over here probably 38 million 280000.
+
+13:25.950 --> 13:31.950
+Now the reason why this walk is because every item in this list was a city topple.
+
+13:31.980 --> 13:37.710
+If we had thrown an integer into this list if we had done this for example then we're going to get an
+
+13:37.730 --> 13:40.200
+era because this isn't over here.
+
+13:40.230 --> 13:42.800
+Well you can't say in square brackets too.
+
+13:42.990 --> 13:43.230
+Right.
+
+13:43.230 --> 13:44.580
+So that's not going to work.
+
+13:44.760 --> 13:48.010
+And that's why lists are typically homogeneous.
+
+13:48.150 --> 13:49.470
+That can be heterogeneous.
+
+13:49.470 --> 13:50.600
+There's nothing wrong with that.
+
+13:50.760 --> 13:56.160
+But typically the homogeneous topples on the other hand because they are used as data structures are
+
+13:56.160 --> 13:57.900
+typically heterogeneous.
+
+13:57.900 --> 14:02.760
+Now let me show you a better way a more pythonic way of doing this.
+
+14:02.760 --> 14:07.800
+This is certainly correct in terms of code it will work just fine the compiler won't have a problem
+
+14:07.860 --> 14:10.690
+executing that and giving us the correct answer.
+
+14:10.740 --> 14:12.940
+But let's see how we might approach this.
+
+14:13.290 --> 14:15.730
+You know we have slightly better code.
+
+14:15.840 --> 14:20.240
+So the first thing I want to do is I want to use a list comprehension because what am I interested in.
+
+14:20.250 --> 14:21.980
+I've got this list of top rules.
+
+14:22.110 --> 14:25.930
+I really just want the list of all the populations.
+
+14:26.010 --> 14:31.150
+So let's go ahead and create a new list and we're going to use a list comprehension.
+
+14:31.170 --> 14:35.410
+So first we're going to iterate for city in cities.
+
+14:35.520 --> 14:40.100
+That's what we want and we want to extract what we want and extract city too.
+
+14:40.320 --> 14:43.250
+So if we do this you'll see we actually get a list back right.
+
+14:43.290 --> 14:45.360
+That's a list comprehension.
+
+14:45.360 --> 14:46.780
+So now what do I want to do.
+
+14:46.800 --> 14:54.160
+I just want to find some of that and I get the song so much cleaner way of doing it.
+
+14:54.180 --> 14:56.610
+And in fact we don't even need the square brackets.
+
+14:56.610 --> 15:01.710
+We'll get into that in a later section when we cover our comprehension that will also cover generators
+
+15:03.120 --> 15:04.670
+or we get the same result.
+
+15:04.710 --> 15:10.840
+So you know this is how you can write this total or you can do it.
+
+15:11.280 --> 15:12.940
+Where was it this way.
+
+15:13.020 --> 15:13.370
+Right.
+
+15:13.410 --> 15:15.070
+Which way do you think is cleaner.
+
+15:15.270 --> 15:18.910
+And this is also very much easier to understand.
+
+15:18.960 --> 15:26.400
+I'm looking at the some of the third element in the city that's in the cities list.
+
+15:26.550 --> 15:30.990
+While that's pretty straightforward to understand what's going on here you'd have to read a little bit
+
+15:30.990 --> 15:32.630
+more code to figure out.
+
+15:32.820 --> 15:36.750
+So this is really more expressive than this over here.
+
+15:36.990 --> 15:39.240
+So we talk about unpacking as well.
+
+15:39.240 --> 15:40.990
+So let's look at another example.
+
+15:41.010 --> 15:47.700
+I'm going to paste that in from my notes that's available in the notebook and we can unpack this now
+
+15:47.700 --> 15:50.960
+this by convention is the symbol year month day.
+
+15:51.090 --> 16:01.980
+Open High Low close so we can unpack it this way we can say symbol long day open high low and close
+
+16:02.430 --> 16:03.760
+equals record.
+
+16:03.930 --> 16:09.300
+I'm actually going to use an open underscore because open is also a function the built in function to
+
+16:09.300 --> 16:10.480
+open files.
+
+16:10.980 --> 16:13.110
+And what do I have MS.
+
+16:13.140 --> 16:14.760
+I got something wrong somewhere.
+
+16:18.300 --> 16:19.660
+Low coming close.
+
+16:19.670 --> 16:20.270
+There we go.
+
+16:20.480 --> 16:21.030
+OK.
+
+16:21.260 --> 16:26.450
+So now I've got this all unpacks I've got the symbol is that my clothes is that.
+
+16:26.450 --> 16:31.410
+But let's say I'm only interested in the first and last element then that's very simple.
+
+16:31.430 --> 16:32.480
+I can say symbols.
+
+16:32.780 --> 16:38.180
+I can unpack everything else in between which I can you know put into an ignored variable but because
+
+16:38.240 --> 16:42.810
+I'm going to use the python convention of the underscore I'm right that's what people typically use
+
+16:42.810 --> 16:43.830
+all stick to that.
+
+16:44.030 --> 16:48.180
+And then I'll take the close equals rafted so I can do that.
+
+16:48.200 --> 16:55.110
+And now I've got my symbol and my clothes extracted from the top or if I can type.
+
+16:55.280 --> 16:56.700
+So we've got the Dow Jones Industrial.
+
+16:56.720 --> 16:58.880
+Twenty six thousand seventy two.
+
+16:58.880 --> 17:06.110
+But again the underscore is just a regular variable and you can see it took everything else 20:18 up
+
+17:06.110 --> 17:10.090
+to 25 9:4 to and return that for us in a list.
+
+17:10.090 --> 17:12.300
+Now we've seen how to unpack topples.
+
+17:12.440 --> 17:17.960
+What's interesting is that you can actually unpack a top all in the loop when you're doing a for loop
+
+17:18.380 --> 17:19.410
+you get a table back.
+
+17:19.410 --> 17:24.210
+Let's say if you're enumerating a table you can actually unpack that toppled directly in the fall.
+
+17:24.260 --> 17:26.930
+So what I mean by this let's take a look at port city.
+
+17:26.960 --> 17:29.720
+In cities they will go back to our city.
+
+17:29.850 --> 17:32.200
+This just print the city out but we get back.
+
+17:32.210 --> 17:32.480
+Right.
+
+17:32.480 --> 17:33.990
+What's inside this variable.
+
+17:34.100 --> 17:37.260
+Every time the loop runs well it's just a topple.
+
+17:37.310 --> 17:44.720
+So what we can do here we can unpack it into into separate variables right away so we can say our city
+
+17:45.050 --> 17:49.270
+comma country comma population.
+
+17:49.750 --> 17:55.970
+And now we're going to have these three values available inside our local duration.
+
+17:56.570 --> 17:57.740
+So this is pretty handy.
+
+17:57.740 --> 18:00.260
+And by the way that's how the numerate function works.
+
+18:00.260 --> 18:05.990
+The numerator function in Python allows us to basically enumerate and iterable.
+
+18:05.990 --> 18:08.940
+So for example a list or a top or anything like that.
+
+18:09.140 --> 18:15.490
+But it will return a top or containing the values that were in that iterable and the index.
+
+18:15.650 --> 18:21.580
+And it uses a table as a data structure to return that where the first element of the table is the index.
+
+18:21.590 --> 18:23.510
+The second element is the value.
+
+18:23.600 --> 18:30.110
+So for example let me show you what I make that say for item in enumerate cities
+
+18:32.870 --> 18:35.000
+and the next print.
+
+18:35.000 --> 18:35.940
+Now the item.
+
+18:35.990 --> 18:40.300
+Let's see what we have in the item and you can see each item is a tadpole.
+
+18:40.490 --> 18:45.560
+The first element of the top all by you know is the index.
+
+18:45.560 --> 18:51.170
+So this is a data structure and then the second element is the thing we were trying to iterate cities
+
+18:51.170 --> 18:52.490
+in this case.
+
+18:52.490 --> 18:55.780
+So now we can actually go ahead and unpack this.
+
+18:55.790 --> 19:04.210
+We could say our index comma's city and now we can print out the index and the city right.
+
+19:04.220 --> 19:09.390
+We have that available and if I type correctly it might work.
+
+19:09.520 --> 19:10.470
+We have that available right.
+
+19:10.470 --> 19:13.250
+We printed the index and then we printed the city.
+
+19:13.270 --> 19:20.110
+Now another way that we use tables is data structures most often is when we return data from functions
+
+19:20.110 --> 19:26.110
+if we want to return multiple values from a function we'll put them into a table that's a data structure
+
+19:26.110 --> 19:30.030
+because the position of the value in that table has meaning.
+
+19:30.040 --> 19:36.570
+For example let's do something kind of silly let's calculate an approximate value for pi where we're
+
+19:36.580 --> 19:42.760
+going to do is we're going to generate a function that's going to take the radius of the circle and
+
+19:42.790 --> 19:50.740
+it's going to basically figure out it's going to do some random points inside a box a square that encapsulates
+
+19:50.740 --> 19:54.630
+that circle and it's going to generate random coordinates within that square.
+
+19:54.820 --> 19:59.690
+And then it's going to test whether that coordinate is inside the circle or not.
+
+19:59.890 --> 20:03.850
+And then we'll keep track of that and then we'll look at the ratio and that should give us an approximate
+
+20:03.850 --> 20:05.940
+value for pi.
+
+20:05.980 --> 20:07.600
+So let's go ahead and do that.
+
+20:07.600 --> 20:14.440
+So from random import uniform and then from math import square root.
+
+20:14.520 --> 20:14.890
+Okay.
+
+20:14.980 --> 20:18.590
+And then we're going to create a function let's call it a random shot.
+
+20:18.670 --> 20:25.780
+We're going to shoot down randomly at this square box that contains a circle of this radius.
+
+20:25.780 --> 20:32.950
+So we're going to go ahead and say random x equals I'm going to use uniform just so I can use this technique
+
+20:32.950 --> 20:37.030
+where I can generate random numbers between negative radius and radius.
+
+20:37.030 --> 20:41.740
+So think of the circle centered at the origin and then we have a square around it.
+
+20:41.770 --> 20:44.970
+So that square has silence of two.
+
+20:45.010 --> 20:52.690
+Right because the circle is at the origin and the square is just the same size as is just big enough
+
+20:52.990 --> 20:55.810
+to basically encapsulate the circle.
+
+20:56.360 --> 20:59.750
+So then we'll do random y close uniform.
+
+20:59.830 --> 21:04.140
+Same thing minus radius radius cake.
+
+21:04.210 --> 21:05.760
+And what do we want this function to do.
+
+21:05.770 --> 21:14.090
+Well we wanted to calculate to see is this coordinate inside a circle that would be centered at 0 0
+
+21:14.170 --> 21:19.580
+of radius radius and then we want to return the those two x and y coordinates.
+
+21:19.720 --> 21:23.220
+And whether it's a sort whether it's inside the circle or not.
+
+21:23.230 --> 21:25.050
+So let's go ahead and do the calculation.
+
+21:25.090 --> 21:35.560
+So we're going to say if square root of random x square and plus random y square and so if that square
+
+21:35.560 --> 21:47.820
+root is less than or equal to the radius then it isn't in so-called people's true health is in.
+
+21:48.130 --> 21:49.870
+So call equals false.
+
+21:49.870 --> 21:56.320
+Now I could have used you know a TONRY operator here but I prefer this syntax it's a little easier to
+
+21:56.320 --> 22:01.740
+understand especially that since I have this kind of long expression here.
+
+22:02.160 --> 22:03.500
+OK so now what do we want to do.
+
+22:03.500 --> 22:07.730
+We just want to return random acts random.
+
+22:08.490 --> 22:10.720
+And is in Soffer.
+
+22:10.980 --> 22:11.420
+OK.
+
+22:11.550 --> 22:13.950
+We don't know the person using this function.
+
+22:13.980 --> 22:16.830
+Are they going to want to know what the code in it was as well.
+
+22:16.950 --> 22:21.660
+So instead of just returning with it's in the circle or not I'm going to return the co-ordinate and
+
+22:21.660 --> 22:24.240
+whether it wasn't whether it was in the circle or not.
+
+22:24.600 --> 22:25.930
+So there's a function.
+
+22:26.040 --> 22:29.880
+And now let's go ahead and actually run this and use that function.
+
+22:29.880 --> 22:36.850
+So let's say a number of attempts equals 100 let's just keep it simple for now and then count inside
+
+22:37.110 --> 22:41.470
+that's going to be counting the number of coordinates that were inside the circle.
+
+22:41.520 --> 22:47.730
+So I'm just going to run this random shot a hundred times or number 10 times and then I'm going to look
+
+22:47.730 --> 22:53.310
+at the ratio of how many dots ended up inside the circle versus how many did not.
+
+22:53.550 --> 22:58.490
+And that will give me the ratio of the circles area to the area of the box.
+
+22:58.530 --> 23:00.880
+And we know the area of the box is for.
+
+23:00.900 --> 23:05.000
+So we just have to multiply by four whatever of your ratio is.
+
+23:05.160 --> 23:12.780
+And we'll get an approximate value for pi because the surface area of a circle of radius 1 is pi.
+
+23:12.870 --> 23:13.410
+So we'll use.
+
+23:13.410 --> 23:16.380
+By the way a radius of 1.
+
+23:16.380 --> 23:16.960
+OK.
+
+23:17.220 --> 23:24.910
+So we just want to repeat this you know 100 times for I in range and we'll do Namah attempts.
+
+23:24.920 --> 23:26.940
+We're not hard coding values.
+
+23:26.940 --> 23:32.280
+Now what I'm going to do is I'm going to call random shots a so a radius of one.
+
+23:32.490 --> 23:37.950
+I'm not actually interested in this case in the coordinates so I'm going to use this extended unpacking
+
+23:38.310 --> 23:46.050
+to grab the first two and put them into the underscore variable and then I'm going to have the is in
+
+23:46.400 --> 23:47.400
+Sokal.
+
+23:47.680 --> 23:48.060
+OK.
+
+23:48.180 --> 23:51.700
+So basically I'm unpacking what gets returned from random shot
+
+23:54.730 --> 24:03.490
+and if is the saw code then we'll say counts inside plus equals 1.
+
+24:03.670 --> 24:08.340
+OK so we're just counting the number that were inside.
+
+24:08.980 --> 24:11.890
+There's other ways you can write this and we could
+
+24:14.930 --> 24:15.950
+but let's keep it simple.
+
+24:15.970 --> 24:17.810
+Supply is approximately.
+
+24:17.810 --> 24:21.170
+So now we have to do is two.
+
+24:21.320 --> 24:24.800
+And I'm using an F string so the F comes before the string.
+
+24:24.960 --> 24:25.430
+OK.
+
+24:25.670 --> 24:32.010
+So what do we want to do we want to do four times count inside.
+
+24:32.590 --> 24:34.160
+Divided by none.
+
+24:34.370 --> 24:38.950
+Attempts to and what did I do wrong here.
+
+24:38.970 --> 24:40.490
+I either close off my string.
+
+24:40.680 --> 24:45.590
+Ok so pi is approximately 3.2 OK.
+
+24:45.600 --> 24:51.720
+So this is just to show you where we often use toppled as return values of functions we want to return
+
+24:51.720 --> 24:52.920
+more than one thing.
+
+24:53.070 --> 24:59.610
+But what happens is that we need to know as you know a color of random shot what the different positions
+
+24:59.610 --> 25:03.180
+mean in these return values.
+
+25:03.180 --> 25:04.840
+Now of course we can make this a little bigger.
+
+25:04.890 --> 25:10.560
+Let's make it let's do this a million times and let's see if we get a slightly better approximation
+
+25:10.560 --> 25:11.460
+to pi.
+
+25:12.960 --> 25:17.080
+And once it finishes running there we go 3.1 for a little closer to pi.
+
+25:17.520 --> 25:18.000
+All right.
+
+25:18.090 --> 25:22.230
+So that's how we can use all these data structures.
+
+25:22.230 --> 25:24.370
+Thanks for watching and I'll see you in the next video.

@@ -1,0 +1,556 @@
+WEBVTT
+
+00:00.570 --> 00:04.300
+High in this video we're going to kind of put everything together.
+
+00:04.500 --> 00:07.490
+So let's first recap what we've seen so far.
+
+00:07.530 --> 00:14.040
+So we have positional arguments now positional arguments have a specific sequence right there in a specific
+
+00:14.040 --> 00:14.880
+position.
+
+00:14.880 --> 00:20.960
+Basically in the parameters and therefore in the arguments that we then use when we call the function.
+
+00:21.450 --> 00:24.770
+So they may or may not have default values.
+
+00:24.900 --> 00:32.310
+Also we have this angst that we saw and that basically collects and exhausts any extra positional arguments
+
+00:32.310 --> 00:38.670
+that are provided in the function call that go beyond what just the positional parameters are in the
+
+00:38.670 --> 00:40.810
+definition of the function.
+
+00:40.830 --> 00:48.150
+We also saw the stuff by itself which effectively exhausts the positional arguments in the function
+
+00:48.150 --> 00:48.780
+call.
+
+00:48.990 --> 00:51.830
+But it will not put them into a topple.
+
+00:51.900 --> 00:57.900
+And in fact it will refuse to accept more positional arguments that are specifically defined in the
+
+00:57.900 --> 01:00.340
+parameters of the function.
+
+01:00.540 --> 01:03.290
+Then we also have keyword only arguments.
+
+01:03.330 --> 01:07.620
+These are arguments that must be passed as a key value pair.
+
+01:07.950 --> 01:15.840
+So in the positional arguments the user may pass them as key value pairs but for keyword only arguments
+
+01:16.050 --> 01:19.940
+the user must pass the argument as a key value pair.
+
+01:20.520 --> 01:25.560
+And they have to be positioned after the positional arguments have been exhausted.
+
+01:25.560 --> 01:30.600
+When we set up the parameters when we define the function they are also specific.
+
+01:30.610 --> 01:32.590
+They can have specific names.
+
+01:32.590 --> 01:33.240
+Right.
+
+01:33.610 --> 01:41.320
+And they may or may not have default values but then we also have this starstuff Kwanzaa which is again
+
+01:41.370 --> 01:43.030
+you know all of the quotes.
+
+01:43.030 --> 01:48.770
+KW I guess is kind of whatever you want to call it but it's very similar to this style.
+
+01:48.850 --> 01:56.410
+What the style Stockwell's does is basically collect into a dictionary any extra keyword arguments that
+
+01:56.410 --> 01:59.420
+it finds that were not specifically named.
+
+01:59.640 --> 02:07.120
+So style arms will collect any positional arguments that were not specifically named and starstuff KW.
+
+02:07.420 --> 02:14.010
+Will collect any key value arguments that are not specifically named.
+
+02:14.660 --> 02:15.950
+So let's take a look at it.
+
+02:15.950 --> 02:18.220
+So this might be you know a sequence.
+
+02:18.230 --> 02:24.410
+I then put the commas in here but there would be commas if we were to use that to define a function's
+
+02:24.470 --> 02:31.420
+parameters but these could be the sequence of things that we can put inside a function's parameters.
+
+02:31.700 --> 02:38.630
+So here you'll see first of all we have the positional parameters so we have a b and c are all specific
+
+02:38.690 --> 02:45.450
+positional parameters and C has a default value so they can have default values.
+
+02:45.680 --> 02:49.820
+Now the non-default parameters are going to be mandatory arguments.
+
+02:49.820 --> 02:56.270
+In other words when we call the function we will have to specify values for A and B but we can omit
+
+02:56.540 --> 02:59.120
+the value for c because it has a default.
+
+02:59.180 --> 03:00.730
+So it's optional.
+
+03:01.160 --> 03:05.980
+So users may specify these arguments using a keyword.
+
+03:06.020 --> 03:13.230
+So if they want they can call a function by saying one comma two or they may say equals one big words
+
+03:13.240 --> 03:13.750
+too.
+
+03:13.910 --> 03:16.880
+So they can specify a keyword argument.
+
+03:16.880 --> 03:20.370
+Now the keyword has to match the parameter name.
+
+03:20.690 --> 03:24.140
+And they may or may not use that.
+
+03:24.170 --> 03:30.070
+It doesn't force them to use it but they can then the next section is this stuff.
+
+03:30.170 --> 03:33.680
+Or stuff that comes after the positional parameters.
+
+03:33.680 --> 03:39.200
+Now the style is basically scoops up any additional arguments that are being passed that don't match
+
+03:39.200 --> 03:41.990
+up with the specifically named ones.
+
+03:42.140 --> 03:47.020
+The stuff indicates that there are no more positional arguments after this point.
+
+03:47.030 --> 03:51.390
+So in this case we would have a B and C and that would be it.
+
+03:51.440 --> 03:59.180
+The user would not be able to specify more than three positional arguments when calling the function.
+
+03:59.220 --> 04:06.810
+So after we've exhausted the positional arguments either using stars or star then come the key word
+
+04:06.840 --> 04:10.280
+only arguments and that can be specifically named as well.
+
+04:10.280 --> 04:18.510
+We have KW 1 and KW To which are two specifically named Key word only arguments which means that the
+
+04:18.510 --> 04:22.070
+user will have to call it using a keyword argument.
+
+04:22.080 --> 04:25.250
+Now they can have default values such as this one here.
+
+04:25.470 --> 04:30.090
+So of course if you are a keyword argument has a default value.
+
+04:30.120 --> 04:31.400
+It is not mandatory.
+
+04:31.400 --> 04:35.150
+You don't have to specify it when you call the function.
+
+04:35.190 --> 04:42.930
+So these are not mandatory they're optional whereas KW one which does not have a default value is mandatory
+
+04:43.920 --> 04:49.100
+and the user now must specify those keyword arguments using a keyword.
+
+04:49.110 --> 04:49.410
+Right.
+
+04:49.410 --> 04:53.790
+They have to pass the values to the function using something of the form.
+
+04:53.790 --> 04:56.570
+KW One equals a or ten.
+
+04:56.590 --> 05:07.240
+Whatever the case may be now if used staff or staff must also be used you cannot specify key word only
+
+05:07.480 --> 05:13.360
+arguments unless you've exhausted the positional arguments and the only way to exhaust the positional
+
+05:13.360 --> 05:21.790
+arguments is either to accept them and put them into this top hole or to say no I don't have any more
+
+05:21.850 --> 05:23.140
+positional arguments.
+
+05:23.140 --> 05:29.980
+Basically you would reject any additional positional arguments using just the Lone Star by itself.
+
+05:31.090 --> 05:33.460
+And then finally we have the start stuff.
+
+05:33.460 --> 05:39.350
+KW is what this does it basically scoops up any additional keyword arguments.
+
+05:39.430 --> 05:46.060
+So any keyword arguments that it finds in the function call that don't match up to the keyword only
+
+05:46.150 --> 05:54.540
+arguments or don't match up to the positional arguments it will then throw into this dictionary.
+
+05:54.950 --> 05:56.210
+So let's look at some examples.
+
+05:56.210 --> 06:01.730
+Very quickly we have you know all we can call the function a with be will 10 to positional arguments.
+
+06:01.730 --> 06:03.610
+One of them has a default here.
+
+06:03.650 --> 06:07.820
+We have two positional arguments that don't have default so they'll be mandatory.
+
+06:07.820 --> 06:12.530
+And here we're going to scoop up some additional positional arguments that the user can specify when
+
+06:12.530 --> 06:15.830
+they call the function here it gets a little more complicated.
+
+06:15.830 --> 06:18.980
+We have two mandatory positional arguments.
+
+06:19.130 --> 06:24.650
+We can scoop up an arbitrary number of additional positional arguments and now we have two key word
+
+06:24.650 --> 06:26.080
+only arguments.
+
+06:26.090 --> 06:33.050
+KW One is mandatory it's required because it doesn't have a default but KW to you know is not required.
+
+06:33.050 --> 06:39.110
+It doesn't because it has a default so it doesn't have to be specified when we call the function.
+
+06:39.110 --> 06:42.410
+Now here we have a we have B equals 10.
+
+06:42.590 --> 06:44.430
+And here we indicate that's it.
+
+06:44.570 --> 06:50.720
+That's the only positional arguments we'll accept we'll only accept two and there will be a and b b
+
+06:50.720 --> 06:51.560
+has a default.
+
+06:51.590 --> 06:57.260
+So if we don't specify B it will default to 10 and then we have the keyword arguments that can come
+
+06:57.260 --> 06:58.890
+after the stuff.
+
+06:59.210 --> 07:02.570
+Now you'll notice a little difference here between the star and the star.
+
+07:02.570 --> 07:05.310
+I didn't put a default value for B.
+
+07:05.330 --> 07:08.120
+Well if you think about it and we'll see that in the code.
+
+07:08.270 --> 07:13.910
+But if you did have a default value for B and then you accepted other arguments.
+
+07:13.910 --> 07:20.330
+How would Python know if you specify three positional arguments that say how would it know that the
+
+07:20.330 --> 07:27.000
+second one and the third one are supposed to go into and that you're trying to not specify be.
+
+07:27.210 --> 07:28.470
+You would have a problem right.
+
+07:28.470 --> 07:29.720
+You would be able to do that.
+
+07:29.730 --> 07:36.210
+It would basically replace B with that value that you're trying to actually put into.
+
+07:36.270 --> 07:41.190
+And then the third value of the fourth value would go into and we'll see that in the code it will become
+
+07:41.190 --> 07:41.930
+clear.
+
+07:41.970 --> 07:49.290
+So I don't put a default here you can r but it's not very useful if you're also going to you know take
+
+07:49.290 --> 07:53.170
+in and scoop up extra positional arguments.
+
+07:53.250 --> 07:54.960
+We can also go up to his right.
+
+07:54.960 --> 07:55.950
+We have a B.
+
+07:55.950 --> 08:00.420
+We scoop up extra positional arguments we have a mandatory keyword arguments.
+
+08:00.420 --> 08:07.440
+We have an optional keyword argument and then we can scoop up extra keyword arguments or we can do this.
+
+08:07.500 --> 08:09.600
+We're going to have a B equals 10.
+
+08:09.600 --> 08:15.830
+So now we have a default forby within stop accepting positional arguments and then we have two keyword
+
+08:15.840 --> 08:22.310
+arguments that are specific one of which is optional and then we can scoop up some extra ones you can
+
+08:22.310 --> 08:28.850
+of course call a function with just an arbitrary number of positional arguments so you can specify zero
+
+08:28.850 --> 08:30.830
+or as many arguments as you want.
+
+08:30.950 --> 08:32.830
+And that will work.
+
+08:32.900 --> 08:39.050
+You can also do the same thing with keywords and only accept keyword arguments and as many as you want.
+
+08:39.140 --> 08:41.200
+So start Starcade heavily.
+
+08:41.300 --> 08:42.940
+We'll do that for us.
+
+08:43.940 --> 08:48.800
+And of course you can combine those two and you can have an arbitrary number of positional arguments
+
+08:48.830 --> 08:55.190
+followed by an arbitrary number of positional of a keyword only arguments and you'll scoop that up into
+
+08:55.190 --> 08:58.150
+the args table and the KW Pod's dictionary.
+
+08:58.310 --> 09:04.130
+That's actually a very useful syntax right here and we'll see that in a few you know in an upcoming
+
+09:04.130 --> 09:07.510
+video are probably too from now anyway.
+
+09:07.670 --> 09:12.440
+This is just kind of a example of all the different ways you can define these things and we'll take
+
+09:12.440 --> 09:15.530
+a look at that again in the code section.
+
+09:15.530 --> 09:21.800
+So let's look at some typical use cases of you know the Star ones at least and you know when would you
+
+09:21.800 --> 09:28.340
+use that or do you know when would you use you know mandatory key word the key word only arguments.
+
+09:28.340 --> 09:30.070
+What are some of the use cases.
+
+09:30.110 --> 09:33.920
+And of course there are plenty I'm just going to show you a couple.
+
+09:33.920 --> 09:37.880
+So the first one is let's look at the print function that's actually built into Python.
+
+09:37.880 --> 09:44.250
+If we look at the documentation for the print function we see that it starts with Star objects while
+
+09:44.300 --> 09:46.050
+remember that star.
+
+09:46.210 --> 09:52.010
+And so like I said we what we typically call it we can call whatever you want that's just the parameter
+
+09:52.010 --> 09:52.690
+name.
+
+09:52.760 --> 09:55.490
+In this case they named that object.
+
+09:55.490 --> 09:57.680
+So it just says Star objects.
+
+09:57.680 --> 10:02.780
+So it's going to be a topple that's going to collect positional arguments that you pass to the print
+
+10:02.780 --> 10:03.500
+function.
+
+10:03.500 --> 10:09.650
+So that's why we can say print parentheses one comma to comma three and it's going to print one two
+
+10:09.680 --> 10:11.600
+three with a space in between.
+
+10:12.700 --> 10:13.960
+But now take a look.
+
+10:13.960 --> 10:17.260
+Now we have some keyword only arguments.
+
+10:17.260 --> 10:19.370
+Now they all have a default value.
+
+10:19.660 --> 10:22.760
+So because of that it means that they're all optional.
+
+10:23.050 --> 10:29.410
+So if you say print one comma to come three then it's going to use the default value for CEP which is
+
+10:29.410 --> 10:31.930
+the separator which is a space.
+
+10:31.930 --> 10:39.640
+And that's why when we say print one comma to come at three it prints one space to space three and then
+
+10:39.640 --> 10:40.670
+it does a new line.
+
+10:40.900 --> 10:41.890
+Well it does the new line.
+
+10:41.890 --> 10:50.050
+Because this is what the end key words are keyword arguments value is by default to backslash N which
+
+10:50.050 --> 10:51.420
+is a new line.
+
+10:51.490 --> 10:53.140
+So that's how that works.
+
+10:53.140 --> 10:54.520
+Now we can override that.
+
+10:54.520 --> 11:00.040
+Therefore if we want we can say print 1 comet to come at 3 and we can specify a different separator.
+
+11:00.310 --> 11:05.000
+Or we could specify a different line and in character or we specify both.
+
+11:05.050 --> 11:07.960
+We can also change where it's going or write it out.
+
+11:07.960 --> 11:10.840
+In this case we're just writing to the standard at the console.
+
+11:10.840 --> 11:15.570
+But you could write it off somewhere else and then flush is something that's a little different arm
+
+11:15.940 --> 11:20.980
+that's really used when you because as you're printing the console it's a your program is running and
+
+11:20.980 --> 11:23.190
+you're printing a lot of output to the console.
+
+11:23.320 --> 11:25.410
+Well sometimes the council can't keep up.
+
+11:25.600 --> 11:31.270
+And so what you do is you can flush you can ensure that you've actually written things out to the console.
+
+11:31.280 --> 11:37.330
+Anyways what I really want to point out is that here's a typical use case of using keyword arguments
+
+11:37.760 --> 11:39.400
+right keyword only arguments.
+
+11:39.400 --> 11:45.280
+You do that when you want to basically let the function do what it normally does with its positional
+
+11:45.280 --> 11:46.120
+parameters.
+
+11:46.390 --> 11:49.970
+But then you modify the behavior of the function.
+
+11:50.110 --> 11:55.480
+And for that you use keyword only arguments.
+
+11:55.510 --> 11:59.580
+All right so all this does goes over what we just discussed.
+
+11:59.680 --> 12:00.990
+So here's another one.
+
+12:02.010 --> 12:06.480
+So often key word only arguments are used to modify the default behavior of a function just like we
+
+12:06.480 --> 12:08.530
+saw in the print function just now.
+
+12:08.850 --> 12:09.600
+Here's another one.
+
+12:09.600 --> 12:15.610
+For example let's say we have this method here called calque Hailo average and it takes Starns.
+
+12:15.660 --> 12:21.420
+So basically what this function does it's going to take an you know an unlimited number well unlimited
+
+12:21.660 --> 12:24.540
+an arbitrary number of positional arguments.
+
+12:24.540 --> 12:31.120
+It's going to look at the minimum value the maximum value and calculate the average of those two values.
+
+12:31.410 --> 12:38.600
+And we have then a keyword only argument that has a default which is larget to cancel.
+
+12:38.700 --> 12:42.460
+So this function will actually calculate that average and return it.
+
+12:42.720 --> 12:49.290
+But if we specify locked to console to be true then additionally it's going to print out to the console
+
+12:49.410 --> 12:53.430
+the information about the high the low and the average.
+
+12:53.430 --> 13:00.810
+So that's kind of what I mean by you know we can use a keyword approach to modify the behavior of the
+
+13:00.810 --> 13:07.200
+function right by default the function doesn't log anything to the console but we set the flag to true
+
+13:07.290 --> 13:11.190
+and now all of a sudden it will start logging things to the console for us.
+
+13:11.190 --> 13:21.830
+So again that's another typical way of using value are key key only arguments can keyword only argues.
+
+13:21.840 --> 13:25.560
+All right let's switch to some code and let's take a look at all this in action.

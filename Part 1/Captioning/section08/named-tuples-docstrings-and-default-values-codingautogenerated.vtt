@@ -1,0 +1,718 @@
+WEBVTT
+
+00:00.410 --> 00:00.880
+High.
+
+00:01.050 --> 00:05.940
+So let's jump into the doctrines and default values for name couples.
+
+00:05.940 --> 00:11.620
+So we're going to start with the strings and let's go ahead and create a point to these are all old
+
+00:11.640 --> 00:12.610
+standby.
+
+00:12.900 --> 00:18.510
+And of course I need to import so from collections import named couple.
+
+00:18.840 --> 00:25.410
+And now let's create the point to be named top of class so we're going to use the name all function
+
+00:25.470 --> 00:28.410
+which is essentially just a class factory.
+
+00:28.410 --> 00:34.810
+We're going to give the name of the class as point to Dean and then we'll have two fields x and y.
+
+00:34.950 --> 00:36.800
+So now we have point to D.
+
+00:36.990 --> 00:41.760
+And you'll notice that we have some properties that we can access
+
+00:45.150 --> 00:48.330
+Ulos we have a docstring for point to deep with a class.
+
+00:48.330 --> 00:53.760
+We also have a docstring for the properties.
+
+00:54.970 --> 00:56.530
+And I got a cold point too.
+
+00:56.870 --> 00:57.290
+OK.
+
+00:57.320 --> 00:58.720
+It is what field number 0.
+
+00:58.740 --> 01:00.420
+And if we do that for Y
+
+01:05.010 --> 01:06.940
+then we have a list with field number 1.
+
+01:07.050 --> 01:12.110
+So those are the dark strings and if we call help on point 2 D you'll see that.
+
+01:12.120 --> 01:13.650
+Well we have a bunch of stuff.
+
+01:13.950 --> 01:17.790
+But in particular note the docstring here that shows up.
+
+01:17.790 --> 01:21.140
+That's the one that is actually in dhanda dark.
+
+01:21.330 --> 01:29.970
+And then we also have over here by the way this is the new method that gets called when we create a
+
+01:29.970 --> 01:36.450
+new instance of point to the that's going to become important and a little bit but that's when we create
+
+01:36.450 --> 01:42.080
+a new instance of point to the this is the method that is actually called in order to create that instance.
+
+01:42.090 --> 01:49.660
+And you'll notice it has these two parameters x and y which are field maps and then we have the data
+
+01:49.660 --> 01:51.310
+descriptors for X.
+
+01:51.340 --> 01:56.770
+And here we have that docstring a field number zero and hit a field number one.
+
+01:57.280 --> 01:58.780
+So how do we modify this.
+
+01:58.780 --> 02:04.710
+Well it's very simple the Dunder duck property is not just read you know readable.
+
+02:04.720 --> 02:09.600
+It's actually ridable as well so we can just modify it so we can go ahead and say something like this
+
+02:09.610 --> 02:11.320
+point to D.
+
+02:11.370 --> 02:14.660
+Done with dark equals.
+
+02:16.540 --> 02:28.360
+To the Kantian coordinates something like that then we can also set the docs on the X property.
+
+02:28.410 --> 02:35.820
+So this way and we're going to say this is the x coordinates and then we'll do the same thing for the
+
+02:35.820 --> 02:36.840
+Y.
+
+02:37.590 --> 02:42.540
+Docstring that's equal to the y coordinate.
+
+02:43.250 --> 02:43.880
+OK.
+
+02:44.190 --> 02:49.570
+And now if we call help on point 2 D you'll notice that this has changed here.
+
+02:49.630 --> 02:59.070
+Now we have two counties in co-ordinate and over down here we have x coordinate and y coordinates.
+
+02:59.400 --> 03:00.780
+So that's pretty straightforward.
+
+03:00.870 --> 03:05.460
+That's how we change the doc strings on name topples.
+
+03:05.560 --> 03:06.070
+OK.
+
+03:06.220 --> 03:10.260
+So the next thing that we need to talk about is how do we set defaults.
+
+03:10.330 --> 03:16.630
+Because if we have this construct this function that rather that we called name toppled that generates
+
+03:16.630 --> 03:17.400
+this class.
+
+03:17.560 --> 03:22.230
+There is no way of passing it a default value for x and y.
+
+03:22.540 --> 03:24.570
+There's just no way to do that.
+
+03:24.620 --> 03:32.500
+So the Python documentation actually documents one way of doing it and that's using something called
+
+03:32.530 --> 03:34.260
+a prototype.
+
+03:35.740 --> 03:39.730
+And the idea behind this is that we're going to create a named topple.
+
+03:39.760 --> 03:41.950
+So let's go ahead and call it vector to do that.
+
+03:42.040 --> 03:48.160
+Is one where we have a few more parameters and let's go ahead and create it.
+
+03:48.160 --> 03:50.150
+So this is going to be a vector to the.
+
+03:50.410 --> 03:56.770
+And it's going to take the coordinates the x y coordinates of the starting point of the vector and then
+
+03:56.770 --> 04:00.190
+the x y coordinates of the endpoint of the vector.
+
+04:00.190 --> 04:08.460
+So I'm calling it x y y want x to y to and then I also want to specify the coordinate systems origin.
+
+04:09.040 --> 04:15.280
+We may want to have different coordinate systems for various vectors so in this case this is what we
+
+04:15.280 --> 04:15.450
+have.
+
+04:15.450 --> 04:16.980
+We have six fields right.
+
+04:16.980 --> 04:20.770
+If we look at Vector 2 D and type it
+
+04:24.520 --> 04:30.050
+we have these six fields and there are of course also properties on the vector to the class.
+
+04:30.070 --> 04:36.490
+So to create a vector to d we just have to you know basically say V one equals vector to D and then
+
+04:36.490 --> 04:43.760
+we have to pass it in let's say it starts at 0 0 ends at 10 10 and then we have to specify the origin.
+
+04:43.760 --> 04:45.100
+In this case it's 0 0.
+
+04:45.100 --> 04:48.950
+Most of the times that origin is going to be just 0 0.
+
+04:49.390 --> 04:50.900
+So now we have all vector.
+
+04:51.400 --> 04:55.900
+But you'll notice that I have to specify origin X origin Y every time.
+
+04:56.170 --> 04:58.050
+And I don't want to have to do that.
+
+04:58.060 --> 05:04.300
+I would like to have a default so that I could call vector to d with just these four parameters and
+
+05:04.300 --> 05:07.380
+not have to specify the last two.
+
+05:08.110 --> 05:10.520
+But of course we can't do that vector 2d.
+
+05:10.540 --> 05:12.400
+Expect six parameters.
+
+05:12.400 --> 05:13.060
+End of story.
+
+05:13.060 --> 05:14.070
+Right.
+
+05:14.170 --> 05:19.540
+So the way the Python docs describes it they say OK make a prototype.
+
+05:19.540 --> 05:21.210
+So that's exactly what we're going to do.
+
+05:21.220 --> 05:25.880
+We're going to make this prototype and call it back to zero and we're going to create an instance of
+
+05:26.170 --> 05:29.670
+A to Z and he might make everything 0.
+
+05:29.760 --> 05:32.400
+Maybe you know maybe some of them none.
+
+05:32.490 --> 05:34.840
+You know it doesn't make sense to mix that in this case.
+
+05:34.840 --> 05:39.950
+I'm going to make everything 0 and then I need to specify the origin X and Y as well.
+
+05:40.000 --> 05:43.300
+I'm going to make them 0 as well because that's what I want them to be.
+
+05:43.300 --> 05:44.500
+So how many do I have.
+
+05:44.500 --> 05:47.060
+One two three four five six.
+
+05:47.100 --> 05:47.590
+OK.
+
+05:47.770 --> 05:52.890
+So a better approach might have been to say X one equals zero x y one equals zero.
+
+05:52.900 --> 05:56.460
+And so on but I'm going to keep it simple.
+
+05:57.360 --> 05:59.980
+OK so now we have the vector 0.
+
+05:59.980 --> 06:00.510
+What is it.
+
+06:00.520 --> 06:04.170
+Well back to zero is just a vector to the instance.
+
+06:04.300 --> 06:07.060
+K with these values here.
+
+06:07.060 --> 06:12.450
+Now what we do is we kind of forget that we have this vector to declasse defined.
+
+06:12.610 --> 06:15.420
+We forget about it in order to create new vectors.
+
+06:15.490 --> 06:16.390
+How are we going to do it.
+
+06:16.390 --> 06:19.920
+We're going to say V-2 equals V-1.
+
+06:19.990 --> 06:21.550
+Well I'm sorry.
+
+06:21.560 --> 06:30.010
+The one vector zero that's the one that's the prototype right vector 0 was the prototype and would we're
+
+06:30.010 --> 06:34.290
+going to use the underscore replace method we've seen that one before.
+
+06:34.300 --> 06:43.170
+So no I can say X one equals 10 y one equals 10 x 2 equals 20 y two equals 20.
+
+06:43.780 --> 06:45.940
+And now I have my two vector.
+
+06:45.970 --> 06:51.280
+And you'll notice that the origin is 0 0 0 because that's what it grabbed from the prototype and that's
+
+06:51.280 --> 06:53.020
+why we say that this is a prototype.
+
+06:53.020 --> 06:55.740
+I want to do another vector v3.
+
+06:55.810 --> 06:57.130
+I would do the same thing.
+
+06:57.160 --> 07:03.550
+I wouldn't use the vector to declasse any more I would use the prototype and use the underscore replace
+
+07:03.790 --> 07:06.190
+and put in the values that I want.
+
+07:06.190 --> 07:11.950
+And again they have to be specified as Kiwa parameters right.
+
+07:11.950 --> 07:13.120
+Keyword arguments.
+
+07:13.120 --> 07:16.860
+That's what underscore replace needs.
+
+07:17.020 --> 07:19.920
+So a few things here and we mentioned that in the lecture.
+
+07:19.930 --> 07:25.520
+But first of all I'm no longer using vector 2d to create instances of vector 2d.
+
+07:25.530 --> 07:31.720
+I'm using this prototype name so maybe I could have made the prototype something like vector 2 d 0.
+
+07:31.720 --> 07:38.170
+Maybe I could even have done something like this which you know really you know it's not a class so
+
+07:38.170 --> 07:39.670
+we shouldn't be capitalizing it.
+
+07:39.820 --> 07:45.370
+But in this case I might actually do that to indicate well this is a class but obviously it's not a
+
+07:45.370 --> 07:48.240
+class because we're calling underscore replace.
+
+07:48.250 --> 07:51.430
+So we are using an instance.
+
+07:51.460 --> 07:58.390
+So I don't like that fact that's the first thing is that often the fact that we're using vector 2d to
+
+07:58.390 --> 08:01.410
+create V-2 is up skated right here.
+
+08:01.540 --> 08:03.590
+It's not transparent.
+
+08:03.610 --> 08:10.160
+The second thing is very clean compared to when we call vector 2D it's just vector to deep parenthesis.
+
+08:10.270 --> 08:13.340
+Here we have to call underscore replace.
+
+08:13.420 --> 08:18.010
+And then finally we have to use positional arguments now using positional.
+
+08:18.010 --> 08:23.110
+Sorry we have to use keyword arguments now using keyword arguments when you call functions is not a
+
+08:23.110 --> 08:23.790
+bad thing.
+
+08:23.800 --> 08:29.530
+In fact it's something that you should prefer to do very often but for something as simple as a vector
+
+08:29.530 --> 08:35.740
+which has two coordinates for the first zero point or the start point two coordinates for the end point.
+
+08:35.740 --> 08:38.920
+I don't like the fact that I have to write it out this way.
+
+08:38.920 --> 08:44.740
+It's very easy for me in code to understand what 10 commet 10 or 20 come 20 means.
+
+08:44.740 --> 08:49.000
+Obviously if we had something you know a name top of like for example the stock that we saw in a few
+
+08:49.000 --> 08:55.100
+videos back then yeah then you know actually doing it this way might make more sense.
+
+08:55.090 --> 08:56.990
+It's more readable code.
+
+08:57.400 --> 09:03.030
+But I don't like the fact that I'm forced to use the keyword parameters the keyword arguments.
+
+09:03.220 --> 09:05.920
+So that's what I don't like about this prototype approach.
+
+09:05.920 --> 09:06.950
+It certainly was.
+
+09:07.000 --> 09:11.840
+And it's fine and it has some other advantages too is that I may do another prototype.
+
+09:11.840 --> 09:16.360
+I must say vector you know negative base for example are negative.
+
+09:16.360 --> 09:18.560
+It's not a base it's a negative origin.
+
+09:18.580 --> 09:22.670
+Let's say you know or maybe it's the Altona origin.
+
+09:22.690 --> 09:24.010
+It's called alt origin.
+
+09:24.130 --> 09:31.510
+And then I would call a vector to the I would call that and I pass in you know 0 0 0 0.
+
+09:31.510 --> 09:36.290
+My first two points in then maybe I put a minus 10 minus 10 for all that.
+
+09:36.640 --> 09:46.310
+So now I can create you know a vector using vector 0 when I want to use the zero defaults for the origin.
+
+09:46.420 --> 09:55.600
+Or I might call and alt origin when I want to use the negative 10 negative 10 if it's something I use
+
+09:55.600 --> 09:56.940
+frequently for example.
+
+09:56.950 --> 10:02.680
+So there are certain advantages to using this prototype approach but there's another way that we can
+
+10:02.680 --> 10:04.450
+define a default.
+
+10:04.570 --> 10:08.270
+And before we jump into how to do it with named topples.
+
+10:08.320 --> 10:11.530
+Let's just see how it works with just regular functions.
+
+10:11.530 --> 10:17.770
+So let's go ahead and let's create a function and we'll put in two or three parameters but two of them
+
+10:17.770 --> 10:21.020
+will have defaults and the function is unknown to.
+
+10:21.100 --> 10:24.470
+Well actually let's print a COM A B C.
+
+10:24.570 --> 10:25.140
+OK.
+
+10:25.420 --> 10:26.890
+So this is what the function does.
+
+10:26.890 --> 10:29.620
+It just takes in those three arguments.
+
+10:29.740 --> 10:30.980
+Two of them have defaults.
+
+10:31.060 --> 10:32.310
+And then it just prints them out.
+
+10:32.500 --> 10:38.460
+So if we call func let's say with one then we get 1 10 and 20 that get printed up.
+
+10:39.890 --> 10:42.860
+But the phunk has eight.
+
+10:42.860 --> 10:45.420
+Defaults are done the false property.
+
+10:45.560 --> 10:46.700
+And you'll notice what it is.
+
+10:46.700 --> 10:53.470
+It is a top 10 20 that contains basically the default values that we had here.
+
+10:54.110 --> 10:59.600
+And again I mentioned in the lecture that you have to think of this as being aligned with the parameter
+
+10:59.600 --> 11:01.370
+names with the right alignment.
+
+11:01.490 --> 11:04.030
+So 20 is going to go into C.
+
+11:04.160 --> 11:05.890
+So I'm kind of reading it backwards.
+
+11:06.020 --> 11:08.970
+Twenty goes into C ten goes into B.
+
+11:09.470 --> 11:17.600
+Now what I could do is I can change those defaults so I can say phunk done the defaults on equals and
+
+11:17.600 --> 11:21.990
+maybe I'm going to specify both three and I'm going to change with the defaults.
+
+11:22.190 --> 11:22.770
+OK.
+
+11:23.060 --> 11:26.760
+So now look what happens when I call func just by itself.
+
+11:26.900 --> 11:28.170
+I get those defaults.
+
+11:28.310 --> 11:34.400
+So Python is reading those defaults from done to property and then applying them if I don't specify.
+
+11:34.520 --> 11:37.050
+You know all the arguments.
+
+11:37.120 --> 11:44.650
+So that's how we can modify the default values for the arguments of a function.
+
+11:44.650 --> 11:46.750
+Now let's go back to name couple.
+
+11:46.840 --> 11:48.760
+Let's go back to our vector to D.
+
+11:48.940 --> 11:51.550
+And let's get help on vector to deal.
+
+11:51.620 --> 11:53.300
+And I pointed that out just now.
+
+11:53.320 --> 11:55.460
+But let's go back and take a look at it again.
+
+11:57.630 --> 11:58.660
+Here we have this done.
+
+11:58.660 --> 11:59.530
+The new method.
+
+11:59.550 --> 12:04.780
+And you'll notice it says it creates a new instance of vector 2 d.
+
+12:04.850 --> 12:05.130
+Right.
+
+12:05.130 --> 12:10.260
+That's what it's the it's this method that gets called when we create an instance of vector to D.
+
+12:10.260 --> 12:16.940
+Now I know we haven't covered classes in python yet that will come later on in the schools but the donder
+
+12:16.950 --> 12:24.870
+in nit that we use to are you know that we use normally to initialize a class or an instance of a class.
+
+12:24.900 --> 12:31.940
+It's not the constructor of the class it's an initializer it happens after the object has been constructed.
+
+12:32.070 --> 12:39.060
+Once the object is being constructed and here it's done by the Dundon new method once it's constructed
+
+12:39.060 --> 12:44.730
+the object that it calls the Dondre in it passing it the object and the Dundreary init method can then
+
+12:44.730 --> 12:51.380
+modify things that can add attributes that can do various things to initialize essentially that object.
+
+12:51.390 --> 12:54.640
+So it's two separate steps creation initialization.
+
+12:54.660 --> 12:56.830
+Usually we don't worry about creation.
+
+12:57.360 --> 12:59.350
+We often just use the Dunder init.
+
+12:59.520 --> 13:03.460
+But we'll see where we use the Dundon new Later on in the course.
+
+13:03.480 --> 13:04.890
+So what do we want to do.
+
+13:04.890 --> 13:09.320
+Well we want to assign a default value to Origin X and origin y.
+
+13:09.390 --> 13:11.450
+In this Dundon new method.
+
+13:11.740 --> 13:15.630
+OK this is the function whose default we want to modify.
+
+13:15.630 --> 13:17.970
+Right now it doesn't have any defaults.
+
+13:18.090 --> 13:18.380
+Right.
+
+13:18.420 --> 13:30.650
+If I look at Vector 2D Dondre new Dondre or dark Tunder defaults I have nothing.
+
+13:30.840 --> 13:31.700
+It's an empty.
+
+13:31.740 --> 13:32.660
+It's nothing.
+
+13:32.790 --> 13:33.720
+OK.
+
+13:34.230 --> 13:35.810
+Take a look at what the type is.
+
+13:38.050 --> 13:39.350
+It's the non-Thai.
+
+13:39.470 --> 13:41.850
+It's it's nothing it's nothing.
+
+13:41.850 --> 13:43.140
+Not that none is nothing.
+
+13:43.170 --> 13:43.710
+It's nothing.
+
+13:43.770 --> 13:47.790
+So now what we're going to do is we're actually going to assign the defaults.
+
+13:48.270 --> 13:53.210
+But remember again the defaults all have the right alignment thing right.
+
+13:53.250 --> 13:59.640
+So we're going to specify the default for what we want to specify the defaults for the origin X and
+
+13:59.700 --> 14:00.440
+origin y.
+
+14:00.450 --> 14:06.320
+The last two arguments essentially of the done the new method these two.
+
+14:06.360 --> 14:07.390
+This one in that one.
+
+14:07.650 --> 14:15.060
+So let's do that let's say vector 2D Dundon you because that's the method we wanted to change the default
+
+14:15.060 --> 14:19.940
+on done defaults equals zero zero.
+
+14:20.460 --> 14:25.320
+So now we've changed the default all Dundon year.
+
+14:25.470 --> 14:27.630
+So now let's go ahead and create another vector.
+
+14:27.660 --> 14:31.890
+Let's call it V-1 and vector to D.
+
+14:31.920 --> 14:36.150
+And now we're only going to pass in four parameters for arguments.
+
+14:36.330 --> 14:42.750
+So turned corner can come at 20 20 and I have to spell it correctly.
+
+14:43.560 --> 14:51.150
+And you'll notice that walked normally on top all would only allow us to pass in six parameters six
+
+14:51.150 --> 14:52.050
+arguments.
+
+14:52.200 --> 14:54.870
+In this case it's allowing us to only specify four.
+
+14:54.900 --> 14:55.590
+Why.
+
+14:55.770 --> 14:58.750
+Because now this done the new method has defaults.
+
+14:58.890 --> 15:04.090
+And in fact if we look at the one you can see the origin X is 0 origin y 0.
+
+15:04.320 --> 15:10.150
+Now of course we could have done something like this we could have said vectors to the Dundon new Gundry
+
+15:10.320 --> 15:14.670
+gleeful sequels maybe you know minus 10 to minus 10.
+
+15:14.850 --> 15:16.430
+We can do that as well.
+
+15:16.470 --> 15:23.580
+If I can type and know if I create a new vector I'm just going to copy and paste that code.
+
+15:23.630 --> 15:29.330
+I can't look at the one you can see it has negative 10 and negative 10 as defaults.
+
+15:29.340 --> 15:33.620
+So this is another way of specifying deepest values for name topples.
+
+15:33.630 --> 15:41.090
+We simply go in and modify the Dunta defaults property of the Dundon new method that was in our vector
+
+15:41.090 --> 15:42.500
+to declasse.
+
+15:42.510 --> 15:43.070
+All right.
+
+15:43.170 --> 15:45.700
+So thanks for watching and I'll see you in the next video.

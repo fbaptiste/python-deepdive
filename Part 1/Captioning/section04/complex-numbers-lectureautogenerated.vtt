@@ -1,0 +1,580 @@
+WEBVTT
+
+00:00.450 --> 00:03.640
+Hi and welcome to this video on complex numbers.
+
+00:03.720 --> 00:08.430
+Now if you're not interested in complex numbers and don't plan on using them by all means go ahead and
+
+00:08.430 --> 00:09.580
+skip the video.
+
+00:09.840 --> 00:11.290
+But if you are here we go.
+
+00:11.310 --> 00:17.360
+Let's take a look at so complex numbers are implemented in Python using the building complex class.
+
+00:17.400 --> 00:18.100
+So it's a class.
+
+00:18.120 --> 00:19.810
+And so it has a constructor.
+
+00:20.130 --> 00:25.090
+So the constructor takes two parameters x and y and x has the real power.
+
+00:25.170 --> 00:26.800
+And why is the Magin result.
+
+00:26.880 --> 00:30.210
+So basically we're working in rectangular coordinates.
+
+00:30.240 --> 00:36.150
+Now of course you can also have complex literals and the literals are simply written this way X plus
+
+00:36.210 --> 00:39.660
+why J where x and y are the two numbers and thus J.
+
+00:39.660 --> 00:41.230
+Here just represents that.
+
+00:41.250 --> 00:45.150
+That is the imaginary part and Jake and the uppercase J.
+
+00:45.140 --> 00:46.130
+All lowercase J.
+
+00:46.140 --> 00:48.270
+Both will work just fine.
+
+00:48.270 --> 00:55.050
+So this is some examples we can take a equals complex one comma to and b equals one plus two J.
+
+00:55.080 --> 00:56.970
+Those should be the same numbers right.
+
+00:56.980 --> 00:58.740
+They're the same complex numbers.
+
+00:58.740 --> 01:02.790
+And in fact when we do a equals equals B we get true.
+
+01:03.180 --> 01:06.840
+But there's a little bit of a caveat to all this x and y.
+
+01:06.870 --> 01:10.120
+The real and imaginary thoughts are actually floats right.
+
+01:10.140 --> 01:15.150
+And actually even in this case where we specified X and Y to be integers 1 and 2.
+
+01:15.210 --> 01:20.970
+If you look at the type of them once they've been created into a complex number that floats it will
+
+01:20.970 --> 01:22.630
+see that in the code.
+
+01:22.680 --> 01:27.540
+So of course being floats you've got to be careful with the equality testing right.
+
+01:27.540 --> 01:33.260
+We have the same issues here that we have with regular folks and we'll see that in code and we'll come
+
+01:33.260 --> 01:36.660
+back and touch on that later towards the end of the video.
+
+01:37.130 --> 01:40.850
+So we do have some instance properties and methods.
+
+01:40.850 --> 01:45.570
+So we have the real instance property which returns the real path of the complex numbers.
+
+01:45.620 --> 01:46.860
+We have the duck.
+
+01:46.900 --> 01:54.440
+I am a G-4 imaginary which returns the imaginary part of the numbers and we also have a method conjugate
+
+01:54.770 --> 01:58.590
+which returns the complex conjugate of that particular number.
+
+01:59.340 --> 02:06.570
+So this is an example if we take d equals to minus three J then did of real will return to deedle imaginary
+
+02:06.570 --> 02:08.130
+will return negative 3.
+
+02:08.130 --> 02:10.790
+And in fact those will be Sloth's right.
+
+02:10.800 --> 02:15.750
+So I will see that in the code but just keep that in mind and indeed conjugate will return the complex
+
+02:15.750 --> 02:18.180
+conjugate so it will return to plus reject.
+
+02:20.540 --> 02:23.020
+The arithmetic operators like plus minus.
+
+02:23.030 --> 02:26.630
+Division multiplication and as well as powers work.
+
+02:26.750 --> 02:29.240
+Just as expected with complex numbers.
+
+02:29.330 --> 02:34.130
+So they worked just fine the polymorphic they recognize when they were working with complex numbers.
+
+02:34.130 --> 02:38.450
+So you can add multiply and do all those things with complex numbers without any problems.
+
+02:38.450 --> 02:40.350
+Here are some examples.
+
+02:40.460 --> 02:45.770
+You can also mix real and complex numbers so if you want to add a complex number to a real number that's
+
+02:45.770 --> 02:46.200
+fine.
+
+02:46.220 --> 02:50.840
+Obviously you know in real life and real mathematics that works just fine here as well.
+
+02:50.840 --> 02:55.200
+That is supported as well as multiplication and the other ones as well.
+
+02:55.370 --> 02:57.110
+So nothing fancy here.
+
+02:57.170 --> 03:01.880
+They work as expected with complex numbers that just use complex arithmetic.
+
+03:01.890 --> 03:04.860
+Now the Divine not operators are not supported.
+
+03:04.860 --> 03:12.150
+Right so if you try and do a div an operation on complex numbers you will get an exception.
+
+03:12.200 --> 03:13.220
+Now other operations.
+
+03:13.220 --> 03:16.200
+Let's talk about the equals equals and not equals.
+
+03:16.250 --> 03:18.400
+So they all support it.
+
+03:18.590 --> 03:22.370
+But again we have the same problem as with floats right.
+
+03:22.400 --> 03:23.920
+Complex numbers are stored as follows.
+
+03:23.930 --> 03:29.120
+Which means that that equals equals is going to raise problems because we're not going to have exact
+
+03:29.120 --> 03:31.720
+representations of the numbers that we put in.
+
+03:31.730 --> 03:37.590
+As may be you know as finite decimal representations I will run into the same problems we have with
+
+03:37.590 --> 03:38.690
+the floats.
+
+03:39.860 --> 03:44.680
+Now the comparison operators such as less than greater than again also not supported.
+
+03:44.780 --> 03:45.120
+Right.
+
+03:45.120 --> 03:48.400
+I mean what does it mean for a complex number to be greater than another one.
+
+03:48.680 --> 03:54.230
+Well you know it might depend on your definition it might depend on what you know you decide to be that
+
+03:54.290 --> 03:56.220
+ordering of complex numbers.
+
+03:57.330 --> 04:03.450
+So in general the non-supported you have to create your own basically now functions of the math module
+
+04:03.450 --> 04:04.210
+will not work.
+
+04:04.260 --> 04:10.320
+You can't use any of the functions in the math module with complex numbers.
+
+04:10.320 --> 04:16.020
+Instead you should use the C math module which which is the basically the complex equivalent to the
+
+04:16.020 --> 04:20.820
+math module and has most of the same functions and that plus some extra ones that are more specific
+
+04:21.210 --> 04:22.900
+to complex numbers.
+
+04:23.040 --> 04:28.860
+So you have exponentials you have logs you have trigs and involves trigs you have hyperbolic inverse
+
+04:28.860 --> 04:29.820
+hyperbolic.
+
+04:30.090 --> 04:33.230
+You have polar and rectangular conversions.
+
+04:33.390 --> 04:38.060
+That's an example of some of the functions that are in the math module that are not in the math on you
+
+04:38.790 --> 04:42.600
+and you have also the coast method which is also in the math module.
+
+04:42.870 --> 04:47.460
+And this one is you know we'll walk with complex numbers but it does the same thing.
+
+04:47.700 --> 04:52.410
+So if you need a refresher on the East Coast method of floats you can go back to one of the videos on
+
+04:52.410 --> 04:56.420
+floats where we discussed in some detail but it works the same way.
+
+04:58.010 --> 04:58.310
+All right.
+
+04:58.310 --> 05:01.290
+So first let's take a look at a rectangular topos.
+
+05:01.580 --> 05:06.290
+So just a quick recap reminder of the end of the notation as well.
+
+05:06.290 --> 05:11.030
+So we have the real and imaginary axis we've got this complex number hit X and you know rectangular
+
+05:11.030 --> 05:11.960
+coordinates.
+
+05:12.440 --> 05:14.980
+And it also has polar coordinates right.
+
+05:14.990 --> 05:16.800
+This angle by and on.
+
+05:17.060 --> 05:19.640
+So we called the C math library.
+
+05:19.670 --> 05:24.430
+Then we can use the phase function which will return fire.
+
+05:24.560 --> 05:24.830
+Right.
+
+05:24.830 --> 05:31.650
+It will return the phase of the argument of the complex number x 5 will be between negative PI and pi.
+
+05:31.910 --> 05:32.190
+Right.
+
+05:32.200 --> 05:35.400
+And it's measured clockwise from the real axis on
+
+05:38.500 --> 05:38.920
+this way.
+
+05:38.920 --> 05:43.340
+So you go from you will go from negative PI to pi.
+
+05:43.360 --> 05:50.260
+Try to measure it clockwise from the real axis if it's down here then you're going to be measuring clockwise
+
+05:50.260 --> 05:55.540
+from the real axis which means you'll get a negative number and that's why you get negative PI to 5.
+
+05:55.810 --> 05:59.910
+But that's pretty standard that's how it's done usually for complex numbers.
+
+05:59.920 --> 06:09.340
+Now the value can be obtained by using the absolute value function so we can use ABS of X and that will
+
+06:09.340 --> 06:15.220
+return the magnitude essentially of this vector if we think of this as a vector.
+
+06:15.490 --> 06:18.110
+And it's just that you could in distance it's going to be tough.
+
+06:18.190 --> 06:19.700
+So it returns the magnitude.
+
+06:19.990 --> 06:23.450
+So for example a equals negative 1 plus zero g.
+
+06:23.710 --> 06:30.220
+Then we can say see after that phase of 8 which will return PI and our will be warm right.
+
+06:30.310 --> 06:33.940
+Negative one position J is sitting Here's some way.
+
+06:34.030 --> 06:35.840
+At a distance of one from the origin.
+
+06:35.920 --> 06:42.400
+So the angle is pi which is what we get and would be one on the other hand if we take a equals negative
+
+06:42.400 --> 06:43.200
+one J.
+
+06:43.210 --> 06:44.920
+While it's sitting down here.
+
+06:45.220 --> 06:45.830
+Right.
+
+06:45.850 --> 06:53.370
+So we get an angle of negative PI over 2 and we get an hour of one as well.
+
+06:53.680 --> 06:56.620
+And then if we take X to be one plus one J.
+
+06:56.620 --> 07:03.430
+So sitting out here at an angle of 45 with coordinates 1 and 1 basically on this on this chart then
+
+07:03.490 --> 07:11.590
+our angle is PI over 4 right 45 degrees and the absolute value of a the this Euclidean distance is quite
+
+07:11.590 --> 07:12.200
+good too.
+
+07:12.220 --> 07:16.290
+But of course we'll get 1.4 one for we won't get an exact representation.
+
+07:16.440 --> 07:21.010
+Since square root of 2 is irrational.
+
+07:21.030 --> 07:21.390
+All right.
+
+07:21.390 --> 07:22.410
+And then we have the reverse.
+
+07:22.410 --> 07:24.110
+We can go from Poland rectangles.
+
+07:24.120 --> 07:30.550
+So again we use the math library the math model and we can use the recked function which takes the hour
+
+07:30.540 --> 07:34.060
+and phi the polar coordinates of the complex numbers.
+
+07:34.370 --> 07:34.810
+Right.
+
+07:34.860 --> 07:41.750
+And that will then return a complex number which will be in rectangular coordinates so for example if
+
+07:41.750 --> 07:48.200
+we take what we had in the last slide right where we take on to be the square root of 2 and 5 to be
+
+07:48.200 --> 07:49.730
+PI over full.
+
+07:49.730 --> 07:50.060
+Right.
+
+07:50.060 --> 07:54.000
+And you'll notice here that I used math stockpile before and math.
+
+07:54.020 --> 07:55.070
+That's quite true.
+
+07:55.100 --> 07:59.300
+I'm not taking the complex square root of 2 I'm just taking the real.
+
+07:59.450 --> 08:02.760
+So I'm using the math model and with Pi.
+
+08:02.770 --> 08:06.620
+It doesn't matter I could have used C math taught by all math of Pi.
+
+08:06.620 --> 08:08.400
+It's the same number right.
+
+08:08.670 --> 08:13.040
+And we'll see that in the code where I'll mix sometimes the PI.
+
+08:13.280 --> 08:13.660
+Right.
+
+08:13.760 --> 08:19.140
+But this one you got to be careful you can't use seam after squirt of two because seam after each quarter
+
+08:19.160 --> 08:21.470
+of two will actually return to zero.
+
+08:21.510 --> 08:29.430
+It will return a complex data type and this recked he expects a non-complex data type in the first round
+
+08:29.430 --> 08:30.660
+in the first argument.
+
+08:30.860 --> 08:32.020
+So be careful.
+
+08:33.840 --> 08:36.010
+So that should return one plus one J.
+
+08:36.120 --> 08:37.670
+And it does right.
+
+08:37.680 --> 08:39.340
+But again we're using floats.
+
+08:39.510 --> 08:41.250
+You know we have irrational numbers.
+
+08:41.250 --> 08:44.770
+You know we have the irrational transcendental number here.
+
+08:44.880 --> 08:47.120
+So it's not going to be exact.
+
+08:47.210 --> 08:54.350
+Right and even with finite representable decimal numbers you might not get a finite representable by
+
+08:54.350 --> 08:57.230
+an refloat like 0.1 as we've seen before.
+
+08:58.170 --> 09:00.770
+So lastly let's take a look at Euler's Identity.
+
+09:00.780 --> 09:06.150
+One of my favorite equations not just in complex analysis but in math in general I just think it's an
+
+09:06.300 --> 09:07.560
+awesome equation.
+
+09:07.860 --> 09:08.760
+Let's test it out.
+
+09:08.820 --> 09:12.790
+Let's make sure that we actually get that in our code.
+
+09:12.900 --> 09:14.220
+So we would do it this way right.
+
+09:14.220 --> 09:21.660
+We would do the math that XP which is the exponentiation function in the C math model and we're going
+
+09:21.660 --> 09:22.620
+to take I-Spy.
+
+09:22.620 --> 09:24.810
+So we need to take pi times.
+
+09:25.140 --> 09:27.960
+So we're going to do it this way we're going to take C math Popeye.
+
+09:28.290 --> 09:29.240
+I could have used math.
+
+09:29.250 --> 09:30.760
+PI doesn't matter.
+
+09:30.780 --> 09:32.300
+Times 1 j.
+
+09:32.340 --> 09:32.680
+Right.
+
+09:32.700 --> 09:37.620
+Which is basically 0 1 j so we multiply pi times pi.
+
+09:37.710 --> 09:43.240
+You know when you think of as the imaginary That's kind of the more typical notation.
+
+09:43.710 --> 09:46.460
+And then plus 1 and that should give us zero.
+
+09:46.770 --> 09:48.120
+But it doesn't.
+
+09:48.180 --> 09:50.530
+So it kind of spoils the effect.
+
+09:50.580 --> 09:50.850
+Right.
+
+09:50.850 --> 09:53.360
+So there's these floats you kind of spoil the effect.
+
+09:53.370 --> 09:56.720
+Plus the fact that you don't have to represent Pi.
+
+09:56.910 --> 09:59.930
+We have to do it using a finite representation.
+
+10:00.150 --> 10:04.150
+And so we end up with something that's close to zero but not exactly zero.
+
+10:06.220 --> 10:12.720
+So the next best thing we could do is to use the as close method and it works the same way as with floats.
+
+10:12.730 --> 10:16.910
+So when I say see Matthan is close so after SPC mapped out pi.
+
+10:16.930 --> 10:21.650
+This is the same expression we had up here and we're going to test to see if it's close to zero.
+
+10:21.910 --> 10:24.250
+And we are going to specify an absolute tolerance.
+
+10:24.250 --> 10:28.000
+We have to write because we're testing numbers that are very close to zero.
+
+10:28.000 --> 10:31.070
+This one is close to zero and this one is actually equal to zero.
+
+10:31.360 --> 10:34.870
+So in this case the relative tolerance is not going to work.
+
+10:35.080 --> 10:39.820
+And again if you need a refresher on that you can go back to the video on floats where we discussed
+
+10:41.260 --> 10:45.500
+the method they had some of the caveats that you have to watch out for.
+
+10:45.730 --> 10:51.420
+So we have to specify an absolute tolerance and then when we do that we get that this result is true.
+
+10:51.430 --> 10:56.680
+So indeed we find that you know IPASS five plus one is equal to zero.
+
+10:56.730 --> 10:57.270
+Right.
+
+10:57.340 --> 11:01.290
+It's close enough to zero to be considered true.
+
+11:01.300 --> 11:06.520
+Now again as I just mentioned if you don't specify the absolute tolerance of it just run the method
+
+11:06.520 --> 11:12.130
+this way and settle for the default tolerance which is a relative tolerance and an absolute tolerance
+
+11:12.130 --> 11:12.980
+of zero.
+
+11:13.210 --> 11:15.640
+Then you will get that this is false right.
+
+11:15.640 --> 11:18.140
+So be careful when you do.
+
+11:18.160 --> 11:22.540
+You should really specify the absolute tolerance just as with floats.
+
+11:22.720 --> 11:26.310
+All right so now we can switch to some code and take a look at all of that.
+
+11:26.680 --> 11:28.460
+Thanks for watching and I'll see you in a bit.

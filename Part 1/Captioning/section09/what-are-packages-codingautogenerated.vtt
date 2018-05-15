@@ -1,0 +1,1252 @@
+WEBVTT
+
+00:00.210 --> 00:01.510
+Hi and welcome back.
+
+00:01.710 --> 00:05.060
+So let's take a look at some code for packages.
+
+00:05.050 --> 00:07.600
+There's actually going to be very little code in this section.
+
+00:07.620 --> 00:13.030
+We're really just going to create directories and files and just type a line of code here and there.
+
+00:13.200 --> 00:16.660
+So let's go ahead and create a module for us.
+
+00:16.680 --> 00:25.200
+So I'm going to call this module one and module one has been created under our package's application.
+
+00:25.200 --> 00:31.580
+So the application names packages and in here I'm just going to create a.
+
+00:31.770 --> 00:32.810
+Well I'm going to print.
+
+00:32.820 --> 00:34.560
+I'm going to say print.
+
+00:34.860 --> 00:37.240
+Executing module one.
+
+00:37.560 --> 00:38.170
+OK.
+
+00:38.490 --> 00:47.670
+And then I'm going to have a are an attribute let's call it value and let's just say that this is Madill
+
+00:47.670 --> 00:51.180
+one value.
+
+00:51.340 --> 00:51.850
+OK.
+
+00:53.960 --> 00:56.390
+So now let me go ahead and run Python.
+
+00:56.870 --> 01:03.350
+And let's go ahead an import module one case or as you can see we see executing Module 1 because it
+
+01:03.440 --> 01:04.430
+loaded it.
+
+01:04.430 --> 01:06.190
+It's now in the cist modules cache.
+
+01:06.200 --> 01:10.550
+It's also in our path right in our in our Global's I should say.
+
+01:10.700 --> 01:18.410
+So now we can say the module one dot value for example and it returns Module 1 bad.
+
+01:18.710 --> 01:19.220
+OK.
+
+01:19.460 --> 01:22.130
+So I imported this name over here.
+
+01:22.400 --> 01:29.270
+And I had to access it by saying module one that name that symbol that was put into my global namespace
+
+01:29.630 --> 01:30.900
+called Module 1.
+
+01:31.040 --> 01:36.300
+And then I could access the value inside of Module 1 that way using a dot notation.
+
+01:36.710 --> 01:38.180
+So I've seen all this before.
+
+01:38.420 --> 01:41.420
+Let's go ahead and create a package to create a package.
+
+01:41.420 --> 01:47.540
+All I need to do is to create a directory by John has a way to create a pie package automatically for
+
+01:47.540 --> 01:52.430
+us but it really just does two things which is create the directory first.
+
+01:52.430 --> 01:53.920
+Let's call it Pack 1.
+
+01:54.200 --> 02:03.300
+And then inside that directory We are going to create a file with a special name of donder init and
+
+02:03.300 --> 02:04.020
+that's it.
+
+02:04.020 --> 02:06.240
+Pack one is now a package.
+
+02:06.240 --> 02:09.620
+So let's go ahead and import that one.
+
+02:10.050 --> 02:16.530
+And let's look at some of the properties of Module 1 or Module 1 is a module.
+
+02:16.830 --> 02:18.840
+It has a file property.
+
+02:18.960 --> 02:20.860
+It tells us where it's located.
+
+02:20.880 --> 02:22.340
+It's located here.
+
+02:22.650 --> 02:30.100
+Module one also has a package property that tells us which package it's in.
+
+02:30.210 --> 02:32.520
+Well in this case it's not in any package.
+
+02:32.520 --> 02:34.920
+It's in the root of our application.
+
+02:34.920 --> 02:42.100
+Sometimes you may think of your application as a package but it's not the application is just the application.
+
+02:42.270 --> 02:45.070
+The packagers need that done in it.
+
+02:45.090 --> 02:48.510
+So this module one is not in any package.
+
+02:48.600 --> 02:52.870
+It's directly basically in the root of our application.
+
+02:53.640 --> 02:58.510
+What about the app path property of Module 1.
+
+02:58.530 --> 03:02.400
+Remember what we said about path a path is only for packages.
+
+03:02.430 --> 03:03.940
+Module one is not a package.
+
+03:04.020 --> 03:06.320
+It doesn't have a path attribute.
+
+03:06.960 --> 03:08.250
+What about package 1.
+
+03:08.250 --> 03:11.040
+Let's take a look at the package one file.
+
+03:11.070 --> 03:15.710
+Well let's look at the package first.
+
+03:15.720 --> 03:16.020
+OK.
+
+03:16.050 --> 03:19.680
+Which packages package one in in itself.
+
+03:19.760 --> 03:27.740
+So the path to package one the package path to package one is just pack one is it it is it's self.
+
+03:27.840 --> 03:28.250
+OK.
+
+03:28.310 --> 03:30.980
+And it's not contained in anything else.
+
+03:30.980 --> 03:32.680
+What about the file.
+
+03:32.720 --> 03:35.000
+Well what about the path to path for us.
+
+03:35.000 --> 03:36.210
+Will the file to last.
+
+03:36.230 --> 03:37.120
+What's the path.
+
+03:37.250 --> 03:38.670
+Well this is a package now.
+
+03:38.750 --> 03:39.300
+Right.
+
+03:39.320 --> 03:46.580
+So the package has a path the path is the directory and you can see that this is indeed the fully qualified
+
+03:46.580 --> 03:51.000
+path to pack 1 to this directory on the file system.
+
+03:51.020 --> 03:53.750
+What about the code modules have code in them.
+
+03:53.810 --> 03:54.290
+Right.
+
+03:54.410 --> 03:57.070
+What is the code file for package one.
+
+03:57.320 --> 03:59.710
+It's the Dondre init file.
+
+03:59.750 --> 04:04.610
+So let's go ahead and C-PAC one on the file.
+
+04:04.610 --> 04:08.730
+And as you can see it basically grabs the Dundreary in it.
+
+04:08.810 --> 04:17.490
+So the donder in it is what defines that the containing directory is a package so in the Dundrum for
+
+04:17.520 --> 04:19.970
+Pac 1 it's just like a code module.
+
+04:19.970 --> 04:26.870
+It's just like writing you know code for module 1 in the module one file to write code in package one.
+
+04:26.870 --> 04:32.220
+We can write it in the directory directly we have to write it in this file instead.
+
+04:32.360 --> 04:38.660
+And then Python will stitch those two things essentially together the package name will be the module
+
+04:38.660 --> 04:42.660
+name will be pack 1 and the module code will be what it was in here.
+
+04:42.890 --> 04:48.400
+So let's go ahead and say print executing pack 1
+
+04:52.390 --> 05:00.770
+and then in here we're going to say value equals pack 1 van came just like we did with Module 1 right.
+
+05:00.790 --> 05:04.060
+We just did it this way so I'm going to follow the same path.
+
+05:04.910 --> 05:05.600
+OK.
+
+05:05.620 --> 05:11.630
+Now that we have that let's save this and let's exit out of Python so I can reload things.
+
+05:13.330 --> 05:18.750
+So now let's go ahead and import pack one and look at what happens.
+
+05:19.000 --> 05:21.570
+It printed executing Pack 1.
+
+05:21.670 --> 05:21.960
+Right.
+
+05:21.970 --> 05:27.010
+It executed it just like it executes a regular module's code file.
+
+05:27.070 --> 05:33.030
+So the same thing happened and now I have of course access to value right.
+
+05:33.070 --> 05:45.100
+Value is in the namespace of that package that module Pack 1 and the type of pack one is a module and
+
+05:45.100 --> 05:52.590
+the type of well within load module one its import module one.
+
+05:52.720 --> 05:58.060
+And if I look at the type of module one it's also a module that both modules.
+
+05:58.060 --> 06:05.410
+The only difference is that pack 1 being a package type of module can now contain other modules which
+
+06:05.560 --> 06:09.840
+could be packages since packages are modules.
+
+06:09.930 --> 06:11.100
+So let's go ahead and do that.
+
+06:11.100 --> 06:13.480
+Let's create a new package in here.
+
+06:13.500 --> 06:15.380
+I'm going to use this shortcut.
+
+06:15.390 --> 06:19.510
+I'm going to call this back one underscore one.
+
+06:19.650 --> 06:20.250
+OK.
+
+06:20.430 --> 06:24.380
+So you notice all it did it created the directory and the Dunder init file.
+
+06:24.480 --> 06:30.840
+So let's go ahead and let me just copy this code and we'll paste it right into the dunderheaded of package
+
+06:30.840 --> 06:31.470
+1 1.
+
+06:31.500 --> 06:32.530
+Except here.
+
+06:32.680 --> 06:34.150
+I'll fix this up.
+
+06:34.170 --> 06:39.320
+We're executing package 1 1 and this is the package 1 1 value.
+
+06:39.770 --> 06:40.300
+OK.
+
+06:40.380 --> 06:41.890
+So let's try this again.
+
+06:41.910 --> 06:45.350
+Let's exit and let's rerun Python.
+
+06:45.720 --> 06:50.400
+Now let's go ahead and import pack one underscore one.
+
+06:50.460 --> 06:53.490
+OK we want to import this package one underscore one.
+
+06:53.820 --> 06:55.350
+There's a problem with that.
+
+06:55.430 --> 06:56.160
+Try this.
+
+06:56.160 --> 07:02.730
+It's going to tell us no we couldn't find the you know the find that the find is in Python.
+
+07:02.730 --> 07:04.620
+Could not find this module.
+
+07:05.070 --> 07:07.560
+It knows where to start looking for modules.
+
+07:07.560 --> 07:07.860
+Right.
+
+07:07.860 --> 07:14.760
+Remember that's important since we can look at says that path it has all these different paths including
+
+07:14.760 --> 07:16.820
+the route of our application.
+
+07:16.980 --> 07:17.570
+OK.
+
+07:19.080 --> 07:24.430
+But it doesn't know anything further than that it doesn't keep digging automatically.
+
+07:24.750 --> 07:29.820
+So the problem is that it doesn't know anything about package one underscore one it knows package one
+
+07:29.820 --> 07:32.680
+because package one is sitting in the root of the application.
+
+07:32.870 --> 07:35.540
+But package one one is not correct.
+
+07:35.610 --> 07:41.670
+So instead we have to do import pack one duffed fact one underscore one.
+
+07:42.330 --> 07:43.560
+So what's going to happen.
+
+07:43.650 --> 07:49.200
+Well Packards one one is under package one in order to reach package one one.
+
+07:49.220 --> 07:52.450
+Python is going to have to load the package one first.
+
+07:52.530 --> 07:54.230
+So let's see what happens.
+
+07:54.390 --> 08:00.290
+And you can see we get executing package 1 followed by executing Packards 1 1.
+
+08:00.360 --> 08:07.040
+So when we loaded package 1 1 when we imported that it actually had to import package one also.
+
+08:08.620 --> 08:15.360
+Now what about accessing the value inside package one 1 we just import a package one 1 right.
+
+08:15.370 --> 08:20.160
+So let's just say package 1 underscore one dark value.
+
+08:20.530 --> 08:26.830
+Well it's telling us No I don't know what package 1 1 is it's not defined what it means not defined
+
+08:26.910 --> 08:28.200
+isn't package 1 1.
+
+08:28.200 --> 08:31.790
+The inaugural ogles with just imported it right.
+
+08:31.810 --> 08:32.880
+And it's not.
+
+08:33.220 --> 08:41.430
+OK how about cist modules module's is our package one underscore one insists dobbed modules.
+
+08:41.560 --> 08:42.840
+It's not either.
+
+08:43.210 --> 08:44.480
+What's going on.
+
+08:44.770 --> 08:47.940
+Well the package isn't package one underscore one.
+
+08:47.980 --> 08:50.090
+It is what it is.
+
+08:50.170 --> 08:52.860
+Package one dot package one underscore one.
+
+08:52.870 --> 08:58.610
+So if we look at the fact one of fact one underscore one is that consist of modules.
+
+08:58.720 --> 08:59.990
+And the answer is yes.
+
+09:00.190 --> 09:03.410
+How valeting Global's is it in Global's.
+
+09:03.460 --> 09:05.660
+And the answer is false.
+
+09:05.930 --> 09:08.780
+OK what's going on.
+
+09:08.800 --> 09:11.400
+All right let's take a look at Module 1.
+
+09:11.410 --> 09:19.520
+When I say import module 1 I then have to reference Module 1 whatever this import was Dot and then something
+
+09:19.520 --> 09:21.360
+that's inside the module one.
+
+09:21.550 --> 09:23.250
+So like a for example.
+
+09:23.260 --> 09:26.080
+All right old value in our case.
+
+09:26.170 --> 09:29.920
+Now when I imported pack one pack one underscore one.
+
+09:29.920 --> 09:30.840
+When I do this
+
+09:35.270 --> 09:41.550
+then when I do this how in my going to refer to the value inside package one underscore one.
+
+09:41.840 --> 09:45.090
+Well I need to refer to it as this.
+
+09:45.090 --> 09:45.570
+Right.
+
+09:45.610 --> 09:47.310
+This is how I would refer to it.
+
+09:47.320 --> 09:49.260
+This is what I imported.
+
+09:49.300 --> 09:51.130
+This is the symbol.
+
+09:51.190 --> 09:55.190
+Basically you can think of that I would use to get at the value.
+
+09:55.540 --> 10:00.990
+So what Python does instead of giving me the pack one dot pack one one symbol.
+
+10:01.000 --> 10:08.740
+It just gives me the symbol for package 1 for that top level thing and package 1 one however is accessible
+
+10:08.800 --> 10:16.170
+inside package 1 because we imported it we imported package one one that was inside package one.
+
+10:16.420 --> 10:23.390
+So that's a little bit confusing at first but this will work just fine because that one is in our Global's
+
+10:25.990 --> 10:34.210
+right but packed one d'arte fact one underscore one is not in our globose because we're always going
+
+10:34.210 --> 10:40.750
+to refer to it as fact Wandell fact one underscore one Anyway's what we could have done if you really
+
+10:40.750 --> 10:48.300
+wanted to you could say from package one impulse pack one underscore one.
+
+10:48.400 --> 10:53.150
+Now we're going to see that back one underscore one is in Global's.
+
+10:53.330 --> 10:53.820
+OK.
+
+10:53.920 --> 10:55.540
+But that's just a symbol.
+
+10:55.630 --> 11:03.440
+If we look at the ID of pack 1 underscore 1 and we want to check if that's equal to the ID of says that
+
+11:03.490 --> 11:14.440
+modules of fact one dot back one underscore one K which we saw was registered in so small gules k.
+
+11:14.560 --> 11:16.710
+That's not what I was expecting.
+
+11:19.470 --> 11:23.970
+What's the ID all fact one underscore wants that.
+
+11:24.300 --> 11:41.810
+And what is the idea of this thought modules back one back one underscore one.
+
+11:42.020 --> 11:45.110
+It's the same values so what did I do wrong.
+
+11:46.800 --> 11:49.010
+Or as I said it's equal equal to that.
+
+11:49.100 --> 11:50.200
+All right.
+
+11:50.720 --> 11:53.600
+I was I thought I was losing my mind here.
+
+11:54.050 --> 11:57.280
+They will need to check of the ids of the same.
+
+11:57.950 --> 11:59.270
+They are indeed the same.
+
+11:59.330 --> 12:00.380
+OK.
+
+12:00.380 --> 12:06.380
+So that's how you would actually put the symbol for package one directly into a global namespace you
+
+12:06.380 --> 12:14.710
+would actually have to say from package one import package one one so of course we can go take this
+
+12:14.710 --> 12:15.810
+one step forward.
+
+12:15.880 --> 12:25.390
+Let's go ahead and create a module in here called module one underscore one a k an inside package one.
+
+12:25.420 --> 12:32.540
+I'm going to put also a module called module 1 a K so inside package one.
+
+12:32.540 --> 12:33.650
+Now what do we have.
+
+12:33.670 --> 12:41.680
+We have a package a sub package and we have a module called module one a in the sub package.
+
+12:41.680 --> 12:46.620
+We have a module called module one underscore one a k.
+
+12:47.110 --> 12:50.630
+So let's go ahead and put some code in everything here.
+
+12:50.920 --> 12:52.990
+So let me just copy this.
+
+12:53.020 --> 12:57.370
+And let's go that one has the code that one doesn't have the code.
+
+12:57.400 --> 13:02.210
+So we say here executing module 1 underscore one a.
+
+13:03.040 --> 13:12.430
+And then for the value we'll say this is module one underscore one a valid K and then in module one
+
+13:12.450 --> 13:19.720
+a over his will just say module one a and module one a.
+
+13:19.930 --> 13:20.610
+OK.
+
+13:20.920 --> 13:21.240
+All right.
+
+13:21.250 --> 13:23.200
+So everything's kind of filled out.
+
+13:24.170 --> 13:30.810
+Now let's go ahead and exits and let's rerun Python OK.
+
+13:32.200 --> 13:39.370
+Now let's go ahead and let's say that we want to import module one under school 1 8 so this we know
+
+13:39.610 --> 13:41.440
+now is not going to work.
+
+13:41.440 --> 13:46.700
+Python is not going to be able to locate and find the module one underscore one way.
+
+13:46.750 --> 13:57.670
+Instead we have to say import fact one dot fact one underscore one dot module one underscore one a.
+
+13:58.000 --> 14:01.230
+Now I will happily find it and look at everything that happened.
+
+14:01.420 --> 14:08.150
+It loaded package one it loaded package one one and it loaded module 1 1 a.
+
+14:08.590 --> 14:11.390
+So all these things now are in sync modules.
+
+14:11.500 --> 14:17.230
+Import says we can see that fact one is insist that Marvejols.
+
+14:17.350 --> 14:25.960
+OK we can see that pack one dot fact 1 underscore one is in system of modules and we can see that pack
+
+14:25.990 --> 14:31.590
+1 docked pack 1 underscore one dot modules one underscore one way.
+
+14:31.730 --> 14:37.610
+Now not modules module is also insist datt modules.
+
+14:38.530 --> 14:39.950
+That's true as well.
+
+14:40.270 --> 14:46.050
+What got imported into an namespace HIVers it wasn't module 1 underscore one a.
+
+14:46.090 --> 14:48.090
+It wasn't pack 1 underscore one.
+
+14:48.100 --> 14:51.300
+All these things are modules that were loaded in memory.
+
+14:51.580 --> 14:56.000
+But what was added the symbol that was added to an namespace Pack 1.
+
+14:56.230 --> 14:56.800
+Right.
+
+14:56.800 --> 15:01.640
+So if we try each of those that we did before but instead of checking insist modules.
+
+15:01.660 --> 15:04.060
+Let's see if it's in our global dictionary.
+
+15:04.330 --> 15:05.410
+That one is.
+
+15:05.650 --> 15:12.000
+What about the this one is that in our Global's dictionary.
+
+15:12.040 --> 15:13.140
+The answer is No.
+
+15:13.210 --> 15:14.940
+And what about this one.
+
+15:14.980 --> 15:18.960
+Is that in our Global's dictionary.
+
+15:18.970 --> 15:26.800
+The answer is also not and that's because if you think about it this way we imported Pack 1 Depak 1
+
+15:26.800 --> 15:28.660
+1 module 1 a kit.
+
+15:28.680 --> 15:30.500
+This is what we imported.
+
+15:30.520 --> 15:34.320
+How am I going to reference a value inside Module 1 1 8.
+
+15:34.510 --> 15:40.330
+I'm really going to have to say pack one DOPs fact one underscore one darf module one underscore one
+
+15:40.340 --> 15:42.830
+a dot value OK.
+
+15:42.970 --> 15:44.310
+And that will get to it.
+
+15:44.320 --> 15:48.540
+So Python only puts in the first part of the path.
+
+15:48.640 --> 15:53.500
+It doesn't put in the rest because we're going to access it that way.
+
+15:53.500 --> 15:55.370
+Now let me go ahead and do this.
+
+15:55.390 --> 15:57.710
+Let me add a second module in here.
+
+15:57.910 --> 16:03.160
+So let's go ahead and create a python file and let's call this module one underscore one Beano.
+
+16:03.330 --> 16:05.400
+OK this is the second module.
+
+16:05.680 --> 16:09.950
+And this does go ahead and copy code from here into here.
+
+16:10.120 --> 16:11.940
+So this is module one B.
+
+16:12.190 --> 16:14.090
+And this is module one.
+
+16:14.190 --> 16:15.620
+B OK.
+
+16:15.940 --> 16:19.920
+Now again in the exit Python and restart.
+
+16:20.170 --> 16:21.140
+And let's do again.
+
+16:21.160 --> 16:30.380
+Import packed Wandel pack one underscore one dot module one underscore one a K and actually let me just
+
+16:31.130 --> 16:34.060
+import pack one doc pack one underscore one.
+
+16:34.190 --> 16:37.430
+Let's make this even more visible.
+
+16:37.850 --> 16:44.910
+What happened what got executed back one and package one underscore one that module one underscore 1:08
+
+16:44.960 --> 16:46.090
+get executed.
+
+16:46.100 --> 16:48.410
+No we don't see the print statements right.
+
+16:48.410 --> 16:49.850
+We didn't see this print statement.
+
+16:49.850 --> 16:53.210
+We didn't see the print statement for Module 1 underscore one B either.
+
+16:53.630 --> 16:56.380
+So these are not insist modules.
+
+16:56.410 --> 16:58.120
+Let's go ahead and import this.
+
+16:58.220 --> 17:06.570
+And let's check back one back one underscore one module one underscore one a does that insist darf modules.
+
+17:06.740 --> 17:09.400
+And the answer is No it's not one B.
+
+17:09.440 --> 17:10.750
+Same story.
+
+17:10.840 --> 17:12.490
+OK not in there either.
+
+17:13.720 --> 17:20.590
+But maybe I can still access it from my global namespace because pack one dark pack one under skol one
+
+17:20.950 --> 17:22.360
+is in my Goebels right.
+
+17:22.360 --> 17:24.370
+That symbol exists.
+
+17:24.400 --> 17:29.080
+Sorry PAC one that symbol exists
+
+17:32.290 --> 17:36.840
+in my Global's and I can say pack Wandell pack one underscore one.
+
+17:36.880 --> 17:40.370
+I could look at that module I can even look at its file for example.
+
+17:40.450 --> 17:41.020
+OK.
+
+17:41.230 --> 17:41.620
+All right.
+
+17:41.620 --> 17:47.830
+So how about saying pack Wandel track one underscore one dot modules module one underscore one a dot
+
+17:48.070 --> 17:48.720
+file.
+
+17:48.850 --> 17:50.010
+Ok how about doing that.
+
+17:50.020 --> 17:52.910
+Or the dot value or whatever property.
+
+17:53.020 --> 17:54.100
+It says no.
+
+17:54.130 --> 17:55.770
+Pack 1 pack 1.
+
+17:55.780 --> 17:58.050
+Underscore one has no attributes.
+
+17:58.060 --> 17:59.650
+Module one 1-A.
+
+17:59.950 --> 18:00.930
+What happened.
+
+18:01.180 --> 18:02.860
+Well we didn't load it.
+
+18:02.920 --> 18:03.330
+Right.
+
+18:03.340 --> 18:05.470
+So Python doesn't know about it yet.
+
+18:05.500 --> 18:08.860
+Yes it's in the file system but we loaded what we loaded.
+
+18:08.860 --> 18:10.720
+Package one in package one one.
+
+18:10.750 --> 18:13.150
+We don't load anything further.
+
+18:13.510 --> 18:16.600
+So in order to get that to work we would have to load it.
+
+18:16.600 --> 18:22.230
+We would have to say Imphal fact one dart fact one underscore one thought.
+
+18:22.300 --> 18:25.160
+Module one underscore one a k.
+
+18:25.300 --> 18:28.980
+Now this hasn't actually added anything to our global namespace.
+
+18:29.030 --> 18:37.300
+Well look at our Global's will see that we have module pack one that is full day but nothing else got
+
+18:37.300 --> 18:37.870
+added.
+
+18:37.870 --> 18:41.720
+If I say import pack one dobbed pack.
+
+18:42.070 --> 18:44.490
+Well before I do that let me show you that.
+
+18:44.500 --> 18:51.250
+Now I can say Pack 1 of pack 1 underscore one module one underscore one a dog value for example that
+
+18:51.250 --> 18:52.440
+returns a value.
+
+18:52.660 --> 18:54.670
+But if I try and do it on B.
+
+18:55.030 --> 18:56.860
+Well we didn't import that.
+
+18:56.920 --> 18:59.140
+So again that attribute doesn't exist.
+
+18:59.140 --> 19:02.860
+Module 1 underscore 1 B couldn't be found.
+
+19:02.860 --> 19:07.670
+And if I now import that one splits specifically.
+
+19:07.690 --> 19:09.770
+OK so now I've imported it.
+
+19:09.850 --> 19:11.230
+You see now it ran.
+
+19:11.260 --> 19:15.310
+Executing module 1 underscore 1 be followed at my Global's.
+
+19:15.310 --> 19:16.720
+Nothing has changed.
+
+19:16.840 --> 19:20.920
+I still just have my pack one that falls out of the path.
+
+19:20.950 --> 19:21.270
+Right.
+
+19:21.320 --> 19:29.800
+I imported the difference now is that back one dot back one underscore one dot module one underscore
+
+19:29.800 --> 19:36.300
+one B is in the CIS modules cache and Imus does type did wrong.
+
+19:36.580 --> 19:38.360
+Yep.
+
+19:38.740 --> 19:40.300
+That's in the CIS modules cache.
+
+19:40.300 --> 19:41.140
+That's true.
+
+19:41.140 --> 19:42.040
+That's the difference.
+
+19:42.040 --> 19:42.940
+That's why.
+
+19:42.940 --> 19:49.580
+Now when I say pack one fact one underscore one dot module one underscore one we've got value.
+
+19:49.600 --> 19:53.240
+That's why that works not OK for that reason.
+
+19:53.320 --> 20:00.610
+So just because you've loaded imported a package doesn't mean that it's important anything else inside
+
+20:00.610 --> 20:03.520
+the package by default it doesn't.
+
+20:03.520 --> 20:11.380
+And so if I want to import module one underscore one a and module one underscore one B and module one
+
+20:11.440 --> 20:12.060
+a.
+
+20:12.370 --> 20:15.060
+I'm going to have to write.
+
+20:15.280 --> 20:23.010
+I'm going to say import pack one dart pack one underscore one dot module one underscore one a.
+
+20:23.440 --> 20:30.700
+Then I'm going to have to say import back one dot back one underscore one module one underscore one.
+
+20:31.210 --> 20:38.850
+And I'm going to have to write import pack one dot module one take.
+
+20:38.900 --> 20:45.340
+OK I'm going to have to write these three important statements in order to be able to get at each of
+
+20:45.340 --> 20:48.870
+those modules.
+
+20:48.900 --> 20:55.320
+So sometimes what happens is that as an offer of a package we may not want to have to do that.
+
+20:55.320 --> 20:58.090
+It might be nice if all I need to do.
+
+20:58.110 --> 21:06.480
+So let me exit and I'd like to be able to say pimpled package one doc package one underscore one.
+
+21:06.600 --> 21:13.530
+And I would like it to automatically now have access to Module 1 1 module 1 1 B but of course it doesn't.
+
+21:13.530 --> 21:17.340
+You'll notice it doesn't execute those packages that they're not loaded.
+
+21:17.340 --> 21:19.570
+Python doesn't know about them.
+
+21:19.620 --> 21:23.450
+What we can do remember that package is a module.
+
+21:23.460 --> 21:27.280
+So in this thing here let's go ahead and add a couple of things.
+
+21:27.420 --> 21:35.670
+Let's say import module one underscore one a and let's say import module one underscore one B.
+
+21:35.950 --> 21:36.630
+OK.
+
+21:40.090 --> 21:42.480
+So let's let's try this.
+
+21:42.580 --> 21:43.590
+Let's try this.
+
+21:43.840 --> 21:46.060
+Let's see what happens.
+
+21:46.060 --> 21:51.130
+So now I'm going to say impled tack one dark attack one underscore one.
+
+21:51.160 --> 21:53.360
+OK I'm going to import this package here.
+
+21:53.650 --> 21:58.920
+And what I'm hoping is that it's going to automatically now import module 1 1 and 1 1 be.
+
+21:59.110 --> 22:05.980
+So let's see what happens and I get this error over here that was generated in the code file of the
+
+22:05.980 --> 22:09.360
+package right of the package one ones in that file.
+
+22:09.610 --> 22:10.550
+And what does it say.
+
+22:10.570 --> 22:12.970
+No module named Module 1 1.
+
+22:12.980 --> 22:13.660
+A.
+
+22:13.990 --> 22:20.380
+Well the thing is with Python is that it requires a path it needs to know how to reach Module 1 1 8.
+
+22:20.410 --> 22:27.870
+It's not because it's inside this package that it's going to look automatically in here for this module.
+
+22:28.240 --> 22:29.890
+So there's two ways of doing it.
+
+22:29.950 --> 22:31.860
+And we'll come back to that later.
+
+22:31.870 --> 22:40.270
+For now I'm going to say package one dot package one underscore one dot module one point one way because
+
+22:40.360 --> 22:43.090
+that's the full path to this module.
+
+22:43.250 --> 22:43.530
+OK.
+
+22:43.570 --> 22:46.070
+And I'm going to have to do the same thing here.
+
+22:46.850 --> 22:47.470
+OK.
+
+22:47.530 --> 22:49.940
+That's the full path to that module.
+
+22:50.880 --> 22:56.160
+I know Python is complaining or at least Pepita's complaining because I didn't put my import at the
+
+22:56.160 --> 22:56.660
+top.
+
+22:56.730 --> 22:57.280
+OK.
+
+22:57.450 --> 22:59.110
+Let's go ahead and do that.
+
+22:59.220 --> 23:01.740
+Let's put the imports at the top.
+
+23:02.790 --> 23:05.900
+OK so now let's try this again.
+
+23:06.000 --> 23:13.200
+So let's exit's rerun Python and now let's say impled packed one dart pack one underscore one and you'll
+
+23:13.200 --> 23:14.520
+notice what happened.
+
+23:14.550 --> 23:16.470
+It imported package one.
+
+23:16.700 --> 23:20.110
+It then imported module 1 1 8.
+
+23:20.180 --> 23:20.710
+All right.
+
+23:20.730 --> 23:25.660
+And module 1 1 B and package 1 1 so all four of those things were important.
+
+23:25.680 --> 23:29.630
+The order in which it was done is not necessarily the order in which it was printed.
+
+23:29.630 --> 23:30.010
+OK.
+
+23:30.160 --> 23:35.050
+But and this is why I really wanted to put those imports down here.
+
+23:35.260 --> 23:35.670
+OK.
+
+23:35.730 --> 23:37.620
+Let me show you that again.
+
+23:37.860 --> 23:40.400
+It's really just because of the print order.
+
+23:40.470 --> 23:43.880
+Now let's go ahead and import that you'll see what happens.
+
+23:43.890 --> 23:44.710
+It all does.
+
+23:44.730 --> 23:53.180
+It executes and load package one then it executes and loads basically package one on this code one because
+
+23:53.180 --> 23:54.720
+that's the second part of the path.
+
+23:54.740 --> 24:02.420
+In my import statement but what does the module do after printing executing package one one after that
+
+24:02.420 --> 24:03.030
+print.
+
+24:03.290 --> 24:10.310
+Then it does two more import what does it import module one 1-A and module one can be answered ran over
+
+24:10.310 --> 24:10.970
+here.
+
+24:11.540 --> 24:19.790
+So now if we import Ciss you'll see that package one package one underscore one doc module one underscore
+
+24:19.820 --> 24:27.310
+one a is insist not modules K and we don't have to actually write the import to do that.
+
+24:27.320 --> 24:33.890
+That was done when we import a package 1:01 it automatically then went ahead and imported those additional
+
+24:33.890 --> 24:34.880
+packages.
+
+24:35.120 --> 24:38.350
+And in our namespace obviously we don't have module 1 1.
+
+24:38.390 --> 24:50.190
+We don't have package 1 1 we have pack 1 K so pack 1 is in our namespace.
+
+24:50.480 --> 24:51.190
+OK.
+
+24:51.510 --> 24:57.950
+And so we can say package one package one underscore one doffed module one underscore one be d'arte
+
+24:57.960 --> 25:01.480
+value and we get the value back.
+
+25:01.710 --> 25:04.620
+So very often that's what these units are useful.
+
+25:04.620 --> 25:08.460
+They used to kind of import stuff and we'll get back to that later.
+
+25:08.760 --> 25:15.090
+Let me show you that we can take it one step further let's say that we're inside now the code for package
+
+25:15.090 --> 25:15.550
+one.
+
+25:15.780 --> 25:22.380
+This is the module code for package one well we can import stuff in here is where we can say import
+
+25:24.020 --> 25:26.270
+back one to attack one underscore one.
+
+25:26.440 --> 25:36.690
+OK so now let's go ahead and exits and let's rerun and now let's say import pack 1 look is going to
+
+25:36.770 --> 25:40.950
+happens it imported pack 1 because we told it import back 1.
+
+25:41.130 --> 25:46.230
+But you'll notice it also executed Pack 1 1 so it imported package 1 1.
+
+25:46.230 --> 25:46.910
+Why.
+
+25:47.070 --> 25:51.830
+Because that import statement was in the package ones in it.
+
+25:51.840 --> 25:52.590
+Right.
+
+25:52.740 --> 25:57.910
+And it is part of package one and package one one got loaded.
+
+25:57.920 --> 25:59.510
+But what does it do.
+
+25:59.550 --> 26:05.900
+It loads two other modules it loads module one one in Module 1 1 B and hence we get all of this.
+
+26:05.910 --> 26:12.720
+So now I have I can say package one package one underscore one of let's say file that works are the
+
+26:12.720 --> 26:20.040
+packages available and package one package one underscore one module one underscore one a dog value
+
+26:20.490 --> 26:22.180
+that's available as well.
+
+26:22.200 --> 26:24.010
+Once I type it correctly.
+
+26:24.320 --> 26:24.780
+OK.
+
+26:24.880 --> 26:26.690
+And we have them.
+
+26:27.540 --> 26:28.290
+So there you go.
+
+26:28.290 --> 26:34.470
+That's how we can nest modules inside other modules modules that contain other modules local packages
+
+26:34.800 --> 26:41.670
+and we have to be careful with the impuls the packages aren't regular modules so they have a code module
+
+26:41.670 --> 26:48.720
+file associated with them which is the Dunder init Doppie why files simply because we can't add code
+
+26:48.720 --> 26:49.790
+to a directory.
+
+26:49.830 --> 26:53.180
+We have to add code in a file that's inside a directory.
+
+26:53.190 --> 27:00.000
+So by convention to make a package and it's code together it's the package directory is always the directory
+
+27:00.000 --> 27:06.610
+name and the code for that module is just inside a specially named file called Dunder in it.
+
+27:06.620 --> 27:07.990
+P Why.
+
+27:08.010 --> 27:08.620
+All right.
+
+27:08.760 --> 27:11.320
+So thanks for watching and I'll see you in the next video.

@@ -1,0 +1,601 @@
+WEBVTT
+
+00:01.290 --> 00:07.540
+Hi and welcome to this lesson an object mutability and immutability.
+
+00:08.190 --> 00:11.200
+So let's consider again an object in memory.
+
+00:11.310 --> 00:16.320
+So remember an object is basically something that has a type.
+
+00:16.560 --> 00:26.740
+And it also has some internal data it has state and it's located at some memory address so changing
+
+00:26.740 --> 00:34.170
+the data inside the object is called modifying the internal state of the object.
+
+00:34.230 --> 00:36.130
+So it's like looking at example of that.
+
+00:36.210 --> 00:37.740
+Let's say we have this variable.
+
+00:37.740 --> 00:45.840
+My account and my account references some object in memory at some memory address let's say memory address
+
+00:45.930 --> 00:55.200
+1000 and let's say that the data type of this object is bank account and bank account has two instance
+
+00:55.200 --> 00:58.290
+properties has an account number and a balance.
+
+00:58.290 --> 01:01.200
+So right now the account number is 1 2 3 4 5.
+
+01:01.200 --> 01:04.780
+The balance is 150.
+
+01:04.800 --> 01:10.980
+Now suppose that we modify the balance so we've changed the balance we have deposited some money and
+
+01:10.980 --> 01:13.730
+now the balance is 500.
+
+01:13.740 --> 01:21.930
+So you'll notice that the internal state the data has changed but the memory address has not changed.
+
+01:21.990 --> 01:22.540
+Right.
+
+01:22.590 --> 01:28.320
+So unlike when we were dealing with integers where we had you know my VAR was pointing to 10.
+
+01:28.340 --> 01:35.510
+And then when we said my articles 15 it changed the reference to a new integer object containing 15.
+
+01:35.650 --> 01:41.730
+Here we're actually modifying the internal state of the same object.
+
+01:41.840 --> 01:46.200
+Right so the data is changed but the memory address has not changed.
+
+01:46.550 --> 01:53.000
+And we say that the object was mutated which is really just a fancy way of saying that the internal
+
+01:53.000 --> 01:56.370
+state of the object changed.
+
+01:56.840 --> 01:59.790
+So there's a little bit of a difference.
+
+02:00.200 --> 02:09.930
+So now we can get to a definition an object whose internal state can be changed is called mutable but
+
+02:09.930 --> 02:13.010
+an object has internal state cannot be changed.
+
+02:13.050 --> 02:15.330
+It's called immutable right.
+
+02:15.330 --> 02:23.370
+So these are just two definitions that you should remember and keep in mind because that is important
+
+02:23.670 --> 02:27.480
+as we create objects throughout the lifetime of our programs.
+
+02:27.540 --> 02:33.190
+We kind of need to know all those mutable objects all of those immutable objects that can make a difference.
+
+02:34.550 --> 02:37.300
+So let's look at some examples in Python.
+
+02:37.550 --> 02:42.580
+And let's start with immutable objects while all numbers in Python are immutable.
+
+02:42.590 --> 02:45.660
+So ints floats booleans.
+
+02:45.860 --> 02:49.610
+Complex numbers these are all immutable objects.
+
+02:49.610 --> 02:53.580
+In other words they get created in memory at some memory address.
+
+02:53.600 --> 02:59.830
+But we can never change the internal data the internal value of that number.
+
+03:00.140 --> 03:05.630
+And we saw that in the last lesson when we were creating my VAR equals 10.
+
+03:05.630 --> 03:12.890
+And then we said my VAR equals 15 we saw that we were actually changing the reference from one integer
+
+03:12.920 --> 03:16.370
+10 to another integer with the value of 15.
+
+03:16.370 --> 03:21.510
+We never modified the internal state that was contained inside that integer.
+
+03:21.800 --> 03:29.470
+And that's in part because integers are immutable strings are also immutable.
+
+03:29.480 --> 03:32.630
+Once you create a string you can never modify that string.
+
+03:32.690 --> 03:40.030
+You can assign a string to your variable but you cannot change the internal state of that string.
+
+03:41.280 --> 03:43.760
+Temples are also immutable.
+
+03:43.890 --> 03:46.520
+And we'll look at that in a few seconds.
+
+03:46.680 --> 03:53.130
+But tuples if you remember are created with round brackets they're essentially a container type of object
+
+03:53.490 --> 03:55.800
+that contains elements.
+
+03:55.800 --> 04:02.700
+Now the table is immutable in the sense that you cannot add or remove or replace elements in that list
+
+04:03.870 --> 04:05.210
+or in that container.
+
+04:05.520 --> 04:11.610
+Frozen Assets which we'll look at in lot more detail in this cause are also immutable type of objects
+
+04:12.390 --> 04:16.100
+and of course user defined classes can also be immutable.
+
+04:16.110 --> 04:22.980
+If you define your own class and you don't allow for any way of modifying the internal state of that
+
+04:22.980 --> 04:27.180
+object you've created an immutable object.
+
+04:27.180 --> 04:31.760
+Now what about mutable types while lists in Python are mutable lists.
+
+04:31.770 --> 04:36.600
+If you remember are created with square brackets and they're also a container type.
+
+04:36.630 --> 04:39.140
+Just like a tuple is a container type.
+
+04:39.150 --> 04:45.810
+The difference between the list and the top or is that in lists you can add remove or replace elements
+
+04:45.900 --> 04:54.730
+in that list so the list is a mutable object sets are all so mutable and will again look in two sets
+
+04:54.730 --> 05:02.290
+and are a lot of detail in the schools but sets are mutable as are dictionaries and sets and dictionaries
+
+05:02.290 --> 05:05.080
+are actually very related.
+
+05:05.620 --> 05:07.620
+But dictionaries are also mutable.
+
+05:07.660 --> 05:14.200
+You can add keys you can remove keys you can modify the value assigned to a key inside a dictionary
+
+05:14.530 --> 05:15.350
+and so on.
+
+05:15.430 --> 05:18.770
+And again we'll look into dictionaries and a lot of detail in the schools.
+
+05:20.160 --> 05:23.550
+And of course your own user defined classes can be immutable.
+
+05:23.580 --> 05:30.690
+You can write a class and you can allow people to change the value of you know variables inside your
+
+05:30.690 --> 05:31.220
+class.
+
+05:31.230 --> 05:39.660
+You can allow state changes to happen in which case you have a mutable object all right but a word of
+
+05:39.660 --> 05:42.810
+warning about mutability and immutability.
+
+05:42.810 --> 05:46.850
+And it's a fine point but let's take a look at a couple.
+
+05:46.950 --> 05:49.450
+So let's say T equals 1 to 3.
+
+05:49.590 --> 05:51.300
+So this is a topical.
+
+05:51.300 --> 05:53.930
+Now remember the table is immutable.
+
+05:54.800 --> 05:55.360
+Right.
+
+05:55.400 --> 06:02.720
+So you cannot add or remove or replace elements in that list.
+
+06:02.720 --> 06:09.260
+Now furthermore in this case the topple itself is immutable but all the elements inside the table are
+
+06:09.260 --> 06:13.460
+integers and so they are also immutable.
+
+06:14.630 --> 06:16.750
+But now consider this.
+
+06:17.060 --> 06:24.950
+Let's say that we create two variables A and B both lists now lists we know are mutable we can add elements
+
+06:24.980 --> 06:28.140
+remove elements replace elements in lists.
+
+06:28.190 --> 06:38.230
+So those are mutable type of objects now let's create a temple that consists of two elements A and B.
+
+06:38.360 --> 06:44.700
+In other words T is a top or where the first element is a list containing one and two.
+
+06:44.900 --> 06:50.220
+And the second element is also a list containing 3 and 4.
+
+06:50.220 --> 06:58.280
+Now you have got to be a little careful here because we can now add elements to A and B because A and
+
+06:58.280 --> 07:00.580
+B are lists and are mutable.
+
+07:00.650 --> 07:06.190
+So now once we've executed those two lines of code our top will looks like this.
+
+07:06.380 --> 07:06.670
+Right.
+
+07:06.710 --> 07:14.350
+The first element change from 1 to 2 1 2 3 and the second element change from 3 4 2 3 4 5.
+
+07:14.930 --> 07:19.580
+So you'll notice that yes the top will is immutable.
+
+07:19.580 --> 07:27.510
+We did not change the elements that are referenced in these two positions right.
+
+07:27.560 --> 07:32.840
+This one two and one two three are still the same object reference.
+
+07:32.840 --> 07:35.120
+They're still the same memory address.
+
+07:35.120 --> 07:36.980
+Same thing with the second element.
+
+07:37.100 --> 07:43.670
+We cannot add elements to t we cannot remove an element from it and we cannot replace an element with
+
+07:43.670 --> 07:50.690
+a new object a new memory address reference but we can certainly change the state of the object that's
+
+07:50.690 --> 07:55.000
+referenced in both positions of T.
+
+07:55.040 --> 08:02.030
+So yes T is immutable but the elements that Teac contained were not immutable.
+
+08:02.070 --> 08:06.000
+So in fact t changed from our perspective.
+
+08:06.260 --> 08:11.760
+You know the values that t contained changed but t's immutable.
+
+08:12.140 --> 08:16.940
+Well this is why we got to be careful about what immutability really means.
+
+08:16.940 --> 08:17.870
+Right.
+
+08:17.870 --> 08:25.220
+The trouble is immutable that it can contained mutable elements so do not confuse mutability with something
+
+08:25.220 --> 08:31.270
+that's completely frozen that can never change that it's you know it's not absolutely fixed.
+
+08:31.310 --> 08:36.970
+It can sometimes change in the first example that we had when we contained three integers.
+
+08:37.100 --> 08:40.420
+Yes that was completely you know frozen.
+
+08:40.430 --> 08:49.400
+It could never change because not only was the topple immutable but it contained only immutable integers.
+
+08:49.550 --> 08:54.400
+OK so we just have to be careful here.
+
+08:57.360 --> 09:02.070
+So let's look at this teakwood 1 2 3 the top of these immutable.
+
+09:02.100 --> 09:07.060
+So these are references to immutable objects right of type integer.
+
+09:07.230 --> 09:09.050
+So this will never change.
+
+09:10.140 --> 09:15.300
+However in the second case that we looked at top will cause the list 1 2 3 4.
+
+09:15.330 --> 09:21.760
+The table is still immutable that hasn't changed but those are references to mutable objects.
+
+09:21.840 --> 09:24.870
+And so we can change them right.
+
+09:24.870 --> 09:28.300
+So a very subtle point but one to be careful with.
+
+09:28.320 --> 09:33.990
+So let's take a look at some code let's jump into some code and see all this in action and just make
+
+09:33.990 --> 09:35.300
+sure we understand it.
+
+09:35.640 --> 09:37.470
+Let's start with a list.
+
+09:37.470 --> 09:41.810
+So let's say we have my list equals 1 2 3.
+
+09:42.630 --> 09:44.580
+So this is a memory address.
+
+09:44.580 --> 09:47.170
+My list is an object.
+
+09:47.430 --> 09:52.050
+It's a list object so we can actually do a type of my list.
+
+09:52.170 --> 09:53.400
+They will tell us it's a list.
+
+09:53.400 --> 10:04.460
+We can also look at the memory address of my list which is that now we can append an element to my list.
+
+10:04.470 --> 10:05.880
+We could do something like this.
+
+10:05.910 --> 10:07.490
+Append 4.
+
+10:08.010 --> 10:15.930
+So now if we print my list out we have 1 2 3 4 but we'll notice that the ID the memory address of my
+
+10:15.930 --> 10:17.850
+list has not changed.
+
+10:17.880 --> 10:22.740
+This memory address here is the same that it was back there.
+
+10:22.870 --> 10:31.970
+Right so it hasn't changed now let me show you a different way of putting elements into the list.
+
+10:31.970 --> 10:36.830
+Let's say we have my list one is equal to one comma two commas three.
+
+10:36.830 --> 10:40.560
+All right so it's that it has an address.
+
+10:40.670 --> 10:42.210
+My last one.
+
+10:42.710 --> 10:48.050
+So this address here which you'll notice is not the same as my list even though they contain the same
+
+10:48.050 --> 10:48.670
+values.
+
+10:48.680 --> 10:50.440
+They're not the same objects.
+
+10:50.480 --> 11:00.350
+Now I could do this I could say my list underscore one is equal to my list underscore one plus.
+
+11:00.650 --> 11:06.970
+And I'm going to add that element which is another list with one element for k.
+
+11:07.010 --> 11:12.020
+Now we can look at what it is it's now one two three four.
+
+11:12.620 --> 11:17.570
+But you notice we didn't depend here what we do is we concatenated two objects.
+
+11:17.570 --> 11:21.710
+So what Python does it first evaluates the right hand side.
+
+11:21.920 --> 11:26.770
+So it's first evaluated my list one plus list 4.
+
+11:27.020 --> 11:33.050
+And then it combined those two lists and returned a new object.
+
+11:33.050 --> 11:41.480
+And in fact we look at my list one will notice that it's memory address is not the same as it used to
+
+11:41.480 --> 11:43.370
+be that was changed.
+
+11:43.370 --> 11:47.030
+This was not modifying the internal state of my list.
+
+11:47.150 --> 11:52.280
+One write the append method was modifying the internal state.
+
+11:52.340 --> 11:59.260
+So we'll get to those methods when we look at lists in detail but for now just be aware of that.
+
+11:59.540 --> 12:03.590
+Now this is not just you know the mutable objects is not just lists.
+
+12:03.590 --> 12:08.450
+We can say my dict equals let's say we do a new dictionary.
+
+12:08.480 --> 12:17.150
+Now you can create new dictionaries in a few ways you can use the object constructor this way or you
+
+12:17.150 --> 12:21.200
+can use a literal are using these curly braces.
+
+12:21.290 --> 12:22.630
+I'm going to use dict.
+
+12:22.680 --> 12:29.460
+I like the keyword approach so I'd say key one equals one key two equals a.
+
+12:30.020 --> 12:35.600
+So now I would print out my dict will see that contains these two key value pairs.
+
+12:35.600 --> 12:38.240
+Now we can look at the ID of my dick
+
+12:41.540 --> 12:42.780
+K..
+
+12:42.800 --> 12:44.270
+So it's got this memory address.
+
+12:44.270 --> 12:52.850
+Now if you want to add another key in there we can go and say key 3 equals let's make it a floating
+
+12:52.850 --> 12:53.890
+point number.
+
+12:54.170 --> 12:54.830
+OK.
+
+12:54.830 --> 13:03.980
+So now my dict is that it's got these three keys and the ID of my dict has not changed right.
+
+13:05.000 --> 13:09.090
+It is the same memory address OK.
+
+13:09.400 --> 13:14.910
+So now I want to take a look at the example that I showed you with top of.
+
+13:16.000 --> 13:17.840
+So let's start with a couple.
+
+13:17.860 --> 13:19.920
+One two three.
+
+13:19.920 --> 13:20.710
+OK.
+
+13:21.250 --> 13:31.660
+Now the ID of the top hole is something it's again an object in memory and every element of that collection.
+
+13:31.750 --> 13:37.480
+One two three in this case are integers and therefore they're all also objects and they happen to be
+
+13:37.540 --> 13:39.010
+immutable objects.
+
+13:39.010 --> 13:45.350
+So for example I can look at the first element of the Tofel gives us one.
+
+13:45.520 --> 13:52.000
+I can look at the ID of the first element of the table and this is where one is stored in memory.
+
+13:52.180 --> 13:59.380
+OK we can look at the ID of T and the second element in the top hole and we get a different memory address
+
+13:59.590 --> 14:01.100
+and so forth.
+
+14:01.810 --> 14:07.560
+So now let's go ahead and create a table that contains lists.
+
+14:07.570 --> 14:10.590
+So I'll just use literals.
+
+14:10.790 --> 14:13.840
+So let's say that the first element is 1 2.
+
+14:14.240 --> 14:16.940
+And the second element is 3 4.
+
+14:17.180 --> 14:17.950
+OK.
+
+14:18.560 --> 14:21.520
+So now we can look at the idea of t.
+
+14:21.790 --> 14:22.090
+OK.
+
+14:22.100 --> 14:23.690
+It has this memory address.
+
+14:23.690 --> 14:26.430
+Now we cannot add elements to the top.
+
+14:26.480 --> 14:32.510
+We can't remove elements but we can certainly access the elements of the top right.
+
+14:32.510 --> 14:34.400
+The first element is one.
+
+14:34.580 --> 14:36.710
+The second element is 3 4.
+
+14:36.950 --> 14:40.740
+So we could take the first element and append.
+
+14:41.090 --> 14:42.860
+Let's say 3 or so.
+
+14:42.860 --> 14:49.430
+Now if we look at the total T you'll notice that the first element has changed even though the top of
+
+14:49.430 --> 14:51.020
+itself is immutable.
+
+14:51.020 --> 14:55.420
+The collection sorry is immutable.
+
+14:55.550 --> 14:57.930
+The element was mutable.
+
+14:58.040 --> 15:00.250
+So we can modify the element itself.
+
+15:00.260 --> 15:02.650
+That's OK but not the topple.
+
+15:02.840 --> 15:03.400
+OK.
+
+15:03.590 --> 15:05.500
+So that's really what I wanted to point out.
+
+15:06.850 --> 15:12.080
+It's a subtle distinction but it's important to understand that just because you're dealing with an
+
+15:12.080 --> 15:16.200
+immutable object doesn't mean that the contents can't change.
+
+15:16.220 --> 15:19.000
+Especially when it comes to collections.
+
+15:19.000 --> 15:19.480
+All right.
+
+15:19.550 --> 15:20.700
+So thanks for watching.
+
+15:20.700 --> 15:21.930
+I'll see you in the next video.

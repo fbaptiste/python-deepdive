@@ -1,0 +1,793 @@
+WEBVTT
+
+00:00.220 --> 00:04.040
+Hi I just thought I'd talk very quickly about seeds.
+
+00:04.080 --> 00:09.870
+When we look at the random module now the random model is part of the standard library and it provides
+
+00:09.870 --> 00:16.230
+us a variety of functions to generate random numbers and random sequences or even pick things randomly
+
+00:16.590 --> 00:17.690
+from sequences.
+
+00:18.470 --> 00:24.140
+But one of the problems when we use random numbers in our code is that we don't get repeatability.
+
+00:24.140 --> 00:29.960
+In other words if we run our program from one run to the next the random numbers that are generated
+
+00:30.050 --> 00:31.130
+are different.
+
+00:31.460 --> 00:37.730
+So if something goes bump and lets our program you know has a bug and it crashes somewhere it's very
+
+00:37.730 --> 00:43.610
+difficult to reproduce because every time we were on the program it's a different random numbers and
+
+00:43.610 --> 00:48.710
+we don't know if we're going to hit the same problem again or at least not at the same location in our
+
+00:48.710 --> 00:49.670
+code.
+
+00:49.760 --> 00:51.770
+So that really makes it difficult.
+
+00:52.070 --> 00:57.170
+But the thing to remember with the random generators that are in the random model is that there is no
+
+00:57.170 --> 00:59.330
+such thing as really random.
+
+00:59.330 --> 01:05.500
+These are older rhythms that are meant to generate sequences of pseudo random numbers.
+
+01:05.510 --> 01:09.220
+In other words they are generated via an algorithm.
+
+01:09.230 --> 01:14.620
+So they're actually predictable to us when we look at what comes out of the random numbers.
+
+01:14.630 --> 01:17.280
+It looks unpredictable which is great.
+
+01:17.450 --> 01:23.090
+And furthermore you have the random numbers are relatively evenly distributed because that's really
+
+01:23.090 --> 01:24.140
+the two things that we want.
+
+01:24.140 --> 01:29.660
+We're looking for you know a pattern for what we're looking for a sequence of random numbers that doesn't
+
+01:29.660 --> 01:32.990
+have a discernible pattern so it's not predictable.
+
+01:32.990 --> 01:35.650
+And also is kind of evenly distributed.
+
+01:35.650 --> 01:42.740
+So if we generate you know let's say the role of the dice then over time we expect that the 1 2 3 4
+
+01:42.740 --> 01:45.500
+5 6 will come out approximately the same.
+
+01:45.500 --> 01:47.330
+So kind of a uniform distribution.
+
+01:47.330 --> 01:53.030
+In other words evenly so we do get that from the random module.
+
+01:53.250 --> 01:55.830
+But there is some because it is an algorithm.
+
+01:55.830 --> 01:58.910
+There is a way in which it generates those random numbers.
+
+01:59.160 --> 02:04.710
+And the thing is that it depends on the seed value and the seed value is such that if we use the same
+
+02:04.710 --> 02:08.430
+seed will generate the same sequence of random numbers.
+
+02:08.430 --> 02:14.090
+So it's really not random at that point because once we've generated a bunch of random numbers we're
+
+02:14.090 --> 02:14.970
+1 seed.
+
+02:14.970 --> 02:18.970
+Technically we can predict the next time around what it's going to be.
+
+02:19.290 --> 02:22.830
+And so we always set the seed randomly as well.
+
+02:22.830 --> 02:25.280
+Very often by default anyways.
+
+02:25.470 --> 02:28.060
+The sea is just the system time.
+
+02:28.110 --> 02:30.920
+So that way we have a different seed.
+
+02:30.930 --> 02:37.030
+And so there's a different sequence of random numbers of pseudo random numbers that get generated.
+
+02:37.190 --> 02:43.700
+But for our code for debugging purposes being able to set the seed to a specific number and then run
+
+02:43.700 --> 02:50.150
+our program again and again with that same seed means that we have the same sequence of random numbers
+
+02:50.150 --> 02:50.780
+being generated.
+
+02:50.780 --> 02:52.910
+So that's great for debugging purposes.
+
+02:52.940 --> 02:57.770
+Of course once we go into production we need to remove that you know unless there's a need for it but
+
+02:57.770 --> 03:04.130
+typically will remove that constant seed value and just let it use the you know the system time or something
+
+03:04.130 --> 03:06.610
+else if we want to set the seed.
+
+03:06.620 --> 03:08.630
+So let me show you what I mean.
+
+03:08.810 --> 03:10.720
+That's the simplest.
+
+03:10.790 --> 03:16.620
+So let's go ahead and import random and let's go ahead and just generate 10 random numbers.
+
+03:16.680 --> 03:19.790
+So I want to run this 10 times.
+
+03:19.940 --> 03:24.950
+I'm not interested in the actual it or you know the the index and the range.
+
+03:24.950 --> 03:31.040
+So I'm using the underscore to show that I don't care and I'm going to use the rand end another rant
+
+03:31.070 --> 03:38.810
+and is a function in random that will generate random numbers between 10 and 20 inclusive of 10 and
+
+03:38.810 --> 03:41.640
+20 if you want to use something else.
+
+03:41.640 --> 03:49.370
+We'll look at the range that will essentially generate random numbers but not inclusive of the upper
+
+03:49.370 --> 03:49.750
+bound.
+
+03:49.760 --> 03:52.330
+In this case I just wanted to be inclusive to that.
+
+03:52.340 --> 04:00.900
+I'm also going to just generate a float that's going to be between 0 and 1 exclusive of one.
+
+04:01.310 --> 04:02.690
+And we'll do that 10 times.
+
+04:02.690 --> 04:04.080
+So let's see what we get right.
+
+04:04.130 --> 04:06.980
+So we get 16 17 15 17 and so on.
+
+04:06.980 --> 04:11.660
+So these the other random numbers that we generated between 10 and 20 and these other random floats
+
+04:12.050 --> 04:14.270
+that we generated between 0 and 1.
+
+04:14.510 --> 04:21.020
+Now if I run this code again you'll notice that we have different values and your values will be different
+
+04:21.020 --> 04:27.770
+than mine because they by default the seed that set when we run this is the system time.
+
+04:27.770 --> 04:29.570
+We're not going to have the same system time.
+
+04:29.570 --> 04:32.020
+You're not going to have the same sequence of numbers.
+
+04:32.030 --> 04:40.600
+It looks random but let's go ahead now and set the seed so to do this we use random seed and I'm just
+
+04:40.600 --> 04:42.670
+going to set it to zero we can set it to 100.
+
+04:42.670 --> 04:44.330
+You can use a string.
+
+04:44.410 --> 04:49.730
+I'm just going to use zero and now I'm going to take this code again and rerun it.
+
+04:49.870 --> 04:56.710
+And as you can see we get a different sequence of numbers and if I run this again you'll notice that
+
+04:56.950 --> 04:58.720
+I have a different sequence.
+
+04:58.720 --> 05:05.590
+Well that's because when I set the seed I started generating 10 random numbers and 20 if we I if I include
+
+05:05.590 --> 05:10.640
+the floats and then I generated another 10 and 10 random numbers.
+
+05:11.290 --> 05:16.600
+But this is now the sequence that's being generated here is from the seed.
+
+05:16.600 --> 05:20.770
+It's the first 20 random ends and the first 20 randoms.
+
+05:20.950 --> 05:26.410
+If I really want this to look the same I have to reset my C before I run.
+
+05:26.410 --> 05:31.960
+Now normally when you run your program if you put this at the top of your program it's going to reset
+
+05:31.990 --> 05:33.400
+every time you run the program.
+
+05:33.400 --> 05:36.280
+In this case I'm not resetting the Jupiter notebook.
+
+05:36.400 --> 05:40.060
+So instead what I'm going to do is I'm going to take this.
+
+05:40.240 --> 05:44.730
+Copy that here and take this piece of code and copy that here.
+
+05:45.070 --> 05:45.540
+OK.
+
+05:45.790 --> 05:49.560
+And now you'll notice that these numbers and these numbers are the same.
+
+05:49.600 --> 05:56.340
+And now if I repeat this again you'll see that again I have the same sequence of random numbers.
+
+05:56.410 --> 05:58.420
+OK both the integers and the random.
+
+05:58.420 --> 06:03.730
+Now what's interesting is that we have some other functions in the random order all things like Shuffle
+
+06:03.730 --> 06:11.120
+for example shuffle will basically take a sequence like a list and it will shuffle it in place.
+
+06:11.230 --> 06:15.710
+If we use the same seed we'll we'll get the same shuffle effect.
+
+06:15.730 --> 06:17.370
+So it will shuffle the same way.
+
+06:17.590 --> 06:26.120
+So let's go ahead and create this function generate random stuff and we'll default on cede to none.
+
+06:26.170 --> 06:31.920
+So if the seed is known then it will basically use the system time.
+
+06:32.170 --> 06:37.560
+And if we provide one it will use that and I'm going to go ahead and create an empty list and to this
+
+06:37.570 --> 06:38.720
+we're going to do a few things.
+
+06:38.740 --> 06:46.900
+We're going to append five let's say random integers just like we saw before.
+
+06:48.790 --> 06:52.930
+So we'll do random and let's say between 0 and 5
+
+06:55.780 --> 06:57.890
+then what I'm going to do is use the shuffle.
+
+06:57.910 --> 06:59.400
+So let me show you how that works.
+
+06:59.400 --> 07:04.930
+Fourth I'm going to take a I'm going to make a list out of this string of three characters or characters
+
+07:04.930 --> 07:07.820
+it's going to be a list a b and c..
+
+07:07.830 --> 07:08.110
+Right.
+
+07:08.110 --> 07:16.780
+Those three elements then I'm going to call random dot shuffle on the characters and then I'm going
+
+07:16.780 --> 07:20.950
+to take that result which is going to be a list and I'm going to add it to my results so this is going
+
+07:20.950 --> 07:22.210
+to be a list inside a list.
+
+07:22.210 --> 07:24.850
+I'm not trying to extend results.
+
+07:25.360 --> 07:31.310
+I'm just going to append to it so we could actually see the list itself.
+
+07:32.430 --> 07:32.960
+OK.
+
+07:33.280 --> 07:38.740
+And shuffle by the way doesn't in-place shuffle so characters has to be listed can't be a tuple for
+
+07:38.740 --> 07:39.380
+example.
+
+07:42.280 --> 07:46.740
+And there are other functions as well that are available in the random module.
+
+07:46.750 --> 07:54.820
+For example we have this random gas which is going to return our random numbers but the distribution
+
+07:54.820 --> 07:58.170
+is that of being a uniform distribution that's going to be a Galson distribution.
+
+08:05.630 --> 08:13.950
+So let's just go ahead random gals and we'll use a mean of zero and a variance of 1.
+
+08:14.240 --> 08:17.520
+So again if you don't know what gas is that doesn't really matter.
+
+08:17.600 --> 08:23.890
+The point I'm trying to make is that the functions in the random module all use that seed.
+
+08:24.230 --> 08:30.140
+So let's go ahead and run this and let's generate some random stuff and I'm not going to pass a seed
+
+08:30.140 --> 08:32.010
+which means it's going to use the system time.
+
+08:33.590 --> 08:37.600
+And what error do I have results daughter and.
+
+08:37.770 --> 08:38.740
+Let's try that again.
+
+08:38.880 --> 08:39.310
+OK.
+
+08:39.360 --> 08:43.350
+So here is one result I can try running that again.
+
+08:43.740 --> 08:47.860
+And of course my seat is set to the system time because I'm not specifying it.
+
+08:47.880 --> 08:49.650
+I get different results every time.
+
+08:49.650 --> 08:55.350
+This is just happenstance that it generated the same way if I run it again you'll see that I don't have
+
+08:55.350 --> 08:56.840
+the same order.
+
+08:57.480 --> 09:00.700
+But now let's run it with a seed value.
+
+09:01.020 --> 09:05.210
+So if I run it this way I get a certain sequence of integers.
+
+09:05.210 --> 09:13.710
+I get a certain order in the shuffled array the shuffled list and then I get a certain sequence of these
+
+09:13.770 --> 09:18.520
+gassy Galson distributed on randoms.
+
+09:18.690 --> 09:21.930
+So now let me run this again with the same seed.
+
+09:22.230 --> 09:24.840
+And you'll notice that we have the exact same output.
+
+09:24.840 --> 09:30.090
+We have the same random integers that were generated the same shuffle output was generated and the same
+
+09:30.090 --> 09:31.890
+Galson numbers were generated.
+
+09:31.890 --> 09:39.270
+Now obviously if I change the seed value to maybe let's say 100 I'm going to get a different right output.
+
+09:39.360 --> 09:41.250
+In this case it just happened to be the same.
+
+09:41.250 --> 09:47.280
+So let me pick another one let's say 50 K and this one came out to ABC and there's only so many ways
+
+09:47.280 --> 09:50.650
+you can shuffle three elements so let me try something.
+
+09:50.790 --> 09:51.910
+There we go see a B.
+
+09:51.930 --> 09:52.230
+Right.
+
+09:52.230 --> 09:54.010
+That's different from everything else.
+
+09:54.270 --> 09:56.880
+So again the random integers are different.
+
+09:56.940 --> 09:59.070
+The way it was shuffled was different.
+
+09:59.070 --> 10:02.890
+And the Galson number output was different as well.
+
+10:02.880 --> 10:09.150
+Now I can rerun this again with the same seed and you'll notice that I have the exact same output.
+
+10:09.150 --> 10:12.830
+So as long as you use the same seed you'll have different output.
+
+10:12.840 --> 10:14.250
+You'll have the same outputs.
+
+10:14.430 --> 10:19.890
+If you change the seed you will have consistent outputs but it will be different different you know
+
+10:19.890 --> 10:21.930
+based on different scenes.
+
+10:21.930 --> 10:26.370
+Now what did I say earlier about having an evenly distributed set of random numbers.
+
+10:26.400 --> 10:32.040
+Basically remember I said that if we use something like random and you know ran into grand range and
+
+10:32.040 --> 10:39.780
+so on you get a sequence of integers that are uniformly distributed or close to uniformly distributed
+
+10:40.290 --> 10:43.910
+as opposed to something like random gas which is going to give you something else.
+
+10:43.920 --> 10:45.960
+So how would we all test that.
+
+10:45.990 --> 10:47.070
+Well very simple.
+
+10:47.070 --> 10:52.830
+We can generate a large number of integers in a range and then we can just do a frequency analysis of
+
+10:52.830 --> 10:56.940
+each one we can count how many times each one occurs in the list.
+
+10:56.940 --> 10:58.220
+So how would we do that.
+
+10:58.260 --> 11:02.240
+Well very simple we can do it this way.
+
+11:02.250 --> 11:07.470
+Let's say we're going to pass a list to this function call frequency analysis and we want to return
+
+11:07.470 --> 11:16.050
+what we want to return a dictionary that's going to contain as keys the unique elements of ls t.
+
+11:16.080 --> 11:16.650
+Right.
+
+11:16.860 --> 11:23.220
+And then for the value I want to know how many times that element occurred in the list that's the frequency.
+
+11:23.220 --> 11:29.040
+So we can do it this way we can say k and then we're going to look at L.L.C. that count.
+
+11:29.040 --> 11:32.250
+We're going to count whatever that key is.
+
+11:32.370 --> 11:32.900
+OK.
+
+11:33.060 --> 11:34.340
+Now how do we get the keys.
+
+11:34.500 --> 11:36.550
+Well the key is going to be in lists.
+
+11:36.570 --> 11:40.920
+But obviously those same numbers can occur multiple times in the list.
+
+11:40.920 --> 11:44.010
+So in this case I'm going to take a set.
+
+11:44.040 --> 11:51.180
+So the set is basically going to limit my elements in ls t to just the unique ones.
+
+11:51.360 --> 11:51.650
+Right.
+
+11:51.660 --> 11:54.570
+And so here I'm using a dictionary comprehension.
+
+11:54.570 --> 11:55.160
+So that's it.
+
+11:55.200 --> 11:56.640
+That's pretty straightforward.
+
+11:56.640 --> 12:00.170
+How do we generate that say 100 random numbers in the list.
+
+12:00.180 --> 12:02.720
+Well we can use a list comprehension.
+
+12:03.000 --> 12:11.280
+So let's use rand again and we'll go 0 to 10 and we'll do this in range let's say 100.
+
+12:11.340 --> 12:12.550
+Get this nice.
+
+12:12.570 --> 12:16.340
+Generated a list that contains 100 random integers.
+
+12:16.620 --> 12:17.240
+There we go.
+
+12:17.250 --> 12:18.400
+There they are actually.
+
+12:18.540 --> 12:22.720
+PRINCE So it just Prince and one line.
+
+12:23.760 --> 12:24.290
+OK.
+
+12:24.450 --> 12:27.670
+So there we have these numbers they're all going to be between 0 and 10.
+
+12:27.720 --> 12:28.040
+Right.
+
+12:28.050 --> 12:35.220
+There's 10 over here and there's a zero over here and we can count how many times they occur basically
+
+12:35.220 --> 12:39.810
+by looking at the set of LSD which gives us OK.
+
+12:39.840 --> 12:41.640
+So we found 0 1 2 3 4.
+
+12:41.640 --> 12:46.350
+So every number between 0 and 10 actually occurred at least once in this.
+
+12:46.470 --> 12:48.770
+And then we want to know how many times that each one occurrence.
+
+12:48.780 --> 12:50.040
+Well it's very simple.
+
+12:50.040 --> 12:53.800
+We can use the LSD to count so we can say how many times that.
+
+12:53.820 --> 12:58.820
+Let's say 1 occur it occurred ten times how many times that can occur.
+
+12:59.040 --> 13:00.590
+It occurred 11 times.
+
+13:00.660 --> 13:04.530
+And so this is what this frequency analysis function is doing for us.
+
+13:04.530 --> 13:12.900
+So now we can go ahead and run frequency analysis of LSD and it tells us that OK's 0 happen four times
+
+13:12.900 --> 13:17.980
+one ten times to ten times three seven times and so on 10 11 times.
+
+13:18.150 --> 13:25.920
+So as you can see it doesn't look very uniform I mean four here and then we had 9 11 12 occurrences
+
+13:25.920 --> 13:28.940
+of 9 but only four occurrences of 0.
+
+13:28.950 --> 13:30.740
+Only two occurrences of four.
+
+13:31.020 --> 13:35.890
+But you have to remember that going to be a uniform distribution over time.
+
+13:35.900 --> 13:39.480
+So given enough numbers so we just need to make this much bigger.
+
+13:39.500 --> 13:42.620
+So let's go ahead and do this.
+
+13:43.190 --> 13:50.990
+And so we want to generate our random numbers between let's say 0 and 10 for that in range.
+
+13:50.990 --> 13:56.870
+Now let's do it let's say a million times and let's see if we get something that looks a little closer
+
+13:57.290 --> 13:59.810
+to a uniform distribution.
+
+13:59.960 --> 14:01.680
+Those will take a little bit of time.
+
+14:01.730 --> 14:04.160
+I'll let it run and fast forward the recording
+
+14:07.900 --> 14:09.140
+actually wasn't that bad.
+
+14:09.340 --> 14:11.930
+So there you can see that this is much closer.
+
+14:11.950 --> 14:12.580
+Right.
+
+14:12.580 --> 14:16.670
+Ninety one thousand two hundred thirty three ninety thousand six hundred thirty three.
+
+14:16.720 --> 14:21.730
+Relatively speaking it's closer and we have a much more uniform distribution.
+
+14:21.730 --> 14:25.660
+We could also look at doing relative frequencies of those.
+
+14:25.750 --> 14:25.980
+Right.
+
+14:25.990 --> 14:29.490
+Because if this is a dictionary let's say it.
+
+14:29.830 --> 14:31.080
+Well not it is not.
+
+14:31.090 --> 14:37.550
+If it is a dictionary so we can assign it to the value D that say to the label D.
+
+14:37.600 --> 14:38.900
+So what do we have in Indeed.
+
+14:38.920 --> 14:40.890
+Well we have this what do we want to do.
+
+14:40.900 --> 14:45.840
+We want to do the relative I want to know as a percentage what it is for each one.
+
+14:46.030 --> 14:47.940
+Well that's pretty straightforward right.
+
+14:47.950 --> 14:50.690
+I could just simply do something like this.
+
+14:50.740 --> 14:53.990
+Well the first thing I need to know is the total count.
+
+14:54.040 --> 14:59.210
+So I'm going to say total equals some Deodato values right.
+
+14:59.230 --> 15:00.840
+That's going to give me the total.
+
+15:01.030 --> 15:06.360
+So the total of all these frequencies over here which matches the 1 million.
+
+15:06.370 --> 15:13.090
+That's what we expect because we generated a million random numbers so summing up the frequency across
+
+15:13.150 --> 15:15.720
+all the numbers that were generated should give us a million.
+
+15:15.730 --> 15:17.160
+So that's good to know.
+
+15:17.200 --> 15:22.180
+Now whether we want to do it we want to take each value and divide that and divide that by the total
+
+15:22.240 --> 15:27.010
+and multiply that by 100 to get you know a percentage frequency.
+
+15:27.010 --> 15:28.090
+So let's go ahead and do that.
+
+15:28.080 --> 15:32.550
+And again we're just going to use a list comprehension.
+
+15:32.590 --> 15:37.140
+Actually we're going to use a dictionary comprehension because I really want to get the key as well.
+
+15:37.150 --> 15:39.270
+I want to know what the key was OK.
+
+15:39.490 --> 15:42.110
+And here though I'm going to take whatever the values are going to be.
+
+15:42.130 --> 15:45.490
+I want to divide that by the total and multiply by 100.
+
+15:45.700 --> 15:48.580
+And this is going to be for p value indeed.
+
+15:48.640 --> 15:54.520
+Items can follow at every item in the dictionary it comes back as a tuple of key value.
+
+15:54.520 --> 16:01.660
+I can unpack it in the cube and K comma V and now I can reference k as the key and v is the value.
+
+16:01.780 --> 16:08.770
+When I'm doing you know building the dictionary and as you can see we're getting about nine point something
+
+16:08.770 --> 16:10.330
+percent for each one.
+
+16:10.330 --> 16:13.870
+Nine point 1 1 9 percent 9 percent 9 percent 9 percent.
+
+16:13.870 --> 16:16.900
+So it's a pretty uniform distribution.
+
+16:16.900 --> 16:23.420
+Now of course you know doing this little function like we had over here wasn't too difficult to do.
+
+16:23.770 --> 16:28.510
+But this is where it pays off knowing what's in the standard library because it's actually you know
+
+16:28.540 --> 16:35.590
+this function is in the standard library and it is in the collections so we can say from collections
+
+16:36.610 --> 16:37.930
+import counters.
+
+16:38.080 --> 16:46.660
+So this is a class and the class basically we pass it the list and it will generate a subclass of dictionary
+
+16:46.660 --> 16:50.600
+so counter is a subclass of dictionary and it will generate that for us.
+
+16:50.650 --> 16:52.330
+So let's go ahead and try that out.
+
+16:52.450 --> 16:53.670
+The a calendar.
+
+16:53.860 --> 16:55.430
+And what do we want to pass through it.
+
+16:55.450 --> 16:57.010
+Well we want to pass it that list.
+
+16:57.010 --> 17:02.740
+So let's go ahead and say random got Rand end and.
+
+17:03.310 --> 17:08.710
+Ten twenty four in range let's just generate 100000.
+
+17:08.800 --> 17:12.470
+OK so is generate 100000 numbers and there we go.
+
+17:12.670 --> 17:15.790
+All right we have that frequency distribution done for us.
+
+17:15.820 --> 17:20.040
+So it's pretty handy and beats having to write it ourselves.
+
+17:20.050 --> 17:20.410
+All right.
+
+17:20.410 --> 17:21.190
+That's it for now.
+
+17:21.220 --> 17:26.560
+And I'll come back to other functions in the random module in some upcoming videos.

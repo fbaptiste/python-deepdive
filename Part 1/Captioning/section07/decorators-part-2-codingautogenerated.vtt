@@ -1,0 +1,1210 @@
+WEBVTT
+
+00:00.780 --> 00:02.040
+Hi and welcome back.
+
+00:02.100 --> 00:07.620
+So let's jump right into the code and let's look at how we can stop parameterize of decorator's.
+
+00:07.620 --> 00:11.730
+So first we're going to need the timed decorator that we've been working with.
+
+00:11.850 --> 00:16.310
+Let's go ahead and just rewrite it from scratch just to get some more practice.
+
+00:17.060 --> 00:24.510
+So from time import lbf calendar and then we need to define our in a function in a function will be
+
+00:24.510 --> 00:34.020
+as generic as possible by doing stuff arms and danced Akeda and we're going to need first to start our
+
+00:34.050 --> 00:34.660
+timer.
+
+00:34.710 --> 00:41.160
+So let's go ahead and also time what we need to find out what the current time is then we're going to
+
+00:41.160 --> 00:44.630
+call our function.
+
+00:47.160 --> 00:54.210
+And finally we need to time on when you do go ahead and figure out what the current time is now.
+
+00:54.300 --> 00:56.210
+Finished running.
+
+00:57.450 --> 01:01.460
+So elapsed time equals and minus stuff.
+
+01:01.730 --> 01:07.620
+It was writing it out in more lines but you could it's of course collapsable spur of counter called
+
+01:07.680 --> 01:10.210
+minus stand right that would work the same way.
+
+01:10.380 --> 01:18.600
+And then let's go ahead and print run time and we're going to do this to six digits after the decimal
+
+01:18.600 --> 01:19.490
+point.
+
+01:19.500 --> 01:21.720
+So it took so many seconds to run.
+
+01:22.020 --> 01:25.200
+And what was the run time while it was elapsed.
+
+01:25.200 --> 01:25.750
+Right.
+
+01:25.860 --> 01:29.020
+And if I can type we'll get that right.
+
+01:29.120 --> 01:35.010
+And one more quick and then we're going to return the result.
+
+01:35.040 --> 01:37.920
+And then finally we need to return on in a function.
+
+01:37.920 --> 01:39.540
+So that's all decorator's.
+
+01:39.960 --> 01:45.570
+Now let's go ahead and use the Fibonacci numbers again because we know that I can you know make this
+
+01:45.630 --> 01:49.410
+run long if I want to pretty easily.
+
+01:49.500 --> 01:51.310
+I'm not going to use a memorized version.
+
+01:51.330 --> 01:54.130
+I'm going to use a recursive version non-motorized.
+
+01:54.180 --> 01:58.920
+So it's it will get pretty inefficient once you start reaching higher numbers like you know even 30
+
+01:58.920 --> 02:00.390
+35.
+
+02:00.390 --> 02:01.730
+So let's go ahead and do this.
+
+02:01.770 --> 02:10.290
+So let's call it Kelk Furber recurse and we need to tell it you know which number we want.
+
+02:10.290 --> 02:13.710
+And so we're going to return one if end is less than 3.
+
+02:13.860 --> 02:29.950
+Else we're going to return Kelk Furber recurse and minus two plus Kelk verb brickworks and minus 1 cr.
+
+02:30.090 --> 02:34.410
+That's just our regular recursive formula for the Banaji numbers.
+
+02:34.440 --> 02:41.790
+Now I don't want to time this recursive function because if I go ahead and decorate calc for breaker's
+
+02:41.850 --> 02:47.140
+then every time it gets called inside and we've seen this before it's going to again time it.
+
+02:47.280 --> 02:49.840
+And so it's going to time everything it's going to time.
+
+02:49.950 --> 02:56.880
+You know my initial call to the recursive function as well as all the recursion calls and I don't want
+
+02:56.880 --> 02:57.140
+that.
+
+02:57.150 --> 02:59.790
+I just want to find out what the overall time was.
+
+02:59.790 --> 03:04.600
+So what I'm going to do instead is basically wrap this into another function.
+
+03:04.680 --> 03:12.920
+So let's call it the Banaji end and all it's going to do is to return Kelk Ferb recurse and.
+
+03:13.080 --> 03:19.880
+And so this way I can decorate fib and it will actually just tell me how long it took to run fib.
+
+03:20.070 --> 03:24.310
+Not how long it took to run the individual recursive calls.
+
+03:24.390 --> 03:26.280
+Again we've seen this before.
+
+03:27.060 --> 03:31.110
+So now I could just know run let's say for about 20 k.
+
+03:31.140 --> 03:32.520
+That seems to work.
+
+03:32.520 --> 03:34.330
+So let's go ahead and decorate it.
+
+03:34.350 --> 03:35.310
+How do we decorate it.
+
+03:35.310 --> 03:37.270
+Well we have two ways of doing it.
+
+03:37.320 --> 03:42.590
+One way is we could have said at tined gay have decorated it this way.
+
+03:42.720 --> 03:49.290
+So now if I call fib 20 you will see that it tells us the run time now as well as the result of running
+
+03:49.290 --> 03:50.270
+that.
+
+03:50.280 --> 03:52.520
+So that was one way of doing it.
+
+03:52.950 --> 03:59.610
+But I want to use the long way for a for a little while because that longways going to get us into a
+
+03:59.610 --> 04:02.590
+position where we can use our parameters.
+
+04:02.610 --> 04:07.220
+So we're going to say fib equals times of food.
+
+04:07.230 --> 04:07.500
+Right.
+
+04:07.500 --> 04:08.890
+That's how we decorate.
+
+04:08.890 --> 04:12.010
+So this would be our initial set up.
+
+04:12.030 --> 04:17.590
+We've got the recursive call we've got the Bonacci and now we decorate the Banaji.
+
+04:17.850 --> 04:22.690
+OK so now we've got there we can go ahead and let's say run for the not here.
+
+04:23.070 --> 04:27.010
+And that took 0.2 eight seconds and that was the answer.
+
+04:28.640 --> 04:33.950
+Now the thing is I don't want to try I'm just using a single run as you know we've seen this again in
+
+04:33.950 --> 04:40.610
+the past but very often you want to rerun the same thing multiple times and then get the average of
+
+04:40.610 --> 04:42.030
+how long it took to run.
+
+04:42.290 --> 04:44.410
+So let's go ahead and let's do that.
+
+04:44.420 --> 04:48.240
+Let's tweak our decorator to do that.
+
+04:48.260 --> 04:49.140
+What are we going to do.
+
+04:49.250 --> 04:53.630
+Well what I'm going to do here is I'm going to put a loop on as I for I in range.
+
+04:53.630 --> 04:54.560
+Now that's the problem.
+
+04:54.560 --> 04:55.590
+How many times.
+
+04:55.790 --> 05:01.830
+Well let's just hand-coded for a second let's say that we're going to run this 10 times.
+
+05:02.960 --> 05:11.300
+And what we're going to do now is that we're going to maintain eight total elapsed time and every time
+
+05:11.300 --> 05:17.840
+we run this function every time we call this function f and we're going to time it and then our total
+
+05:17.840 --> 05:18.560
+elapsed
+
+05:21.740 --> 05:28.890
+is going to be whatever it was before plus the current elapsed not what's the current elapsed.
+
+05:29.060 --> 05:34.680
+Well it's the end minus that 10.
+
+05:35.150 --> 05:40.370
+So that's how we can Luper it now after the loop is done.
+
+05:40.370 --> 05:43.090
+Now we want to print the average run time.
+
+05:43.130 --> 05:48.300
+So let's go ahead and say this is the average run time and this now is going to be.
+
+05:48.350 --> 05:51.400
+What will the average runtime is no longer just elapsed.
+
+05:51.550 --> 05:56.600
+Kate it's going to be total elapsed divided by the count.
+
+05:56.630 --> 06:04.420
+So let's just say average run time equals total elapsed divided by 10.
+
+06:04.670 --> 06:05.150
+Okay.
+
+06:05.480 --> 06:12.710
+And then when we're going to therefore print out the average run time and will return results return
+
+06:12.950 --> 06:14.690
+just as before and nothing else is change.
+
+06:14.690 --> 06:21.830
+So all we've done here is basically repeat the function call 10 times and then we average out with the
+
+06:21.830 --> 06:25.720
+average run time is and we print that out and then return the result.
+
+06:25.730 --> 06:29.850
+Now we've actually called this function 10 times so there's actually 10 results.
+
+06:29.870 --> 06:34.030
+I'm just going to return the last one in this case here.
+
+06:34.070 --> 06:37.330
+Where are you going to use the Superman Archie function to decorate.
+
+06:37.340 --> 06:38.960
+We should always get the same answer back.
+
+06:38.960 --> 06:40.390
+So it doesn't really matter.
+
+06:40.520 --> 06:45.740
+Now if you have a function that you try and time that is nondeterministic in other words maybe it has
+
+06:45.740 --> 06:52.010
+some random factors in it or is based on time or on values that can change over time every time you
+
+06:52.040 --> 06:55.740
+call that function of course you can have a different result.
+
+06:55.790 --> 07:02.270
+So you know you may not want to use some timing mechanism like that you may want to only have a single
+
+07:02.270 --> 07:07.790
+call to the function so that you get that with that one result back up to you how you want to do it
+
+07:08.060 --> 07:09.040
+for these purposes.
+
+07:09.060 --> 07:10.580
+This will work just fine.
+
+07:11.010 --> 07:11.430
+OK.
+
+07:11.480 --> 07:13.460
+So now get on your time decorator.
+
+07:13.640 --> 07:16.440
+So we're going to decorate our full function.
+
+07:16.460 --> 07:21.390
+Now I have to redefine the full function because right now what is food.
+
+07:21.410 --> 07:23.120
+It's the decorated food.
+
+07:23.210 --> 07:23.500
+Right.
+
+07:23.510 --> 07:24.340
+And I don't want that.
+
+07:24.350 --> 07:26.980
+I want to get back to the raw function.
+
+07:27.200 --> 07:28.920
+So let's go ahead and do that.
+
+07:29.090 --> 07:30.470
+So here's our fab function.
+
+07:30.560 --> 07:32.180
+And again we're going to decorate it.
+
+07:32.360 --> 07:35.350
+So food is equal to timed fib.
+
+07:35.680 --> 07:36.270
+OK.
+
+07:36.590 --> 07:39.330
+So now we've got a decorated fib and let's go ahead and run it.
+
+07:39.380 --> 07:42.500
+Let's say I'm going to do 28.
+
+07:42.720 --> 07:44.420
+So it doesn't run too long.
+
+07:44.480 --> 07:47.100
+And as you can see now we have the average run time.
+
+07:47.120 --> 07:51.260
+So the average run time was 0.1 and that was the result.
+
+07:51.260 --> 07:52.430
+So this is great.
+
+07:52.700 --> 07:57.650
+But the problem now of course is that the turn has been hardcoded and we want to get rid of that hard
+
+07:57.650 --> 07:58.420
+code.
+
+07:58.490 --> 08:00.760
+So let's see how we might do that.
+
+08:00.800 --> 08:07.050
+So again I'm just going to copy and paste this function and let's go ahead and put in the number of
+
+08:07.050 --> 08:12.830
+repetitions that we want K we'll pass that as the second parameter to the decorator.
+
+08:13.050 --> 08:17.970
+So now we have to use reps and here we have to use reps.
+
+08:18.030 --> 08:18.950
+OK.
+
+08:19.470 --> 08:20.350
+So that's it.
+
+08:20.400 --> 08:22.120
+That's all we needed to do.
+
+08:22.150 --> 08:23.570
+So now go to parameters.
+
+08:23.660 --> 08:27.690
+So now let's go ahead and redefine our third function.
+
+08:27.870 --> 08:28.590
+So there we go.
+
+08:28.600 --> 08:30.290
+And now let's decorate it.
+
+08:30.610 --> 08:32.330
+So how are we going to decorate it.
+
+08:32.370 --> 08:37.350
+Well at the time decorator requires two variables right.
+
+08:37.350 --> 08:38.130
+Two arguments.
+
+08:38.130 --> 08:40.550
+It requires the function which is food.
+
+08:40.740 --> 08:43.550
+And it also requires a number of repetitions.
+
+08:43.550 --> 08:45.880
+So we want five repetitions.
+
+08:46.710 --> 08:47.780
+So now there we go.
+
+08:47.790 --> 08:51.970
+We've decorated fib using this time decorator's.
+
+08:52.410 --> 08:56.070
+So now we can say fib let's say twenty eight.
+
+08:56.640 --> 09:01.220
+So the average runtime is 0.1 now doesn't tell us how many times it ran.
+
+09:01.350 --> 09:08.190
+So let's go ahead and put that in and let's just say that we had this many repetitions.
+
+09:09.480 --> 09:12.780
+And we'll pass in here reps.
+
+09:12.880 --> 09:13.170
+OK.
+
+09:13.170 --> 09:17.410
+So let's just rerun that we run this this and this.
+
+09:17.410 --> 09:23.670
+And now you can see it tells us OK did five repetitions not ten times that five because that's how we've
+
+09:23.670 --> 09:25.400
+decorated the function.
+
+09:25.400 --> 09:25.690
+Right.
+
+09:25.710 --> 09:29.250
+If we had done differently would have had a different number of repetitions.
+
+09:30.460 --> 09:35.530
+So that works and we can certainly decorate our functions using this approach.
+
+09:35.740 --> 09:42.880
+But the problem is that if you were to try and do something like this timed you know five let's say
+
+09:43.270 --> 09:51.330
+and then def fib are an issue we just copy and paste that will be simpler.
+
+09:51.790 --> 09:52.240
+OK.
+
+09:52.290 --> 09:57.860
+This is not going to work because time is missing one required positional argument.
+
+09:57.900 --> 10:00.180
+While we think it's reps we gave it reps.
+
+10:00.390 --> 10:04.640
+But if you look at timed it requires the function and then reps.
+
+10:04.680 --> 10:06.680
+Well that's not what's happening here.
+
+10:06.780 --> 10:10.180
+Time is being called with just a single parameter right.
+
+10:10.200 --> 10:11.760
+The function is over here.
+
+10:11.790 --> 10:18.850
+It's not the parameter unlike the way we did it when we actually used the long version of decorating.
+
+10:18.900 --> 10:25.880
+So by writing our decorator this way we've lost the ability to decorate functions using this handy syntax
+
+10:25.960 --> 10:28.440
+the at decorator syntax.
+
+10:28.710 --> 10:30.290
+So we're going to want to fix that.
+
+10:30.300 --> 10:36.030
+We want to get around this problem where we can use either way of decorating.
+
+10:36.030 --> 10:37.260
+So how are we going to do that.
+
+10:37.290 --> 10:43.180
+Well to do that we're there to create a decorator factory and we've discussed that in the lecture.
+
+10:43.320 --> 10:49.650
+But let's go ahead first and let's step back and let's look at decorator's again and see what runs and
+
+10:49.650 --> 10:52.540
+when it runs and how we can add in those parameters.
+
+10:53.750 --> 11:01.880
+Let's create a decorator that's just call a deck and we're going to just print from the decorator itself
+
+11:02.510 --> 11:08.530
+running decorators so we'll know when the decorator function is being called.
+
+11:08.540 --> 11:16.730
+Now we have to create our in a function which will take our usual style and start our style style variables
+
+11:17.240 --> 11:18.500
+arguments.
+
+11:18.830 --> 11:24.190
+Then we have a print running in her right so we'll know when we're running in her.
+
+11:24.230 --> 11:26.760
+And then we're just going to return the function called.
+
+11:26.800 --> 11:28.210
+Yeah.
+
+11:30.140 --> 11:38.540
+So this is as simple as it gets for a decorator for very simple decorator doesn't do anything really
+
+11:38.600 --> 11:43.740
+other than just basically print those two statements so as just injecting that.
+
+11:43.760 --> 11:49.920
+So let's go ahead now and decorate so we can decorate a function using at the at our syntax.
+
+11:49.940 --> 11:52.350
+This is the short syntax.
+
+11:52.490 --> 12:00.230
+Dirk my funk and then will just say print running my phone.
+
+12:00.500 --> 12:06.500
+OK so now if I execute this you can see what happened.
+
+12:06.650 --> 12:09.600
+We got print printed running deck.
+
+12:09.650 --> 12:09.940
+Right.
+
+12:09.950 --> 12:13.760
+Well that's because this decorator function was called.
+
+12:13.850 --> 12:18.070
+This syntax is no different than doing it this way.
+
+12:18.140 --> 12:21.260
+And this is why I keep going back to the long syntax.
+
+12:21.380 --> 12:23.480
+So we have left my funk.
+
+12:23.540 --> 12:24.000
+OK.
+
+12:24.080 --> 12:25.280
+So here's the function.
+
+12:25.280 --> 12:26.560
+It's undecorated.
+
+12:26.960 --> 12:34.380
+And now I'm decorating it by actually making the call to the decorator.
+
+12:34.970 --> 12:37.440
+And now you see again we get running duck.
+
+12:37.460 --> 12:40.520
+Well yeah because we just called decorator right.
+
+12:40.700 --> 12:44.110
+So this is what's happening when we use this short syntax here.
+
+12:44.540 --> 12:47.070
+And now of course I can call my phunk.
+
+12:47.390 --> 12:47.660
+Right.
+
+12:47.660 --> 12:50.300
+So the parentheses means I'm calling it.
+
+12:50.360 --> 12:52.820
+And what happens while I'm running in it.
+
+12:52.880 --> 12:53.390
+Well sure.
+
+12:53.390 --> 12:56.520
+Because what is my phunk it is the inner function right.
+
+12:56.540 --> 13:02.410
+Because that was what was returned when we decorated it and then that in turn called fan.
+
+13:02.570 --> 13:05.550
+And so we see running my phunk also in there.
+
+13:05.900 --> 13:08.600
+So that's how the decorator runs.
+
+13:08.600 --> 13:11.030
+Now let's go ahead and change this.
+
+13:11.240 --> 13:16.910
+So that deck is no longer the decorator that we use in here.
+
+13:16.910 --> 13:23.350
+And what I mean by this is I'm going to create a function that's going to return the decorator deck.
+
+13:23.480 --> 13:23.740
+Right.
+
+13:23.750 --> 13:25.020
+And that's all it's going to do.
+
+13:25.310 --> 13:26.650
+So let's go ahead and do that.
+
+13:26.660 --> 13:30.150
+And let's call this maybe deck factory.
+
+13:30.230 --> 13:32.560
+OK so this is our factory function.
+
+13:32.590 --> 13:35.990
+It doesn't take any parameters not non-right right now anyways.
+
+13:36.050 --> 13:37.470
+And what is it going to do.
+
+13:37.580 --> 13:41.570
+Well we're going to just cut and paste this code over here.
+
+13:42.080 --> 13:42.670
+OK.
+
+13:43.130 --> 13:56.150
+And in here I'm going to say print running deck factory then I'm going to paste in my decorator's.
+
+13:56.390 --> 13:56.930
+OK.
+
+13:57.140 --> 13:57.830
+There it is.
+
+13:57.830 --> 13:59.400
+This is our original decorator.
+
+13:59.400 --> 14:01.010
+Nothing's changed.
+
+14:01.010 --> 14:04.930
+And now of course I have to return the decorator.
+
+14:05.330 --> 14:08.910
+OK so now we have a decorator factory.
+
+14:08.960 --> 14:10.030
+So what does this mean.
+
+14:10.070 --> 14:16.700
+Well it means that in order to decorate a function I'm going to have to get the decorator by calling
+
+14:17.060 --> 14:18.310
+the decorator factory.
+
+14:18.530 --> 14:19.840
+So I might do something like this.
+
+14:19.890 --> 14:22.330
+That equals deck factory.
+
+14:22.550 --> 14:25.940
+OK what is this going to be what is Deck going to be.
+
+14:26.000 --> 14:28.530
+It's going to be whatever gets returned here.
+
+14:28.580 --> 14:35.150
+The decorated by the decorator is being returned by the factory function and that's the critical point
+
+14:35.150 --> 14:36.090
+in all this.
+
+14:36.170 --> 14:36.440
+Right.
+
+14:36.440 --> 14:39.320
+If long as you understand this then that's it.
+
+14:39.320 --> 14:39.730
+Right.
+
+14:39.740 --> 14:41.230
+We're over the hump.
+
+14:41.270 --> 14:42.630
+It's fairly straightforward.
+
+14:42.630 --> 14:48.830
+Now this factory creates and returns the decorator that we want.
+
+14:49.230 --> 14:51.560
+So now that is a decorator's.
+
+14:51.600 --> 14:58.670
+And as you can see we printed running decorator factory and now we can go ahead and decorate a function.
+
+14:58.740 --> 15:03.530
+So let me go ahead and take this and let's redefine my funk.
+
+15:03.690 --> 15:07.830
+So there's my undecorated function my funk How do I decorate it.
+
+15:07.830 --> 15:14.030
+Well I can say my funk equals decorator of my funk.
+
+15:14.070 --> 15:14.520
+Right.
+
+15:14.670 --> 15:16.000
+I can do it this way.
+
+15:16.240 --> 15:23.430
+And it ends you can see now we get running deck because we just decorated the function and we can call
+
+15:23.730 --> 15:27.010
+my funk and then we get the same thing as before running in air.
+
+15:27.030 --> 15:30.570
+Running my funk so we could decorate it this way.
+
+15:30.840 --> 15:35.220
+But of course if we decorate this way we could also do it this way.
+
+15:35.340 --> 15:48.660
+So let's go ahead and let me delete those and let's go ahead now and Soghoian under-rated my funk and
+
+15:48.690 --> 15:50.960
+here I'm going to decorated with deck.
+
+15:51.000 --> 15:51.470
+OK.
+
+15:51.630 --> 15:52.340
+We can use that.
+
+15:52.380 --> 15:54.590
+Schultz and Texas it's the same thing.
+
+15:54.760 --> 15:55.020
+OK.
+
+15:55.040 --> 15:59.310
+And then we can call my funk and we get the same thing as before.
+
+15:59.340 --> 16:02.550
+Now of course what is Deck deck is Deck factory.
+
+16:02.550 --> 16:06.990
+So instead of decorating it this way I could say the following.
+
+16:07.020 --> 16:09.810
+I would say deck factory.
+
+16:10.080 --> 16:10.390
+OK.
+
+16:10.410 --> 16:12.270
+And let's use maybe the long syntax.
+
+16:12.280 --> 16:16.080
+First if you want but let me show you what this one would look like.
+
+16:16.080 --> 16:22.500
+So my phunk print running my phunk play.
+
+16:22.800 --> 16:29.700
+So you'll notice now the difference between how we're decorating here there is no function call here
+
+16:29.880 --> 16:32.630
+because deck is the decorators here.
+
+16:32.640 --> 16:39.150
+There is a function call because deck factory is not the decorator you need to call it in order to get
+
+16:39.150 --> 16:45.360
+the decorator back and then apply the decorator to my phunk so we can do it this way.
+
+16:45.430 --> 16:53.810
+It would be no different than doing the following and always kept pace for copy paste.
+
+16:54.840 --> 17:00.360
+It was no different than decorating it this way my phunk equals how do we get out.
+
+17:01.440 --> 17:05.650
+Well we have to call decorator factory.
+
+17:07.020 --> 17:17.300
+And now that is going to return the decorator with then call that decorator with my phunk So this is
+
+17:17.300 --> 17:18.080
+no different.
+
+17:18.090 --> 17:25.310
+You can see we had the same output in both cases we called DEC factory first that would turn the decorator
+
+17:25.370 --> 17:27.840
+which was then applied to my funk.
+
+17:27.860 --> 17:35.720
+Same thing here we called the factory got the decorator back and then ran that with my phunk as a parameter.
+
+17:35.930 --> 17:38.110
+And you called the decorator.
+
+17:38.540 --> 17:42.480
+So that's how the factory function decorator works.
+
+17:44.290 --> 17:50.230
+Now let's go ahead and let's start injecting now some variable some parameters into this.
+
+17:50.260 --> 17:59.170
+So let's go ahead and I'm going to just copy paste death though decorator factory and let's go ahead
+
+17:59.200 --> 18:01.630
+and let's say put in two parameters.
+
+18:01.630 --> 18:03.340
+So here we have two parameters.
+
+18:03.610 --> 18:07.090
+And what I'm going to do here is I'm going to use those parameters now.
+
+18:07.150 --> 18:09.390
+Inside this in a function.
+
+18:09.580 --> 18:09.880
+Right.
+
+18:09.880 --> 18:13.460
+Those are going to be non-local variables A and B.
+
+18:13.480 --> 18:18.290
+So in a closure that's going to contain a and b is free variables.
+
+18:18.340 --> 18:20.860
+So let's go ahead and print that.
+
+18:20.860 --> 18:33.100
+And let's go ahead and say prom's Well actually is to say a equals and B equals this way.
+
+18:34.560 --> 18:37.260
+OK so that's the only difference.
+
+18:37.300 --> 18:43.450
+So you'll notice now that I didn't add the parameters to the decorator the way we did it with the time
+
+18:43.450 --> 18:49.300
+decorator in the beginning of this video instead I added the decorators to the fact the decorators.
+
+18:49.300 --> 18:56.500
+I added the parameters to the factory function but I can actually reference those parameters inside
+
+18:56.770 --> 18:59.240
+my decorator's inner closures.
+
+19:00.140 --> 19:05.510
+So now we have this how we're going to create the decorator while to create the decorator and we have
+
+19:05.510 --> 19:08.550
+to call the factory OK just as before.
+
+19:08.810 --> 19:13.680
+But now the factory requires two parameters let's say 10 and 20.
+
+19:13.740 --> 19:19.880
+For now we have this decorator and you can see that we ran the factory function and we have this decorated
+
+19:19.880 --> 19:25.390
+deck and we can go ahead and decorate a function using that.
+
+19:25.430 --> 19:29.490
+So we can say X deck and my phone.
+
+19:30.020 --> 19:32.460
+And now you can see it ran the decorator.
+
+19:32.690 --> 19:35.600
+And now if I call my phunk what's going to happen.
+
+19:35.630 --> 19:40.730
+Well it's going to call this in a function right because this is what after we've decorated my phunk
+
+19:40.820 --> 19:42.140
+using the decorator.
+
+19:42.380 --> 19:45.090
+What are we actually running the in a function.
+
+19:45.230 --> 19:47.080
+It's going to print running in there.
+
+19:47.210 --> 19:53.550
+It's going to print the variables a and b that were defined and passed in his arguments up here.
+
+19:53.840 --> 19:54.490
+OK.
+
+19:54.860 --> 19:56.920
+And then it's going to call the function.
+
+19:56.960 --> 19:59.110
+So when we do that we have running in it.
+
+19:59.420 --> 20:03.290
+We have A's and B's 20 and running my funk.
+
+20:03.530 --> 20:11.470
+So of course we can decorate it using this syntax we can say at DEC where the factory right.
+
+20:11.690 --> 20:15.890
+It's not the decorator anymore we're going to use the factory directly so we're going to do what we
+
+20:15.890 --> 20:17.030
+did over here.
+
+20:17.540 --> 20:23.000
+And in this case maybe I'll call it 100 and 200 others change the variables.
+
+20:23.000 --> 20:24.520
+So now what do we have here.
+
+20:24.710 --> 20:29.710
+Well we have this decorator factory that was called and it returned the decorator.
+
+20:29.870 --> 20:34.720
+And so now we can go ahead and decorate it function with it.
+
+20:34.760 --> 20:35.670
+So there we go.
+
+20:35.750 --> 20:39.330
+So we have again running the factory and then running the decorators.
+
+20:39.380 --> 20:45.800
+Well sure because this was what we did here in multiple steps we achieved in one step here using the
+
+20:45.800 --> 20:47.560
+shortened syntax the add.
+
+20:47.720 --> 20:52.040
+So DECT factory was called it returned decorator.
+
+20:52.190 --> 20:56.590
+And the at symbol applied the decorator to the function.
+
+20:56.750 --> 21:04.130
+And so now when we call my fonk we get running in there is 100 bees 200 running my phunk.
+
+21:04.700 --> 21:04.990
+All right.
+
+21:05.000 --> 21:12.880
+So that's how we can use decorator factories to actually put put essentially parameters into our decorator's.
+
+21:12.980 --> 21:16.880
+And as you can see we can use the shortened syntax as well.
+
+21:16.880 --> 21:20.060
+Of course we could have written it this way as well.
+
+21:20.060 --> 21:21.100
+The long syntax.
+
+21:21.110 --> 21:23.480
+Let me just show you that just for completeness.
+
+21:23.510 --> 21:28.670
+So now we could say my func equals decorator factory.
+
+21:28.970 --> 21:34.330
+Let's say 150 to 15 is just again just make the parameters different.
+
+21:34.400 --> 21:40.760
+So you can see we're calling the factory that call is going to return the decorator and that decorator
+
+21:40.760 --> 21:45.240
+we're now going to call with my funk.
+
+21:45.710 --> 21:47.580
+And so we get the same thing as before.
+
+21:47.660 --> 21:54.530
+And if we call my phone you can see that the parameters 150 and 250 were retained in that quarter.
+
+21:55.130 --> 21:55.770
+Okay.
+
+21:56.030 --> 22:03.890
+So now we know how to create essentially parameterised decorator's and we do it not by modifying the
+
+22:03.890 --> 22:10.100
+parameters to the decorator but by creating a decorator factory an out of function that encompasses
+
+22:10.370 --> 22:12.160
+and returns our decorator.
+
+22:12.350 --> 22:18.320
+But because of closures we can now pass those parameters from the older function from the out of factory
+
+22:18.320 --> 22:21.080
+function to the decorator itself.
+
+22:21.740 --> 22:24.110
+So let's go back to our time.
+
+22:24.290 --> 22:27.010
+So let's go back and grab this one right.
+
+22:27.020 --> 22:28.690
+This is the one that was timed.
+
+22:28.690 --> 22:30.400
+Actually we don't want this one sorry.
+
+22:30.410 --> 22:34.460
+I want the one with the parameter for the repetitions.
+
+22:34.580 --> 22:37.260
+So let's go ahead and bring this back down here.
+
+22:37.250 --> 22:40.100
+So this is just a simple copy paste.
+
+22:40.160 --> 22:43.100
+Now we can put in the parameter here.
+
+22:43.250 --> 22:43.670
+Right.
+
+22:43.700 --> 22:45.430
+But instead what are we going to do.
+
+22:45.650 --> 22:48.100
+Well let's call is our ours.
+
+22:48.130 --> 22:49.880
+Or if you want DEC factory
+
+22:54.160 --> 22:57.850
+and this one is going to take the parameter reps.
+
+22:58.000 --> 23:01.380
+This is going to stay exactly as is.
+
+23:01.600 --> 23:02.040
+Right.
+
+23:02.050 --> 23:07.360
+And so you can see reps hishe and Reps here means which one it means.
+
+23:07.360 --> 23:08.590
+This one over here.
+
+23:08.680 --> 23:11.030
+The one that's passed into the factory function.
+
+23:11.080 --> 23:14.520
+Now of course our factory function needs to return the decorator.
+
+23:14.740 --> 23:16.970
+So we're going to return on time.
+
+23:17.500 --> 23:22.590
+So now we have our decorator factory for the timed decorator's.
+
+23:22.810 --> 23:23.010
+Right.
+
+23:23.010 --> 23:26.870
+So the factory is going to return the timed decorator's.
+
+23:27.070 --> 23:32.840
+So let me go back and grab this and let's go ahead and decorate it.
+
+23:32.840 --> 23:32.980
+Now
+
+23:36.050 --> 23:42.080
+well we're going to call the deck factory now we need to pass it the number of repetitions we want let's
+
+23:42.080 --> 23:44.700
+say five I want five repetitions.
+
+23:44.780 --> 23:49.210
+So whenever I call fib now it's going to use five repetitions.
+
+23:49.280 --> 23:57.760
+So I might say a fib of 28 and you can see we had five repetitions right here.
+
+23:57.980 --> 24:06.230
+If I had change that to 15 and do the same thing
+
+24:09.120 --> 24:12.910
+then you can see it we've run 15 times.
+
+24:13.780 --> 24:14.380
+OK.
+
+24:14.410 --> 24:15.570
+So we're almost there.
+
+24:15.580 --> 24:18.630
+The last thing we want to clean up is the deck factory.
+
+24:18.640 --> 24:20.850
+That's really not what we want this code.
+
+24:20.850 --> 24:22.770
+We want to be called tined.
+
+24:22.870 --> 24:23.110
+Right.
+
+24:23.110 --> 24:25.960
+That was the name that we have for the decorator.
+
+24:26.200 --> 24:32.470
+So what I'm going to do is I'm going to change to do is just change the name of DECT factory and call
+
+24:32.470 --> 24:33.860
+it time.
+
+24:34.630 --> 24:35.940
+And then this one in here.
+
+24:36.010 --> 24:40.240
+I'm going to change it so I don't have any confusion between this time and this time.
+
+24:40.570 --> 24:45.640
+I'm just going to call it Dec which means that here we need to return the decorator's.
+
+24:45.640 --> 24:45.870
+Right.
+
+24:45.880 --> 24:49.180
+So this functions the old timer function.
+
+24:49.240 --> 24:54.340
+So I've done is just rename those two functions just to clean that up a little bit which means that
+
+24:54.340 --> 24:58.860
+now when I want to decorate I can just call it timeout.
+
+24:59.080 --> 25:02.430
+But of course time now is no longer the decorator.
+
+25:02.470 --> 25:09.700
+Time is the decorator factory it takes in the parameter 15 that will be used when the decorator is created
+
+25:09.790 --> 25:12.230
+and returned by the decorator factory.
+
+25:13.470 --> 25:15.120
+And so now we can call FEBE.
+
+25:15.200 --> 25:25.140
+Say 28 again and it will work as expected with 15 repetitions of the Fibonacci function generator.
+
+25:25.840 --> 25:26.510
+All right.
+
+25:26.560 --> 25:32.880
+So hopefully this explains quite clearly how parameterised decorator's work.
+
+25:32.950 --> 25:35.110
+We don't actually parameterised the decorator's.
+
+25:35.320 --> 25:41.140
+What we do is we create a decorator factory that has the parameters and then that's then able to be
+
+25:41.140 --> 25:47.950
+referenced from the decorator since it will now be a closure itself within the decorator factory.
+
+25:48.100 --> 25:53.660
+Again that then gets returned and applied to whatever function with decorating.
+
+25:54.220 --> 25:54.760
+All right.
+
+25:54.760 --> 25:56.950
+Thanks for watching and I'll see you in the next video.

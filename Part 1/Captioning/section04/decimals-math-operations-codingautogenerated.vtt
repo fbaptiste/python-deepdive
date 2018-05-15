@@ -1,0 +1,643 @@
+WEBVTT
+
+00:00.450 --> 00:07.290
+High in this video we're going to continue looking at the mathematical operations using decimals.
+
+00:07.320 --> 00:16.470
+So as usual I import a decimal and the decimal module and the decimal object of the decimal class and
+
+00:16.470 --> 00:25.650
+the first thing that we want to look at are going to be the odd div which is this and the maade operators.
+
+00:26.580 --> 00:34.080
+And that's because they are fundamentally different between integers and decimals of floats and decimals.
+
+00:34.470 --> 00:39.810
+And that's because of the way that the div operator works thus into the division works differently for
+
+00:39.840 --> 00:43.160
+the decimals that it does for integers.
+
+00:43.170 --> 00:44.600
+So let's take a look at that.
+
+00:44.730 --> 00:52.020
+And in particular I want to point out that it always does satisfy this equation which you're probably
+
+00:52.020 --> 00:55.080
+tired of seeing by now.
+
+00:57.800 --> 00:59.150
+But it does satisfy
+
+01:02.420 --> 01:03.690
+the equation here.
+
+01:03.940 --> 01:04.440
+OK.
+
+01:04.470 --> 01:07.450
+And the other numerator and denominator.
+
+01:07.810 --> 01:08.400
+OK.
+
+01:08.690 --> 01:11.740
+And when we think of this as a fraction.
+
+01:11.760 --> 01:12.360
+All right.
+
+01:12.370 --> 01:22.680
+So let's take a look let's start with some integers x and y let's say 10 and 3 and we can print x y
+
+01:23.100 --> 01:28.240
+and x y or we could just print div maade X come a Y.
+
+01:28.290 --> 01:28.560
+Right.
+
+01:28.560 --> 01:29.730
+That would work the same way.
+
+01:29.730 --> 01:31.560
+We can also do this.
+
+01:31.560 --> 01:38.880
+Did Monda X come y which just returns a tuple of the div and not operators respectively.
+
+01:39.150 --> 01:44.950
+So if we do that we'll notice that we have you know tender Div 3 is 3 and 10 month.
+
+01:44.960 --> 01:46.090
+We one.
+
+01:46.170 --> 01:52.980
+And of course the mod returns the same thing and the other thing too is that we're going to go ahead
+
+01:52.980 --> 02:01.070
+and check and make sure that X equals Y times x y plus X Y.
+
+02:01.110 --> 02:01.510
+Right.
+
+02:01.530 --> 02:04.050
+We know that we should be satisfying that equation.
+
+02:04.320 --> 02:09.240
+And we do indeed and we've seen that before when we were looking at integers.
+
+02:09.240 --> 02:11.270
+Now let's go ahead and do the same thing.
+
+02:11.520 --> 02:16.330
+But instead of using integers we're going to use decimals.
+
+02:16.350 --> 02:22.290
+So I'm just going to copy paste this entire chunk of code and instead of doing this we're going to do
+
+02:22.290 --> 02:27.290
+decimal 10 and decimal 3.
+
+02:27.330 --> 02:30.410
+Now as we discussed these are both positive numbers.
+
+02:30.450 --> 02:35.010
+The result is going to be positive and therefore the computation is going to be identical.
+
+02:35.010 --> 02:37.680
+We're going to get the same results right.
+
+02:37.680 --> 02:44.810
+So we also get 3 1 right and we get 3 decimal 3 decimal 1 and we get that this equation is true.
+
+02:45.740 --> 02:49.700
+CAMP And that's because we're dealing with positive numbers.
+
+02:49.840 --> 02:57.280
+Now let's change this and let's make x negative here and let's make x negative here and let's rerun
+
+02:57.280 --> 03:04.450
+this and you can see now that our div is negative for our models to free a rerun of Kesh.
+
+03:04.600 --> 03:08.660
+You'll see that our div is negative 3 and Ahmad is negative 1.
+
+03:08.740 --> 03:16.390
+So we have different values for the div and man but the equation still holds true in both cases right.
+
+03:16.390 --> 03:21.700
+So just be a little careful with that because there is a difference as we looked at in the previous
+
+03:21.700 --> 03:29.080
+video on how this this is calculated and therefore in order for this equation to still be satisfied
+
+03:29.350 --> 03:35.130
+that means that the model has to be calculated slightly differently to OK.
+
+03:35.500 --> 03:38.110
+Now in terms of other mathematical functions.
+
+03:38.200 --> 03:44.740
+So other math functions I can spell type I should say.
+
+03:45.340 --> 03:47.130
+So let's look at some other math functions.
+
+03:47.140 --> 03:52.480
+Now the decimal class has a lot of math functions built in.
+
+03:52.480 --> 03:56.500
+So if you want you to do you know he can just go online and look at it or if you want.
+
+03:56.500 --> 04:00.440
+Here you can take a look don't worry about the donder methods for now.
+
+04:00.610 --> 04:03.970
+We'll look at those kinds of methods when we get into object or in programming.
+
+04:03.970 --> 04:11.470
+These are special methods that are used to actually implement certain functions in Python and Python
+
+04:11.470 --> 04:12.650
+is very polymorphic.
+
+04:12.820 --> 04:19.440
+So when you do this arm drive operator or this model operator here.
+
+04:19.570 --> 04:26.290
+Well that's it works differently here and here based on the context because these are integers these
+
+04:26.290 --> 04:32.350
+are decimals and it knows that it's going to calculate things differently and it those that because
+
+04:32.770 --> 04:38.060
+the decimal class implements those two operators and so by polymorphism it knows that.
+
+04:38.080 --> 04:42.580
+OK if I'm running this calculation here I've got two decimals.
+
+04:42.580 --> 04:48.370
+I'm going to go and use the implementation of do the decimal class not the implementation of do that
+
+04:48.370 --> 04:49.660
+we have somewhere else.
+
+04:49.660 --> 04:51.390
+Let's say if we had two integers.
+
+04:51.670 --> 04:51.990
+Right.
+
+04:52.030 --> 04:53.790
+And that's what these Dunder methods are for.
+
+04:53.800 --> 04:57.290
+But we'll see that in a lot of detail later on in the schools.
+
+04:57.580 --> 05:04.550
+So let's go ahead and skip past those and see some of the functions that we have and this quite a few.
+
+05:05.020 --> 05:07.310
+You've got the copy sine function that we've seen before.
+
+05:07.320 --> 05:09.820
+But here you have the exponent right.
+
+05:09.850 --> 05:11.210
+That's the exponential function.
+
+05:11.210 --> 05:13.280
+So either the power of x.
+
+05:13.390 --> 05:14.010
+Right.
+
+05:14.230 --> 05:16.070
+And there's other things as well.
+
+05:16.080 --> 05:19.090
+But we have like a skip ahead.
+
+05:19.090 --> 05:20.470
+Here we have the natural log.
+
+05:20.470 --> 05:22.300
+Here we have the log base 10.
+
+05:22.300 --> 05:26.760
+Here we have a log to any base b and so on it's got Maximin.
+
+05:26.770 --> 05:29.380
+I mean there's a lot of stuff that it can do.
+
+05:29.380 --> 05:33.580
+One thing that it doesn't have for example other trigger symmetric functions but it has things like
+
+05:33.580 --> 05:36.570
+the square root which would have to scroll down to see more.
+
+05:36.580 --> 05:38.560
+Here's the square root for example.
+
+05:38.560 --> 05:42.770
+So all these methods are implemented in the decimal class.
+
+05:43.480 --> 05:47.260
+So let's take a look at how we have to deal with this.
+
+05:47.260 --> 05:49.040
+Well first of all let's see how we would call it.
+
+05:49.090 --> 05:53.350
+Right because how do we call these methods.
+
+05:53.440 --> 05:55.130
+So let's say we have a.
+
+05:55.180 --> 05:57.430
+Which is decimal 1.5.
+
+05:57.460 --> 05:59.060
+Now we can print a.
+
+05:59.060 --> 06:05.710
+Now we want to find let's say the natural the natural log of a well we'd have to say a dot L and so
+
+06:06.100 --> 06:10.720
+it is a basically a class method that you call on the object.
+
+06:10.900 --> 06:11.550
+Right.
+
+06:11.560 --> 06:12.100
+It's not.
+
+06:12.100 --> 06:17.080
+You don't say L.N. of a like you would when you were using the math module for example.
+
+06:17.080 --> 06:17.540
+Right.
+
+06:17.560 --> 06:19.690
+We do it this way.
+
+06:19.780 --> 06:21.660
+You can print some of the other ones too.
+
+06:21.670 --> 06:31.210
+We can say you know take each to the power of 1.5 or you can print a dot square root let's say if you
+
+06:31.210 --> 06:32.880
+want the square root and so on.
+
+06:32.980 --> 06:33.470
+Right.
+
+06:33.640 --> 06:36.010
+And so we get these values here.
+
+06:36.010 --> 06:42.820
+Now what's interesting is that these are going to be little different than if we were using floats.
+
+06:42.820 --> 06:49.780
+And again this is because we will have a different real value for 1.5 depending on whether we're using
+
+06:49.780 --> 06:52.360
+a float or using a decimal.
+
+06:52.360 --> 06:55.530
+So you can certainly import the math module.
+
+06:55.680 --> 07:03.130
+OK so we can import math and we can run the math functions on a decimal so we can say for example math
+
+07:03.160 --> 07:05.580
+not square root of a.
+
+07:05.860 --> 07:06.800
+We can do that.
+
+07:06.970 --> 07:10.460
+But as you can see it's not quite the same right.
+
+07:10.930 --> 07:13.680
+And in this case we have 1.5.
+
+07:13.690 --> 07:15.690
+So we're actually getting the same digits.
+
+07:15.700 --> 07:17.990
+But let's change those two to let's say.
+
+07:18.790 --> 07:24.010
+Well actually just change this to zero point 1 and do that.
+
+07:24.010 --> 07:28.180
+And as you can see now we're starting to get some little differences here right.
+
+07:28.210 --> 07:31.690
+This is 7 9 3 3 and this was 7 9 4.
+
+07:31.690 --> 07:33.110
+So that's not rounded.
+
+07:33.370 --> 07:33.610
+Right.
+
+07:33.610 --> 07:39.640
+That's because there is a difference in the representation and we'll see that in more clearly in a couple
+
+07:39.640 --> 07:41.310
+of minutes.
+
+07:41.500 --> 07:48.520
+So you can call the math functions on a decimal but what happens that it forced converts the decimal
+
+07:48.520 --> 07:50.970
+to a float and then runs the operation.
+
+07:51.160 --> 07:52.810
+And that's probably not what you want.
+
+07:52.840 --> 07:53.490
+In general.
+
+07:53.500 --> 07:59.530
+You want to try and you don't use that fixed precision that you have of decimals and that exact representation
+
+07:59.530 --> 08:04.360
+that you have with decimals that you don't have with floats so therefore you probably want to stay away
+
+08:04.360 --> 08:05.130
+from that.
+
+08:05.140 --> 08:07.800
+So let's see some differences.
+
+08:08.530 --> 08:17.020
+I'm going to define two variables one will be hard to is a just a regular integer and the other one
+
+08:17.020 --> 08:18.880
+would be a decimal integer.
+
+08:19.240 --> 08:24.970
+And what we want to do here is I want to look at the root of float
+
+08:27.910 --> 08:34.340
+and we'll do that and then we're going to do a root mixed root mixed with mean by that is I'm going
+
+08:34.340 --> 08:41.870
+to take the square root function from the math model but I'm going to apply it to the decimal version
+
+08:41.930 --> 08:48.740
+of that integer k and then we're going to take the root purely in the decimal which is done by saying
+
+08:48.770 --> 08:52.590
+X that dot square root.
+
+08:53.720 --> 08:59.960
+And now we're going to print and we're going to format each one of those so we can get a better idea
+
+09:00.050 --> 09:01.510
+of what's going on.
+
+09:01.850 --> 09:05.610
+So let's format it this way.
+
+09:06.110 --> 09:12.700
+So let's do the root mixed as well.
+
+09:12.920 --> 09:17.630
+And then we're just going to print routes that I don't have to format that one.
+
+09:17.810 --> 09:19.100
+And let's see what we get.
+
+09:19.400 --> 09:26.900
+So as you can see the first two values are identical even though we passed in the decimal equivalent
+
+09:26.990 --> 09:29.140
+of two to this method.
+
+09:29.330 --> 09:29.660
+Right.
+
+09:29.660 --> 09:33.590
+The square root method is in the math module false converted to a float.
+
+09:33.590 --> 09:40.580
+So this was first converted to a float and then it performed its float version of the square root which
+
+09:40.580 --> 09:47.260
+is not the same as what we get when we performed the square root on the decimal numbers.
+
+09:47.810 --> 09:52.870
+And one thing that we can look at that's interesting is to look at this.
+
+09:52.910 --> 09:59.870
+Now I'm going to take this copy paste and I'm going to take root float times root float.
+
+09:59.930 --> 10:00.290
+Right.
+
+10:00.290 --> 10:03.650
+That should give us the original number back.
+
+10:03.650 --> 10:08.660
+Now the problem is that it's our root mixed.
+
+10:08.840 --> 10:14.050
+The problem is that square root of two is not a rational number.
+
+10:14.360 --> 10:20.870
+So in fact we'll probably won't get our original number back in any of those cases right.
+
+10:20.900 --> 10:26.830
+Because square root of two is 1.4 one for and then a bunch of decimal then it goes and goes on infinitely.
+
+10:26.840 --> 10:29.540
+Of course we can store an infinite number of digits on the computer.
+
+10:29.540 --> 10:35.210
+So we're not going to end up with things back exactly the way they were when we multiply the two square
+
+10:35.210 --> 10:35.570
+roots.
+
+10:35.570 --> 10:36.820
+We're not going to get two back.
+
+10:36.830 --> 10:37.720
+Precisely.
+
+10:37.970 --> 10:39.380
+But let's see the difference.
+
+10:39.650 --> 10:43.870
+As you can see this is what we get back when we use the float operation.
+
+10:43.910 --> 10:44.170
+Right.
+
+10:44.170 --> 10:47.240
+So we're off at this digit here right.
+
+10:47.270 --> 10:48.830
+Two point or four.
+
+10:48.830 --> 10:50.500
+And here we start being off.
+
+10:50.720 --> 10:56.570
+But if you look at the precision of this if you look at how you know this number is compared to two
+
+10:56.600 --> 11:00.020
+it is much closer to two than this number here.
+
+11:00.170 --> 11:00.460
+Right.
+
+11:00.470 --> 11:02.230
+And then either of those numbers there.
+
+11:02.480 --> 11:04.920
+So again we had a better.
+
+11:04.940 --> 11:06.010
+If you want to think of it that way.
+
+11:06.010 --> 11:07.490
+Square root.
+
+11:07.490 --> 11:13.570
+Now we can make this far more obvious if we change this to 0 1 0 or 1.
+
+11:14.420 --> 11:18.560
+So let's go ahead and change that to zero point zero or 1.
+
+11:18.560 --> 11:32.770
+Now I want to point out that if we were to do a format of x at let's say 27 I got to run this first
+
+11:32.770 --> 11:33.490
+I guess.
+
+11:33.490 --> 11:34.270
+There we go.
+
+11:34.390 --> 11:34.660
+Right.
+
+11:34.660 --> 11:37.180
+We don't have exactly zero point 1.
+
+11:37.180 --> 11:41.730
+So already we have an issue here with X. It's not exactly 0 1 0 1.
+
+11:41.920 --> 11:44.300
+Now what's the square root of 0 1 0 1.
+
+11:44.320 --> 11:45.900
+Well it's 0 1 1.
+
+11:46.120 --> 11:48.850
+So let's go ahead and run this again.
+
+11:48.850 --> 11:50.560
+So that's the same code.
+
+11:50.980 --> 11:54.010
+And let's see what happens.
+
+11:55.300 --> 11:57.510
+Remember the thing I said about not using floats.
+
+11:57.520 --> 12:01.350
+Well I made that mistake there because before I was using integers it didn't matter.
+
+12:01.360 --> 12:02.640
+In this case I'm using floats.
+
+12:02.650 --> 12:04.030
+I've got to be careful.
+
+12:04.030 --> 12:13.770
+So I probably should have also printed out x decimal to make sure I had that right.
+
+12:14.140 --> 12:14.620
+So there we go.
+
+12:14.620 --> 12:17.180
+So the X decimal is exactly zero 1.
+
+12:17.200 --> 12:21.030
+Before when I had this it wasn't right.
+
+12:21.070 --> 12:26.340
+It was actually this number here because I was pushing a float into the constructor.
+
+12:26.530 --> 12:29.280
+So I didn't get exactly 0 0 1.
+
+12:29.380 --> 12:30.910
+So that's an easy mistake to make.
+
+12:30.910 --> 12:32.610
+Be careful with it.
+
+12:32.620 --> 12:34.350
+All right let's run our calculations.
+
+12:34.420 --> 12:36.060
+And now let's run it again.
+
+12:36.190 --> 12:36.930
+There we go.
+
+12:37.120 --> 12:43.630
+So now rude decimal is exactly zero point 1 whereas the float version and the mixed version gave us
+
+12:43.780 --> 12:46.560
+this approximation to zero point 1.
+
+12:46.930 --> 12:50.520
+And so what happens when we Now multiply the results with each other.
+
+12:50.620 --> 12:57.450
+Then you can see that in the case of the floats in the mix we don't get 0.01 back exactly.
+
+12:57.670 --> 13:01.510
+Whereas in the decimal case we did we got 0.01 back.
+
+13:01.540 --> 13:03.270
+Exactly.
+
+13:03.280 --> 13:03.800
+All right.
+
+13:03.850 --> 13:06.430
+So that's it for the math operations.
+
+13:06.430 --> 13:13.510
+So just to recap you can use the math library and they're all functions and old math library that are
+
+13:13.510 --> 13:15.690
+not available in the decimal class.
+
+13:15.700 --> 13:17.950
+So there you don't have much of a choice.
+
+13:18.010 --> 13:20.400
+You're going to have to basically work with floats.
+
+13:20.410 --> 13:20.940
+Right.
+
+13:21.160 --> 13:27.180
+But the decimal class does implement a fairly large number of mathematical functions.
+
+13:27.190 --> 13:27.540
+All right.
+
+13:27.550 --> 13:29.690
+Thanks for watching and I'll see you in the next video.

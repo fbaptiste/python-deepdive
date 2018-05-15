@@ -1,0 +1,388 @@
+WEBVTT
+
+00:00.450 --> 00:05.310
+High in this video we're going to look at mathematical operations on decimals.
+
+00:05.490 --> 00:11.760
+Now some arithmetic operators don't work the same with decimals as they do with floats and integers.
+
+00:11.760 --> 00:16.560
+In particular I want to point out that the different model operators behave differently.
+
+00:17.130 --> 00:22.950
+And of course they do not function well as well since it just returns a total consisting of the mod
+
+00:23.160 --> 00:24.180
+results.
+
+00:24.600 --> 00:30.390
+So the different mod operators so satisfy the usual equation which I'm sure you never thought you'd
+
+00:30.390 --> 00:33.490
+see again but here it is nonetheless.
+
+00:33.540 --> 00:39.840
+So this equation that relates the div and mod operators still holds with decimals.
+
+00:39.840 --> 00:48.340
+That hasn't changed that's still there but for integers the div operator performs floored division in
+
+00:48.370 --> 00:54.530
+other words a div B is the floor of a divided by B for decimals.
+
+00:54.530 --> 01:03.390
+However it performs truncated division which means that a div B is the truncation of a divided by B.
+
+01:03.390 --> 01:06.710
+Now for positive matters for positive numbers that doesn't matter.
+
+01:06.810 --> 01:10.010
+But for negative numbers it does.
+
+01:10.080 --> 01:14.780
+So again those pesky negative numbers are creating problems.
+
+01:14.780 --> 01:15.990
+Let's take a look.
+
+01:16.410 --> 01:20.030
+If we just do regular integers tender of three we get three.
+
+01:20.190 --> 01:24.350
+And if we do Decimal the decimal three we get decimal 3.
+
+01:24.390 --> 01:26.380
+So that still works the same way.
+
+01:26.400 --> 01:32.720
+You'll notice by the way that we don't have to change the operator that div operator is basically polymorphic.
+
+01:32.720 --> 01:37.470
+It's you know like many things in Python it figures out that hey I'm working with decimal numbers.
+
+01:37.560 --> 01:43.950
+It's going to go and look for an implementation of this do method in the decimal class and use that
+
+01:43.950 --> 01:46.210
+if it finds it.
+
+01:46.220 --> 01:52.760
+Now if we look at negative 10 of 3 when we're working with integers we get negative 4 which is the flawed
+
+01:52.880 --> 02:00.680
+division of negative 10 divided by 3 but for decimals The result is negative 3 because it's the truncated
+
+02:00.680 --> 02:01.910
+division.
+
+02:01.910 --> 02:03.790
+So it's just something to keep in mind.
+
+02:03.950 --> 02:05.640
+It doesn't work the same way.
+
+02:05.750 --> 02:07.430
+Now why doesn't it work the same way.
+
+02:07.430 --> 02:09.190
+What was the reason behind this.
+
+02:09.200 --> 02:17.740
+Well it really boils down to how this integer division was defined in the decimal class.
+
+02:17.780 --> 02:25.070
+So let's take a look at how it's actually done and we have a divided by B that say the top row is called
+
+02:25.070 --> 02:31.010
+the dividend bottom is called the divisor So the algorithm works this way.
+
+02:31.030 --> 02:34.710
+It first figures out the sign of the result right.
+
+02:34.720 --> 02:37.510
+Is it going to be a positive result or a negative result.
+
+02:38.500 --> 02:42.910
+Then it uses the absolute values for both the divisor and the dividend.
+
+02:42.910 --> 02:46.600
+So basically it's trips of any negative signs.
+
+02:46.660 --> 02:50.630
+Then it keeps subtracting B from A.
+
+02:50.890 --> 02:55.820
+As long as a is greater than or equal to be once it's not.
+
+02:55.840 --> 03:02.740
+It then looks at the number of times the subtraction was performed and it returns that with the sign
+
+03:02.820 --> 03:05.010
+that was calculated initially.
+
+03:05.080 --> 03:06.820
+So let's take a look at an example.
+
+03:06.820 --> 03:13.000
+It's actually really quite simple and very elegant in how it actually performs integer division.
+
+03:13.000 --> 03:17.410
+So if we have 10 divided by three while the result is going to be positive.
+
+03:17.590 --> 03:21.520
+So we kind of put that aside and then we strip away any negative signs.
+
+03:21.520 --> 03:27.050
+There aren't any but we would in any case and now we start doing this subtraction.
+
+03:27.070 --> 03:28.820
+So 10 minus three is seven.
+
+03:28.930 --> 03:31.830
+Seven is still greater than equal to three.
+
+03:31.900 --> 03:33.150
+So we do this again.
+
+03:33.190 --> 03:35.160
+Seven minus three is now four.
+
+03:35.320 --> 03:37.750
+Four is greater than equal to three.
+
+03:37.750 --> 03:38.630
+Now we do it again.
+
+03:38.710 --> 03:40.460
+Four minus three is one.
+
+03:40.470 --> 03:42.310
+Now one is less than three.
+
+03:42.340 --> 03:43.740
+So now we stop.
+
+03:43.840 --> 03:47.850
+So we did this operation three times and the sign was positive.
+
+03:47.860 --> 03:50.470
+So we return 3.
+
+03:50.500 --> 03:54.880
+Now if we have negative 10 or 3 Well the first thing we do is we'll look at the result.
+
+03:54.880 --> 03:56.610
+The result is negative.
+
+03:56.620 --> 04:00.030
+Now we go ahead and we strip out any negative signs.
+
+04:00.040 --> 04:01.990
+So now we're left with 10 over 3.
+
+04:01.990 --> 04:06.210
+So basically it's the same calculation we did before we did 10 minus three or seven.
+
+04:06.210 --> 04:07.160
+Seven minus three.
+
+04:07.190 --> 04:09.310
+Four right.
+
+04:09.310 --> 04:12.010
+Four minus three is one we stop.
+
+04:12.100 --> 04:17.150
+Now we've done this calculation three times and the result is supposed to be negative.
+
+04:17.200 --> 04:19.840
+So we return negative 3.
+
+04:19.930 --> 04:21.530
+So that's that's how it's done.
+
+04:21.580 --> 04:24.760
+And basically it's the same as truncating the real division
+
+04:27.470 --> 04:33.650
+by the truncation of 10 divided by 3 is 3 and the truncation of negative 10 divided by three is also
+
+04:33.740 --> 04:36.440
+negative 3.
+
+04:36.540 --> 04:41.480
+But this equation here once more is still satisfied.
+
+04:41.580 --> 04:45.810
+I just want to point that out that's very important the relationship between the different mod operators
+
+04:46.020 --> 04:47.250
+has not changed.
+
+04:48.490 --> 04:54.670
+But of course since the way that the device performed for decimals that means that the mod is going
+
+04:54.670 --> 04:59.950
+to be different depending on whether and are integers and the decimals.
+
+04:59.950 --> 05:01.790
+So let's take a look at an example of that.
+
+05:01.810 --> 05:06.160
+And again this really matters when we have a negative number.
+
+05:06.250 --> 05:14.940
+So let's say that any equals negative 135 and D is for right for the numerator and denominator so minus
+
+05:15.030 --> 05:27.610
+135 for using integers is negative 34 but using decimals it's negative 33 not calculate the mod negative
+
+05:27.610 --> 05:33.860
+135 not for this one but when we use decimals it's negative 3.
+
+05:33.940 --> 05:40.810
+So very different results but this result is still satisfied if we calculate it for the integer four
+
+05:40.810 --> 05:42.630
+times negative thirty four plus one.
+
+05:42.640 --> 05:49.990
+That gives us negative 135 which is our original numerator and if we do it for decimals we have four
+
+05:49.990 --> 05:58.010
+times negative 33 plus negative 3 which is still negative 135.
+
+05:58.010 --> 06:00.290
+Now what about other mathematical operations.
+
+06:00.290 --> 06:06.590
+Well the decimal class actually defines a bunch of various mathematical operations like square root
+
+06:06.950 --> 06:11.980
+different logs base 10 base e or arbitrary bases and so on.
+
+06:12.320 --> 06:17.360
+But you know if you look at the functions that are defined in the math model you won't find all of them
+
+06:17.360 --> 06:19.390
+in the decimal class some of them are not there.
+
+06:19.390 --> 06:24.060
+For example the trick and metric functions aren't defined in the decimal class.
+
+06:24.290 --> 06:28.170
+Usually for finance and banking it probably doesn't matter that much.
+
+06:29.490 --> 06:37.070
+Now we can use the math model right so you can still apply functions from the math module to decimals.
+
+06:37.230 --> 06:43.080
+But keep in mind that what will happen is that it's going to take the DSM or cast it as a float and
+
+06:43.080 --> 06:45.480
+then perform the operation.
+
+06:45.480 --> 06:51.000
+So if you were to use the square root function then if you were to use the square root function in the
+
+06:51.030 --> 06:57.150
+math model it's really going to take the square root of the floating representation of that decimal
+
+06:57.150 --> 07:04.260
+number as opposed to taking the square root that's defined in the decimal class which will then use
+
+07:04.500 --> 07:07.100
+decimal numbers to perform that operation.
+
+07:08.210 --> 07:14.000
+Now so you can use the math module but you kind of lose the whole precision mechanism that was the reason
+
+07:14.000 --> 07:16.420
+for using decimals in the first place.
+
+07:16.430 --> 07:22.460
+So typically if you're going to do math operations on decimal numbers you going avoid the math model
+
+07:22.910 --> 07:26.880
+unless you really have to because you don't have a decimal equivalent.
+
+07:29.680 --> 07:33.330
+So let's take a look at an example of why it matters.
+
+07:33.610 --> 07:39.960
+So let's say that we set up precision context precision to 28 and let's take a look at X equal to zero
+
+07:39.970 --> 07:41.320
+point zero 1.
+
+07:41.350 --> 07:49.390
+So this X is a float and then we look at the equivalent decimal as decimal 0 1 0 1 missing a closing
+
+07:49.390 --> 07:51.500
+quote there.
+
+07:51.750 --> 07:55.110
+So let's take the route using the math module.
+
+07:55.250 --> 08:03.090
+So math that square root of x and then we'll look at a mixed version where we take the square root from
+
+08:03.090 --> 08:09.600
+the math module but we apply it to the decimal version of X and then finally we'll take a look at the
+
+08:09.600 --> 08:12.480
+square root using the decimal classes.
+
+08:12.510 --> 08:17.110
+Square root function and we call it this way we have the number the object.
+
+08:17.130 --> 08:19.460
+And then we call the square root method.
+
+08:20.980 --> 08:26.780
+So if we print the root which is the float version we get those values here.
+
+08:27.070 --> 08:29.490
+As expected it's not exact.
+
+08:29.720 --> 08:35.090
+If we use the mixed method if we look at what happens with the mixed method Well we get the same result
+
+08:35.150 --> 08:42.110
+because what happened basically is that it converted the decimal 0.01 to its float equivalent which
+
+08:42.110 --> 08:44.750
+is an approximation and then took the square root.
+
+08:45.140 --> 08:50.420
+On the other hand with the root decimal which was using the decimal implementation of the square root
+
+08:50.750 --> 08:53.370
+we get exactly zero point 1.
+
+08:53.840 --> 08:59.000
+And of course if we now take the numbers and multiply them of each other we should get back our original
+
+08:59.000 --> 08:59.740
+number.
+
+08:59.990 --> 09:04.940
+Well the floats we don't write we get something that's close to it but not exactly the same.
+
+09:04.940 --> 09:11.210
+Because while we were already just on the square with itself and the same thing here with the mixed
+
+09:11.210 --> 09:16.240
+method because things did get converted to floats so we have the same result.
+
+09:16.250 --> 09:22.370
+However look at the decimal version we get exactly 0 1 0 0 1 back.
+
+09:22.370 --> 09:26.100
+So it's a more precise calculation and a more precise representation.
+
+09:27.050 --> 09:29.990
+So next we'll look at the code and we'll do that in the next video.
+
+09:29.990 --> 09:32.030
+Thanks for watching and I'll see you in a bit.

@@ -1,0 +1,430 @@
+WEBVTT
+
+00:00.600 --> 00:06.750
+High in this video we're going to take a look at the last little bit of functionality that we have to
+
+00:06.750 --> 00:09.600
+define parameters for functions.
+
+00:09.930 --> 00:16.970
+So let's take a look at this stop star Cong's which really stands for key word arguments.
+
+00:17.160 --> 00:24.200
+So does recall that star args is used to scoop up a variable amount of remaining positional arguments
+
+00:24.300 --> 00:30.090
+so you can define specific positional arguments and then you can scoop up any additional ones that the
+
+00:30.090 --> 00:34.220
+user may provide when they call the function by using Starns.
+
+00:34.230 --> 00:41.520
+Now of course this returns a topple it's going to be you know stored inside a table and the name itself
+
+00:41.520 --> 00:42.430
+is arbitrary.
+
+00:42.540 --> 00:46.370
+Right the real stuff here the real performer is Stosh.
+
+00:46.470 --> 00:47.200
+OK.
+
+00:47.640 --> 00:50.480
+Now Stockwell's is kind of the same thing.
+
+00:50.490 --> 00:55.080
+It's used to scoop up a variable amount of remaining keyword arguments.
+
+00:55.080 --> 01:02.730
+So the single star scoops up the positional arguments and the double stuff scoops up the keyword arguments
+
+01:03.570 --> 01:08.870
+and it will be stored in a dictionary under the name of whatever variable name you use here.
+
+01:09.090 --> 01:16.710
+It is customary to use KW for keyword args But again you can change that depending on the context you're
+
+01:16.710 --> 01:19.050
+in it may make more sense to call it something else.
+
+01:20.070 --> 01:22.270
+So again the parameter name is arbitrary.
+
+01:22.320 --> 01:26.680
+The real performer here the real star is the double stuff.
+
+01:27.090 --> 01:33.360
+So the thing is that the double star can be specified even if the positional arguments have not been
+
+01:33.360 --> 01:34.200
+exhausted.
+
+01:34.230 --> 01:34.520
+Right.
+
+01:34.530 --> 01:41.190
+Which is unlike the keyword only arguments that we saw in the last lecture where you first had to exhaust
+
+01:41.250 --> 01:49.360
+your positional arguments before you could start essentially defining keyword only arguments with starstuff.
+
+01:49.470 --> 01:55.800
+You can actually put that even if you haven't defined anything that exhausts the positional arguments
+
+01:55.800 --> 01:57.290
+like a star or a star.
+
+01:57.280 --> 02:04.970
+Args for example and the only other thing too is that no parameters can come after the Stillstand.
+
+02:04.980 --> 02:12.310
+KW X kind of makes sense because while the named arguments the keyword only arguments have to come last.
+
+02:12.420 --> 02:17.850
+And this Coop's up anything that wasn't actually specifically defined as a keyword only argument.
+
+02:18.000 --> 02:21.070
+So therefore you can have other arguments after that.
+
+02:21.090 --> 02:23.590
+That's kind of the end of the line.
+
+02:24.420 --> 02:27.150
+So let's look at an example that will be easier to understand.
+
+02:27.360 --> 02:29.400
+So we can define this function this way.
+
+02:29.400 --> 02:29.690
+Right.
+
+02:29.700 --> 02:33.210
+So we have to stand here basically remember what this does.
+
+02:33.240 --> 02:39.150
+It basically says we don't have any positional arguments in this method because we don't have any defined
+
+02:39.150 --> 02:44.470
+before the star and star essentially indicates the end of positional arguments.
+
+02:44.670 --> 02:52.330
+Then we have a keyword only argument called D which is mandatory because it has no default value.
+
+02:52.560 --> 02:57.990
+And then we scoop up any remaining ones that may be present when the function is called in the arguments
+
+02:58.950 --> 03:05.040
+so we can call it this way we can say func equals one but we need to put Diggles one and then we have
+
+03:05.100 --> 03:07.050
+equals two and B was three.
+
+03:07.050 --> 03:10.820
+Now the order of those as usual with keyword arguments doesn't matter.
+
+03:11.900 --> 03:17.390
+And in this case what we'll get is that D will be equal to 1 and then this parameter is here.
+
+03:17.390 --> 03:26.150
+KW X is going to have these remaining two keyword arguments in a dictionary where the key of the dictionary
+
+03:26.150 --> 03:31.880
+will be the key right of the keyword argument and the value will be the value that you provided.
+
+03:31.940 --> 03:39.920
+Hence the name keyword arguments and func equals one and you can do that as well since again the start
+
+03:40.000 --> 03:45.790
+doesn't mandate that additional keyword arguments have to be present only that they can be present.
+
+03:46.000 --> 03:47.350
+And then it will just keep them up.
+
+03:47.350 --> 03:52.600
+So in this case we'll get Diggles one and Kate and will just be an empty dictionary.
+
+03:54.420 --> 04:00.630
+Good get another example of course we don't even have to specify anything before the stound stuff.
+
+04:00.910 --> 04:06.970
+As I mentioned in the slide you don't have to exhaust all your positional parameters before putting
+
+04:06.970 --> 04:10.020
+that in Python will automatically understand that.
+
+04:10.030 --> 04:10.600
+OK.
+
+04:10.660 --> 04:17.050
+From this point forward I'm only looking for keyword arguments so you can call the function this way
+
+04:17.140 --> 04:23.200
+in which case care that we args will just be that dictionary with those key value pairs and then you
+
+04:23.200 --> 04:28.810
+can go phunk without anything in which case the Kieta will just be an empty dictionary.
+
+04:30.100 --> 04:31.260
+You could also do this.
+
+04:31.270 --> 04:37.110
+You can say Starns comma style Stockwell's And so what that's going to do.
+
+04:37.300 --> 04:43.900
+It's going to collect to collect all the positional arguments into a table and all the keyword arguments
+
+04:44.170 --> 04:45.820
+into a dictionary.
+
+04:45.820 --> 04:52.390
+So here if we call it this way then odds will be the top all one and containing 1 and 2 and Kate answered
+
+04:52.390 --> 04:57.670
+with a dictionary containing the key value pairs for a and b.
+
+04:57.920 --> 05:02.330
+We can also of course again call it with no parameters at all no arguments at all.
+
+05:02.330 --> 05:07.490
+Since each one of those doesn't mandate a positional or a keyword argument.
+
+05:07.640 --> 05:12.850
+And so here we would end up with an empty top of arms and an empty dictionary for KW.
+
+05:14.080 --> 05:17.020
+So let's take a quick look at some code to see this in action.
+
+05:17.020 --> 05:23.890
+So let's start by looking at the Cong's functionality so we can just define it this way.
+
+05:23.890 --> 05:27.040
+Now again this doesn't have to be called KW.
+
+05:27.310 --> 05:30.650
+That's the general way that we name it.
+
+05:30.940 --> 05:36.240
+But it's just a convention you can use something else if it makes more sense in your context.
+
+05:36.340 --> 05:41.440
+So I'll use for example C in this case you probably wouldn't want to use something like.
+
+05:41.490 --> 05:46.270
+And by the way because that's going to be confusing to people because usually they're expecting Starns
+
+05:46.300 --> 05:47.860
+not Stanstead.
+
+05:48.040 --> 05:53.310
+So it at the very least don't use that use something else if you want to like maybe others.
+
+05:53.350 --> 05:53.680
+Right.
+
+05:53.710 --> 05:55.230
+But you go upstairs to others.
+
+05:55.510 --> 06:00.200
+And we're just going to print that out so we'll print the variable out.
+
+06:00.340 --> 06:05.470
+And now you can call this function with as many keyword arguments as you want.
+
+06:05.470 --> 06:11.920
+So April's one equals two equals three whatever you want and then you'll get that others will become
+
+06:11.920 --> 06:16.910
+a dictionary with the key value pairs being the key and the value of your keyword arguments.
+
+06:16.910 --> 06:19.050
+So pretty straightforward.
+
+06:19.210 --> 06:24.580
+Now if you want you can of course combine doubles down with the star as well so we can do something
+
+06:24.580 --> 06:25.250
+like this.
+
+06:25.260 --> 06:35.860
+There funk and stuff stars black box and will print on us and will print Congress.
+
+06:36.880 --> 06:38.000
+So by doing this.
+
+06:38.020 --> 06:42.940
+Well here what we're saying is that we have an arbitrary number of positional arguments and here we
+
+06:42.940 --> 06:46.720
+have keyword only arguments an arbitrary number of them as well.
+
+06:46.840 --> 06:47.990
+So we can call it this way.
+
+06:47.990 --> 06:51.000
+You could say one comic to as many as we want.
+
+06:51.100 --> 06:54.550
+And then at some point we can switch over to keyword arguments.
+
+06:54.670 --> 06:58.680
+So we might say X equals 100 y equals two hundred.
+
+06:58.700 --> 07:01.470
+Now you can cannot at this point.
+
+07:01.540 --> 07:03.970
+Now back to positional arguments right.
+
+07:04.030 --> 07:08.620
+You try and do this you'll just get an error that tells you that the positional argument follows a keyword
+
+07:08.620 --> 07:10.750
+argument that's not allowed.
+
+07:10.750 --> 07:16.150
+So you have to specify your positional arguments first exhaust them and then move on to your keyword
+
+07:16.150 --> 07:16.840
+arguments.
+
+07:17.050 --> 07:23.050
+So when we do that you'll see that one in two went into the top hole and X and Y went into the Kwan's
+
+07:23.200 --> 07:24.340
+dictionary.
+
+07:24.340 --> 07:26.320
+So pretty straightforward.
+
+07:26.320 --> 07:30.940
+Now of course if you want you don't have to use stuff you can use actual positional.
+
+07:31.690 --> 07:37.390
+So we can say let's say a and b are two positional parameters and let's say Now you want to collect
+
+07:37.690 --> 07:40.600
+your keyword arguments using a stop start.
+
+07:40.900 --> 07:45.310
+Now remember when we were doing the section on Star args.
+
+07:45.310 --> 07:52.780
+Then if you wanted to name a keyword only argument you had to use a start to indicate that this is the
+
+07:52.870 --> 07:55.930
+end of the line for positional arguments.
+
+07:55.930 --> 07:58.790
+Now we're still asking.
+
+07:58.870 --> 08:00.540
+Let's say I want to do this.
+
+08:00.610 --> 08:05.680
+This is actually not going to work because this already basically says hey there are no more positional
+
+08:05.680 --> 08:08.830
+arguments after this point because that's already known right.
+
+08:08.830 --> 08:15.400
+Once we start using keyword only arguments then all the positional arguments are no longer allowed after
+
+08:15.400 --> 08:16.260
+that point.
+
+08:16.270 --> 08:21.200
+So if we try and do something like this I'll show you what happens.
+
+08:23.420 --> 08:25.310
+So we'll just print all the variables out.
+
+08:25.340 --> 08:29.350
+We get this that named arguments must follow a base star.
+
+08:29.570 --> 08:35.960
+So the only time you would want to use this is if you want to have a name a specific named keyword argument
+
+08:36.470 --> 08:37.780
+in that position.
+
+08:38.000 --> 08:39.290
+That will work just fine.
+
+08:39.310 --> 08:46.100
+Because now you can call the function saying one from a to d is going to be called to maybe 20 and then
+
+08:46.130 --> 08:48.410
+X will be 100 and y will be 200.
+
+08:48.410 --> 08:50.330
+That will be the additional ones.
+
+08:50.370 --> 08:52.970
+Also the order of this doesn't matter.
+
+08:52.970 --> 08:53.400
+Right.
+
+08:53.540 --> 08:56.310
+If we want we can specify Dean over here.
+
+08:56.390 --> 09:01.130
+That's perfectly fine and so we end up with a equal to one equal to two.
+
+09:01.310 --> 09:02.740
+And then the dictionary.
+
+09:02.750 --> 09:05.710
+Of course we didn't print this but the dictionary contains X and Y.
+
+09:05.900 --> 09:09.250
+So let's go ahead and print the rerun.
+
+09:09.290 --> 09:11.960
+And there we go D is 20 k.
+
+09:12.620 --> 09:20.800
+So if you want to have only Stasiak was but no named keyword only arguments then you could do this.
+
+09:20.810 --> 09:27.760
+Right so a comma Baeza will start with our positional arguments and then would just directly write starstuff
+
+09:27.800 --> 09:28.750
+quote.
+
+09:29.430 --> 09:37.610
+They will print beam and then will print Kwan's.
+
+09:37.970 --> 09:43.640
+And so now you can call the function say 1 2 and then x equals 100 y equals 300.
+
+09:43.970 --> 09:51.200
+And when we execute that we get as expected is one these two and then Kwan's is the dictionary containing
+
+09:51.200 --> 09:54.430
+the x and y keyword pairs.
+
+09:55.590 --> 10:01.010
+OK on this other things that you can do to kind of play around with the star.
+
+10:01.100 --> 10:07.290
+The stars are quads and we'll get into that into the next video when we'll look at putting everything
+
+10:07.290 --> 10:10.150
+together and we'll kind of recap everything we've seen so far.
+
+10:10.380 --> 10:15.150
+But again I urge you to just play around to find Neal simple functions like this.
+
+10:15.150 --> 10:20.100
+Would you just print out the parameters you open up the values I should say that you'd get in those
+
+10:20.100 --> 10:25.440
+parameters in the function and see what you can or can't do and how it kind of works.
+
+10:25.440 --> 10:25.910
+All right.
+
+10:25.950 --> 10:28.190
+Thanks for watching and I'll see you in the next video.

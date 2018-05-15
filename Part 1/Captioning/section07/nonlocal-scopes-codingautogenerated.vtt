@@ -1,0 +1,613 @@
+WEBVTT
+
+00:01.260 --> 00:01.870
+High.
+
+00:02.100 --> 00:09.030
+So let's take a look at non-locals scope's and we saw with gogle scopes that a function can access a
+
+00:09.030 --> 00:11.770
+global scope variable from inside the function.
+
+00:12.150 --> 00:19.020
+But if you nest functions then in nested functions can also access variables defined in the outer function.
+
+00:19.020 --> 00:20.590
+So let's look at an example.
+
+00:20.850 --> 00:27.010
+Let's say we have our funk and we're going to define a variable here.
+
+00:27.300 --> 00:30.240
+Now we're doing an assignment out of phunk.
+
+00:30.240 --> 00:36.300
+This means that Python is looking at this x and saying it's local 2 out of phunk it's just created a
+
+00:36.300 --> 00:43.350
+local variable and it set it to hello or actually it actually set the label X to reference the object
+
+00:43.380 --> 00:44.620
+hello in memory somewhere.
+
+00:44.790 --> 00:46.880
+Since everything is a memory reference.
+
+00:47.130 --> 00:53.900
+Now we can go ahead and define an in a function that we're creating now inside out of func.
+
+00:54.000 --> 00:58.520
+So it will get created when out of func is called K.
+
+00:58.890 --> 01:01.230
+And all we're going to do here is print x.
+
+01:01.230 --> 01:07.620
+Now you'll notice that we haven't defined x inside in a funk but you will still see the X that's in
+
+01:07.770 --> 01:16.330
+Alt-A funk and so let's go ahead and then we're going to cope in a funk from inside out of funk.
+
+01:16.470 --> 01:23.580
+So now when we call art of Funk what will happen is the following X which was defined to be and determined
+
+01:23.700 --> 01:24.950
+really to be local.
+
+01:24.950 --> 01:27.900
+Two out of funk will be assigned the value hello.
+
+01:28.110 --> 01:31.840
+Then in a funk is going to be created not executed.
+
+01:31.850 --> 01:36.500
+It will be created and this X here that's used inside in a funk.
+
+01:36.660 --> 01:42.330
+Python is going to realize that this is not a local variable because there wasn't an assignment inside
+
+01:42.360 --> 01:49.980
+in a funk to X so x is a non local variable then we call in a funk.
+
+01:49.980 --> 01:51.240
+At that time.
+
+01:51.360 --> 01:53.810
+Then in a funk will be executed.
+
+01:53.900 --> 01:59.840
+And at that time I thought go and look up the value of x and it will look for it in an enclosing scope.
+
+01:59.850 --> 02:04.030
+In this case it's going to find it right away in the out of phunk scope.
+
+02:04.050 --> 02:07.500
+So now when we call out of funk we see Halo.
+
+02:07.560 --> 02:09.330
+So it worked perfectly fine.
+
+02:10.790 --> 02:13.780
+Now you can of course that's more than just one level.
+
+02:13.820 --> 02:14.150
+Right.
+
+02:14.150 --> 02:16.540
+This works at different levels as well.
+
+02:16.550 --> 02:20.200
+So we can have outer functions redefined out of funk.
+
+02:20.630 --> 02:26.620
+We're going to define Xon out of funk and now we're going to have another one.
+
+02:26.920 --> 02:33.140
+And here's all we're going to do is we're going to define another function in that too.
+
+02:33.250 --> 02:33.590
+Right.
+
+02:33.590 --> 02:36.470
+So that too is going to be inside in a one.
+
+02:36.710 --> 02:39.530
+And here we're going to say print x.
+
+02:39.670 --> 02:40.270
+OK.
+
+02:40.640 --> 02:48.020
+And then after a two has been defined We're going to actually run into two from in a one.
+
+02:48.020 --> 02:53.110
+So we still have to call in one from inside out of funk.
+
+02:53.150 --> 02:54.630
+So notice what's happening here.
+
+02:54.830 --> 03:02.810
+We are defining out of funk when we run out of funk it will go ahead create X it will then define in
+
+03:02.810 --> 03:06.470
+a one in a one defined in two.
+
+03:06.500 --> 03:07.670
+But it hasn't run yet.
+
+03:07.670 --> 03:09.890
+So that definition hasn't occurred.
+
+03:09.890 --> 03:18.170
+What happens is that after we invoke in a one or call in a one then it gets called that it will define
+
+03:18.170 --> 03:21.200
+in a two way and run it yet until we hit.
+
+03:21.200 --> 03:23.980
+Now this line which calls in the two.
+
+03:24.020 --> 03:28.090
+So it's just a way of nested calling structure essentially.
+
+03:28.100 --> 03:31.880
+So now if we call out a funk we get hello.
+
+03:31.910 --> 03:38.490
+So it was able to basically navigate two levels up and the non-locals Kobes until it found.
+
+03:38.560 --> 03:40.260
+Hello.
+
+03:40.300 --> 03:47.980
+Now Python will determine if something is local or not based on whether it's been assigned in the function.
+
+03:47.980 --> 03:54.310
+So if we do this step order funk and we'll go back to just one level of testing.
+
+03:54.460 --> 03:55.620
+Let's say we have exit.
+
+03:55.630 --> 04:04.390
+Hello and then we're going to say deaf ear and for an hour we're going to redefine X and say x is equal
+
+04:04.390 --> 04:14.560
+to let's say Python and here we're going to print in an X so we know that we're printing X from inside
+
+04:14.560 --> 04:16.780
+the inner function.
+
+04:16.810 --> 04:21.250
+Next we're going to call it right from inside out of funk.
+
+04:21.640 --> 04:26.130
+And then after a has run we're going to print.
+
+04:26.590 --> 04:30.670
+And then we'll print the value of x.
+
+04:30.700 --> 04:37.050
+So what will happen now if we call out of book it's going to run out of phunk now right out of function
+
+04:37.050 --> 04:37.990
+or is it defined.
+
+04:37.990 --> 04:41.640
+I hit shift enter on the cells so defined it already.
+
+04:41.710 --> 04:43.100
+Now I'm calling it.
+
+04:43.120 --> 04:47.020
+So at that point it assigns hello to x.
+
+04:47.230 --> 04:53.420
+It then creates the inner function hasn't run it yet just creates it.
+
+04:53.560 --> 04:56.320
+Now it calls in at that point.
+
+04:56.350 --> 05:02.020
+This code runs but when it was created not run when it was created.
+
+05:02.050 --> 05:05.970
+Python looked at this code and so on assignment to x.
+
+05:05.980 --> 05:09.210
+So it's an ok x is a local variable.
+
+05:09.490 --> 05:14.300
+So this X over here is not the same as the x over here.
+
+05:15.180 --> 05:20.100
+This erks essentially is masking the x from the outer enclosing scope.
+
+05:20.130 --> 05:24.590
+So when we print X from inside in here we will print Python.
+
+05:24.810 --> 05:33.000
+But when we then print x an hour well X it will be this one over here which was not modified the X and
+
+05:33.270 --> 05:34.680
+X were different.
+
+05:34.770 --> 05:41.560
+So now when we call out of phunk we see that in our printed Python and our still remained and spool
+
+05:41.570 --> 05:43.070
+printed Hello.
+
+05:43.620 --> 05:51.780
+So now if we want to actually make this assignment here modify the X from out of phunk we have to explicitly
+
+05:51.780 --> 05:55.220
+tell Python that this is a non-local variable.
+
+05:55.290 --> 05:56.760
+Just like we did with Global's.
+
+05:56.790 --> 06:02.040
+Remember if we wanted to modify a global variable from inside a function we have to explicitly tell
+
+06:02.040 --> 06:08.190
+Python this is a global variable we have to say global What with a variable name was.
+
+06:08.300 --> 06:10.530
+So in this case we're going to do exactly the same thing.
+
+06:10.530 --> 06:14.590
+So I'm going to copy and paste this function exactly as is.
+
+06:14.760 --> 06:21.180
+The only thing I'm going to add is I'm going to tell Python X in this inner function is non-local.
+
+06:21.180 --> 06:27.750
+In other words look for it somewhere up the chain not happens to be just one level up but it could be
+
+06:27.840 --> 06:31.830
+me on multiple levels up and we'll see an example of that.
+
+06:31.830 --> 06:37.620
+So now when we define this out of function and if we call it not we run it.
+
+06:37.620 --> 06:44.320
+What will happen is that when it gets cold over here right then it will actually modify Python.
+
+06:44.340 --> 06:48.050
+So to see this let's go ahead and print out.
+
+06:48.350 --> 06:54.070
+And let's say before K will print X and this is before calling in.
+
+06:54.090 --> 07:01.290
+Right so actually let's do it here because it really only matters when we call in.
+
+07:01.410 --> 07:02.540
+Right.
+
+07:02.910 --> 07:06.310
+So we're going to print x before we call in.
+
+07:06.480 --> 07:13.410
+And then we're going to print X again after we have called in.
+
+07:13.900 --> 07:17.020
+So let's go ahead now and run this function.
+
+07:17.020 --> 07:20.710
+And as you can see out before printed Hello.
+
+07:20.740 --> 07:20.980
+Yeah.
+
+07:20.980 --> 07:22.340
+Because that's what X was.
+
+07:22.570 --> 07:28.360
+Then we called in and in a set x to python but it was a non-local x.
+
+07:28.360 --> 07:35.500
+So Peiffer went ahead and looked and found X Xon out of phunk so inside her X this python obviously
+
+07:35.500 --> 07:37.240
+since we said X to Python.
+
+07:37.420 --> 07:43.600
+But once we finished running then the X and out of phunk was actually modified inside.
+
+07:43.630 --> 07:46.840
+And as you can see the x value is still Python.
+
+07:46.850 --> 07:52.930
+It was changed as opposed to this example where we didn't define X to be non-local.
+
+07:52.960 --> 08:00.490
+So again if you have an assignment then Python will consider this to be a local variable unless you
+
+08:00.570 --> 08:03.680
+this pacifically declare it to be non-local.
+
+08:03.850 --> 08:07.390
+That's the really the crux of this whole thing.
+
+08:07.450 --> 08:12.310
+Now you can of course go non-local more than one level up.
+
+08:12.310 --> 08:18.330
+So what I mean by this is let's go ahead and create art out of phunk again let's say X equals hello
+
+08:18.970 --> 08:29.740
+and let's define an in a function in a one k and then inside of that I'm going to say print and we'll
+
+08:29.740 --> 08:32.500
+say in one.
+
+08:32.920 --> 08:36.000
+We'll go ahead and print x.
+
+08:36.400 --> 08:40.510
+Then we're going to define in a two and an in a two.
+
+08:40.500 --> 08:42.700
+We're going to say non-local X.
+
+08:42.940 --> 08:43.580
+Right.
+
+08:43.750 --> 08:48.220
+And actually you know what I'm going to remove X from this all together so as not to muddy the waters.
+
+08:48.250 --> 08:52.560
+Let's just keep it very simple and I'm going to set X equal to Python.
+
+08:52.720 --> 08:53.450
+OK.
+
+08:53.920 --> 08:59.570
+And I'm not even going to print x here with no it's just going to be Python.
+
+08:59.740 --> 09:04.290
+So after a two has been defined We're going to call in at two right.
+
+09:04.300 --> 09:07.850
+We're inside in a one and after we've defined in a once or.
+
+09:07.860 --> 09:10.310
+Now we're back in the outer function.
+
+09:10.450 --> 09:12.400
+We're going to call in a one.
+
+09:12.640 --> 09:15.500
+And now we're going to print x.
+
+09:16.210 --> 09:20.860
+So if we Nakul order what you'll see is that X is python.
+
+09:21.070 --> 09:23.540
+And it was modified to levels deep.
+
+09:23.620 --> 09:26.580
+So there was no x defined in a 1 right.
+
+09:26.590 --> 09:28.320
+X wasn't in a 1.
+
+09:28.540 --> 09:30.670
+X was defined in a.
+
+09:30.880 --> 09:32.770
+But it was declared as non-local.
+
+09:32.860 --> 09:37.760
+So this X here in Python looked inside in 0 1 didn't find x.
+
+09:37.930 --> 09:40.690
+So it goes one level up finds x.
+
+09:40.780 --> 09:41.890
+Ok fine.
+
+09:41.920 --> 09:43.290
+So excess Partho.
+
+09:43.780 --> 09:49.080
+And so this halo here was changed from inside in a to so we were two levels deep.
+
+09:49.090 --> 09:50.860
+Once the change occurred.
+
+09:51.160 --> 09:55.330
+Now we can make non-local had different nesting levels as well.
+
+09:55.330 --> 10:00.100
+So if we go back and take this example I'm just going to copy paste it.
+
+10:00.700 --> 10:04.540
+And now in a one I'm going to say non-local X as well.
+
+10:04.540 --> 10:07.390
+And I'm going to say x is equal to Python.
+
+10:07.690 --> 10:13.550
+At in in 0 1 and then in a two I'm going to change x to Monte K..
+
+10:13.870 --> 10:16.660
+Now after we've finished running everything.
+
+10:16.720 --> 10:19.780
+Let's see what the value of x is.
+
+10:20.890 --> 10:29.590
+And as you both guessed it's Montie because in two when we ran it well when inat to defined Python so
+
+10:29.650 --> 10:30.900
+non-local exercise.
+
+10:30.940 --> 10:31.440
+OK.
+
+10:31.450 --> 10:37.700
+So I need to look for X up a level and it found it because non-local X means it's here.
+
+10:37.750 --> 10:44.350
+So basically it's Think of it as a chain or just think of it as this X going directly to the X in the
+
+10:44.350 --> 10:50.920
+outer function because really this non-local X and this non-local X are both referring to this.
+
+10:51.070 --> 10:56.980
+So it's not that this x points to this X and this one points to this one this x points to this one and
+
+10:56.980 --> 11:02.970
+this x points to this one because X is what's called the free variable will get to those later on in
+
+11:02.980 --> 11:04.420
+a one.
+
+11:04.510 --> 11:07.550
+However you look at it it doesn't matter it's just equivalent.
+
+11:07.630 --> 11:13.290
+Depends how you prefer understanding the chain of non-locals.
+
+11:13.300 --> 11:19.540
+Now one thing I want to point out is that if you do something like this def outer and let's go ahead.
+
+11:19.540 --> 11:24.290
+Sorry First make a global variable let's call it X and let's say that call Licata Python.
+
+11:24.400 --> 11:27.260
+So now we got a global variable x called Python right.
+
+11:27.260 --> 11:30.100
+We can just print out we see Python.
+
+11:30.160 --> 11:32.510
+Now let's go ahead and find out.
+
+11:32.920 --> 11:36.460
+And here we're going to say global x.
+
+11:36.550 --> 11:37.070
+OK.
+
+11:37.220 --> 11:44.720
+And we're going to set X equal to let's say Monte and then we're going to define an in a function.
+
+11:45.150 --> 11:53.900
+And inside this in a function we're going to say non local x and then we're going to set X equal to.
+
+11:53.970 --> 11:55.440
+Hello.
+
+11:57.300 --> 12:01.630
+And then after that's done we're going to try and print X from inside out.
+
+12:01.890 --> 12:06.420
+And then we'll see if we can print X to see the global variable x.
+
+12:06.630 --> 12:13.110
+But there's a problem here right because we're telling in-air that X is non-local.
+
+12:13.110 --> 12:18.990
+So Python is going to look but it's only looking in the local scopes and it's going to go up one level.
+
+12:18.990 --> 12:24.450
+There's a local scope right here Altro has a local scope and is going to look for X in the local scope
+
+12:24.540 --> 12:29.830
+of our But it doesn't contain x x is the global x.
+
+12:29.870 --> 12:35.660
+So X doesn't actually belong to our local scope it belongs to the global scope.
+
+12:35.660 --> 12:39.770
+This is just a label saying hey this X is the global variable.
+
+12:40.160 --> 12:44.550
+So if we try and execute this then Python tells us I can't do this.
+
+12:44.570 --> 12:49.880
+I couldn't find a binding I couldn't find the non-local X it didn't exist.
+
+12:50.240 --> 12:55.240
+Now if we didn't have this in here right we didn't have that then.
+
+12:55.280 --> 13:01.880
+Even though we have x' Python which is the global variable this would now be a local variable that would
+
+13:01.880 --> 13:05.720
+mask the global variable because Python sees the assignment.
+
+13:05.720 --> 13:09.030
+There is no global or non-local declaration for X.
+
+13:09.110 --> 13:14.540
+In fact non-local wouldn't work because there is no local scope outside of our it's running directly
+
+13:14.540 --> 13:16.050
+in the model.
+
+13:16.130 --> 13:18.190
+But this one is local to our.
+
+13:18.230 --> 13:19.770
+So this will work just fine.
+
+13:19.850 --> 13:22.100
+Right and if we execute our
+
+13:27.100 --> 13:31.350
+then we'll see that it printed Montie right from our.
+
+13:31.600 --> 13:34.020
+So because we didn't execute in it.
+
+13:34.090 --> 13:37.050
+So sorry let's go ahead and execute in a no.
+
+13:37.810 --> 13:45.190
+And if we were on that then we see that the X in our 2 has changed to hello because we change it when
+
+13:45.190 --> 13:46.650
+we cold enter.
+
+13:46.910 --> 13:53.750
+Right but if we now print X which is the Global X that stayed Python.
+
+13:53.800 --> 13:59.530
+So in this case here if you have global x and this here won't work.
+
+13:59.560 --> 14:04.200
+If you in that case you really just have to say it's global right.
+
+14:04.270 --> 14:09.850
+If it's if you're trying to reference the global variable x Don't try and say I'm going to reference
+
+14:10.180 --> 14:12.960
+the non-local X which is itself the global x.
+
+14:12.970 --> 14:15.850
+No you have to go directly to global k.
+
+14:15.970 --> 14:21.430
+So that's why you're probably better off thinking of this as going directly to something rather than
+
+14:21.430 --> 14:23.420
+a chain because it's not a chain.
+
+14:23.470 --> 14:24.040
+Right.
+
+14:24.070 --> 14:30.880
+X when you say non-local X it's not going to find this X in here and then say OK but this X is the global
+
+14:30.900 --> 14:34.030
+x that won't work as we saw.
+
+14:34.040 --> 14:34.530
+All right.
+
+14:34.610 --> 14:36.880
+Thanks for watching and I'll see you in the next video.

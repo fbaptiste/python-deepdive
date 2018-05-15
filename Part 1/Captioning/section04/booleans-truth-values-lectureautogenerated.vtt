@@ -1,0 +1,406 @@
+WEBVTT
+
+00:00.730 --> 00:05.560
+High in this video we're going to continue looking at booleans and in particular we're going to look
+
+00:05.560 --> 00:11.530
+at object truth values objects have an associated truth value in Python.
+
+00:11.650 --> 00:16.000
+And in fact all objects have an associated truth value.
+
+00:16.000 --> 00:22.960
+We saw this in the last video with integers we saw that for example bull of zero would return false
+
+00:23.080 --> 00:30.670
+but bhool of one would return true and bhool of any integer other than zero would return true.
+
+00:30.820 --> 00:34.420
+And we call that truthiness of integers.
+
+00:34.520 --> 00:37.680
+Now to be fair bool is a subclass of.
+
+00:37.780 --> 00:40.960
+So we might think that well this really is just a special case.
+
+00:40.990 --> 00:44.540
+It only applies to integers because Ball is a subclass of int.
+
+00:44.560 --> 00:47.090
+So there's a direct relationship between the two.
+
+00:47.440 --> 00:51.010
+But this actually applies to any object in Python.
+
+00:51.010 --> 00:53.820
+It works the same way for any object.
+
+00:54.010 --> 00:59.770
+And now the rules are pretty straightforward to determining whether an object is going to evaluate as
+
+00:59.890 --> 01:08.950
+truthy or falsie the default is that objects evaluate to true but just evaluate to true by default except
+
+01:09.160 --> 01:17.370
+in a few cases which are well the non object the non singleton object always evaluates to false the
+
+01:17.380 --> 01:21.200
+false singleton object also always evaluates to false.
+
+01:21.220 --> 01:24.890
+Probably a good think zero in any numeric type B.
+
+01:24.940 --> 01:27.270
+Int float complex decimal.
+
+01:27.280 --> 01:29.010
+It doesn't matter if it's 0.
+
+01:29.020 --> 01:31.550
+It will evaluate to false if it's non-zero.
+
+01:31.570 --> 01:32.720
+It will evaluate to true.
+
+01:32.890 --> 01:34.680
+But you were talking about the exceptions.
+
+01:34.750 --> 01:36.860
+So if it's zero it will be false.
+
+01:37.090 --> 01:38.650
+Empty sequences.
+
+01:38.650 --> 01:44.760
+So things like lists of tables or strings if they are empty if they have no elements they will be false.
+
+01:44.760 --> 01:49.730
+The same thing with mapping types things like dictionaries or sets of frozen sets.
+
+01:49.750 --> 01:56.750
+If they have no elements then they will also evaluate to false and then custom classes.
+
+01:56.790 --> 02:03.960
+When we write our own custom classes we can also provide a way to determine how to make the truthiness
+
+02:04.260 --> 02:06.240
+of that class of that object.
+
+02:06.360 --> 02:12.360
+And that's done by implementing either the Dunder bull method or the done to lend method will take it
+
+02:12.360 --> 02:14.340
+that take a look at that in a minute.
+
+02:14.580 --> 02:18.530
+And if those returns false are zero then the object will be false.
+
+02:18.930 --> 02:25.620
+And so these are the only times when an object will evaluate to false will have an associated truth
+
+02:25.620 --> 02:26.900
+value of false.
+
+02:27.060 --> 02:31.330
+Otherwise it's going to be true.
+
+02:31.350 --> 02:37.380
+So let's take a look under the hood a little closer at how this is a cheap and so classes define the
+
+02:37.380 --> 02:40.880
+truth values by defining a special instance method.
+
+02:41.100 --> 02:45.010
+The bool method Niva bull method isn't found.
+
+02:45.050 --> 02:49.830
+It can also look at the underscore the double underscore Dunder Len method.
+
+02:51.410 --> 02:58.220
+So when we call bhool of x where x is an instance of some class then what's actually happening is that
+
+02:58.320 --> 03:03.540
+X Python is executing X dot done the bulled under.
+
+03:03.980 --> 03:05.990
+So it's trying to execute that method.
+
+03:06.110 --> 03:10.980
+If that method exists it will return whatever that method returns.
+
+03:11.000 --> 03:17.630
+So that's why we said earlier that in general the way to get our custom object to be falsie is for the
+
+03:17.630 --> 03:19.750
+bool method to return false.
+
+03:19.760 --> 03:21.680
+That's exactly how we would do it.
+
+03:21.770 --> 03:30.020
+Now if it doesn't find the x underscore underscore bool so it will execute the len method instead.
+
+03:30.200 --> 03:35.530
+If Ball is not defined so false choice it will try to execute dhanda boom but doesn't find it.
+
+03:35.540 --> 03:42.230
+It will try to execute down the line on the object and if that still fails then it's just going to return
+
+03:42.230 --> 03:42.770
+true.
+
+03:42.830 --> 03:44.450
+So the default is true.
+
+03:44.660 --> 03:51.530
+Right so the default truthiness of every object in Python is true unless there is a bull or lend method
+
+03:51.800 --> 03:55.580
+that returns false or 0 in which case it will be false.
+
+03:55.580 --> 04:01.220
+Now of course if bool returns true or lende return something other than 0 then the associated value
+
+04:01.220 --> 04:02.450
+would be true.
+
+04:02.750 --> 04:06.930
+So let's take a look at how this might be implemented in the integer class.
+
+04:07.190 --> 04:13.100
+So the integer class will define a method called Thunderball and it's an instance method as you can
+
+04:13.100 --> 04:17.270
+see we have this parameter self and this is all it does.
+
+04:17.270 --> 04:20.660
+It just returns self not equal to zero.
+
+04:20.690 --> 04:24.740
+That's the implementation of the done to bool method for ints.
+
+04:24.920 --> 04:31.700
+So when we call bool of 100 then Python executes 100 doc done the bull.
+
+04:31.760 --> 04:38.960
+It looks at the instance method bool and calls it for this particular instance which was 100.
+
+04:38.960 --> 04:43.480
+So it's going to return the result of one hundred not equal to zero.
+
+04:43.520 --> 04:47.260
+It evaluates that and of course a 100 is not equal to zero.
+
+04:47.420 --> 04:49.430
+So it will return true.
+
+04:49.640 --> 04:54.830
+So bhool of 100 is true 100 is truthy.
+
+04:54.950 --> 04:57.120
+On the other hand if we call both of 0.
+
+04:57.320 --> 05:03.490
+Well Python again executes the ball down the method do for this object.
+
+05:03.490 --> 05:05.270
+0 for this instance.
+
+05:05.300 --> 05:09.340
+So it's going to look at the result of 0 not equal to zero.
+
+05:09.410 --> 05:11.480
+Which of course is going to be false.
+
+05:11.480 --> 05:12.950
+0 is equal to zero.
+
+05:13.160 --> 05:19.300
+So this would return false and so we would get that bool of 0 would be exactly false.
+
+05:19.300 --> 05:20.940
+Right 0 is falsie.
+
+05:21.020 --> 05:29.660
+Again we saw that in the previous slide as one of the exceptions to when objects are falsie now we'll
+
+05:29.660 --> 05:36.380
+cover this and many other special functions in a later video I'm in the in the course on object or programming
+
+05:36.410 --> 05:40.940
+and we'll take a look at all these special functions and we'll actually code them up and and actually
+
+05:40.940 --> 05:43.220
+implement those things ourselves.
+
+05:43.250 --> 05:47.640
+For now let's just take a look at some of the examples that we have.
+
+05:48.020 --> 05:54.380
+So if we take bhool of this list well this list has a lender Underland method it's a sequence type and
+
+05:54.380 --> 05:56.190
+the lens is three.
+
+05:56.540 --> 05:57.580
+It's not zero.
+
+05:57.680 --> 06:00.730
+So the truthiness of three is true.
+
+06:00.860 --> 06:04.220
+So all of this non-empty list would be true.
+
+06:04.220 --> 06:12.820
+However bhool of this empty list would be false Nabu of the null object is false as well.
+
+06:12.850 --> 06:14.920
+Now if we put those two things together.
+
+06:15.060 --> 06:18.960
+Let's take a look and just do a little aside and look at the code.
+
+06:19.050 --> 06:25.920
+If my list then execute this code block what's happening here is that the code block will execute if
+
+06:25.920 --> 06:34.510
+and only if my list is both not known and not empty.
+
+06:34.520 --> 06:42.410
+So this is really equivalent to the following code if my list is not done and learn of my list is greater
+
+06:42.410 --> 06:43.030
+than zero.
+
+06:43.040 --> 06:44.390
+Execute the code block.
+
+06:44.600 --> 06:48.250
+These two pieces of code do the same thing.
+
+06:48.410 --> 06:52.900
+So you might ask well how is it doing all this in you know in here.
+
+06:53.360 --> 06:57.500
+Well we're putting this object inside this if statement.
+
+06:57.530 --> 07:02.020
+So this expression here Python knows needs to be a boolean result.
+
+07:02.330 --> 07:05.600
+So it's going to look at the truthiness of my list.
+
+07:05.600 --> 07:11.480
+It's good to look at the associated truth value of my list if the associated value is true.
+
+07:11.540 --> 07:15.360
+It will then execute the code block for it's false it won't.
+
+07:15.380 --> 07:19.670
+So how does it evaluate the truth value of my list.
+
+07:19.670 --> 07:23.140
+Well if my list is none it's going to be false.
+
+07:23.150 --> 07:26.910
+So this code block will not execute if my list is none.
+
+07:26.990 --> 07:31.110
+On the other hand suppose my list is not on right that it is a list.
+
+07:31.130 --> 07:36.190
+It is a real list that's been instantiated or been created.
+
+07:36.230 --> 07:38.540
+Suppose that the length of the list is zero.
+
+07:38.540 --> 07:44.260
+In other words it has no elements then bhool of that is going to return false.
+
+07:44.300 --> 07:51.980
+So my list will again be falsie and therefore this code block will not execute but if my list is an
+
+07:51.980 --> 07:54.460
+actual list instance it's not none.
+
+07:54.560 --> 08:01.070
+And if it contains elements also then it will be truthy because the lend is going to be something other
+
+08:01.070 --> 08:01.780
+than zero.
+
+08:01.790 --> 08:06.500
+It's going to be something like this one up here which means it's going to be true and therefore the
+
+08:06.500 --> 08:08.400
+code block will execute.
+
+08:08.420 --> 08:13.350
+So this and this are actually totally equivalent.
+
+08:13.350 --> 08:13.800
+All right.
+
+08:13.950 --> 08:14.980
+So enough of an aside.
+
+08:14.980 --> 08:16.570
+Let's go back let's continue.
+
+08:16.570 --> 08:18.470
+So if we look at a string ABC.
+
+08:18.550 --> 08:19.600
+That's a sequence type.
+
+08:19.630 --> 08:22.360
+It has a non-zero character count.
+
+08:22.360 --> 08:24.250
+It has a length that's greater than zero.
+
+08:24.280 --> 08:26.650
+That's truthy as well an empty string.
+
+08:26.650 --> 08:32.170
+On the other hand while 0 elements in the string 0 elements in the sequence that's going to be false
+
+08:32.950 --> 08:35.580
+Boolean of as we've seen before is false.
+
+08:35.590 --> 08:35.970
+Why.
+
+08:35.980 --> 08:38.920
+Well zero is you know the number is 0.
+
+08:38.960 --> 08:40.260
+That's always going to be false.
+
+08:40.540 --> 08:42.960
+And it doesn't matter if it's a complex number.
+
+08:43.000 --> 08:45.370
+If it's zero there will be false as well.
+
+08:45.370 --> 08:47.770
+Works the same with decimals.
+
+08:47.940 --> 08:52.800
+On the other hand if we have nonzero numbers even negative 1 as we saw in the last video that will be
+
+08:52.800 --> 08:53.650
+true.
+
+08:54.090 --> 08:58.030
+Same thing with you or a nonzero complex number that will be true.
+
+08:58.080 --> 09:00.510
+And same thing over non-zero decimal number.
+
+09:00.570 --> 09:02.480
+That will be true as well.
+
+09:03.030 --> 09:08.040
+So let's jump into some code and just take a look at this in action and I'll see you in a bit.

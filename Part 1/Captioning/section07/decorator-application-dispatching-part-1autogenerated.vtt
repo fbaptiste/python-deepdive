@@ -1,0 +1,1414 @@
+WEBVTT
+
+00:00.820 --> 00:06.080
+High in this video we're going to look at something called single dispatch generic functions.
+
+00:06.090 --> 00:09.810
+So before I get to that let me just talk about overloading of functions.
+
+00:09.810 --> 00:14.850
+If you come from a traditional object or a programming background you know what overloading is.
+
+00:14.970 --> 00:21.210
+It basically allows us to define functions with the same name but as long as they have a different signature
+
+00:21.360 --> 00:27.090
+which is basically the types of the parameters or the number of parameters of the function.
+
+00:27.090 --> 00:32.010
+So as long as you could distinguish between the different functions based on the types and the number
+
+00:32.010 --> 00:38.190
+of parameters you can essentially create the same name for the function you're overloading the function.
+
+00:38.520 --> 00:44.460
+And then when you call the function the compiler or the interpreter will figure out which one you meant.
+
+00:44.520 --> 00:46.010
+That's called overloading.
+
+00:46.020 --> 00:51.020
+Now we don't have that in Python and if you think about it it makes sense that we don't have it.
+
+00:51.210 --> 00:55.020
+We don't have typing We don't have static typing in Python.
+
+00:55.020 --> 01:00.750
+So what happens is that we don't declare a variable as being of a specific type which means we don't
+
+01:00.750 --> 01:02.700
+have you know a method signature.
+
+01:02.700 --> 01:05.120
+We don't have a function signature really.
+
+01:05.160 --> 01:10.210
+Now maybe you could do it based on the number of arguments so you could differentiate two functions
+
+01:10.210 --> 01:12.510
+with the same name but different arguments.
+
+01:12.780 --> 01:17.430
+Well maybe but then you get into problems when you have variable positional arguments and Verum not
+
+01:17.460 --> 01:19.470
+a variable number of keyword arguments.
+
+01:19.560 --> 01:20.930
+So it just gets ugly.
+
+01:21.360 --> 01:24.160
+So we don't have overloading it in Python.
+
+01:24.480 --> 01:27.360
+So instead we can do something called single dispatch.
+
+01:27.360 --> 01:34.700
+Generic functions which allows us to do something similar but based on the type of the first argument.
+
+01:34.710 --> 01:39.390
+Now if you want to do multiple arguments and that's called multiday dispatch I'm not going to get into
+
+01:39.390 --> 01:40.010
+that.
+
+01:40.050 --> 01:42.090
+I'm just going to look at single dispatch.
+
+01:42.120 --> 01:48.190
+So let's take a look at that and lift up building up a use case where we might want to use this.
+
+01:48.210 --> 01:54.210
+So in this example I'm going to use a function we want a function that we can use to format H.T. M-L
+
+01:54.300 --> 01:55.110
+data.
+
+01:55.110 --> 02:01.410
+So for example we want to be able to format strain's who are able to format integers and floats in different
+
+02:01.410 --> 02:06.890
+ways in each table and lists for example and dictionaries and things like that.
+
+02:06.930 --> 02:11.160
+We have a list we want to emit you know an unordered list with both items.
+
+02:11.160 --> 02:15.990
+We have a dictionary we want the same thing but with the key value pairs integers we're going to want
+
+02:15.990 --> 02:20.880
+to print out the integers as well as maybe the hexadecimal value of floats will just want to keep it
+
+02:20.880 --> 02:22.690
+to two decimal points.
+
+02:22.690 --> 02:29.010
+Our strings will want to make sure that you know we H.T. escape the string and then we replace any new
+
+02:29.010 --> 02:31.470
+lines with B.R. tags.
+
+02:31.560 --> 02:32.480
+Things like that.
+
+02:32.520 --> 02:33.780
+So let's get started.
+
+02:33.780 --> 02:36.100
+It's actually pretty straightforward.
+
+02:36.620 --> 02:38.790
+Our get started let's do this.
+
+02:38.850 --> 02:43.900
+So from him import cascade.
+
+02:44.010 --> 02:48.760
+So this is just a function we're going to use to do h t m l escaping of strings.
+
+02:48.780 --> 02:50.670
+So that's going to be pretty handy.
+
+02:50.670 --> 02:56.970
+We don't have to write that ourselves so let's write the function called to melt the escape.
+
+02:56.970 --> 03:06.160
+So it really doesn't do anything other than just string of phi the argument whatever the argument is.
+
+03:06.210 --> 03:10.790
+So any arbitrary objects trying to apply it and then escape it and return that.
+
+03:10.830 --> 03:12.550
+So very straightforward.
+
+03:12.930 --> 03:15.860
+Now let's work on the integers.
+
+03:16.140 --> 03:21.030
+So let's say we have you know we want to our age to mollify.
+
+03:21.030 --> 03:24.510
+I can use that are some integer 8.
+
+03:24.810 --> 03:26.710
+So we're going to return.
+
+03:26.900 --> 03:28.810
+And let's go ahead and do it this way.
+
+03:28.830 --> 03:40.500
+So we'll return the integer itself and then in italics we will return the hexadecimal version of the
+
+03:42.210 --> 03:42.870
+numbers.
+
+03:43.020 --> 03:46.150
+So I make sure I've got that right.
+
+03:46.490 --> 03:46.980
+Yes.
+
+03:47.040 --> 03:47.910
+Looks good.
+
+03:48.160 --> 03:52.730
+And multi-format on a while we want a.
+
+03:52.980 --> 03:57.570
+And then we want the string up the hexadecimal representation.
+
+03:57.600 --> 03:58.480
+OK.
+
+03:58.610 --> 03:59.480
+All right.
+
+03:59.880 --> 04:01.270
+So that's all integers.
+
+04:01.530 --> 04:04.200
+Now let's do the real numbers.
+
+04:04.200 --> 04:07.850
+So let's say def h t out real.
+
+04:08.180 --> 04:11.920
+And here what we want to do is just limited to two decimal points.
+
+04:11.970 --> 04:23.620
+So when are we turn 0 and we'll say two decimals or two digits after the decimal point doffed format.
+
+04:23.730 --> 04:29.720
+And now we're going to round up the number 2 digits after the decimal point.
+
+04:29.730 --> 04:31.470
+So that's how we're going to do the reals.
+
+04:31.470 --> 04:33.150
+That's pretty straightforward.
+
+04:33.210 --> 04:34.760
+Let's do the string as well.
+
+04:34.770 --> 04:37.180
+The string is going to be quite easy as well.
+
+04:37.200 --> 04:38.300
+Actually they're all easy.
+
+04:38.430 --> 04:41.190
+All right so I asked him escape.
+
+04:41.350 --> 04:43.180
+It's not replace.
+
+04:43.350 --> 04:45.190
+And we're going to replace.
+
+04:45.270 --> 04:55.450
+So first we escape the string and then we replace any new line character with a B are tagged and I'll
+
+04:55.500 --> 05:02.110
+use that and I'll keep the newline character as well so that when we printed out that said of the Standard
+
+05:02.130 --> 05:03.930
+out it will look a little neater
+
+05:07.350 --> 05:13.530
+and we have the lists for how we're going to handle this.
+
+05:13.890 --> 05:17.820
+Well first thing is we're going to build the items up in the list.
+
+05:17.820 --> 05:24.130
+So we're going to write a generator expression or if you want to know if you wanted to do a list expression
+
+05:24.350 --> 05:31.440
+you could do that you could do a loop but it's more pythonic to use these generator or list expression
+
+05:31.620 --> 05:35.800
+comprehensions I should say no expressions.
+
+05:37.560 --> 05:44.240
+But I'm going to use a generator here which is similar I know we haven't covered that yet.
+
+05:45.540 --> 05:48.950
+So we're going to build up our items in list items.
+
+05:49.080 --> 05:49.710
+OK.
+
+05:50.070 --> 05:59.600
+And we want to format and we want an HMO is keep the items.
+
+05:59.670 --> 06:04.900
+So to see what's going on here let me bring this on the next line.
+
+06:04.920 --> 06:07.650
+We are going to take every item
+
+06:10.720 --> 06:11.620
+in the list.
+
+06:11.620 --> 06:18.250
+So for every item in the list we're going to generate this string over here and which we are going to
+
+06:18.270 --> 06:23.140
+H.T. about escape the items because they could be strings themselves and we want to make sure that we're
+
+06:23.140 --> 06:24.730
+handling that correctly.
+
+06:24.820 --> 06:29.230
+Now that's not entirely going that's not going to do entirely what we're looking for but we'll come
+
+06:29.230 --> 06:30.290
+back to it.
+
+06:30.430 --> 06:37.350
+And then at the end we want to return that concatenation of all the items but wrapped in you else.
+
+06:37.510 --> 06:40.900
+So we're going to start by probably put a u l k.
+
+06:40.930 --> 06:42.030
+That's the first thing.
+
+06:42.370 --> 06:49.720
+And to keep it again need when we print it out I'm going to add a carriage return or a new line then
+
+06:49.720 --> 06:53.640
+I'm going to use the joint function on the string.
+
+06:53.740 --> 06:56.460
+So I'm going to join the items.
+
+06:56.680 --> 06:57.450
+OK.
+
+06:57.760 --> 07:00.400
+So this is a way I can concatenate all the strings.
+
+07:00.430 --> 07:03.600
+You could do it using a loop but don't don't do it.
+
+07:03.610 --> 07:05.560
+Don't use a loop to concatenate strings.
+
+07:05.560 --> 07:10.280
+First of all you're doing applause which means that you're going to be creating a new string every time.
+
+07:10.390 --> 07:17.370
+OK so it's not as efficient and joined as just a better way of doing it.
+
+07:17.980 --> 07:21.380
+And then we're going to end with again a new line.
+
+07:21.760 --> 07:24.070
+Do we need a new line here.
+
+07:24.640 --> 07:29.930
+We have we're not putting any new lines in these in the items we could.
+
+07:30.280 --> 07:32.250
+We could put a new line in the items I guess.
+
+07:32.270 --> 07:37.150
+I'm not actually sorry we are putting the new the new line in front case so we need to add another new
+
+07:37.150 --> 07:40.780
+line here and there we go.
+
+07:40.840 --> 07:42.080
+It doesn't really matter.
+
+07:42.580 --> 07:45.310
+The new lines is just for making it look nice.
+
+07:45.310 --> 07:48.280
+OK so that's our basic way of handling a list.
+
+07:48.280 --> 07:50.590
+And for the dictionary it's going to be very similar.
+
+07:50.770 --> 07:53.290
+So let's call it h t m l dict.
+
+07:53.380 --> 07:55.600
+We're going to pass a dictionary deal let's say.
+
+07:55.990 --> 07:59.290
+And again we're going to do a generator.
+
+07:59.740 --> 08:05.630
+And we're going to do the same thing we're going to have are items that we're going to put in except
+
+08:06.350 --> 08:08.820
+what items are going to be key value pairs.
+
+08:09.070 --> 08:13.840
+So we need to put the key value pairs.
+
+08:14.300 --> 08:15.900
+Format.
+
+08:16.300 --> 08:25.470
+And we're going to say format K comma V fall onto the thin the dot items.
+
+08:25.510 --> 08:30.860
+OK so we're going to iterate through top holds which will consist of the key values that's what items
+
+08:30.860 --> 08:36.920
+does it allows us to basically retrieve iterate through the key value pairs as topples back to Stupples
+
+08:37.310 --> 08:44.450
+of a dictionary and we unpack them into K and V and then we can use K and v is the key and value of
+
+08:44.450 --> 08:48.140
+the dictionary item in the formatting of the string.
+
+08:49.150 --> 08:49.980
+OK.
+
+08:50.370 --> 08:55.790
+So we have that piece and then we need to just return our lists.
+
+08:55.800 --> 09:00.250
+We're going to do the same thing that we did our you know list because now this is the items.
+
+09:00.300 --> 09:03.240
+So this is a sequence of items.
+
+09:03.270 --> 09:08.300
+So again we're just going to pack them around we're going to use the joyn method.
+
+09:08.570 --> 09:19.400
+So join items class and we close off the list.
+
+09:22.230 --> 09:23.340
+So there we go.
+
+09:23.340 --> 09:24.860
+Now of course this isn't complete.
+
+09:24.900 --> 09:26.580
+I should really be checking for.
+
+09:26.610 --> 09:32.130
+You know maybe none being passed in for some of these things I should be checking that thing all the
+
+09:32.130 --> 09:34.480
+types are correct.
+
+09:34.700 --> 09:37.300
+You know so there's there's a lot of things that we should be checking.
+
+09:37.320 --> 09:43.850
+I'm just trying to keep it very simple here to show you how we can implement single dispatch.
+
+09:44.030 --> 09:49.340
+And then of course I'll show you how we don't have to do it ourselves because this big python you know
+
+09:49.340 --> 09:50.850
+bad was built in.
+
+09:51.170 --> 09:57.470
+And has it as well but I want to show you how we go about writing this so that if you want to be able
+
+09:57.470 --> 10:04.330
+to modify this or maybe do multi dispatch then you at least have a starting point.
+
+10:05.060 --> 10:13.760
+So let's let's use this let's say we say print and let's frame h t M-L that string of some thing and
+
+10:13.760 --> 10:18.290
+let's do a multi-line string just to see.
+
+10:18.290 --> 10:27.470
+So this is because I want these carriage returns and they're a multi line string with special characters
+
+10:27.970 --> 10:29.720
+that say 10 is less than 100.
+
+10:29.760 --> 10:32.190
+Zino that's considered really a special characters.
+
+10:32.250 --> 10:33.370
+The less they're.
+
+10:33.570 --> 10:39.850
+So if we run those as you can see we have B.R. tags where we had the new lines.
+
+10:39.860 --> 10:40.990
+Now we still have the new line.
+
+10:41.000 --> 10:45.200
+That's why it's still printing with three lines that's why I kept that new line in.
+
+10:45.470 --> 10:50.930
+And then with special characters you can see the less that was encoded with HD encoded to ampersand
+
+10:51.050 --> 10:52.970
+L.T. semi-coma.
+
+10:53.420 --> 10:59.330
+We can also do the same thing we can say age T.M. in let's say 255.
+
+10:59.330 --> 11:07.660
+And as you can see we get to 55 and then in parentheses in tags we get the hex equivalent of that number.
+
+11:08.090 --> 11:12.870
+We can also maybe look at something that we haven't defined.
+
+11:12.920 --> 11:16.250
+So print HVM out escape.
+
+11:16.250 --> 11:19.420
+Let's go ahead and print a complex number right.
+
+11:19.460 --> 11:25.190
+We don't have anything for a complex numbers so we're going to use this just base kind of default and
+
+11:25.250 --> 11:28.550
+you know of scape which is just going to escape whatever it can.
+
+11:28.790 --> 11:34.280
+And so as you can see here what comes back in is just these you know parentheses 10:03 J.
+
+11:34.460 --> 11:41.060
+So it's able to escape things that aren't specific like in real string list and Dick that we haven't
+
+11:41.060 --> 11:42.450
+specifically handled.
+
+11:42.470 --> 11:47.070
+We'll just use the plain escape to do the other ones.
+
+11:47.270 --> 11:54.400
+So first thing I'm going to want to do is because I want to I want to support decimals as well as floats.
+
+11:54.400 --> 12:01.910
+I'm going to say from decimal import decimal to just to play around with this.
+
+12:02.000 --> 12:07.580
+OK so let's write this dispatcher Let's write this function that will take one argument and it's going
+
+12:07.580 --> 12:14.480
+to decide which one of these in you know specific functions to call.
+
+12:14.480 --> 12:18.390
+So let's go ahead and let's call it H.T. analyze.
+
+12:18.410 --> 12:22.250
+It will take a single argument let's call it along.
+
+12:22.880 --> 12:24.030
+And what is it going to do.
+
+12:24.140 --> 12:25.190
+Well it's going to check.
+
+12:25.190 --> 12:27.910
+Basically the type of the argument.
+
+12:27.950 --> 12:30.730
+So it's going to have to do a bunch of statements.
+
+12:30.800 --> 12:41.530
+So if is instance you can see if it's an integer instance then we're going to return h t m l and.
+
+12:42.130 --> 12:45.240
+Now the one thing I want to point out is I'm writing all this again.
+
+12:45.560 --> 12:50.030
+This isn't the best way of doing this because here I'm only checking for integers but we have other
+
+12:50.120 --> 12:54.320
+integral number types like a Boolean for example with integral number type.
+
+12:54.590 --> 12:58.170
+And we'll see the same thing for example with lists right.
+
+12:58.190 --> 13:01.910
+A list is a sequence and we have something to handle a list.
+
+13:01.960 --> 13:03.260
+Write this thing over here.
+
+13:03.530 --> 13:07.960
+But if you look at the way this is written it really could be used for a couple as well.
+
+13:08.060 --> 13:13.670
+And in fact it could be used for any sequence type and this can be used for any mapping type it's not
+
+13:13.670 --> 13:14.380
+just the dict.
+
+13:14.390 --> 13:17.030
+We also have things like all date and default.
+
+13:17.150 --> 13:23.400
+So you know these are more generic than just you know a list or a dictionary addict.
+
+13:23.540 --> 13:25.280
+But this is what we're looking at.
+
+13:25.280 --> 13:28.430
+We're going to be you know using an instance of Dick and list.
+
+13:28.640 --> 13:34.670
+And so really we should be using something a little more generic these are called abstract base classes.
+
+13:34.670 --> 13:37.910
+We haven't covered that yet so I'm really not going to do too much with it.
+
+13:37.910 --> 13:41.750
+I'll show you later on in this video where we might use it.
+
+13:41.750 --> 13:47.540
+But for now I'm going to stick just with these plain types that you know these built in types.
+
+13:47.840 --> 13:52.250
+But really we should be using abstract base classes and if you don't know what those are in python that's
+
+13:52.250 --> 13:52.910
+OK.
+
+13:53.060 --> 13:57.440
+If you come from an object or a programming background you can think of those as interfaces so you can
+
+13:57.440 --> 14:02.300
+think of abstract base classes as interfaces and interfaces you know could be for example we have an
+
+14:02.300 --> 14:10.070
+interface sequenced types so we could use that in the instance instead of using list and tuples specifically
+
+14:10.070 --> 14:12.270
+as we're going to have to do here.
+
+14:13.400 --> 14:14.950
+But we haven't covered that yet.
+
+14:15.180 --> 14:15.610
+OK.
+
+14:15.650 --> 14:25.150
+So if the argument is an integer we're going to call aged him ELINT else if is for instance.
+
+14:25.830 --> 14:28.700
+Comma float.
+
+14:29.420 --> 14:33.340
+And I also want to handle the decimal.
+
+14:33.440 --> 14:36.380
+So I'm going to have to do it this way.
+
+14:36.690 --> 14:37.250
+OK.
+
+14:37.400 --> 14:44.480
+So if it's either a float or a decimal then we're going to return him out real quick.
+
+14:44.690 --> 14:45.470
+OK.
+
+14:45.990 --> 14:47.860
+Alsip where do we have to do so.
+
+14:47.870 --> 14:49.130
+Well we have these strings.
+
+14:49.160 --> 14:58.330
+So let's do the string and we're going to return on h t m l string of the argument K.
+
+14:58.640 --> 14:59.260
+What else.
+
+14:59.260 --> 15:06.110
+L If is instance a comma a list but list top all can be handled the same way.
+
+15:06.110 --> 15:15.290
+So I'm going to have to do this as well if instance comma top hole will return h t e mail list out the
+
+15:15.500 --> 15:28.550
+arguments and L if is instance contradict that say the dictionary is going to return h t m l out of
+
+15:28.640 --> 15:30.510
+the argument k.
+
+15:30.830 --> 15:37.550
+And if the argument is none of those it's some other object some other type then we're just going to
+
+15:37.790 --> 15:46.670
+use a default of h t M-L what did we call h t m l escape the argument.
+
+15:47.300 --> 15:48.950
+So that's our dispatchers.
+
+15:49.140 --> 15:53.150
+Essentially we can now call HVM allies on let's say 100.
+
+15:53.150 --> 15:54.460
+It will know what to do.
+
+15:54.590 --> 16:00.920
+Each team relies on a string of let's say Python
+
+16:03.290 --> 16:04.410
+rocks.
+
+16:04.570 --> 16:09.800
+And as you can see it knows which function to call because it's looking at the type of the argument
+
+16:09.800 --> 16:11.050
+being passed in.
+
+16:11.060 --> 16:16.160
+So this is a dispatcher sensuous dispatch function.
+
+16:16.230 --> 16:19.440
+The problem and there's a number of problems here.
+
+16:19.980 --> 16:24.690
+One is in our code itself and the other one is in how we're approaching this.
+
+16:24.690 --> 16:27.570
+So first of all in our code let's take a look at this.
+
+16:27.570 --> 16:29.520
+We have HVM allies.
+
+16:29.550 --> 16:31.850
+Let's go ahead and aist him allies a plane list.
+
+16:31.860 --> 16:33.710
+Let's say one two three get.
+
+16:33.740 --> 16:34.900
+That works just fine.
+
+16:34.980 --> 16:39.710
+And if I print it so we can actually see the kind of hide lays out.
+
+16:39.880 --> 16:42.530
+Kate we have our unordered list and our list items.
+
+16:42.600 --> 16:43.810
+So that works fine.
+
+16:44.190 --> 16:50.480
+But let's go ahead and let's print him allies and I'm going to do a list.
+
+16:50.490 --> 16:55.410
+But my the first thing in my list is going to be a multi-line string let's say.
+
+16:55.410 --> 16:59.630
+So it's going to be Python rocks.
+
+16:59.790 --> 17:09.240
+And then the second item of my list is going to be a tuple let's say 10 20 30 kids were free three integers
+
+17:10.020 --> 17:15.310
+and maybe the fourth item in my list is going to be just a plain integer that say 100 k.
+
+17:15.390 --> 17:23.670
+So I've got a list with three items a multi-line string a tuple of three integers in it and then just
+
+17:23.670 --> 17:24.280
+an integer.
+
+17:24.390 --> 17:27.560
+And let's see how it actually creates this.
+
+17:27.570 --> 17:31.350
+Well here we have our unordered list for the order list.
+
+17:31.380 --> 17:32.610
+That's good.
+
+17:32.610 --> 17:34.190
+Then we have list item.
+
+17:34.200 --> 17:35.340
+Python rocks.
+
+17:35.340 --> 17:38.500
+Now you'll notice that we're not seeing the beyond tag.
+
+17:38.760 --> 17:40.920
+So it looks like something's missing.
+
+17:40.920 --> 17:46.420
+In fact Python rocks and let's say that 0 is less than 1 cube.
+
+17:47.280 --> 17:49.590
+You'll notice that it escaped it.
+
+17:49.650 --> 17:53.220
+So that's that's good but we're missing that be all.
+
+17:53.220 --> 17:54.730
+There's something going on.
+
+17:55.630 --> 17:59.510
+Well to something going on is that this is inside the list.
+
+17:59.530 --> 17:59.770
+Right.
+
+17:59.770 --> 18:04.460
+And if you look at the tuple that wasn't written out as a list either.
+
+18:04.720 --> 18:13.540
+And if you look at the integer that wasn't you know Tim L5 didn't get the integer and the hex value
+
+18:13.570 --> 18:14.300
+for it.
+
+18:14.320 --> 18:16.590
+So what's happening is that when it's running.
+
+18:16.660 --> 18:23.550
+H tim mail list look at what it's doing the email list is simply escaping the item.
+
+18:23.560 --> 18:26.490
+It's not h tim Eliza the item.
+
+18:26.890 --> 18:29.050
+Right because it doesn't know.
+
+18:29.110 --> 18:29.410
+Right.
+
+18:29.410 --> 18:38.230
+So here's what's nice now is that we have the aged Himalayans so we can fix this by essentially fixing
+
+18:38.470 --> 18:43.870
+this thing here by putting HDMI lies instead of HDMI escape then that should fix it.
+
+18:43.870 --> 18:48.970
+But at this point you should be thinking hold on there's a circular kind of reference here.
+
+18:48.970 --> 18:53.830
+I mean it's we've already created H.T. a mail list cabe.
+
+18:54.130 --> 19:01.690
+And we have this Tim allys property of functions sorry that was defined after we defined age to a mail
+
+19:01.690 --> 19:07.550
+list and now we're going back in and changing this to H-2 allies what has been defined after.
+
+19:07.810 --> 19:09.070
+Well it's OK.
+
+19:09.490 --> 19:16.240
+In Python you can reference a function you can call a function in the body of a function before that
+
+19:16.240 --> 19:22.790
+function has been defined as long as the function is defined by the time you call the function.
+
+19:22.840 --> 19:26.560
+What I mean by this very simply is that I can have a function.
+
+19:26.710 --> 19:29.300
+Def funk one let's say.
+
+19:30.120 --> 19:33.330
+And all it does it calls funk to play.
+
+19:33.370 --> 19:34.600
+This is perfectly legal.
+
+19:34.600 --> 19:36.250
+I haven't defined phunk two yet.
+
+19:36.260 --> 19:37.820
+9:5 code func one.
+
+19:37.930 --> 19:39.250
+Yeah I've got an issue right.
+
+19:39.250 --> 19:51.430
+Because form is not defined but as long as I have defined function to before I mean to say print arm.
+
+19:52.090 --> 19:58.540
+So as long as I define function to before I call function one I can define function one that calls function
+
+19:58.540 --> 19:59.040
+too.
+
+19:59.290 --> 20:03.290
+But rooma doesn't actually execute phunk want to like call it.
+
+20:03.310 --> 20:09.220
+Now if I call func one everything's OK because at that time form two was defined.
+
+20:09.250 --> 20:10.000
+So that's what I mean.
+
+20:10.000 --> 20:13.190
+So we don't really have a circular reference.
+
+20:13.240 --> 20:20.650
+So what we can do if you don't believe me I'm going to take this code over here and I'm going to reset
+
+20:20.680 --> 20:24.660
+my kernel so I'm going to go kernel and I'm going to say restocks.
+
+20:24.700 --> 20:25.090
+OK.
+
+20:25.150 --> 20:29.990
+So restocks what this means by the way is that I've lost everything that I've done so far.
+
+20:30.130 --> 20:35.140
+OK so I don't have my my impuls so I'm going to have to re-import those things so I'm going to say from
+
+20:35.140 --> 20:43.630
+decimal import decimal from page T.M. impled scape those were the only two that we had.
+
+20:44.090 --> 20:49.210
+Then I'm going to copy paste this thing here.
+
+20:49.300 --> 20:55.030
+HVM allies function came out dispatchers can execute it has been created.
+
+20:55.120 --> 20:56.630
+I can't call it right.
+
+20:56.800 --> 21:03.130
+I can say H-2A implies it say 100 because it's going to tell me you can't because it's too mail it doesn't
+
+21:03.130 --> 21:03.890
+exist.
+
+21:04.060 --> 21:04.940
+But that's OK.
+
+21:05.080 --> 21:07.550
+Now we're going to take this code over here.
+
+21:08.830 --> 21:11.270
+And we're going to copy paste that in.
+
+21:11.350 --> 21:11.760
+OK.
+
+21:11.800 --> 21:14.330
+So let's go ahead and do that.
+
+21:14.590 --> 21:17.650
+And now we can h to mollify.
+
+21:17.930 --> 21:26.750
+Let's say 100 and I'm going to spell it correctly or H.T. mollifies is not defined as Tim Alais.
+
+21:26.780 --> 21:28.600
+Sorry.
+
+21:28.850 --> 21:29.280
+OK.
+
+21:29.390 --> 21:30.800
+So that's working correctly.
+
+21:30.920 --> 21:36.200
+And so you'll notice that it's perfectly fine to reference a function that hasn't been defined yet.
+
+21:36.320 --> 21:40.600
+As long as we as long as we have the function defined before we call it.
+
+21:40.960 --> 21:41.440
+OK.
+
+21:41.480 --> 21:47.380
+So now with that in mind let's go ahead and fix that problem that we had where we're calling H2 in this
+
+21:47.390 --> 21:47.780
+case.
+
+21:47.790 --> 21:51.580
+What we really want to do here is to call HD Annelise on that.
+
+21:51.770 --> 21:52.290
+OK.
+
+21:52.490 --> 21:57.050
+Now the value I just noticed here I should have done also DeMello escape.
+
+21:57.280 --> 21:57.830
+OK.
+
+21:58.040 --> 21:58.820
+Of the value
+
+22:02.660 --> 22:04.030
+but I didn't.
+
+22:04.130 --> 22:15.340
+So what let's go ahead and do Tim allies of the value and might as well Tim allies K as well.
+
+22:15.340 --> 22:20.750
+Actually you know the key we don't want to age implies I may want to feed him lies the value.
+
+22:20.810 --> 22:26.720
+The key I'm just going to basically HVM escape it in case there's some special character in there or
+
+22:26.720 --> 22:33.420
+something funky going on but I really don't want to fight him like that in full OK.
+
+22:33.860 --> 22:39.020
+So because of the keys of Toppo I don't want to have the key and it's going to look very weird.
+
+22:40.920 --> 22:42.330
+So that should do it.
+
+22:42.480 --> 22:48.260
+And now if we go back to this example that we had over here I'm just going to copy paste it.
+
+22:48.330 --> 22:51.590
+That should hopefully work.
+
+22:51.630 --> 22:54.810
+And so as we can see we have our out a list.
+
+22:54.840 --> 22:58.880
+We have a list the first item was a multi-line string.
+
+22:58.890 --> 23:01.490
+We have a B tags that's back.
+
+23:01.570 --> 23:08.820
+We can see that the integer was formatted correctly and we can see that our second item which was a
+
+23:08.850 --> 23:12.260
+tuple correctly again got rendered as a list.
+
+23:12.270 --> 23:16.080
+We have the unordered list and then the each individual list item.
+
+23:16.230 --> 23:16.870
+So great.
+
+23:16.890 --> 23:18.600
+So that's working just fine.
+
+23:19.050 --> 23:20.790
+OK so we solve the first problem.
+
+23:20.790 --> 23:23.100
+Now the second problem is more fundamental.
+
+23:23.100 --> 23:26.910
+The second problem really is in terms of how we are writing code.
+
+23:26.910 --> 23:33.120
+And if you look at this what's happening is that if we want to register a new type Let's say we want
+
+23:33.120 --> 23:36.180
+to you know now start implementing something for sets.
+
+23:36.180 --> 23:36.630
+Right.
+
+23:36.750 --> 23:38.300
+Then we'd have to go here.
+
+23:38.510 --> 23:47.760
+And we have to say to himself set came up and really I wouldn't need to implement said I could actually
+
+23:47.760 --> 23:51.970
+run a set through the list because you can iterate through a set in the same way.
+
+23:52.170 --> 23:57.060
+But I'm just trying to make a point if I wanted to make a you know a new type that's as good a custom
+
+23:57.060 --> 24:02.820
+object and I need to be able to go in and say well here's how you should try to mollify this custom
+
+24:02.820 --> 24:09.670
+object in this case I'm just going to use the built in set and I'm just going to take this actually.
+
+24:10.190 --> 24:14.540
+I'm going to return to a mail list of Aag.
+
+24:14.690 --> 24:25.220
+OK so now I've got this h team l cert and here I'm going to have to go in and say l if is instance of
+
+24:25.580 --> 24:30.810
+commerce service return HTB all set up.
+
+24:30.980 --> 24:33.170
+OK so now we have the set done.
+
+24:33.170 --> 24:36.030
+Now I can say to mollify a set.
+
+24:36.040 --> 24:37.150
+One two three.
+
+24:38.690 --> 24:40.920
+And it's Tim allies.
+
+24:41.190 --> 24:41.690
+All right.
+
+24:41.690 --> 24:44.010
+And again we get our list.
+
+24:44.030 --> 24:47.560
+So the issue is not that we had to write this function.
+
+24:47.570 --> 24:48.430
+That's OK.
+
+24:48.440 --> 24:53.740
+The issue is that every time we want to register a new type we want to handle a new type.
+
+24:53.870 --> 24:58.350
+We have to go in and just keep increasing this ugly looking if an else.
+
+24:59.930 --> 25:02.070
+So this is really not a good approach.
+
+25:02.090 --> 25:08.530
+First of all it means that we have to keep going back to this function and we have to go and tell it
+
+25:08.620 --> 25:08.940
+OK.
+
+25:08.960 --> 25:12.740
+You know add this here now add this is instant onset.
+
+25:12.890 --> 25:20.450
+And here's the function you call it would be much better if we could somehow from outside just register
+
+25:20.450 --> 25:27.620
+and say hey you know for the HVM Elyse if you from outside the body of the function be able to say here's
+
+25:27.620 --> 25:31.160
+a new function that should be associated with this type.
+
+25:31.190 --> 25:38.630
+In other words we want to maintain We would like to analyze to maintain maybe a dictionary of the type
+
+25:38.810 --> 25:43.070
+and the function that it should call and that function can live outside of age implies.
+
+25:43.100 --> 25:43.510
+Right.
+
+25:43.520 --> 25:49.070
+Just as these functions are living outside of age he implies it implies just needs to know which one
+
+25:49.070 --> 25:51.110
+to call for which type.
+
+25:51.140 --> 25:51.470
+Right.
+
+25:51.470 --> 25:57.680
+And so instead of using this whole horrible if else if and else we could maybe use a dictionary and
+
+25:57.740 --> 25:59.220
+we could put that in the dictionary.
+
+25:59.300 --> 26:03.560
+So let's take that as a false step to cleaning this up a little bit.
+
+26:04.280 --> 26:08.980
+So let's create this function let's recreate caged him alive.
+
+26:09.500 --> 26:15.380
+It takes an argument and this is code that I'm going to throw away I'm actually going to do it this
+
+26:15.380 --> 26:15.850
+way.
+
+26:15.950 --> 26:17.430
+But let's see what we want to do.
+
+26:17.450 --> 26:19.610
+We want to take this right.
+
+26:19.610 --> 26:23.630
+The idea is we want to be able to do something like this.
+
+26:23.840 --> 26:26.640
+We want to create it instead of all these if else statements.
+
+26:26.660 --> 26:30.830
+I'm going to create some kind of registry that's going to be a dictionary.
+
+26:30.970 --> 26:31.520
+OK.
+
+26:31.790 --> 26:37.550
+And in that dictionary I'm going to put in some key and then use I'm going to put in and I'm going to
+
+26:37.550 --> 26:41.770
+put in the type X now I'm going to start with object object is going to be the default.
+
+26:41.780 --> 26:43.250
+Everything is an object.
+
+26:43.280 --> 26:48.290
+So if I don't have something specific for a type then I'm going to use whatever's you know associated
+
+26:48.290 --> 26:49.610
+with the object.
+
+26:49.700 --> 26:55.480
+So it will make object the key and then the value is going to be the function which should be called.
+
+26:55.580 --> 26:58.260
+So this one would be extremely escape.
+
+26:58.460 --> 27:05.000
+And then I'm going to do the same thing with centum and say inte and this should be HTL male and and
+
+27:05.000 --> 27:11.180
+we can do the same thing with float which is going to be h t m l can't and we have to do the same thing
+
+27:11.180 --> 27:14.150
+with decimal which is h t a male.
+
+27:14.170 --> 27:20.640
+And again we should really be using an abstract base classes which float.
+
+27:20.650 --> 27:21.170
+What do we need.
+
+27:21.170 --> 27:28.600
+We need string k so we need to h l string words do we need we need a list which is going to be h t m
+
+27:28.610 --> 27:30.040
+l list.
+
+27:30.230 --> 27:35.030
+We need a tuple which is going to be mail list.
+
+27:35.150 --> 27:41.770
+We need a set that's going to be aged him female set and then we need a dict that's going to be m l
+
+27:41.810 --> 27:42.220
+Dick.
+
+27:42.230 --> 27:46.590
+And again you know for things like list tuples we should be using abstract base classes.
+
+27:46.610 --> 27:48.530
+I'm not going to get into that right away.
+
+27:49.160 --> 27:52.750
+I'll show you how to do it but I'm not really going to discuss it much.
+
+27:52.970 --> 27:58.100
+OK so now we have this registry that has all the functions that we had over here.
+
+27:58.220 --> 27:58.490
+Right.
+
+27:58.490 --> 28:02.380
+And then the default is going to be object which is an ABH team I'll escape.
+
+28:02.390 --> 28:05.080
+So instead of all this we can get rid of all that.
+
+28:05.220 --> 28:06.240
+And what do we want to do.
+
+28:06.260 --> 28:09.560
+Well now we want to look at the the instance.
+
+28:09.560 --> 28:10.200
+Right.
+
+28:10.250 --> 28:15.350
+So we're going to look at the instance of the argument and decide which one of these are we going to
+
+28:15.350 --> 28:16.230
+use.
+
+28:16.670 --> 28:22.490
+So the way we're going to do this is to look at the type of the argument and see if it's in the registry.
+
+28:22.570 --> 28:27.060
+Again this is going to be you know there's a better way of doing this.
+
+28:27.080 --> 28:29.420
+But let me go ahead and do this.
+
+28:29.450 --> 28:35.460
+So the function is going to be I'm going to look up in the registry.
+
+28:35.630 --> 28:43.730
+I'm going to look up the type of the argument and then I'm going to do this default.
+
+28:43.760 --> 28:44.420
+So the
+
+28:47.390 --> 28:49.260
+registry does get sorry.
+
+28:49.400 --> 28:54.860
+So when I'm getting the key out of the dictionary registry if it doesn't exist if it's not found it
+
+28:54.860 --> 28:56.930
+will then return this instead.
+
+28:57.050 --> 28:58.760
+So that's my default right.
+
+28:58.760 --> 29:02.630
+That's the default item that I want to get if I can't find this.
+
+29:02.660 --> 29:08.090
+Now of course the problem is that using this kind of approach if my argument let's say is not a list
+
+29:08.420 --> 29:10.730
+but is something that's inheriting from a list.
+
+29:10.760 --> 29:11.090
+Right.
+
+29:11.090 --> 29:14.350
+So we it's a the argument is a subclass of list.
+
+29:14.450 --> 29:15.550
+This isn't going to work.
+
+29:15.770 --> 29:20.000
+So it needs to become more complicated than this but I'm not going to get into it because it really
+
+29:20.000 --> 29:24.230
+does get complicated and we don't actually have to implement all this ourselves.
+
+29:24.380 --> 29:26.760
+But I want to show you how you might go about it.
+
+29:26.930 --> 29:33.800
+So here you have to be you know a little more clever about how we're going to look up the type of this
+
+29:33.800 --> 29:37.540
+argument in the dictionary OK.
+
+29:37.760 --> 29:39.140
+So now we have the function right.
+
+29:39.140 --> 29:41.420
+We have a basically the function.
+
+29:41.420 --> 29:43.970
+So the argument was a string.
+
+29:43.970 --> 29:47.230
+Then we looked up string in here and we got him staring back.
+
+29:47.270 --> 29:48.700
+That's what's in function.
+
+29:48.740 --> 29:50.070
+So now what do I need to do.
+
+29:50.180 --> 29:56.530
+I just need to return I need to call the function and return that.
+
+29:56.730 --> 29:58.540
+That's all I need to do.
+
+29:58.800 --> 30:04.490
+So let's go ahead and try and signifie HVM allies a 100 you'll notice that it worked.
+
+30:04.560 --> 30:10.980
+And if h tim allies let's say a list 1 2 3 it's printed.
+
+30:10.980 --> 30:13.730
+So we keep the formatting.
+
+30:13.870 --> 30:15.720
+OK I get my list.
+
+30:15.750 --> 30:19.740
+So that's kind of the idea that we want to build towards.
+
+30:19.760 --> 30:25.130
+So that's the first thing is we eliminate those These f n l ifs and we really did it by using a dictionary
+
+30:25.130 --> 30:29.190
+that contained the type and the function that we want associated with that type.
+
+30:29.300 --> 30:35.420
+And then we just look up the type in the dictionary and execute call the corresponding function.
+
+30:35.900 --> 30:41.690
+But we still have this problem where we are basically we basically have to go back if we want to add
+
+30:41.690 --> 30:43.940
+something and modify the dictionary.
+
+30:44.180 --> 30:48.570
+So instead I want to be able to add to this dictionary from the outside world.
+
+30:48.580 --> 30:54.890
+I want to be able to add to that dictionary of HVM allies but without having to go back and change the
+
+30:54.890 --> 30:57.380
+code Rached Himalayas.
+
+30:57.580 --> 31:03.190
+So hopefully you're thinking right now closures and decorator's because that's exactly how we're going
+
+31:03.190 --> 31:04.210
+to approach it.
+
+31:04.300 --> 31:04.600
+Right.
+
+31:04.600 --> 31:11.890
+If we had a closure here that reference I had a free variable of registry maybe there's a way that they
+
+31:11.890 --> 31:18.220
+can return the closure and set up just the function aged him allies always decorated him lies in such
+
+31:18.220 --> 31:21.250
+a way that we can so call him allies.
+
+31:21.460 --> 31:27.240
+But we also have a way to inject a new item into the registry dictionary.
+
+31:27.390 --> 31:35.070
+So if we can do that then we'll have a way of modifying this registry from outside the to minimise function.
+
+31:35.230 --> 31:37.170
+So we'll take a look at that next.
+
+31:37.210 --> 31:42.310
+And this is a good starting point for the videos trying to get along so I'll stop here and we'll continue
+
+31:42.310 --> 31:43.660
+this in the next video.
+
+31:43.660 --> 31:45.530
+Thanks for watching and I'll see you in a bit.

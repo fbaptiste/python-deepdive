@@ -1,0 +1,922 @@
+WEBVTT
+
+00:00.480 --> 00:06.300
+High in this video we're going to look at the higher order functions map and filter and then we'll also
+
+00:06.300 --> 00:08.030
+look at the function Ziv.
+
+00:08.040 --> 00:11.850
+These are all built in functions and they are pretty useful.
+
+00:11.900 --> 00:16.850
+First of all let's just recall the definition of a higher order function a higher order function is
+
+00:16.850 --> 00:23.300
+simply a function that can take another function as a parameter or it's also a function that can return
+
+00:23.390 --> 00:24.350
+a function.
+
+00:24.380 --> 00:29.860
+So if a function does either or both of those things it's called a higher order function.
+
+00:29.870 --> 00:36.320
+So for example we've seen this before but the silted built in function is a higher order function because
+
+00:36.320 --> 00:42.980
+it takes in that key parameter which is a function that allows us to change how elements and iterable
+
+00:42.980 --> 00:44.960
+are sorted.
+
+00:44.960 --> 00:47.340
+We also have map and filter.
+
+00:47.450 --> 00:51.180
+These are both higher order functions as well that are built into Python.
+
+00:51.470 --> 00:55.130
+Now there are more modern alternatives to map and filter.
+
+00:55.160 --> 00:57.470
+We'll take a look at that in this lecture.
+
+00:57.500 --> 01:03.830
+Pretty briefly and then we'll delve into list comprehensions and generator expressions in a later section
+
+01:03.830 --> 01:04.590
+in the scores.
+
+01:04.700 --> 01:13.260
+But I want to show you in this video how those two things can actually also do what map and filter does.
+
+01:13.290 --> 01:16.080
+So let's look at the map function first.
+
+01:16.080 --> 01:19.420
+So the map function takes one parameter.
+
+01:19.440 --> 01:25.580
+The first parameter is a function and the second parameter is this stuff it rebels.
+
+01:25.650 --> 01:32.720
+So start iterable is a variable number of iterable objects and fonk is simply some function.
+
+01:32.730 --> 01:41.190
+Now the only caveat the only requirement is that phunk take out takes in as many arguments as you provide
+
+01:41.340 --> 01:48.850
+intervals and this is because it allows us to basically take this function and apply it to the iterable.
+
+01:48.870 --> 01:54.860
+But in parallel and I'll show you an example will become very clear what's going on there.
+
+01:55.230 --> 02:02.940
+So math will return an iterator doesn't return a list it returns an iterator that calculates the function
+
+02:02.970 --> 02:12.260
+func applied to each elements of the rebels pairwise or at least in parallel and the iterative stops
+
+02:12.350 --> 02:17.900
+as soon as one of the iterable has been exhausted which means that technically you can supply iterable
+
+02:17.900 --> 02:19.850
+that are not of the same length.
+
+02:19.910 --> 02:23.610
+It will basically stop at the shouldest one.
+
+02:23.870 --> 02:27.490
+So let's look at an example that will make a very clear what's going on.
+
+02:27.500 --> 02:32.430
+Let's take a look at this list L which has three elements two three and four.
+
+02:32.960 --> 02:39.830
+And let's define this function as Q That just returns the square of the argument x.
+
+02:39.860 --> 02:47.840
+So now we can call a map and we can pass in Eskew as one of the functions as this is the function and
+
+02:47.930 --> 02:50.420
+L as the one iterable.
+
+02:50.420 --> 02:58.370
+In this case so s q has to take in just a single argument because we're only passing a single list here
+
+02:58.370 --> 03:01.160
+a single iterable and that's the case.
+
+03:01.160 --> 03:02.360
+That's correct.
+
+03:02.360 --> 03:03.830
+So what it's going to do now.
+
+03:03.860 --> 03:11.210
+It's essentially going to create four 9:16 it's going to look at each element in L and sequentially
+
+03:11.210 --> 03:16.790
+apply Eskew to each one of the elements resulting in four 9:16.
+
+03:16.790 --> 03:20.990
+Now remember map actually returns in an iterator.
+
+03:20.990 --> 03:27.470
+So I just call list around it in order to actually convert it to a list so we can and will see that
+
+03:27.470 --> 03:28.040
+in the code.
+
+03:28.210 --> 03:30.990
+So we can print it out and see what it looks like.
+
+03:31.040 --> 03:32.530
+So that's a very simple one.
+
+03:32.540 --> 03:40.470
+This is a function that takes a single argument and it is applied through map to eight single iterable.
+
+03:41.030 --> 03:42.360
+Let's look at a different one.
+
+03:42.440 --> 03:44.720
+Let's take a look at two lists now.
+
+03:44.840 --> 03:51.110
+One two three 10 20 and 30 and suppose that we want to add up the elements pairwise.
+
+03:51.110 --> 03:55.300
+So we want 11 22 and thirty three as our result.
+
+03:55.310 --> 03:57.740
+So we can use the map function for that.
+
+03:57.740 --> 03:58.930
+Now how would we do this.
+
+03:58.940 --> 04:01.050
+Well we're going to need an add function.
+
+04:01.220 --> 04:07.190
+So we're going to create an add function that takes in two arguments and then we'll return the sum of
+
+04:07.190 --> 04:09.140
+the two arguments.
+
+04:09.140 --> 04:18.660
+So now if we map add to L1 and L2 Well map takes in two arguments and we are passing two lists in here.
+
+04:18.830 --> 04:26.920
+So this works and it's going to basically take an element from each list L1 L2 and then pass that to
+
+04:26.930 --> 04:33.430
+and then it will move on to the next item in L1 and L2 respectively and past that to add and so on.
+
+04:33.620 --> 04:39.610
+And if we had an even length lists over here it would stop at the shortest length.
+
+04:39.800 --> 04:46.110
+So if L3 let's say had three more elements we would still only end up with three elements in our result
+
+04:46.160 --> 04:51.770
+because it would stop at 3 saying well I'm done I've exhausted that list I'm done.
+
+04:52.130 --> 04:58.450
+So if we do that we get the answer 11 22 and 33.
+
+04:58.710 --> 05:01.200
+Now of course we don't have to define add.
+
+05:01.200 --> 05:05.070
+This way we could just use a lambda expression to do the same thing.
+
+05:05.280 --> 05:06.870
+So you could do it this way.
+
+05:06.900 --> 05:13.170
+Map the lambda X come or why this is a function that takes two arguments returns the sum of the two
+
+05:13.200 --> 05:18.870
+and then is applied to these two sequences L1 and L2 and we get the same result.
+
+05:20.650 --> 05:26.950
+Now let's look at the filter function filter function basically takes a single function and a single
+
+05:26.950 --> 05:27.460
+Ederle.
+
+05:27.550 --> 05:32.380
+So unlike the map it doesn't take an arbitrary number of intervals.
+
+05:32.500 --> 05:35.120
+In this case it takes a single iterable.
+
+05:35.260 --> 05:42.910
+What filter does it allows us to specify a function that determines whether we retain or throw out the
+
+05:42.940 --> 05:44.560
+elements of that iterable.
+
+05:44.560 --> 05:46.920
+So it is essentially a filter.
+
+05:47.500 --> 05:53.440
+So iterable it's a single iterable funk is just a function that takes a single argument because it's
+
+05:53.440 --> 06:00.470
+going to be applied to the iterable you know item by item and then the function if it returns true.
+
+06:00.610 --> 06:06.970
+This means that filter will retain the element of the iterable if the function returns false or falsie
+
+06:07.390 --> 06:11.620
+it will throw it out again.
+
+06:11.650 --> 06:14.380
+Filter returns an iterator doesn't return a list.
+
+06:14.380 --> 06:19.870
+It returns an iterator so we'll throw a list around it so that we can actually see what's contained
+
+06:19.870 --> 06:26.700
+in it and it will contain all the elements of the iterable for which the function called on it is truth.
+
+06:28.790 --> 06:34.900
+Not if the function is none you can specify none for your function then basically just looks at the
+
+06:34.930 --> 06:40.330
+elements themselves and if they're truthy it will keep the element if the element is faulty it will
+
+06:40.330 --> 06:41.430
+pass it out.
+
+06:41.740 --> 06:45.690
+So that's one way of doing that by using the non function.
+
+06:45.790 --> 06:47.290
+So let's look at an example.
+
+06:47.290 --> 06:48.360
+Let's say we have this list.
+
+06:48.400 --> 06:54.970
+0 1 2 3 4 0 0 0 is falsie and all the other numbers in there are truthy.
+
+06:54.970 --> 07:03.870
+So if we were to apply none with the filter to l it's going to evaluate the first element it's falsie
+
+07:04.110 --> 07:05.130
+it's going to toss it out.
+
+07:05.140 --> 07:07.350
+It's not going to retain it in our result.
+
+07:07.510 --> 07:11.200
+But one two three and for all truthy so it will retain those.
+
+07:11.230 --> 07:19.060
+And so when we look at the list of the iterator then we actually get 1 2 3 and 4 right 0 was tossed
+
+07:19.060 --> 07:20.810
+out.
+
+07:20.840 --> 07:26.060
+We could also do it this way we could do this we could define this function is even which basically
+
+07:26.060 --> 07:28.770
+just tests to see if and if.
+
+07:29.000 --> 07:31.200
+And Mattu sorry is equal to zero.
+
+07:31.220 --> 07:31.490
+Right.
+
+07:31.520 --> 07:35.690
+And it is divisible by 2 means the remainder is 0.
+
+07:35.810 --> 07:37.380
+That's an even number.
+
+07:37.820 --> 07:45.730
+So now we could filter this list out which is even if we do this well 0 not 2 is going to be 0.
+
+07:45.750 --> 07:51.520
+So it's going to be kept because 0 is even 1 month two however is 1.
+
+07:51.570 --> 07:52.950
+So it's not equal to zero.
+
+07:52.950 --> 07:55.750
+So this function would evaluate to false.
+
+07:55.860 --> 08:00.830
+And so one would be tossed out two on the other hand too much to zero.
+
+08:00.960 --> 08:05.050
+So this expression will be true therefore two will be kept.
+
+08:05.160 --> 08:12.310
+And so and so we end up with 0 to come up for now of course once more.
+
+08:12.330 --> 08:15.070
+We don't have to define the function outside.
+
+08:15.120 --> 08:20.080
+We can just do it in line using a lambda expression that works exactly the same way.
+
+08:20.290 --> 08:22.620
+We get 0 2 and 4 back as well.
+
+08:24.730 --> 08:27.490
+All right so now let's move onto the zip function.
+
+08:27.490 --> 08:32.920
+Now there's a Cancian isn't a higher order function but it's really really useful in conjunction with
+
+08:32.920 --> 08:38.340
+higher order functions and with list comprehensions and generator expressions.
+
+08:38.400 --> 08:45.060
+So let's take a look at the zip function has a function that takes in an arbitrary number of intervals
+
+08:45.240 --> 08:46.970
+so it operates on iterable.
+
+08:47.100 --> 08:49.210
+There is no function being passed in here.
+
+08:49.290 --> 08:51.320
+Zip is not a higher order function.
+
+08:51.390 --> 08:58.080
+It's just a function that takes multiple intervals and will return one iterable.
+
+08:58.280 --> 08:59.490
+And what does it do.
+
+08:59.690 --> 09:07.280
+Well it basically combines each element in the intervals kind of pairwise right one at a time.
+
+09:07.280 --> 09:14.360
+So in this case if we zipped this up we will actually get a list or actually an iterator that will be
+
+09:14.510 --> 09:20.630
+the tuples formed by each element of the two intervals one by one.
+
+09:20.630 --> 09:23.160
+So one ten to twenty three thought.
+
+09:23.240 --> 09:28.320
+It's called Zipp private that you can think of it as taking two lists and zipping them up like a zipper.
+
+09:28.340 --> 09:28.810
+Right.
+
+09:28.850 --> 09:32.840
+You're kind of putting it together what you end up with of tuples.
+
+09:32.900 --> 09:38.800
+And again it will stop at the shouldest one then we'll see examples of that.
+
+09:38.810 --> 09:41.110
+So let's take a look at another example.
+
+09:41.210 --> 09:42.970
+Let's say we have three lists.
+
+09:42.980 --> 09:47.170
+Remember that zip can take an arbitrary number of intervals so that we have three lists.
+
+09:47.390 --> 09:54.680
+Well if we zip that up right if we zipped those three our lists up we're just going to get another iterable
+
+09:55.040 --> 09:58.790
+that will contain two tuples with three elements in each.
+
+09:58.790 --> 09:59.080
+Right.
+
+09:59.090 --> 10:05.940
+It's going to contain one 10 and a to 20 and be three thory and see this one by one
+
+10:08.790 --> 10:15.780
+if we have an uneven length So let's say that our thoughts iterable has one two three four five elements
+
+10:15.900 --> 10:19.830
+and our second iterable has one to three elements.
+
+10:19.890 --> 10:21.430
+Now we can still zip that up.
+
+10:21.450 --> 10:23.190
+That's still going to work.
+
+10:23.190 --> 10:26.090
+The only thing is it's going to stop at the shortest one.
+
+10:26.100 --> 10:31.860
+So once one of the iterable is exhausted it doesn't matter what's left over in the remaining iterable
+
+10:32.160 --> 10:33.990
+it won't show up in here.
+
+10:34.560 --> 10:39.850
+So here we get one come at 10 to come twenty and 3Com 40 in our result.
+
+10:42.120 --> 10:44.370
+So let's take a look at another example.
+
+10:45.120 --> 10:47.780
+Now L-3 is the string.
+
+10:48.000 --> 10:54.060
+But remember a string is an iterable you can iterate the characters in the string so you can think of
+
+10:54.060 --> 11:04.080
+the string as simply the sequence of characters p y th o n so it has 1 2 3 4 5 6 characters in it L2
+
+11:04.260 --> 11:08.940
+has four integers in it and L-1 has three integers in it.
+
+11:08.940 --> 11:14.550
+Now we can zip that up and if we zipped that up and of course we pass it to a list so we can actually
+
+11:14.550 --> 11:23.800
+see the result then we will get 1 10 P to 20 y three 30 T.
+
+11:24.030 --> 11:25.800
+Now L one's been exhausted.
+
+11:25.800 --> 11:27.750
+And so we stop at that point.
+
+11:27.810 --> 11:31.850
+And so this is what we end up in our results right.
+
+11:31.870 --> 11:34.090
+So it's it's actually pretty handy.
+
+11:34.510 --> 11:35.490
+Let's see why.
+
+11:35.710 --> 11:43.600
+Let's say that I want to find the index of the each character in the string and I want to create some
+
+11:43.600 --> 11:49.740
+kind of list or something that tells me both the index and the character at that index.
+
+11:49.960 --> 11:51.530
+Well it's very easy to do that.
+
+11:51.550 --> 11:57.740
+I'll take this range and I'll make the range number here greater than the length of the string.
+
+11:58.090 --> 12:01.960
+I could make it equal but I can make it greater than anything.
+
+12:01.960 --> 12:08.380
+It doesn't matter because now when I zipped that up it's going to zip up the zero Come one come to cover
+
+12:08.380 --> 12:09.790
+three up to 100.
+
+12:09.940 --> 12:18.250
+And a b c d and i know it's going to stop once a b c d has been exhausted and so on Zipp result is 0
+
+12:18.290 --> 12:20.980
+8 1 B to C D.
+
+12:20.980 --> 12:23.110
+So as you can see that's really handy.
+
+12:23.140 --> 12:28.090
+Now of course if you want to tuple the other way around if you want a common zero become a one you just
+
+12:28.090 --> 12:30.260
+zip L2 comma L-1 right.
+
+12:30.280 --> 12:36.640
+The sequence the older of the sequences matters in terms of how it shows up in what order it shows up
+
+12:36.780 --> 12:38.120
+in the resulting tuples.
+
+12:40.560 --> 12:47.320
+OK so now let's look at list comprehensions and again we'll see that in much more detail later on in
+
+12:47.320 --> 12:47.900
+those calls.
+
+12:47.920 --> 12:53.290
+But let's take a look at this and why it's an alternative to the map function.
+
+12:53.320 --> 12:54.720
+Let's go back to this example.
+
+12:54.750 --> 12:56.240
+Article 2 3 4.
+
+12:56.740 --> 13:03.130
+And let's say that we want to return the square of each element so we want to create a list that contains
+
+13:03.130 --> 13:07.930
+the square of each of those elements so we can do it using a map right.
+
+13:07.930 --> 13:12.820
+We can define this function as we could of course use a lambda expression as well.
+
+13:13.320 --> 13:16.440
+And then we map Eskew to the list L..
+
+13:16.810 --> 13:18.330
+And so when we get that.
+
+13:18.340 --> 13:20.350
+And of course we can use the lambda expression.
+
+13:20.370 --> 13:22.050
+Here's the example here.
+
+13:22.570 --> 13:26.920
+And when we get that back we get 4 9 and 16.
+
+13:26.920 --> 13:31.150
+So that's using the map function to generate a new list.
+
+13:31.150 --> 13:35.320
+So we had to use list then map then specify the function.
+
+13:35.320 --> 13:39.090
+Are they using Alamdar are using this definition out here.
+
+13:39.190 --> 13:46.970
+And then the iterable itself that whose elements we want to square we could also have done that using
+
+13:46.970 --> 13:47.850
+a fuller.
+
+13:48.020 --> 13:48.290
+Right.
+
+13:48.290 --> 13:52.310
+We could start with a result which would be an empty list.
+
+13:52.490 --> 13:55.480
+Then we can loop through every element in L..
+
+13:55.490 --> 14:02.570
+So for x n l and then we would append x squared to this result and then if we're to print the result
+
+14:02.630 --> 14:08.760
+out we would get the list for 9:16 write so that's another way of doing it.
+
+14:08.780 --> 14:10.040
+This isn't using map.
+
+14:10.040 --> 14:17.990
+This is just using regular code and regular full list comprehension is very similar to the full loop
+
+14:18.080 --> 14:19.460
+example.
+
+14:19.610 --> 14:23.090
+You basically have the expression here x squared.
+
+14:23.120 --> 14:27.070
+This is what we want to return for every x and L.
+
+14:27.080 --> 14:29.620
+So here's a loop for x n l right.
+
+14:29.630 --> 14:31.080
+You have it right here.
+
+14:31.460 --> 14:34.960
+The only difference is that I don't have to do a result or append.
+
+14:34.970 --> 14:38.900
+I already have the square brackets here indicating the list.
+
+14:39.050 --> 14:46.940
+So it's going to iterate L it's going to put each element inside the variable called X and then I can
+
+14:46.940 --> 14:52.050
+use X in this expression here and do whatever I want with it like in this case squaring.
+
+14:52.310 --> 14:56.930
+So when we do that we end up with four 9:16.
+
+14:57.040 --> 15:01.960
+So this is actually a little easier to understand than this statement over here.
+
+15:02.020 --> 15:03.050
+That's still OK.
+
+15:03.070 --> 15:04.610
+That's pretty straightforward.
+
+15:04.720 --> 15:06.100
+Map Eskew to L.
+
+15:06.160 --> 15:09.180
+I know that s Q Does X squared or I can see it directly here.
+
+15:09.190 --> 15:11.680
+It's a lambda expression that's full OK.
+
+15:13.060 --> 15:19.000
+So in general you can write expression for Varnum and iterable and the square brackets that will create
+
+15:19.060 --> 15:19.810
+a list.
+
+15:19.850 --> 15:25.000
+And so that's called a list comprehension.
+
+15:25.000 --> 15:27.180
+Let's take a look at another example.
+
+15:27.280 --> 15:32.780
+Let's suppose that we have two lists l 1 is 1 2 3 and L2 10 20 30.
+
+15:33.020 --> 15:36.170
+Now in this case here's my first attempt.
+
+15:36.250 --> 15:44.140
+So I take map I take lambda X come to Y X plus Y and I apply that lambda function to l 1 and L 2.
+
+15:44.140 --> 15:50.410
+So obviously I'm adding up the elements of each of those lists those sequences.
+
+15:50.860 --> 15:53.740
+And then I'm generating a list back out of that.
+
+15:53.770 --> 15:55.740
+And so we get 11:22 33.
+
+15:55.750 --> 15:57.590
+That's the example we saw just now.
+
+15:59.380 --> 15:59.940
+OK.
+
+16:00.070 --> 16:04.540
+Now I want to remind you of the Zipp function.
+
+16:04.540 --> 16:11.320
+So what happens if we zip l one L to well we end up with tuples right that are made up from the corresponding
+
+16:11.650 --> 16:14.690
+elements of each list.
+
+16:14.740 --> 16:17.190
+Right so 110 to 23 23:30.
+
+16:17.530 --> 16:23.020
+So Zipp is something that becomes really really useful when we use list comprehensions because suppose
+
+16:23.020 --> 16:29.260
+I want to write what I just did here using a list comprehension instead of using this map.
+
+16:29.680 --> 16:35.080
+What we can do it this way we can iterate zip L-1 come in L2.
+
+16:35.080 --> 16:36.240
+Now what are we iterated.
+
+16:36.250 --> 16:38.170
+Well we iterating a tuple right.
+
+16:38.200 --> 16:41.820
+And so we can put each element of the tuple into a variable name.
+
+16:41.830 --> 16:43.800
+We've seen how to iterate before.
+
+16:44.020 --> 16:52.660
+So for X come a y is Zipp l 1 come L 2 will get 1 in 10 in the first iteration to 20 in the second iteration
+
+16:52.690 --> 17:00.790
+and 3 and 30 and the third and at each iteration what are we doing with summing up x plus y and then
+
+17:00.790 --> 17:02.340
+we're putting that into a list.
+
+17:02.380 --> 17:09.910
+And so we end up with the very same thing eleven twenty two 33 So now you may be thinking well wait
+
+17:09.910 --> 17:10.310
+a minute.
+
+17:10.330 --> 17:11.350
+I mean yeah.
+
+17:11.560 --> 17:16.580
+You know what's what's something to understand the list comprehension or the math.
+
+17:16.600 --> 17:18.670
+In this case I think it's a toss up right.
+
+17:18.670 --> 17:20.900
+The map is pretty straightforward to understand.
+
+17:20.900 --> 17:26.200
+Here you've got the Zipp that kind of came in between that you otherwise would have been you know much
+
+17:26.200 --> 17:27.800
+cleaner.
+
+17:27.940 --> 17:31.930
+But up to you to decide which approach you want to take.
+
+17:32.200 --> 17:33.310
+But here is another one.
+
+17:33.310 --> 17:40.130
+Let's take a look at the filter function so let's take a look at l equals 1 2 3 4.
+
+17:40.530 --> 17:45.080
+And we want to filter out only and only keep the even numbers.
+
+17:45.330 --> 17:46.550
+While we've seen this before.
+
+17:46.650 --> 17:46.910
+Right.
+
+17:46.920 --> 17:52.140
+We can filter we can take this lambda expression that looks at whether an is even or not.
+
+17:52.140 --> 17:53.400
+And then we apply it.
+
+17:53.460 --> 17:55.880
+We only retain the Truthy results.
+
+17:56.010 --> 17:59.030
+So in this case we retain two and four.
+
+17:59.880 --> 18:03.820
+Now if you were to use a list comprehension you can do it this way.
+
+18:03.820 --> 18:10.860
+The list comprehension has an extra piece that you can add onto it which is this if statements and the
+
+18:10.860 --> 18:17.610
+way it works is that we are iterating X and L and we're going to return x so we're just going to take
+
+18:17.610 --> 18:18.540
+x by itself.
+
+18:18.540 --> 18:25.650
+We're not doing anything fancy with it but we're only going to keep those Xs those iterations where
+
+18:25.660 --> 18:28.190
+this expression is true.
+
+18:28.190 --> 18:35.560
+Now there was return x for x and L if X Mont. two equals zero.
+
+18:35.970 --> 18:37.360
+So that's pretty expressive.
+
+18:37.500 --> 18:43.390
+But again this is I think easier to understand than this filter operation here.
+
+18:43.900 --> 18:49.500
+Again up to you how you want to do it so this will give us the same thing two and four.
+
+18:49.510 --> 18:53.620
+And of course we're using a list comprehension so we actually get a list back we don't have to convert
+
+18:53.620 --> 18:54.500
+it to a list.
+
+18:54.550 --> 18:56.410
+It's already is a list.
+
+18:56.410 --> 19:02.900
+So in general list comprehensions are built this way you first think of the iteration.
+
+19:02.950 --> 19:06.460
+So you're going to iterate something in some iterable.
+
+19:06.460 --> 19:08.460
+Now that something could be a single variable name.
+
+19:08.470 --> 19:13.390
+But if you're iterating you know a tuple for example you can have multiple variable names.
+
+19:13.390 --> 19:15.610
+Kind of depends what you are iterating.
+
+19:15.610 --> 19:23.180
+Then you have a filter expression that only keeps this iteration if the expression over here is true.
+
+19:23.740 --> 19:30.640
+And when that's the case then it will evaluate this expression here and that will become the element
+
+19:30.640 --> 19:31.970
+of the new list.
+
+19:32.110 --> 19:36.460
+And we just repeat that for every iteration.
+
+19:36.640 --> 19:37.920
+So let's combine the two.
+
+19:38.110 --> 19:44.590
+And this is where you'll see that using a list comprehension is actually a lot more expressive and a
+
+19:44.590 --> 19:47.750
+lot easier to understand than using map and filter.
+
+19:47.860 --> 19:50.200
+Let's say that I have this list here.
+
+19:50.260 --> 19:53.230
+While it's not actually a list but it's a it's a sequence right.
+
+19:53.230 --> 19:55.090
+Range 10 to an iterator.
+
+19:55.840 --> 19:59.840
+And I want to do this piece of code right there.
+
+20:00.010 --> 20:01.490
+So what's going on.
+
+20:01.750 --> 20:03.540
+Well let's take a look.
+
+20:03.640 --> 20:11.710
+We have a filter right which has some function applied to a list well-to to a sequence to an iterator.
+
+20:11.800 --> 20:13.210
+What is that iterative.
+
+20:13.450 --> 20:19.880
+Well it is self generated from map that applies the function x squared to the elements of L.
+
+20:20.140 --> 20:26.440
+So what we're doing is we're squaring every element that's in range 10 and then we're filtering out
+
+20:26.740 --> 20:30.040
+the elements where that square is less than 25.
+
+20:30.040 --> 20:34.990
+We're only going to keep the elements where the square is less than 25.
+
+20:35.470 --> 20:41.690
+So what we end up with is zero which is zero squared one square to square three square four square and
+
+20:41.700 --> 20:44.660
+then five square is 25 that's too loud.
+
+20:44.830 --> 20:45.960
+That gets filled it up.
+
+20:46.060 --> 20:50.820
+And so the remaining elements of range 10.
+
+20:50.950 --> 20:54.640
+So you certainly can figure out what's going on here.
+
+20:54.700 --> 20:57.180
+But it takes a little bit of work.
+
+20:57.280 --> 21:00.710
+On the other hand if you use a list comprehension Here's what it looks like.
+
+21:02.030 --> 21:06.620
+X squared for x in range 10 if x squared is less than 25.
+
+21:07.040 --> 21:08.550
+That is very very clear.
+
+21:08.630 --> 21:13.660
+You don't have to really think at all in order to understand what this list comprehension is doing.
+
+21:14.000 --> 21:16.800
+And it is of course returning the same thing.
+
+21:17.510 --> 21:17.840
+All right.
+
+21:17.840 --> 21:23.750
+So we'll take a look at list comprehensions and generally expressions and dictionary comprehensions
+
+21:23.750 --> 21:25.660
+in more detail later on in the course.
+
+21:25.670 --> 21:31.940
+But for now I wanted to start showing you how those things work and why they really an alternative to
+
+21:31.940 --> 21:39.850
+the map in the field of higher order functions that you'll still see used quite widely by Python programs.
+
+21:40.220 --> 21:43.040
+So let's switch to some code and let's see all that in action.

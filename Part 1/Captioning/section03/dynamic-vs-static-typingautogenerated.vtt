@@ -1,0 +1,229 @@
+WEBVTT
+
+00:00.850 --> 00:06.250
+Hi and we'll to this lecture on dynamic typing versus static typing.
+
+00:06.630 --> 00:12.130
+Now in order to understand this I'm going to start by looking at what static typing is.
+
+00:12.410 --> 00:21.200
+So many languages are statically typed languages like Java C++ C sharp swift and many others are statically
+
+00:21.200 --> 00:22.200
+typed.
+
+00:22.220 --> 00:27.590
+So let's look at Java as an example in this piece of code.
+
+00:27.710 --> 00:29.530
+We have string my VAR equals.
+
+00:29.540 --> 00:30.230
+Hello.
+
+00:30.230 --> 00:32.740
+Now there's a few things happening here.
+
+00:32.960 --> 00:36.350
+One is that we have a variable name just like we have in Python.
+
+00:36.350 --> 00:43.090
+That's no different what is different though is that we have a data type that we're associating with
+
+00:43.100 --> 00:46.870
+the variable name the data type is a string.
+
+00:46.940 --> 00:53.590
+And then lastly we have a value a string literal hello that we're assigning to my VA.
+
+00:54.050 --> 00:58.680
+So now what's happening is very similar to what happens with Python.
+
+00:59.000 --> 01:05.870
+That string literal Hello gets created in memory has an object had some memory address it has a data
+
+01:05.870 --> 01:08.200
+type of string it has a value.
+
+01:08.210 --> 01:10.640
+Hello and the memory address.
+
+01:10.940 --> 01:18.710
+What's a little bit different is that my VAR is a variable but it is a variable of type string we have
+
+01:18.710 --> 01:25.280
+associated the data type with the variable and then that variable becomes a reference to that memory
+
+01:25.280 --> 01:27.810
+address just like we have in Python.
+
+01:28.310 --> 01:36.010
+So that's really the crux of the difference between Python and a statically typed language like Java.
+
+01:36.320 --> 01:40.210
+The data type is associated with the variable name.
+
+01:40.250 --> 01:43.970
+So if we write some code later on like my VAR equals 10.
+
+01:44.100 --> 01:51.680
+While this isn't going to work it's not going to work because my VAR was declared as a string and 10
+
+01:51.680 --> 01:56.130
+is an integer it's not a type that is compatible with string.
+
+01:56.300 --> 01:57.910
+So that won't work.
+
+01:58.070 --> 02:00.380
+We can harvest say later on in our code.
+
+02:00.380 --> 02:02.530
+My var equals ABC right.
+
+02:02.570 --> 02:07.160
+The string literal ABC that's perfectly fine because while ABC is a string.
+
+02:07.430 --> 02:08.360
+So that's OK.
+
+02:08.650 --> 02:09.300
+Right.
+
+02:10.840 --> 02:13.090
+So that's really the main difference.
+
+02:13.090 --> 02:15.640
+Now Python is dynamically typed.
+
+02:15.700 --> 02:21.540
+So the main difference if we look at this piece of Python code here is that we are not specifying that
+
+02:21.550 --> 02:24.540
+my VAR is of type string.
+
+02:24.580 --> 02:26.710
+My var is just a reference.
+
+02:26.710 --> 02:33.850
+Nothing more to an object that object currently happens to be a string object.
+
+02:33.870 --> 02:35.490
+The value of hello.
+
+02:36.220 --> 02:39.340
+But the type is not attached to my arm.
+
+02:39.610 --> 02:46.350
+So just like we've seen before my VAR is a reference to the string object in memory.
+
+02:46.570 --> 02:50.530
+Later on if we say my articles 10 that's perfectly legal.
+
+02:50.650 --> 02:58.540
+All we're doing is that we are creating an object in memory an integer object with value 10 and we are
+
+02:58.540 --> 03:02.890
+changing the reference of my VAR to point to that integer.
+
+03:03.640 --> 03:09.880
+So in effect we kind of think that the type of my var has changed.
+
+03:10.120 --> 03:15.450
+Well my VAR never had a type to start off with my VAR was just a reference.
+
+03:15.690 --> 03:21.300
+What has changed is the type of the object that my VAR was pointing to.
+
+03:22.690 --> 03:23.530
+Right.
+
+03:24.010 --> 03:29.860
+So we can use the built in type function to determine the type of the object currently referenced by
+
+03:29.860 --> 03:32.950
+a variable but that can change over time.
+
+03:32.980 --> 03:43.120
+Remember Python type variables do not have an inherent static type so when we call Type of my Python
+
+03:43.120 --> 03:49.510
+will look up the object that my VAR is referencing currently right that it's pointing to and it will
+
+03:49.510 --> 03:53.120
+return the type of that object.
+
+03:53.130 --> 03:56.420
+So let's take a look at some code and see how that works.
+
+03:56.580 --> 03:57.060
+All right.
+
+03:57.120 --> 04:00.360
+So let's take a look at this very quickly.
+
+04:00.420 --> 04:06.100
+Let's start with a variable aid and let's make it equal to a string.
+
+04:06.120 --> 04:12.360
+So remember a now is a reference to a string object in memory has a memory address and so on.
+
+04:12.360 --> 04:17.570
+Now we can look at the type of aid and we get that it's a string.
+
+04:17.580 --> 04:20.400
+Now it's not really the type of a.
+
+04:20.430 --> 04:21.350
+Keep that in mind.
+
+04:21.390 --> 04:25.910
+What it really is it's the type of the object that is referencing.
+
+04:26.220 --> 04:32.790
+So if later we change a reference to something else maybe we change it to an integer.
+
+04:32.790 --> 04:37.680
+Now we can look at the type of a and we see that the type is now an integer.
+
+04:37.920 --> 04:39.880
+Maybe we change it to something else maybe.
+
+04:39.900 --> 04:44.280
+And this is something we'll cover later we'll change it to let's say a lambda expression.
+
+04:44.490 --> 04:44.760
+Right.
+
+04:44.760 --> 04:47.630
+So basically it's a function is a function right.
+
+04:47.630 --> 04:54.900
+We can call a value of 2 is going to return to square because X is the parameter that has a value of
+
+04:54.900 --> 04:55.680
+2.
+
+04:55.690 --> 04:56.690
+So we get four.
+
+04:56.970 --> 05:01.500
+And we can look at the type of a and a is a function right.
+
+05:01.500 --> 05:08.520
+If a is equal to three plus four J which is not a complex number we can look at the type of a and it
+
+05:08.520 --> 05:11.650
+tells us that it's a complex number and so on.
+
+05:11.730 --> 05:19.800
+Every time we've simply changed the reference of a to a different object and type we'll return the type
+
+05:19.800 --> 05:21.810
+of that object in memory.
+
+05:21.810 --> 05:26.270
+So quite straightforward and that's what a dynamically typed language is.
+
+05:26.280 --> 05:28.140
+All right I'll see you in the next video.

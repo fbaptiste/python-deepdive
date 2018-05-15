@@ -1,0 +1,1180 @@
+WEBVTT
+
+00:00.240 --> 00:01.710
+Hi and welcome back.
+
+00:01.830 --> 00:03.900
+So let's jump right into the code.
+
+00:03.900 --> 00:09.150
+We saw the different variants that we can have for import and we talked about the misconception that
+
+00:09.210 --> 00:15.720
+if you import just a single symbol or a couple of symbols from a module you're actually making things
+
+00:15.720 --> 00:18.630
+more efficient because you're not loading the entire module.
+
+00:18.990 --> 00:21.260
+Well for simple modules that's not the case.
+
+00:21.270 --> 00:27.330
+And let's go ahead and just try it out and we're going to import something from a module and see what
+
+00:27.330 --> 00:28.350
+happens.
+
+00:28.350 --> 00:33.210
+So I'm going to want to look at importances because the problem with the Jupiter notebook is that it
+
+00:33.510 --> 00:35.790
+tends to import a lot of stuff.
+
+00:35.850 --> 00:38.220
+So let's just see what's in there.
+
+00:38.740 --> 00:48.150
+And also the keys in the arm modules just to see what it is for we have an off a vertical order and
+
+00:48.150 --> 00:50.690
+you'll notice there's a bunch of stuff right.
+
+00:50.750 --> 00:52.510
+You get all these python things.
+
+00:52.530 --> 00:53.300
+OK.
+
+00:53.520 --> 00:59.700
+We're not going to use those but then you'll notice that we also have down here a lot of the standard
+
+00:59.700 --> 01:01.170
+library is already loaded.
+
+01:01.170 --> 01:04.500
+Like for example collection's is already been loaded.
+
+01:04.500 --> 01:06.070
+Math has been loaded.
+
+01:06.100 --> 01:07.900
+C math has not been loaded.
+
+01:07.980 --> 01:08.310
+Right.
+
+01:08.310 --> 01:10.120
+We don't have the math anyway.
+
+01:10.200 --> 01:10.600
+OK.
+
+01:10.650 --> 01:13.160
+We have CME The R and then calendar.
+
+01:13.170 --> 01:17.210
+So no C math anywhere but math for example also gets loaded.
+
+01:17.340 --> 01:17.670
+Right.
+
+01:17.680 --> 01:21.780
+The import lib gets loaded the Sisk gets loaded.
+
+01:21.780 --> 01:27.590
+I mean all that stuff is already preloaded for us so we can't use any of those to test this out.
+
+01:27.810 --> 01:29.040
+So we'll use the mouse.
+
+01:29.400 --> 01:35.220
+And let's just make sure that C math is not in the system modules.
+
+01:35.430 --> 01:37.850
+It's just check it this way and it's not.
+
+01:37.890 --> 01:45.170
+Let's also make sure that C math is not in Gogol's right on global namespace and it's not.
+
+01:45.180 --> 01:51.840
+So we find it hasn't been loaded at all and we don't have any reference to it or to some C math symbol
+
+01:51.840 --> 01:53.770
+at least in our Global's.
+
+01:53.790 --> 02:01.740
+So now let's go ahead and say from C-Max import DXP So we're just going to impled the exponential function
+
+02:01.770 --> 02:03.060
+from C math.
+
+02:03.420 --> 02:07.760
+So now we can check we can say you know is C math in Goebels.
+
+02:07.890 --> 02:09.130
+And the answer is false.
+
+02:09.150 --> 02:14.660
+It is not an Global's because we know from the lecture that when we do this from C math and bought the
+
+02:14.680 --> 02:19.360
+XP The only thing that gets added to our namespace is XP Nazim.
+
+02:19.380 --> 02:22.860
+In fact let's double check that.
+
+02:23.250 --> 02:26.870
+And as you can see XP is in our Global's and what is it.
+
+02:26.910 --> 02:33.600
+It's a function that happens to point to this memory address so we can look at the idea XP.
+
+02:33.740 --> 02:35.890
+And it's this over here.
+
+02:36.040 --> 02:38.040
+But let's look at the sists modules.
+
+02:38.080 --> 02:42.740
+Let's now see if the math is in six modules.
+
+02:43.150 --> 02:44.500
+And the answer is it is.
+
+02:44.500 --> 02:50.710
+It's been loaded in the CIS modules it loaded the entire C math module or at least everything that was
+
+02:50.710 --> 02:52.400
+being exported from Sema.
+
+02:52.690 --> 02:53.830
+Everything's in there.
+
+02:54.190 --> 02:59.440
+Now I don't have a reference to see math in my Goebels so I can't say C math taught you xP.
+
+02:59.440 --> 03:00.300
+I have to call.
+
+03:00.300 --> 03:07.110
+Just you don't get XP so I can say XP of two plus two J for example and I get that response.
+
+03:07.420 --> 03:14.530
+But I can say see math dots XP or maybe c math dot sign because that you know we don't have the math
+
+03:14.920 --> 03:22.720
+as a symbol in our global namespace but we can add it we can just say C math equals system of modules
+
+03:22.790 --> 03:25.470
+and we know that C math is and says modules.
+
+03:25.480 --> 03:28.180
+So now we have CMAC
+
+03:31.330 --> 03:32.940
+in Goebels.
+
+03:33.200 --> 03:34.230
+Ted that's true.
+
+03:34.260 --> 03:35.920
+So now we can call C math.
+
+03:36.020 --> 03:37.960
+XP right.
+
+03:38.040 --> 03:41.860
+So we can call C math you XP on two plus two J for example.
+
+03:41.880 --> 03:43.510
+And that works just fine.
+
+03:43.890 --> 03:49.080
+And now to show you that the entire C math module was actually loaded let's call it different function
+
+03:49.260 --> 03:50.990
+within import that one right.
+
+03:51.000 --> 03:57.140
+We didn't say from C math import DXP commas sine we didn't do that right.
+
+03:57.150 --> 03:59.590
+We just imported Expwy.
+
+03:59.740 --> 04:02.500
+So let's take a look at this one.
+
+04:02.500 --> 04:03.520
+That works too.
+
+04:03.610 --> 04:07.800
+How about C mapped out pi that works as well right.
+
+04:07.800 --> 04:11.220
+C math of cosign that's in there as well.
+
+04:11.650 --> 04:21.010
+Etc. so as you can see when even though we said Francey math important DSP it did not do a partial import
+
+04:21.010 --> 04:21.620
+of C math.
+
+04:21.640 --> 04:26.770
+Python has no way of knowing you know this module C math which functions are you.
+
+04:26.800 --> 04:29.080
+You know all my supposed to import the XP.
+
+04:29.080 --> 04:32.140
+OK but maybe it depends on some other stuff in the module.
+
+04:32.140 --> 04:35.360
+How is it supposed to know what pieces what.
+
+04:35.440 --> 04:37.190
+You know chunks of that code.
+
+04:37.300 --> 04:41.740
+It has to import it doesn't it just imports the entire module.
+
+04:41.740 --> 04:44.730
+Now little different packages but we'll come back to that.
+
+04:44.770 --> 04:46.140
+Now what about the impulse.
+
+04:46.180 --> 04:49.850
+Don't let's go ahead and take a look at that and see why that's a problem.
+
+04:49.900 --> 04:57.440
+Let's say a white can deal cause problems let's say I say from sci math impled stuff.
+
+04:57.700 --> 05:04.570
+So now that every single symbol that was exported from C math in my global namespace can take a look
+
+05:04.570 --> 05:09.840
+at our Global's and you'll see that we have to get to the end.
+
+05:09.880 --> 05:16.580
+We've got all these things top age tensest square root sign a sign poler PI phase.
+
+05:16.600 --> 05:20.750
+All these came from the C math library logged ten log and so on.
+
+05:20.770 --> 05:24.060
+You'll notice we got square root and we have sine.
+
+05:24.220 --> 05:24.610
+OK.
+
+05:24.700 --> 05:26.200
+And which ones are they pointing to.
+
+05:26.230 --> 05:27.700
+C math taught sign.
+
+05:27.700 --> 05:30.570
+C math of square root and so on.
+
+05:31.090 --> 05:34.950
+So now I could say you know sign of two plus two J.
+
+05:35.020 --> 05:36.300
+That works just fine.
+
+05:37.820 --> 05:38.830
+But now let me do this.
+
+05:38.870 --> 05:42.340
+Let me say from math import stamp.
+
+05:43.510 --> 05:45.860
+And now let's look at the Global's again.
+
+05:48.560 --> 05:50.670
+Again this to scroll all the way down.
+
+05:50.760 --> 05:51.820
+And let's take a look.
+
+05:51.820 --> 05:59.210
+He has all square root symbol but you can see now it's using the math square root symbol sine is now
+
+05:59.210 --> 06:01.670
+using the math sign symbol.
+
+06:01.700 --> 06:04.580
+That's because math and C math had the same symbol name.
+
+06:04.580 --> 06:11.510
+So when we imported math it changed our you know our global reference on namespace module's namespace
+
+06:11.630 --> 06:12.950
+sign symbol 2.
+
+06:12.950 --> 06:15.400
+Now to be math doth sign.
+
+06:15.410 --> 06:18.310
+So now if I try and say sign of two plus two J.
+
+06:18.500 --> 06:24.680
+That's going to fail because the real you know math library can't handle complex numbers.
+
+06:24.680 --> 06:26.420
+It can only handle reals.
+
+06:26.630 --> 06:28.840
+So that's the problem with doing the import stuff.
+
+06:28.840 --> 06:35.030
+It's very easy to step over a previous imports toes especially if you don't know exactly everything
+
+06:35.030 --> 06:35.890
+that's in the module.
+
+06:35.910 --> 06:39.280
+For some of these models there's a lot of symbols being exploited.
+
+06:39.500 --> 06:43.700
+And so you run the risk of stepping over your own toes.
+
+06:43.700 --> 06:51.050
+Now if I have something like from time import lbf calendar and you know I import math then you know
+
+06:51.050 --> 06:55.430
+and some other things while they don't have a power of countering them I kind of know that.
+
+06:55.490 --> 07:02.210
+So I'm fairly safe doing that and I'll do this if I'm lazy I don't want to have to type timed up counter
+
+07:02.210 --> 07:03.650
+every time.
+
+07:04.400 --> 07:08.460
+But really in this case there's very little risk associated with it.
+
+07:08.570 --> 07:15.860
+So there's nothing wrong with saying from time impled a specific item but you can run the same into
+
+07:15.860 --> 07:18.110
+the same problem as we did with the impled stuff.
+
+07:18.110 --> 07:19.340
+That problem still exists.
+
+07:19.340 --> 07:22.650
+It's not the you know the stuff that causes the problem.
+
+07:22.790 --> 07:27.950
+It's the fact that you're importing symbols directly into your namespace and those symbols may have
+
+07:27.950 --> 07:28.550
+different things.
+
+07:28.550 --> 07:32.880
+For example if I say from seemin AF import fine.
+
+07:33.020 --> 07:33.480
+OK.
+
+07:33.530 --> 07:41.410
+Now I can look at the sign that's in the C math and if I say later on from math import fine.
+
+07:42.260 --> 07:47.190
+And now I look at sign you can see that it's changed to the math sine function.
+
+07:47.210 --> 07:50.630
+So again I've stepped over my own my own toes this way.
+
+07:51.020 --> 07:52.970
+So of course what you can do is you can use an alias.
+
+07:53.000 --> 07:57.620
+You might say this is you know from C math import C underscore sine.
+
+07:57.660 --> 07:58.350
+Well sorry.
+
+07:58.480 --> 07:59.180
+Sign.
+
+07:59.540 --> 08:04.660
+As C underscore sign so aliasing it and then this one will importer's sign.
+
+08:04.850 --> 08:08.810
+OK so now we have a c sine function that points to see math.
+
+08:08.990 --> 08:13.760
+And here we have an unsigned function that points to the regular real math.
+
+08:13.760 --> 08:16.900
+All right so that's the variance that we have for impuls.
+
+08:16.940 --> 08:20.980
+And as you can see every time it imports the entire module.
+
+08:21.050 --> 08:28.250
+So you don't have any efficiency by only importing specific symbols out of the module and let's take
+
+08:28.250 --> 08:36.710
+a look now at efficiency's since we started talking about that let's go ahead and see things about efficiency.
+
+08:36.720 --> 08:41.410
+Now one of the things that's often mentioned is that you should never do something like this.
+
+08:41.780 --> 08:46.770
+That say I have my fonk and I'm going to import math inside my function and now I'm going to return
+
+08:46.770 --> 08:47.420
+math.
+
+08:47.440 --> 08:48.570
+Square root have 8.
+
+08:48.660 --> 08:53.210
+Ok whatever it was passed in basic and is wrapping the square root function in my own function.
+
+08:53.900 --> 08:57.810
+And that's frowned upon and is actually good reasons for framing upon that.
+
+08:57.830 --> 09:04.810
+One is that it's now difficult to know what's being imported and where functions are coming from.
+
+09:04.940 --> 09:10.690
+Because you don't have a single location to look at all the dependencies of the module.
+
+09:10.690 --> 09:12.120
+This module right now.
+
+09:12.310 --> 09:14.940
+You know let's say I done import collections.
+
+09:15.150 --> 09:16.370
+OK in here.
+
+09:16.870 --> 09:23.140
+So it's not easy for me to know if I'm looking at the module as a whole what are the dependencies and
+
+09:23.530 --> 09:28.270
+this module now has a dependency on collections because I'm importing it and maybe I'm using it you
+
+09:28.270 --> 09:29.320
+know down here somewhere.
+
+09:29.500 --> 09:31.780
+Maybe I'm you know what I'm saying from collections
+
+09:35.230 --> 09:40.690
+import name top and then it's here.
+
+09:40.720 --> 09:44.560
+And you know maybe I'll create a new name Toppo and I'll put that in the response back.
+
+09:45.430 --> 09:50.490
+Because very often remember we want to return multiple values from a function using a name top here
+
+09:50.500 --> 09:54.480
+doesn't make sense I'm just returning one value but you could have something like this.
+
+09:54.490 --> 09:55.390
+And if you do.
+
+09:55.600 --> 10:02.050
+Now you have a dependency on that collections module but it's not easy to see if I'm just scanning the
+
+10:02.050 --> 10:06.570
+code very quickly I would have to actually spot this inside one of the functions.
+
+10:06.610 --> 10:11.510
+So that's one of the main reasons why it's frowned upon it's really just readability right.
+
+10:11.560 --> 10:13.150
+The Python compiler doesn't care.
+
+10:13.150 --> 10:14.810
+It sees the reference here.
+
+10:14.830 --> 10:15.750
+OK fine.
+
+10:15.880 --> 10:19.660
+I'm going to add a name topple to the namespace of my phunk.
+
+10:19.690 --> 10:23.770
+It's not going to go into the global namespace but it's still going to go ahead and load the module
+
+10:23.770 --> 10:29.980
+if it wasn't loaded already and then it's going to add name topple to the local namespace of my phunk.
+
+10:29.980 --> 10:34.090
+It's going to be in this local's right namespace.
+
+10:34.930 --> 10:38.540
+So again just readability can be an issue here.
+
+10:39.770 --> 10:45.230
+But there's also an efficiency thing you know are we re-importing the math module every time.
+
+10:45.230 --> 10:49.990
+If we do this frankly import math or we re-importing the math module every time.
+
+10:50.360 --> 10:51.980
+Well no we're not.
+
+10:52.070 --> 10:57.890
+Because the first time it encounters math it will load it and put it in that says modules.
+
+10:57.890 --> 10:59.950
+But that object now exists.
+
+10:59.960 --> 11:05.340
+So the second time that so we call this function a second time around it does the import math again.
+
+11:05.600 --> 11:09.260
+So the overhead there is to go in C insists modules.
+
+11:09.260 --> 11:15.060
+If the math module exists already if it doesn't then yes it will go loaded.
+
+11:15.230 --> 11:20.750
+But the second time around the math module has been loaded and it's not going to go and reload the math
+
+11:20.750 --> 11:22.460
+module all it's going to do.
+
+11:22.460 --> 11:27.830
+It's going to get the reference to the math module from system modules and add it to my local scope
+
+11:27.830 --> 11:29.080
+of my function.
+
+11:29.090 --> 11:34.920
+That's the overhead not importing the module just adding the reference to the namespace.
+
+11:35.090 --> 11:39.670
+And there is some overhead associated with that but it's really not as large as you might think.
+
+11:39.710 --> 11:42.510
+So let's go ahead and actually time some stuff.
+
+11:42.570 --> 11:49.580
+So here's what I want to do is I'm going to say from time import of color and yes I'm using a from because
+
+11:50.120 --> 11:53.680
+I know that I'm not going to run into any kind of collisions.
+
+11:53.870 --> 11:58.660
+And then I also want from collections import names to topple.
+
+11:58.700 --> 12:01.480
+I'm going to want to use that if I can type it.
+
+12:01.860 --> 12:09.270
+So from collections import named toppled and I'm going to write a small utility function that we'll
+
+12:09.270 --> 12:11.950
+use to compare two timings to each other.
+
+12:12.240 --> 12:21.870
+So I'm going to create a name topcoat called timings and it's going to have these fields timing one
+
+12:22.560 --> 12:29.310
+timing to the absolute difference between the two timings and the relative difference as a percentage
+
+12:29.820 --> 12:31.710
+between the two timings.
+
+12:31.760 --> 12:38.220
+OK so I've got that and now I'm going to write you know compare timings function where I'll give it
+
+12:38.280 --> 12:44.760
+to timings timing 1 and timing 2 and I'm going to want to find the relative difference between them
+
+12:44.760 --> 12:45.900
+as a percentage.
+
+12:46.110 --> 12:50.510
+So I'm going to take timing to minus timing one.
+
+12:50.820 --> 12:59.400
+So we'll divide that by timing 1 and timing 1 and multiply that by 100 just to see the relative difference
+
+12:59.490 --> 13:02.880
+as a percentage of timing versus timing one.
+
+13:03.030 --> 13:10.590
+And then we're going to return all named top for instance and we're going to round with timing one to
+
+13:10.590 --> 13:12.450
+one decimal point.
+
+13:12.990 --> 13:24.210
+Then we'll round the timing 2 to 1 decimal point then we'll round the timing to minus timing 1 to 1
+
+13:24.210 --> 13:36.810
+decimal point on round 3 that to 1 decimal point and then we'll round the relative difference to care.
+
+13:36.820 --> 13:42.460
+So that's all named topwater then we'll just return timings.
+
+13:42.920 --> 13:52.060
+So if I compare let's say timings let's say My first the all time timing that I did took one second
+
+13:52.070 --> 13:54.560
+the other one took two seconds then I'll get back.
+
+13:54.560 --> 13:58.220
+The absolute difference was one second and the relative difference was 100 percent.
+
+13:58.220 --> 14:00.800
+This was a 100 percent increase to go from one to two.
+
+14:00.890 --> 14:06.530
+But I also want the absolute difference because you know just as we saw with decimals and when we're
+
+14:06.530 --> 14:10.700
+looking at you know comparing things to each other with floats as well.
+
+14:10.850 --> 14:17.780
+Absolute and relative you know is important because a relative difference of 100 percent when my absolute
+
+14:17.780 --> 14:23.960
+differences you know a microsecond doesn't affect my timing much for my program if my program takes
+
+14:23.960 --> 14:28.990
+10 minutes to run saving a microsecond isn't going to have much effect.
+
+14:29.030 --> 14:33.170
+So hence why I want both the absolute and the relative.
+
+14:33.180 --> 14:38.800
+All right so now what I want to do is I'm going to do some tests and I'm going to set up a variable
+
+14:39.130 --> 14:42.300
+for a global variable of 10 million.
+
+14:42.820 --> 14:49.420
+So we're going to run these tests 10 million times and calculate the timings to run 10 million iterations
+
+14:49.420 --> 14:50.470
+of the same thing.
+
+14:52.510 --> 14:53.930
+So let's do the first one.
+
+14:54.070 --> 15:00.990
+So the first one I'm going to basically hear Let me just type it out I guess we're going to do timing
+
+15:01.030 --> 15:06.170
+using the fully qualified module dot symbol.
+
+15:06.350 --> 15:07.030
+OK.
+
+15:11.960 --> 15:13.690
+So let's go ahead and import math.
+
+15:13.700 --> 15:18.350
+I know it's a really important but just to be consistent and self-contained here will import math.
+
+15:18.350 --> 15:25.280
+Remember that doesn't really incur much of a performance hit since the math modules are really loaded
+
+15:25.510 --> 15:26.750
+Nagan reloaded.
+
+15:27.080 --> 15:31.110
+Let's start our performance counters and let's repeat this.
+
+15:31.160 --> 15:39.120
+So this loop for underscores I don't really care about the loop variable here.
+
+15:39.200 --> 15:42.530
+We're going to repeat this 10 million times right.
+
+15:42.530 --> 15:44.580
+Test repeats is set to 10 million.
+
+15:44.810 --> 15:45.740
+And what are we going to do.
+
+15:45.740 --> 15:48.900
+We're just going to calculate map square root of two.
+
+15:48.920 --> 15:52.020
+I'm not going to store it in a variable I'm not interested in timing that.
+
+15:52.190 --> 15:57.290
+I just want to know how long does it take to call that square root function using the fully qualified
+
+15:57.470 --> 15:59.940
+module dot symbol.
+
+16:00.800 --> 16:09.770
+So here the end is counter-offered again and then I'll make a variable out of this elapsed fully qualified
+
+16:11.420 --> 16:12.510
+and minus stuff.
+
+16:12.730 --> 16:13.660
+OK.
+
+16:14.360 --> 16:23.000
+And then let's go ahead and print and I'll use the F string that's in 3.6 which means I don't have to
+
+16:23.000 --> 16:24.070
+use the dot format.
+
+16:24.080 --> 16:30.180
+I do have a video about that later in the extra section that talks about f strings basically.
+
+16:30.350 --> 16:35.760
+Instead of saying elapsed zero dot format and then pass that in the format.
+
+16:35.780 --> 16:37.830
+I can actually interpretated right here.
+
+16:37.940 --> 16:43.490
+So this elapsed fully qualified because it's in these braces over here is going to refer to this variable
+
+16:43.490 --> 16:44.740
+over here.
+
+16:45.090 --> 16:47.800
+So let's go ahead and run that.
+
+16:48.000 --> 16:49.660
+And it took two seconds to run.
+
+16:49.820 --> 16:50.320
+OK.
+
+16:52.080 --> 17:03.910
+So now the next one I want to do is timing using a directly imported symbol name.
+
+17:04.400 --> 17:07.900
+Now the words I'm going to say from math important is security.
+
+17:07.940 --> 17:09.130
+So that's what I'm going to do.
+
+17:09.140 --> 17:15.590
+So now security is in my global namespace and we're going to do the same thing as you're going to copy
+
+17:15.590 --> 17:16.540
+paste that.
+
+17:16.910 --> 17:25.310
+But now I don't have to say map that square root of two I can just call it directly and this one is
+
+17:25.310 --> 17:29.080
+going to be elapsed direct symbol.
+
+17:29.090 --> 17:33.950
+I just want to keep those timings around because I'm going to want to then compare them and they will
+
+17:33.950 --> 17:34.860
+print that out.
+
+17:34.940 --> 17:35.280
+OK.
+
+17:35.330 --> 17:39.600
+So let's run that and it took 1.6 six seconds.
+
+17:39.670 --> 17:46.500
+So a little faster but let's take a look at the compared timings.
+
+17:49.420 --> 18:00.590
+So the first timing is elapsed fully qualified and the second timing is the elapsed direct symbol.
+
+18:01.330 --> 18:09.710
+So comparing the timings we can see that it was 0.4 seconds faster and you know 18 19 percent faster.
+
+18:10.000 --> 18:13.110
+But this is over 10 million iterations.
+
+18:13.110 --> 18:18.700
+I had a cold ten million times the square root functions in order to get a zero point for less than
+
+18:18.700 --> 18:21.580
+a half of a second difference.
+
+18:21.580 --> 18:26.830
+So this is why you know if your code is going to run the square root function you know a few thousand
+
+18:26.830 --> 18:27.530
+times.
+
+18:27.670 --> 18:29.350
+Don't worry about this right.
+
+18:29.350 --> 18:32.640
+This has absolutely no impact on it at all.
+
+18:32.660 --> 18:32.930
+Right.
+
+18:32.950 --> 18:40.950
+If we change this let's say to 10000 and rerun all this you'll see the absolute differences.
+
+18:41.020 --> 18:41.310
+Zero.
+
+18:41.310 --> 18:44.500
+I mean it's not even a you know measured in tenths of seconds.
+
+18:46.190 --> 18:51.410
+Relatively speaking it's still about 20 percent but the absolute difference is what matters when we're
+
+18:51.410 --> 18:52.310
+running the code.
+
+18:53.310 --> 19:00.440
+So let me go back to 10 million and let's rerun that so we get the timings OK.
+
+19:00.450 --> 19:05.460
+So the next thing I want to do and I need to baseline this because I want to put an import inside a
+
+19:05.460 --> 19:06.470
+function.
+
+19:06.480 --> 19:11.600
+But of course if I call square root using a function now I've got the overhead of calling the function.
+
+19:11.610 --> 19:16.290
+So I want to basically you know do a baseline by timing
+
+19:19.590 --> 19:23.010
+using a function kind of Raptor's cave.
+
+19:23.340 --> 19:28.100
+And this will be around the fully qualified symbol.
+
+19:28.490 --> 19:29.610
+So what are we going to do.
+
+19:29.660 --> 19:31.190
+I'm going to invoke math again.
+
+19:31.190 --> 19:32.490
+I know I've imported it.
+
+19:32.510 --> 19:36.410
+I just want to be self-consistent self-contained here and here.
+
+19:36.680 --> 19:38.300
+That's all the function is going to do.
+
+19:38.330 --> 19:40.230
+It's going to call square root of two.
+
+19:40.400 --> 19:41.340
+OK.
+
+19:41.870 --> 19:46.730
+So on doing is I'm just putting a function wrapper around it and then I'm going to start my performance
+
+19:46.730 --> 19:47.280
+counter.
+
+19:47.330 --> 19:50.730
+I'm going to take exactly what I had over here.
+
+19:52.960 --> 19:54.400
+I'm going to copy paste that.
+
+19:54.670 --> 19:59.180
+But now instead of calling math a square root of two I'm just going to call func instead.
+
+19:59.360 --> 20:09.320
+K and this is going to be the elapsed phunk fully qualified just to indicate that this is via the function.
+
+20:09.340 --> 20:13.020
+So let's go ahead and call that.
+
+20:13.430 --> 20:21.110
+And you can see there was definitely some overhead because 3.3 seconds versus 2.0 6 again over 10 million
+
+20:21.110 --> 20:22.010
+iterations.
+
+20:22.010 --> 20:26.060
+This was one second slower over 10 million iterations.
+
+20:26.060 --> 20:28.450
+Next let's do the same thing.
+
+20:28.970 --> 20:35.020
+But here what we're going to do is we're going to say from math important.
+
+20:35.060 --> 20:36.020
+Square root.
+
+20:36.020 --> 20:38.400
+So again I know we already have the square root in there.
+
+20:38.420 --> 20:44.300
+I just want to re-emphasize that with imported Square directly into our global namespace and then this
+
+20:44.300 --> 20:53.700
+is here's we're going to change the name to direct symbol K and then we'll print out direct symbol.
+
+20:53.840 --> 20:59.260
+So I'm doing the same thing that we did in the previous two tests except I've wrapped them around functions.
+
+20:59.400 --> 21:03.830
+OK so if we execute that we get two point eight seconds.
+
+21:03.830 --> 21:11.940
+Now again we can compare timings so timings between this one over here.
+
+21:16.230 --> 21:20.860
+And this one over here which should be faster time.
+
+21:20.910 --> 21:23.770
+So again our absolute difference 0.4 seconds.
+
+21:23.790 --> 21:30.050
+So yeah the total elapsed time took longer but the absolute difference was still about the same zero
+
+21:30.060 --> 21:37.240
+you know half less than half a second between using square roots versus using Maff out square root.
+
+21:37.480 --> 21:42.740
+OK but now we have a baseline for doing either of those inside wrapped inside a function.
+
+21:42.780 --> 21:47.190
+And again the you know percentage difference relative 12 you know we've been hovering between 12 and
+
+21:47.190 --> 21:47.640
+20
+
+21:50.680 --> 21:55.790
+so as you can see again for 10 million iterations I want to keep repeating this is for 10 million iterations.
+
+21:55.810 --> 21:58.650
+It's you know it's not a big deal.
+
+22:00.010 --> 22:04.450
+Now let's go ahead and now do the nested impulse
+
+22:07.610 --> 22:14.090
+So what I'm gonna do is I'm going to take this exact same code but I'm not going to put the imposed
+
+22:14.180 --> 22:15.000
+math here.
+
+22:15.080 --> 22:18.390
+I'm going to put the import math inside the function right.
+
+22:18.410 --> 22:23.420
+And then this function is going to be called 10 million times so it's going to run this import math
+
+22:23.600 --> 22:25.200
+10 million times.
+
+22:25.280 --> 22:30.090
+So I'm going to call this elapsed nested fully qualified.
+
+22:30.470 --> 22:32.610
+And so we have to change that to nested as well.
+
+22:32.690 --> 22:33.920
+Let's go ahead and run this
+
+22:39.800 --> 22:40.210
+k.
+
+22:40.270 --> 22:42.960
+So that took now 5 seconds to run.
+
+22:42.970 --> 22:53.530
+So let's take a look at let's compare our timings between the this one and this one.
+
+22:53.530 --> 23:01.600
+So I'm going to compare the timings between the elapsed phunk fully qualified and the one that's also
+
+23:01.610 --> 23:04.020
+function based but uses the nested Imphal.
+
+23:04.180 --> 23:05.610
+What's the comparison.
+
+23:05.890 --> 23:07.660
+Well it was 54 percent slower.
+
+23:07.780 --> 23:09.280
+So it was definitely slow.
+
+23:10.920 --> 23:16.140
+But the in terms of absolute differences it took two seconds more to run less than two seconds.
+
+23:16.140 --> 23:22.850
+Again over ten million iterations if your code is running you know five or six times you get zero difference.
+
+23:22.950 --> 23:29.250
+So again you know from a timing perspective it really depends on how often you're calling that function.
+
+23:29.460 --> 23:34.080
+In general for functions that don't get called very often in the during the lifetime of your application
+
+23:34.440 --> 23:36.930
+the performance impact is negligible.
+
+23:37.110 --> 23:39.640
+But again it's based on your circumstances.
+
+23:39.660 --> 23:44.710
+However this is still a bad idea from a readability standpoint you'd rather not do that.
+
+23:44.970 --> 23:48.650
+But if you do it and maybe that's there's a reason why you want to do it.
+
+23:48.660 --> 23:51.260
+Maybe you're trying to avoid a circular reference.
+
+23:51.390 --> 23:54.470
+You know that can happen then it's OK to do it.
+
+23:54.510 --> 23:57.260
+There's nothing wrong with doing that.
+
+23:57.300 --> 23:59.830
+It's just that it's a little slower.
+
+24:00.030 --> 24:01.760
+Not much it's a little slower.
+
+24:01.950 --> 24:04.970
+You know over billions of repetitions.
+
+24:04.980 --> 24:11.070
+Sure it's going to be you know massively slower it's going to be you know 50 to 60 percent slow.
+
+24:11.070 --> 24:16.130
+Now let's look at the other one where instead of doing impled math we're going to say in both math Dotts
+
+24:16.130 --> 24:19.570
+square root and then we'll call Square directly.
+
+24:20.310 --> 24:27.450
+So we're going to say from math Imphal square roots and then we can just use the square root function
+
+24:27.450 --> 24:29.140
+directly.
+
+24:30.220 --> 24:35.430
+So now what is it going to do it's going to put square root into the local namespace of funk and then
+
+24:35.430 --> 24:36.440
+we call square root.
+
+24:36.450 --> 24:46.370
+It's going to use square root from the local namespace of func and so here this will be the direct that
+
+24:46.410 --> 24:46.940
+I call it.
+
+24:47.010 --> 24:49.600
+So I remain consistent direct symbol.
+
+24:49.770 --> 24:51.120
+OK.
+
+24:53.070 --> 24:55.370
+And we'll just have to replace that.
+
+24:55.410 --> 25:02.240
+And let's see how long that takes to run then to take a little while longer.
+
+25:02.260 --> 25:04.460
+This one is actually quite a bit slower.
+
+25:05.530 --> 25:09.280
+Which is surprising because we would have expected this to be faster.
+
+25:09.430 --> 25:15.100
+This one over here because this one has to go look up math in the local namespace and then it has to
+
+25:15.100 --> 25:21.990
+look up as Q And T from math namespace here we would have thought that while it's getting square root
+
+25:22.010 --> 25:23.950
+you know directly from the math.
+
+25:23.970 --> 25:25.550
+Why is that so much slower.
+
+25:25.600 --> 25:29.600
+And you can see that's go ahead and compare the timings between the two.
+
+25:29.710 --> 25:34.990
+That is quite a bit slower than even the nested arm fully qualified.
+
+25:34.990 --> 25:43.370
+So let's do nested fully qualified here versus the nested direct symbol.
+
+25:43.930 --> 25:46.650
+And we can see it's 200 percent slower.
+
+25:46.900 --> 25:50.730
+OK so now we're getting into the territory of things are really slowing down.
+
+25:50.740 --> 25:54.390
+Even with 10 million iterations I had a 10 second difference.
+
+25:54.400 --> 25:57.090
+That's that's starting to hurt.
+
+25:57.100 --> 25:58.440
+Why is it much slower.
+
+25:58.570 --> 26:05.260
+Well you need to think about what this is doing versus what this was doing here.
+
+26:05.500 --> 26:11.210
+Every time we call the function it has to go and look in small details to see if math is there.
+
+26:11.710 --> 26:14.040
+Every time we run this function it does the same thing.
+
+26:14.110 --> 26:16.780
+So that's all equal then.
+
+26:16.780 --> 26:23.980
+This one here is going to go and put in the math directly in our local namespace.
+
+26:24.010 --> 26:31.320
+This one is going to have to go look up what square root is forced and put that into our local namespace.
+
+26:31.330 --> 26:34.590
+This one didn't have to do that extra step.
+
+26:34.660 --> 26:35.950
+It had to look it up.
+
+26:35.950 --> 26:40.540
+Sure but it didn't have to replace essentially the value in our dictionary.
+
+26:40.540 --> 26:45.100
+That is our local namespace here it has to replace as courante in our dictionary.
+
+26:45.130 --> 26:50.080
+Every time the function runs because every time the function runs we have a new local namespace and
+
+26:50.080 --> 26:55.360
+it has to go and get the math module get the square root function and put the square root function into
+
+26:55.360 --> 26:57.170
+the namespace here.
+
+26:57.340 --> 27:00.900
+It just has to get the math and put that into the namespace.
+
+27:00.910 --> 27:01.420
+All right.
+
+27:01.450 --> 27:03.560
+Thanks for watching and I'll see you in the next video.

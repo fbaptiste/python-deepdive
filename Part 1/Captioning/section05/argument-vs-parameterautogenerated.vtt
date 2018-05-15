@@ -1,0 +1,178 @@
+WEBVTT
+
+00:00.740 --> 00:06.290
+High in this video we're going to take a very quick look at the semantics the definitions of arguments
+
+00:06.320 --> 00:08.340
+and parameters.
+
+00:08.360 --> 00:11.960
+So first of all it really is just semantics.
+
+00:11.960 --> 00:16.000
+Suppose we have this function here called my funk and so we're creating it here.
+
+00:16.010 --> 00:22.220
+Def my funk and we have a and b so we're going to receive two values a and b and then we have the code
+
+00:22.220 --> 00:28.980
+of our function in there that's going to be something in this context A and B are called the parameters
+
+00:29.070 --> 00:30.040
+of my funk.
+
+00:30.240 --> 00:36.630
+So when we define a function then those things in here in parentheses we call parameters.
+
+00:36.640 --> 00:42.250
+Now one thing that's important to note is that A and B are nothing more than just variable names and
+
+00:42.250 --> 00:45.440
+they're local to my funk.
+
+00:45.480 --> 00:51.540
+Now when we call the function let's say we do this we said X equal to 10 y equal to the string A and
+
+00:51.540 --> 00:59.250
+then we call my funk and we pass those two values x and y then in this context X and Y are called the
+
+00:59.370 --> 01:01.330
+arguments of my Fonk.
+
+01:01.700 --> 01:06.810
+So basically when you call the function the values that you put in parentheses are called arguments
+
+01:07.230 --> 01:13.260
+and when you're defining the function that things that you have in parentheses are called parameters.
+
+01:13.260 --> 01:17.840
+What's more important to note is that x and y are passed by reference.
+
+01:17.850 --> 01:25.380
+In other words the memory addresses of x and y are passed to my funk and so my phunk receives the memory
+
+01:25.380 --> 01:31.320
+address of X and it's going to store it in a it's going to receive the memory address of y and it's
+
+01:31.320 --> 01:34.470
+going to store it in B.
+
+01:34.480 --> 01:38.910
+So this is just semantics if you mix up the terms parameters and arguments.
+
+01:38.920 --> 01:39.820
+It doesn't matter.
+
+01:39.850 --> 01:41.740
+Everyone will understand what you mean.
+
+01:41.860 --> 01:46.070
+And in fact some people don't even try and differentiate between parameters and arguments.
+
+01:46.090 --> 01:48.650
+They will call everything parameters.
+
+01:48.670 --> 01:54.240
+Or maybe they'll call everything arguments or they'll mix them up you know and get the wrong terminology.
+
+01:54.250 --> 01:56.060
+But it really doesn't matter.
+
+01:57.180 --> 01:59.610
+What's more important is what we mentioned.
+
+01:59.610 --> 02:03.840
+You know we've seen this before I just mentioned it again but I'm going to mention that one more time
+
+02:04.440 --> 02:07.820
+if we have this piece of code sitting in some module right.
+
+02:07.830 --> 02:10.390
+X equals 10 y calls in my phunk.
+
+02:10.510 --> 02:16.090
+Then we also have this function that we have defined I could be in the same module that's fine or could
+
+02:16.100 --> 02:18.490
+be in a different model.
+
+02:18.600 --> 02:23.260
+So we have the module scope in the module scope we have two variables x and y.
+
+02:23.400 --> 02:25.140
+What are those variables.
+
+02:25.140 --> 02:26.660
+They are memory addresses.
+
+02:26.670 --> 02:34.920
+They are aliases for the memory address specifically that the are is whatever it is that contains this
+
+02:34.920 --> 02:36.030
+integer 10.
+
+02:36.120 --> 02:40.160
+So X is a pointer or a reference to this object.
+
+02:40.200 --> 02:45.340
+And why Similarly as a reference to some other object in memory that contains the string a.
+
+02:45.900 --> 02:53.700
+So when we pass x and y as arguments to my func that my func receives the memory addresses it receives
+
+02:53.700 --> 02:55.040
+the references.
+
+02:55.110 --> 02:59.700
+And so in the function scope we have this variable that we named a.
+
+02:59.940 --> 03:04.100
+And what gets assigned to it is what was passed in the argument.
+
+03:04.110 --> 03:07.210
+Neither was the reference of that x is.
+
+03:07.380 --> 03:13.560
+So now with a is also a reference to the same object it's a pointer to the same memory address because
+
+03:13.560 --> 03:15.060
+it's the same memory address.
+
+03:15.270 --> 03:17.020
+And similarly with B.
+
+03:17.160 --> 03:19.090
+B is in the function scope.
+
+03:19.230 --> 03:23.850
+It's a variable name that we've defined inside the function essentially.
+
+03:24.000 --> 03:28.980
+But it points to the same thing as well that why was pointing to.
+
+03:28.980 --> 03:30.810
+Right so that's that's kind of really important.
+
+03:30.810 --> 03:32.160
+I know we've seen it before.
+
+03:32.160 --> 03:34.330
+I just want to reemphasize it again.
+
+03:35.350 --> 03:35.820
+All right.
+
+03:35.860 --> 03:36.810
+So that's it.
+
+03:36.850 --> 03:38.620
+That's just that's it for the semantics.
+
+03:38.620 --> 03:40.250
+And then just a little bit of extra here.
+
+03:40.270 --> 03:41.230
+Hard to remember.
+
+03:41.320 --> 03:43.660
+So thanks for watching and I'll see you in the next video.

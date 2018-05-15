@@ -1,0 +1,787 @@
+WEBVTT
+
+00:00.620 --> 00:04.530
+So let's start by looking at a pretty straightforward function.
+
+00:04.820 --> 00:11.120
+So we'll take two positional parameters and then we'll scoop up any extra ones and all we're going to
+
+00:11.120 --> 00:15.680
+do here is just print out the parameters values.
+
+00:16.190 --> 00:16.670
+OK.
+
+00:16.820 --> 00:22.550
+So now we can of course call this function passing into parameters for A and B at say 1 and 2 and then
+
+00:22.550 --> 00:26.490
+we can pass a few others and I'll use Crain's just to differentiate.
+
+00:26.960 --> 00:34.160
+So when we do that we see that EIGRP one big or two and then it's got the x y z parameters and that
+
+00:34.190 --> 00:35.320
+became a table.
+
+00:35.630 --> 00:37.610
+So that works just fine.
+
+00:37.730 --> 00:39.310
+But there is a little catch here.
+
+00:39.380 --> 00:41.060
+There are certain things that you can do.
+
+00:41.330 --> 00:48.000
+You cannot start using keyword arguments to pass an A and B and still use these tongs.
+
+00:48.080 --> 00:50.250
+In other words you can't do something like this.
+
+00:50.270 --> 00:57.690
+Let's say a equals one be equals two and then X Y and Z.
+
+00:57.770 --> 01:02.720
+The reason for that is because as you know if you remember from one of our earlier videos once you start
+
+01:02.720 --> 01:08.750
+using keyword arguments when you're calling a function you can revert to positional arguments but these
+
+01:08.810 --> 01:14.740
+X Y Z arguments are actually positional arguments so if you try and do that you'll get a syntax error.
+
+01:14.930 --> 01:15.160
+Right.
+
+01:15.170 --> 01:16.920
+That's going to be incorrect.
+
+01:16.940 --> 01:20.810
+Now the same thing happens also if you try and do something like this.
+
+01:20.810 --> 01:28.640
+Let's say we have a let's say we put a default value b equals 2 and then start args and then let's say
+
+01:28.640 --> 01:35.270
+we have sequel's three in three and then we'll just print a b c
+
+01:38.160 --> 01:40.520
+an ounce can.
+
+01:41.000 --> 01:50.130
+So again we can just call this function passing in 1 to 3 and then let's say X Y and Z for the stars.
+
+01:50.420 --> 01:51.790
+And that works as expected.
+
+01:51.950 --> 01:52.390
+Right.
+
+01:52.620 --> 01:54.590
+One B was to see was three.
+
+01:54.680 --> 01:59.520
+If we had changed there two that say something else maybe four.
+
+01:59.540 --> 02:01.600
+Then of course B becomes four.
+
+02:02.020 --> 02:07.810
+But now what happens if I want to use the default value for B.
+
+02:07.900 --> 02:09.670
+So I want to do maybe something like this.
+
+02:09.680 --> 02:11.530
+Phunk A.
+
+02:11.530 --> 02:16.480
+Now I want to skip be so the only way I can skip B is to specify C maybe.
+
+02:16.600 --> 02:27.370
+So maybe I'll say C equals 0 5 and then I want to put the additional positional parameters while I can
+
+02:27.390 --> 02:28.890
+write for the same reason.
+
+02:28.900 --> 02:35.290
+So once I said sequel 5 because I want to skip B because I wanted to use its default value then I couldn't
+
+02:35.290 --> 02:40.940
+do it right again or can't use a sorry that's passing value.
+
+02:40.990 --> 02:41.620
+OK.
+
+02:41.870 --> 02:44.390
+So I have no no.
+
+02:44.470 --> 02:45.780
+Nothing in the style.
+
+02:46.030 --> 02:51.700
+Now if I wanted to put something in the Star and the only way to do is to pass these extra positions.
+
+02:51.700 --> 02:57.940
+But that doesn't work again because we're trying to specify a positional argument after we started using
+
+02:57.940 --> 02:59.500
+a keyword argument.
+
+02:59.620 --> 03:01.280
+So that doesn't work either.
+
+03:01.690 --> 03:07.300
+So be careful the thing is when you start you know putting in default values for positions and you have
+
+03:07.300 --> 03:13.980
+a start on then you can basically lose the ability to use the default values.
+
+03:14.130 --> 03:16.120
+All right so now let's look at this example.
+
+03:16.470 --> 03:19.910
+Funk a let's say B equals 2.
+
+03:19.960 --> 03:25.770
+I'll put in a default value and I'll put in the stands which again as we know is really going to stop
+
+03:25.770 --> 03:34.270
+us from using be you know B's default and then we'll take a keyword now and then we'll set it to a default
+
+03:34.620 --> 03:35.690
+and then D.
+
+03:36.100 --> 03:46.180
+So we have these loops and we're just going to print a B print and then C and D which key would only
+
+03:46.490 --> 03:52.880
+arguments so we can call this function using something like fonk let's say 10 20.
+
+03:53.000 --> 04:00.440
+We'll put in a few extra arguments x y and z and then we'll specify.
+
+04:00.440 --> 04:03.470
+Now we have to use keyword arguments.
+
+04:03.560 --> 04:08.380
+So we'll do see calls for Andy decals one.
+
+04:08.610 --> 04:10.310
+So that works perfectly fine.
+
+04:10.710 --> 04:17.120
+We can also if we want to do that is 10 20 x y z.
+
+04:17.400 --> 04:22.140
+And then we're going to skip use defining C because it has a default So it's an optional and then we'll
+
+04:22.140 --> 04:24.530
+say d equals maybe 10.
+
+04:24.600 --> 04:26.830
+And of course we get you know what we expect.
+
+04:26.830 --> 04:28.050
+So that works properly.
+
+04:29.240 --> 04:32.740
+But what happens if I want to do the following.
+
+04:33.900 --> 04:38.560
+With say phunk one I want to use the default for B.
+
+04:38.790 --> 04:40.620
+So I'm going to skip B right.
+
+04:40.650 --> 04:45.190
+I'm going to say X Y Z.
+
+04:45.840 --> 04:49.750
+And now I'm going to go back and maybe define B.
+
+04:49.890 --> 04:54.720
+B equals 4 right c c I don't have to define.
+
+04:54.720 --> 04:55.650
+So I'll skip it.
+
+04:55.680 --> 04:57.760
+And d equals 10.
+
+04:58.440 --> 05:03.460
+Well the problem here look what look at the error that we get.
+
+05:03.460 --> 05:07.360
+We got that funk got multiple values for argument B.
+
+05:07.900 --> 05:10.860
+Well if you think about what's going on here.
+
+05:10.960 --> 05:17.810
+Here we have four positional arguments and here we're saying we need two and then the remaining ones.
+
+05:17.890 --> 05:27.100
+But what happens in fact is that a got one B got x and so we've already actually assigned a value to
+
+05:27.100 --> 05:34.530
+B because Python doesn't know that we were trying to skip be here even though we've got the key word
+
+05:34.530 --> 05:35.660
+argument here.
+
+05:35.850 --> 05:39.550
+It doesn't know that so it puts x in to B and then Y and Z into it.
+
+05:39.810 --> 05:42.310
+So in fact you'll see what happens.
+
+05:42.360 --> 05:46.910
+And of course you can't you know pass the same argument twice.
+
+05:46.920 --> 05:51.750
+So if I remove the people's form then you'll see in fact what happened right.
+
+05:51.780 --> 05:59.520
+EIGRP one begot X and then skipped Y and Z and then C defaulted to 3 and D was now 10.
+
+05:59.940 --> 06:05.640
+All right so just a few caveats when you are using combinations of you know positional as with default
+
+06:05.640 --> 06:07.170
+values and the star.
+
+06:07.290 --> 06:11.530
+You've got to be a little careful because some things don't always work quite as expected.
+
+06:12.840 --> 06:17.790
+All right the next thing I want to look at is maybe just do a full function so let's go ahead and say
+
+06:17.800 --> 06:20.640
+def funk we'll say a comma.
+
+06:20.650 --> 06:29.110
+Become a Star on commas C equals ten comedy equals 20 comma style style.
+
+06:29.130 --> 06:30.620
+KW Thanks.
+
+06:31.110 --> 06:32.740
+And then here we're just going to print everything.
+
+06:32.850 --> 06:39.770
+A B C D and Young's.
+
+06:40.050 --> 06:43.510
+So now of course we can call this function this way we can pass two values.
+
+06:43.520 --> 06:44.480
+There will be a and b.
+
+06:44.480 --> 06:45.960
+So let's do one in two.
+
+06:46.160 --> 06:50.680
+Then we have the args themselves which is x y z.
+
+06:50.810 --> 06:57.410
+Then we have C and D now C and D have to be passed this keyword and they both have default so I actually
+
+06:57.410 --> 07:02.930
+don't have to specify any of them but I will in this case I'll say C equals 100.
+
+07:03.170 --> 07:04.820
+D equals 200.
+
+07:05.000 --> 07:09.110
+And then we can pass in some extra keyword arguments as well.
+
+07:09.110 --> 07:16.420
+Maybe we'll say X equals 0.1 and y equals zero point two.
+
+07:16.730 --> 07:18.060
+All right let's leave it at that.
+
+07:18.110 --> 07:25.700
+And then of course what we get is was one B was to the remaining positional go into C and D were assigned
+
+07:25.700 --> 07:27.420
+100 and 200 respectively.
+
+07:27.440 --> 07:31.150
+And then the remaining keyword arguments go into the counts.
+
+07:31.450 --> 07:32.000
+Right.
+
+07:32.000 --> 07:35.650
+So that's just how it works.
+
+07:35.750 --> 07:41.780
+Now one thing I want to look at is some examples of functions that actually use this kind of stuff and
+
+07:41.780 --> 07:42.670
+how it uses it.
+
+07:42.680 --> 07:50.060
+And you know where those especially the stuff the these keyword arguments can really become useful as
+
+07:50.060 --> 07:50.940
+well as the star.
+
+07:50.950 --> 07:56.340
+And so a very simple example where we use all the time is print.
+
+07:56.360 --> 08:02.410
+So if we look at print and we saw that in the lecture slides now the help here doesn't actually write
+
+08:02.410 --> 08:07.200
+that others stuff you know objects it just says value comma dot dot dot.
+
+08:07.360 --> 08:10.260
+But what it means is that they've got a star arms in.
+
+08:10.420 --> 08:10.680
+Right.
+
+08:10.690 --> 08:15.550
+They've got us down and in the documentation they call it Star objects where objects is the name of
+
+08:15.550 --> 08:16.390
+the variable.
+
+08:16.480 --> 08:19.220
+But it's just our arms that the same thing.
+
+08:19.240 --> 08:25.780
+So it's something that scooping up all your positional parameters and then of course after that we now
+
+08:25.780 --> 08:30.980
+have keyword arguments and their key word only arguments and they all have a default.
+
+08:31.300 --> 08:38.080
+So here's what happens when we say print one comic to come and three that in fact what's happening is
+
+08:38.080 --> 08:40.960
+that it's collecting the positional.
+
+08:40.990 --> 08:41.440
+Right.
+
+08:41.440 --> 08:47.780
+Using this stuff that's in the the first parameter of the print function.
+
+08:48.010 --> 08:52.060
+So it prints out one space to space three new line right.
+
+08:52.060 --> 08:56.350
+If I was to print that safe here four five six as well.
+
+08:56.350 --> 09:01.390
+You'll notice that there's a new line after the three because we're all standing on the next line when
+
+09:01.390 --> 09:02.970
+the prints they've been runs again.
+
+09:03.250 --> 09:07.990
+And that comes from these keyword parameters that all have default values.
+
+09:08.020 --> 09:14.410
+And you can see that here we have surp which is the separator which is the default of a space.
+
+09:14.440 --> 09:17.080
+That's what gets printed between the characters.
+
+09:17.080 --> 09:18.600
+So if I was to do something like this.
+
+09:18.610 --> 09:20.510
+Print one color to come in three.
+
+09:20.920 --> 09:27.970
+And then surp equals and I'll change the separator to maybe a dash right and then I'll print again four
+
+09:27.980 --> 09:34.660
+five six and again will print the set will change the separator and make it a dash.
+
+09:34.660 --> 09:40.390
+So as you can see what we've done here when we called Print we passed in three position balls and then
+
+09:40.390 --> 09:44.910
+we then put in the keyword only arguments so we put seven equal to that.
+
+09:44.920 --> 09:47.130
+So we get a there's no in between.
+
+09:47.140 --> 09:49.750
+And of course the same thing if you want to change your new line.
+
+09:49.890 --> 09:55.070
+Well all you have to say is and equals backslash and will be a new line.
+
+09:55.180 --> 09:55.480
+Right.
+
+09:55.480 --> 09:58.560
+That's what comes at the end now I don't have to put a new line.
+
+09:58.600 --> 10:04.610
+I could just put let's say for space starstuff space and let's see what happens when I do that.
+
+10:04.840 --> 10:07.560
+Well you can see that one two three dashes.
+
+10:07.560 --> 10:12.940
+Then we have the space three stars of space and then the four five six with dashes in between.
+
+10:12.940 --> 10:16.010
+So this is kind of a typical usage of keyword arguments.
+
+10:16.060 --> 10:18.130
+Very often that's how functions work.
+
+10:18.130 --> 10:24.370
+They have their kind of default you know positional parameters and then if you want to modify the behavior
+
+10:24.370 --> 10:27.230
+of the function you can do so and then you use you.
+
+10:27.260 --> 10:29.640
+You don't use these keyword only arguments.
+
+10:29.680 --> 10:34.550
+So that's kind of a neat way of setting up your functions.
+
+10:34.870 --> 10:38.370
+So let's look at an example that we might build ourselves.
+
+10:38.470 --> 10:41.640
+Let's say we do this called Hailo average.
+
+10:41.760 --> 10:44.190
+Well we looked at in the lecture.
+
+10:44.650 --> 10:51.010
+So the first thing is I'm going to want to you know collect as many positional parameters as are being
+
+10:51.080 --> 10:59.410
+you know used in the call to this function and then we're also going to do now a keyword only parameter.
+
+10:59.560 --> 11:01.410
+Right because it comes out of the stack args.
+
+11:01.480 --> 11:07.270
+So the positional parameters have been exhausted and we'll make that depilated false.
+
+11:07.750 --> 11:10.270
+And then here I'm going to say hi equals.
+
+11:10.390 --> 11:14.010
+Well technically the high would be the max of the things right.
+
+11:14.140 --> 11:16.580
+But the problem is that ants could be empty.
+
+11:16.630 --> 11:19.150
+Right star arms doesn't require a parameter.
+
+11:19.360 --> 11:22.230
+So I'm going to allow people to send you know.
+
+11:22.240 --> 11:27.790
+No probe no values no arguments for these positions in which case I want the high the low and the average
+
+11:27.790 --> 11:28.790
+to be zero.
+
+11:29.020 --> 11:30.610
+So how would I do that.
+
+11:30.610 --> 11:35.860
+Well if it's a topple if the table is empty it's going to be falsie right.
+
+11:35.920 --> 11:38.050
+So I could say something like that.
+
+11:38.150 --> 11:41.470
+And of course I want high to be a number.
+
+11:41.650 --> 11:46.470
+So I want to convert this Arne's here to the number zero.
+
+11:46.630 --> 11:47.420
+Right.
+
+11:47.470 --> 11:53.980
+And so what I'm going to do is I'm going to make it a boolean and then I'm going to convert it to an
+
+11:53.980 --> 11:54.190
+end.
+
+11:54.190 --> 12:03.260
+So first I'm going to explicitly set it to a bully and then make a dent because I can just convert a
+
+12:03.260 --> 12:04.460
+tuple to an end.
+
+12:04.460 --> 12:11.060
+I first need to take the truth value the associated truth value of args explicitly so for that I need
+
+12:11.060 --> 12:12.370
+to convert it to a ball.
+
+12:12.500 --> 12:12.770
+Right.
+
+12:12.770 --> 12:18.380
+Or maybe what I do is just going to basically extract the truth value of things which if it's empty
+
+12:18.560 --> 12:20.520
+is going to be zero.
+
+12:22.170 --> 12:23.440
+Well it's going to be false.
+
+12:23.460 --> 12:23.830
+Right.
+
+12:23.970 --> 12:28.860
+And then I'm going to convert that explicitly to a zero to an integer zero.
+
+12:28.890 --> 12:33.020
+And so if the integer is 0 then high will be zero.
+
+12:33.060 --> 12:38.640
+And the only way that's going to be 0 is if x is empty otherwise it's going to return the max of the
+
+12:38.640 --> 12:41.510
+values inside the table.
+
+12:41.670 --> 12:46.020
+So this is not combining a few things from a few variables back of you know when we looked at booleans
+
+12:46.320 --> 12:52.880
+and how the and operator works and how we can use that to you know short circuit with the evaluations.
+
+12:53.250 --> 12:55.260
+And then lo we're going to do exactly the same thing.
+
+12:55.500 --> 12:59.220
+We're going to take end of bhool now.
+
+12:59.250 --> 12:59.600
+OK.
+
+12:59.640 --> 13:01.800
+Let me write it a little differently.
+
+13:01.800 --> 13:05.370
+I'm going to write into using the if statement the way you might you know do it.
+
+13:05.460 --> 13:11.880
+Not using this short circuit a thing so I might say if it's not you might actually even do this if and
+
+13:12.320 --> 13:20.850
+if the length of arms is equal to zero then set the low equal to zero else set the low equal to the
+
+13:20.850 --> 13:21.380
+men.
+
+13:21.480 --> 13:22.570
+Now.
+
+13:22.820 --> 13:23.370
+OK.
+
+13:23.820 --> 13:25.230
+So this will work as well.
+
+13:25.230 --> 13:28.260
+This is kind of equivalent to what I wrote over here.
+
+13:28.680 --> 13:33.970
+So this is just a simpler syntax maybe a little harder to read when you're not used to it.
+
+13:34.020 --> 13:37.890
+But if you get used to it then you know this kind of makes sense quite easily.
+
+13:37.890 --> 13:40.590
+This of course is a lot more explicit.
+
+13:40.590 --> 13:40.860
+Right.
+
+13:40.860 --> 13:43.350
+You can even use the turn energy operator if you want.
+
+13:43.350 --> 13:44.490
+For this one here.
+
+13:44.760 --> 13:52.660
+In which case you might do something like this you might say low is equal to the men of if land of is
+
+13:52.830 --> 13:54.260
+greater than zero else.
+
+13:54.270 --> 13:56.060
+Zero.
+
+13:56.190 --> 13:56.490
+Right.
+
+13:56.490 --> 14:00.190
+You can also write it this way instead of using the if else statement.
+
+14:00.390 --> 14:02.690
+You can just use that turn right operator.
+
+14:03.480 --> 14:05.110
+All right so I'll leave it at that.
+
+14:05.310 --> 14:11.850
+And then average nine this face is going to be equal to high plus low provided by two.
+
+14:12.020 --> 14:14.690
+And we want to return the average.
+
+14:14.690 --> 14:14.920
+Right.
+
+14:14.930 --> 14:16.270
+That's what our function does.
+
+14:16.490 --> 14:18.520
+However now we're going to use this.
+
+14:18.680 --> 14:21.810
+He would only to also log it to the council.
+
+14:21.830 --> 14:25.070
+If we are requested to do so if this is true.
+
+14:25.130 --> 14:37.710
+So we can say if larget to console I'm going to print and here will say that the high is equal to this.
+
+14:37.770 --> 14:44.600
+The low is equal to the low and the average is equal to the average.
+
+14:44.600 --> 14:55.610
+This will be real number one in the 2 index and then we'll format this passing in high low and average
+
+14:56.700 --> 14:57.350
+OK.
+
+14:57.900 --> 14:58.980
+So that's our function.
+
+14:59.220 --> 15:06.240
+So now we can say you know average equals out high and low average and I'm going to average out and
+
+15:06.240 --> 15:09.760
+you know it spurs one two three four five.
+
+15:09.810 --> 15:11.930
+While the low is one the highest five.
+
+15:12.030 --> 15:16.240
+So the average is going to be five plus one divided by two is going to be three.
+
+15:16.400 --> 15:16.980
+OK.
+
+15:17.340 --> 15:22.450
+And I'm going to not specify a lot to cancel which means it's going to default to false.
+
+15:22.470 --> 15:27.850
+So when I do that and I can print the average out just can see that we've got at least the correct results.
+
+15:27.870 --> 15:33.210
+They would go 3.00 But of course I might be running the program and say well you know what as I'm debugging
+
+15:33.210 --> 15:41.340
+maybe I'm going to say log it to console equals and maybe you have coded here or maybe you have you
+
+15:41.340 --> 15:45.620
+know and is de-bug flag and with say the D-bag flag is true.
+
+15:45.810 --> 15:48.560
+So you just said it here is de-bug.
+
+15:48.840 --> 15:52.500
+And so now you know you can set that in your module or wherever.
+
+15:52.620 --> 15:59.220
+And then when your program is running it's going to larget to the console as it runs.
+
+15:59.280 --> 16:01.890
+And so when we do that we can see that not log.
+
+16:02.040 --> 16:08.430
+So again this is just an example of you know how sometimes keyword only arguments are used to modify
+
+16:08.430 --> 16:10.400
+the behavior of the function.
+
+16:10.620 --> 16:14.490
+Sometimes also what happens is that you just have too many parameters.
+
+16:14.500 --> 16:20.760
+In this you know in this function call and maybe you've got five six seven parameters and you know it's
+
+16:20.820 --> 16:26.850
+it can be really a problem if you've specified the values in the wrong order and then remember every
+
+16:26.850 --> 16:29.380
+time what's the order of the parameters.
+
+16:29.400 --> 16:35.820
+So in that case you may very well decide to build a function like this where you say def func and then
+
+16:35.880 --> 16:40.550
+you immediately start and you say OK I'm only going to taking key word only arguments right.
+
+16:40.540 --> 16:41.940
+That's what the star does.
+
+16:41.940 --> 16:44.250
+There are no positional arguments before that.
+
+16:44.360 --> 16:45.620
+Or maybe you'd have one or two.
+
+16:45.620 --> 16:51.280
+Maybe you'd have you know one of the main ones and then everything else is going to be you know he would
+
+16:51.300 --> 16:54.160
+only arguments and you might do something like that.
+
+16:54.210 --> 16:55.290
+So kind of depends.
+
+16:55.290 --> 17:02.550
+But anyway hopefully this gives you a good feel for how the parameters and the arguments work with Python
+
+17:02.550 --> 17:03.560
+functions.
+
+17:03.550 --> 17:09.750
+And really you should play around with this just try out different definitions you know try calling
+
+17:09.750 --> 17:10.930
+it in different ways.
+
+17:11.010 --> 17:12.090
+See how it works.
+
+17:12.120 --> 17:17.910
+That's going to be the best way for you to you know really understand and really kind of you know follow
+
+17:17.910 --> 17:22.100
+along with functions and their parameters and their arguments.
+
+17:22.110 --> 17:22.450
+All right.
+
+17:22.440 --> 17:24.660
+So thanks for watching and I'll see you in the next video.

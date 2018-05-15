@@ -1,0 +1,136 @@
+WEBVTT
+
+00:00.510 --> 00:05.040
+High in the section we're going to talk about topples.
+
+00:05.070 --> 00:07.000
+So what are topples.
+
+00:07.110 --> 00:11.880
+You're probably thinking well if you already know what topples are they just immutable lists they're
+
+00:11.970 --> 00:14.150
+Read-Only lists essentially.
+
+00:14.400 --> 00:20.780
+And that's definitely how many introductions to Python will present topples as immutable lists.
+
+00:20.790 --> 00:22.880
+Now there's nothing technically wrong with that.
+
+00:22.950 --> 00:27.960
+A topple is after all a sequence type just like a list is a sequence type.
+
+00:28.050 --> 00:30.190
+But the table is indeed immutable.
+
+00:30.220 --> 00:36.480
+So it's a read only list but that's kind of missing half of the story with topples.
+
+00:36.510 --> 00:42.660
+There's a lot more going on with topples that if we don't kind of understand that we're going to miss
+
+00:42.660 --> 00:48.630
+out on some really interesting stuff that we can do with them as an analogy let's think about strings
+
+00:48.720 --> 00:53.840
+not strings are also sequenced types just like a top bulldust like a list.
+
+00:54.120 --> 01:00.870
+But if you think of a string there's something else going on in a string than just you know a list of
+
+01:00.870 --> 01:07.960
+values a list of characters in this case the position of the characters in the string is important.
+
+01:07.960 --> 01:13.540
+For example if we have the string Python it's important for the piece to come before the Y to come before
+
+01:13.540 --> 01:14.510
+the T and so on.
+
+01:14.530 --> 01:19.920
+Otherwise the letters are all scrambled up and we end up you know with the Sunday jumble.
+
+01:20.290 --> 01:28.000
+So the sequence is a sequence of characters but the order is definitely important and it's important
+
+01:28.000 --> 01:34.750
+that the older not just change right in a list which is mutable you can change the order of the items
+
+01:34.750 --> 01:36.040
+in the list in a string.
+
+01:36.040 --> 01:37.140
+You cannot.
+
+01:37.420 --> 01:41.500
+And so the first character is always the fourth character and so on.
+
+01:41.860 --> 01:48.130
+And we need to think of topples in the same light as well a top all we can think of as a data record
+
+01:48.250 --> 01:54.810
+or a data structure where the position of the item in the table has meaning.
+
+01:54.910 --> 01:57.690
+In other words this is the first element of the top.
+
+01:57.700 --> 02:04.300
+This is the second element of the table that's important and that's not going to change the fourth element
+
+02:04.300 --> 02:07.650
+is always going to be the first element because topples are immutable.
+
+02:07.810 --> 02:13.710
+We can assign a meaning to the position of the value in the table just like we have over a string.
+
+02:14.280 --> 02:18.880
+And that's why we're going to start covering tuples without even considering sequence types will dig
+
+02:18.880 --> 02:21.070
+into sequence types in much more detail.
+
+02:21.130 --> 02:25.550
+But right now we know enough about sequences when out iterate them using a for loop.
+
+02:25.690 --> 02:29.330
+We know how to get the or an element by index and so on.
+
+02:29.470 --> 02:34.920
+That's good enough to deal with topples as a data structure or a data record.
+
+02:35.050 --> 02:41.140
+And of course we'll take a look at a related concept called the named topple the name top all is something
+
+02:41.140 --> 02:48.220
+that not only will allow us to have the position have meaning but also actually give that position a
+
+02:48.220 --> 02:48.810
+name.
+
+02:48.820 --> 02:54.730
+And so in that respect it's much closer to what we think of as a data record like in a database or in
+
+02:54.730 --> 02:55.820
+a class.
+
+02:55.960 --> 03:01.560
+If a class represents a data record we're used to having a name associated with the value.
+
+03:01.990 --> 03:07.490
+Well we don't have that we have regular topples we have the position associated with the value.
+
+03:07.690 --> 03:08.970
+But we've named topples.
+
+03:09.070 --> 03:13.210
+In addition Now we can actually associate a name with each position.
+
+03:14.150 --> 03:14.620
+All right.
+
+03:14.660 --> 03:15.700
+So let's dig in.
+
+03:15.710 --> 03:18.030
+Thanks for watching and I'll see you in the next video.

@@ -1,0 +1,622 @@
+WEBVTT
+
+00:00.210 --> 00:04.800
+High in this video we're going to continue looking at truth values and we're going to jump straight
+
+00:04.800 --> 00:07.970
+into the code so first things first.
+
+00:07.990 --> 00:13.490
+We saw that we can call the constructor Well let's say a value of 1.
+
+00:13.630 --> 00:19.700
+And we get a true value back we can call it a value of zero and we get a false value back.
+
+00:19.720 --> 00:27.070
+In fact we can cope with any integer and there may be negative 1 and there will also return true.
+
+00:27.130 --> 00:27.810
+So be careful.
+
+00:27.810 --> 00:34.120
+By the way here in some other languages negative one is sometimes used to indicate a false not so in
+
+00:34.120 --> 00:39.980
+Python the only integer value that really is false is zero.
+
+00:40.060 --> 00:42.980
+Everything else that is non-zero will be true.
+
+00:43.120 --> 00:49.650
+So even all of negative one or even bhool of 100 all that returns true.
+
+00:49.710 --> 00:55.050
+What's happening here is not that we are converting that integer to a boolean.
+
+00:55.470 --> 01:01.510
+What's happening instead is that special method that we discussed called donder bool Donder.
+
+01:01.860 --> 01:08.150
+And that is a special method that gets called when we call bhool of x.
+
+01:08.160 --> 01:16.410
+What's happening is that Python is looking for at at the variable x this parameter x which is an object
+
+01:16.530 --> 01:20.260
+and it's looking for an instance method called Donder.
+
+01:20.730 --> 01:27.010
+If it finds it it runs it and then puts that as the return value for doesn't find it.
+
+01:27.030 --> 01:33.090
+It tries to look for the Dunder Len method and it will return whatever that value is.
+
+01:33.090 --> 01:40.650
+So if that value that say it's 0 0 for a sequence of length zero it will return 0 then we'll get 0 back
+
+01:40.920 --> 01:44.500
+and 0 has a truthiness of false.
+
+01:44.610 --> 01:45.430
+It is false.
+
+01:45.690 --> 01:50.940
+And if there are elements in the sequence then of course the length is going to be greater than zero
+
+01:50.950 --> 01:55.770
+it's going to be a nonzero number in which case the truth in this will be true will be truth.
+
+01:56.340 --> 02:02.990
+So let's take a look we can actually see this when we look at the help and the counsel.
+
+02:03.030 --> 02:09.620
+So we can look in help on it and if we scroll down a little bit you'll see that we have this done the
+
+02:09.630 --> 02:10.690
+method defined.
+
+02:10.710 --> 02:14.200
+So it defines this method right here.
+
+02:14.610 --> 02:20.750
+And all it does it just returns the instance value that self not equal to zero.
+
+02:20.790 --> 02:23.340
+So it runs this test this comparison test.
+
+02:23.340 --> 02:27.880
+So when we did bhool 100 it really just ran this.
+
+02:27.910 --> 02:31.970
+It executed this statement and return that.
+
+02:32.130 --> 02:35.430
+And that's the same thing that happened when we did a ball 100.
+
+02:35.430 --> 02:38.170
+We got that when we called bull 0.
+
+02:38.340 --> 02:44.810
+OK which remember was that all we did was really just evaluate this expression.
+
+02:44.940 --> 02:46.720
+And we got false.
+
+02:46.770 --> 02:54.660
+So in fact what's happening when you call bull 100 you're actually what Python is actually doing it's
+
+02:54.660 --> 03:00.000
+taking 100 hundred not going to put parentheses around it but it's it's the integer 100.
+
+03:00.180 --> 03:07.020
+And then we're going to call that bhool method with special donder before and after it.
+
+03:07.460 --> 03:09.170
+And we could see it's the same thing.
+
+03:09.330 --> 03:17.610
+If we did all of 0 that's the same thing as calling 0 Dondre 2.
+
+03:18.530 --> 03:20.430
+And we get false in both cases.
+
+03:20.460 --> 03:27.500
+So that's really what's happening and all the objects in Python will implement this bool method or this
+
+03:27.510 --> 03:33.760
+lende method or potentially neither of the two in which case the object will always be truthy.
+
+03:33.840 --> 03:40.650
+But for example we can look at a list and if we look at the list we'll see that we'll find another is
+
+03:40.650 --> 03:45.690
+NO BULL method but there is a len method.
+
+03:45.750 --> 03:46.640
+There we go.
+
+03:46.890 --> 03:51.060
+And the Lenn method returns the length of the sequence.
+
+03:51.060 --> 04:00.120
+And this is why the true value of a sequence is 0 only always false only when the length is 0 because
+
+04:00.240 --> 04:03.640
+0 has a false truth value.
+
+04:03.810 --> 04:04.200
+Right.
+
+04:04.200 --> 04:08.850
+We saw that bull of 0 is false right.
+
+04:08.850 --> 04:16.980
+So if we have a list like a equals let's say an empty list when we call bhool of k what we're really
+
+04:16.980 --> 04:21.950
+doing here is we're calling a well let's do a.
+
+04:22.050 --> 04:31.320
+Well no I don't mean the parentheses here a dunder led Dondre which is returning 0 and bhool of 0 is
+
+04:31.470 --> 04:32.320
+false.
+
+04:32.430 --> 04:32.960
+Right.
+
+04:32.970 --> 04:34.890
+So in fact we're getting Boole.
+
+04:34.980 --> 04:43.470
+So when we say bhool of a which returns false what's really going on is we're looking at bhool of a
+
+04:44.600 --> 04:47.350
+donder Len k.
+
+04:47.910 --> 04:53.220
+So behind the scenes that's what's happening and that's how we're getting these true and false values
+
+04:53.310 --> 05:00.200
+that are associated with all objects an object doesn't have the bool method and doesn't have the lend
+
+05:00.210 --> 05:03.580
+method then it will always just be true.
+
+05:04.170 --> 05:07.800
+OK so let's look at the numeric types.
+
+05:07.920 --> 05:12.420
+So if we look at numeric types we saw that for integers but it really works the same for any numeric
+
+05:12.420 --> 05:12.690
+type.
+
+05:12.690 --> 05:15.900
+So I can take a float like zero point zero.
+
+05:16.080 --> 05:22.970
+We can look at a complex number zero plus zero J for example and we'll get false in both cases.
+
+05:22.980 --> 05:31.620
+Same thing if we want to work with let's say the decimal class and maybe roll on from decimal import
+
+05:31.650 --> 05:40.220
+decimal and let's even do this for fractions from fractions and bought books.
+
+05:40.530 --> 05:47.190
+Fraction Let's impose those two classes and let's do bhool of a fraction.
+
+05:47.190 --> 05:52.040
+Now we're going to do we want to zero fractions output zero in the numerator.
+
+05:52.050 --> 05:56.610
+But of course we can't put zero in the denominator that would give us a problem but zero overworn is
+
+05:56.610 --> 05:57.200
+zero.
+
+05:57.240 --> 06:06.780
+So we'll look at that and we'll also look at the pool of frac or decimal and we'll you know we'll make
+
+06:06.780 --> 06:08.070
+the decimal 0.
+
+06:08.160 --> 06:10.120
+So when we do that we get false again.
+
+06:10.140 --> 06:15.360
+In both cases and that this will work the same for any numeric type.
+
+06:15.420 --> 06:18.170
+If it's a non-zero value it will always be true.
+
+06:18.210 --> 06:27.200
+So we could say bhool of let's say ten point five we could say rule of 1 j there will be a complex number.
+
+06:27.210 --> 06:29.490
+We can say bool of fraction
+
+06:32.160 --> 06:39.030
+one can add two and maybe move of decimal ten point five.
+
+06:39.300 --> 06:44.270
+If we do that then we'll get that the corresponding truth values are all true.
+
+06:44.580 --> 06:49.440
+So that's how it works for numbers for the numeric types.
+
+06:49.440 --> 06:55.110
+Next we can look at the sequence types and remember the rule is that every object or every sequence
+
+06:55.110 --> 06:56.380
+will be true.
+
+06:56.700 --> 06:56.970
+Right.
+
+06:56.970 --> 07:02.660
+We'll have a true truth value unless the sequence is empty has nothing in it.
+
+07:02.670 --> 07:08.100
+So for example we can take a equal to an empty list.
+
+07:08.100 --> 07:12.780
+We can set B to maybe an empty string.
+
+07:12.960 --> 07:16.400
+Right and maybe see to an empty table.
+
+07:16.990 --> 07:26.430
+So now if we look at bhool of a rule of B and BU of C we get false in all cases because they have no
+
+07:26.430 --> 07:27.690
+elements in them.
+
+07:27.690 --> 07:34.680
+On the other hand if we populate that and let's put a few characters in the string and let's put maybe
+
+07:34.680 --> 07:35.920
+the Stapel this way.
+
+07:36.090 --> 07:39.850
+So now all sequences have elements in them.
+
+07:39.870 --> 07:42.020
+So the length will be nonzero.
+
+07:42.300 --> 07:46.470
+And in that case they turn out to have a truth value of true.
+
+07:47.100 --> 07:52.450
+So that's how it works for sequences not mapping types are the same mapping types you can have a dictionary.
+
+07:52.470 --> 07:57.660
+Let's do an empty dictionary that we can define this way or if you prefer.
+
+07:57.660 --> 08:00.150
+You can also just use the constructor whichever.
+
+08:00.510 --> 08:04.710
+I'm going to use the literal and we can do a set.
+
+08:04.740 --> 08:06.000
+Now assert.
+
+08:06.180 --> 08:07.900
+Technically this would be a set.
+
+08:07.920 --> 08:08.480
+Right.
+
+08:08.490 --> 08:15.960
+This is a set and we cannot use the literal constructor this way that would construct a dictionary.
+
+08:15.960 --> 08:21.150
+So instead here we do have to use the constructor to create an empty set.
+
+08:21.150 --> 08:25.970
+So in both cases we have an empty mapping type.
+
+08:26.010 --> 08:30.970
+You can see here that a is just an empty dictionary and B is an empty set.
+
+08:31.110 --> 08:34.820
+And if we look at bhool of a and b of B.
+
+08:35.010 --> 08:37.300
+Well they're both falsie right.
+
+08:37.410 --> 08:43.310
+But if we populate values into that let's say we have a single key value pair in there and maybe we
+
+08:43.310 --> 08:48.330
+put a couple of elements in the set in which case by the way you can write it now this way.
+
+08:48.330 --> 08:50.340
+Python is able to differentiate that.
+
+08:50.340 --> 08:55.970
+This is a set as opposed to this which is a dictionary because of the code on here.
+
+08:56.640 --> 09:02.420
+And we'll see dictionaries and sets in a lot more detail in an upcoming section in the scores.
+
+09:02.460 --> 09:07.130
+So now we can see the values in it and the truth values are true.
+
+09:07.200 --> 09:10.410
+So they both truthy because they have elements in them.
+
+09:11.990 --> 09:19.790
+Now the known object is special and it always just evaluates to false and that's pretty interesting
+
+09:19.790 --> 09:23.490
+because this allows you to use it in statements.
+
+09:23.550 --> 09:31.060
+Now the way it works is that when you have a boolean expression in Python you can actually put instead
+
+09:31.070 --> 09:38.020
+of boolean values you can put objects in there and what will happen is that Python will detect that
+
+09:38.090 --> 09:39.130
+and we'll realize that.
+
+09:39.140 --> 09:39.830
+Wait a minute.
+
+09:39.830 --> 09:42.560
+I was expecting a boolean value here.
+
+09:42.810 --> 09:43.170
+Right.
+
+09:43.310 --> 09:44.970
+So what am I going to do.
+
+09:45.170 --> 09:49.440
+Well it's actually going to look at the associated truth value instead.
+
+09:49.730 --> 09:52.360
+So that's why this works in an IF statement.
+
+09:52.370 --> 09:55.680
+So for example let's say we do this equal.
+
+09:55.700 --> 09:57.710
+So this is one application of all this.
+
+09:57.920 --> 10:01.990
+Let's say we have a sequence we have a which is a sequence a list.
+
+10:02.000 --> 10:12.100
+In this case and we want to do something with variable pay but only if it exists and if it's non-empty.
+
+10:12.110 --> 10:16.720
+So one way to write this would be to say if eight is not None.
+
+10:17.000 --> 10:20.010
+And the land for a is greater than zero.
+
+10:20.030 --> 10:20.380
+Right.
+
+10:20.390 --> 10:26.950
+We're explicitly saying what we want and maybe I will print the first element of that sequence.
+
+10:27.110 --> 10:34.610
+Otherwise I will print nothing to see if you get.
+
+10:35.360 --> 10:38.070
+And when we execute this well it passed the test.
+
+10:38.090 --> 10:45.830
+It is not known because a is you know this thing here and AIT has a length greater than zero it has
+
+10:45.830 --> 10:50.580
+three elements in it but we can write this in a different way.
+
+10:50.620 --> 10:52.620
+We can say if a.
+
+10:53.140 --> 10:55.790
+And then I'm just going to copy the rest right here.
+
+10:57.970 --> 11:00.110
+And this will work exactly the same way.
+
+11:00.130 --> 11:00.830
+Why.
+
+11:01.030 --> 11:06.580
+Well the first thing if a while it's looking at essentially this.
+
+11:06.590 --> 11:06.860
+Right.
+
+11:06.880 --> 11:08.710
+That's the first step that it takes.
+
+11:08.710 --> 11:10.840
+But Python will do that implicitly for us.
+
+11:10.840 --> 11:18.160
+We don't have to put the ball in front so it's going to look at the truthiness of a it's going to look
+
+11:18.160 --> 11:19.850
+at the associated truth.
+
+11:20.090 --> 11:21.840
+Now it is not None.
+
+11:21.920 --> 11:23.850
+So that is true right.
+
+11:23.860 --> 11:27.150
+The truthiness of A as long as A is not not is true.
+
+11:28.290 --> 11:32.140
+Furthermore the length of A is greater than zero.
+
+11:32.560 --> 11:38.350
+So it's going to say OK while the length of A is greater than zero so I'm getting again a true value
+
+11:38.350 --> 11:39.220
+back.
+
+11:39.490 --> 11:43.130
+If A was none I would get false here.
+
+11:43.900 --> 11:51.490
+And if a was not known but the length was equal to zero I would also get a false since 0 evaluates to
+
+11:51.580 --> 11:53.400
+false.
+
+11:53.440 --> 12:00.340
+So if we do this if we say A is equal to the empty list then we'll get nothing to see here.
+
+12:00.340 --> 12:04.480
+If we put a equal to none we'll get the same result.
+
+12:04.510 --> 12:05.860
+Nothing to see here.
+
+12:05.860 --> 12:10.660
+So basically this and of course we don't even have to put the ball in front.
+
+12:10.900 --> 12:11.650
+Let's just check.
+
+12:11.680 --> 12:17.790
+As you can see so this statement here in this case is equivalent to this statement here.
+
+12:17.890 --> 12:22.190
+So it's just a little more concise but it does precisely what we expected to do.
+
+12:23.980 --> 12:28.670
+Now if you do write things over here this way which you certainly can.
+
+12:28.960 --> 12:33.730
+You've got to be also a little careful because if you were to write it this way
+
+12:39.330 --> 12:41.260
+we could also run into some trouble.
+
+12:41.400 --> 12:45.170
+Let's say that A equals one Comet too.
+
+12:45.210 --> 12:45.660
+All right.
+
+12:45.720 --> 12:46.810
+So that's fine.
+
+12:46.890 --> 12:48.150
+That works.
+
+12:48.150 --> 12:50.250
+Let's say that A is empty.
+
+12:50.520 --> 12:52.120
+Well that works as well.
+
+12:52.200 --> 12:52.860
+Right.
+
+12:53.160 --> 12:56.450
+But let's say that A is equal to none.
+
+12:56.470 --> 13:01.350
+Then what's going to happen here is that it's going to calculate for the length of a and see if it's
+
+13:01.350 --> 13:02.420
+greater than zero.
+
+13:02.550 --> 13:08.100
+Well is none the non-object doesn't have a len method done the lend method.
+
+13:08.100 --> 13:09.330
+So this is going to fail.
+
+13:09.360 --> 13:17.160
+So when we run this as you can see we get this the Nunn type has no Lenn function defined.
+
+13:17.400 --> 13:23.400
+So again so if you do write it out you certainly can and we'll take a look at this.
+
+13:23.400 --> 13:24.870
+It's called short circuiting.
+
+13:24.870 --> 13:26.120
+Why didn't it fail.
+
+13:26.400 --> 13:29.810
+If a is not None.
+
+13:30.360 --> 13:34.720
+And what happened and what Again we'll look at that in much more detail later.
+
+13:34.920 --> 13:39.140
+But what's happening here is that is none of this is coming back to false.
+
+13:39.160 --> 13:44.640
+And so it doesn't have to be even evaluated that this piece occurred and that's why this runs without
+
+13:44.640 --> 13:45.360
+any problems.
+
+13:45.390 --> 13:46.650
+It doesn't fail.
+
+13:46.660 --> 13:53.070
+Whereas this one when we had left a in front did just a minor thing that I wanted to point out that
+
+13:53.130 --> 13:55.630
+you should be careful with.
+
+13:55.690 --> 13:56.340
+All right.
+
+13:56.440 --> 13:59.900
+I think that's really all there is to say about the truthiness of objects.
+
+13:59.920 --> 14:07.240
+They all have an associated truth value and it can be put to really good use things like this you might
+
+14:07.240 --> 14:07.990
+want to use that.
+
+14:07.990 --> 14:13.210
+So if you're connecting to a database and you're getting a field back from the you or from a table that
+
+14:13.210 --> 14:19.330
+is a string and maybe it's a nullable field so you can get one of three situations you could get a null
+
+14:19.390 --> 14:21.520
+value back which would be none.
+
+14:21.550 --> 14:28.180
+You might get an empty string back which would be a you know a list essentially a string that exists
+
+14:28.210 --> 14:30.880
+but it's empty and just doesn't have any characters in it.
+
+14:31.090 --> 14:35.270
+Or you might actually get characters and you may want to only handle the field.
+
+14:35.470 --> 14:38.540
+If it's both not no and not empty.
+
+14:38.620 --> 14:42.490
+That's something that's very frequent when you're working with text fields and databases.
+
+14:42.520 --> 14:44.270
+So that's a good use of it there.
+
+14:44.500 --> 14:45.250
+All right.
+
+14:45.250 --> 14:47.410
+Thanks for watching and I'll see you in the next video.

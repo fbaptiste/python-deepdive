@@ -1,0 +1,1870 @@
+WEBVTT
+
+00:00.510 --> 00:05.430
+High in this video we're going to take a brief look at classes in Python.
+
+00:05.430 --> 00:10.140
+Now this is a subject that will come back to in a lot of detail in the object oriented section of the
+
+00:10.160 --> 00:15.760
+cause but I just want to show you some basic things about classes in Python.
+
+00:15.780 --> 00:18.400
+You should already know about object or programming.
+
+00:18.510 --> 00:23.790
+So a lot of the concepts I'm going to show here should already be familiar but I want to make sure that
+
+00:23.880 --> 00:25.890
+you also know how to do it in Python.
+
+00:25.950 --> 00:27.920
+I will keep it quite simple.
+
+00:28.080 --> 00:34.240
+So let's say that we want to create a class to do so in python we use the class keyword.
+
+00:34.290 --> 00:37.470
+So we're going to define a class using class.
+
+00:37.500 --> 00:40.660
+So let's go ahead and create a rectangle class.
+
+00:40.980 --> 00:43.960
+And now we want our initializers.
+
+00:44.100 --> 00:51.480
+Now the initialiser in Python is that is called or is implemented using this donder init method.
+
+00:51.480 --> 00:57.000
+Now the Dondre init method is actually a method that runs once the object has been created.
+
+00:57.000 --> 01:02.820
+So there's actually two steps when we create an instance of our rectangle class we first have this new
+
+01:02.820 --> 01:03.320
+step.
+
+01:03.330 --> 01:05.620
+If you come from Java you know about new.
+
+01:05.700 --> 01:07.350
+So we get the same thing in Python.
+
+01:07.440 --> 01:13.740
+But then the initializer is a step after that after the objects being created then we can go onto the
+
+01:13.740 --> 01:15.250
+initialization phase.
+
+01:15.480 --> 01:23.550
+So what happens in Python with these instance methods is that the first argument of the method is the
+
+01:23.670 --> 01:24.720
+object itself.
+
+01:24.780 --> 01:29.850
+So our first argument is going to be the object we typically call itself.
+
+01:30.090 --> 01:31.380
+You can call it anything you want.
+
+01:31.380 --> 01:31.650
+Right.
+
+01:31.650 --> 01:40.270
+You can say you know a new object that was just created right.
+
+01:40.290 --> 01:42.020
+You could do something like this.
+
+01:42.120 --> 01:49.320
+So this would be the first argument but it's customary and you should use self because everybody knows
+
+01:49.380 --> 01:50.240
+what that means.
+
+01:50.370 --> 01:56.400
+So self means the instance that was just created and then in addition to this in init method we're going
+
+01:56.400 --> 02:04.820
+to require the width and the height and so now we're going to set properties attributes of the class.
+
+02:04.860 --> 02:10.050
+In this case they're going to be value attributes so we call them properties as opposed to methods which
+
+02:10.050 --> 02:12.280
+are callable essentially.
+
+02:13.020 --> 02:15.630
+So this attribute is going to be called with.
+
+02:15.630 --> 02:17.450
+So we're going to say self with.
+
+02:17.460 --> 02:22.010
+So we're going to say this object that was just created That's called self.
+
+02:22.050 --> 02:24.370
+That's what gets passed into this first argument.
+
+02:24.480 --> 02:25.950
+Python does that for us.
+
+02:25.950 --> 02:28.290
+We don't have to worry about doing that.
+
+02:28.320 --> 02:33.800
+So self-talk with equals wit and self-taught height equals height.
+
+02:34.500 --> 02:39.960
+And I know if you come from a Java background you're probably kind of screaming right now saying there's
+
+02:39.960 --> 02:46.090
+no data encapsulation going on and you'll see why it actually doesn't matter in Python.
+
+02:46.440 --> 02:49.070
+So let's go ahead and create this class.
+
+02:49.140 --> 02:56.390
+So now there we go we have our class and we can create an instance of that class.
+
+02:57.090 --> 02:59.910
+Let's say it with 10 height of 20.
+
+03:00.390 --> 03:03.000
+And now we can query the width.
+
+03:03.000 --> 03:03.640
+There we go.
+
+03:03.660 --> 03:06.150
+We can set the width.
+
+03:06.510 --> 03:08.390
+And then we can query the with again.
+
+03:08.460 --> 03:10.160
+And we see that we have that.
+
+03:10.230 --> 03:11.620
+So that's great.
+
+03:11.730 --> 03:12.490
+OK.
+
+03:12.540 --> 03:16.890
+We were able to create a very simple class with two properties width and height.
+
+03:16.950 --> 03:23.150
+So the next thing we're going to look at is adding attributes that are actually color balls or methods.
+
+03:23.520 --> 03:34.230
+So I'm just going to copy paste and let's go ahead and add an area method so Area Not area because an
+
+03:34.260 --> 03:40.990
+instance method is going to need to receive the object that we are working on.
+
+03:41.070 --> 03:43.750
+So again we'll just use this cell.
+
+03:44.130 --> 03:45.260
+So here what do we want to do.
+
+03:45.260 --> 03:50.550
+We want to return self data with times self-taught height.
+
+03:50.810 --> 03:51.520
+OK.
+
+03:52.080 --> 03:55.600
+And let's go ahead and do a perimeter as well.
+
+03:56.490 --> 04:08.740
+Really Mr. self again and then we're going to return to times self dot with Clauss self-taught right.
+
+04:08.880 --> 04:09.810
+Correct.
+
+04:10.140 --> 04:16.890
+So now we have a class that has two properties width and height and two methods area and perimeter that
+
+04:16.910 --> 04:18.270
+basically functions.
+
+04:18.360 --> 04:23.010
+But there are special functions because they get called using that dot notation.
+
+04:23.010 --> 04:28.550
+So for example let's say we do this 10 20.
+
+04:28.720 --> 04:32.480
+Now we can again code width and height.
+
+04:32.490 --> 04:37.650
+But here I'm going to call area not areas callable so I need to make sure it gets called.
+
+04:37.680 --> 04:41.760
+It doesn't require any arguments other than this object.
+
+04:41.760 --> 04:43.970
+So why am I not putting it in here.
+
+04:44.220 --> 04:46.600
+Well it's actually over here.
+
+04:46.650 --> 04:56.330
+When I say all 100 area what Python does it calls this method area that's in the rectangle class.
+
+04:56.400 --> 05:02.380
+And it takes on one and passes that as the movement that we've called self here.
+
+05:02.380 --> 05:05.000
+So again this doesn't have to be called self.
+
+05:05.020 --> 05:07.730
+It could be called you know something.
+
+05:08.140 --> 05:13.210
+So I'm just going to show you this is a terrible idea but I'll just show you that this will work just
+
+05:13.240 --> 05:13.960
+equally well.
+
+05:13.960 --> 05:17.210
+So let's go ahead and rerun that redefine our object.
+
+05:17.380 --> 05:22.210
+So now we can call the area and we get indeed 10 times 20 which is 200.
+
+05:22.330 --> 05:28.540
+And we can call our R1 dobbed perimeter and we indeed get 60.
+
+05:28.570 --> 05:30.870
+So as you can see that worked just fine.
+
+05:31.810 --> 05:35.920
+However let's just go back and let's call this cell.
+
+05:36.060 --> 05:36.510
+OK.
+
+05:36.580 --> 05:40.220
+This is the traditional way of doing it.
+
+05:40.300 --> 05:43.250
+And that's the way you should do it to it.
+
+05:43.420 --> 05:45.440
+And why not because you have to.
+
+05:45.450 --> 05:46.500
+Python doesn't care.
+
+05:46.580 --> 05:52.690
+It's other readers of your code if they see something else and perimeter here then self here then I'd
+
+05:52.690 --> 05:56.740
+be thinking there's something going on that's different because we have other kinds of things that we
+
+05:56.740 --> 05:59.870
+can do we can have class methods we can have static methods.
+
+06:00.160 --> 06:09.560
+So if you don't call itself it's not immediately you know visible that this is just an instance attribute.
+
+06:09.640 --> 06:10.970
+So be careful with that.
+
+06:10.960 --> 06:13.510
+Just stick to the conventions on that one.
+
+06:13.510 --> 06:19.270
+So now we've seen with various objects in Python that they have string representations you write you
+
+06:19.270 --> 06:27.340
+can usually present your object out like you know an integer or a fraction or decimals and so on they
+
+06:27.340 --> 06:31.700
+have string representations lists as well.
+
+06:31.720 --> 06:33.140
+So what about our class.
+
+06:33.160 --> 06:37.670
+Well let's go ahead let's say a rerun all this.
+
+06:38.020 --> 06:45.760
+And let's go ahead and look at string of one and we get this thing over here that says we have a rectangle
+
+06:45.820 --> 06:47.660
+object in main.
+
+06:47.710 --> 06:53.470
+This is the module we're in the main module at some memory address so this is the memory address of
+
+06:54.010 --> 06:54.490
+our one.
+
+06:54.490 --> 06:58.660
+In fact we can do X on ID of one.
+
+06:58.930 --> 07:05.410
+You'll see that it's the same address 9 3 6 0 and all that stuff in front OK.
+
+07:05.660 --> 07:07.490
+So that's obviously not what we want.
+
+07:07.490 --> 07:12.800
+We'd like probably you know a little bit better representation like for example saying well it's a rectangle
+
+07:12.800 --> 07:16.590
+with this width and height that might be something we want to do.
+
+07:17.060 --> 07:18.410
+So this is done.
+
+07:18.560 --> 07:23.910
+We can just create basically using a method right.
+
+07:23.960 --> 07:28.110
+So let's go ahead and I'm going to copy this code and paste it over here.
+
+07:28.160 --> 07:33.960
+And let's add a method let's say def and let's call it two string.
+
+07:34.760 --> 07:41.630
+You come from a Java world you know what this is we can call the two string method to get the string
+
+07:41.630 --> 07:42.290
+representation.
+
+07:42.290 --> 07:42.940
+What do we want to do.
+
+07:42.950 --> 07:44.210
+Well we're going to return.
+
+07:44.240 --> 07:48.320
+Let's say I'm going to call this this is a rectangle.
+
+07:48.650 --> 08:00.820
+And we're going to say the width equals the width and height equals I can type Yeah I can type Pequots
+
+08:01.150 --> 08:01.870
+the height.
+
+08:02.050 --> 08:02.720
+OK.
+
+08:03.050 --> 08:10.700
+And then we'll format this with self dot width and self dot height.
+
+08:11.540 --> 08:12.120
+OK.
+
+08:13.800 --> 08:17.470
+So no let's go ahead and create another rectangle.
+
+08:19.220 --> 08:23.160
+Say 10 20 is that over.
+
+08:23.690 --> 08:29.930
+And no I can call stream 1 that still brings that out.
+
+08:29.950 --> 08:30.380
+Right.
+
+08:30.430 --> 08:31.370
+This thing over here.
+
+08:31.420 --> 08:31.800
+Why.
+
+08:31.840 --> 08:34.110
+Because we need to call to string.
+
+08:34.300 --> 08:38.750
+So what we really need to do is to say are one to string.
+
+08:39.330 --> 08:39.870
+OK.
+
+08:40.120 --> 08:46.030
+So that kind of you know that stinks because we can't use this which is the traditional way of doing
+
+08:46.030 --> 08:47.980
+it with the built in classes.
+
+08:48.040 --> 08:54.220
+But this is where we can really take advantage of the way Python goes about allowing us to overload
+
+08:54.430 --> 08:59.260
+this thing to basically define what does s t mean S T R by default.
+
+08:59.260 --> 09:05.050
+You know it's just going to look at the class and the memory address of the object.
+
+09:05.080 --> 09:10.820
+So how do we override this essentially and provide our own definition as TR.
+
+09:11.050 --> 09:12.400
+Well it's very simple.
+
+09:12.400 --> 09:18.250
+We have these special methods that Python has now people call them magic methods but there's nothing
+
+09:18.250 --> 09:19.410
+magical about it.
+
+09:19.420 --> 09:22.030
+They're well-documented and they're well-known.
+
+09:22.060 --> 09:22.730
+Right.
+
+09:22.750 --> 09:28.390
+You know so there's no magical Denot hidden or anything like that it's not you know a black box.
+
+09:28.420 --> 09:33.870
+So the special method name that we have to use here is called Dunder.
+
+09:34.030 --> 09:37.650
+As you are so done domain's double underscore double underscore.
+
+09:37.940 --> 09:43.950
+So Dunder s tr and if we do this now we can just rerun this code.
+
+09:43.960 --> 09:51.790
+And now you'll notice that when we run s our of our one when we call the T are the builtin s t function
+
+09:51.850 --> 09:55.070
+on our object which is a custom class.
+
+09:55.150 --> 09:59.420
+We get that string representation.
+
+09:59.450 --> 10:06.830
+Now if we just do one and this is kind of specific now to open a notebook and to the Python interpreter
+
+10:06.830 --> 10:13.460
+if you're running let's say in a Python console and you just call the object this way or you what happens
+
+10:13.460 --> 10:16.870
+is that it's still going to return this.
+
+10:16.880 --> 10:22.010
+Now that's not the functionality we get if we have a list let's say we have a list one two three.
+
+10:22.280 --> 10:22.740
+Right.
+
+10:22.760 --> 10:27.210
+We can we can convert a list to a string.
+
+10:27.290 --> 10:28.410
+We get this right.
+
+10:28.460 --> 10:30.160
+That's the string representation.
+
+10:30.240 --> 10:32.190
+Or we can also just do this.
+
+10:32.210 --> 10:35.400
+We can say L and then we get this representation.
+
+10:35.400 --> 10:39.620
+Here you'll notice it's not telling us Hey this is a list that some address.
+
+10:39.650 --> 10:45.620
+So what's happening is that it's a different special method that we need to implement and we'll get
+
+10:45.620 --> 10:46.430
+back to this one.
+
+10:46.460 --> 10:48.050
+In a lot of detail as well.
+
+10:48.170 --> 10:50.670
+But for now it's called.
+
+10:50.810 --> 11:00.710
+Repr it's basically representation and the representation typically is if it's possible a string that
+
+11:01.280 --> 11:04.150
+shows how you would build the object up again.
+
+11:04.340 --> 11:08.330
+Now in some cases there's too many variables you can do it but in this case we can.
+
+11:08.330 --> 11:09.890
+So we're going to choose that.
+
+11:10.160 --> 11:13.380
+So how did we actually instantiate this object.
+
+11:13.550 --> 11:20.850
+Well we called rectangle and we passed in two parameters we passed in the width and the height.
+
+11:22.580 --> 11:26.350
+So let's go ahead and create that.
+
+11:26.720 --> 11:28.620
+I'm not going to run it again now.
+
+11:28.670 --> 11:34.250
+Our string representation hasn't changed as rectangle with with this 10 hightest 10.
+
+11:34.460 --> 11:41.450
+But now if I do it this way you'll notice that I have rectangle 10 20 and so what comes out here this
+
+11:41.450 --> 11:41.950
+string.
+
+11:41.960 --> 11:47.280
+If I was to execute it it would actually create a rectangle with 10 and 20.
+
+11:47.390 --> 11:50.580
+So that's what the representation is used for.
+
+11:50.960 --> 11:52.800
+So now how about equality.
+
+11:52.880 --> 11:53.870
+Let's say that we have.
+
+11:53.870 --> 11:55.340
+So we have this rectangle are 1.
+
+11:55.340 --> 12:00.390
+Let's say we have our two equals rectangle and we'll make it the same.
+
+12:00.500 --> 12:04.230
+So 0 1 and 2 are basically the same rectangle.
+
+12:04.400 --> 12:10.240
+But you'll notice that 0 1 is not true right.
+
+12:10.270 --> 12:14.550
+There are different memory addresses the different objects different instances of the class.
+
+12:14.780 --> 12:18.770
+But if we do one equals two we get false.
+
+12:18.770 --> 12:24.020
+Now we really would expect that you know as a user of rectangle if it's got the same width and height
+
+12:24.080 --> 12:27.010
+it's the same thing it's the same value right.
+
+12:27.020 --> 12:29.700
+The object might be different but it's the same then.
+
+12:30.050 --> 12:31.660
+So how can we do that.
+
+12:31.700 --> 12:33.170
+Well that's very simple.
+
+12:33.170 --> 12:39.560
+We have again a special method in Python which is the Dunder cube method that allows us to basically
+
+12:39.560 --> 12:44.610
+specify and define how we can compare objects to each other.
+
+12:44.630 --> 12:46.250
+So let's go ahead and implement that.
+
+12:46.310 --> 12:52.180
+Again I'm going to copy this code pasted over here and we're going to basically keep going.
+
+12:52.580 --> 12:53.780
+So we're going to implement this.
+
+12:53.780 --> 12:57.030
+Done that Q method.
+
+12:57.530 --> 13:02.330
+Now the Dunder EQM method is an instance method it's going to take self.
+
+13:02.360 --> 13:06.410
+If you look at this line of code all one equals equals are two.
+
+13:06.590 --> 13:08.360
+Then there's actually two objects right.
+
+13:08.360 --> 13:15.550
+We're comparing two objects so our one is actually going to get passed into the self argument and our
+
+13:15.740 --> 13:18.500
+two is going to be the other argument.
+
+13:18.560 --> 13:20.590
+So we're just going to call it others.
+
+13:20.600 --> 13:25.250
+The other object I'm going to keep this simple initially.
+
+13:25.370 --> 13:28.960
+But we will need to add a little bit more to make it more complete.
+
+13:29.000 --> 13:30.750
+So for now what do we want.
+
+13:30.890 --> 13:36.490
+Well we want to say two rectangles are equal if the width and height are the same.
+
+13:36.500 --> 13:41.630
+So let's go ahead and maybe write it this way is equal.
+
+13:41.820 --> 13:43.650
+Actually what is going to return it.
+
+13:44.020 --> 13:46.250
+So we're going to return self.
+
+13:46.340 --> 13:48.650
+That works equals equals.
+
+13:48.680 --> 13:55.740
+Other dealt with we want to make sure the with is the same and self dot height equals equals other dot
+
+13:55.940 --> 13:58.070
+right.
+
+13:58.310 --> 13:59.530
+So we can do it this way.
+
+13:59.570 --> 14:02.420
+If you used to topples you could also actually do it this way.
+
+14:02.510 --> 14:09.030
+You could say self-taught with comma self-caused height.
+
+14:09.830 --> 14:18.110
+This top all should be equal to the other doctor with and other height cave we could do it this way
+
+14:18.110 --> 14:20.020
+as well.
+
+14:20.310 --> 14:21.370
+However you want to do it.
+
+14:21.410 --> 14:22.830
+I think this is more x.
+
+14:22.850 --> 14:25.710
+This one is probably a little bit more expressive.
+
+14:26.090 --> 14:38.120
+You know when self-taught with people's equals other dot wits and a self that height equals equals.
+
+14:38.130 --> 14:45.360
+Other than height I tend to prefer this but up to.
+
+14:45.840 --> 14:47.490
+So now let's just make sure this works.
+
+14:47.490 --> 14:54.650
+Let's go ahead and create a rectangle size 10 and 20 and do another one.
+
+14:56.330 --> 14:56.980
+OK.
+
+14:57.150 --> 14:59.150
+Now all one is not up to.
+
+14:59.370 --> 15:00.170
+That's true.
+
+15:00.300 --> 15:01.380
+The different objects.
+
+15:01.500 --> 15:06.110
+However all one is equal to two using equally.
+
+15:06.120 --> 15:09.940
+Because in terms of values they are the same.
+
+15:10.020 --> 15:11.490
+Now there is one problem though.
+
+15:11.580 --> 15:17.090
+Let's say I say all one equals equals 100 k.
+
+15:17.460 --> 15:19.010
+We have this problem here.
+
+15:19.080 --> 15:21.240
+The object has no attributes with.
+
+15:21.270 --> 15:28.250
+Well yeah what happened is that this equal method was run and we're trying to get others up with an
+
+15:28.370 --> 15:29.120
+adult height.
+
+15:29.160 --> 15:33.700
+Well integers don't have those properties so we need to fix that.
+
+15:33.810 --> 15:35.150
+And let me go again.
+
+15:35.190 --> 15:36.470
+Just copy paste.
+
+15:36.480 --> 15:37.950
+Let's fix this up.
+
+15:39.270 --> 15:43.830
+And what we really want to make sure is that other is an instance of rectangle.
+
+15:44.000 --> 15:49.380
+Now we'll get into that in later sections but I'm not going to use type type is too restrictive.
+
+15:49.430 --> 15:55.640
+If I use type I can find the type of other and it will tell me if it's a rectangle but what it doesn't
+
+15:55.640 --> 15:59.010
+handle is if I've subclass rectangle.
+
+15:59.210 --> 16:01.640
+And now I want to use the equal method.
+
+16:01.640 --> 16:06.910
+If I do if I check the type here to be specifically a rectangle it's not going to work with subclasses.
+
+16:07.100 --> 16:14.380
+So in this case what I'm going to do is say if is instance so instance will work with subclasses.
+
+16:14.510 --> 16:15.460
+And what is that.
+
+16:15.470 --> 16:20.730
+Well I want to make sure that other is an instance of a rectangle.
+
+16:21.240 --> 16:22.830
+OK that's one way of doing it.
+
+16:22.850 --> 16:28.530
+Or I could use the you know the class property of self but it is of other.
+
+16:28.670 --> 16:29.940
+But in this case.
+
+16:30.080 --> 16:32.040
+Not sorry of self.
+
+16:32.240 --> 16:36.410
+But in this case I'm just going to hand-coded to rectangle because I'm not really looking to for it
+
+16:36.410 --> 16:37.560
+to be anything else.
+
+16:37.820 --> 16:44.000
+And if I subclass it this is going to be correct because Is instance is going to do that correctly.
+
+16:44.060 --> 16:53.250
+So if I have an instance of a rectangle do this else you have to return the not implemented value.
+
+16:53.290 --> 16:56.150
+Actually no we're going to return false.
+
+16:56.170 --> 17:00.500
+Can't we're just going to say that if you're trying to compare a rectangle to something other than a
+
+17:00.500 --> 17:04.680
+rectangle that can't compare equal that's always going to be false.
+
+17:04.970 --> 17:11.060
+So we go ahead and write it this way so this is now a little cleaner and we can go ahead and create
+
+17:11.060 --> 17:12.650
+all two rectangles again.
+
+17:13.800 --> 17:15.280
+I'll copy paste that.
+
+17:15.510 --> 17:19.710
+And then one equals equals or two that still works.
+
+17:19.710 --> 17:25.070
+And now if we say all one equals equals 100 we get a false which is true right.
+
+17:25.070 --> 17:26.550
+That's that's the correct answer.
+
+17:26.550 --> 17:28.250
+0 1 is not equal to 100.
+
+17:28.290 --> 17:33.360
+Now what about methods like comparisons like less than so operators like less than greater than less
+
+17:33.360 --> 17:34.320
+than or equal to.
+
+17:34.560 --> 17:38.010
+Well we also have special methods we can use to implement those.
+
+17:38.030 --> 17:45.090
+There are methods like Dunder LTI for less than under L E less than or equal Dundon GTY for greater
+
+17:45.090 --> 17:48.440
+than under and equal not equal and so on.
+
+17:48.450 --> 17:50.030
+And these are all well-documented.
+
+17:50.220 --> 17:52.520
+So let's just go ahead and write one.
+
+17:52.740 --> 17:54.270
+So again I'm going to take this code.
+
+17:54.270 --> 17:57.620
+Copy paste and let's implement the less than.
+
+17:57.740 --> 18:01.860
+OK so let's implement less then.
+
+18:02.710 --> 18:11.340
+And again we have to write the less than operator is a binary operator has two operation two operands.
+
+18:11.490 --> 18:16.860
+So we need self which is going to be the left hand operand and then other which is going to be the right
+
+18:16.860 --> 18:17.670
+hand up right.
+
+18:17.850 --> 18:20.250
+So let's go ahead and implement that.
+
+18:20.260 --> 18:22.800
+When is a rectangle smaller than another one.
+
+18:22.920 --> 18:24.700
+We're going to do it based on the area.
+
+18:24.870 --> 18:31.770
+Now again it's up to you as the writer of The Quest to define how you want to define you know ordering
+
+18:31.770 --> 18:32.850
+in your rectangles.
+
+18:32.850 --> 18:34.330
+I'm just choosing to do area.
+
+18:34.590 --> 18:39.420
+So again though I'm going to have to check the instance I don't want to try and compare a rectangle
+
+18:39.420 --> 18:41.180
+to you know an integer.
+
+18:41.220 --> 18:51.330
+So I want to make sure that other is an instance of rectangle and I'm going to return that self-taught
+
+18:51.370 --> 18:55.020
+area is less than other area.
+
+18:55.190 --> 18:55.560
+OK.
+
+18:55.590 --> 19:01.110
+That's all I need to do I need to make sure that the area of my self is less than the area of the other
+
+19:01.420 --> 19:01.890
+k.
+
+19:02.010 --> 19:08.780
+Whatever this computes to will tell me if it's less than or not and if it's not.
+
+19:08.790 --> 19:11.640
+Now here we don't return false.
+
+19:11.640 --> 19:15.480
+Right but logically here what I really want is something else.
+
+19:15.480 --> 19:19.610
+So instead I'm going to return the not implement advantage.
+
+19:19.800 --> 19:22.620
+We'll get to this later but we don't raise an exception.
+
+19:22.620 --> 19:25.640
+We just return not implemented this at all different.
+
+19:26.260 --> 19:28.080
+OK so now we have that.
+
+19:28.110 --> 19:32.650
+Let me go ahead and copy paste these two.
+
+19:32.850 --> 19:35.950
+But now I'm going to make a 100 and 200.
+
+19:36.030 --> 19:39.830
+So obviously are one's area is less than two.
+
+19:39.840 --> 19:47.770
+So now I could say all one is less than two and a name instance is not defined.
+
+19:47.850 --> 19:50.120
+What have I done.
+
+19:50.140 --> 19:52.110
+If is instance.
+
+19:52.140 --> 19:52.670
+Sorry.
+
+19:52.850 --> 19:53.310
+OK.
+
+19:53.350 --> 19:56.470
+Is instance just like I had a week.
+
+19:56.520 --> 20:02.070
+So let's rerun this one is less an hour or two as you can see now actually returns true.
+
+20:02.340 --> 20:04.740
+So we implemented less than so.
+
+20:04.770 --> 20:11.310
+0 2 is also a rectangle so we could say off to less than 1 obviously and that's false.
+
+20:11.520 --> 20:14.280
+What about all too greater than all one.
+
+20:14.370 --> 20:19.230
+We haven't implemented great of them but if you look at what happens it returns true.
+
+20:19.830 --> 20:27.210
+And that's because what happens is that with our two Python called the Dunder GTY method greater than
+
+20:28.140 --> 20:29.460
+it wasn't implemented.
+
+20:29.790 --> 20:31.230
+So what it does for us.
+
+20:31.230 --> 20:38.000
+It basically flips this around and says OK well if all two's not graded are greater than 1 is not implemented.
+
+20:38.130 --> 20:43.370
+How about 0 1 less than 0 2 and in this case where are 1 less than 2.
+
+20:43.410 --> 20:45.240
+That less than is implemented.
+
+20:45.240 --> 20:46.150
+So it works.
+
+20:46.500 --> 20:51.070
+But obviously you're not going to get things like are 1 less than equal to true.
+
+20:51.090 --> 20:52.650
+That is not implemented.
+
+20:52.950 --> 20:57.370
+So it says it's not supported we would have to implement those ourselves.
+
+20:57.420 --> 21:02.280
+Now I want to look at these properties that we had width and height.
+
+21:02.400 --> 21:06.370
+And let's go back to a slightly simpler version of class.
+
+21:06.400 --> 21:08.170
+We have class Rectangle.
+
+21:08.480 --> 21:09.530
+Go ahead and put that in.
+
+21:09.540 --> 21:14.000
+I'm just going to take out area and perimeter just to simplify the code a little bit.
+
+21:14.580 --> 21:20.780
+OK so we have this class and we saw we can basically say a rectangle 10 coming 20 right.
+
+21:20.790 --> 21:24.990
+And then we can look at all one doctor with care.
+
+21:25.170 --> 21:26.680
+It tells us what the word is.
+
+21:26.790 --> 21:31.930
+We can set the width as well we can say all one with equals let's say negative 100.
+
+21:32.070 --> 21:32.640
+OK.
+
+21:32.870 --> 21:39.060
+And now if we look at our one dot with well that's negative 100 back or one we can see has a width of
+
+21:39.060 --> 21:42.080
+negative 100 and it's hightest to 20.
+
+21:42.090 --> 21:44.070
+So a few things going on here.
+
+21:44.220 --> 21:48.990
+One is that we're allowing direct access to the Width property and the height as well.
+
+21:48.990 --> 21:58.300
+But I'll focus on with which means that in particular uses can set this too negative 100 and we may
+
+21:58.300 --> 22:03.100
+want to put logic in here that stops people from setting the width to a negative value.
+
+22:03.110 --> 22:06.540
+It doesn't make sense of a rectangle with a negative with a height.
+
+22:06.700 --> 22:09.750
+It needs to be positive even zero doesn't make much sense.
+
+22:09.760 --> 22:15.970
+So the way you do that in languages like Java for example and in Python as well is we implement methods
+
+22:16.150 --> 22:19.720
+to get and set the properties.
+
+22:20.260 --> 22:22.620
+So what do I mean by Geter and set of methods.
+
+22:22.630 --> 22:23.680
+Well let me show you.
+
+22:23.710 --> 22:26.050
+Let's say we write a get a method for basic.
+
+22:26.050 --> 22:29.600
+I'm just going to say get with.
+
+22:30.250 --> 22:35.380
+And here we're just going to return self not underscore with what self-talk with.
+
+22:35.380 --> 22:41.220
+So the first thing I'm going to do here is make width and height private variables.
+
+22:41.320 --> 22:44.770
+We don't have private variables true private variables in Python.
+
+22:44.770 --> 22:46.360
+There is no such thing.
+
+22:46.360 --> 22:51.640
+So instead this is a convention if we put an underscore in front of our variable names in front of our
+
+22:51.640 --> 22:52.970
+properties.
+
+22:52.990 --> 22:58.120
+Basically we're telling and then Same thing with the methods too by the way we're telling other users
+
+22:58.120 --> 23:01.180
+of our class that hey this is a private variable.
+
+23:01.180 --> 23:02.890
+Please don't touch it.
+
+23:02.890 --> 23:03.790
+Don't modify.
+
+23:03.790 --> 23:05.670
+Don't mess around with it.
+
+23:05.710 --> 23:11.910
+But of course if they want to they can or something blows up that's their problem that's their fault.
+
+23:12.160 --> 23:14.080
+But it's still possible to change it.
+
+23:14.110 --> 23:19.480
+Now it might be in some cases that you have you know a user of your class that's knows exactly what's
+
+23:19.480 --> 23:24.150
+going on and they may be a reason why they want to change that attribute directly.
+
+23:24.310 --> 23:30.820
+What we want to do is we want to encourage people to not use width and height directly but instead to
+
+23:30.820 --> 23:32.970
+use the getters and setters.
+
+23:33.280 --> 23:35.000
+So we might do it this way.
+
+23:36.130 --> 23:41.930
+Let's go ahead and write to get with so we stop with underscore with underscore height and now.
+
+23:42.030 --> 23:45.320
+OK well first of all with the string and I'm not going to put it here.
+
+23:45.420 --> 23:47.510
+You can put it above.
+
+23:48.120 --> 23:53.350
+But let's just fix the string and all these things first because you'll notice that they're using self-direct
+
+23:53.370 --> 23:54.600
+with care.
+
+23:54.750 --> 23:59.940
+Well in this case I'm going to use the internal that says underscore width and height and do the same
+
+23:59.940 --> 24:00.720
+thing.
+
+24:02.750 --> 24:03.930
+We have to do that here.
+
+24:03.980 --> 24:06.620
+And I have to do that here as well.
+
+24:06.620 --> 24:09.210
+Now I've got to be careful here.
+
+24:09.320 --> 24:10.680
+I mean I can still do this.
+
+24:10.680 --> 24:12.500
+So let's go ahead and do that.
+
+24:14.110 --> 24:19.290
+And I'll just I'll I'll come back to this and explain why you got to be a little careful here.
+
+24:19.330 --> 24:26.720
+But let's first get this going so I've got all this cell phone call with self underscore Height's I
+
+24:26.730 --> 24:28.580
+fixed up my class came.
+
+24:28.650 --> 24:32.900
+I had to make all these changes because I changed what this was.
+
+24:32.990 --> 24:36.380
+Now what I want to do is I'm going to implement a getter and a set of method.
+
+24:36.890 --> 24:41.640
+So let's say get it's self.
+
+24:42.230 --> 24:45.800
+So we'll just return self-taught underscored with.
+
+24:46.010 --> 24:51.600
+So basically the get with function does nothing more than just return the with OK.
+
+24:52.070 --> 24:57.470
+And then we have our set with cell with.
+
+24:58.460 --> 25:00.800
+And here we want to do something a little bit different.
+
+25:00.800 --> 25:03.480
+We want to stop people from putting in negative values.
+
+25:03.620 --> 25:07.570
+And I'm also going to you know not allow zero values I only want positive.
+
+25:07.570 --> 25:15.060
+So I'm going to say if it is less than or equal to zero I'm going to raise a value error.
+
+25:15.230 --> 25:20.080
+I'm going to say with must be positive
+
+25:23.080 --> 25:29.800
+otherwise I'm going to say self-taught underscore with equals with.
+
+25:30.370 --> 25:36.840
+So basically now I have a method that I have to call to set the width and.
+
+25:37.580 --> 25:42.520
+And I'm going to copy paste those and do the same thing with white
+
+25:46.990 --> 25:47.670
+actually.
+
+25:47.700 --> 25:50.480
+You know what let me leave out the height just for a minute.
+
+25:50.480 --> 25:51.000
+OK.
+
+25:51.510 --> 25:54.990
+So let's just work with the with.
+
+25:55.400 --> 25:55.760
+OK.
+
+25:55.770 --> 26:04.930
+So now I have this class that has private pseudo private variables with them hype pseudo private properties
+
+26:04.950 --> 26:07.630
+instant properties width and height.
+
+26:07.680 --> 26:12.490
+So now I can create my rectangle if I try and read the width.
+
+26:12.540 --> 26:14.410
+I have an attribute error.
+
+26:14.430 --> 26:24.240
+It has no width Now this one is going to be a little odd if I run this you'll notice that no arrow happens.
+
+26:24.390 --> 26:26.500
+Now we'll get back to this later in the calls.
+
+26:26.520 --> 26:32.840
+But this is called monkey patching essentially what I've done is I've added a property called with two
+
+26:32.840 --> 26:36.080
+or one but I've done this at runtime.
+
+26:36.080 --> 26:38.000
+And Python allows us to do that.
+
+26:38.270 --> 26:42.360
+So there's a lot of problems going on with it still.
+
+26:42.500 --> 26:47.990
+You know this with property is negative 100 but the underscore width is four 10 right.
+
+26:47.990 --> 26:50.050
+It was created 10 com 20.
+
+26:50.060 --> 26:53.660
+In fact if we print out our one we have 10 com 20.
+
+26:53.660 --> 26:56.990
+So there is a lot of things going on here in that.
+
+26:56.990 --> 27:01.890
+Now the person said all one dot words and that created a new property.
+
+27:02.240 --> 27:09.080
+We also now are able to say or one dot gets width and that's the way that people should be accessing
+
+27:09.080 --> 27:15.730
+the width not the underscore this they should be accessing it using get with and to set the width.
+
+27:15.740 --> 27:22.390
+Now we have to use the set with property and we can say set it to let's say negative 10.
+
+27:22.400 --> 27:25.720
+Now you'll notice what happens now is that we have a value error.
+
+27:25.730 --> 27:27.150
+The width must be positive.
+
+27:27.230 --> 27:29.100
+That's exactly what we wanted.
+
+27:29.570 --> 27:33.310
+So now we can say set with let's say to 100.
+
+27:33.500 --> 27:35.310
+And that now work correctly.
+
+27:35.330 --> 27:44.260
+In fact we can see the with 100 but you'll notice what happened is that if we had released this class
+
+27:44.430 --> 27:49.920
+you know a while back and we had it the way we originally had it then people all over the place were
+
+27:49.930 --> 27:55.300
+using our one not with to read and to to set the property.
+
+27:55.300 --> 28:00.220
+You know maybe we were using our rectangle class all over our code or maybe a coworker were working
+
+28:00.220 --> 28:01.160
+in a team.
+
+28:01.210 --> 28:06.430
+Other people are using it and now I go back and I say well no no you can't do that anymore.
+
+28:06.580 --> 28:13.780
+You have to use this get and set methods well that just broke everybody's code.
+
+28:14.400 --> 28:21.900
+So in Java we usually don't start with the you know what we had before with the there properties.
+
+28:21.900 --> 28:26.030
+Instead we always write getters and setters from the get go.
+
+28:26.190 --> 28:33.290
+And very often the getters and setters are nothing more than something like this.
+
+28:34.050 --> 28:36.460
+We don't even have the rest of that code here.
+
+28:36.630 --> 28:37.980
+We start with that.
+
+28:38.160 --> 28:44.460
+And what this means is that if we now have to put in logic like this we go ahead and put it into the
+
+28:44.460 --> 28:45.220
+set.
+
+28:45.690 --> 28:47.810
+And it hasn't broken anybody's code.
+
+28:49.530 --> 28:54.840
+So that's one of the main reasons why you you do this you set up your encapsulation this way so that
+
+28:54.840 --> 28:59.150
+you can have control over how you get and set the properties.
+
+28:59.190 --> 29:03.720
+I'm not even going to talk about calculative properties for now I'm just talking about actual physical
+
+29:03.930 --> 29:05.510
+you know concrete properties.
+
+29:06.290 --> 29:09.010
+So that's the typical way of doing it.
+
+29:09.010 --> 29:13.180
+If you come from a Java background you don't start with this.
+
+29:13.340 --> 29:14.000
+OK.
+
+29:14.120 --> 29:17.870
+So let me show you why in Python it doesn't actually matter.
+
+29:18.020 --> 29:23.510
+So I'm going to keep this but I'm going to copy paste the code and I'm going to show you the Pythonic
+
+29:23.510 --> 29:28.570
+way of doing this so I'm not going to implement these things over here.
+
+29:28.610 --> 29:31.380
+I'm going to go back to the original class that we had.
+
+29:31.520 --> 29:32.200
+OK.
+
+29:32.400 --> 29:39.010
+And then go back to this can remove the with the underscore.
+
+29:39.220 --> 29:42.000
+OK I'm going to remove the underscore.
+
+29:42.100 --> 29:50.150
+I'm going to remove the underscore huge and huge and here in here.
+
+29:50.840 --> 29:52.670
+So now I've gone back to my original class.
+
+29:52.700 --> 29:57.030
+I can say all one equals rectangle and call me 20.
+
+29:57.220 --> 29:59.630
+I can read the widths.
+
+29:59.710 --> 30:02.000
+I can set the width.
+
+30:02.230 --> 30:06.830
+I can set it to a negative value and I can look at one it tells me OK.
+
+30:07.150 --> 30:08.750
+All right so this is what we had before.
+
+30:08.830 --> 30:15.190
+That's what we you know released let's say and now we realized that well we really want to stop people
+
+30:15.190 --> 30:17.700
+from setting the width to negative 100.
+
+30:17.830 --> 30:19.500
+So what's the solution to that.
+
+30:19.540 --> 30:23.460
+While the solution is exactly what I showed you before it's writing a set of.
+
+30:23.620 --> 30:24.470
+And get it.
+
+30:24.850 --> 30:29.260
+But we want to do this without being we are without breaking or backward compatibility.
+
+30:29.290 --> 30:31.140
+And Python allows us to do that.
+
+30:31.360 --> 30:37.790
+And that's the reason why you don't have to start with getters and setters right away for variables.
+
+30:37.840 --> 30:44.620
+So in Python unless you know that you have a specific reason to actually implement a specific getter
+
+30:44.650 --> 30:52.140
+or setter that has extra logic you don't implement them you just leave the properties bar that way.
+
+30:52.210 --> 30:53.730
+That's perfectly fine.
+
+30:53.740 --> 30:56.010
+First of all there's no such thing as private variable.
+
+30:56.020 --> 30:58.100
+So anyway people can modify it directly.
+
+30:58.270 --> 31:03.500
+And secondly is don't force people to use a getter and setter unless they have to.
+
+31:03.820 --> 31:08.950
+And really what happens in Python is that they're not even aware that they're going to be using a getter
+
+31:08.950 --> 31:10.720
+and setter if we implement those.
+
+31:10.720 --> 31:16.150
+It's going to be transparent but Python is going to have to go through and actually run a method instead
+
+31:16.150 --> 31:18.470
+of being able to access with directly.
+
+31:18.700 --> 31:21.900
+So if it doesn't have to do that it will be more efficient.
+
+31:21.940 --> 31:23.780
+How do we go about doing this.
+
+31:23.840 --> 31:31.840
+Well we're going to write a function basically or an instance method that is going to return the with
+
+31:31.870 --> 31:33.670
+that's going to be our getter.
+
+31:33.940 --> 31:36.770
+But what we do is we use these decorators.
+
+31:36.790 --> 31:38.900
+And so we use the special syntax.
+
+31:39.010 --> 31:42.730
+Use the at property and we'll get into what decorators are later.
+
+31:42.730 --> 31:47.610
+For now I'm just going to use it and we're going to call it quits.
+
+31:48.250 --> 31:50.460
+So now this is a method called with.
+
+31:50.650 --> 31:56.440
+So here's what I'm going to do is I'm going to go back to using the underscore with an I'm going to
+
+31:56.440 --> 31:58.930
+go back to using the underscore height.
+
+31:59.170 --> 31:59.770
+OK.
+
+32:00.010 --> 32:02.650
+This means that I have to fix things up over here.
+
+32:02.650 --> 32:04.890
+Self-taught with self-taught height.
+
+32:05.120 --> 32:06.780
+Well maybe maybe not.
+
+32:07.060 --> 32:07.740
+Let's see why not.
+
+32:07.750 --> 32:09.790
+I'm going to leave that code as is for now.
+
+32:09.890 --> 32:12.700
+And let's go ahead and finish up writing the properties.
+
+32:12.790 --> 32:20.200
+So I'm going to write a getter for with this is what this is going to enable me to do it saying OK this
+
+32:20.200 --> 32:23.370
+function that comes after here is a property.
+
+32:23.500 --> 32:30.280
+So it's going to be called width and it's just going to return self duffed underscore with.
+
+32:30.490 --> 32:39.910
+And then I'm going to do the same thing with height height self and then return self-taught underscore
+
+32:40.510 --> 32:41.270
+height.
+
+32:41.550 --> 32:42.810
+OK.
+
+32:43.420 --> 32:46.390
+And let me go ahead and run that class.
+
+32:46.390 --> 32:54.590
+So now I can go ahead and create this new rectangle and I can read the width.
+
+32:54.610 --> 32:56.000
+You'll notice that worked.
+
+32:56.020 --> 32:57.100
+But what did it run.
+
+32:57.100 --> 32:57.920
+It actually ran.
+
+32:57.910 --> 32:59.680
+This function let me just show you.
+
+32:59.830 --> 33:01.050
+I'll put a side effect.
+
+33:01.060 --> 33:02.840
+Never a good idea to do that.
+
+33:03.030 --> 33:11.140
+But with let's call it let's say getting with OK.
+
+33:11.260 --> 33:17.550
+And then you run it again and you'll see it's printing out getting with it went through the with method.
+
+33:17.680 --> 33:21.530
+But you'll notice how I accessed it and there wasn't a call here.
+
+33:21.550 --> 33:27.790
+I didn't say or one dot with parentheses basically because I used this property here.
+
+33:28.000 --> 33:34.420
+Python now is able to access the width via the getter and I didn't have to change any code that was
+
+33:34.420 --> 33:38.780
+actually using Da'ath with as the direct access to the property before.
+
+33:38.950 --> 33:45.550
+So I now have a property that goes through a method for the getter without breaking backward compatibility.
+
+33:45.550 --> 33:50.260
+This is why you don't have to do this right off the bat and you should do that right off the bat.
+
+33:50.260 --> 33:52.220
+You should only do that if you need to.
+
+33:52.300 --> 33:57.220
+In this case I need to because I want to stop people from setting width and height to a non-positive
+
+33:57.250 --> 33:58.030
+value.
+
+33:58.360 --> 34:04.930
+So I've I've got that the width I have that for the height but of course if I try and set the property
+
+34:04.930 --> 34:08.580
+that's not going to work because I don't have a set of.
+
+34:08.650 --> 34:10.030
+So now I need to write a set.
+
+34:10.120 --> 34:12.080
+So let's go ahead and write the center.
+
+34:12.280 --> 34:13.790
+How do we write a set.
+
+34:13.810 --> 34:16.250
+Again we have to use a decorator.
+
+34:16.450 --> 34:21.410
+And so here the way the decorator works is we have this width property.
+
+34:21.580 --> 34:27.220
+So we start with the width and then we say Dot setters and you'll see how this works.
+
+34:27.250 --> 34:36.070
+When we deal with decorator's and classes later on in the scores so with that said the name of the method
+
+34:36.070 --> 34:37.460
+is actually the same.
+
+34:37.810 --> 34:38.220
+OK.
+
+34:38.230 --> 34:40.270
+Now don't be confused.
+
+34:40.270 --> 34:42.610
+We do not have overloading in Python.
+
+34:42.790 --> 34:43.170
+OK.
+
+34:43.180 --> 34:45.370
+You don't have overloaded methods.
+
+34:45.400 --> 34:46.720
+You know this way.
+
+34:46.750 --> 34:52.660
+Don't think that this is like other object on the map or languages where since we have now with that
+
+34:52.660 --> 34:57.730
+we need to Pasay and you can say well this is a different signature than this one so it's two separate
+
+34:57.730 --> 35:01.430
+functions doesn't work that way in python we don't have the help.
+
+35:01.600 --> 35:02.900
+We'll see that later.
+
+35:03.130 --> 35:09.040
+But the reason why this is OK is because this Aksa actually modified what this function is.
+
+35:09.250 --> 35:13.180
+So this function and this function are not stepping on each other's toes.
+
+35:13.240 --> 35:14.300
+All right.
+
+35:14.320 --> 35:16.190
+But anyways this is how we do it.
+
+35:16.240 --> 35:18.810
+And then here we're going to set the width.
+
+35:18.820 --> 35:20.520
+But we want to put in our polls.
+
+35:20.530 --> 35:32.830
+We want to say if with less than equal to zero raise value of error with be positive.
+
+35:33.340 --> 35:35.270
+Else what are we going to do.
+
+35:35.270 --> 35:41.110
+We're going to set our internal width variable to the width that was passed in.
+
+35:41.170 --> 35:47.280
+So this is how we create a with setters and let's do the same thing for the height.
+
+35:47.290 --> 35:53.340
+I'm just going to copy paste that because most of the code is the same except this becomes heit was
+
+35:53.350 --> 36:02.190
+sitting on a height set of height height underscore height height as well.
+
+36:02.200 --> 36:04.010
+And this should be height as well.
+
+36:04.260 --> 36:10.420
+OK so now we have I'll get as and all setters so we can go ahead and run that and know how this will
+
+36:10.420 --> 36:12.960
+work the same as before for getting the value right.
+
+36:12.970 --> 36:14.270
+So our one dog with
+
+36:17.370 --> 36:21.340
+my doing this wrong because I thought.
+
+36:21.870 --> 36:24.640
+That's it's called height.
+
+36:24.850 --> 36:26.490
+K so I missed that one.
+
+36:26.490 --> 36:28.090
+That's regrew this.
+
+36:28.290 --> 36:30.250
+So now with is 10.
+
+36:30.320 --> 36:30.980
+Right.
+
+36:31.230 --> 36:38.320
+And we can set our wits to negative 100 and now it tells us are you can't the value must be positive.
+
+36:38.340 --> 36:42.420
+Now we could do on one dot with equals 100.
+
+36:42.600 --> 36:43.800
+And that works.
+
+36:43.830 --> 36:49.230
+In fact if we look at the value of one we have a common 20 which is correct.
+
+36:49.260 --> 36:54.790
+So you can see that we didn't break backward compatibility compatibility.
+
+36:54.940 --> 36:59.370
+We didn't break backward compatibility by implementing getters and setters.
+
+36:59.370 --> 37:02.110
+That's because we did this using properties.
+
+37:02.280 --> 37:09.300
+So it's OK to leave your properties bare initially until you need to do something in which case go ahead
+
+37:09.300 --> 37:10.800
+and implement something like this.
+
+37:10.800 --> 37:13.820
+You can do that without breaking backward compatibility.
+
+37:13.860 --> 37:19.270
+So this isn't like Java where you should always implement getters and setters from the get go.
+
+37:19.320 --> 37:20.520
+Not in Python.
+
+37:20.520 --> 37:21.670
+I know I'm rehashing this.
+
+37:21.810 --> 37:23.170
+We'll come back to this later.
+
+37:23.280 --> 37:24.620
+But that's kind of important.
+
+37:24.870 --> 37:29.370
+OK the next thing though is that I want to clean up this code over here.
+
+37:29.370 --> 37:33.200
+You'll notice that it's calling self-edit with an self-taught height.
+
+37:33.210 --> 37:35.910
+Now there's actually nothing wrong with doing that.
+
+37:35.910 --> 37:36.420
+Why.
+
+37:36.450 --> 37:37.570
+Why did it work.
+
+37:37.740 --> 37:44.700
+Well self-taught words is going to do what it's going to call the With together and it's going to do
+
+37:44.700 --> 37:46.730
+what it's going to return underscore with.
+
+37:46.740 --> 37:49.980
+So it's perfectly fine leaving that here this way.
+
+37:50.320 --> 37:55.790
+Now in this case however maybe I want to avoid calling the method the ghetto method.
+
+37:55.980 --> 37:59.630
+And so I might actually you know do it directly.
+
+37:59.720 --> 38:03.040
+Kind of depends on I choose not to do that.
+
+38:03.080 --> 38:09.130
+Initially I preferred getting and setting my data even inside the class using the getters and setters.
+
+38:09.320 --> 38:14.990
+This way if I have any logic in the getter that's being implemented I'm going to pick up that logic
+
+38:14.990 --> 38:15.520
+for free.
+
+38:15.530 --> 38:18.220
+Right over here and that's kind of what I want.
+
+38:18.260 --> 38:18.850
+Right.
+
+38:19.250 --> 38:22.240
+But maybe in some cases you want to speed things up.
+
+38:22.240 --> 38:26.360
+Maybe there's something and you don't want this extra call to a function in order to get the value just
+
+38:26.360 --> 38:28.040
+want to hit it directly.
+
+38:28.040 --> 38:29.390
+That's possible too.
+
+38:29.690 --> 38:30.130
+OK.
+
+38:30.230 --> 38:33.210
+And we'll talk about those kinds of issues later on.
+
+38:33.850 --> 38:34.130
+OK.
+
+38:34.130 --> 38:40.640
+The other thing too is that I want to show you that I could do this I could say on one equals rectangle
+
+38:41.240 --> 38:45.620
+minus one hundred twenty and that's perfectly fine.
+
+38:45.620 --> 38:51.590
+It allowed me to now create instantiate a rectangle of a negative with I don't want that.
+
+38:51.590 --> 38:58.220
+So of course I could go in here and put in a you know if with these less than or equal to zero raise
+
+38:58.220 --> 39:00.860
+value error and blah blah blah and so on.
+
+39:01.160 --> 39:04.650
+But instead what am I going to do really do this.
+
+39:05.030 --> 39:11.390
+I'm going to actually call the setters and then inside my init method and then the set is going to handle
+
+39:11.570 --> 39:14.650
+you know raising an exception if it needs to.
+
+39:14.900 --> 39:17.000
+Let's go ahead and redo this.
+
+39:17.000 --> 39:21.330
+And now let me go ahead and try and run and instantiate this rectangle.
+
+39:21.350 --> 39:24.160
+And indeed we get with must be positive.
+
+39:24.170 --> 39:30.650
+So again I got that thing for free by using internally the getter in the setters in my class.
+
+39:30.650 --> 39:31.140
+All right.
+
+39:31.190 --> 39:37.580
+So this is kind of the basics of classes and Python I really wanted you to understand about you know
+
+39:37.700 --> 39:43.460
+how you create classes how you define classes how you initialize values inside the class why it's OK
+
+39:43.460 --> 39:47.120
+to have their properties in Python classes.
+
+39:47.120 --> 39:51.440
+And if you really need to implement getters and setters the best way to do it which is the approach
+
+39:51.440 --> 39:58.340
+I just showed you and also the special methods that we have that allows us to bring you know standard
+
+39:58.730 --> 40:01.800
+style implementations to our own classes.
+
+40:01.880 --> 40:02.090
+Right.
+
+40:02.090 --> 40:08.390
+We saw how we could use the built in strength function to actually you know customize how we want our
+
+40:08.390 --> 40:14.910
+rectangles string representation to look like that was by using these special Dundon methods.
+
+40:14.910 --> 40:15.120
+All right.
+
+40:15.130 --> 40:17.300
+Thanks for watching and I'll see you in the next video.

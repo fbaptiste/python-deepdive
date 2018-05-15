@@ -1,0 +1,559 @@
+WEBVTT
+
+00:00.390 --> 00:05.670
+High in this video we'll look at the code for the rational numbers video.
+
+00:05.700 --> 00:10.360
+So the first thing we'll need to do is to import all fractions class from the module.
+
+00:10.410 --> 00:18.630
+So we'll say from We'll actually just import the fractioned class from fractions which is the module
+
+00:18.630 --> 00:24.750
+name import fraction of a capital F which is the class remember that naming convention that we talked
+
+00:24.750 --> 00:32.070
+about earlier in the course where all packages and modules use lower case letters and classes used an
+
+00:32.130 --> 00:34.870
+uppercase letter for the first letter.
+
+00:35.520 --> 00:37.620
+So it's just following that convention there.
+
+00:38.100 --> 00:41.470
+Now we can take a look at some help on that.
+
+00:41.550 --> 00:43.660
+Fraction objects a fraction class.
+
+00:43.670 --> 00:47.430
+I can certainly just you know go to Google and do a search for that.
+
+00:47.430 --> 00:55.080
+Look up the Python documentation or you can also get help directly here within Python and we can call
+
+00:55.080 --> 00:55.890
+it this way.
+
+00:55.950 --> 00:56.160
+Right.
+
+00:56.160 --> 00:59.510
+Just the same way we did with integers.
+
+00:59.730 --> 01:04.010
+So here it will give you some information about the fractioned class.
+
+01:04.050 --> 01:07.250
+Will talk to you about the different constructors.
+
+01:07.260 --> 01:14.420
+So let's look at the constructors and the first one is you know we can just use a single integer number.
+
+01:14.430 --> 01:19.480
+What that means is that it's going to use the constructor that takes in a numerator and denominator.
+
+01:19.680 --> 01:24.200
+But here the denominator is not specified with just specified the numerator.
+
+01:24.330 --> 01:28.310
+We haven't specified the denominator so the denominator will default to 1.
+
+01:28.350 --> 01:31.000
+And in fact we get fraction 1 over 1.
+
+01:31.020 --> 01:33.900
+Now you can also if you want write it this way.
+
+01:33.900 --> 01:37.130
+Denominator because 1.
+
+01:37.210 --> 01:37.540
+Right.
+
+01:37.560 --> 01:40.780
+And then maybe we want to do our numerator equals two.
+
+01:40.800 --> 01:42.070
+You can write it that way.
+
+01:42.210 --> 01:42.450
+Right.
+
+01:42.450 --> 01:45.030
+You can name your parameters.
+
+01:45.030 --> 01:51.350
+You can also just write it this fraction one comma to the advantage by the way of using named parameters.
+
+01:51.360 --> 01:58.080
+Here is that if we take this I mean copy paste and we'll write here.
+
+01:58.320 --> 02:01.830
+Numerator and denominator.
+
+02:01.830 --> 02:06.600
+Now I don't have to specify the numerator and denominator in the specific sequence.
+
+02:06.600 --> 02:09.070
+We can do it this way and it still works just fine.
+
+02:09.150 --> 02:19.490
+So just a side note so we can use those kinds of constructors that use the denominator and the numerator.
+
+02:19.780 --> 02:24.150
+And we have other constructors as well that we discussed right.
+
+02:24.160 --> 02:29.890
+We can look at a fraction of 0.1 to five which we know should be one eighth.
+
+02:29.890 --> 02:32.230
+And that's in fact what we get.
+
+02:32.230 --> 02:34.320
+We can also use a string.
+
+02:34.360 --> 02:39.460
+So we might say 0.1 to 5 is a string that would work just as well.
+
+02:39.660 --> 02:40.350
+Right.
+
+02:40.570 --> 02:42.810
+All of which is really interesting.
+
+02:42.820 --> 02:49.120
+With that say fraction 22 divided by seven so our string looks like a fraction.
+
+02:49.120 --> 02:55.380
+And Python will be able to pass that and return a fraction of 22 over 7.
+
+02:55.390 --> 02:59.560
+Now we also have all the different arithmetic operators that we can use.
+
+02:59.560 --> 03:09.050
+So for example let's say X equals fraction to comma 3 let's say y equals fraction 3 com 4.
+
+03:09.220 --> 03:09.900
+OK.
+
+03:10.180 --> 03:15.580
+So now for example let's do something like.
+
+03:15.880 --> 03:20.140
+X plus Y which is two thirds plus three quarters.
+
+03:20.380 --> 03:22.450
+Well there will be 17 over 12.
+
+03:22.450 --> 03:25.040
+And if you want you can check that.
+
+03:25.180 --> 03:30.670
+But as you can see the common for the greatest common denominator would be 12.
+
+03:30.820 --> 03:31.120
+Right.
+
+03:31.120 --> 03:42.070
+So we end up with four twelves here and nine twelves years eight sorry eight 12 and nine twelves and
+
+03:42.070 --> 03:44.890
+so eight plus nine to 17 divided by 12.
+
+03:44.890 --> 03:45.860
+So that seems like.
+
+03:45.910 --> 03:47.560
+That's correct.
+
+03:47.620 --> 03:50.290
+So we can also say X times Y.
+
+03:50.630 --> 03:57.790
+Next time y will be one half two thirds times three quarters is one half and you can do X divided by
+
+03:57.790 --> 03:59.620
+Y as well and so forth.
+
+03:59.950 --> 04:09.690
+So all the arithmetic operators work and they will always return a fraction type object.
+
+04:09.700 --> 04:13.680
+Now fractions also remember I mentioned are automatically reduced.
+
+04:13.720 --> 04:21.020
+So if we look at fraction of eight divided by 16 we'll 8:16 says really one half.
+
+04:21.220 --> 04:23.240
+And in fact that's what Python does for us.
+
+04:23.260 --> 04:24.520
+As you can see it return.
+
+04:24.520 --> 04:26.980
+Fraction 1 come to.
+
+04:26.980 --> 04:33.130
+Also we talked about the negative numbers so if we do one common negative for which is negative one
+
+04:33.130 --> 04:38.140
+quarter what we can put the negative sign above or below the line it doesn't matter it's mathematically
+
+04:38.140 --> 04:39.290
+equivalent.
+
+04:39.370 --> 04:43.970
+And Python will choose to put the negative sign with the numerator.
+
+04:44.440 --> 04:49.200
+Speaking of numerator we can recover the numerator and denominator of a fraction.
+
+04:49.210 --> 04:50.460
+So let's say we do this.
+
+04:50.500 --> 04:51.310
+X equals.
+
+04:51.370 --> 04:58.600
+Fraction 1 common negative for K which remembers this one with a negative sign.
+
+04:58.600 --> 05:05.200
+Come before we can recover the numerator by looking at the numerator property of that object that will
+
+05:05.200 --> 05:06.590
+return negative 1.
+
+05:06.670 --> 05:11.580
+And similarly we can look at the denominator by looking at that property.
+
+05:11.650 --> 05:21.900
+And we get the denominator back so that's how you get the numerator and denominator.
+
+05:21.900 --> 05:27.740
+Now one thing we talked about was the fact that floats have a finite precision right so any real number
+
+05:27.800 --> 05:33.570
+in Python is represented using a finite number of digits and therefore they're actually all rational
+
+05:33.570 --> 05:34.830
+numbers.
+
+05:34.830 --> 05:42.120
+And to look at that we're going to work with some irrational numbers like pi and square root of two.
+
+05:42.150 --> 05:48.880
+So let's go ahead and say X equals fraction of math dot pi.
+
+05:49.200 --> 05:53.170
+OK so if we print out X this is the fraction that we get.
+
+05:53.190 --> 05:56.310
+Now what's the equivalent float.
+
+05:56.370 --> 05:58.510
+Well that's the float that it's representing.
+
+05:58.860 --> 06:02.100
+But you can see that we have a rational number.
+
+06:02.100 --> 06:04.000
+Now pi is not rational.
+
+06:04.050 --> 06:09.600
+The only reason we get irrational number is because pi in our computer can only be represented up to
+
+06:09.630 --> 06:12.680
+a certain limited number of digits.
+
+06:12.780 --> 06:17.970
+Therefore it's a rational number therefore it can be expressed as a fraction.
+
+06:17.970 --> 06:26.460
+Similarly if we say I'll use y equals fraction of math that's the square root of 2.
+
+06:26.760 --> 06:29.310
+Then when we print y.
+
+06:29.670 --> 06:36.630
+Well let's just print Y and then if we look at the float of y you all will get off one point for one
+
+06:36.630 --> 06:39.390
+for something which we would expect.
+
+06:39.540 --> 06:42.620
+But because again it has a finite representation.
+
+06:42.780 --> 06:44.130
+It is a rational number.
+
+06:44.190 --> 06:49.300
+And this is the equivalent fraction that can be used to approximate square root of 2.
+
+06:49.470 --> 06:53.350
+So even though they are irrational we can still approximate them.
+
+06:54.150 --> 06:54.830
+OK.
+
+06:55.850 --> 07:04.280
+Now I'll actually want to point out that not all floating point numbers can be represented precisely
+
+07:04.880 --> 07:07.320
+or exactly in a computer.
+
+07:07.610 --> 07:10.730
+And we'll get to that in an upcoming video on floats.
+
+07:10.910 --> 07:15.360
+But let's look at one eighth or zero point one to five.
+
+07:15.420 --> 07:18.680
+So I say April 0 1 1 2 5.
+
+07:19.130 --> 07:20.900
+Now if we print this out.
+
+07:20.990 --> 07:25.640
+OK so if we print a it tells us 0.1 to 5.
+
+07:25.700 --> 07:26.240
+Great.
+
+07:26.240 --> 07:27.470
+That looks good.
+
+07:27.470 --> 07:32.280
+Now let's take be equal to zero point three three tenths right.
+
+07:32.750 --> 07:37.310
+And let's print out 0.3.
+
+07:37.370 --> 07:39.030
+Looks good right.
+
+07:39.110 --> 07:42.780
+So now let's look at the fraction of a while 1 8.
+
+07:42.830 --> 07:44.770
+That's good that's what we expected.
+
+07:44.780 --> 07:48.020
+And let's look at the fraction of B and we would expect three tenths.
+
+07:48.140 --> 07:49.780
+But that's not what we get.
+
+07:49.880 --> 07:53.130
+We get something that really looks pretty awful.
+
+07:53.180 --> 07:54.380
+So what's going on.
+
+07:54.650 --> 08:00.770
+Well remember what I said earlier 0.3 cannot be represented exactly what it looks like it is.
+
+08:00.770 --> 08:01.040
+Right.
+
+08:01.040 --> 08:03.160
+When we print B we get 0.3.
+
+08:03.200 --> 08:03.680
+Right.
+
+08:03.770 --> 08:06.290
+We get 0.3 that looks exact.
+
+08:06.620 --> 08:12.350
+Well the problem is that Python is kind of hiding stuff from us because it's trying to give us a nice
+
+08:12.350 --> 08:13.260
+display.
+
+08:13.310 --> 08:16.010
+So it's really a display issue here.
+
+08:16.160 --> 08:17.830
+It's displaying 0.3.
+
+08:17.840 --> 08:21.310
+But that's not in reality what's actually being stored.
+
+08:21.350 --> 08:27.200
+Even though we specified She was precisely equal to zero point three in order to see that we can format
+
+08:27.200 --> 08:33.140
+the number and force Python to give us more significant digits in the display.
+
+08:33.140 --> 08:40.520
+So for example we might say format b and give us five decimal you know five digits after the decimal
+
+08:40.530 --> 08:45.270
+point and we get 0.3 0 0 0 0.
+
+08:45.470 --> 08:47.270
+That looks fine right.
+
+08:47.270 --> 08:48.860
+That still looks exact.
+
+08:49.010 --> 08:50.570
+So let's pump it up.
+
+08:50.660 --> 08:58.180
+Let's go to maybe let's let's look at 15 digits right after the decimal point.
+
+08:58.460 --> 08:59.910
+And that still looks good.
+
+09:00.140 --> 09:00.720
+Right.
+
+09:01.400 --> 09:02.950
+So let's come that up further.
+
+09:03.170 --> 09:06.500
+And this time we'll go to like 25.
+
+09:06.750 --> 09:10.050
+And now we'll start seeing the difference.
+
+09:10.070 --> 09:18.780
+So now you can see that 0.3 is not actually Stalder 0.3 in Python it's Dardus 0.2 9 all these nines.
+
+09:18.800 --> 09:20.950
+But then you see 8 8 8 right.
+
+09:20.960 --> 09:22.660
+It's not 0.3.
+
+09:22.820 --> 09:31.710
+And so because of that when we look at the fraction of B we get that that's why we get that huge fraction.
+
+09:31.760 --> 09:37.490
+Now if we know that all float you know has a certain number and has a certain constraint on how big
+
+09:37.490 --> 09:44.420
+you know that denominator can become then we can use that limit denominator method to actually you know
+
+09:44.420 --> 09:52.670
+get in or get an approximation of this float here using a fraction whose denominator doesn't exceed
+
+09:52.670 --> 09:53.900
+a certain amount.
+
+09:54.260 --> 10:00.400
+And so we could do something like this if we say X equals fraction of 0.3.
+
+10:00.540 --> 10:10.810
+OK then we can say X not limit the denominator and we can specify that the limit let's say would be
+
+10:10.820 --> 10:11.320
+10.
+
+10:11.330 --> 10:18.960
+So we don't want to nominators greater than 10 and we get three tenths back right.
+
+10:18.980 --> 10:21.830
+So now we have all three tenths.
+
+10:21.830 --> 10:24.310
+So of course this works of any floating point number.
+
+10:24.350 --> 10:30.470
+So we could say X equals fraction of math that pi.
+
+10:30.830 --> 10:37.370
+OK so if we print X in front of this way we get this fraction over here we can look at the floating
+
+10:37.370 --> 10:39.060
+point equivalent of x.
+
+10:39.070 --> 10:41.110
+That's three point 1 4 1 5 et cetera.
+
+10:41.120 --> 10:46.580
+That's an approximation of pi pi being of course irrational and actually transcendental.
+
+10:46.580 --> 10:52.700
+You don't get a finite number of digits to represent by and it never you know you never get recurring
+
+10:53.570 --> 10:57.730
+digits so or recurring sequences of digits.
+
+10:57.740 --> 11:05.240
+I should say to be more precise so we can get approximations of Pi with other fractions by using the
+
+11:05.300 --> 11:06.490
+limit denominator.
+
+11:06.560 --> 11:13.340
+So we might say X darksome limit denominator and we'll limit the denominator to 10 let's say.
+
+11:13.340 --> 11:21.150
+So what's the closest fraction that we can get to X but with a denominator of no greater than 10.
+
+11:21.770 --> 11:23.840
+And so we get 22 over 7.
+
+11:23.960 --> 11:27.110
+And if we look at 22 divided by seven.
+
+11:27.350 --> 11:31.080
+Well that's approximately PI right 3.1 4.
+
+11:31.100 --> 11:33.960
+And then after that it all falls off.
+
+11:34.490 --> 11:45.800
+But of course we can go further we can say limit denominator let's say 100 and we get 3 1 2 1 3 111
+
+11:45.830 --> 11:50.620
+over 99 and you can go further if you want let's say 10000.
+
+11:50.810 --> 11:52.600
+Well you know for 10000.
+
+11:52.610 --> 11:55.160
+It still sticks to 113.
+
+11:55.160 --> 11:57.050
+So how about a hundred thousand.
+
+11:57.110 --> 11:59.250
+Now we get this fraction here.
+
+11:59.330 --> 12:04.910
+And if we're trying to evaluate that fraction we can do it in one of two ways I guess.
+
+12:05.030 --> 12:06.540
+Let's do it this way.
+
+12:06.670 --> 12:11.080
+I'll copy that and copy this one.
+
+12:11.630 --> 12:13.630
+And there we go.
+
+12:13.700 --> 12:13.990
+OK.
+
+12:14.030 --> 12:15.680
+That's our approximation to pi.
+
+12:15.680 --> 12:21.850
+Now using a fraction whose denominator cannot exceed 100000.
+
+12:23.680 --> 12:24.140
+All right.
+
+12:24.190 --> 12:28.900
+So that can be pretty useful when you want to constrain your denominator.
+
+12:29.260 --> 12:29.530
+All right.
+
+12:29.530 --> 12:33.690
+Thanks for watching and I'll see you in the upcoming video on floats.

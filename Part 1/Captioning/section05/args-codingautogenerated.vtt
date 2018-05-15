@@ -1,0 +1,499 @@
+WEBVTT
+
+00:00.270 --> 00:06.520
+High in this video we're going to continue looking at these star expressions and function parameters.
+
+00:06.600 --> 00:13.010
+Now just recall from our discussions prior on unpacking it for bowls we can unpack it probles this way.
+
+00:13.010 --> 00:20.260
+So for example let's say we want to take a b and c and we can compact this tuple over here.
+
+00:20.370 --> 00:25.010
+Let's say 10 20 A and B.
+
+00:25.320 --> 00:32.250
+And so we'll get that A's 10 B is 20 and C will be the list containing the characters A and B the two
+
+00:32.250 --> 00:33.920
+strings A and B.
+
+00:33.960 --> 00:35.630
+So that's how it works with probles.
+
+00:35.660 --> 00:39.810
+Now it works the same way with functions for keys that a very similar way with functions.
+
+00:39.810 --> 00:48.020
+We can go ahead and define a function and we'll set up with say the positional parameters.
+
+00:48.230 --> 00:56.070
+I can type the stylus and then that last style C which is going to behave basically in the same way.
+
+00:56.310 --> 01:02.700
+And we're just going to print a current B and print C.
+
+01:02.820 --> 01:09.470
+So this now basically allows us to call func one with two or more parameters.
+
+01:09.840 --> 01:17.490
+If we call func one with just two parameters let's say 10 and 20 then we'll see that was 10 B was 20
+
+01:17.490 --> 01:18.890
+and c was just nothing.
+
+01:18.890 --> 01:23.200
+So it's an empty couple and it does return to topple not a list.
+
+01:23.250 --> 01:27.980
+That's the one kind of difference that we have with the inferable unpacking.
+
+01:28.140 --> 01:30.750
+But it's perfectly fine not to have extra parameters.
+
+01:30.750 --> 01:34.860
+So these basically are just optional parameters and we can have as many as we want.
+
+01:35.040 --> 01:39.600
+So we can in fact go from one with 10 comma 20 comma.
+
+01:39.690 --> 01:46.260
+Let's do one come to come at three to six and then you'll see that again A's 10 B is 20 and then C is
+
+01:46.260 --> 01:46.870
+the tuple.
+
+01:46.920 --> 01:48.680
+1 two 3.
+
+01:48.720 --> 01:52.340
+So let's call the star thing works and functions.
+
+01:52.350 --> 01:59.490
+Now typically we don't use C a very common convention is to use start things and so here we would use
+
+01:59.850 --> 02:03.280
+our arms as the parameter name.
+
+02:03.330 --> 02:08.100
+But it works the same way as you can see I executed those and the same results came back.
+
+02:08.160 --> 02:10.570
+So that's more of a convention than anything else.
+
+02:10.770 --> 02:14.540
+But if you happen to see Star Ogston functions that's all it is.
+
+02:14.670 --> 02:14.900
+Right.
+
+02:14.910 --> 02:22.260
+It just allows us to pack an arbitrary number of variables into our arguments into a single tapu that's
+
+02:22.260 --> 02:23.770
+available inside the function.
+
+02:25.130 --> 02:26.420
+So how might we use that.
+
+02:26.480 --> 02:31.880
+Well let's say that we want to write a function that could calculate the average of all the parameters
+
+02:31.880 --> 02:32.840
+that are passed in.
+
+02:32.870 --> 02:37.830
+But obviously we want this function to be able to handle an arbitrary number of parameters.
+
+02:38.090 --> 02:40.930
+So we do that using this stuff.
+
+02:41.120 --> 02:48.010
+In fact let's go ahead and create close function and we're not going to have any positional arguments
+
+02:48.020 --> 02:54.560
+parameters we're just going to have that single one cool storms and we're going to initially just turn
+
+02:54.580 --> 02:59.410
+it up to see what happens when we call it fall if we call average with nothing.
+
+02:59.510 --> 03:08.020
+We end up with being an empty couple if we call A-V with anything and then that 10 and 20 will be inside
+
+03:08.030 --> 03:09.770
+that is tapu right.
+
+03:09.770 --> 03:15.090
+So that's how we're going to recover the values of the arguments that are being used when the function
+
+03:15.090 --> 03:16.820
+is called Inside the function.
+
+03:16.820 --> 03:21.300
+We're just going to look at the values that are inside the table called arms.
+
+03:21.590 --> 03:25.790
+So go ahead and change that up now.
+
+03:25.830 --> 03:27.830
+And it's actually do our calculations.
+
+03:27.830 --> 03:29.720
+So we're going to need to find the count.
+
+03:29.870 --> 03:35.900
+So the count is just going to be the number of variables right the number of arguments that were passed
+
+03:35.900 --> 03:43.550
+in which is going to be the length of the top and the total is just going to be the sum of all the elements
+
+03:43.580 --> 03:49.640
+inside the tunnel so that we can use the built in part on function calls some and some will accept you
+
+03:49.640 --> 03:51.230
+know a top or a list.
+
+03:51.230 --> 03:55.940
+So in this case it's going to be a tough call and we're just going to give it and tell it to calculate
+
+03:55.940 --> 03:59.850
+the sum and then what's the average is the total divided by the count.
+
+03:59.900 --> 04:07.190
+So here we would just return total divided by count 10 and if we call average let's say two comet to
+
+04:07.260 --> 04:12.890
+come 404 I'm doing this on purpose because as we can see the average here should be three quite easy
+
+04:13.310 --> 04:17.980
+enough to see and in fact that's what we get the averages three day.
+
+04:18.110 --> 04:26.660
+This works well not quite because now there's a little caveat here one Farkle avi with nothing while
+
+04:26.660 --> 04:29.120
+we get a zero division there which makes sense.
+
+04:29.120 --> 04:29.440
+Right.
+
+04:29.450 --> 04:33.950
+Because how many numbers are in that topple is zero.
+
+04:34.160 --> 04:38.210
+So the count is zero the total is also zero.
+
+04:38.390 --> 04:41.090
+And we're trying to divide zero by zero which is undefined.
+
+04:41.090 --> 04:42.770
+We have a zero division error.
+
+04:43.040 --> 04:44.460
+So we need to fix that.
+
+04:44.510 --> 04:47.990
+So let's see there's a few ways we can fix that.
+
+04:48.020 --> 04:54.830
+One of the simplest ways is basically to use an if statement and to say if count is greater than zero
+
+04:54.980 --> 04:57.680
+lower count does that say equal to zero.
+
+04:57.890 --> 05:00.080
+We're going to return zero.
+
+05:00.530 --> 05:04.800
+Else we're going to return total Ludivine of my count right.
+
+05:04.810 --> 05:10.450
+Sort of the count of zero will return zero and otherwise we'll calculate total divided by count and
+
+05:10.450 --> 05:11.590
+we turn left.
+
+05:11.630 --> 05:13.530
+So that will certainly work.
+
+05:13.560 --> 05:15.310
+We call average with nothing.
+
+05:15.350 --> 05:20.010
+We get zero back if we call average with 2 to 4 4.
+
+05:20.360 --> 05:22.400
+Then we get an average of three back.
+
+05:22.550 --> 05:24.440
+So that's working OK.
+
+05:25.010 --> 05:27.520
+Now is a slightly better way of doing it.
+
+05:27.530 --> 05:31.060
+Or maybe not better but it's an alternative way certainly.
+
+05:31.850 --> 05:34.720
+And it comes down to eliminating that if statement.
+
+05:34.820 --> 05:41.770
+You remember the whole thing with short circuiting and the billions Well we can write it this way.
+
+05:41.870 --> 05:47.240
+So let's remove this and we're really what we want to do is we don't want this if else statement there's
+
+05:47.240 --> 05:52.700
+a way that we can do that much easier using the short circuited.
+
+05:52.740 --> 06:01.160
+And remember that we're going to return count and total divided by count if we do that.
+
+06:01.160 --> 06:04.250
+Remember what happens if count is zero.
+
+06:04.310 --> 06:05.200
+It's false.
+
+06:05.450 --> 06:08.770
+If it's false see false and anything is going to be false.
+
+06:08.840 --> 06:12.940
+So why fumble Schultz look at this and return false.
+
+06:12.950 --> 06:18.110
+What's actually going to return count right going to return 0 which is what we want.
+
+06:18.140 --> 06:23.870
+Otherwise it's going to go ahead and return this total divided by count.
+
+06:23.870 --> 06:30.230
+Right so that's how the Boullion and walks in Python remember it returns one or the other.
+
+06:30.260 --> 06:31.320
+So let's try that off.
+
+06:31.340 --> 06:34.100
+Go on if we try with two to four and four.
+
+06:34.190 --> 06:36.750
+Again we get an average of three parts.
+
+06:36.860 --> 06:41.100
+If we call it with no parameters we get our value of zero.
+
+06:41.570 --> 06:50.060
+So we can also do it this way the last way in which we may want to fix this is to say no no user whoever
+
+06:50.060 --> 06:51.550
+you are calling this function.
+
+06:51.600 --> 06:56.250
+E.g. you must specify at least one parameter and we can force it.
+
+06:56.420 --> 06:58.120
+We can force it this way.
+
+06:58.400 --> 07:04.450
+Now I'm going to take that again and I'm going to say a comet.
+
+07:04.820 --> 07:11.330
+In other words this function will require at least one positional parameter and then an arbitrary number
+
+07:11.330 --> 07:13.660
+of additional positional parameters.
+
+07:13.970 --> 07:20.900
+So now I have that now my count is no longer length of its length of plus one because we're requiring
+
+07:20.900 --> 07:27.780
+at least one positional parameter and our total is not just the sum of arms that some of the clocks.
+
+07:28.310 --> 07:31.570
+And now we can return total given by count.
+
+07:31.570 --> 07:37.220
+Now we don't have to worry about the count being 0 because we are forcing this function to have at least
+
+07:37.370 --> 07:38.760
+one band.
+
+07:39.410 --> 07:40.710
+So now we can try it out.
+
+07:40.730 --> 07:42.740
+We can do two to four four.
+
+07:42.830 --> 07:44.500
+That works the same way.
+
+07:44.840 --> 07:49.880
+And if we try Coale average we will get an error but it's on a division by zero error.
+
+07:50.000 --> 07:52.270
+This is a different kind of error.
+
+07:52.430 --> 07:57.350
+It's basically saying something hey average is missing one required positional arguments.
+
+07:57.590 --> 07:58.250
+Right.
+
+07:58.250 --> 08:00.820
+So it's saying no you can't call it this way.
+
+08:01.130 --> 08:07.190
+So that's just another way of getting around that problem will be addressing that problem.
+
+08:07.190 --> 08:11.600
+So why would you want to do it kind of depends also on the use case sometimes you want to return an
+
+08:11.600 --> 08:13.510
+average of zero and sometimes you don't.
+
+08:13.620 --> 08:18.780
+You actually want to have an error but it's better than having a zero division here that looks like
+
+08:18.810 --> 08:24.020
+you know you didn't think of it and you didn't handle the potential except the last thing that I want
+
+08:24.020 --> 08:30.110
+to look at is how we can unpack and interval into positional arguments so let's look again at another
+
+08:30.110 --> 08:36.000
+function that's called Death funk one let's define it as something with a comedy.
+
+08:36.040 --> 08:37.700
+Come see we don't need this stuff.
+
+08:37.700 --> 08:48.090
+See here to illustrate this and all we're going to do is just print a print B and cringe see that you
+
+08:48.160 --> 08:48.960
+go.
+
+08:49.140 --> 08:49.680
+All right.
+
+08:49.890 --> 08:56.130
+So we're going to have three parameters a b and c and let's say we have this list over here let's say
+
+08:56.190 --> 08:59.280
+10 20 and 30.
+
+08:59.670 --> 09:04.980
+And what we want to do is we want to pass those values 10 20 30 to phunk 1.
+
+09:04.980 --> 09:10.850
+Now if we try and call phunk 1 and just give it the list thinking it's a list that's going to unpackaged
+
+09:10.860 --> 09:16.850
+right it's going to unpack it into a b and c because that's what it's doing but Lovat doesn't work right.
+
+09:16.860 --> 09:22.070
+It looks awkward unpacking when we're calling the function with arguments but it's not really unpacking
+
+09:22.080 --> 09:24.100
+it just works very similarly.
+
+09:24.450 --> 09:30.200
+What happens here is that it's the function is saying no no no no Python is saying no you can't do that.
+
+09:30.210 --> 09:34.120
+I'm expecting three parameters because I could do this right.
+
+09:34.140 --> 09:41.160
+It doesn't know that it has to unpack L into a b and c what if I meant to call ell with let's say a
+
+09:41.190 --> 09:41.770
+and b.
+
+09:41.840 --> 09:42.230
+Right.
+
+09:42.240 --> 09:49.410
+That will work just fine and a Over here will be the list 10 20 30 and then B will be will be will be
+
+09:49.440 --> 09:51.690
+A and C will b b.
+
+09:51.820 --> 09:56.610
+It's all confusing maybe I should have used something else maybe I can use X and Y.
+
+09:56.990 --> 09:57.630
+Right.
+
+09:57.690 --> 10:01.860
+So a was 10 20 30 B is X and C is y.
+
+10:02.490 --> 10:03.870
+So that's what it's doing.
+
+10:03.870 --> 10:07.880
+So it doesn't know that you know if we just pass L.
+
+10:08.160 --> 10:13.620
+It's going to complain saying no I expected three archivers you only give me one because in fact L is
+
+10:13.620 --> 10:15.700
+only a single object.
+
+10:15.720 --> 10:19.320
+So what we can do is we can actually unpack all right here.
+
+10:19.650 --> 10:28.170
+And when we do that we live unpack all into its three elements and it got thrown into a b and c as we
+
+10:28.170 --> 10:29.530
+see here.
+
+10:29.670 --> 10:35.070
+Now of course you know let's say you do this right and then we call it.
+
+10:35.170 --> 10:38.280
+Well that's going to be a problem because we have four elements in the list.
+
+10:38.280 --> 10:44.040
+We unpack four elements and sent that over to funk one which only accepts three right.
+
+10:44.060 --> 10:45.140
+So that won't work.
+
+10:45.300 --> 10:49.590
+Now if you want to be able to do something like that maybe we do a star on in here.
+
+10:49.760 --> 10:50.280
+Right.
+
+10:50.480 --> 10:58.950
+And so we'll say well we'll do a b c and style arms and we'll print.
+
+10:59.270 --> 11:05.000
+So we can do that and I'll add maybe a couple more here just to make it clearer so we can just trust
+
+11:05.000 --> 11:13.220
+our arms in here and now when we define our list of 10 20 30 and then 2 extra arguments it's going to
+
+11:13.220 --> 11:14.770
+get passed into.
+
+11:14.810 --> 11:24.550
+So if we run this run this and now run that sorry when you run the function with func 1 calling using
+
+11:24.610 --> 11:31.690
+L math course we can just use L we have to unpack it first we indeed get what we expect a 10 B is 20
+
+11:31.690 --> 11:36.520
+C as thoroughly and as is the remaining elements that were in that list.
+
+11:36.520 --> 11:41.710
+So again just the way you can use unpacking Now this is actual iterable unpacking here that is getting
+
+11:41.710 --> 11:44.120
+passed into then foamboard.
+
+11:44.200 --> 11:44.560
+All right.
+
+11:44.560 --> 11:46.900
+So thanks for watching and I'll see the next video.

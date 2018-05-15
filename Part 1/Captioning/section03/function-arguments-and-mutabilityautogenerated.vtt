@@ -1,0 +1,685 @@
+WEBVTT
+
+00:00.600 --> 00:06.660
+Hi and welcome to this video on function arguments and mutability in particular we're going to look
+
+00:06.990 --> 00:14.820
+at how our variables may or may not be affected by functions when we call them and pass all variables
+
+00:14.940 --> 00:20.230
+to them and mutability immutability is really important in that context.
+
+00:20.250 --> 00:27.240
+So just as an example and as a refresher from the last video remember that strings for example in Python
+
+00:27.240 --> 00:28.820
+are immutable objects.
+
+00:29.040 --> 00:32.690
+So once a string has been created the object can never be changed.
+
+00:32.970 --> 00:35.650
+So if we have this code my VAR equals Hello.
+
+00:35.730 --> 00:42.140
+The only way to change my version is to point it to a different object in memory.
+
+00:42.150 --> 00:47.550
+So for example let's say my valid points to some object that memory address a thousand that happens
+
+00:47.550 --> 00:49.070
+to be the string hello.
+
+00:49.290 --> 00:56.760
+The only way for my VAR to get a different value is for us to point my VAR to a different object in
+
+00:56.760 --> 00:57.240
+memory.
+
+00:57.270 --> 01:05.550
+We can never modify the contents of the object at that memory address 1000 because it's a string and
+
+01:05.550 --> 01:07.320
+strings are immutable.
+
+01:07.750 --> 01:08.460
+OK.
+
+01:08.880 --> 01:11.260
+So let's take a look at.
+
+01:11.340 --> 01:18.690
+Then why immutable objects are generally safe from unintended side effects and by side effects.
+
+01:18.840 --> 01:25.770
+I mean that if we call a function with all variable then that function may or may not alter the value
+
+01:25.770 --> 01:28.860
+of our variable if we have immutable objects.
+
+01:28.890 --> 01:31.860
+We have a general amount of safety.
+
+01:31.860 --> 01:33.260
+So let's take a look at that.
+
+01:33.270 --> 01:40.110
+Let's say we have this function here called process and it takes in a parameter s and it's going to
+
+01:40.110 --> 01:46.070
+modify that parameter by concatenating world onto it.
+
+01:46.440 --> 01:51.810
+So let's say in our main code now we define a variable My current set it equal to this literal string
+
+01:51.810 --> 01:52.820
+Hello.
+
+01:53.310 --> 01:55.320
+So we have scopes right.
+
+01:55.350 --> 01:58.520
+We have basically two scopes in this example.
+
+01:58.530 --> 02:06.970
+We have the scope of our module and then we also have a scope that's the scope of this process function.
+
+02:07.480 --> 02:10.170
+So when we run my verticals hello.
+
+02:10.330 --> 02:16.830
+Then the module scope has a variable called my VAR and it points to some object in memory.
+
+02:16.900 --> 02:26.270
+This object right here and memory address 1000 let's say when we run this piece of code process my van.
+
+02:26.380 --> 02:34.780
+We are calling the process function the process method and we are passing my VAR as the argument which
+
+02:34.780 --> 02:39.160
+means that my vast reference and this is really important.
+
+02:39.190 --> 02:43.170
+The reference is passed to process.
+
+02:43.220 --> 02:52.130
+So my van's reference a thousand in this case is passed into process and the process scope now stores
+
+02:52.220 --> 03:00.180
+that reference in the variable s so s points to the same object in memory.
+
+03:00.500 --> 03:09.740
+Right now when we run this piece of code here as equals s plus world we are not going to be modifying
+
+03:09.740 --> 03:13.980
+the contents of the object because it's a string it's immutable.
+
+03:14.270 --> 03:22.340
+So the only way that can now be equal to Hello World is for us to create a new object in memory.
+
+03:22.370 --> 03:23.770
+Hello world.
+
+03:24.050 --> 03:30.820
+Add some different memory address and then the reference of S is going to change.
+
+03:30.860 --> 03:33.220
+S is no longer going to point to hello.
+
+03:33.230 --> 03:35.850
+It's going to point to this new object.
+
+03:35.860 --> 03:37.180
+Hello world.
+
+03:37.760 --> 03:42.810
+So you'll notice that in the module scope my Vols reference hasn't changed.
+
+03:42.860 --> 03:44.870
+It's still pointing to Hello.
+
+03:45.050 --> 03:51.790
+In the process scope S has now changed its pointer from hello hello world.
+
+03:53.000 --> 04:00.530
+So now in our main module when we print my there well what is my VAR my VAR is still this reference
+
+04:00.530 --> 04:01.400
+over here.
+
+04:01.790 --> 04:05.770
+And so when we print my voucher we actually print out Hello.
+
+04:06.140 --> 04:13.610
+So as you can see because the string is immutable we have safety nets we pass the string to a function
+
+04:13.760 --> 04:17.450
+and that function can never change the value of that string.
+
+04:17.840 --> 04:25.430
+So that's what I mean by saying that mutable objects immutable objects are safe from unintended side
+
+04:25.430 --> 04:31.610
+effects but of course if you remember our discussion from the last video we've got to be a little careful
+
+04:31.610 --> 04:38.120
+with that especially with like contain a style object like a tuple for example even though tuples are
+
+04:38.240 --> 04:42.170
+immutable there elements may be mutable.
+
+04:42.200 --> 04:47.990
+So we'll get to that in a minute but let's first take a look at a you know what happens when we have
+
+04:47.990 --> 04:52.600
+a mutable variable and why we don't have safety in that scenario.
+
+04:54.880 --> 05:02.770
+So let's say that we have this function now process which takes a list and it's going to append a value
+
+05:02.770 --> 05:10.660
+to that list and let's say in our module code we have my list equals this list 1 2 3.
+
+05:10.660 --> 05:15.820
+So again let's look at the scopes we have module scope and process scope.
+
+05:15.820 --> 05:23.370
+So my list points to some object in memory which is a list at some memory address 1000.
+
+05:23.440 --> 05:30.250
+Now when we call process passing in my list we're essentially again passing the reference to my list
+
+05:30.580 --> 05:33.150
+right to the process method.
+
+05:33.610 --> 05:40.810
+So my lists reference thousand in this case gets passed to process now.
+
+05:40.850 --> 05:47.730
+Ls t therefore which is the local variable here to process and the process scope points to the same
+
+05:47.730 --> 05:48.380
+object.
+
+05:48.480 --> 05:50.700
+Just like we had with the string before.
+
+05:50.700 --> 05:52.100
+Nothing has changed so far.
+
+05:52.140 --> 05:59.790
+Everything is the same but not what happens when we run this line right here inside the process method.
+
+05:59.790 --> 06:01.860
+We append 100.
+
+06:01.860 --> 06:04.470
+For what object are we appending 100 to.
+
+06:04.720 --> 06:10.290
+While the object that we're currently pointing to that ls t currently points to which is this one over
+
+06:10.290 --> 06:11.120
+here.
+
+06:11.340 --> 06:15.600
+And therefore when we run that line of code our list has changed.
+
+06:15.630 --> 06:16.050
+Right.
+
+06:16.050 --> 06:22.350
+It has mutated the contents of the list has changed the memory address has not changed it's still the
+
+06:22.350 --> 06:23.530
+same object.
+
+06:23.550 --> 06:26.000
+We've just changed its state.
+
+06:26.400 --> 06:32.510
+So now when we print my list well my list is still referencing that object here.
+
+06:32.760 --> 06:38.960
+So when we print that out you'll notice that the list is now one to three one hundred.
+
+06:38.970 --> 06:45.720
+In other words before we call the function my list was 1 to 3 after the function has finished running
+
+06:46.010 --> 06:49.040
+our list was modified by the function.
+
+06:49.050 --> 06:51.360
+So that's what I mean by a side effect.
+
+06:51.390 --> 06:51.740
+Right.
+
+06:51.780 --> 06:58.280
+That process method actually change the state of our variable.
+
+06:59.190 --> 07:04.200
+So mutable objects are not safe from unintended side effects.
+
+07:04.200 --> 07:08.570
+So whenever you can use immutable objects it's safer to do so.
+
+07:10.160 --> 07:17.060
+Now let's just take a look at that tuple example that we had in the last video which is an immutable
+
+07:17.090 --> 07:18.580
+collection object right.
+
+07:18.580 --> 07:26.870
+Tuples you cannot add remove or replace elements in a tuple but the elements themselves can be immutable.
+
+07:26.870 --> 07:33.110
+So let's take a look at this function again our process functions going to take in a tuple and I'm assuming
+
+07:33.110 --> 07:36.640
+here that the first element of the tuple is going to be a list.
+
+07:36.830 --> 07:42.530
+So we're going to grab the first element of T and we're going to append 3 to it.
+
+07:42.680 --> 07:48.560
+Now in our main module code we have this tuple here which has two elements.
+
+07:48.560 --> 07:50.120
+The first one is a list.
+
+07:50.180 --> 07:52.910
+The second one is a string string is immutable.
+
+07:52.910 --> 07:54.590
+The list however is not.
+
+07:54.620 --> 07:56.780
+It is a mutable object.
+
+07:56.810 --> 07:58.260
+So again we have scopes.
+
+07:58.310 --> 08:05.270
+So in our model scope we have my tuple which points to some object in memory which has two elements.
+
+08:05.270 --> 08:06.200
+First one is that list.
+
+08:06.200 --> 08:10.840
+Second one is that string when we call process my tuple.
+
+08:11.180 --> 08:16.020
+Well my tuples reference is being passed to process.
+
+08:16.070 --> 08:21.750
+So now the process scope has this variable t that points to the same object.
+
+08:22.190 --> 08:29.990
+When we run this line of code t 0 append 3 we've just modified the object over here we've added three
+
+08:29.990 --> 08:31.070
+to that list.
+
+08:31.100 --> 08:31.390
+Right.
+
+08:31.400 --> 08:34.660
+Which is the first element inside the tuple.
+
+08:34.670 --> 08:38.060
+You'll notice that the memory address of the tuple stayed the same.
+
+08:38.060 --> 08:45.980
+That hasn't changed what has changed is the contents of the first element because it was a mutable object.
+
+08:45.980 --> 08:52.730
+So now when we print my tuple while my tuple is full referencing that object it has changed.
+
+08:52.760 --> 08:53.440
+Right.
+
+08:53.510 --> 08:56.640
+So it is now one two three comma A.
+
+08:56.780 --> 09:00.980
+So very similar to what we saw in the previous video.
+
+09:00.980 --> 09:06.140
+All right so let's take a look at some code and let's just see how this works in practice.
+
+09:06.270 --> 09:11.780
+So let's create a method that's going to modify its argument.
+
+09:11.940 --> 09:16.280
+So we'll start with the strings so we'll start by examining immutable objects.
+
+09:16.950 --> 09:21.690
+So let's write this method that we saw before their process.
+
+09:21.690 --> 09:27.810
+Now what I'm going to do in this method is actually print out the memory address of the variables as
+
+09:27.810 --> 09:28.630
+we go along.
+
+09:28.830 --> 09:40.560
+So here I'm going to print the initial S memory address equals that and will pass and we'll just do
+
+09:40.560 --> 09:45.330
+the ID of S K so we'll stick with the decimal version.
+
+09:45.660 --> 09:57.090
+The base 10 version and now we're going to modify s by concatenating whatever s was with let's say world.
+
+09:57.570 --> 10:02.720
+And I'm going to print again what that value is for s.
+
+10:02.760 --> 10:07.300
+So let's call that final s Ok.
+
+10:07.560 --> 10:08.760
+So that's our function.
+
+10:08.790 --> 10:15.260
+It's basically going to modify s and we're going to print the memory address of a of S before we modifieds
+
+10:15.300 --> 10:16.780
+and after we modify.
+
+10:16.980 --> 10:21.120
+So remember we should see two different memory addresses because s is a string.
+
+10:21.120 --> 10:22.170
+It's immutable.
+
+10:22.290 --> 10:27.590
+So therefore the only way to modify S is to point it to a different object.
+
+10:27.630 --> 10:36.410
+So let's say we have my VAR equals Hello k and we're going to print the memory address of Hello.
+
+10:36.630 --> 10:49.100
+So we're going to say my the memory address I'll use a pound sign to indicate a memory address and we'll
+
+10:49.380 --> 10:51.840
+print the ID of my vote.
+
+10:52.040 --> 10:53.170
+OK.
+
+10:53.910 --> 10:57.290
+So as you can see that's the memory address of my valve.
+
+10:57.450 --> 11:01.460
+Now we can call process of my van.
+
+11:01.710 --> 11:02.320
+OK.
+
+11:02.820 --> 11:09.970
+And you'll notice that the initial memory address that was received here is the same.
+
+11:10.050 --> 11:14.190
+So this memory address here is the same as my.
+
+11:14.700 --> 11:20.400
+But you'll notice that after we've modified as the memory address is different.
+
+11:20.640 --> 11:24.880
+And in fact the idea of my check now.
+
+11:25.380 --> 11:30.030
+It is still the original memory address of my VAR right.
+
+11:30.060 --> 11:31.530
+Which was this one here.
+
+11:31.620 --> 11:38.160
+This one here and this one here that hasn't changed and therefore the value of my VAR hasn't changed
+
+11:38.160 --> 11:38.730
+either.
+
+11:38.730 --> 11:45.800
+It is still Hello even though at before process finished running s was now hello world.
+
+11:45.960 --> 11:49.900
+But it was at a different memory address.
+
+11:50.610 --> 11:54.720
+So let's look at the example where we have a mutable object.
+
+11:54.720 --> 12:05.670
+So let's call the Swon modify list and we'll take him a list that say LS team and we're going to do
+
+12:05.670 --> 12:06.860
+the same thing here.
+
+12:07.050 --> 12:16.310
+I'm going to just copy and paste this code actually I'll copy and paste everything and I'll rename this
+
+12:16.320 --> 12:17.310
+LS team
+
+12:20.010 --> 12:26.110
+now here we're not concatenating we're going to say LSD the art of penned let's append let's say the
+
+12:26.120 --> 12:30.940
+value 100 K and then we'll modify this as well.
+
+12:30.960 --> 12:35.170
+Just fix up for the parameter name in the method.
+
+12:35.700 --> 12:40.980
+OK so now we have this method created that will modify the list.
+
+12:41.010 --> 12:47.560
+But notice I'm using this append which means that we're going to be modifying the object's state.
+
+12:47.670 --> 12:48.030
+OK.
+
+12:48.150 --> 12:53.260
+So now if I have a variable called my list let's say one to three.
+
+12:53.650 --> 12:54.090
+OK.
+
+12:54.120 --> 13:02.320
+We can look at the ID of my list so we can see the idea of my list is some number here.
+
+13:02.610 --> 13:14.280
+When we call modify a list of and pass in my list pass in that reference to my list then you can see
+
+13:14.400 --> 13:16.290
+that initially right.
+
+13:16.290 --> 13:22.710
+What was received in modified lists this memory address is the same as my list.
+
+13:22.950 --> 13:30.030
+And after we finished appending you'll notice that the memory address of that list is still the same
+
+13:30.480 --> 13:33.440
+so no memory address references have changed.
+
+13:33.450 --> 13:34.700
+They stayed the same.
+
+13:34.980 --> 13:37.680
+And in fact ID of my list
+
+13:40.320 --> 13:41.710
+is still the same.
+
+13:41.850 --> 13:42.500
+Right.
+
+13:42.500 --> 13:44.090
+It ends in 2 6 3 2.
+
+13:44.100 --> 13:46.200
+So we're still dealing with the same object.
+
+13:46.200 --> 13:51.420
+So throughout this entire set of code here we were dealing with the same object.
+
+13:51.500 --> 13:58.260
+And if we print out my list you'll notice that it was changed so within modified my list in our main
+
+13:58.260 --> 14:01.940
+code we've modified my list inside this function here.
+
+14:02.370 --> 14:09.360
+And because lists aren't mutable objects it is possible to modify what we pass into a function from
+
+14:09.360 --> 14:14.540
+within the function because it's a shared reference remember shared references from a while back.
+
+14:15.200 --> 14:16.830
+Well this is what's happened here.
+
+14:17.180 --> 14:23.800
+So mutable objects do not have the safety right strings are safe right.
+
+14:23.810 --> 14:26.630
+They're not going to be changed are integers.
+
+14:26.630 --> 14:28.260
+Same thing any numbers right.
+
+14:28.280 --> 14:36.460
+Any any mutable object is not safe and any immutable object is safe to a certain degree.
+
+14:36.470 --> 14:39.770
+So let's take a look at the total example.
+
+14:39.770 --> 14:40.040
+Right.
+
+14:40.040 --> 14:46.200
+So let's go ahead and say modified to pull so will pass in a tuple T.
+
+14:46.550 --> 14:53.570
+And again I'm just going to take all this code here and we'll look.
+
+14:53.600 --> 14:56.020
+We'll print the memory address of T.
+
+14:56.100 --> 14:58.910
+Now tuples you cannot modify tuples.
+
+14:58.910 --> 15:05.990
+There is no apparent method to tuples but I'm going to assume that the first element of the tuple is
+
+15:05.990 --> 15:07.410
+a list.
+
+15:07.550 --> 15:14.960
+So I'm going to take the first element of T and append 100 to it and then we'll print out the memory
+
+15:14.960 --> 15:17.760
+address of t again k.
+
+15:18.410 --> 15:19.400
+So there we go.
+
+15:19.730 --> 15:25.880
+And now let's write my tuple equals one comma two.
+
+15:25.880 --> 15:31.330
+So the first element of my tuple is a list and let's say the next element is a string.
+
+15:31.330 --> 15:32.130
+OK.
+
+15:32.720 --> 15:35.950
+So we have an ID on my tuple.
+
+15:36.280 --> 15:36.540
+OK.
+
+15:36.560 --> 15:38.590
+That's the memory address.
+
+15:38.630 --> 15:42.200
+Now keep in mind the tuple itself is immutable.
+
+15:42.200 --> 15:46.360
+But in this case the first element of the tuple is mutable.
+
+15:46.430 --> 15:51.610
+So when we call modified tuple and pass in T.
+
+15:51.740 --> 15:56.400
+Look what happens the memory address of T.
+
+15:58.630 --> 16:07.480
+Oh sorry not to delete that modify tuple of my tuple.
+
+16:07.640 --> 16:08.480
+OK.
+
+16:08.690 --> 16:18.550
+So the memory address of my tuple which was received here is t is the same as my tuple and after we
+
+16:18.550 --> 16:22.780
+finished appending the value to the first element the memory address stays the same.
+
+16:22.780 --> 16:24.520
+The tuple hasn't changed.
+
+16:24.640 --> 16:25.220
+Right.
+
+16:25.270 --> 16:27.940
+The tuples memory address is still the same.
+
+16:27.940 --> 16:32.170
+What has changed is the first element of the tuple.
+
+16:32.470 --> 16:42.520
+So if we print my tuple out you'll notice that the first element now had 100 appended to that list.
+
+16:42.520 --> 16:47.860
+So again this is why you know you have to be a little careful when you say that immutable elements cannot
+
+16:47.860 --> 16:48.750
+change.
+
+16:49.090 --> 16:50.440
+Yes that is true.
+
+16:50.440 --> 16:58.090
+The immutable object the tuple object cannot change in the sense that you cannot modify the elements
+
+16:58.460 --> 17:01.760
+that the containment of elements in that tuple.
+
+17:01.780 --> 17:06.280
+In other words you cannot add remove or replace elements in the tuple.
+
+17:06.490 --> 17:12.500
+But if the element in the tuple is mutable then you can certainly change its value in place.
+
+17:12.580 --> 17:18.880
+And so in effect from a programmer's perspective the tuples value has changed.
+
+17:18.880 --> 17:19.260
+Right.
+
+17:19.300 --> 17:20.490
+So be careful.
+
+17:20.530 --> 17:24.390
+Immutability does not necessarily mean that nothing can change.
+
+17:24.550 --> 17:25.680
+It can.
+
+17:25.690 --> 17:25.990
+All right.
+
+17:25.990 --> 17:28.540
+Thanks for watching and I'll see you in the next video.

@@ -1,0 +1,208 @@
+WEBVTT
+
+00:00.150 --> 00:00.760
+High.
+
+00:00.990 --> 00:07.560
+So just really quick short video about underscores and numeric literals which is again 3.6 forward.
+
+00:07.560 --> 00:14.160
+So make sure you're running that and all it is is that you can now separate digits in any numerical
+
+00:14.640 --> 00:16.480
+literal using underscores.
+
+00:16.500 --> 00:22.860
+So for example if you write 10 million you would write ten and then three zeros and three more zeros.
+
+00:22.860 --> 00:24.620
+OK that's 10 million.
+
+00:24.720 --> 00:26.160
+Not easy to read right.
+
+00:26.160 --> 00:28.090
+You'd have to stop counting the zeros.
+
+00:28.110 --> 00:32.470
+Instead you can just do this much nicer.
+
+00:32.470 --> 00:33.630
+It's still 10 million.
+
+00:33.810 --> 00:36.000
+But now we've separated the thousands.
+
+00:36.090 --> 00:38.470
+And so it's much quicker to read the number.
+
+00:38.580 --> 00:40.880
+And of course this works for the other numeric types as well.
+
+00:40.880 --> 00:43.160
+Let's say that you have a hex number.
+
+00:43.320 --> 00:48.810
+OK so we start hex numbers with zero x and then you can separate them maybe.
+
+00:49.200 --> 00:50.570
+So.
+
+00:50.850 --> 00:53.210
+And you still get the same hex number.
+
+00:53.360 --> 00:57.220
+Acts as a success.
+
+00:57.240 --> 00:58.450
+It's still the same thing.
+
+00:58.680 --> 01:03.750
+And of course it doesn't really matter where you separate things if you want to do those one two three
+
+01:03.750 --> 01:05.220
+four five six.
+
+01:05.370 --> 01:06.500
+You're free to do so.
+
+01:06.510 --> 01:08.340
+I wouldn't do that.
+
+01:08.480 --> 01:08.910
+OK.
+
+01:09.030 --> 01:16.020
+Or 1 0 0 0 dot.
+
+01:16.140 --> 01:20.110
+Let's say five four three two one right.
+
+01:20.130 --> 01:20.930
+You want to do that.
+
+01:20.970 --> 01:24.300
+You're perfectly free to do that as well.
+
+01:24.540 --> 01:26.360
+Would make much sense but you can.
+
+01:26.370 --> 01:29.190
+So the point is you can just put in your underscores wherever you want.
+
+01:29.190 --> 01:30.370
+Now you can prefix them.
+
+01:30.390 --> 01:33.460
+You can't say you know ten thousand for example.
+
+01:33.520 --> 01:33.890
+OK.
+
+01:33.960 --> 01:35.200
+That's not going to work.
+
+01:35.370 --> 01:38.600
+And you can also use it in postfix.
+
+01:38.700 --> 01:40.820
+So you can't do that either.
+
+01:41.550 --> 01:43.370
+You also can't use double underscores.
+
+01:43.500 --> 01:45.020
+That's not going to work either.
+
+01:45.270 --> 01:49.320
+So there's some rules with this.
+
+01:49.320 --> 01:54.090
+The other thing too that's interesting is that the string formatting actually supports the underscore
+
+01:54.090 --> 01:54.510
+as well.
+
+01:54.510 --> 01:59.900
+And what it will do is that for things like integers it will use every thousand.
+
+02:00.090 --> 02:05.670
+And if it's things like for example hexadecimal it's going to separate in two words so in two basically
+
+02:05.670 --> 02:07.460
+four at a time.
+
+02:07.470 --> 02:08.790
+So let's see what I mean by this.
+
+02:08.790 --> 02:11.610
+Let's go ahead and do some string formatting.
+
+02:11.790 --> 02:16.590
+So I'm going to just say code this way format.
+
+02:17.580 --> 02:19.950
+And let's say ten thousand.
+
+02:19.950 --> 02:22.400
+Now I don't have to specify the underscore here.
+
+02:22.580 --> 02:27.220
+As you can see it formatted it if I add a few more zeros I don't know how many I have but you can see
+
+02:27.220 --> 02:28.230
+that was 100 million.
+
+02:28.230 --> 02:35.580
+So it just formats it by you know in thousands if on the other hand we copy paste we use let's say a
+
+02:35.580 --> 02:40.550
+number let's say that we want to format in hexadecimal.
+
+02:40.770 --> 02:47.790
+So I do the underscore and the X to indicate that I want underscores and then in Hex then I can take
+
+02:47.790 --> 02:49.450
+this number over here.
+
+02:49.650 --> 02:52.330
+OK is just go ahead and copy that in here.
+
+02:52.680 --> 02:54.570
+And we see that we get that back.
+
+02:54.600 --> 03:01.830
+So if I had a longer number you know you'd see that it's broken out into you know words essentially.
+
+03:02.220 --> 03:04.590
+And also it works in string conversions.
+
+03:04.590 --> 03:07.350
+If I let's say want to convert
+
+03:10.710 --> 03:15.690
+this number which is base 16 to an integer you'll see that I get that number back.
+
+03:15.690 --> 03:22.500
+So it also supports the underscores in the string literals that we can pass to the function and it works
+
+03:22.500 --> 03:23.930
+with our binary as well.
+
+03:24.000 --> 03:32.650
+So if you want to do this you could say let's say we got a binary number 1 1 2 3 4 1 2 3 4.
+
+03:32.820 --> 03:34.060
+This is now base 2.
+
+03:34.130 --> 03:36.420
+We see we get 256.
+
+03:36.420 --> 03:36.780
+All right.
+
+03:36.780 --> 03:38.000
+So pretty cool.
+
+03:38.010 --> 03:38.750
+Thanks for watching.

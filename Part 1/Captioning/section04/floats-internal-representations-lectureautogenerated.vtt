@@ -1,0 +1,835 @@
+WEBVTT
+
+00:00.540 --> 00:06.240
+Hi and welcome to this video on floats we're going to start by looking at the internal representation
+
+00:06.240 --> 00:12.460
+of floats How are real numbers floats actually represented in the computer.
+
+00:14.370 --> 00:20.480
+So the float class is what Python uses by default for real numbers so when you type you know a calls
+
+00:20.510 --> 00:26.250
+ten point five then the default class that is used by Python is called a float.
+
+00:26.250 --> 00:32.550
+Now there are other ways to represent these real numbers and we'll look at that shortly in the decimal
+
+00:32.550 --> 00:33.390
+class.
+
+00:33.810 --> 00:41.280
+But the float is the more common one to use because decimal has some disadvantages such a speed takes
+
+00:41.280 --> 00:44.200
+up no memory but more complicated to use.
+
+00:45.370 --> 00:51.670
+Now the python float and I'm talking about C Python in particular is actually implemented using the
+
+00:51.670 --> 01:00.150
+C double type the double precision floating point type in C which is usually implementing and I triple
+
+01:00.150 --> 01:04.230
+A standard for floats and it's this standard here.
+
+01:04.240 --> 01:07.930
+The Tripolis 7 5 4 double precision binary float.
+
+01:07.930 --> 01:09.430
+That's a mouthful.
+
+01:09.460 --> 01:15.130
+Very often it's shortened to just binary 64 but it is a standard way of representing floating point
+
+01:15.130 --> 01:17.950
+numbers and computers and many languages will use it.
+
+01:17.950 --> 01:22.570
+Not just Python C uses that as well as many others.
+
+01:22.690 --> 01:25.890
+Now the float uses a fixed number of bytes.
+
+01:25.900 --> 01:29.560
+Remember when we looked at integers we saw that integers could grow.
+
+01:29.770 --> 01:35.620
+As you know as long as we wanted to and it would just take up more and more memory space as needed.
+
+01:35.620 --> 01:36.960
+Floats are not the same.
+
+01:36.970 --> 01:39.040
+Floats are a fixed width.
+
+01:39.040 --> 01:44.980
+In other words they have a fixed number of bytes that can be used to store and represent floating point
+
+01:44.980 --> 01:46.330
+numbers.
+
+01:46.450 --> 01:51.650
+In particular it uses 8 bytes and that means 64 bits.
+
+01:52.180 --> 01:59.230
+But Python also has some overhead of objects which means that in reality when we create a float in Python
+
+01:59.230 --> 02:01.350
+we're actually using up 24 bytes.
+
+02:01.360 --> 02:05.220
+But no matter how large our number is as long as it fits within.
+
+02:05.220 --> 02:07.500
+You know what a float can actually contain.
+
+02:07.540 --> 02:10.470
+We only are using 24 bytes.
+
+02:10.570 --> 02:15.050
+Now this 8 bytes and 64 bits kind of depends on the C compiler as well.
+
+02:15.280 --> 02:23.230
+So in this case what I'm really referring to is my version of Python which is C Python 3.6 on a 64 bit
+
+02:23.260 --> 02:28.720
+operating system depending on how it was compiled how the Python interpreter was compiled.
+
+02:28.720 --> 02:31.360
+The C double may actually be little different.
+
+02:31.360 --> 02:33.010
+So that kind of depends.
+
+02:33.220 --> 02:35.720
+But in general much more often than not.
+
+02:35.740 --> 02:42.870
+You're using the standard C Python interpreter which means you are dealing with a 64 bit float.
+
+02:42.970 --> 02:47.390
+Now those 64 bits are assigned to different parts of a real number.
+
+02:47.590 --> 02:49.630
+And let's take a look at that.
+
+02:49.660 --> 02:52.040
+So the first thing is we need a sign right.
+
+02:52.060 --> 02:53.530
+Is a positive or negative.
+
+02:53.560 --> 02:55.720
+So we'll use one bit for that.
+
+02:55.720 --> 03:03.040
+And in general we'll use 0 to him to indicate that the number is positive and 1 to indicate that the
+
+03:03.040 --> 03:06.000
+number is negative.
+
+03:06.000 --> 03:09.100
+Now we also have an exponent and what I mean by an exponent.
+
+03:09.120 --> 03:13.970
+Well if we look at this number 1.5 E to the negative 5.
+
+03:14.230 --> 03:18.580
+Right this is the same thing as writing 1.5 times 10 to the negative 5.
+
+03:19.080 --> 03:22.310
+And this notation is our standard in Python.
+
+03:22.320 --> 03:26.300
+You can use that to create you know a literal for a floating point number.
+
+03:26.340 --> 03:29.780
+The case of e can also be lower case it doesn't matter.
+
+03:30.090 --> 03:32.670
+But this number here this negative 5.
+
+03:32.820 --> 03:39.270
+That is the exponent so any number can be written as a number of times ten to the power of something
+
+03:40.670 --> 03:47.270
+and that something is the exponent and that exponent 11 bits are reserved for it which means that the
+
+03:47.270 --> 03:53.950
+exponents range can be from a minus thousand and twenty two thousand twenty three.
+
+03:54.120 --> 04:00.270
+And then the rest of the 64 bits which is 52 bits is taken up by the significant digits.
+
+04:00.660 --> 04:04.680
+So that gives us about 15 3:17 significant digits.
+
+04:04.710 --> 04:08.370
+And I'm talking about base 10 digits so 0 9.
+
+04:08.370 --> 04:11.180
+Now what are significant digits Exactly.
+
+04:11.730 --> 04:18.400
+Well you can think of it very simplistically as all the digits except leading and trailing zeros.
+
+04:18.510 --> 04:25.020
+It really has to do with how the numbers are represented in memory and the number of digits that we
+
+04:25.020 --> 04:27.390
+need to represent that number in memory.
+
+04:27.750 --> 04:33.240
+But simplistically just remove leading and trailing zeroes and that's the number of significant digits
+
+04:33.240 --> 04:34.890
+you have in the number.
+
+04:35.010 --> 04:39.950
+So for example one point two three four five has five significant digits.
+
+04:39.990 --> 04:44.620
+Right because you need all of these digits to represent the numbers.
+
+04:44.640 --> 04:45.210
+Same thing.
+
+04:45.210 --> 04:49.740
+One two three four point five also has five significant digits.
+
+04:49.800 --> 04:52.060
+Now that's not the same number right.
+
+04:52.080 --> 04:56.940
+And even though it has the same digits it's not the same number but it has the same number of significant
+
+04:56.940 --> 04:57.770
+digits.
+
+04:58.080 --> 04:59.450
+Same thing with this number here.
+
+04:59.490 --> 05:05.110
+1 2 3 4 5 with 1 2 3 4 5 6 zeros after that.
+
+05:05.370 --> 05:12.840
+Well that is also a number with five significant digits because this is really nothing more than one
+
+05:12.840 --> 05:16.170
+two three four five times ten to the six.
+
+05:16.320 --> 05:18.520
+And so the six is the exponent.
+
+05:18.540 --> 05:23.340
+Well that's stored in the exponents and the 1 2 3 4 5 are the a significant digit.
+
+05:23.340 --> 05:26.000
+So we still have five significant digits.
+
+05:26.010 --> 05:27.070
+Same thing here.
+
+05:27.210 --> 05:30.270
+We have five significant digits right.
+
+05:30.450 --> 05:32.420
+These leading zeros don't matter.
+
+05:32.430 --> 05:36.460
+They're going to go into the xponent.
+
+05:36.570 --> 05:40.570
+One two three four five times ten to the negative 50.
+
+05:40.590 --> 05:43.430
+Again we have five significant digits.
+
+05:43.560 --> 05:48.000
+This is the exponent negative 50 but we have five significant digits.
+
+05:48.000 --> 05:48.860
+Same thing here.
+
+05:48.870 --> 05:51.540
+One point two three four five ten right.
+
+05:51.540 --> 05:55.410
+That is also five significant digits.
+
+05:55.540 --> 06:01.780
+So the first thing we're going to look at is how can we represent real numbers using a decimal or a
+
+06:01.780 --> 06:09.290
+base 10 version so we can represent numbers as base 10 integers and fractions.
+
+06:09.290 --> 06:11.910
+And we've seen how to do base 10 integers.
+
+06:11.930 --> 06:17.590
+Those are the regular integers we use every day when we'd speak you know 10 120 135.
+
+06:17.780 --> 06:21.660
+These are based 10 integers they're in you know in base 10.
+
+06:22.070 --> 06:24.450
+But what about what comes after the decimal point.
+
+06:24.500 --> 06:31.220
+Well we can express those as fractions and in base 10 we can express them as decimal fractions or base
+
+06:31.220 --> 06:32.720
+10 fractions.
+
+06:32.720 --> 06:33.910
+So what do we mean by that.
+
+06:34.010 --> 06:38.230
+Well let's take a look at an example let's look at 0.75.
+
+06:38.270 --> 06:42.310
+This is seven divided by ten plus five divided by 100.
+
+06:42.320 --> 06:42.590
+Right.
+
+06:42.590 --> 06:44.060
+This is the 10th position.
+
+06:44.060 --> 06:46.470
+This is the hundreds position.
+
+06:46.880 --> 06:52.700
+So we can rewrite this as seven times tend to the negative one plus five times ten to the negative two.
+
+06:52.730 --> 06:58.420
+Notice how we have a digit times some power of 10.
+
+06:58.430 --> 07:02.990
+Now these digits are always going to be between 0 and 9.
+
+07:03.120 --> 07:10.710
+And in this case this expansion only required two fractions with non-zero numerators which means that
+
+07:10.710 --> 07:14.640
+we have two significant digits and we can see it from the number here as well.
+
+07:14.640 --> 07:16.740
+We have two significant digits.
+
+07:16.910 --> 07:18.950
+What about 0 1 2 5 6.
+
+07:18.990 --> 07:25.370
+Well very similarly this is two over ten plus five over 100 plus six over 1000 which we can rewrite.
+
+07:25.410 --> 07:27.910
+In this notation here in this form.
+
+07:27.960 --> 07:32.210
+So we again we have these digits between 0 9 and powers of 10.
+
+07:32.370 --> 07:39.290
+And you'll notice that as we move from left to right the powers of 10 become increasingly negative and
+
+07:39.290 --> 07:44.920
+in this case well we needed three of these fractions to actually define the number.
+
+07:45.080 --> 07:48.170
+And this means that we have three significant digits.
+
+07:48.170 --> 07:50.970
+And again we can see that from the numbers.
+
+07:51.080 --> 07:56.360
+Now of course we can also have numbers before the decimal point that are other than 0 for example one
+
+07:56.360 --> 07:58.310
+two three point four five six.
+
+07:58.580 --> 08:06.530
+Well as we saw before this is one times a hundred plus two times ten plus three times one plus for over
+
+08:06.530 --> 08:09.470
+10 five over 100 6 over 1000.
+
+08:09.470 --> 08:14.960
+So now we've just done that expansion basically to the left or to the right of the decimal point.
+
+08:15.140 --> 08:24.890
+In this case we needed 1 2 3 4 5 6 of these terms to define the number and we therefore have 6 significant
+
+08:24.890 --> 08:25.700
+digits.
+
+08:25.700 --> 08:31.100
+Now we can rewrite this as one times ten to the two plus two times ten to the one plus three times ten
+
+08:31.100 --> 08:32.210
+to the zero.
+
+08:32.450 --> 08:37.370
+And then after the decimal point four times ten to the negative one plus five times then to the negative
+
+08:37.370 --> 08:38.330
+two and so on.
+
+08:38.450 --> 08:42.530
+And you'll notice that we just have decreasing powers of 10.
+
+08:42.600 --> 08:49.440
+So as we move from left to right after the decimal point we have increasingly negative powers of 10
+
+08:49.740 --> 08:53.610
+as we move from right to left before the decimal point.
+
+08:53.610 --> 09:00.560
+We have increasing powers of 10 and in this case as I said we have six significant digits.
+
+09:00.620 --> 09:06.030
+So in general right if we try and generalize this formula here this is what we get.
+
+09:06.060 --> 09:07.970
+We get that our number right.
+
+09:07.970 --> 09:16.610
+This number here is equal to some sum of a digit which is going to be between 0 9 times some power of
+
+09:16.640 --> 09:17.940
+10.
+
+09:17.940 --> 09:21.440
+Right this is just generalizing this formula here.
+
+09:21.920 --> 09:23.500
+Now we're still missing the sign.
+
+09:23.750 --> 09:28.940
+So we're going to bring in the sign and we're get to say OK sign is going to be some variable let's
+
+09:28.940 --> 09:35.770
+say that's equal to zero when the number is positive and negative 1 when the number is negative.
+
+09:35.810 --> 09:42.350
+So now we can rewrite this formula here to also include the sign of the number as follows.
+
+09:43.970 --> 09:49.570
+If we take negative 1 and let's say it's a positive number the negative 1 to the power of 0.
+
+09:49.640 --> 09:56.580
+Well that will be equal to one and the number to the power of 0 is 1 except for 0 to the power of zero
+
+09:56.600 --> 10:01.000
+which is more of a convention and that can depend on how you want to look at it.
+
+10:01.700 --> 10:05.900
+But if the number is negative then we have 1 for the sign right.
+
+10:05.930 --> 10:07.100
+The sign is one.
+
+10:07.160 --> 10:11.810
+If we have a negative number so we have negative one to the power of one which is negative 1.
+
+10:11.810 --> 10:16.940
+So we'll end up with a negative sign on this expansion here which is what we're looking for because
+
+10:16.940 --> 10:18.500
+we want a negative number.
+
+10:20.460 --> 10:26.010
+Now one thing that comes up when we do expansions like this is that some numbers cannot be represented
+
+10:26.010 --> 10:28.450
+using a finite number of terms.
+
+10:28.670 --> 10:28.880
+Right.
+
+10:28.890 --> 10:31.090
+And again this is the expansion here.
+
+10:32.230 --> 10:39.160
+Well obviously numbers such as pie or square root of 2 don't have a finite representation right.
+
+10:39.160 --> 10:40.350
+We cannot write.
+
+10:40.630 --> 10:47.170
+You know we we don't stop here after the decimal point we have an infinite number of digits after the
+
+10:47.170 --> 10:48.000
+decimal point.
+
+10:48.010 --> 10:49.780
+And same thing for square root of two.
+
+10:49.900 --> 10:53.280
+So obviously this summation here is going to be infinite.
+
+10:53.290 --> 10:55.920
+We're going to end up with an infinite series.
+
+10:56.050 --> 10:58.940
+So that's pretty obvious.
+
+10:59.160 --> 11:05.970
+But we also have rational numbers some rational numbers cannot be represented using a finite representation
+
+11:05.970 --> 11:08.940
+a finite sum like one third.
+
+11:09.030 --> 11:15.450
+You know we write one third as 0.3 3:3 we put that little dot up here to indicate that that 3 is recurring
+
+11:15.870 --> 11:16.970
+infinitely.
+
+11:17.010 --> 11:22.370
+So one third is 0.3 333 and it doesn't matter how long you keep saying three.
+
+11:22.410 --> 11:27.700
+At some point if you stop saying three you're no longer exactly equal to 1.
+
+11:27.700 --> 11:33.150
+So you just have an approximation which might be very close but it's still an approximation because
+
+11:33.630 --> 11:37.940
+you know at some point we all we have to stop counting those numbers out.
+
+11:38.250 --> 11:42.900
+And the same thing over a computer a computer can store an infinite number of digits or an infinite
+
+11:42.900 --> 11:45.980
+number of odd numbers after the decimal point.
+
+11:45.990 --> 11:53.940
+And therefore we cannot represent one third exactly using this kind of notation or this summation here.
+
+11:56.300 --> 11:59.710
+So again this is just three tens plus three hundred three thousands right.
+
+11:59.720 --> 12:01.950
+This is just this expansion here.
+
+12:02.360 --> 12:06.950
+And so that's and funded some hockey.
+
+12:06.960 --> 12:09.030
+So we saw how to represent in decimal.
+
+12:09.030 --> 12:15.570
+We saw that we had sometimes finite sums like 0.75 But we also have infinite sum sometimes when we have
+
+12:15.570 --> 12:18.630
+one third of the rational number one third.
+
+12:18.660 --> 12:24.390
+So now let's take a look at how we can represent these floating point numbers not in base 10 but in
+
+12:24.390 --> 12:25.100
+base 2.
+
+12:25.110 --> 12:29.880
+Since that's what we have to work with when we're dealing with computers we only have bits zeros and
+
+12:29.880 --> 12:38.180
+ones so instead of powers of 10 we're going to use powers of two and our digits are going to be just
+
+12:38.250 --> 12:45.060
+zero and 1 whereas before we are digits we're 0 for nine years just going to be 0 and 1.
+
+12:45.060 --> 12:48.140
+So let's take a look at a binary float.
+
+12:48.140 --> 12:51.920
+So this is a binary number zero point 1 1.
+
+12:52.260 --> 12:52.930
+Base 2.
+
+12:52.950 --> 12:58.620
+So we do have this decimal point I don't know if you call it a decimal point or maybe a binary point
+
+12:59.660 --> 13:01.350
+at this at this stage.
+
+13:01.350 --> 13:03.910
+But anyways so what does that equal to.
+
+13:03.960 --> 13:10.460
+Well if we're talking about powers of two and of powers of 10 then we have 1 over 2 plus 1 to 4.
+
+13:10.470 --> 13:18.200
+Now this is the base 10 equivalent which is 0.5 plus 0.5 which is 0.75 and base 10.
+
+13:18.360 --> 13:23.060
+So 0.1 1 base to 0.75 base 10.
+
+13:23.070 --> 13:28.830
+So let's look again at this expression here and let's rewrite it in the same way we rewrote powers of
+
+13:28.830 --> 13:29.530
+10.
+
+13:29.820 --> 13:36.320
+So we have 1 times 2 to the negative one plus one times 2 to the negative 2.
+
+13:36.320 --> 13:38.710
+Now similarly we can look at this number here.
+
+13:38.810 --> 13:40.930
+0 1 1 1 0 1.
+
+13:40.940 --> 13:41.950
+Base 2.
+
+13:42.200 --> 13:47.450
+Well that's one half plus one quarter plus 0 over 8 plus 1 over 16.
+
+13:47.450 --> 13:50.640
+Again these are powers of 2.
+
+13:50.680 --> 13:55.630
+So if we calculate the number we get that that's equal to zero point 8 1 to 5.
+
+13:55.840 --> 14:02.520
+So 0.8 1 to 5 base 10 is zero point 1 1 0 1 2.
+
+14:02.860 --> 14:05.380
+And again we could rewrite the expansion as follows.
+
+14:05.380 --> 14:13.390
+It's 1 times 2 to the negative one plus 1 times 2 to the negative 2 plus 0 times 2 to the negative 3
+
+14:13.840 --> 14:16.510
+plus 1 times 2 to the negative 4.
+
+14:16.510 --> 14:23.760
+You'll notice all the digits are either zeros or ones and these denominators here are powers of 2.
+
+14:23.980 --> 14:30.860
+And again they become increasingly negative as we move from left to right after the decimal point.
+
+14:30.880 --> 14:36.370
+So this representation is very similar to the one we had with decimal numbers except we're just representing
+
+14:36.400 --> 14:37.950
+a number using base two
+
+14:40.950 --> 14:49.580
+so a binary representation is then given by this formula here which is exactly the same as what we had
+
+14:49.580 --> 14:54.430
+previously except that these digits now will always be 0 0 0 1.
+
+14:54.590 --> 14:59.210
+And instead of powers of 10 we have powers of 2 but same thing.
+
+15:00.480 --> 15:06.880
+Now as you can imagine we also have problems representing certain numbers in a finite number of terms.
+
+15:07.040 --> 15:07.250
+Right.
+
+15:07.250 --> 15:11.610
+Just like we had a problem using one third in our decimal expansion.
+
+15:11.640 --> 15:19.300
+We also have problems representing certain numbers in a binary expansion and a very simple example is
+
+15:19.350 --> 15:21.700
+the 0.1 of one tenth.
+
+15:21.700 --> 15:24.640
+Now that has an exact representation in decimal.
+
+15:24.640 --> 15:27.260
+It's one tenth right it's 0.1.
+
+15:27.730 --> 15:33.660
+But not so in binary in binary we do not have a finite representation.
+
+15:33.670 --> 15:42.250
+This is the binary number that we have to use to approximate one tenth or 0.1 it is zero point zero
+
+15:42.310 --> 15:46.680
+and then the sequence of bits 0 0 0 1 1 0 0 1 1.
+
+15:46.720 --> 15:48.470
+That just keeps recurring.
+
+15:48.730 --> 15:51.870
+So this is just like the example we had with one third.
+
+15:52.090 --> 15:56.170
+Except that with zero point one we have a similar problem.
+
+15:56.170 --> 15:59.310
+We cannot represent that exactly in base 2.
+
+15:59.320 --> 16:02.000
+So let's take a look at what this means.
+
+16:02.290 --> 16:05.730
+So if we just expand the south to fractions right.
+
+16:05.730 --> 16:12.960
+So we have zero the first position is toos or we 1 over to this second position is one of the four.
+
+16:13.150 --> 16:18.150
+So third one of 8 1 was 16 1 over 32 his powers of 2.
+
+16:18.190 --> 16:19.630
+So we can write it out this way.
+
+16:19.660 --> 16:19.900
+Right.
+
+16:19.900 --> 16:30.250
+We have 0 over 0 4 0 8 0 1 over 16 1 over 32 etc. and let's start actually calculating what those numbers
+
+16:30.250 --> 16:30.680
+are.
+
+16:30.820 --> 16:33.210
+They should add up to 0.1.
+
+16:33.220 --> 16:39.640
+Now they'll never exactly add up to 0.1 because this sequence of numbers is infinite.
+
+16:39.640 --> 16:42.480
+This is an infinite series.
+
+16:42.990 --> 16:43.280
+All right.
+
+16:43.290 --> 16:48.050
+So tossing out all the zero terms in these fractions we end up with these.
+
+16:48.240 --> 16:51.900
+And the first fraction is 0.06 to 5.
+
+16:51.900 --> 16:59.360
+So if we were to stop at the first significant digit here one right we would end up with actually 0.06
+
+16:59.420 --> 17:03.090
+to 5 in decimal which is not exactly close to zero point 1.
+
+17:03.360 --> 17:08.790
+But if we keep going to more and more of these bits let's add in one over 32.
+
+17:09.000 --> 17:16.590
+So now we have zero point 0 9 3 7 5 much closer to zero point 1 plus the remaining terms and we can
+
+17:16.590 --> 17:17.730
+keep adding.
+
+17:17.880 --> 17:25.220
+You know now we can add the one over 256 into this and I would get 0 1 0 9 7 6 5 6 2 5 k.
+
+17:25.220 --> 17:26.860
+Et cetera et cetera.
+
+17:27.240 --> 17:29.360
+Now you've got to be careful right.
+
+17:29.370 --> 17:32.150
+It looks like oh we're undershooting the 0.1.
+
+17:32.160 --> 17:36.120
+While we may be at this point but sometimes you could be overshooting as well.
+
+17:36.120 --> 17:42.420
+So your your approximation to the number that you're trying to represent may be slightly larger or slightly
+
+17:42.420 --> 17:48.590
+smaller than the exact value and we'll see examples of that when we look at the code.
+
+17:49.020 --> 17:49.570
+OK.
+
+17:49.650 --> 17:54.890
+So that's the binary representation of a number of a decimal number.
+
+17:56.010 --> 17:59.120
+And that is indeed how it's stored in the computer.
+
+17:59.610 --> 18:08.400
+So as we've seen some numbers that do have a finite decimal representation like 0.1 right do not have
+
+18:08.400 --> 18:11.090
+a finite binary representation.
+
+18:11.130 --> 18:16.710
+Now because some do right not every number is going to have an infinite binary representation.
+
+18:16.710 --> 18:20.230
+In fact we saw some 0.1 to 5 right.
+
+18:20.250 --> 18:21.360
+Was 1 8.
+
+18:21.360 --> 18:26.850
+That's a power of two in the in the denominator so we know that we are going to get an exact binary
+
+18:26.850 --> 18:27.690
+representation
+
+18:30.220 --> 18:30.780
+right.
+
+18:30.800 --> 18:35.030
+So 0.75 based 10 was 0.1 1 base 2.
+
+18:35.300 --> 18:39.510
+That's a finite representation.
+
+18:39.550 --> 18:46.400
+Same thing with Zero Point 8 1 2 5 and base 10 that has this binary representation 0.1 1 0 1.
+
+18:46.400 --> 18:47.960
+That's also finite.
+
+18:48.280 --> 18:54.790
+Now because these are finite representations This means that we have an exact flow representation.
+
+18:54.880 --> 19:04.230
+So when we type in 0.75 and Python exactly 0.75 will be still and will be precise.
+
+19:04.280 --> 19:11.690
+On the other hand if we say A equals zero point 1 we're not going to be storing 0.1 exactly it's going
+
+19:11.690 --> 19:13.860
+to be that zero point 9 9 9.
+
+19:13.970 --> 19:16.570
+You know and a bunch of numbers after that.
+
+19:16.610 --> 19:16.850
+Right.
+
+19:16.850 --> 19:20.190
+Because it is this infinite representation.
+
+19:20.270 --> 19:26.120
+So because of that we only have an approximate float representation in Python and this isn't the shortcoming
+
+19:26.120 --> 19:29.080
+of Python this is going to be true of any computing language.
+
+19:29.240 --> 19:34.970
+It's because of the fact that computers use binary used bits zeros and ones and so therefore at some
+
+19:34.970 --> 19:41.050
+point we have to basically transform our decimal number into a binary number.
+
+19:41.300 --> 19:45.740
+And because of that we run into these approximation issues.
+
+19:45.990 --> 19:50.910
+So let's switch to some code and see how all that works and we'll do that in the next video.
+
+19:50.910 --> 19:52.860
+Thanks for watching and I'll see you in a bit.

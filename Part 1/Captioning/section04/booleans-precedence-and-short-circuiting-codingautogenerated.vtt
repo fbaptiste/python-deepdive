@@ -1,0 +1,622 @@
+WEBVTT
+
+00:00.240 --> 00:06.060
+High in this video we're going to continue looking at precedents and short circuiting for the boolean
+
+00:06.060 --> 00:07.000
+operators.
+
+00:07.260 --> 00:15.150
+Now as we saw the boolean operators not and or have a precedence on and not has a higher precedence
+
+00:15.150 --> 00:19.240
+than and which has a higher precedence than all.
+
+00:19.650 --> 00:22.560
+So let's take a look at the same example we saw in the lecture.
+
+00:22.560 --> 00:23.490
+Let's take a look at.
+
+00:23.490 --> 00:24.130
+True.
+
+00:24.270 --> 00:27.370
+For true and false.
+
+00:27.750 --> 00:30.340
+Well when we run this that evaluates to true.
+
+00:30.570 --> 00:35.730
+Now let's see what actually happened what actually happened is that and has a higher precedence than
+
+00:35.790 --> 00:40.710
+Or so it is going to get evaluated first.
+
+00:41.280 --> 00:44.840
+And so what in fact what we have is really true or.
+
+00:45.030 --> 00:47.890
+And then first calculate true and false.
+
+00:48.120 --> 00:49.760
+And that's how we get true.
+
+00:50.010 --> 00:59.430
+Now if we had done that differently and we're going to fall now or to be evaluated first and then we'll
+
+00:59.730 --> 01:08.460
+have the and evaluated then what's going to happen is that true or true is true and true and false is
+
+01:08.610 --> 01:09.710
+false.
+
+01:09.720 --> 01:15.930
+So when we don't have the parentheses then the and gets executed first gets evaluated first with its
+
+01:16.020 --> 01:18.240
+two operands which are true and false.
+
+01:18.450 --> 01:20.060
+Whereas with the parentheses.
+
+01:20.180 --> 01:21.800
+Well that takes higher precedence.
+
+01:21.840 --> 01:25.580
+So we have to look at what's inside the parentheses first which is the off.
+
+01:25.620 --> 01:26.010
+So we do.
+
+01:26.010 --> 01:27.770
+True or true us.
+
+01:27.960 --> 01:30.390
+And then we ended with false.
+
+01:30.390 --> 01:32.350
+So it does make a difference.
+
+01:32.370 --> 01:38.760
+So these two statements here are equivalent and yes it's true that they're equivalent.
+
+01:38.760 --> 01:41.540
+It's true that yeah you can probably make out what this does.
+
+01:41.580 --> 01:47.400
+And if you read it you know and you remember about the precedence then you would say oh okay it's going
+
+01:47.400 --> 01:53.810
+to do the and forced but it is far clearer to somebody reading code that this is happening.
+
+01:53.940 --> 01:59.370
+And so I would really suggest that you write it this way it really doesn't cost anything to add those
+
+01:59.370 --> 02:01.100
+couple of parentheses in there.
+
+02:01.440 --> 02:03.130
+And it will keep Bob happy.
+
+02:03.210 --> 02:04.920
+I can't bring up Bob in here.
+
+02:05.100 --> 02:08.930
+I only have it on my slides but Bob would be happy right here.
+
+02:08.940 --> 02:10.690
+He wouldn't be too happy with this one.
+
+02:10.920 --> 02:13.080
+So just a suggestion.
+
+02:13.110 --> 02:18.150
+And of course as your boolean expressions get more complex then you really want to start putting in
+
+02:18.150 --> 02:23.480
+the parentheses plus there might be cases where you have to put the parentheses in.
+
+02:23.490 --> 02:27.300
+All right so the next thing I want to look at is the short circuiting
+
+02:31.370 --> 02:37.210
+and short circuiting is really what happens when you have let's say a true or why.
+
+02:37.400 --> 02:41.700
+Well when you have true a Y that will always return true.
+
+02:41.750 --> 02:43.330
+No matter what y is.
+
+02:43.430 --> 02:52.010
+And if we have false and Y this will always return false no matter what y is
+
+02:55.030 --> 02:55.430
+right.
+
+02:55.480 --> 03:01.300
+So what happens is that if we have an expression where the left operand evaluates to true and it's getting
+
+03:01.390 --> 03:05.270
+old with something else Python will not evaluate y now.
+
+03:05.320 --> 03:11.980
+Why could be just a boolean number or it could be a whole expression or even a function call that returns
+
+03:12.040 --> 03:18.490
+a Boolean for a function call that returns an object that has obviously a truth value associated with
+
+03:18.490 --> 03:19.140
+it.
+
+03:19.150 --> 03:20.860
+So that's the whole deal.
+
+03:20.860 --> 03:21.160
+Right.
+
+03:21.160 --> 03:26.150
+Is that we don't have to evaluate necessarily both operands of an or.
+
+03:26.200 --> 03:27.200
+Or an end.
+
+03:27.460 --> 03:29.690
+In certain cases.
+
+03:29.740 --> 03:34.330
+So let's take a look at an example we saw a couple in the video in the lecture but I'll do a slightly
+
+03:34.330 --> 03:35.420
+different one here.
+
+03:35.710 --> 03:38.330
+Let's do a equals 10 and B equals two.
+
+03:38.710 --> 03:44.800
+And we want to run some code only if A is at least two times b.
+
+03:44.860 --> 03:52.320
+So we might write something like this if a divided by B is greater than two then we might say you know
+
+03:52.330 --> 03:55.390
+print a is at least
+
+03:57.670 --> 03:58.460
+twice.
+
+03:58.510 --> 04:00.970
+B And if it's not we don't want to do anything.
+
+04:00.970 --> 04:08.790
+So kind of a silly example or a silly consequence of the statement but whatever that works for our illustration.
+
+04:08.800 --> 04:11.260
+So if we're wrong that while we get that at least twice.
+
+04:11.260 --> 04:19.060
+B Yeah because 10 divided by two is five A's actually five times larger than B five times the size of
+
+04:19.060 --> 04:19.910
+B.
+
+04:21.240 --> 04:24.460
+But what happens if we make be equal to zero.
+
+04:24.600 --> 04:25.680
+Well let's try.
+
+04:25.680 --> 04:28.770
+All right what's what do you think's going to happen.
+
+04:29.220 --> 04:32.130
+Well we're dividing by zero so that that's going to create an issue.
+
+04:32.160 --> 04:35.360
+It generally does if you try and divide by zero.
+
+04:35.460 --> 04:38.980
+So we're probably going to want to try and avoid that problem.
+
+04:39.330 --> 04:47.700
+And one way of doing it is to say if B is greater than zero and divided by B is greater than two we
+
+04:47.700 --> 04:50.200
+can certainly do it this way.
+
+04:50.250 --> 04:53.130
+That is one way of doing it.
+
+04:53.340 --> 04:55.770
+Now of course we could even use nested if statements.
+
+04:55.800 --> 04:59.070
+We wanted to we could do something like this and write it out.
+
+04:59.350 --> 05:00.240
+OK.
+
+05:00.630 --> 05:10.850
+So we have that I need to enter it and I want to bring make sure that a because non-zero and B is zero.
+
+05:11.040 --> 05:12.830
+Let's run that and we get nothing.
+
+05:12.840 --> 05:15.020
+Yeah because B is equal to zero.
+
+05:15.030 --> 05:16.510
+It's not greater than zero.
+
+05:16.850 --> 05:17.540
+OK.
+
+05:17.970 --> 05:19.330
+So we could do it this way.
+
+05:19.350 --> 05:24.650
+But because of short circuiting we can simply do this if zero.
+
+05:24.900 --> 05:29.120
+And so if B is greater than zero and a Overbay is greater than 2.
+
+05:29.820 --> 05:32.490
+And no no there's no problem.
+
+05:32.490 --> 05:39.210
+That's because we're short circuited Since be greater than zero was false Python didn't need to evaluate
+
+05:39.210 --> 05:44.880
+the right operand it didn't need to evaluate the expression it knew that whatever this was it was going
+
+05:44.880 --> 05:45.940
+to be false.
+
+05:46.980 --> 05:48.460
+So that's one way of doing it.
+
+05:48.510 --> 05:57.670
+But of course truth values right be is a number and if it's zero it's going to have an associated truth
+
+05:57.670 --> 05:59.200
+value of false.
+
+05:59.200 --> 06:01.320
+So I don't even need to do this.
+
+06:01.360 --> 06:07.770
+I can say if B and A divided by B is greater than two that's all I need to do right.
+
+06:07.940 --> 06:14.620
+So this will work exactly the same way because B is truth the falsie not if B is zero.
+
+06:14.870 --> 06:16.270
+It's falsie.
+
+06:16.280 --> 06:20.150
+And again the short circuit means that this is not going to get evaluated.
+
+06:20.330 --> 06:22.070
+And fair enough it doesn't happen.
+
+06:22.070 --> 06:26.120
+However if B let's say is one that we get that A's at least twice.
+
+06:26.120 --> 06:28.030
+B That works just fine.
+
+06:29.130 --> 06:34.020
+Now we could even have the case in Kesh where B is none right.
+
+06:34.020 --> 06:37.820
+This will still work if we do this.
+
+06:38.490 --> 06:44.070
+We might have a little bit of an issue right because the greater than is not supported for none.
+
+06:44.070 --> 06:45.520
+Well yeah none isn't a number.
+
+06:45.600 --> 06:47.230
+It's just kind of nothing.
+
+06:47.250 --> 06:48.150
+Right.
+
+06:48.150 --> 06:56.490
+So this is why he's actually even if B is even a Bettison tax because we don't have to worry about when
+
+06:56.610 --> 06:58.840
+the cases we're B can be none.
+
+06:59.340 --> 07:01.400
+So go back to this example.
+
+07:01.410 --> 07:02.840
+Everything works just fine.
+
+07:03.800 --> 07:04.140
+All right.
+
+07:04.280 --> 07:04.790
+So what.
+
+07:04.790 --> 07:13.340
+That's one example of our using short circuit evaluation as well as combining it with truthiness of
+
+07:13.760 --> 07:15.190
+objects in Python.
+
+07:15.560 --> 07:17.320
+So let's take a look at another example.
+
+07:17.330 --> 07:23.870
+And for this one the first thing I'm going to do is import the string module so we can look at the help
+
+07:23.870 --> 07:24.990
+on the string module.
+
+07:25.010 --> 07:30.290
+It's really very very useful module doesn't do much but it's quite useful.
+
+07:30.290 --> 07:32.530
+It's a collection of string constants.
+
+07:32.570 --> 07:32.950
+Right.
+
+07:32.990 --> 07:40.670
+And so you have some string constants like whitespace ASCII lowercase ASCII uppercase digits hex digits.
+
+07:40.670 --> 07:50.510
+And what it means is that it just is a predefined list of ASCII letters ASCII characters that fall into
+
+07:50.510 --> 07:51.800
+certain categories.
+
+07:51.800 --> 07:58.900
+Let's say you want to test if a string a character is let's say a lowercase characters.
+
+07:59.180 --> 08:00.420
+Well all you could do.
+
+08:00.470 --> 08:03.220
+Let's say you have a see.
+
+08:03.470 --> 08:08.300
+You might say it's a in and we'll do a string dot.
+
+08:08.300 --> 08:15.530
+Now we're looking for an uppercase ASCII character so we might do this.
+
+08:16.080 --> 08:16.990
+C quite useful.
+
+08:16.990 --> 08:18.100
+It returns false.
+
+08:18.100 --> 08:19.230
+Now how did that work.
+
+08:19.360 --> 08:24.260
+Well let's look at what passkey uppercase actually is.
+
+08:24.460 --> 08:29.410
+And as you can see it's just a string with all the uppercase characters a through Z.
+
+08:29.410 --> 08:36.190
+If we do string Dargis digits then we just get the digits from 0 to 9 right.
+
+08:36.250 --> 08:37.930
+And if we do ASCII letters
+
+08:40.890 --> 08:44.750
+then we get all the lowercase and uppercase letters and so on.
+
+08:44.760 --> 08:51.190
+So it's just a quite useful little library that we can use that has some predefined string constants.
+
+08:51.240 --> 08:55.800
+So in this case we're going to go back to that example we saw in the video and we're just going to test
+
+08:55.800 --> 09:02.220
+to see if the first character of a string that we get back from a database actually starts with a number
+
+09:02.220 --> 09:02.580
+or not.
+
+09:02.580 --> 09:07.710
+And we don't want that so we might want to say hey you know a name that starts of a number is not allowed.
+
+09:07.740 --> 09:09.220
+Something like that.
+
+09:09.300 --> 09:13.220
+So I'm going to simulate of course opening a database connection and retrieving it.
+
+09:13.410 --> 09:17.300
+And we're going to start with maybe the name let's say the name is Bob.
+
+09:17.480 --> 09:17.960
+OK.
+
+09:18.030 --> 09:27.240
+So we'll bring Bob back this way and we might do this say if name 0 PIN string digits.
+
+09:27.240 --> 09:27.500
+Right.
+
+09:27.500 --> 09:33.830
+So if the first character of name is digits then what do we want to do.
+
+09:34.020 --> 09:40.960
+Well we might want to say print's name cannot start with a digit
+
+09:43.880 --> 09:50.180
+so when we run this no problem if we start with a digit It tells us 9 cannot start of a digit.
+
+09:50.180 --> 09:51.870
+So that's working just fine.
+
+09:52.190 --> 09:58.330
+But what happens when a name is an empty string while we get an error.
+
+09:58.390 --> 09:58.670
+Why.
+
+09:58.670 --> 10:01.910
+Because while we're trying to return the false character of that string.
+
+10:01.910 --> 10:02.830
+But it's an empty string.
+
+10:02.830 --> 10:04.020
+There is no fourth character.
+
+10:04.040 --> 10:06.710
+So our index in the string is out of range.
+
+10:06.770 --> 10:08.770
+So then OK let's fix that.
+
+10:08.780 --> 10:16.090
+Let's say Len of name must be greater than zero and k.
+
+10:16.400 --> 10:17.660
+So let's do that.
+
+10:18.140 --> 10:20.960
+And now that works right.
+
+10:21.050 --> 10:25.390
+But first of all we don't have to put the greater than zero.
+
+10:25.430 --> 10:28.890
+Learn of name is what it's going to be a number.
+
+10:29.210 --> 10:34.980
+If the length of that string is 0 then it's going to return 0 and 0 is falsie.
+
+10:35.240 --> 10:41.660
+If the length of the string is greater than zero can return some number that's non-zero and that is
+
+10:41.810 --> 10:42.400
+truthy.
+
+10:42.530 --> 10:45.540
+So technically we don't even have to put this in here.
+
+10:45.710 --> 10:50.520
+We can dispute if Len name and when we run that works just fine.
+
+10:51.020 --> 10:56.600
+But remember what we discussed in a previous video as well for sequence types sequence types will actually
+
+10:56.600 --> 10:57.890
+return the length.
+
+10:57.890 --> 10:59.840
+When you look at the truthiness.
+
+10:59.840 --> 11:02.540
+So you don't have to look at the length.
+
+11:02.570 --> 11:04.890
+You can just look at the name itself.
+
+11:05.150 --> 11:11.340
+That will actually return the length right in terms of the truth value associated with name.
+
+11:11.420 --> 11:11.800
+Right.
+
+11:11.810 --> 11:19.560
+If we take a look at an example here name equals let's say B C and we look at bhool of name.
+
+11:19.730 --> 11:24.970
+Well that's going to call the lend method that's on that string which is going to be three.
+
+11:24.980 --> 11:26.760
+And so that's going to be truthy.
+
+11:26.990 --> 11:33.420
+But if the string is empty then it's going to return false because the length is zero.
+
+11:33.460 --> 11:34.940
+And that's falsie.
+
+11:34.960 --> 11:40.690
+OK so we don't have to actually you know say lend name greater than zero we can just run it this way.
+
+11:40.810 --> 11:43.040
+This works just fine.
+
+11:43.150 --> 11:51.220
+Now in fact if we had kept this Lenn name greater than zero which works OK I mean that's fine but let's
+
+11:51.220 --> 11:53.350
+say that name was not even defined.
+
+11:53.380 --> 11:59.020
+Let's say that name came back from the database as a no then this means usually that name will become
+
+11:59.020 --> 12:00.500
+a nun in Python.
+
+12:00.520 --> 12:07.280
+And if we do that well we have an error again because why well none doesn't have a lend method.
+
+12:07.510 --> 12:09.540
+There is no lenth to none.
+
+12:09.550 --> 12:19.480
+So now we would have to say if name is not none and Len name is greater than zero and name zero and
+
+12:19.510 --> 12:20.540
+string digits.
+
+12:20.620 --> 12:27.900
+Now that will work because again we're short circuiting with short circuiting While name is not None.
+
+12:28.040 --> 12:28.920
+Well it is not.
+
+12:28.940 --> 12:35.450
+So name is not known as false and we have and and and so these two are getting short circuited.
+
+12:35.450 --> 12:39.270
+There's no need to even evaluate them so this doesn't get evaluated.
+
+12:39.410 --> 12:41.610
+And this doesn't get evaluated.
+
+12:42.140 --> 12:50.060
+But of course we can shorten this whole thing here because if none is falsie or less of an empty string
+
+12:50.060 --> 12:55.640
+is falsie so we can just basically collapse it down to this single thing.
+
+12:55.910 --> 13:02.780
+Because if a name is not known and name has a length has a certain number of characters in it has a
+
+13:02.780 --> 13:06.440
+non-zero lense then this will be truthy.
+
+13:06.440 --> 13:11.410
+Any other any other combination of that it will be falsie name is none.
+
+13:11.420 --> 13:18.430
+It would be faulty if name is not known but it is a string with no characters then it will also be false.
+
+13:18.720 --> 13:25.970
+OK so this works equally well and we'll see more examples of short circuiting as we write more complex
+
+13:25.970 --> 13:28.590
+code as we get further into the schools.
+
+13:28.820 --> 13:33.800
+But for now just be aware that it's really useful for a lot of different things.
+
+13:33.800 --> 13:36.850
+All right thanks for watching and I'll see you in the next video.

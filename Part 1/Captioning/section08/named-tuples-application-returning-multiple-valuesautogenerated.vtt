@@ -1,0 +1,280 @@
+WEBVTT
+
+00:00.580 --> 00:06.580
+High in this video we're going to take a look at a very simple application but very useful one for name
+
+00:06.640 --> 00:13.000
+topples and this is when we return multiple values from a function as you know we can do that by just
+
+00:13.000 --> 00:14.360
+returning a plane.
+
+00:14.470 --> 00:17.940
+So let's go ahead and do that.
+
+00:18.530 --> 00:23.580
+So let's go ahead and I'm going to want to import from random.
+
+00:23.600 --> 00:25.320
+I want to import Rand.
+
+00:25.400 --> 00:31.070
+I want to generate basically a random color which is going to have red green blue and Alpha components
+
+00:31.070 --> 00:32.160
+to them.
+
+00:32.180 --> 00:37.640
+So from random I'm going import Rande in so I can generate a random integer between two bounds.
+
+00:37.670 --> 00:42.930
+And I'm also going to impled random that I'm going to use to generate a random float between 0 and 1.
+
+00:43.040 --> 00:49.070
+That's going to be for the all the channel and then also I'm going to right away because we will use
+
+00:49.070 --> 00:51.560
+its impled named topple.
+
+00:52.010 --> 00:54.670
+So frost Let's go ahead and define this function.
+
+00:54.710 --> 00:56.840
+So let's call it random color.
+
+00:57.290 --> 00:59.040
+And it's pretty simple.
+
+00:59.070 --> 01:05.500
+Our bread is going to be a random integer between 0 and 255 and then green and blue.
+
+01:05.510 --> 01:14.900
+I'm just going to copy the page and paste the code loop on green and then we also want the Alfar which
+
+01:14.900 --> 01:18.800
+is going to be round between 0 and 1.
+
+01:19.010 --> 01:19.810
+Sorry wrong.
+
+01:20.030 --> 01:24.500
+It's going to be random which is going to give us a number between 0 and 1.
+
+01:24.500 --> 01:27.280
+And then I'm going to run that off just two digits.
+
+01:27.290 --> 01:35.090
+And then finally I'm going to return the top so I'm going to pack red green blue and Alpha and return
+
+01:35.090 --> 01:35.930
+that.
+
+01:35.980 --> 01:41.460
+And now of course we can say no color equals random color.
+
+01:41.750 --> 01:43.520
+OK we can see what color is.
+
+01:43.660 --> 01:52.200
+It's that top hole and we can say you know red green blue Alfar we can unpack it this way equals color.
+
+01:52.400 --> 01:57.840
+And now we have you know that red is 2:39 Alfas 0.5 and so on.
+
+01:58.220 --> 02:05.540
+So now I want to show you the code in pie chart which is my Python editor and I will show you how this
+
+02:05.540 --> 02:08.280
+is dealt with inside Python.
+
+02:08.630 --> 02:10.360
+So we create a new file.
+
+02:10.430 --> 02:13.320
+Let's call it colour's dopy y.
+
+02:13.730 --> 02:14.580
+And here.
+
+02:14.630 --> 02:24.620
+I'm going to import wealth from random I'm going to import Rand int and random OK and I might as well
+
+02:24.650 --> 02:25.590
+imports.
+
+02:25.680 --> 02:27.770
+Well I don't do that now so I won't.
+
+02:28.060 --> 02:29.900
+I'll import name trouble just now.
+
+02:30.180 --> 02:33.260
+OK and I've got my random code.
+
+02:33.440 --> 02:35.420
+Now I'm going to create another file.
+
+02:35.870 --> 02:38.670
+And let's say this is my color.
+
+02:40.180 --> 02:42.200
+And agood color user and what I'm going to do.
+
+02:42.200 --> 02:46.670
+I'm going to say from Colors import random color code.
+
+02:47.040 --> 02:49.250
+So there's my and random color that are important.
+
+02:49.460 --> 02:57.950
+And now I can say color equals random color K and of course I can unpack it and if I look at color and
+
+02:57.950 --> 03:02.940
+look at the dots well it doesn't tell me much either what you know other than it has an index of count
+
+03:03.080 --> 03:03.680
+things like that.
+
+03:03.680 --> 03:11.120
+Well yeah because color was a table so it has those things over here so I don't get much help basically
+
+03:11.510 --> 03:17.370
+from the auto completion in the editor because I have a bare top all being returned.
+
+03:17.390 --> 03:22.140
+It doesn't know anything other than the fact that it's a top.
+
+03:22.190 --> 03:27.670
+So now let's switch back to the Jupiter notebook and let's implement something not using a name.
+
+03:27.740 --> 03:29.070
+Is a Their top.
+
+03:29.480 --> 03:35.500
+OK so we're back in here and what we need to do here first is we need to create a name table.
+
+03:35.540 --> 03:39.100
+So let's go ahead and create one I'm going to call it colored.
+
+03:39.230 --> 03:41.870
+So that's going to be a name tough old.
+
+03:42.170 --> 03:46.960
+I'm going to at least assign it to the label color but the name of the class is going to be color and
+
+03:46.970 --> 03:51.930
+it's going to have red green blue and Alpha as the fields.
+
+03:52.040 --> 03:59.420
+Now in order to use that name top all all I have to do is just modify slightly my code over here and
+
+03:59.420 --> 04:04.100
+say I'm returning a color named topple OK.
+
+04:04.460 --> 04:13.570
+So now I can say that all colors equals random I can type color.
+
+04:13.890 --> 04:14.520
+OK.
+
+04:14.840 --> 04:17.810
+And of course color is a name.
+
+04:17.870 --> 04:20.440
+And you can see we have red green blue and Alpha properties.
+
+04:20.450 --> 04:25.830
+In fact we can say colored dark red K or color dot Alpha.
+
+04:26.300 --> 04:26.610
+Right.
+
+04:26.660 --> 04:27.660
+So we have all that.
+
+04:27.860 --> 04:28.710
+So that's great.
+
+04:28.760 --> 04:35.170
+That really helps clarify things a little bit but where it really helps is in an editor like Python
+
+04:35.450 --> 04:40.760
+and many other Python editors will do the same thing because pide charm is able to basically inspect
+
+04:41.120 --> 04:46.260
+this object and it will be able to tell me what all the fields available on that object.
+
+04:46.280 --> 04:52.460
+I don't have to go look it up somewhere I'll refer back to the documentation you know or call help on
+
+04:52.460 --> 04:58.010
+color of code colored up fields you know to see OK what other fields because I don't remember what they
+
+04:58.010 --> 05:02.910
+were called ok PI Chaum does that it's able to basically figure that out.
+
+05:02.930 --> 05:04.120
+So let me show you.
+
+05:04.720 --> 05:05.050
+OK.
+
+05:05.070 --> 05:13.280
+So here we are back in pajamas I'm going to go back to my colors and now I'm going to say from collections
+
+05:13.640 --> 05:18.970
+import name topple and now I'm going to create my name top.
+
+05:19.370 --> 05:26.440
+So here's my name top all classes color and the fields are red green blue and Alpha.
+
+05:26.850 --> 05:27.490
+OK.
+
+05:27.950 --> 05:34.400
+And then here all I have to do is create a name topple out of this
+
+05:39.870 --> 05:40.970
+OK.
+
+05:41.390 --> 05:47.140
+Now let me go to color using and I've just called the same thing I've imported random color.
+
+05:47.200 --> 05:48.430
+So that's all I imported.
+
+05:48.430 --> 05:50.710
+I did not import the name topple itself.
+
+05:50.710 --> 05:54.130
+I just imported the random called a function.
+
+05:54.190 --> 05:57.240
+Now look at my auto completion would I press the duct.
+
+05:57.520 --> 05:58.420
+Here's what happens.
+
+05:58.420 --> 06:03.320
+I get my read my alpha my blue my green all my fields are there.
+
+06:03.550 --> 06:09.670
+So it makes life a lot easier because I don't have to think and remember what are the field names in
+
+06:09.670 --> 06:11.130
+this particular named Toppo.
+
+06:11.380 --> 06:13.590
+So very very handy to do.
+
+06:13.860 --> 06:14.390
+All right.
+
+06:14.560 --> 06:15.010
+That's it.
+
+06:15.010 --> 06:19.840
+That's a very simple example but a very powerful example of using named topples in Python.
+
+06:19.840 --> 06:22.220
+Thanks for watching and I'll see you in the next video.

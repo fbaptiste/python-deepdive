@@ -1,0 +1,469 @@
+WEBVTT
+
+00:00.480 --> 00:00.980
+Hi.
+
+00:01.230 --> 00:05.820
+And welcome to this video on identifying names and in particular we're really just going to look at
+
+00:05.820 --> 00:12.170
+some rules that we need to follow when creating identifying names and some conventions as well.
+
+00:12.660 --> 00:18.120
+So let's start with the fact that identified names are case sensitive.
+
+00:18.240 --> 00:24.990
+In other words you know my VAR with that lowercase V my vow of the uppercase V or ham with a lowercase
+
+00:25.050 --> 00:28.010
+age or ham with an uppercase H.
+
+00:28.080 --> 00:34.710
+These are all different identifiers so identify as are case sensitive so you could write you know one
+
+00:34.710 --> 00:38.770
+variable is ham one variable as half of a capital H.
+
+00:38.910 --> 00:45.660
+And you could use both of those in your code as separate identifiers really not recommended that you
+
+00:45.660 --> 00:48.070
+do so at least not with variables.
+
+00:48.150 --> 00:54.810
+There is a case where this might actually be useful when dealing with classes but generally not something
+
+00:54.810 --> 00:55.500
+you should do.
+
+00:55.500 --> 01:02.960
+It can be pretty confusing if somebody is reading your code so identifiers must follow certain rules
+
+01:03.450 --> 01:06.020
+and they should follow certain conventions.
+
+01:06.150 --> 01:08.360
+And let's take a look at what those are.
+
+01:08.460 --> 01:10.410
+Let's start with the musts first.
+
+01:10.410 --> 01:16.260
+So they must stop of an underscore or a letter A through Z or capital A through Z.
+
+01:16.260 --> 01:22.380
+Now this is actually a little stricter than in written than reality because you can use other characters
+
+01:22.410 --> 01:27.390
+besides A through Z and A through Z but you could be a little bit careful about which ones you use.
+
+01:27.390 --> 01:28.920
+It gets more complicated.
+
+01:29.070 --> 01:31.810
+You can use also Unicode characters oil.
+
+01:31.810 --> 01:37.790
+Not that these aren't Unicode characters as well but I'm sticking to the ASCII set basically.
+
+01:37.900 --> 01:46.700
+So be careful with that the easiest is just to say we'll stick through eighth Rozy for the letters so
+
+01:46.700 --> 01:52.220
+they must not have an underscore or a letter and then they can be followed by any number of underscores
+
+01:52.310 --> 01:53.800
+letters or digits.
+
+01:53.960 --> 01:58.270
+So really the thing here is that you cannot start an identifier with a digit.
+
+01:58.350 --> 01:58.600
+OK.
+
+01:58.600 --> 01:59.540
+So don't try that.
+
+01:59.540 --> 02:03.230
+I want to walk so for example var.
+
+02:03.330 --> 02:11.020
+My VAR index won and that's this one are all legal names underscore var is legal as well.
+
+02:11.130 --> 02:12.140
+Double underscore.
+
+02:12.150 --> 02:17.390
+Dunder var is also legal as is Dunder LTE Dondre.
+
+02:17.430 --> 02:20.040
+That's also illegal identify and name.
+
+02:20.040 --> 02:24.590
+Now I've highlighted these in a different color and I'll explain that in a minute.
+
+02:24.720 --> 02:35.150
+But these kind of forms of variable names by convention have a specific meaning attached to them.
+
+02:35.370 --> 02:41.540
+So the other thing too is that identifies cannot be a result of words than what other reserved words.
+
+02:41.550 --> 02:42.360
+Well none.
+
+02:42.360 --> 02:47.630
+True false and or not if else else if you get the idea.
+
+02:47.670 --> 02:51.890
+Basically the key words that you use to program in Python.
+
+02:51.920 --> 02:52.190
+Right.
+
+02:52.190 --> 02:56.910
+Def lammed return in is that we've seen before.
+
+02:56.910 --> 03:01.080
+Try except all these are the reserved words.
+
+03:01.080 --> 03:05.240
+And as of our current version of Python.
+
+03:05.250 --> 03:06.360
+That's it for now.
+
+03:06.420 --> 03:13.270
+So there's not a whole lot to remember but you know don't use those as identify names.
+
+03:14.700 --> 03:16.350
+So let's get to the conventions.
+
+03:16.530 --> 03:21.440
+So let's take a look at what those conventions were the ones I highlighted.
+
+03:21.960 --> 03:27.720
+So if you have a single underscore in front of your identify and then let's say you create a variable
+
+03:27.720 --> 03:34.250
+in a module and you name it underscore my underscore van because it starts with a single underscore.
+
+03:34.290 --> 03:40.310
+It is a convention that is used to indicate that this is an internal or a private object.
+
+03:40.320 --> 03:43.410
+There is no concept of private really in Python.
+
+03:43.410 --> 03:44.710
+Everything is public.
+
+03:44.910 --> 03:51.060
+So you know basically we're saying hey I want to indicate to anyone looking at my code or anyone using
+
+03:51.060 --> 03:57.280
+my code that they really shouldn't mess around with this variable so I'm going to give it an underscore.
+
+03:57.390 --> 03:59.420
+You know as the first character.
+
+03:59.550 --> 04:02.010
+So that is really just a convention.
+
+04:02.010 --> 04:07.240
+Now what happens though is that if you run let's say from module import stuff.
+
+04:07.500 --> 04:14.480
+And this underscore my VAR is inside the module then it will not important.
+
+04:14.520 --> 04:20.430
+So the Python interpreter looks at that and says OK you probably mean this to be a private object so
+
+04:20.430 --> 04:21.740
+it doesn't import.
+
+04:21.750 --> 04:23.210
+Now that doesn't mean you can't access it.
+
+04:23.220 --> 04:26.570
+You can still access it you know you can't import it this way.
+
+04:26.710 --> 04:28.500
+But there are other ways to access it.
+
+04:29.970 --> 04:35.360
+OK let's look at the double underscore Now the double underscore is used for something called name mangling
+
+04:35.360 --> 04:42.950
+that we'll look at in detail when we do the object oriented section and named by angling basically changes
+
+04:42.950 --> 04:48.190
+your variable name in a very set way that can be useful for inheritance chains.
+
+04:48.200 --> 04:53.510
+If you have the same name the same let's say attribute Let's say you do a you know property in a class
+
+04:53.870 --> 04:59.310
+and you have the same attributes in a chain of classes.
+
+04:59.360 --> 05:02.760
+Then how do you differentiate which is which.
+
+05:02.810 --> 05:05.290
+And this is when the name mangling comes in.
+
+05:05.510 --> 05:12.290
+And so when you want that to happen you use this Dondre in front of your property name for example I
+
+05:12.290 --> 05:14.530
+will see that a lot more detail.
+
+05:14.660 --> 05:19.720
+And the last one is the one that starts and ends with a double underscore.
+
+05:19.940 --> 05:22.270
+So under my underscore done.
+
+05:23.000 --> 05:24.760
+That has a very specific thing.
+
+05:24.770 --> 05:32.360
+These are really system defined names so Python kind of reserves its naming convention in this way for
+
+05:32.360 --> 05:36.020
+certain things and it has a special meaning to the interpreter.
+
+05:36.200 --> 05:38.260
+Which means don't invent them.
+
+05:38.300 --> 05:44.630
+Now let's don't go and create your own variables that stout and end with a double underscore to stick
+
+05:44.630 --> 05:46.900
+to the ones that are predefined by Python.
+
+05:47.060 --> 05:48.160
+Now what are they.
+
+05:48.200 --> 05:52.380
+Well there's a slew of them and we all will see a lot of them throughout the schools.
+
+05:52.550 --> 05:58.790
+But for example you know you have the init method you know to initialize a class while that's the double
+
+05:58.790 --> 06:01.160
+underscore in it double underscore function.
+
+06:01.310 --> 06:05.720
+And then when you create a new class it will call that particular function it's going to look for that
+
+06:05.720 --> 06:07.390
+function.
+
+06:07.600 --> 06:08.900
+Now the same thing happens.
+
+06:08.950 --> 06:15.190
+Let's say you have two objects x and y that are instances of you know that say some custom class that
+
+06:15.190 --> 06:20.620
+you've written and you want to compare them you want to say X less than Y that what's going to happen
+
+06:20.620 --> 06:27.160
+is that the Python interpreter is actually going to run this underscore underscore l t underscore underscore
+
+06:27.160 --> 06:32.780
+method that it expects to find in this object and then pass the object Y.
+
+06:32.950 --> 06:39.200
+So this operating here actually gets evaluated by using this expression over here.
+
+06:39.430 --> 06:46.350
+And again Python will look specifically for this method name when it finds less then.
+
+06:46.780 --> 06:48.950
+So that's why these are system defined.
+
+06:49.120 --> 06:53.020
+Don't invent some You'll never know what could happen in future versions of Python.
+
+06:53.030 --> 06:56.360
+Maybe you know whatever you decided to use gets used.
+
+06:56.590 --> 06:58.550
+You know in the Python standard later.
+
+06:58.660 --> 07:01.380
+And then there's going to be a conflict between the two potentially.
+
+07:02.730 --> 07:03.390
+OK.
+
+07:04.110 --> 07:11.400
+So other naming conventions and this is just a very very small excerpt of the PEP 8 style guide if you
+
+07:11.400 --> 07:12.230
+want to look it up.
+
+07:12.240 --> 07:14.650
+I really strongly suggest that you read it.
+
+07:14.670 --> 07:19.700
+It's not that long it's a very interesting read actually and it's called PEP 8.
+
+07:19.800 --> 07:25.650
+Just do a google search for PEP 8 or Python PEP 8 and you'll get it and I'll show you the link.
+
+07:25.830 --> 07:27.860
+In a few minutes.
+
+07:27.900 --> 07:34.860
+So this is how we name different things like packages so packages should be short names all lowercase
+
+07:34.860 --> 07:37.460
+names and preferably no underscores.
+
+07:37.470 --> 07:41.190
+So for example you might create a package called utility's right.
+
+07:41.190 --> 07:46.100
+Note everything is lowercase a single word and no underscores.
+
+07:46.230 --> 07:51.300
+That's the preferred style for naming packages for modules.
+
+07:51.300 --> 07:55.860
+We also want Shabat all lowercase names but they can have underscores.
+
+07:55.860 --> 08:02.800
+So for example D-B underscore utils would be fine as would be divi utils in one word as well.
+
+08:02.910 --> 08:08.220
+Really only start using the underscores if you really need it to differentiate the words may be in your
+
+08:08.220 --> 08:11.060
+Marville classes.
+
+08:11.060 --> 08:12.340
+Now classes is different.
+
+08:12.350 --> 08:21.090
+The convention is to use cap words or upper case which means that all the words are linked together
+
+08:21.360 --> 08:27.660
+there are no underscores but the beginning of each word is an uppercase letter including the first letter
+
+08:27.660 --> 08:34.290
+of the variable functions well functions should be lowercase and the words can be separated by underscores
+
+08:34.440 --> 08:36.890
+which is called Snake case.
+
+08:36.980 --> 08:37.220
+Right.
+
+08:37.220 --> 08:39.250
+So for example open account.
+
+08:39.360 --> 08:46.910
+So this might be a method in your bank account class called open account variables should be lowercase
+
+08:46.930 --> 08:48.570
+words separated by underscores.
+
+08:48.610 --> 08:50.470
+Snake case same as functions.
+
+08:50.470 --> 08:55.900
+So basically we follow the same convention for naming variables as we do for naming functions.
+
+08:55.900 --> 09:04.130
+So for example a count underscore ID constants are all uppercase and all the words are separated by
+
+09:04.130 --> 09:04.970
+underscores.
+
+09:04.970 --> 09:13.310
+So for example minimum annual percentage rate men underscore a PR would be a valid constant name.
+
+09:13.310 --> 09:16.010
+Now obviously you don't have to follow those conventions.
+
+09:16.010 --> 09:18.140
+You can follow your own conventions.
+
+09:18.140 --> 09:22.840
+You also may want to follow conventions if specially if it's let's say an external interface that you're
+
+09:22.850 --> 09:30.050
+providing to you or to other people and it may need to conform to what they used to in which case that's
+
+09:30.050 --> 09:30.620
+fine.
+
+09:30.760 --> 09:36.320
+You know there's nothing wrong with breaking away from conventions as long as you try and remain consistent
+
+09:36.320 --> 09:37.640
+within your own code.
+
+09:38.270 --> 09:45.080
+But these are best practices and they've been fairly well thought out and so it's really I think recommended
+
+09:45.080 --> 09:50.570
+to read that style guide or at least skim through it and see what the main points are.
+
+09:51.020 --> 09:53.420
+So you can find that this link over here.
+
+09:53.510 --> 09:59.590
+But again the easiest to do a search for Pep 8 and you will find that link to them.
+
+09:59.990 --> 10:06.200
+There's lots of other things that they mention in that in particular this quote by Emerson.
+
+10:06.210 --> 10:09.280
+Foolish consistency is the hobgoblin of little minds.
+
+10:09.540 --> 10:12.010
+And that's kind of what they start off with.
+
+10:12.030 --> 10:13.440
+So it's a guide.
+
+10:13.440 --> 10:14.910
+It's a style guide.
+
+10:14.910 --> 10:20.070
+It doesn't mean that you have to follow it and you don't have to follow it all the time without thinking.
+
+10:20.070 --> 10:25.770
+Sometimes you want to break away from your convention for some reason or other that's perfectly fine.
+
+10:25.770 --> 10:33.420
+The main goal really of all this is to make your code readable and by following these guides is you
+
+10:33.420 --> 10:38.640
+make your code standardized in such a way that another Python developer that's used to that guy will
+
+10:38.640 --> 10:43.740
+understand without having to go and look into your code in detail that's something written this way
+
+10:43.880 --> 10:44.900
+is a constant.
+
+10:45.090 --> 10:47.790
+Something written this way is a class.
+
+10:47.790 --> 10:51.000
+These could be you know function names or variable names.
+
+10:51.000 --> 10:52.090
+That's fine.
+
+10:52.120 --> 10:57.660
+Don't but it helps to really kind of understand how the code sometimes is structured.
+
+10:57.690 --> 10:58.270
+All right.
+
+10:58.350 --> 11:00.450
+Thanks for watching and I'll see you in the next bit.

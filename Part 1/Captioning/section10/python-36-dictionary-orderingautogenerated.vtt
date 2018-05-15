@@ -1,0 +1,883 @@
+WEBVTT
+
+00:00.310 --> 00:06.570
+High I want to talk a little bit about dictionary ordering and pythons 3.6 a new implementation of dict
+
+00:06.870 --> 00:13.980
+came out in 3.6 and one of the features of that apart from being supposedly faster and more compact
+
+00:14.520 --> 00:17.270
+is that key ordering is retained.
+
+00:17.550 --> 00:18.820
+And what does that mean.
+
+00:18.840 --> 00:25.410
+That just means that the older in which the keys are brought back when we iterate through the Keys or
+
+00:25.410 --> 00:31.680
+the items or the values isn't the same order in which the keys were inserted the elements were inserted
+
+00:31.680 --> 00:33.420
+into the dictionary.
+
+00:33.450 --> 00:41.040
+So basically this replaces the older disks which is in the collections module in the standard library.
+
+00:41.340 --> 00:46.470
+And I'll come back to that as well and take a look at all that dick and see if we can actually do everything
+
+00:46.470 --> 00:51.210
+we need using just plain dictionaries but a few caveats.
+
+00:51.210 --> 00:54.400
+First this is 3.6 only.
+
+00:54.900 --> 00:57.470
+So it's going to have to be 3.6 and higher.
+
+00:57.600 --> 01:00.660
+Secondly in 3.6.
+
+01:00.680 --> 01:02.390
+It's not an official fact.
+
+01:02.390 --> 01:08.840
+In other words it wasn't guaranteed that keys would remain the dictionaries would be ordered.
+
+01:08.930 --> 01:12.650
+It's you know it doesn't guarantee that in 3.7.
+
+01:12.650 --> 01:18.620
+However it does it does guarantee that if you iterated dictionary you will get it back in the same order
+
+01:18.620 --> 01:23.970
+in which you added keys to the dictionary and it supports deletions as well.
+
+01:23.990 --> 01:31.250
+So if your code is going to be 3.6 or higher then you can certainly leverage that feature.
+
+01:31.280 --> 01:39.320
+But if your code has to run on both 3.6 and higher and lower than 3.6 and you need to really rely on
+
+01:39.380 --> 01:42.860
+ordering in dictionaries then you still need to use the older dict.
+
+01:42.860 --> 01:48.680
+Otherwise your code will break inversions versions prior to 3.6 So just be careful with that but as
+
+01:48.680 --> 01:54.830
+long as you're writing for 3.6 and higher this is safe even though it's not official for 3.6 it will
+
+01:54.830 --> 01:56.950
+become official for 3.7.
+
+01:57.410 --> 02:00.650
+And I have a link to that also in the Jupiter notebook.
+
+02:00.650 --> 02:02.870
+So it's not official official yet.
+
+02:02.880 --> 02:11.650
+It's it was just a discussion that happened I guess in the Python developers e-mail kind of threads.
+
+02:12.320 --> 02:12.730
+OK.
+
+02:12.740 --> 02:17.660
+So the first thing is to make sure that we're running the correct version of Python so you should check
+
+02:17.670 --> 02:20.160
+that if you're not absolutely sure.
+
+02:20.390 --> 02:25.950
+So we're just going to import version info from Sis and then just look at what Rosenfels says.
+
+02:26.090 --> 02:29.460
+And in this case you can see I'm running three point six point two.
+
+02:29.870 --> 02:35.600
+All right so now let's see what I mean by the dictionary keys being you know having the order preserved.
+
+02:35.660 --> 02:41.870
+Let's have a dictionary and let's put two keys in that dictionary and I'm going to put them like vi
+
+02:41.870 --> 02:45.270
+is one and a is two.
+
+02:45.420 --> 02:45.970
+OK.
+
+02:46.190 --> 02:55.300
+So now if I look at the dot items let's say or I can also look at the dark keys and D-don't values OK.
+
+02:55.310 --> 02:57.120
+And then deid of items.
+
+02:57.770 --> 03:00.500
+If I type it correctly.
+
+03:00.500 --> 03:05.750
+So you'll notice that the key is on the order in which I specify them in the dictionary be an A and
+
+03:05.750 --> 03:11.770
+the values are in the same order as well and then the items are in the same order as well.
+
+03:11.780 --> 03:18.180
+Now let's say that I go ahead and add an item and I say let's say X is three.
+
+03:18.260 --> 03:29.450
+Now I can look at the keys again the values again and the items and you can see that X shows up as the
+
+03:29.510 --> 03:31.790
+last key in the Keys.
+
+03:31.790 --> 03:37.190
+The three shows up as the last value and X comma three shows up as the last item.
+
+03:37.190 --> 03:41.260
+Now the words we're getting are older preserved.
+
+03:41.270 --> 03:42.610
+Now what happens if I delete one.
+
+03:42.620 --> 03:44.080
+Let's say I'm going to delete a.
+
+03:44.210 --> 03:47.190
+So I'm going to delete a k.
+
+03:47.520 --> 03:51.160
+And hey I got to say delete a from D.
+
+03:51.270 --> 03:51.860
+OK.
+
+03:52.040 --> 03:54.500
+So now I am just going to copy this.
+
+03:54.500 --> 03:55.870
+Actually I'm just going to look at items.
+
+03:55.970 --> 03:57.310
+That's good enough.
+
+03:57.830 --> 03:59.500
+Well I can type it.
+
+03:59.540 --> 04:02.360
+Maybe I should pick something I can type.
+
+04:02.810 --> 04:04.700
+OK so it is gone right.
+
+04:04.910 --> 04:06.380
+The second element is gone.
+
+04:06.380 --> 04:08.700
+Now what happens if I installed it back again.
+
+04:08.930 --> 04:11.330
+So I'm going to put back a as one.
+
+04:11.450 --> 04:14.730
+And let's look at the items again.
+
+04:15.440 --> 04:17.350
+And you can see a is at the end.
+
+04:17.450 --> 04:24.010
+So it does preserve that you know that order I removed a from the middle of the dictionary.
+
+04:24.020 --> 04:29.890
+I read that re added back in and it added it to the end of the dictionary.
+
+04:30.080 --> 04:34.060
+So we have essentially inherent ordering in those dictionaries.
+
+04:34.190 --> 04:37.580
+Hence why we don't need an ordered dict.
+
+04:37.600 --> 04:42.120
+Now I want to point out something that's kind of weird and it caught me by surprise.
+
+04:42.120 --> 04:46.810
+I wasn't aware of this because it doesn't do that in the Python interpreter.
+
+04:47.050 --> 04:50.970
+But Jupiter notebook plays around when you display your dictionaries.
+
+04:50.970 --> 04:52.370
+So let's see what I mean.
+
+04:52.610 --> 04:53.350
+OK.
+
+04:53.450 --> 05:00.940
+So look at the items you'll notice that we have B X and a look what happens if I just you know bring
+
+05:00.940 --> 05:03.210
+back D via Jupiters.
+
+05:04.090 --> 05:06.620
+I get a then b then x.
+
+05:06.670 --> 05:14.680
+So I think what it's doing it's basically ordering the keys at sauteing the keys lexicographically alphabetically
+
+05:14.680 --> 05:17.870
+if you want it soling those keys.
+
+05:18.460 --> 05:22.850
+In this case I've got strings lexicographically and then displaying it.
+
+05:22.930 --> 05:31.510
+So be careful do not use this as you know do not use the output of just looking at the representation
+
+05:31.510 --> 05:34.000
+of D in Jupiter.
+
+05:34.150 --> 05:37.180
+Based on the output here that is now incorrect.
+
+05:37.270 --> 05:42.640
+Before it doesn't really matter because we didn't have all the guarantied so we didn't really care how
+
+05:42.640 --> 05:43.770
+it was being displayed.
+
+05:43.810 --> 05:49.030
+You know and in so it ordered the keys before displaying them which was pretty nice.
+
+05:49.030 --> 05:53.710
+In fact I think the print function the pretty print function does the same thing.
+
+05:53.770 --> 05:59.590
+The pre-print function will alter your keys before it pretty prints and there was actually a fairly
+
+05:59.590 --> 06:01.720
+lengthy discussion about badan.
+
+06:02.170 --> 06:09.280
+Things got a little heated but people were discussing whether pretty print should now honor the older
+
+06:09.370 --> 06:16.410
+of the dictionaries or whether it should you know sort the keys and then print out and it's pretty print.
+
+06:16.480 --> 06:21.210
+And so the consensus was finally that it will mean it will be backward compatible.
+
+06:21.250 --> 06:22.870
+It will sort the keys.
+
+06:22.870 --> 06:25.530
+So most likely Jupiter is doing something similar.
+
+06:25.540 --> 06:27.420
+Or maybe they're using pretty print.
+
+06:27.460 --> 06:31.060
+So we saw how we can add and remove items and it preserves the order.
+
+06:31.090 --> 06:33.070
+So let's look at our dictionary again.
+
+06:33.070 --> 06:35.570
+So again I can do print.
+
+06:35.610 --> 06:42.030
+That's all fine print will still keep you know and show the correct order so you can see that be Xon
+
+06:42.080 --> 06:43.870
+a so as the last item.
+
+06:43.870 --> 06:51.790
+So if we say Deedat pop item it pops the rightmost item right it popped a what was that key here.
+
+06:51.790 --> 06:54.170
+Now we've pro-India of course that values gone.
+
+06:54.330 --> 06:54.770
+OK.
+
+06:54.910 --> 06:57.980
+So this is kind of like a stack of cost.
+
+06:58.120 --> 07:00.980
+I wouldn't really recommend using a dictionary as a stack.
+
+07:01.000 --> 07:04.820
+You'll get probably better performance using a list.
+
+07:05.170 --> 07:07.100
+So certainly not using a dictionary.
+
+07:08.080 --> 07:10.060
+There's no real reason to do that.
+
+07:10.060 --> 07:14.980
+So now what I'm wondering of course is well how do I pick a random item from the dictionary because
+
+07:14.980 --> 07:20.500
+it's ordered and it's not like you could pick a random item you know from previous dictionaries because
+
+07:20.800 --> 07:23.410
+the keys would not truly randomly ordered.
+
+07:23.420 --> 07:23.670
+Right.
+
+07:23.680 --> 07:29.200
+There was hash values involved and it wasn't truly random.
+
+07:29.200 --> 07:34.870
+So I'll come back to that actually I'll probably do a short video on how to pick a random item from
+
+07:34.870 --> 07:35.760
+a dictionary.
+
+07:35.920 --> 07:41.740
+Now what about the update method you know that you can update one dictionary using another dictionary.
+
+07:41.740 --> 07:42.980
+So what I mean by this.
+
+07:43.000 --> 07:45.180
+Well let's go ahead and create this dictionary.
+
+07:45.340 --> 07:49.980
+A is 1 and B let's say is 200.
+
+07:50.740 --> 07:54.270
+And let's call D2 Let's make that another dictionary.
+
+07:54.310 --> 08:00.010
+Let's say a is a hundred and D is 300.
+
+08:00.250 --> 08:02.660
+And let's say C is 400.
+
+08:02.800 --> 08:07.080
+So I'm just keeping the DNC not ordered.
+
+08:07.120 --> 08:11.260
+Just so we can see if there's any kind of idiosyncrasies with that.
+
+08:11.260 --> 08:14.690
+So here's you wanted to know what you can do is you can say D-1.
+
+08:14.760 --> 08:16.110
+Update D-2.
+
+08:16.150 --> 08:18.910
+And what it does essentially merges the two into D-1.
+
+08:18.910 --> 08:25.150
+So any existing that will replace the value any keys that are not in D1 but that are indeed two will
+
+08:25.150 --> 08:27.310
+get merged into D-1.
+
+08:27.610 --> 08:31.880
+So what I'm interested in knowing is does the order get preserved.
+
+08:31.900 --> 08:39.430
+And I'm guessing that when we merge the two into the it's going to replace a is going to stay in its
+
+08:39.430 --> 08:45.430
+first position and then D is going to get added in the third position and see is going to get added
+
+08:45.430 --> 08:46.420
+in the fourth position.
+
+08:46.420 --> 08:53.950
+In other words the merge is going to respect the order of the keys in D2 when it adds them to D-1.
+
+08:53.950 --> 08:54.840
+So let's see.
+
+08:55.010 --> 08:58.910
+So we've done that so this is in place mutation of D-1.
+
+08:58.930 --> 09:03.020
+So now let's go ahead and print D1 Let's see what we get.
+
+09:03.700 --> 09:05.200
+And indeed we get that.
+
+09:05.200 --> 09:09.020
+So as you can see the order was preserved so that's great.
+
+09:10.430 --> 09:13.010
+All right so now how about all the dict.
+
+09:13.040 --> 09:15.410
+Can we truly get rid of all addicts.
+
+09:15.470 --> 09:22.030
+Well old addict has a few methods that are not available in the regular dict for example.
+
+09:22.070 --> 09:29.720
+They move to and method and you specify the key that you want to move to the end and then you specify
+
+09:29.720 --> 09:36.810
+optionally what the end is the end the beginning of the dictionary always the end the end of the dictionary.
+
+09:36.830 --> 09:41.930
+So is that the last item or not so if you say lastic also true it's going to move it to the right side
+
+09:42.140 --> 09:46.650
+the right most you know element of the dictionary in this altered dict.
+
+09:46.790 --> 09:51.410
+And if you say logicals false it's going to move it to the beginning and then similarly there's also
+
+09:51.410 --> 09:52.610
+a pop item.
+
+09:52.750 --> 09:57.530
+So puff item also takes the last Picross true.
+
+09:57.800 --> 10:01.460
+And basically it's going to remove an item from the dictionary.
+
+10:01.460 --> 10:05.090
+Now we saw with the regular standard dictionary nine 3.6.
+
+10:05.090 --> 10:06.970
+It just removes the last element.
+
+10:06.980 --> 10:09.610
+Well that's what pop item does by default.
+
+10:09.620 --> 10:14.510
+But if you want to remove the first element then you can say last equals false and they will remove
+
+10:14.510 --> 10:17.450
+the first element of the dictionary not the last one.
+
+10:17.540 --> 10:23.270
+Again if all you're looking for is some kind of list where you can add and remove items easily from
+
+10:23.270 --> 10:27.630
+both the front end and the end of the yarn list.
+
+10:27.770 --> 10:32.770
+You should look at deck that's in the collections module.
+
+10:32.860 --> 10:36.240
+So those are two main items Knight also supports reversed.
+
+10:36.400 --> 10:43.080
+So you can actually pass reversed to reverse the iteration.
+
+10:43.300 --> 10:47.290
+Or you can call reversed on the order deck to reverse the iteration.
+
+10:47.300 --> 10:47.740
+So I.
+
+10:47.800 --> 10:52.960
+So when you iterate an ordered deck normally you iterate from left to right if you want to iterate from
+
+10:52.960 --> 10:55.740
+right to the left you just reversed instead.
+
+10:56.080 --> 11:02.260
+So let's take each one of those one by one and let's see if we can you know build an equivalent using
+
+11:02.260 --> 11:03.320
+just plain decks.
+
+11:03.370 --> 11:05.980
+Now in 3.6.
+
+11:05.980 --> 11:11.720
+So the fourth one I want to look to is the move to end so move up to end.
+
+11:15.170 --> 11:17.600
+Let's see if somehow we can do that.
+
+11:17.620 --> 11:27.830
+So let's start with a dictionary so let's say a is 1 and B is true and C is 3.
+
+11:28.000 --> 11:29.330
+So simple dictionary.
+
+11:29.580 --> 11:35.610
+And let me go ahead and print what our standard state is for the dictionary.
+
+11:35.620 --> 11:43.480
+Now what I want to do I want to take an element let's say I want to take a and I want to remove it from
+
+11:43.480 --> 11:45.220
+the beginning and move it to the end.
+
+11:45.220 --> 11:49.230
+So essentially what I'm going to do is I'm going to pop it right.
+
+11:49.240 --> 11:54.870
+I'm going to pop the item with key a pop is going to return the value.
+
+11:54.880 --> 12:02.380
+So now all I need to do is just set it to the key and remember now when I set the key because ordering
+
+12:02.380 --> 12:06.320
+is preserved it should actually added to the end of the dictionary.
+
+12:06.370 --> 12:11.680
+So in effect what I've done here is moved a to the end of the dictionary so that would be equivalent
+
+12:11.680 --> 12:13.820
+to move to and you know with
+
+12:16.840 --> 12:20.860
+with just right that end with last equal to true.
+
+12:20.950 --> 12:21.350
+OK.
+
+12:21.440 --> 12:23.050
+That would be equivalent to that.
+
+12:23.060 --> 12:32.990
+So let's see now let's go ahead and print move a to and and let's just see what the state of the dictionary
+
+12:32.990 --> 12:33.940
+is.
+
+12:34.360 --> 12:41.210
+And that worked right in the beginning was here and now is at the end so we can do it with the move
+
+12:41.210 --> 12:44.410
+to and lastic is true of the ordered dict.
+
+12:44.450 --> 12:46.260
+Now how about move to front.
+
+12:46.550 --> 12:52.530
+So by move to front what I mean is move to and last equals false.
+
+12:52.610 --> 12:54.370
+So let's see how we might do that.
+
+12:54.380 --> 12:58.030
+Now is not as easy because we want to put something in the beginning.
+
+12:58.040 --> 13:00.680
+We don't really have a way to do that with a standard deck.
+
+13:00.680 --> 13:05.090
+We can only basically add to the end but we can't add to the beginning.
+
+13:05.090 --> 13:12.620
+So what we're going to have to do is we're going to let me start off with this dictionary and I'm just
+
+13:12.620 --> 13:16.730
+going to copy paste that from my notes you can download the notebook.
+
+13:17.030 --> 13:25.140
+Let's start with this and let's say that I want to move arm C to the beginning.
+
+13:25.430 --> 13:29.160
+So the first thing that I'm going to do let me just show you kind of manually what I'm going to do.
+
+13:29.210 --> 13:32.960
+The first thing I'm going to do is I'm going to move C to the end.
+
+13:33.100 --> 13:39.150
+OK so I'm going to take C and I'm going to move it to the end of the dictionary.
+
+13:39.320 --> 13:40.900
+That's going to be the first step.
+
+13:41.090 --> 13:42.580
+And then what am I going to do.
+
+13:42.590 --> 13:48.890
+I'm going to iterate in the dictionary and now I know that I can iterate in an ordered fashion so I
+
+13:48.890 --> 13:51.090
+know I can start with the first key.
+
+13:51.200 --> 13:52.560
+I'm going to take that key.
+
+13:52.730 --> 13:57.710
+I'm going to pop it and move it to the end and then I'm going to do the same thing again with B.
+
+13:57.710 --> 14:03.640
+I'm going to iterate again and pop it to the end and I'm going to do that again.
+
+14:03.680 --> 14:08.300
+I'm going to take that and move it to the end by popping and re-adding and I'm going to do the same
+
+14:08.300 --> 14:08.580
+thing.
+
+14:08.590 --> 14:12.050
+Why remove it and put it back at the end.
+
+14:12.200 --> 14:19.810
+And so now that I've done this you'll notice that C is now in the beginning and then the remaining keys
+
+14:19.880 --> 14:23.340
+AB X and Y have remained in there ordering.
+
+14:23.660 --> 14:26.540
+So that's the approach that I'm going to take here.
+
+14:27.410 --> 14:34.260
+So let's go ahead and print what the start of is the start State of the dictionary D.
+
+14:34.270 --> 14:38.510
+Now I'm going to pop and move over basically.
+
+14:38.680 --> 14:43.300
+So I'm going to pop C and then re-added back immediately to the dictionary.
+
+14:43.310 --> 14:49.600
+So that is now that has moved C to the end of the dictionary.
+
+14:49.680 --> 14:53.500
+So let's go ahead and front that moved C to end.
+
+14:53.750 --> 14:54.340
+OK.
+
+14:56.100 --> 14:57.730
+So let's see if that works.
+
+14:57.780 --> 14:58.540
+Yeah okay.
+
+14:58.540 --> 15:01.800
+So C is at the end so we just use this technique here.
+
+15:01.860 --> 15:04.150
+Move to and lastic equals truth.
+
+15:04.290 --> 15:11.100
+Now would we have to do is we have to iterate for I in range and we want to iterate from what from the
+
+15:11.100 --> 15:16.070
+first element this one up to but not including the last element.
+
+15:16.080 --> 15:19.860
+So we're going to go to the length minus one essentially of terms of indexes.
+
+15:19.860 --> 15:24.160
+We're going to iterate from 0 up to and including length minus two.
+
+15:24.240 --> 15:33.070
+So we're going to iterate up to lenth of D minus 1 OK because we actually want to go to minus 2 inclusive.
+
+15:33.540 --> 15:37.160
+And we're going to then take each one and move it to the end.
+
+15:37.230 --> 15:41.410
+So we'll going do exactly what I showed you in that kind of manual process.
+
+15:41.430 --> 15:44.120
+So let's go ahead and do this.
+
+15:44.160 --> 15:47.540
+So I'm going to get an iterator on the keys.
+
+15:47.580 --> 15:48.500
+This is not a list.
+
+15:48.510 --> 15:50.310
+It's a view.
+
+15:50.430 --> 15:54.130
+So I need to get an iterator and I just want to get the first one right.
+
+15:54.150 --> 15:55.080
+That's all I'm interested in.
+
+15:55.080 --> 16:00.010
+I just want to get the first item in that all keys.
+
+16:00.150 --> 16:05.910
+So now that I have the key I know what the key is I need to move that item to the end of the dictionary
+
+16:05.940 --> 16:11.570
+so I can say Deedat key equals the darte pop key.
+
+16:14.660 --> 16:18.650
+And let's go ahead and say print move see to front.
+
+16:18.650 --> 16:24.350
+If this works correctly we should have moved C to the front by essentially moving everything in front
+
+16:24.350 --> 16:26.210
+of C to the back.
+
+16:26.630 --> 16:27.060
+OK.
+
+16:27.140 --> 16:28.090
+And let's take a look.
+
+16:28.130 --> 16:31.880
+Yeah we've got C in front and then you'll notice that everything else here.
+
+16:31.940 --> 16:33.320
+The order was preserved.
+
+16:33.320 --> 16:34.970
+So that's working great.
+
+16:35.000 --> 16:35.290
+All right.
+
+16:35.300 --> 16:38.620
+So the next one is pop last night and how we're going to do pop.
+
+16:38.700 --> 16:39.470
+Last item.
+
+16:39.500 --> 16:41.470
+Well that's really straightforward.
+
+16:41.540 --> 16:48.320
+Well we have to do when we again copy this dictionary over here to pick up the last item and we'll copy
+
+16:48.320 --> 16:54.460
+that as well to the last item I'll have to say the deed of pop item that's the default behavior.
+
+16:54.530 --> 17:06.860
+So top last item and you'll see that a I don't get a syntax error you'll see that indeed we removed
+
+17:06.890 --> 17:08.310
+y from the dictionary.
+
+17:08.310 --> 17:09.120
+OK it's gone.
+
+17:09.240 --> 17:10.170
+OK cool.
+
+17:10.370 --> 17:18.620
+Now how about pop first item and then when it actually is quite easy as well it's not going to be any
+
+17:18.620 --> 17:24.920
+more difficult almost than pop last item we already know how to find the fourth key in the dictionary.
+
+17:25.220 --> 17:28.770
+So all we need to do is copy and paste this again.
+
+17:29.240 --> 17:35.760
+And all we need to do is just find the first key will the key that we want to pop is going to be what.
+
+17:35.780 --> 17:38.830
+Well it's going to be we first have to get our keys.
+
+17:39.140 --> 17:39.710
+OK.
+
+17:39.920 --> 17:41.390
+And there's different ways you can do it here.
+
+17:41.450 --> 17:44.100
+You could convert it to a list.
+
+17:44.160 --> 17:44.600
+OK.
+
+17:44.870 --> 17:48.460
+And then get the first item you could do that.
+
+17:48.470 --> 17:55.370
+Or you could actually just use something like get the iterator on the keys and then just get the first
+
+17:55.370 --> 17:57.920
+one by colon next.
+
+17:57.920 --> 17:59.680
+So now we have the first keep k.
+
+17:59.750 --> 18:01.960
+Just to show you that's where we get.
+
+18:01.970 --> 18:02.260
+Right.
+
+18:02.280 --> 18:04.690
+Is the first key.
+
+18:05.150 --> 18:11.090
+So we have that and all we need to do now is just to say Pop keep K and then we should have
+
+18:14.580 --> 18:18.730
+after Bob for them.
+
+18:18.830 --> 18:20.990
+And as you can see a is gone.
+
+18:21.230 --> 18:23.190
+So pretty neat right.
+
+18:23.190 --> 18:25.340
+That's that's really neat.
+
+18:25.580 --> 18:31.190
+So basically I'm not sure that you know we need an order dict anymore and it's probably going to remain
+
+18:31.190 --> 18:36.910
+in the standard library for backward compatibility but most likely it's going to leverage now the deck
+
+18:36.950 --> 18:42.530
+is going to be a thin wrapper around you know a regular dict because most of the functionality is already
+
+18:42.530 --> 18:43.780
+there and dict.
+
+18:44.360 --> 18:49.550
+If you want to find out how the dictionary was actually implemented and in this version of 3:6 then
+
+18:49.580 --> 18:52.830
+you can go to the Web site.
+
+18:52.880 --> 18:55.310
+It's really good.
+
+18:55.850 --> 19:01.730
+It's basically a python a pure Python implementation of the dictionary of the new implementation of
+
+19:01.730 --> 19:04.450
+dictionary that Raymond headings did.
+
+19:04.520 --> 19:11.000
+And so he wrote this in Python to basically show me as a proof of concept and to show how it works.
+
+19:11.000 --> 19:16.290
+Now obviously you know it's it's in the built in it's in C Python is going to be written in C..
+
+19:16.640 --> 19:20.540
+But you can certainly see how it works and it's kind of standalone.
+
+19:20.690 --> 19:23.570
+You if you go to pie pie and you try and take a look at it there.
+
+19:23.600 --> 19:27.350
+Because that implementation is there almost that implementation is there.
+
+19:27.380 --> 19:29.330
+It's quite a bit more difficult to follow.
+
+19:29.330 --> 19:36.050
+This one is nice and self-contained but I will do a video later on in the schools when I get into the
+
+19:36.050 --> 19:39.950
+section on dictionaries and we'll look at that in detail and see how it works.
+
+19:39.950 --> 19:42.620
+That will help us understand hash maps and things like that.
+
+19:43.500 --> 19:44.020
+All right.
+
+19:44.220 --> 19:44.850
+Thanks for watching.

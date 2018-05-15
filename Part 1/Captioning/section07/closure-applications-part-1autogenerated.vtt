@@ -1,0 +1,697 @@
+WEBVTT
+
+00:00.420 --> 00:04.370
+High in this video we're going to look at some applications of closures.
+
+00:04.650 --> 00:11.460
+And in this particular video I really want to show you how very often what you might write as a class
+
+00:11.670 --> 00:14.400
+can actually be written as a closure instead.
+
+00:14.400 --> 00:19.710
+So let's look at a very simple example which is going to be an average year we want something that will
+
+00:19.710 --> 00:25.890
+allow us to feed numbers over time and it will just give us what the current averages of all the numbers
+
+00:25.890 --> 00:26.600
+were fed through.
+
+00:26.600 --> 00:32.550
+So far so obviously a very simple approach might be to just simply store those numbers as we receive
+
+00:32.550 --> 00:36.580
+them and they calculate the average every time it's requested.
+
+00:36.630 --> 00:38.990
+So you might think of doing this using a class.
+
+00:39.000 --> 00:41.260
+And let's see how we might do that.
+
+00:41.310 --> 00:46.930
+So let's go ahead and create a class let's call it average.
+
+00:48.390 --> 00:49.920
+And what does it do.
+
+00:49.920 --> 00:58.310
+Well we're going to need an initialization initializer or initialization and all we're going to do here
+
+00:58.560 --> 01:02.260
+is we're going to create an empty list numbers.
+
+01:02.280 --> 01:09.900
+So that's going to be an instance variable numbers then we're going to define this add function or this
+
+01:09.960 --> 01:18.120
+add method and the add method is going to require the number that we want to add to our list.
+
+01:18.120 --> 01:22.980
+So would then would say self-taught numbers got append numbers right.
+
+01:23.010 --> 01:24.010
+We've just added.
+
+01:24.330 --> 01:28.710
+And instead of creating Now another method to return the average.
+
+01:28.710 --> 01:32.720
+I'm just going to return the average So every time we add will get the new average back.
+
+01:32.760 --> 01:34.260
+So keep on going then.
+
+01:34.530 --> 01:36.310
+Well first I have to calculate the total.
+
+01:36.360 --> 01:37.730
+So let's do it this way.
+
+01:37.920 --> 01:42.720
+Total I don't have to separate it up but I'll do this just to keep it simple.
+
+01:42.900 --> 01:50.040
+So totally calls the sum soft of numbers and the count which is the number of items is just the length
+
+01:50.460 --> 01:52.620
+of numbers.
+
+01:53.220 --> 01:56.700
+And then we're going to return total divided by count.
+
+01:56.730 --> 01:57.970
+So that's our class.
+
+01:57.990 --> 01:59.240
+Pretty straightforward.
+
+01:59.280 --> 02:06.750
+It has one instance property numbers and has one instance method and which appends the number to the
+
+02:06.750 --> 02:10.540
+list and then calculates the average and then returns it.
+
+02:10.740 --> 02:15.830
+But you'll notice that every time we add a number we have to recalculate the total and the count.
+
+02:15.990 --> 02:17.310
+That's not very efficient.
+
+02:17.310 --> 02:20.980
+So we'll see later on how to make that a little more efficient.
+
+02:21.060 --> 02:22.650
+For now let's see how this would work.
+
+02:22.650 --> 02:29.810
+For all we could say a Gore's average for and now we have a new average of function and you average
+
+02:29.810 --> 02:30.700
+an object right.
+
+02:30.710 --> 02:34.730
+An instance of the average a class and now we can call.
+
+02:34.760 --> 02:41.740
+And so let's say we add 10 while our current average is 10 and 20.
+
+02:41.750 --> 02:48.170
+Our current average now is 15 and we can add 30 and our current average is 20.
+
+02:48.400 --> 02:48.790
+OK.
+
+02:48.800 --> 02:51.110
+So that works as expected cost.
+
+02:51.200 --> 02:53.840
+We can create as many averages as we want.
+
+02:54.020 --> 02:58.690
+So we can say beat up and 10 and no lower so we get a value of 10.
+
+02:58.730 --> 03:02.170
+Yeah because this B and those are not the same right.
+
+03:02.180 --> 03:05.390
+They are different instances of the same class.
+
+03:05.390 --> 03:10.190
+I'm just pointing that out because it's very similar to what we're going to see now when we rewrite
+
+03:10.220 --> 03:12.070
+this using a closure instead.
+
+03:12.160 --> 03:18.020
+So instead of having this class and kind of the overhead involved with having objects and initializers
+
+03:18.020 --> 03:25.480
+and so on and having the self We're going to write it will simply go ahead and create a function called
+
+03:25.490 --> 03:26.440
+averages.
+
+03:26.810 --> 03:32.300
+And this one is going to have a local variable called numbers and it will just be an empty list to start
+
+03:32.300 --> 03:33.100
+off with.
+
+03:33.230 --> 03:35.530
+Then we're going to create our closures.
+
+03:35.630 --> 03:41.390
+So now we define this in a function add and add needs to take in a number because we want to be able
+
+03:41.390 --> 03:42.770
+to pass in that number.
+
+03:42.980 --> 03:47.620
+And what is it going to do it's going to say numbers that appendix number.
+
+03:48.890 --> 03:52.090
+So this is no different than what we were doing in the class.
+
+03:52.100 --> 03:54.290
+We're just appending the number to the list.
+
+03:54.290 --> 03:59.000
+The only thing is that this numbers here is a non-local variable there's no assignment to it.
+
+03:59.040 --> 04:06.260
+So add has a free variable numbers and it has a local variable called numbers but numbers is the free
+
+04:06.260 --> 04:07.030
+variable.
+
+04:07.340 --> 04:08.440
+So now what do we need to do.
+
+04:08.450 --> 04:11.680
+Well we need to do exactly what we did over here.
+
+04:11.870 --> 04:14.390
+So let's go ahead and do this.
+
+04:14.390 --> 04:20.220
+The only thing is we don't have self anymore and that will work just as before.
+
+04:20.330 --> 04:23.050
+The only difference that we have to return the closure.
+
+04:23.090 --> 04:25.340
+Don't forget to return the closures.
+
+04:25.850 --> 04:32.830
+OK so now we have that we can say both averages right and we're going to say a 10.
+
+04:32.900 --> 04:33.200
+Right.
+
+04:33.200 --> 04:35.330
+We don't have to call and we don't have to say.
+
+04:35.370 --> 04:39.370
+And because remember what is a it is and it's the closer.
+
+04:39.640 --> 04:40.180
+Right.
+
+04:40.340 --> 04:41.890
+So a is 10.
+
+04:41.980 --> 04:50.100
+And if we do a 20 we get 15 a 30 we get 20 back just as before.
+
+04:50.510 --> 04:57.950
+And of course if we create another we call average or Again we're creating another closure a different
+
+04:57.950 --> 04:58.470
+one.
+
+04:58.590 --> 05:01.380
+And if we called the turn well we get 10 back.
+
+05:01.400 --> 05:06.800
+As you can see the average the numbers list is not the same between a and b.
+
+05:06.800 --> 05:08.840
+In fact you can look at it this way.
+
+05:09.050 --> 05:09.520
+Right.
+
+05:09.650 --> 05:16.580
+Here's the cell that a uses for its closure right for its free variable numbers.
+
+05:16.730 --> 05:20.510
+And here's the cell used by B.
+
+05:20.570 --> 05:21.860
+It's free variable.
+
+05:21.860 --> 05:25.120
+You can see different memory addresses not the same thing.
+
+05:25.130 --> 05:31.970
+It's not shared just as we had you know a and b with two separate distinct objects both instances of
+
+05:31.970 --> 05:34.580
+the average a class but separate objects.
+
+05:34.790 --> 05:36.130
+We've got the same thing here.
+
+05:36.200 --> 05:42.550
+They both if you want to think about instances of that closure but they're separate causes not the same.
+
+05:43.240 --> 05:46.720
+Ok so now let's see how we can fix this up a little bit.
+
+05:46.730 --> 05:50.650
+Let me copy and paste the code down here so we can see it better.
+
+05:52.200 --> 05:58.320
+So every time we're calling the sum right we're appending the number to the numbers and then we're calling
+
+05:58.320 --> 06:00.600
+the sum but what is the new total.
+
+06:00.600 --> 06:06.700
+It's the previous total plus the new number and the count is the previous count plus 1.
+
+06:06.930 --> 06:13.440
+So instead of actually storing numbers all the time let's not do that let's just stole the running total
+
+06:13.680 --> 06:19.050
+and the running count and then every time we add a number we'll add the number to that running total.
+
+06:19.170 --> 06:23.790
+Add 1 to the count and then we can recalculate the average much simpler.
+
+06:23.790 --> 06:29.960
+And we don't have the overhead of storing those numbers and calculating the sum and length of time.
+
+06:29.970 --> 06:31.110
+So how would we do that.
+
+06:31.110 --> 06:35.910
+Very simple we would say total equals zero and count equals zero.
+
+06:35.970 --> 06:36.950
+Right.
+
+06:37.680 --> 06:40.280
+So now we don't have that anymore.
+
+06:40.340 --> 06:46.980
+When you leave it in for a second we have total equals total plus numbers and count equals count plus
+
+06:47.020 --> 06:51.720
+1 K and then we return total divided by Count calls.
+
+06:51.720 --> 06:53.940
+Hopefully you've seen that there's an issue here.
+
+06:54.450 --> 06:56.750
+We have an assignment to total.
+
+06:57.060 --> 07:04.330
+So total is a local variable and that's not what we want we want the total to be kept around every time
+
+07:04.330 --> 07:08.190
+we call and write we want to retain its value.
+
+07:08.320 --> 07:13.200
+So we need to make total non-locally and the same thing with color.
+
+07:13.330 --> 07:15.610
+We need to make count local rights.
+
+07:15.610 --> 07:21.200
+We want that total and account to still be around when average or has finished running.
+
+07:21.210 --> 07:26.710
+And when ad has finished running because the next time we call ad right the next time we call that closer
+
+07:27.010 --> 07:32.770
+we want to remember what its previous total and count were hence why we're putting total and count in
+
+07:33.100 --> 07:38.230
+the average abody But then we reference it inside the function the function.
+
+07:38.320 --> 07:39.920
+And so we have our closure.
+
+07:40.470 --> 07:45.280
+OK now let's go ahead and create an instance of that closure.
+
+07:45.280 --> 07:48.070
+So a again is just a closure right.
+
+07:48.070 --> 07:49.420
+So it's this function.
+
+07:49.600 --> 07:52.430
+But now you'll notice it has two cells that it's working with.
+
+07:52.540 --> 08:03.760
+Yeah that's because it's working with two free variables that count and total time at these memory addresses.
+
+08:03.800 --> 08:10.500
+So now we can call a 10 10 20 people get 15 a 40.
+
+08:10.680 --> 08:12.200
+We had 20 back right.
+
+08:12.200 --> 08:13.210
+Same as before.
+
+08:13.220 --> 08:14.190
+No difference.
+
+08:14.360 --> 08:21.110
+And of course if we create another instance of the closure we'll start a new running average or as well.
+
+08:21.120 --> 08:23.640
+So in general you can always do that right.
+
+08:23.640 --> 08:26.180
+We could have written this as a class as well.
+
+08:26.190 --> 08:30.620
+Very quickly let's take the original class that we had.
+
+08:30.720 --> 08:31.090
+Right.
+
+08:31.110 --> 08:34.110
+We could have written it this way.
+
+08:34.110 --> 08:36.630
+So that means sort of up here.
+
+08:37.680 --> 08:47.040
+And instead of storing numbers we could say self-taught total equals zero self-dual count equals zero.
+
+08:47.280 --> 08:49.150
+And here of course we don't do that.
+
+08:49.170 --> 08:54.770
+We just say total equals self dupped total plus number.
+
+08:55.020 --> 08:58.510
+And then of course this is self-taught total.
+
+08:58.610 --> 09:03.450
+So let me I don't want to keep rewriting self all the time so I'll use the plus equals but remember
+
+09:03.450 --> 09:12.670
+that's kind of what it's doing anyways and counts plus equals one time and again self that counts.
+
+09:13.020 --> 09:17.120
+And then we're going to return self-help total provided by cell count.
+
+09:17.370 --> 09:21.360
+So this these two things kind of do the same thing right.
+
+09:21.360 --> 09:28.020
+This uses a class to store total and count in class in it or in instance properties.
+
+09:28.080 --> 09:28.390
+Right.
+
+09:28.440 --> 09:35.700
+And then the ad method uses the instance variables total and count instance properties to calculate
+
+09:35.700 --> 09:36.990
+and return the average.
+
+09:36.990 --> 09:37.230
+Right.
+
+09:37.230 --> 09:41.640
+So it adds the numbers calculates the average and then we call it again.
+
+09:41.640 --> 09:45.510
+So we've done the same thing one using a class.
+
+09:45.540 --> 09:47.440
+The other one using a closure.
+
+09:47.820 --> 09:49.880
+So pick whichever one you prefer.
+
+09:50.040 --> 09:56.610
+But very often writing things as a closure is sometimes easier and has less overhead than using a class
+
+09:56.790 --> 10:03.540
+but it's up to you how you want to do it how sick a look at another example which also shows you that
+
+10:03.600 --> 10:06.120
+you can take a class and rewrite it as a closure.
+
+10:06.360 --> 10:11.340
+And in this case I really just want something very simple that's going to time that's going allow me
+
+10:11.340 --> 10:14.370
+to time to count the number of elapsed seconds.
+
+10:14.370 --> 10:17.990
+Right so and we know that we can do that using the pouffe counter.
+
+10:18.000 --> 10:19.200
+We've seen that before.
+
+10:19.290 --> 10:20.450
+That's in the time library.
+
+10:20.460 --> 10:33.090
+So from time import of count a import per counter function I want to call it not yet.
+
+10:33.120 --> 10:37.920
+So now we can call perf counters and post kind of return some value.
+
+10:37.920 --> 10:40.050
+Don't worry about what that value is.
+
+10:40.050 --> 10:46.470
+It's kind of meaningless for all purposes we just want to know the difference between two consecutive
+
+10:46.470 --> 10:53.490
+calls to Polk County and that will give us the elapsed time between the two calls so we look at 2095
+
+10:53.640 --> 10:57.280
+minus 1:32 we are forgetting the decimal dust.
+
+10:57.300 --> 11:03.600
+So here we had approximately what 13 seconds elapsed between me typing this and running it and me running
+
+11:03.690 --> 11:04.770
+this one here.
+
+11:05.010 --> 11:07.120
+So that's what we're going use of counterfoil.
+
+11:07.410 --> 11:16.050
+So let's start with maybe a class let's call it time and we're going to define this function and it
+
+11:16.050 --> 11:21.810
+doesn't take any parameters but it's going to stall the start value so it's going to start basically
+
+11:21.810 --> 11:24.630
+whenever we first instantiate timer.
+
+11:24.780 --> 11:30.720
+So when you create the class and you create the instance of the class we're going to immediately take
+
+11:31.050 --> 11:40.920
+what is the perf count of value and then maybe I'll call that Paul Fanaa I'll change that in a few minutes
+
+11:40.920 --> 11:42.050
+and show you why.
+
+11:42.390 --> 11:45.680
+So poll self it doesn't actually take any parameters.
+
+11:45.840 --> 11:46.890
+And what is it going to do.
+
+11:46.960 --> 11:47.980
+All it's going to do.
+
+11:48.000 --> 11:55.740
+It's going to return the current count of value minus self-trust but that's all it does.
+
+11:55.740 --> 11:56.040
+Right.
+
+11:56.040 --> 12:04.260
+So basically now I can say t because timer let's call it T-1 equals timers.
+
+12:05.010 --> 12:05.760
+OK.
+
+12:06.090 --> 12:10.260
+And now I can call one doc poll right.
+
+12:10.270 --> 12:13.550
+T-1 is the object the instance of timer.
+
+12:13.560 --> 12:16.080
+It has a poll that's already been counting.
+
+12:16.080 --> 12:16.320
+Right.
+
+12:16.320 --> 12:20.370
+Because as soon as I created T-1 it Rand Paul can.
+
+12:20.550 --> 12:23.700
+Now I look and 15 seconds have elapsed.
+
+12:23.700 --> 12:29.110
+So that's how long I talked between start between running this and calling us.
+
+12:29.580 --> 12:37.080
+So now we can again call it again our T-2 81 call it again and don't poll.
+
+12:37.680 --> 12:40.420
+And now we get 32 spoke another 15 seconds.
+
+12:41.680 --> 12:43.270
+Now we can change this into a closure.
+
+12:43.280 --> 12:47.610
+But before I do I just want to show you something that's interesting you notice how I have to say one
+
+12:47.680 --> 12:53.020
+dot Paul I'm going to call this thing but really every time there's only a single function I'm interested
+
+12:53.020 --> 12:53.660
+in.
+
+12:53.800 --> 13:01.680
+And so what I'm going to do I'm going to change this to a special name Dunder call.
+
+13:02.080 --> 13:08.650
+What this does oldest does it basically says to Python hey the object that you get back after you've
+
+13:08.650 --> 13:11.590
+created the class is not a callable.
+
+13:11.890 --> 13:16.780
+And when you call it just call this method over here that's all it does.
+
+13:16.780 --> 13:19.920
+So now I can say what he time just as before.
+
+13:20.110 --> 13:22.220
+But there is no pool anymore.
+
+13:22.960 --> 13:29.050
+So now instead of calling the poll method like I had before right there is no pull method anymore.
+
+13:29.420 --> 13:35.830
+I am just going to call the object and it returns the elapsed time between when I created this and when
+
+13:35.830 --> 13:38.620
+I call this and I can call it again and we get that.
+
+13:38.740 --> 13:41.350
+So this is nothing really a very fancy.
+
+13:41.350 --> 13:46.840
+It just says that the instance that gets created from this class is callable.
+
+13:46.990 --> 13:53.230
+And when it gets called right by putting these parentheses in it's going to call this method over here
+
+13:53.530 --> 13:58.300
+and we'll see that in more detail when we get to object our programming later on in the course.
+
+13:58.540 --> 13:59.130
+OK.
+
+13:59.260 --> 14:04.210
+So this really has nothing to do with creating the closure I just wanted to show you that because sometimes
+
+14:04.210 --> 14:06.530
+it's useful and make your code a little cleaner.
+
+14:07.340 --> 14:08.010
+OK.
+
+14:08.250 --> 14:13.470
+So let's now go ahead and create a closure that would do the equivalent thing.
+
+14:13.560 --> 14:15.550
+So we're going to create a function.
+
+14:15.580 --> 14:16.900
+Def timers.
+
+14:17.460 --> 14:25.050
+And here I just need to store the stocks and I need to store what is the start value of this Paul Callan.
+
+14:25.530 --> 14:28.240
+And then inside I'll call it pool.
+
+14:28.530 --> 14:33.300
+Doesn't really matter since we'll never refer to it by name but he here's the pool and what is that
+
+14:33.300 --> 14:34.550
+pool function going to do.
+
+14:34.590 --> 14:41.720
+It's going to return the current value of perf counters minus stuffed and then we have to of course
+
+14:41.720 --> 14:46.220
+return of color and that's it.
+
+14:46.220 --> 14:49.900
+So these two things will do the equivalent work.
+
+14:49.940 --> 14:53.650
+So now we can call we can say T-2 equals timer's.
+
+14:53.850 --> 14:54.460
+Okay.
+
+14:54.530 --> 15:00.710
+So nagger T2 and I can call T-2 and I get that when I can Coletti to again and I get it.
+
+15:01.130 --> 15:06.470
+And that's why I wanted to call this undone the call because the way you call this and the way you call
+
+15:06.470 --> 15:07.740
+this is identical.
+
+15:07.910 --> 15:09.100
+You'll notice there's no difference.
+
+15:09.100 --> 15:11.910
+I can say T1 and T2 right.
+
+15:12.020 --> 15:19.750
+But T-1 is using Reclast class teacher is using the closure so in general you'll find that when you
+
+15:19.750 --> 15:24.070
+have classes that are pretty straightforward there's only one call you're interested in.
+
+15:24.070 --> 15:29.620
+And you know even if you have more than one value being stalled as we saw over the count in total you
+
+15:29.620 --> 15:31.510
+can rewrite it as a closure.
+
+15:31.840 --> 15:33.680
+And oftentimes the code will be simpler.
+
+15:34.890 --> 15:35.400
+All right.
+
+15:35.400 --> 15:37.510
+So thanks for watching and I'll see you in the next few.

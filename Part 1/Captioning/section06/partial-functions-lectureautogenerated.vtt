@@ -1,0 +1,499 @@
+WEBVTT
+
+00:00.520 --> 00:04.410
+High in this video we're going to look at something called Paschall functions.
+
+00:04.420 --> 00:07.560
+Now the idea behind partial functions is actually quite simple.
+
+00:07.570 --> 00:15.190
+It's really how can we reduce the number of required arguments when calling a function and there's various
+
+00:15.190 --> 00:18.540
+reasons why we might want to do this that will get into later.
+
+00:18.910 --> 00:25.460
+But really it boils down to is there a way that we can call a function which let's say has three arguments.
+
+00:25.510 --> 00:31.330
+So for example let's say we have a function my funk that has three mandatory positional arguments A
+
+00:31.330 --> 00:34.530
+B and C that does something with those three arguments.
+
+00:34.530 --> 00:36.950
+And this guy's going to print them out.
+
+00:37.050 --> 00:44.080
+Can we somehow rework this so that my phunk can only take two parameters.
+
+00:44.100 --> 00:49.500
+In other words we'll need to provide some kind of value maybe a default you can think of it as a default
+
+00:49.530 --> 00:51.350
+value for A.
+
+00:51.620 --> 00:53.440
+Now my phone doesn't have a default.
+
+00:53.670 --> 00:54.740
+So how can we do this.
+
+00:54.780 --> 00:56.930
+Well pretty simply we could do it this way.
+
+00:57.060 --> 00:59.230
+We could say def efen.
+
+00:59.250 --> 01:02.520
+So now we create a new function which takes in two parameters.
+
+01:02.530 --> 01:07.650
+Let's say B and C and it's going to return it's going to call my phunk it's going to return the value
+
+01:07.680 --> 01:14.310
+that's return from my phunk when we set a equal to 10 and then B and C passed in as normal.
+
+01:14.310 --> 01:20.760
+So you can see we've reduced the number of arguments needed to call my phunk by 1 because now we've
+
+01:20.760 --> 01:26.260
+specified a value for 10 with pre-determine what that value should be.
+
+01:26.260 --> 01:31.480
+Now of course we could do something a little more fancy we could maybe put in a equals 10 in here but
+
+01:31.480 --> 01:35.490
+of course now we can't put it in front so we'd have to put it at the back.
+
+01:35.620 --> 01:38.560
+So I'd say B.Com a C comma equals 10.
+
+01:38.770 --> 01:44.700
+And we could now call FNY just b and c and then put in here we could do that.
+
+01:44.710 --> 01:49.440
+We'll see how that works actually Liron are using partial functions.
+
+01:49.830 --> 01:56.850
+But now if we call F-in of 20 come 30 we're going to get the output 10 20 30 because a was set to 10.
+
+01:57.060 --> 02:03.140
+So we've reduced the number of arguments needed to call my funk and my phone still needs three arguments.
+
+02:03.160 --> 02:10.860
+OK that's told that we can't change but the way we call my funk we don't have to specify three arguments.
+
+02:10.860 --> 02:17.250
+Now we can specify two because with kind of preset what one of them would be we can also use a lambda
+
+02:17.240 --> 02:18.160
+to do the same thing.
+
+02:18.160 --> 02:23.170
+So in this case all we're going to do here is we're going to do the same thing we're going to take in
+
+02:23.190 --> 02:28.460
+two arguments and then we're going to call my funk and we're going to pass in 10 for a.
+
+02:28.480 --> 02:32.960
+And then the B and C arguments will get passed to the B and C arguments of my func.
+
+02:33.100 --> 02:36.480
+So exactly the same thing as what we did in this def here.
+
+02:36.700 --> 02:40.920
+And so the output will again be 10 20 30.
+
+02:41.010 --> 02:42.060
+So that's pretty standard.
+
+02:42.060 --> 02:43.570
+You can do things that way.
+
+02:43.680 --> 02:48.480
+We'll see why you may want to decrease the number of arguments and pre-determine are preset what an
+
+02:48.480 --> 02:51.240
+argument might be ahead of time.
+
+02:51.240 --> 02:56.600
+But you can also do it using the partial function that's available in the phunk tools module.
+
+02:57.120 --> 03:02.910
+So this function takes in first parameter is the callable that you want to call.
+
+03:02.910 --> 03:04.620
+So in this case it's my funk right.
+
+03:04.680 --> 03:09.990
+We want to call my funk and then you specify values for parameters of my func.
+
+03:09.990 --> 03:14.360
+In this case I've only specified one in keeping of what we had over here.
+
+03:14.430 --> 03:17.310
+So this one here is a positional argument.
+
+03:17.370 --> 03:23.760
+So this is the first positional argument it will get passed in as the first positional argument of my
+
+03:23.790 --> 03:25.450
+phunk.
+
+03:25.490 --> 03:29.130
+So now I can call f with 20 and 30.
+
+03:29.240 --> 03:36.240
+So now 20 and 30 will get passed as the second and third positional arguments seeing that 10 over here
+
+03:36.240 --> 03:41.560
+is the first one and it's going to call my phunk therefore with 10 20 and 30.
+
+03:41.660 --> 03:45.200
+And so our i'll put his 20 30 same as before.
+
+03:45.380 --> 03:50.360
+So the syntax is maybe just a little simpler a little clearer here you don't have the lambda or a def
+
+03:50.360 --> 03:52.030
+coming in between.
+
+03:52.040 --> 03:54.590
+It's maybe more straightforward.
+
+03:54.890 --> 03:57.100
+Now you can handle more complex arguments.
+
+03:57.110 --> 04:03.650
+Let's say that we have my funk that takes in and two mandatory positional arguments an arbitrary number
+
+04:03.650 --> 04:10.400
+of positional arguments to keyword only arguments mandatory have no defaults and then a variable number
+
+04:10.400 --> 04:12.200
+of keyword arguments.
+
+04:12.200 --> 04:19.530
+So here again my function is just going to print the stuff out so now let's say we want to reduce the
+
+04:19.530 --> 04:22.370
+number of arguments that we're sending to my funk.
+
+04:22.380 --> 04:26.340
+So we want to be able to call my funk but with less arguments that means we're going to have to provide
+
+04:26.340 --> 04:29.620
+values for those arguments that we're not going to specify.
+
+04:29.970 --> 04:32.610
+So in this case I'm going to pick 10 for eight.
+
+04:32.610 --> 04:36.930
+So the first positional argument is going to go into the first positional argument.
+
+04:36.990 --> 04:43.740
+So 10 will go into a B which you'll notice is the forced positional argument of f is going to be passed
+
+04:43.740 --> 04:49.450
+in as the second positional argument of my phunk then Starns.
+
+04:49.530 --> 04:53.800
+I'm just going to take stands as is and pass it as here.
+
+04:53.940 --> 04:56.480
+Basically Starns as well.
+
+04:56.490 --> 05:00.340
+Next I'm going to specify an actual value for k 1.
+
+05:00.360 --> 05:03.510
+So you'll notice I'm not requesting K-1 here.
+
+05:03.700 --> 05:04.170
+OK.
+
+05:04.240 --> 05:10.410
+Instead K-1 I'm going to set it to the value of A and I'm going to pass that value as the keyword value
+
+05:11.310 --> 05:12.050
+and then Fuquay to.
+
+05:12.060 --> 05:17.460
+I'm just going to get whatever the other person sent in is the argument here for this K to keyword when
+
+05:17.460 --> 05:22.260
+I pass that and I'm going to do the same thing with the style star arguments I'm going to just pass
+
+05:22.260 --> 05:24.380
+them straight into my funk.
+
+05:24.510 --> 05:30.030
+So you'll notice that what we've done here is we've reduced the need to when we're calling My phunk
+
+05:30.240 --> 05:37.590
+to specify a and K-1 we've now reduced it by two arguments.
+
+05:37.610 --> 05:43.520
+So now if I say F equals Paschall my phunk 10 and K one equals a.
+
+05:43.550 --> 05:45.260
+This will achieve the same thing.
+
+05:45.260 --> 05:50.010
+So whatever we had here we'll get essentially done here as well.
+
+05:50.030 --> 05:52.280
+So you can see now it's actually a little simpler.
+
+05:52.280 --> 05:58.370
+Now the syntax it's more visibly simpler than in the previous example which was very simple.
+
+06:00.870 --> 06:01.860
+So let's take a look.
+
+06:01.860 --> 06:07.200
+Also when we're handling more complex arguments let's say we have this function here called power which
+
+06:07.200 --> 06:11.370
+takes a basin and exponent and it's just going to return the base to the power of the exponent.
+
+06:11.400 --> 06:15.330
+So two to the power of three or three to the bar of 1.5.
+
+06:15.330 --> 06:16.210
+Things like that.
+
+06:16.220 --> 06:17.030
+OK.
+
+06:17.640 --> 06:19.800
+And I want to create a new function.
+
+06:20.100 --> 06:21.940
+So I'm going to use partial.
+
+06:21.990 --> 06:23.200
+It's going to create a new function.
+
+06:23.220 --> 06:29.550
+It's going to take and power as the function the callable and it's going to specify that the exponent
+
+06:29.610 --> 06:30.840
+is 2.
+
+06:30.840 --> 06:34.180
+Now you'll notice power is actually taking it to position along humans.
+
+06:34.230 --> 06:41.160
+But of course we can always pass arguments even positional arguments in Python using keyword values.
+
+06:41.220 --> 06:45.300
+In this case I'm specifying that exponent is to.
+
+06:45.320 --> 06:50.280
+So what I've eliminated from the call to par is the exponent.
+
+06:50.420 --> 06:52.210
+I can do the same thing with Cube.
+
+06:52.370 --> 06:56.610
+We can say it's a partial of both the exponent equal to 3.
+
+06:56.620 --> 06:59.950
+So now if we call square 5 What's happening.
+
+07:00.010 --> 07:05.020
+Well five is a positional argument and we're not specifying it with a keyword.
+
+07:05.020 --> 07:06.430
+It's just a positional argument.
+
+07:06.430 --> 07:12.580
+It's the first positional argument it's going to get thrown to the first positional argument of power
+
+07:13.250 --> 07:17.540
+exponent which is defined here will get passed to exponent.
+
+07:17.650 --> 07:24.250
+So we've satisfied what power means we gave it one positional argument and one named argument exponent
+
+07:24.550 --> 07:26.980
+which is going to go into exponent here.
+
+07:27.550 --> 07:30.920
+So when we call square of 5 we actually get 25.
+
+07:31.450 --> 07:37.870
+And when we call cube 5 we get 75 because it's basically pre-determined that the exponent is going to
+
+07:37.870 --> 07:45.570
+be 3 knife you want you can also specify base equals five you can pass in instead of using this as a
+
+07:45.840 --> 07:49.140
+positional argument you can pass it in as a named argument as well.
+
+07:49.140 --> 07:54.660
+That's fine right because we have this named argument followed by this named argument.
+
+07:54.850 --> 07:56.920
+So that's fine too.
+
+07:56.920 --> 07:57.940
+Now the way.
+
+07:58.090 --> 08:05.110
+Because because we can pass Inamed named arguments and because we have keyword value arguments as well
+
+08:05.120 --> 08:10.200
+in the more general cases you have to be careful because we could do the following.
+
+08:10.210 --> 08:16.550
+We could say square 5 or basic rules five comma exponent equals three.
+
+08:16.600 --> 08:22.960
+What's happening here is that we're essentially going to override the value of exponent that's defined
+
+08:22.990 --> 08:23.880
+in cube.
+
+08:23.980 --> 08:25.370
+It will actually honor that.
+
+08:25.420 --> 08:33.040
+So when we call square sorry and square so square has an exponent of 2 when we call square here we're
+
+08:33.040 --> 08:33.970
+saying no no.
+
+08:34.000 --> 08:35.620
+Make the exponent 3.
+
+08:35.680 --> 08:38.160
+So you can still override the values.
+
+08:38.350 --> 08:40.350
+And in this case we'd get 75.
+
+08:40.510 --> 08:47.720
+So just be aware that you can do that and we'll see an example of where this might actually be useful.
+
+08:47.730 --> 08:50.540
+We'll see that in the coding section.
+
+08:50.550 --> 08:56.340
+Now one other point that you should be really careful with is when you use variables when you're creating
+
+08:56.340 --> 09:03.300
+partials So there's a similar issue that arises to the one that we had when we were using default values
+
+09:03.300 --> 09:04.260
+for arguments.
+
+09:04.260 --> 09:10.790
+Remember that the default value for an argument was kind of fixed once the function was defined right
+
+09:10.800 --> 09:12.860
+was created not where it was run.
+
+09:12.870 --> 09:14.730
+It was when it was created.
+
+09:14.730 --> 09:16.520
+So we have the same issue here.
+
+09:16.650 --> 09:19.720
+Let's go back to my funk three parameters a b and c..
+
+09:20.100 --> 09:26.530
+Let's say we have a equals 10 and now we say F is equal to Paschall of my phunk comma a.
+
+09:27.030 --> 09:33.360
+What's happening here is that the memory address that is pointing to is baked into the Paschall not
+
+09:33.360 --> 09:34.380
+the label a.
+
+09:34.430 --> 09:34.710
+Right.
+
+09:34.710 --> 09:40.260
+Remember what's getting passed in here is not the label it's the memory address the reference that it
+
+09:40.470 --> 09:41.230
+has.
+
+09:41.460 --> 09:49.920
+So be careful because it's 10 really that's coded into Paschall not a so difficult 10 F-off 20 comma
+
+09:49.930 --> 09:51.550
+30 would get as expected.
+
+09:51.580 --> 09:52.860
+10:23.
+
+09:53.110 --> 10:00.580
+But if we now set a set equal to 100 what have we done took a while as remember just the label was pointing
+
+10:00.580 --> 10:01.370
+to 10.
+
+10:01.520 --> 10:03.390
+Now A's pointing to 100.
+
+10:03.430 --> 10:10.360
+So eight points two different memory address but the partials four points to the original object which
+
+10:10.360 --> 10:11.260
+was 10.
+
+10:11.650 --> 10:18.550
+So if we call now f 20 and 3 do not expect to see 100 come a 20 come authorty come through you'll still
+
+10:18.550 --> 10:20.320
+get 10 20 30.
+
+10:20.530 --> 10:22.150
+So just be careful with that.
+
+10:22.150 --> 10:24.260
+It's a similar problem to what we've seen in the past.
+
+10:26.090 --> 10:30.510
+Now if any is mutable let's say it's a list let's say that a was a list for example.
+
+10:30.680 --> 10:36.600
+Then when we call my funkin a right writes so not is going to be a reference to that list.
+
+10:36.890 --> 10:41.570
+If I change the pointer of the list if I change eight point to a new list then yeah everything will
+
+10:41.570 --> 10:43.170
+behave as I just described.
+
+10:43.250 --> 10:48.740
+But if I append something to the list while the memory address that was pointing to in that partial
+
+10:48.810 --> 10:51.650
+therefore is using that hasn't changed.
+
+10:51.650 --> 10:56.540
+So if you can change the contents of the object without changing the memory address reference then you're
+
+10:56.690 --> 10:59.290
+then you know you'll find you're going to see those changes.
+
+10:59.390 --> 11:03.100
+Again we've seen that when we're looking at are given defaults.
+
+11:03.110 --> 11:05.310
+Same thing happened there.
+
+11:06.350 --> 11:10.100
+All right so let's switch to some code and let's see all this in action.
+
+11:10.100 --> 11:10.980
+Thanks for watching.
+
+11:11.060 --> 11:11.840
+I'll see you in a bit.

@@ -1,0 +1,1396 @@
+WEBVTT
+
+00:00.940 --> 00:05.760
+So let's jump right into the function introspection coding section.
+
+00:05.840 --> 00:08.540
+So the first thing we're going to do is define a function.
+
+00:08.540 --> 00:16.950
+So let's go ahead and create something that say def my funk and know common front that would be legal.
+
+00:17.270 --> 00:22.030
+So let's go ahead and create some parameters that say A B equals.
+
+00:22.040 --> 00:23.880
+Wanna see those too.
+
+00:23.890 --> 00:29.140
+So we'll create three positional parameters with two of them we'll have the full values.
+
+00:29.150 --> 00:30.730
+We'll take a star on.
+
+00:30.950 --> 00:32.960
+We'll take a keyword only parameter.
+
+00:32.960 --> 00:40.070
+Another keyword only parameter but this one with a default value and another keyword only parameter
+
+00:40.520 --> 00:47.390
+with again a default value and then we'll also take a variable number of keyword only arguments and
+
+00:47.390 --> 00:48.920
+we're not going to do anything with this.
+
+00:48.920 --> 00:52.230
+Actually yeah let's go ahead and do some stuff.
+
+00:52.450 --> 00:54.540
+Let's say I equals 10.
+
+00:54.700 --> 00:59.230
+Let's say J equals 20 and then I'm just going to do nothing.
+
+00:59.350 --> 01:01.020
+So I'm going to a non.
+
+01:01.030 --> 01:04.550
+Essentially if I don't define a return statement it returns None.
+
+01:04.960 --> 01:05.550
+OK.
+
+01:05.830 --> 01:06.840
+So we'll do that.
+
+01:06.970 --> 01:09.270
+And let's do a few rotations as well.
+
+01:09.280 --> 01:17.460
+So for that I'm going to put that on the front lines and will annotate some of the things.
+
+01:17.960 --> 01:20.530
+Let's go ahead and rotate a.
+
+01:20.750 --> 01:27.300
+This is a mandatory positional.
+
+01:28.940 --> 01:34.430
+This one is an optional positional.
+
+01:34.460 --> 01:37.270
+I don't know just some things over here.
+
+01:37.460 --> 01:53.240
+Let's maybe notate on an extra position Ole's here and provide extra P-word only here and then maybe
+
+01:53.240 --> 01:58.820
+we'll also do the notation for the return arm does nothing.
+
+01:59.020 --> 02:01.740
+OK since it doesn't actually do anything.
+
+02:01.820 --> 02:04.220
+All right so now we've got this function defined.
+
+02:04.460 --> 02:09.600
+And as we've seen before we have things like docstring and annotations.
+
+02:09.680 --> 02:11.590
+It's actually at a docstring as well.
+
+02:11.900 --> 02:28.040
+So this let's say this function does nothing but does have various parameters and annotations.
+
+02:28.100 --> 02:28.490
+All right.
+
+02:28.640 --> 02:29.870
+So let's leave it at that.
+
+02:29.880 --> 02:31.050
+For there we go.
+
+02:31.100 --> 02:40.210
+So remember now we can look at my phunk down the dock and we have the know the docstring.
+
+02:40.340 --> 02:49.820
+We can look at my phunk Dondre and rotations and we have the annotations that we see that we provided.
+
+02:49.910 --> 02:56.240
+Now my fonk is just an object which means objects have attributes and we can add attributes to objects
+
+02:56.240 --> 02:57.020
+very easily.
+
+02:57.020 --> 03:03.740
+We can say my phunk may be short description will say equals and then we just maybe make it equal to
+
+03:03.740 --> 03:04.490
+a string.
+
+03:04.670 --> 03:10.760
+And you know all this is a function that does nothing much.
+
+03:10.960 --> 03:16.030
+OK so now it's attached to my func and we can actually recall that.
+
+03:16.250 --> 03:19.170
+And we can just take a look at that.
+
+03:19.280 --> 03:20.650
+And there we go right.
+
+03:20.660 --> 03:23.840
+My short description is this string over here.
+
+03:24.140 --> 03:29.940
+Now in fact we can look at all the attributes that are available on my phone.
+
+03:31.000 --> 03:33.800
+And there's a bunch of them and we'll look at some of them in more detail.
+
+03:33.910 --> 03:36.610
+But you'll notice that the dark attribute is there.
+
+03:36.660 --> 03:36.910
+Right.
+
+03:36.910 --> 03:42.550
+The Done the duck with that's the one we saw earlier the notations is there as well done through notations
+
+03:42.550 --> 03:43.360
+as they are.
+
+03:43.630 --> 03:48.240
+And the very end we'll find that our short description is also in there as well.
+
+03:48.240 --> 03:51.150
+It's now another attribute of that function.
+
+03:52.000 --> 03:53.620
+But the thing is a function.
+
+03:53.950 --> 03:55.170
+So let's look at a few other ones.
+
+03:55.180 --> 04:01.020
+Let's look at Dundon name right so I can say my funk dumdum name.
+
+04:01.390 --> 04:02.730
+And that returns my funk.
+
+04:02.800 --> 04:08.650
+Well yeah we know that this is the name but remember that the name of the function may not be what you
+
+04:08.650 --> 04:09.500
+put in here.
+
+04:09.610 --> 04:09.880
+Right.
+
+04:09.880 --> 04:16.030
+Suppose you go code somewhere maybe you passed your parameter in your function as a parameter as an
+
+04:16.030 --> 04:18.760
+argument to a function call that inside the function.
+
+04:18.760 --> 04:21.920
+Maybe you want to know what's the name of the function.
+
+04:22.090 --> 04:23.670
+Let's say we do something like this.
+
+04:23.720 --> 04:28.470
+Def let's call it func call
+
+04:31.680 --> 04:38.460
+and let's say we have with bason F and here we want to print half done the name right.
+
+04:38.460 --> 04:41.790
+We want to know what what is the name of that function.
+
+04:41.820 --> 04:49.590
+Well if we do phunk call of my funk so now we pass in the function my funk I remember inside this method
+
+04:49.980 --> 04:51.320
+it doesn't know about this.
+
+04:51.320 --> 04:57.650
+My phunk name right it only knows about F now f and my phunk point to the same object.
+
+04:57.810 --> 05:02.450
+Let's go ahead and do this let's go ahead and print ID of f k while we're at it.
+
+05:02.730 --> 05:11.230
+And then here I want to show you very quickly what the ID of my funk is writes.
+
+05:11.680 --> 05:13.250
+There should be nothing new.
+
+05:13.320 --> 05:15.710
+So now let's go ahead and call this function.
+
+05:15.840 --> 05:17.880
+You can see the ID is the same.
+
+05:17.880 --> 05:23.680
+And then you can see the name therefore is the name of the object at that location which is my funk.
+
+05:24.240 --> 05:24.540
+All right.
+
+05:24.630 --> 05:27.060
+So that's why the dumdum name can be useful.
+
+05:27.370 --> 05:34.140
+Next let's look at the defaults and kw defaults attributes so these two over here this one and this
+
+05:34.140 --> 05:40.310
+one so we can say my phunk dhanda defaults.
+
+05:40.970 --> 05:42.500
+And there we have one and two.
+
+05:42.560 --> 05:45.510
+Remember what our defaults were.
+
+05:45.560 --> 05:46.940
+This was the function right.
+
+05:46.940 --> 05:51.020
+We had B was 1 and C was 2 as the default.
+
+05:51.620 --> 05:52.780
+So that's what we have here.
+
+05:52.880 --> 05:59.540
+And then my phone Karumba we had to keyword only our arguments with default with three key only arguments
+
+05:59.570 --> 06:02.510
+but two of them only defaults.
+
+06:03.650 --> 06:10.430
+So we can look at the KW defaults property and it's a dictionary that gives us the key value pairs where
+
+06:10.430 --> 06:17.090
+the key is the keyword name of the parameter name and the value is the default that was assigned to
+
+06:17.090 --> 06:18.170
+it.
+
+06:18.360 --> 06:18.620
+Right.
+
+06:18.620 --> 06:20.550
+So that's an easy way of returning default.
+
+06:20.570 --> 06:26.060
+But you'll notice that you only have two values in this tussle over here.
+
+06:26.390 --> 06:32.780
+So the number of positional was three but we only got a table containing two values because only two
+
+06:32.780 --> 06:35.240
+of them had default values.
+
+06:35.240 --> 06:40.130
+Now remember that once you start defining a default value or assigning default values to a parameter
+
+06:40.520 --> 06:45.670
+every parameter after that in the positions has to have a default value as well.
+
+06:46.420 --> 06:51.340
+So be careful with that or remember that because this means that when you want to try and match up your
+
+06:51.340 --> 06:57.010
+list of parameters of positional parameters with your default values you have to work your way from
+
+06:57.010 --> 06:58.470
+right to left.
+
+06:58.480 --> 07:00.340
+So two is going to see.
+
+07:00.370 --> 07:03.910
+One is for B and then a has nothing.
+
+07:03.910 --> 07:04.150
+Right.
+
+07:04.150 --> 07:05.520
+So just keep that in mind.
+
+07:05.590 --> 07:10.090
+You don't have the same problem with the keyword only because it's a dictionary where the keys are the
+
+07:10.090 --> 07:11.490
+parameter names next.
+
+07:11.530 --> 07:13.470
+Let's look at my phunk.
+
+07:13.540 --> 07:16.370
+Let's look at the code attribute.
+
+07:16.390 --> 07:18.970
+Now the code attribute is itself an object.
+
+07:19.070 --> 07:19.280
+Right.
+
+07:19.290 --> 07:20.690
+It's a code object.
+
+07:20.740 --> 07:26.700
+And so we can look at what that object actually HEFCE we can look at Derf of code.
+
+07:27.100 --> 07:29.020
+And that gives us a bunch of things right.
+
+07:29.020 --> 07:34.900
+It's got this these like Dershowitz got the property because well that's what gets called when we call
+
+07:34.900 --> 07:35.790
+this function.
+
+07:35.980 --> 07:36.190
+Right.
+
+07:36.210 --> 07:41.340
+But it has some other interesting ones that we're going to look at like our count and name.
+
+07:41.460 --> 07:42.820
+Right and the names.
+
+07:42.850 --> 07:44.170
+So let's take a look at that.
+
+07:44.170 --> 07:52.860
+So let's say we have my phone done the code of the Dunder and then-CEO name for example.
+
+07:52.930 --> 07:54.700
+Well that just gives us the name of the function.
+
+07:54.700 --> 07:56.910
+So we already know how to do that.
+
+07:56.950 --> 08:00.240
+We can just use the than the name on my phone directly.
+
+08:00.340 --> 08:07.970
+But you also have this my phunk code Co.
+
+08:08.380 --> 08:09.460
+Var name.
+
+08:09.670 --> 08:09.950
+Right.
+
+08:09.970 --> 08:15.320
+And that gives you the name of the variables and some extra stuff.
+
+08:15.340 --> 08:19.460
+So here we have the variables the position calls a b and c..
+
+08:19.480 --> 08:25.120
+Here we have the keyword only arguments then we have this arms and Kwame's right.
+
+08:25.180 --> 08:28.140
+So this is still all the parameters that we had.
+
+08:28.300 --> 08:30.880
+And then we have this I and J What's IMJ.
+
+08:30.940 --> 08:35.600
+Well remember when we defined this thing I put in these two kind of dummy variables.
+
+08:35.770 --> 08:39.910
+I will do anything with them but we declared them them isn't in the scope of my phunk.
+
+08:40.090 --> 08:43.230
+We have not only all the parameter names right.
+
+08:43.240 --> 08:46.820
+These are variables in the scope of my fund but we also have i and j.
+
+08:46.960 --> 08:52.540
+And that's what variable names does it actually also includes any local variables that you acquired
+
+08:52.570 --> 08:53.740
+inside the function.
+
+08:54.070 --> 08:58.130
+So that can be pretty pretty handy to figure out what's inside my function right.
+
+08:58.150 --> 08:59.430
+What's going on inside.
+
+08:59.750 --> 09:05.360
+Ah another one that you have is my fonk code and I want to show you this one.
+
+09:05.380 --> 09:10.210
+Not because it's particularly useful by itself but because there's a catch.
+
+09:10.210 --> 09:15.820
+You might think that oh I can't write this one over here is going to tell me how many arguments I have
+
+09:16.060 --> 09:18.240
+in my function definition.
+
+09:18.550 --> 09:20.580
+And here it says three.
+
+09:20.620 --> 09:26.770
+Well that's a problem because what about you know his A and B and C there's three what about Star args
+
+09:26.770 --> 09:31.810
+and kw 1 kw 2 kw 3 and star stock was right.
+
+09:31.810 --> 09:37.670
+It doesn't show up there so it's only showing us the positional arguments right.
+
+09:37.690 --> 09:40.210
+So again just keep that in mind.
+
+09:40.300 --> 09:47.620
+It only shows us the positional arguments but that can be useful because if we look at the default over
+
+09:47.620 --> 09:54.900
+here right and we want to know the defaults right we want to know the variable and the default value.
+
+09:55.180 --> 10:00.700
+Well we can pick up the default from Dondre defaults then we can pick up all the variable names that
+
+10:00.700 --> 10:07.750
+start with the positional is using Covello names and then we can pick out all of that we can pick out
+
+10:07.750 --> 10:11.470
+which ones are the actual positional arguments.
+
+10:11.470 --> 10:12.500
+It's the first three.
+
+10:12.550 --> 10:14.050
+That's what our count is giving us.
+
+10:14.050 --> 10:15.250
+It's the first three here.
+
+10:17.970 --> 10:22.440
+All right now you can certainly work that way.
+
+10:22.520 --> 10:28.510
+But much better and or at least much easier is to use the Expect module.
+
+10:28.550 --> 10:33.290
+So we can just import the inspect module and actually going to do a little bit more I'm going to say
+
+10:33.290 --> 10:40.710
+from inspect import is function is method and is routine.
+
+10:41.780 --> 10:48.080
+Some want to use those three functions just to show you some stuff so we can use this function to look
+
+10:48.140 --> 10:53.000
+if something is a function Let's go ahead and declare just a variable that make it an integer and we
+
+10:53.000 --> 10:55.370
+can ask is Function A.
+
+10:55.520 --> 10:56.720
+Of course the answer is false.
+
+10:56.720 --> 10:57.850
+It's not a function.
+
+10:58.090 --> 11:02.180
+But if we pass in my func then we get that is true.
+
+11:02.210 --> 11:04.580
+Now we have is method.
+
+11:04.940 --> 11:06.290
+Let's just pass in my phone.
+
+11:06.290 --> 11:07.370
+I'm not going to use a again.
+
+11:07.370 --> 11:11.580
+We know that that's not a method either and neither is my phunk.
+
+11:11.840 --> 11:17.480
+So remember the distinction we make between functions and methods that was discussed in the lecture
+
+11:19.200 --> 11:20.450
+in the previous video.
+
+11:20.480 --> 11:26.270
+I tend to use the words a little loosely but methods are things that are bound to a class which are
+
+11:26.270 --> 11:28.040
+an object or something like that.
+
+11:28.070 --> 11:28.300
+Right.
+
+11:28.310 --> 11:33.090
+A function is more of a standalone thing a lambda expression generates a function right.
+
+11:33.110 --> 11:39.290
+Def will generate a function but depending on how you use it it will be a method so methods and functions
+
+11:39.290 --> 11:40.330
+are both callable.
+
+11:40.330 --> 11:45.340
+Right you can call them so they look the same they kind of behave the same but there are some differences
+
+11:45.350 --> 11:50.000
+there are some you know pretty major differences actually between the two because when you have a method
+
+11:50.330 --> 11:57.470
+it's bound to an object or class so it's X actually expecting to receive the class or the object as
+
+11:57.470 --> 11:59.500
+a parameter where it's being called.
+
+11:59.630 --> 12:02.420
+So it's a little bit different.
+
+12:02.660 --> 12:03.950
+So let's go ahead and look at that.
+
+12:03.950 --> 12:10.240
+Let's go ahead and create a class with say my class and let's create a function here let's just call
+
+12:10.240 --> 12:11.700
+it def f.
+
+12:11.750 --> 12:13.640
+Now this is going to be an instance function.
+
+12:13.640 --> 12:17.420
+So it expects to receive the instance as a parameter.
+
+12:17.420 --> 12:18.410
+That's what we do here.
+
+12:18.410 --> 12:21.690
+We'll see this in detail in the object oriented section.
+
+12:21.710 --> 12:22.940
+I'm going to do anything with that.
+
+12:22.940 --> 12:29.060
+I'm just going to return that and I want to show you that we can call is function.
+
+12:29.060 --> 12:31.690
+My class F..
+
+12:31.970 --> 12:33.030
+And the answer is true.
+
+12:33.050 --> 12:36.980
+It's a function because it is not bound to my class.
+
+12:36.980 --> 12:41.670
+On the other hand if we do my object equals my class instance.
+
+12:41.710 --> 12:46.640
+So now I have just created a new instance of my class my object points to that.
+
+12:46.760 --> 12:53.650
+Then if we look at is a function of my object.
+
+12:53.880 --> 12:55.520
+Now if we get that it's false.
+
+12:55.550 --> 12:56.630
+It is not a function.
+
+12:56.660 --> 12:56.990
+Why.
+
+12:56.990 --> 12:58.660
+Because it's actually a method
+
+13:04.580 --> 13:06.700
+it's actually call of f..
+
+13:06.830 --> 13:07.210
+All right.
+
+13:07.340 --> 13:07.910
+So there we go.
+
+13:07.910 --> 13:09.160
+So that's true.
+
+13:09.740 --> 13:13.760
+All right so keep in mind that there's a difference between function and method not you're not concerned
+
+13:13.760 --> 13:14.660
+about the difference.
+
+13:14.660 --> 13:16.580
+You can just ask Is it a routine.
+
+13:16.580 --> 13:19.970
+So you can say is my object of f a routine.
+
+13:19.970 --> 13:25.160
+The answer is true is routine of my class F..
+
+13:25.400 --> 13:34.140
+Then it's true as well because they both say because they're both the same because it's either a function
+
+13:34.170 --> 13:38.760
+or a method and it's a function in one case method in the other case it doesn't matter.
+
+13:38.770 --> 13:39.850
+It's a routine.
+
+13:39.870 --> 13:40.110
+Right.
+
+13:40.110 --> 13:41.050
+A routine is it.
+
+13:41.070 --> 13:45.930
+Either of those next then we can look at and they inspect all the always how to get the source code
+
+13:45.990 --> 13:47.750
+for the function back.
+
+13:47.820 --> 13:50.510
+So remember what our source code was here.
+
+13:50.580 --> 13:50.930
+Right.
+
+13:50.970 --> 13:59.370
+Essentially we had this docstring notation and then we had the arm those two dummy variables and we
+
+13:59.370 --> 14:00.810
+could add some other stuff in here.
+
+14:00.810 --> 14:05.360
+Maybe I'll see a equals I Plus J return.
+
+14:05.400 --> 14:09.090
+I just want to add a few more lines of code to this function.
+
+14:09.090 --> 14:12.200
+Now let's go back here and let's look at the inspect.
+
+14:12.390 --> 14:23.610
+So inspect we have the get source function in the inspect module and we can pass in all function my
+
+14:23.610 --> 14:25.030
+funk.
+
+14:25.500 --> 14:26.370
+And there we go.
+
+14:26.400 --> 14:27.890
+Here's the code right.
+
+14:27.900 --> 14:29.660
+This is the entire code.
+
+14:29.670 --> 14:32.920
+We have the function header with the annotations.
+
+14:33.000 --> 14:39.450
+You have the docstring over here you've got no new lines you've got your line of code equals turn jiggles
+
+14:39.450 --> 14:40.010
+20.
+
+14:40.140 --> 14:47.250
+So you want we can make it look a little niceish by just putting a printed front that's actually printed
+
+14:47.250 --> 14:47.750
+out.
+
+14:48.090 --> 14:48.900
+And here we go.
+
+14:48.930 --> 14:49.330
+Right.
+
+14:49.350 --> 14:51.230
+We have a function right there.
+
+14:51.570 --> 14:57.060
+So that might come in handy especially if you try and create Lets say you know classes of functions
+
+14:57.060 --> 15:00.260
+or you know something that maybe documents code right.
+
+15:00.270 --> 15:04.810
+Very handy to be able to pull the code back out of the Python code right.
+
+15:04.830 --> 15:12.300
+You can call any function of course if I have something like this F equals my phunk remember it's no
+
+15:12.300 --> 15:14.850
+different right F-stop points to the same object.
+
+15:14.910 --> 15:16.320
+You still get the same thing.
+
+15:16.320 --> 15:24.090
+Now we can also look at get a module that's another thing in the inspect function inspect module and
+
+15:24.150 --> 15:27.250
+we want to know where something is defined potentially.
+
+15:27.330 --> 15:29.180
+So let's look at my phone first.
+
+15:29.400 --> 15:32.580
+Well it tells us that my phone is defined in the module main.
+
+15:32.610 --> 15:33.590
+Well that's where we're at.
+
+15:33.600 --> 15:33.830
+Right.
+
+15:33.840 --> 15:39.600
+We're inside this module main when we're inside this notebook but you can also use that for looking
+
+15:39.600 --> 15:41.950
+at built in things we can look at.
+
+15:41.950 --> 15:45.150
+We get model of the print function let's say.
+
+15:45.490 --> 15:45.690
+Right.
+
+15:45.690 --> 15:48.240
+And it tells us it's in the module called built ins.
+
+15:48.240 --> 15:50.810
+So there's a module called built ins in Python.
+
+15:50.910 --> 15:55.310
+This is where print lives and it's a built in module.
+
+15:55.650 --> 15:55.910
+Right.
+
+15:55.920 --> 16:04.710
+If we import math and then we inspect and get this module on Mathcad let's say sign the sign function
+
+16:07.340 --> 16:11.860
+I have to spell correctly write or type correctly.
+
+16:12.090 --> 16:13.300
+Then we get that.
+
+16:13.410 --> 16:19.230
+It tells us that math taught sign is in the math module and it's built in.
+
+16:19.230 --> 16:23.130
+Now again it's useful for the example that you know you've got a function you know know where it is
+
+16:23.370 --> 16:25.180
+so you can find out its name.
+
+16:25.200 --> 16:28.580
+You can find out it's code you can find out where it was defined.
+
+16:28.610 --> 16:29.010
+Right.
+
+16:29.010 --> 16:30.230
+Kind of useful stuff.
+
+16:30.450 --> 16:34.090
+You can find out about its parameters about its rotations.
+
+16:34.100 --> 16:35.080
+It's strings.
+
+16:35.160 --> 16:38.870
+So there's a lot going on with introspection that you can do.
+
+16:40.730 --> 16:42.150
+Let's look at something else.
+
+16:42.320 --> 16:49.080
+Let's look at let's go back to this function here and let me go ahead and type in maybe comment and
+
+16:49.090 --> 16:55.400
+I'm going say to do fix this function right.
+
+16:55.400 --> 16:59.900
+So here I've got a comment that immediately precedes my function.
+
+16:59.900 --> 17:08.810
+Now I've got some code over here that say I've got you know on dummy code you know maybe I pulled 100
+
+17:08.970 --> 17:11.600
+OK and I execute that.
+
+17:11.810 --> 17:16.100
+So I've got some comments right just as we put normally in our code.
+
+17:16.100 --> 17:21.020
+I've got a comma in some code then I'm documenting something I want to document something about this
+
+17:21.020 --> 17:21.890
+function.
+
+17:22.130 --> 17:24.950
+Typically I'll put a comment right before the function.
+
+17:25.250 --> 17:30.980
+And very often I'll use it to do this way I can search for to do with my code and find out what do I
+
+17:30.980 --> 17:32.290
+need to do still.
+
+17:32.330 --> 17:37.850
+You know as a reminder a lot of ideas will actually pick up on that and we'll collect all that information
+
+17:37.850 --> 17:42.840
+for you and present it in a view where you can then go and look at a list essentially of Tutu's.
+
+17:42.920 --> 17:46.080
+And you can click on them and go directly to that piece of code.
+
+17:46.160 --> 17:47.770
+So that's really handy.
+
+17:47.960 --> 17:51.480
+And one way that you can get that is by looking at the comments.
+
+17:51.500 --> 17:53.270
+That's kind of a test right.
+
+17:53.270 --> 17:55.780
+This comment is kind of attached to this function.
+
+17:55.780 --> 18:01.760
+That's how we look at it as we're coding and so Python can actually do that for us as well.
+
+18:02.150 --> 18:13.320
+And we can look at inspect dot get comments of my funk and it will return that comment right here to
+
+18:13.310 --> 18:14.920
+do fix this function.
+
+18:14.930 --> 18:17.610
+Now if I have multiple lines.
+
+18:17.610 --> 18:18.960
+Right.
+
+18:19.580 --> 18:23.660
+Currently does nothing but should that do.
+
+18:23.660 --> 18:24.370
+Blah blah blah.
+
+18:24.460 --> 18:27.460
+OK so it's over two lines of comments.
+
+18:27.530 --> 18:30.540
+If we rerun this well we get both lines right.
+
+18:30.560 --> 18:36.370
+To fix this backslash and write for the new line and then the next line of a comment.
+
+18:36.860 --> 18:42.590
+So again pretty handy if you're writing some piece of code and you want to pick up let's say all the
+
+18:42.590 --> 18:44.750
+comments that are associated to function.
+
+18:44.750 --> 18:46.370
+That's not the same as a docstring.
+
+18:46.460 --> 18:46.920
+Right.
+
+18:46.970 --> 18:50.460
+My phunk Dundalk is different.
+
+18:50.480 --> 18:53.650
+It's that document string that we have inside the function.
+
+18:53.660 --> 18:58.040
+This is more something of where we are writing a comment outside of the function but we want it associated
+
+18:58.040 --> 19:01.960
+with the function as long as you keep it right before the function definition itself.
+
+19:02.160 --> 19:04.800
+It will get picked up and attached.
+
+19:04.820 --> 19:07.110
+Next let's look at the signature.
+
+19:07.130 --> 19:09.910
+How can we introspect the signature of a function.
+
+19:09.920 --> 19:18.440
+We've already seen some of it right using the code with code count and code names and defaults and kw
+
+19:18.440 --> 19:19.070
+defaults.
+
+19:19.190 --> 19:24.460
+But it takes a little bit of work to you know kind of get things that we want out of all that.
+
+19:24.500 --> 19:28.150
+So then specked module really clean that up for us quite a bit as well.
+
+19:28.430 --> 19:31.560
+And we're going to look at it from the inspect module.
+
+19:31.640 --> 19:36.960
+We're going to look up the signature and we're going to take a look at Signature my phunk right.
+
+19:36.980 --> 19:38.390
+Let's take a look at that.
+
+19:38.810 --> 19:42.440
+You'll notice that it returns an object right.
+
+19:42.440 --> 19:45.190
+So this is an object of type signature.
+
+19:45.740 --> 19:48.810
+So it has properties as well right.
+
+19:48.850 --> 19:50.140
+It has attributes.
+
+19:50.180 --> 19:57.310
+So we can look at the attributes by losing Duer signature phunk.
+
+19:57.350 --> 20:01.350
+Right so we're just going to do that and it has a bunch of stuff right.
+
+20:02.410 --> 20:07.570
+In particular it has things like parameters which is what we're going to look at in particular in this
+
+20:07.870 --> 20:08.590
+video.
+
+20:08.890 --> 20:14.010
+So let's take a look at the parameters and you'll notice by the way alter has written annotation that
+
+20:14.020 --> 20:21.090
+we know how to pick that up from the notations dictionary but this just basically gives it to you along.
+
+20:21.110 --> 20:23.140
+Let's just take a quick look.
+
+20:23.260 --> 20:27.250
+My fonk annotations right.
+
+20:27.260 --> 20:29.150
+We've seen that one before.
+
+20:29.150 --> 20:30.790
+All right so every turn does nothing.
+
+20:30.800 --> 20:33.710
+But if we do my funk
+
+20:36.320 --> 20:46.360
+inspector Da'ath signature of my funk docs return and notation.
+
+20:52.250 --> 20:55.780
+I need to put in the things in the right place.
+
+20:58.570 --> 21:00.640
+Get it I'll get it eventually.
+
+21:00.640 --> 21:03.060
+All right does nothing get it just returns that.
+
+21:03.090 --> 21:06.040
+That one here but obviously we can pick it up from here as well.
+
+21:06.100 --> 21:11.740
+Again it just shows you that inspect doesn't really do a whole lot more than what you can do yourself
+
+21:11.770 --> 21:14.180
+by using introspection directly on the function.
+
+21:14.200 --> 21:19.040
+It just packages that up nicely for us it's much easier to use.
+
+21:19.040 --> 21:22.720
+So now let's look at the parameters that's the one really that I wanted to look at.
+
+21:22.720 --> 21:29.420
+So I'm going to create a variable sig so I don't have to call inspect that signature every time.
+
+21:30.160 --> 21:36.220
+And I'm going to assign it the signature object that we can that we get back when we call the signature
+
+21:36.220 --> 21:37.000
+function.
+
+21:37.260 --> 21:37.720
+OK.
+
+21:37.930 --> 21:43.770
+So here we have psig and again Sigge is just that signature object that we saw earlier.
+
+21:44.260 --> 21:47.260
+But we can look at the parameters of that.
+
+21:47.260 --> 21:49.970
+So let's look at Sigge dot.
+
+21:51.670 --> 21:53.670
+And that again is something else.
+
+21:53.670 --> 22:04.690
+And essentially this is a dictionary so we can go ahead and say for key comma value in sogged up parameters.
+
+22:04.690 --> 22:09.340
+Print OK Contrave and parameters dot items.
+
+22:09.340 --> 22:12.170
+Sorry.
+
+22:12.250 --> 22:14.360
+So it is going to iterate through those things.
+
+22:14.380 --> 22:19.130
+And so you can see that we get a ride B C.
+
+22:19.150 --> 22:20.700
+KW 1 2 and 3 and Kuang.
+
+22:20.700 --> 22:24.290
+So we get all our parameters that we have in the function.
+
+22:24.460 --> 22:27.060
+And then something that gets printed after that.
+
+22:27.070 --> 22:32.110
+So let's go ahead and look at what the type is because right.
+
+22:32.110 --> 22:35.020
+It's not just a string it's actually a type.
+
+22:35.020 --> 22:37.270
+It's the parameter class.
+
+22:37.270 --> 22:40.240
+Essentially these are instances of the parameter class.
+
+22:40.240 --> 22:50.470
+So I'm going to do is I'm going to iterate through that but I'm going to say arm Raso V is a parameter
+
+22:50.560 --> 22:51.320
+object.
+
+22:51.370 --> 22:51.900
+Right.
+
+22:52.090 --> 22:55.260
+So if we have a parameter object which has properties.
+
+22:55.300 --> 22:57.160
+So let's go ahead and print
+
+22:59.880 --> 23:00.580
+V.
+
+23:00.670 --> 23:02.490
+Now it's going to print it out many times.
+
+23:02.500 --> 23:03.730
+But let's see.
+
+23:03.730 --> 23:07.720
+So we have some things like keyword only positional only.
+
+23:07.720 --> 23:09.990
+So it's got a bunch of stuff right.
+
+23:10.040 --> 23:12.550
+Default empty kind.
+
+23:12.550 --> 23:14.640
+Name right annotation.
+
+23:14.650 --> 23:19.320
+There's a bunch of properties that this parameter type has.
+
+23:19.360 --> 23:21.910
+So let's go ahead and actually use that.
+
+23:22.090 --> 23:24.730
+And one of the things that it has by the way is a name.
+
+23:24.730 --> 23:26.690
+So let's go ahead and do all that.
+
+23:26.920 --> 23:28.510
+So we're going to print name
+
+23:32.380 --> 23:37.160
+and let's call it the dog name actually.
+
+23:37.450 --> 23:39.960
+You know what let's do this.
+
+23:46.040 --> 23:49.910
+So we're going to print the key for the key.
+
+23:51.320 --> 23:53.530
+Is ok then from name.
+
+23:53.590 --> 23:57.080
+We're going to take Paramo dog name so we will look at the Name property.
+
+23:57.220 --> 24:01.650
+Then we're going to print out the default.
+
+24:01.840 --> 24:05.190
+And that's going to be paragraph that defaults.
+
+24:05.300 --> 24:09.190
+Right then we're also going to look at the notation
+
+24:14.170 --> 24:17.740
+and then we're also going to look lastly at the kind
+
+24:21.110 --> 24:23.530
+I would see that in the lecture.
+
+24:23.770 --> 24:32.320
+And then lastly I'm going to print just a bunch of lines just to differentiate each real key and value
+
+24:32.350 --> 24:33.660
+as it comes through this loop.
+
+24:34.690 --> 24:35.350
+All right.
+
+24:35.620 --> 24:36.320
+So here we go.
+
+24:36.340 --> 24:37.800
+So keep a name.
+
+24:37.810 --> 24:38.180
+A.
+
+24:38.230 --> 24:42.060
+So you can see that the parameter name and the key are actually the same thing.
+
+24:42.070 --> 24:47.750
+So technically we don't need if we're iterating through the parameters we can recover the name by using
+
+24:47.770 --> 24:48.670
+brand name.
+
+24:48.670 --> 24:49.850
+We don't need the key.
+
+24:49.930 --> 24:53.290
+So I'm going to take that out and insert iterating the items.
+
+24:53.320 --> 24:57.000
+I'm going to iterate just the values so we'll clean that up a little bit.
+
+24:57.160 --> 24:59.010
+So of course we don't have a key.
+
+24:59.470 --> 25:02.000
+Let's remove that and let's rerun that.
+
+25:02.080 --> 25:02.850
+OK.
+
+25:03.130 --> 25:04.240
+Cleaned up a little bit.
+
+25:04.240 --> 25:05.680
+So here we have the name is A.
+
+25:05.680 --> 25:07.470
+So this is the parameter A.
+
+25:07.510 --> 25:08.450
+It has a default.
+
+25:08.470 --> 25:13.700
+Well it doesn't have a default so it's got this empty right default.
+
+25:13.840 --> 25:15.460
+The annotation is.
+
+25:15.460 --> 25:22.150
+And I forgot to put a call on to differentiate where our text was and that value was.
+
+25:22.180 --> 25:24.990
+So the notation is mandatory positional right.
+
+25:25.000 --> 25:29.410
+That was our notation and the kind is positional or keyword.
+
+25:30.140 --> 25:32.540
+B was the same thing except we had a default.
+
+25:32.560 --> 25:37.030
+It also had an adaptation and it's kind was positioned keyword.
+
+25:37.030 --> 25:37.520
+See.
+
+25:37.540 --> 25:38.770
+Same thing right.
+
+25:38.830 --> 25:43.080
+Then we have odds the kind is that positional right.
+
+25:43.090 --> 25:45.910
+It was a variable number of positions.
+
+25:45.970 --> 25:47.690
+Now we have our keyword arguments.
+
+25:47.730 --> 25:52.280
+He would only arguments KW 1 kw 2 you can see that kind is key word only.
+
+25:52.330 --> 25:57.880
+Again if you have a default you have the default if you don't have annotations you don't have them if
+
+25:57.880 --> 25:59.000
+you have them there.
+
+25:59.170 --> 25:59.480
+Right.
+
+25:59.560 --> 26:02.010
+All that works out the way we would expect it.
+
+26:02.010 --> 26:09.190
+And finally we have quads with our keyword which was a very small variable number sorry the variable
+
+26:09.190 --> 26:11.890
+number of keyword only arguments.
+
+26:12.100 --> 26:17.170
+So the one thing I also wanted to mention we talked about that in the lecture but there is an additional
+
+26:17.170 --> 26:23.070
+kind that we can't actually define but that does exist which is positional only.
+
+26:23.410 --> 26:24.790
+So let's take a look at that.
+
+26:24.850 --> 26:30.980
+Let's look at help on did not remember that function when we're working with an Manza.
+
+26:31.540 --> 26:37.420
+And you'll notice in the documentation that we have X come a y so it takes in two parameters and then
+
+26:37.420 --> 26:39.700
+this slash over here.
+
+26:40.120 --> 26:45.340
+And I know we've seen this documentation before and I never discussed that because I wanted to leave
+
+26:45.340 --> 26:49.210
+that to this discussion here where it will now make more sense.
+
+26:49.420 --> 26:57.490
+But what this means is that the preceding parameters are positional only so I can call this model by
+
+26:57.490 --> 27:06.850
+saying let's say to carve a three right which gives us 0 and to write to div 3 0 2 mod 3 is 2.
+
+27:06.870 --> 27:10.650
+That's true if you want something that maybe makes more sense for.
+
+27:10.720 --> 27:11.080
+Right.
+
+27:11.080 --> 27:22.500
+We have one on one what you cannot do is do this you cannot say X equals full and y equal 3 right.
+
+27:22.500 --> 27:23.880
+These are the parameter names here.
+
+27:23.890 --> 27:24.970
+X and Y.
+
+27:25.150 --> 27:32.620
+So if you try and say div mod of that it tells you know the mom takes no keyword arguments.
+
+27:32.650 --> 27:39.630
+That's because the arguments of the MOD for you know X and Y are positional only.
+
+27:39.670 --> 27:42.940
+In fact let's use the Expect module to check that out.
+
+27:42.940 --> 27:47.830
+So let's say inspect dot signature.
+
+27:47.890 --> 27:48.130
+Right.
+
+27:48.130 --> 27:51.530
+We have to look at the signature of Daivd model.
+
+27:51.850 --> 27:53.470
+And then the parameters.
+
+27:53.530 --> 27:53.850
+Right.
+
+27:53.860 --> 27:55.330
+And then we have to iterate through that.
+
+27:55.360 --> 28:00.680
+So for a program in that darte values.
+
+28:00.810 --> 28:01.870
+OK.
+
+28:02.520 --> 28:03.270
+Sorry.
+
+28:03.280 --> 28:04.910
+I want to run it quite yet.
+
+28:05.650 --> 28:08.950
+And we want to print Behram dot.
+
+28:08.980 --> 28:10.790
+We'll just program that kind.
+
+28:10.860 --> 28:11.140
+OK.
+
+28:11.140 --> 28:15.430
+In this case and here we go we have positional only.
+
+28:15.460 --> 28:20.300
+So these are the positional only types of parameters I discussed in the lecture.
+
+28:20.350 --> 28:21.800
+We can't create those.
+
+28:21.790 --> 28:22.060
+Right.
+
+28:22.060 --> 28:28.750
+We don't have we cannot create we can't use a slash in our function definitions of python on the other
+
+28:28.750 --> 28:32.360
+hand can write but we can't.
+
+28:32.370 --> 28:32.910
+All right.
+
+28:32.910 --> 28:35.720
+So thanks for watching and I'll see you in the next video.

@@ -1,0 +1,1207 @@
+WEBVTT
+
+00:00.180 --> 00:05.430
+High in this video I want to talk about how we can pick random elements from a sequence like a list
+
+00:05.430 --> 00:06.560
+or a tuple.
+
+00:06.570 --> 00:08.850
+So how would we go about doing that.
+
+00:09.660 --> 00:15.050
+Well if you come from other programming languages like for example Java your approach might be the following.
+
+00:15.100 --> 00:17.410
+And let's just try it out and I'll show you.
+
+00:17.440 --> 00:20.080
+So it's impled the random library will need that.
+
+00:20.290 --> 00:28.020
+And then what we're going to do is create a simple list let's say 10 20 30 40 50 and now we want to
+
+00:28.020 --> 00:30.060
+pick a random element from that list.
+
+00:30.060 --> 00:36.370
+Well we know that the indices are numbers from 0 up to Abbadon including length of L.
+
+00:36.710 --> 00:43.080
+What we can do because we know that there's a random and or a Rande range our function in the random
+
+00:43.080 --> 00:49.590
+model is we can essentially generate a random index and then we retrieve the elements of the list by
+
+00:49.590 --> 00:50.250
+index.
+
+00:50.250 --> 00:53.430
+So let's see how we would do that if it's done in two steps.
+
+00:53.460 --> 01:01.380
+So we'll do random index equals random dot random range.
+
+01:01.380 --> 01:06.000
+And so by lower bound is zero I'm not going to specify on my upper bound is going to be the length of
+
+01:06.090 --> 01:06.400
+L.
+
+01:06.420 --> 01:11.510
+Now Rand range unlike Rand It does not include the upper limit.
+
+01:11.640 --> 01:11.870
+Right.
+
+01:11.880 --> 01:18.230
+So this will never actually return a integer equal to length of L which is good because we don't right.
+
+01:18.240 --> 01:24.240
+We want the integer to be random between 0 the first position and the length of L minus 1 which is the
+
+01:24.240 --> 01:25.790
+last index.
+
+01:25.910 --> 01:27.880
+OK now we have this random index.
+
+01:27.990 --> 01:31.450
+And now we can retrieve the random value from the list.
+
+01:31.470 --> 01:33.840
+We can just say L and then square brackets.
+
+01:33.870 --> 01:35.810
+Random index.
+
+01:36.660 --> 01:41.000
+And so we get that if we run this multiple times we get different values coming back.
+
+01:41.100 --> 01:41.560
+OK.
+
+01:41.670 --> 01:43.930
+So that's certainly one way of doing it.
+
+01:45.090 --> 01:50.820
+What you'll notice that if we write this together let's say I want to create a list of five random elements
+
+01:50.820 --> 01:54.550
+from L and let me switch now my list to something a little bit bigger.
+
+01:54.750 --> 01:58.120
+So I'm going to make a list out of a range.
+
+01:58.680 --> 02:03.730
+So I'll take a range with a thousand elements in it and if we print l it has thousand elements right.
+
+02:03.740 --> 02:07.390
+From 0 to 9 9 9 9 9 9 the last one.
+
+02:07.830 --> 02:08.280
+OK.
+
+02:08.400 --> 02:10.190
+Get rid of that.
+
+02:10.230 --> 02:18.750
+So now let's go ahead and pick and create a list that has five elements that are five random elements
+
+02:18.840 --> 02:20.570
+from that list.
+
+02:20.580 --> 02:27.030
+So the way we would do it is maybe something like this randoms equals empty list and then for that in
+
+02:27.030 --> 02:32.590
+range of 5 so we're not interested in the index as we're iterating through a range.
+
+02:32.700 --> 02:38.240
+And what we want to do what we want to retrieve something in the list what something.
+
+02:38.250 --> 02:45.540
+Well that random index so random dupped random range lenth of L..
+
+02:45.840 --> 02:46.890
+And what are we going to do.
+
+02:46.890 --> 02:52.070
+We're going to append that to our randoms.
+
+02:52.140 --> 02:55.620
+And then finally we're going to print randoms.
+
+02:56.430 --> 02:57.100
+So there we go.
+
+02:57.150 --> 03:01.900
+And if we execute this you know multiple times we get different random choices.
+
+03:02.100 --> 03:02.850
+So that's fine.
+
+03:02.850 --> 03:04.470
+That certainly works.
+
+03:04.470 --> 03:07.050
+But this is not Pythonic.
+
+03:07.050 --> 03:08.460
+There's a better way to do this.
+
+03:08.460 --> 03:14.730
+There's a more idiomatic way to do this and that's if we know that the random module has a choice method
+
+03:15.170 --> 03:17.370
+the choice method is very simple.
+
+03:17.370 --> 03:26.750
+You do random dot choice and you pass it a sequence and it will return a random element from that sequence.
+
+03:26.800 --> 03:29.850
+It's doing a random choice.
+
+03:29.870 --> 03:34.370
+So now let's rewrite this using them and see what it looks like.
+
+03:34.460 --> 03:36.900
+We don't have to do all this gobbledygook here.
+
+03:36.980 --> 03:42.700
+We can just say random top choice L and we get the same thing.
+
+03:42.770 --> 03:48.240
+We run this multiple times as you can see we get different choices every time.
+
+03:48.260 --> 03:50.850
+So this is a more pythonic way of doing it.
+
+03:50.870 --> 03:53.380
+It's very clear here what's going on.
+
+03:53.420 --> 03:57.620
+We're just choosing an arbitrary element a random element of L here.
+
+03:57.680 --> 04:01.280
+We're doing the same thing but you can see the code is more complex.
+
+04:01.340 --> 04:05.880
+It's not as expressive.
+
+04:06.090 --> 04:11.610
+But there's still one thing going on here is that I have to do this loop and this append to randoms
+
+04:11.610 --> 04:12.230
+and so on.
+
+04:12.240 --> 04:15.060
+That's kind of a pain I don't like that.
+
+04:15.060 --> 04:17.790
+So there's another way we could do this.
+
+04:17.790 --> 04:24.090
+And let me show you we could use a list comprehension instead we could say randoms equals and you will
+
+04:24.090 --> 04:33.460
+just say random Goch choice of L for that's in range let's say fine.
+
+04:33.530 --> 04:33.750
+OK.
+
+04:33.750 --> 04:34.790
+Because we want five.
+
+04:34.890 --> 04:40.530
+So again I'm not interested in that so I'm basically just rewriting this year using a comprehension
+
+04:40.950 --> 04:42.630
+that's already one step better.
+
+04:42.660 --> 04:43.780
+That's more pythonic.
+
+04:43.800 --> 04:49.170
+And we can print the randoms actually all printed on the same block of code so we can run it multiple
+
+04:49.170 --> 04:50.770
+times.
+
+04:51.110 --> 04:53.580
+And as you can see we get the same result.
+
+04:54.060 --> 04:56.010
+So this already is better.
+
+04:56.010 --> 04:56.340
+Right.
+
+04:56.340 --> 05:01.950
+We've replaced these three lines of code right here with just this single line over here.
+
+05:01.950 --> 05:04.820
+Now this isn't about writing more concise code.
+
+05:05.030 --> 05:10.470
+And you know shorter code and so on because you can fall into that trap where you start writing code
+
+05:10.800 --> 05:17.340
+and you try and make it as compact as possible and you're just muddling things up because it now becomes
+
+05:17.340 --> 05:20.060
+difficult to read and difficult to understand.
+
+05:20.100 --> 05:21.770
+This is more expressive.
+
+05:21.780 --> 05:25.260
+It's shorter Yes but it's also more expressive.
+
+05:25.300 --> 05:28.930
+You can it's very easy to tell very quickly what's going on here.
+
+05:28.970 --> 05:35.600
+I'm creating a list each element of the list is a random choice of L and I'm repeating this five times.
+
+05:35.740 --> 05:36.160
+OK.
+
+05:36.210 --> 05:37.280
+Much more expressive.
+
+05:38.550 --> 05:40.390
+But there's a better way to do this.
+
+05:40.590 --> 05:45.970
+And we have to use the choices function in the random module.
+
+05:46.410 --> 05:48.660
+So choices walks very simply.
+
+05:48.660 --> 05:54.560
+It basically allows you to do multiple choices from your list from your sequence.
+
+05:54.600 --> 05:58.170
+It has some other functionality as well that we'll get into in a second.
+
+05:58.470 --> 06:04.310
+So in order to do the same thing I would write it this way I would say randomized equals random dots
+
+06:04.530 --> 06:05.640
+choices.
+
+06:05.880 --> 06:12.030
+L And one of the arguments that we can pass to choices is the number of choices we want to make and
+
+06:12.030 --> 06:13.710
+it's a key word only parameter.
+
+06:13.830 --> 06:19.830
+In this case I want to make it the same I want five right and we'll print randomly out as well.
+
+06:20.280 --> 06:21.240
+And there we go.
+
+06:21.240 --> 06:28.070
+We have you know the same results we're getting five random choices out of our list.
+
+06:28.080 --> 06:32.800
+L So this is again far more concise far more readable.
+
+06:34.170 --> 06:44.020
+So we went from this approach Well actually we went from this approach over here down to this.
+
+06:44.130 --> 06:44.420
+Right.
+
+06:44.460 --> 06:50.740
+And let me let me copy and paste and put them together so you can see the difference.
+
+06:50.760 --> 06:51.210
+OK.
+
+06:51.450 --> 06:53.590
+So here's one way of doing it.
+
+06:54.150 --> 06:56.370
+And here's another way of doing the same thing.
+
+06:57.100 --> 06:58.660
+So more pythonic.
+
+06:58.660 --> 07:03.250
+A lot easier to understand what's going on.
+
+07:03.270 --> 07:09.840
+Now the thing that's interesting about choices because if you think about how we did it here or even
+
+07:09.840 --> 07:13.770
+here we could have elements repeated in other words.
+
+07:13.770 --> 07:17.220
+It's called a replacement's a selection with replacement.
+
+07:17.310 --> 07:23.030
+In other words if we picked Let's say you know 10 out of this range we may pick it again.
+
+07:23.370 --> 07:25.470
+Let me show you an example of what I mean by that.
+
+07:25.500 --> 07:30.040
+Let's take a smaller list let's say l equals 1 2 3 4 K.
+
+07:30.530 --> 07:35.410
+And now let's go ahead and create our randoms using I'm not going to use that big horrible loop.
+
+07:35.610 --> 07:40.730
+I'm going to pick it using this right which was the same thing.
+
+07:41.670 --> 07:42.900
+So we're going to do that.
+
+07:43.170 --> 07:49.660
+And what's happening here is that I can every time I'm making a new random choice out of the list.
+
+07:49.710 --> 07:55.460
+So if I do this let's say 10 times and then we're going to print random Zalk.
+
+07:55.550 --> 08:01.860
+And as you can see we have elements that are repeated to the pick more than once one got picked more
+
+08:01.860 --> 08:03.800
+than once and so on.
+
+08:03.990 --> 08:08.770
+The same thing with choices even though it seems like this is a single command.
+
+08:08.790 --> 08:10.440
+It is doing it with replacement.
+
+08:10.440 --> 08:15.690
+So if I run this code now on that you'll see that I'm also getting.
+
+08:15.690 --> 08:16.980
+And let's make it 10.
+
+08:16.980 --> 08:18.710
+So we have a few more to work with.
+
+08:19.020 --> 08:22.920
+But you can see that again I'm getting repeated choices.
+
+08:22.920 --> 08:25.770
+So this is called a selection with replacement.
+
+08:25.770 --> 08:32.610
+In other words every time it picks a new element when it's building this list of 10 random elements
+
+08:33.150 --> 08:34.980
+it can reuse any existing one.
+
+08:34.980 --> 08:38.810
+It's not like it removes it from the batch and says Well I picked it once.
+
+08:38.820 --> 08:40.320
+I can't use it anymore.
+
+08:40.680 --> 08:42.940
+So what's obviously it.
+
+08:42.960 --> 08:51.090
+So what happens is that we can actually make our Random selection larger than the actual initial population
+
+08:51.090 --> 08:52.030
+that we're working with.
+
+08:52.080 --> 08:52.390
+Right.
+
+08:52.410 --> 08:56.290
+We picked 10 random choices out of four elements.
+
+08:56.340 --> 09:01.020
+Same thing here we picked 10 random choices out of four elements.
+
+09:01.020 --> 09:02.650
+So let me show you something.
+
+09:05.210 --> 09:11.790
+Let's start with another list let's say l equals a b and c
+
+09:14.820 --> 09:16.560
+like OK.
+
+09:16.610 --> 09:24.340
+So we have this list and let's go ahead and generate 10 random choices of length 5.
+
+09:24.500 --> 09:31.820
+So we're going to use a loop for that in range 10 so we're going to repeat this 10 times and we're going
+
+09:31.820 --> 09:38.800
+to print random choices list and then we'll make Arcangel to five.
+
+09:38.960 --> 09:39.660
+OK.
+
+09:40.610 --> 09:42.020
+So here's what we get.
+
+09:42.080 --> 09:49.270
+As you can see we basically have these lists of five elements and we just repeated that 10 times and
+
+09:49.280 --> 09:50.920
+you can see they repeat right.
+
+09:50.940 --> 09:53.510
+See a repeat of twice in here.
+
+09:53.510 --> 09:55.300
+See repeated twice in here.
+
+09:55.520 --> 09:56.410
+And so on.
+
+09:58.360 --> 10:06.010
+So one of the things that's interesting with the choices is that we can actually give a weight to how
+
+10:06.070 --> 10:11.640
+often we want things to come up in the in the selection over here.
+
+10:11.680 --> 10:17.500
+And that's why I'm doing it 10 times so we can kind of see a pattern emerging and we do that by specifying
+
+10:17.500 --> 10:18.280
+the weights.
+
+10:18.280 --> 10:25.330
+So here let me go ahead and call it weights and let's say that I want the first element to be picked
+
+10:25.420 --> 10:28.050
+more often than the other ones by default.
+
+10:28.060 --> 10:32.130
+It's basically doing weights of 1 1 and 1.
+
+10:32.170 --> 10:37.930
+So it's going to try and evenly spread out and we'll do a frequency analysis on that in a second.
+
+10:38.080 --> 10:44.060
+But basically it gives even weights to all the elements in the list.
+
+10:44.230 --> 10:51.230
+But let's say that I don't want that let's say that I want to generate random selections where a is
+
+10:51.250 --> 10:53.350
+going to come up more frequently.
+
+10:53.380 --> 10:54.790
+How much more frequently.
+
+10:54.970 --> 11:01.240
+Well relatively speaking 10 compared to one and compared to one out of 12.
+
+11:01.240 --> 11:07.000
+Right so 10 out of 12 1 out of 12 1 out of 12 times expect 8 to show up.
+
+11:07.000 --> 11:08.260
+That's what I want to do.
+
+11:08.290 --> 11:14.740
+So I set my weights and now I'm going to take the same piece of code right here but now I'm going to
+
+11:14.740 --> 11:18.990
+specify that the weights is going to be weights.
+
+11:19.090 --> 11:19.950
+OK.
+
+11:20.560 --> 11:24.420
+And if we do this you'll notice now there's kind of a difference in the pattern.
+
+11:24.550 --> 11:30.800
+It's kind of easy to see just by eyeballing it but you can see AA shows up a lot more frequently now.
+
+11:30.940 --> 11:31.500
+OK.
+
+11:31.810 --> 11:32.410
+You can see it.
+
+11:32.410 --> 11:35.590
+So I really you know skewed it quite a bit.
+
+11:35.740 --> 11:39.350
+So let's go ahead and count the frequency of those things.
+
+11:39.430 --> 11:41.650
+So what I'm going to do is the following.
+
+11:41.650 --> 11:43.720
+I could use the counters.
+
+11:43.930 --> 11:49.870
+Remember I showed you that in the last video I could use the count as object but I'm not going to do
+
+11:49.870 --> 11:50.170
+that.
+
+11:50.170 --> 11:56.290
+I'm just going to write it myself because I also want to bring back the rather the frequency as well
+
+11:56.320 --> 11:57.150
+as a percentage.
+
+11:57.150 --> 12:02.540
+I don't want just the count because then I have to kind of eyeball it and.
+
+12:02.680 --> 12:08.500
+So I'm going to create a name top hole for a frequency can cut type of record which is going to count
+
+12:08.530 --> 12:18.570
+and frequency and then I'm going to define this creek quinsy counts and I'm going to pass it a list
+
+12:18.690 --> 12:21.220
+let's call it ls t.
+
+12:21.660 --> 12:24.940
+And the first thing I need to do is find the length of that list.
+
+12:25.010 --> 12:30.130
+So I need to know how many elements are in that list and then what am I going to do.
+
+12:30.150 --> 12:31.170
+I'm going to return
+
+12:35.810 --> 12:39.260
+the frequency of the elements in this list.
+
+12:39.260 --> 12:43.250
+So but I want to use a dictionary where I'm going to have the key is going to be the element of the
+
+12:43.250 --> 12:43.900
+list.
+
+12:44.030 --> 12:51.960
+And then next I'm going to want to have the total count and then the frequency as a relative percentage.
+
+12:52.040 --> 12:56.890
+So I'm going to iterate K in the router we already solved in the set.
+
+12:56.930 --> 13:04.430
+So I'm going to convert LSD to a set just so that I get all the unique elements that are in that list
+
+13:04.850 --> 13:06.580
+and then that's going to be my key.
+
+13:06.710 --> 13:11.960
+And then what do I do for every key I'm going to create a dictionary where the key is going to be that
+
+13:11.960 --> 13:12.540
+key.
+
+13:12.710 --> 13:15.140
+And then I need to do what I need to find.
+
+13:15.140 --> 13:19.870
+The list dupped on LSD sorry dot count.
+
+13:19.880 --> 13:26.400
+I want to know how many times that may occur in that list but I'm going to create this as a name to
+
+13:26.460 --> 13:27.020
+all.
+
+13:27.110 --> 13:29.850
+So I'm going to call this for you.
+
+13:29.850 --> 13:32.930
+Q And I just noticed my typo over here.
+
+13:32.930 --> 13:35.410
+That's not me that's not Fred.
+
+13:35.750 --> 13:36.150
+I.
+
+13:36.150 --> 13:40.770
+Q Sogard frequency that's going to be the first item it's going to be the count.
+
+13:40.820 --> 13:46.550
+And then I want the actual frequency itself which is going to be 100 times and it's going to be l s
+
+13:46.550 --> 13:48.100
+t that counts.
+
+13:48.200 --> 13:52.930
+Cain divided by total.
+
+13:53.020 --> 13:54.550
+Right.
+
+13:54.720 --> 13:57.390
+We are with two lines that we can see what's going on.
+
+13:57.480 --> 13:58.700
+For k in that set
+
+14:02.030 --> 14:04.050
+and what I do wrong here.
+
+14:04.160 --> 14:08.590
+I need to close off my table.
+
+14:09.560 --> 14:18.560
+So now this will return basically you know a nice list dictionary I should say of the frequency of each
+
+14:18.680 --> 14:22.170
+element and not in a particular list that's passed to it.
+
+14:22.250 --> 14:29.190
+So let's try it on let's say frequency counts random dot choices.
+
+14:29.210 --> 14:35.850
+We'll take it from a list L and let's say we do this a thousand times.
+
+14:35.960 --> 14:36.460
+OK.
+
+14:36.680 --> 14:42.800
+So we're going to pick a thousand random elements from this list L which remember is just the three
+
+14:42.800 --> 14:44.820
+characters A B and C.
+
+14:44.900 --> 14:49.310
+So we're going to pick a thousand elements so there's going to be replacement obviously and then I want
+
+14:49.310 --> 14:52.550
+to know how you know what's the distribution.
+
+14:52.580 --> 14:55.470
+And here I would expect a pretty even distribution.
+
+14:56.030 --> 15:00.240
+And as you can see it's pretty even 30 to 36 31.
+
+15:00.250 --> 15:02.430
+Again the sample size is pretty small.
+
+15:02.450 --> 15:10.550
+We can make it a lot bigger let's say 100000 and we get now much you know much more even uniform kind
+
+15:10.550 --> 15:12.410
+of distribution.
+
+15:12.410 --> 15:14.630
+But now let's go ahead and use those weights.
+
+15:14.630 --> 15:20.220
+And this is really why I wanted to bring it out this way and so we can see those frequencies.
+
+15:20.330 --> 15:22.880
+We're going to use these weights over here 10 1 1.
+
+15:22.880 --> 15:25.920
+So we've waited eight 10 times more than the others.
+
+15:26.000 --> 15:26.540
+Right.
+
+15:27.760 --> 15:31.780
+Let's go ahead and set the weights a little differently.
+
+15:32.740 --> 15:38.420
+Let's set it to 8 1 1 because then we kind of know what the relative frequencies should be.
+
+15:38.440 --> 15:45.700
+We expect that a should occur eight out of 10 times because we have 8 and 1 and 1 so 8 9 10 8 out of
+
+15:45.700 --> 15:49.970
+10 times B should be 1 out of 10 times c should be 1 out of 10 times.
+
+15:49.990 --> 15:53.300
+So if we use this we can just take this same code again.
+
+15:53.740 --> 16:00.080
+And now we have to in addition specify the weights we can do that.
+
+16:00.250 --> 16:03.540
+And as you can see here is what we expected.
+
+16:03.540 --> 16:08.080
+A came up about 80 percent of the time became Alph 10 percent of the time.
+
+16:08.090 --> 16:10.220
+C came out 10 percent of the time.
+
+16:10.300 --> 16:15.650
+If we changed the weights to something else let's say we change it to 7 1 and 2.
+
+16:15.910 --> 16:18.440
+Right then what can we expect.
+
+16:18.610 --> 16:21.850
+Well we can expect that is going to be a frequency of 70 percent.
+
+16:21.970 --> 16:26.770
+See will have a frequency of 20 percent and 1 and B will have a frequency of 10 percent.
+
+16:26.950 --> 16:30.510
+And indeed that's what we get 70 10 and 20.
+
+16:30.570 --> 16:36.110
+There's another way that you can specify the weights and what you do is you set up cumulative weights.
+
+16:36.120 --> 16:41.250
+So instead of doing 8 1 1 you'd say 8 9 10 right.
+
+16:41.250 --> 16:46.380
+Or instead of saying 7 1 2 you would say 7 8 10.
+
+16:46.410 --> 16:47.850
+It's kind of the same thing.
+
+16:47.850 --> 16:49.500
+You just have cumulative weights.
+
+16:49.650 --> 16:55.890
+And then here in order to do this you would not specify weights you would say cumulative weights equals
+
+16:56.760 --> 17:03.180
+cumulative weights and you get prox you know you get the same thing 70 10 and 20.
+
+17:03.180 --> 17:08.790
+So what I want to show you next is kind of a practical example of where we might use something like
+
+17:08.790 --> 17:11.130
+random choices with these weights.
+
+17:11.130 --> 17:17.400
+I'm sure you have other use cases that you'll come up with but for now here's one that I thought would
+
+17:17.400 --> 17:18.380
+be pretty good.
+
+17:18.660 --> 17:24.180
+Let's say that we want to time the difference in our code between doing a and you know if we're going
+
+17:24.180 --> 17:29.640
+to do a division and we want to guard against dividing by zero while there's two ways about it we can
+
+17:29.640 --> 17:35.080
+either do an if statement to check if the denominator is 0 before we attempt during the division.
+
+17:35.190 --> 17:40.920
+That's the look before you leap kind of approach to you know exception handling and the other one is
+
+17:41.250 --> 17:46.620
+the one that's easier to ask forgiveness than permission which has to do the division and then catch
+
+17:46.620 --> 17:49.150
+it if you want to do something with that.
+
+17:49.200 --> 17:50.700
+Just cash cash there.
+
+17:50.700 --> 17:52.810
+Do a try except essentially.
+
+17:53.070 --> 17:58.350
+And some people there are always debates about well you know this is faster and this is more readable
+
+17:58.650 --> 17:59.790
+in general in Python.
+
+17:59.790 --> 18:06.500
+We prefer the you know ask the easier to ask forgiveness than permission.
+
+18:06.540 --> 18:11.130
+We don't do this look before you leap and I'll get into that discussion and a lot more detail.
+
+18:11.130 --> 18:12.890
+When we look at exception handling.
+
+18:13.170 --> 18:18.450
+But for now let's just take a quick look at the performance and let's see if there's a real difference
+
+18:18.510 --> 18:21.850
+in the performance.
+
+18:23.190 --> 18:29.100
+And of course the difference in performance will really only be if you're doing some kind of loop you
+
+18:29.100 --> 18:34.600
+know hundreds of millions of times then those very small differences will start to add up.
+
+18:34.650 --> 18:38.970
+And if you find that that's a bottleneck in your application then you're going to want to do some optimization
+
+18:39.420 --> 18:43.260
+but don't start optimizing until you actually need to optimize.
+
+18:43.260 --> 18:48.030
+Don't optimize ahead of time because you don't know where your bottlenecks where your performance bottlenecks
+
+18:48.120 --> 18:50.390
+are going to be.
+
+18:50.610 --> 18:53.010
+So let's do this very simply.
+
+18:53.310 --> 18:56.470
+And actually before we do that I'm going to ask do those very rough.
+
+18:56.490 --> 19:01.920
+So from time I'm going to import Tofte count or we're going to need the Kauffman's counting from the
+
+19:01.920 --> 19:03.770
+time Maggio next.
+
+19:03.780 --> 19:08.670
+I want to create and I'm going to do my random dot seed 0.
+
+19:08.670 --> 19:14.780
+I just want to make sure that I don't have variability there and I'm going to call those denominators.
+
+19:14.780 --> 19:15.510
+Dean.
+
+19:15.510 --> 19:18.450
+Dean now men need tools.
+
+19:18.470 --> 19:20.360
+OK I'm going to call this something else.
+
+19:20.370 --> 19:27.400
+I'm going to call this Dean arms because I just can't type this random dark choices.
+
+19:27.420 --> 19:28.320
+And what are we going to do.
+
+19:28.320 --> 19:35.120
+Well I want to have a random selection of zero and non-zero denominators so I'm going to pick from just
+
+19:35.150 --> 19:41.670
+zero on one and I'm going to pick it a million times actually 10 million times.
+
+19:42.300 --> 19:42.780
+OK.
+
+19:43.020 --> 19:46.480
+So this is going to generate a list of random zeros and ones.
+
+19:46.860 --> 19:47.740
+OK.
+
+19:48.060 --> 19:54.420
+Next what I want to do is I want to basically time division and I'm going to test using an if statement
+
+19:54.420 --> 19:56.620
+to make sure the denominator is not zero.
+
+19:56.670 --> 20:03.120
+So let's go ahead and stouts and let's read our performance counters.
+
+20:03.210 --> 20:07.920
+Then I'm going to say for d n d Nom's.
+
+20:07.920 --> 20:13.640
+Now I'm going to gownd using an if statement if D is equal to zero then I'm just going to continue.
+
+20:13.680 --> 20:16.310
+I'm not going to do the rest of this loop.
+
+20:16.380 --> 20:25.890
+Else I'm going to just calculate the value k so I'm not going to store into a variable I don't need
+
+20:25.890 --> 20:27.180
+to time that.
+
+20:27.510 --> 20:32.220
+And then I'm going to look at my performance counter again to see what it is that's my end time.
+
+20:32.220 --> 20:33.290
+And then I'm going to print.
+
+20:33.300 --> 20:38.610
+I'm going to use an F string and we're going to say average elapsed time.
+
+20:38.640 --> 20:43.060
+Well what's the average elapsed time it's and minus gestalt k.
+
+20:43.470 --> 20:45.160
+But the end minus.
+
+20:45.210 --> 20:51.710
+I'm going to divide by the number of loops that I had to get an average by loop by iteration.
+
+20:51.750 --> 20:57.200
+I should say so I'm going to divide that by the length of the denominators.
+
+20:58.930 --> 21:09.080
+And maybe I'll print the salts to zero point fifteen right after the decimal point.
+
+21:09.090 --> 21:09.900
+So there we go.
+
+21:09.900 --> 21:13.500
+This is how long it took to run about that much.
+
+21:13.500 --> 21:19.380
+Now let's go ahead and do the same piece of code so I'm going to copy paste but here I'm not going to
+
+21:19.380 --> 21:21.520
+do an if statement.
+
+21:21.540 --> 21:22.740
+I'm going to do a try.
+
+21:22.800 --> 21:25.380
+So I'm going to say try and what do I want to try.
+
+21:25.500 --> 21:27.780
+So now I'm just going to do it.
+
+21:27.900 --> 21:29.940
+So I'm not asking for permission right.
+
+21:29.940 --> 21:35.790
+This is what this look before you leap is I'm asking for permission saying May I divide by the and the
+
+21:35.790 --> 21:39.380
+should be D by the way now denominator for it's rerun.
+
+21:39.390 --> 21:39.750
+That's
+
+21:42.640 --> 21:46.150
+And here I'm going to do it right away.
+
+21:46.150 --> 21:47.420
+I'm just going to do it.
+
+21:47.470 --> 21:55.030
+What I'm going to catch up to I'm going to catch the 0 division error and if that's the case then I'm
+
+21:55.030 --> 21:56.230
+just going to continue.
+
+21:56.470 --> 21:56.760
+Right.
+
+21:56.800 --> 21:57.910
+I don't need to do anything.
+
+21:57.910 --> 22:00.550
+In fact I'm suppressing the error here.
+
+22:00.580 --> 22:03.540
+Not a bad not not a good idea.
+
+22:03.900 --> 22:05.850
+You know don't suppress errors.
+
+22:05.920 --> 22:10.330
+You know like this way unless there's a good reason you don't want to just make things silent in this
+
+22:10.330 --> 22:14.330
+case I do because I want to time the difference.
+
+22:14.330 --> 22:16.110
+And then this is all the same thing.
+
+22:16.190 --> 22:16.780
+OK.
+
+22:17.180 --> 22:22.140
+Let's go ahead and run that and seems to be taking substantially longer.
+
+22:22.420 --> 22:28.560
+And if we look at the numbers here basically it looked like it ran about three times slower.
+
+22:28.900 --> 22:32.620
+So at this point you might be saying Wow I'm never going to use try except I'm never going to use that
+
+22:32.620 --> 22:33.270
+approach.
+
+22:34.050 --> 22:41.280
+But you have to remember that your exceptions are not things that happen necessarily all the time.
+
+22:41.280 --> 22:42.710
+Exceptions are that right.
+
+22:42.720 --> 22:46.700
+Normally I mean if you expect the denominator is always going to be zero.
+
+22:46.830 --> 22:48.660
+Well you're not going to try and divide by that.
+
+22:48.780 --> 22:52.170
+But if you expect that your denominator is going to be non-zero.
+
+22:52.200 --> 22:54.710
+Most of the time then what happens.
+
+22:54.750 --> 22:55.030
+Right.
+
+22:55.050 --> 22:57.450
+That's going to change the calculus maybe.
+
+22:57.540 --> 23:04.500
+And so what I want to do now is I want to rerun all this code but I want to change this and instead
+
+23:04.500 --> 23:10.650
+of having an evenly split sample where I've got an equal number proximately of zeros and ones I want
+
+23:10.650 --> 23:16.380
+to skew it I'm going to say no no the zeros or the zero the numbers only going to happen that's a 10
+
+23:16.380 --> 23:17.450
+percent of the time.
+
+23:17.760 --> 23:25.470
+So I would say weights equals nine Come one to one come in nine because I want my ones to appear about
+
+23:25.500 --> 23:29.090
+90 percent of the time and there's only 10 percent of the time.
+
+23:29.550 --> 23:36.450
+So now I've got a different and again let me go ahead and say random dog see it it doesn't actually
+
+23:36.450 --> 23:37.690
+matter in this case.
+
+23:38.720 --> 23:44.960
+Art now I've got a different distribution of zeros and ones my ones are going to be distributed much
+
+23:44.960 --> 23:45.720
+more.
+
+23:45.800 --> 23:50.010
+You know are going to be distributed are going to be present far more often than the zeros.
+
+23:50.120 --> 23:55.510
+And so now let's go ahead and run the same piece of code again and let's see what we get.
+
+23:57.420 --> 23:57.810
+OK.
+
+23:57.830 --> 24:04.180
+So again we get that and we need now to run this one for comparison purposes.
+
+24:04.640 --> 24:05.480
+And you know what I'm going to do.
+
+24:05.480 --> 24:07.250
+I'm going to take out the formatting here.
+
+24:07.250 --> 24:09.850
+It's actually harder to read with that.
+
+24:09.860 --> 24:11.600
+So for me go ahead and do this.
+
+24:11.660 --> 24:11.960
+OK.
+
+24:11.970 --> 24:13.220
+So let's run this again.
+
+24:15.190 --> 24:16.780
+And let's run this one again.
+
+24:18.420 --> 24:24.980
+Now as you can see the timing is much closer now 1.3 one one point thirty five it's negligible.
+
+24:25.050 --> 24:29.690
+So whereas here we might have thought and here that me again.
+
+24:30.060 --> 24:36.220
+Let's rerun this and I'm going to rerun this without the formatting.
+
+24:39.640 --> 24:43.480
+Well let's run those Let's run those.
+
+24:46.040 --> 24:46.300
+All right.
+
+24:46.310 --> 24:49.000
+So here it looked like this was three times slower.
+
+24:49.140 --> 24:51.110
+Like was you know big deal.
+
+24:52.330 --> 24:55.820
+Here it's about the same so.
+
+24:55.860 --> 25:00.780
+The look before you leap is not something that you should necessarily do because you're concerned about
+
+25:00.780 --> 25:02.460
+performance.
+
+25:02.520 --> 25:04.350
+It becomes a performance issue.
+
+25:04.350 --> 25:10.130
+If the exception happens far more often than the you know than was real.
+
+25:10.220 --> 25:12.290
+So be careful with that.
+
+25:12.590 --> 25:17.930
+And if you want to see what it looks like when you have really skewed towards it happens most of the
+
+25:17.930 --> 25:20.170
+time the exception happens most of the time.
+
+25:20.180 --> 25:21.860
+Let's let's reverse this.
+
+25:22.310 --> 25:23.500
+Let's do it this way.
+
+25:23.750 --> 25:25.410
+And now let's run again.
+
+25:25.640 --> 25:29.210
+So now my zeros are happening a lot more often.
+
+25:29.270 --> 25:30.110
+So we run loose.
+
+25:30.110 --> 25:31.640
+How long does it take that much.
+
+25:31.640 --> 25:36.080
+And if we were on this one How long does it take takes that
+
+25:41.170 --> 25:41.930
+takes this amount.
+
+25:41.960 --> 25:42.330
+Yes.
+
+25:42.580 --> 25:49.670
+So as you can see this is now you know almost a factor of 10 an order of 10 slower.
+
+25:49.730 --> 25:56.570
+But again if you're writing code and this happens to be you know the most common thing where it mostly
+
+25:56.570 --> 26:02.270
+is going to create an exception maybe you need to relook at your code and relook at how you're handling
+
+26:02.270 --> 26:02.560
+things.
+
+26:02.570 --> 26:06.220
+Maybe that's not the best approach in the first place.
+
+26:06.230 --> 26:06.530
+All right.
+
+26:06.530 --> 26:07.250
+Thanks for watching.

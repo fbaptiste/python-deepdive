@@ -1,0 +1,571 @@
+WEBVTT
+
+00:00.560 --> 00:05.300
+Hi and welcome to this video on reference counting.
+
+00:05.390 --> 00:12.860
+So if we write this line of code my VAR equals 10 remember what's actually happening is pythoness creating
+
+00:13.190 --> 00:17.970
+an object of type integer with a value of 10 at some memory address.
+
+00:17.990 --> 00:25.200
+Let's say a thousand in this case and my VAR is a pointer to that object.
+
+00:25.250 --> 00:28.090
+My VAR is actually the reference.
+
+00:28.400 --> 00:34.140
+The memory address of that object in this case that's a 1000.
+
+00:34.300 --> 00:40.070
+So we can start keeping track of these objects that are created in memory.
+
+00:40.180 --> 00:46.390
+We can keep track of them by keeping track of their memory address and how many variables are pointing
+
+00:46.390 --> 00:46.830
+to them.
+
+00:46.870 --> 00:52.270
+How many other variables in our Python code are pointing to that same object.
+
+00:52.270 --> 00:55.150
+So in this case we only have one reference.
+
+00:55.300 --> 01:00.280
+And so the reference count for that memory address is 1.
+
+01:00.610 --> 01:05.470
+But let's say we write this other line of code other var equals my VAR.
+
+01:05.470 --> 01:09.340
+Now remember we are dealing with pointers right.
+
+01:09.340 --> 01:12.370
+We're dealing with memory addresses preferences.
+
+01:12.520 --> 01:21.030
+When we say other verticals my VAR we are not taking the value 10 and assigning it to other than we're
+
+01:21.040 --> 01:29.710
+actually taking the reference of my VAR and assigning that reference 1000 to other than.
+
+01:29.920 --> 01:35.450
+In other words other var is also pointing to that same object in memory.
+
+01:35.500 --> 01:39.400
+So it's really important to understand that distinction.
+
+01:39.490 --> 01:46.900
+We do not have to separate objects of value 10 and my VAR points to one and other var points to another
+
+01:46.900 --> 01:47.500
+one.
+
+01:47.530 --> 01:53.830
+No when we say other articles my VAR we're actually sharing the reference.
+
+01:54.040 --> 01:58.500
+And so the counter in this case will go up to 2.
+
+01:58.630 --> 02:05.890
+Right so the reference count is now to now let's say that my VAR goes away either it falls out of scope
+
+02:06.160 --> 02:12.940
+or maybe we assign it to a different object in memory maybe even assign it to none then that reference
+
+02:12.940 --> 02:13.960
+goes away.
+
+02:14.140 --> 02:22.390
+And the reference count goes down to 1 and let's say others are also goes away.
+
+02:22.660 --> 02:26.460
+So at some point in time maybe it goes out of scope.
+
+02:26.500 --> 02:33.120
+Now there is nothing left and the reference count therefore drops down to zero at that point.
+
+02:33.190 --> 02:38.570
+The Python memory manager recognizes that and says oh OK there's no object left.
+
+02:38.680 --> 02:39.890
+I don't need it anymore.
+
+02:39.910 --> 02:42.040
+There are no sorry there are no references left.
+
+02:42.040 --> 02:43.720
+I don't need this anymore.
+
+02:43.990 --> 02:51.640
+And it throws away the object and that object goes away and the space it used up can now be reused by
+
+02:51.640 --> 02:54.420
+Python when it's running a program.
+
+02:54.430 --> 02:56.850
+So this is called reference counting.
+
+02:57.010 --> 03:00.640
+And that's something that the Python memory manager does for us.
+
+03:00.730 --> 03:02.680
+We don't have to worry about this.
+
+03:02.710 --> 03:05.410
+It's doing it automatically right.
+
+03:05.470 --> 03:09.790
+But just keep in mind that's what's going on with the reference counting.
+
+03:09.790 --> 03:14.830
+And when we create variables and then later we'll look at something else called garbage collection which
+
+03:14.830 --> 03:17.630
+is related to this.
+
+03:17.680 --> 03:23.800
+So when before we get to the code we're going to look very quickly at how we can find the reference
+
+03:23.800 --> 03:33.090
+count of a variable in Python the CIS module has a get ref count function that we can use and we walked
+
+03:33.100 --> 03:33.530
+by.
+
+03:33.550 --> 03:37.640
+So it does get ref count and we pass in the variable name.
+
+03:37.640 --> 03:42.970
+So we put the variable name in there and we'll look at that closer down the road.
+
+03:42.980 --> 03:48.200
+But what's happening here is we're passing a reference to my VAR right.
+
+03:48.200 --> 03:51.160
+We're passing that reference.
+
+03:51.410 --> 03:59.960
+So when we pass my VAR to get ref count it's actually creating another reference to that same object
+
+03:59.960 --> 04:00.730
+in memory.
+
+04:00.890 --> 04:01.630
+Right.
+
+04:01.730 --> 04:07.790
+So there's a kind of a downside to use an get ref count in that it always increases the reference count
+
+04:07.790 --> 04:15.410
+by one because simply the act of passing my value to the function creates another reference to that
+
+04:15.410 --> 04:21.470
+same variable because variables are passed by reference and Python and I get we'll get to that in detail
+
+04:21.470 --> 04:22.650
+later.
+
+04:23.480 --> 04:28.440
+So there is another function we can use that doesn't have that drawback.
+
+04:28.520 --> 04:33.830
+It's in the C types module it's certainly at a lower level it's basically starting to dig down into
+
+04:33.830 --> 04:35.400
+the C libraries.
+
+04:35.690 --> 04:41.770
+And this is just what it is C types Dotsie long from address etc..
+
+04:41.810 --> 04:49.110
+The difference here is that we're passing the memory address so id of my van.
+
+04:49.730 --> 04:57.280
+So because we're passing the memory address not the reference we're passing the actual integer value.
+
+04:57.320 --> 05:00.980
+Let's say a thousand in the example we had before.
+
+05:01.190 --> 05:02.960
+It doesn't affect the reference count.
+
+05:03.020 --> 05:09.430
+And so this is a truer more exact count of the number of references.
+
+05:09.740 --> 05:14.150
+So let's switch to code and take a look at all that in some detail.
+
+05:14.150 --> 05:20.340
+We'll start by looking at the sists module and we'll use the get ref count from that module first.
+
+05:20.420 --> 05:22.360
+So we'll have to import it.
+
+05:22.520 --> 05:31.390
+So it's imports this then we should create a variable and I'm going to use a list and we'll see and
+
+05:31.400 --> 05:35.240
+some upcoming lessons why I'm not using an integer here.
+
+05:35.390 --> 05:38.700
+Because you might be surprised at the answer we get.
+
+05:39.500 --> 05:41.420
+So I'll create the variable a.
+
+05:41.420 --> 05:48.290
+Now remember what does it mean by saying equals 1 2 3 1 2 3 was crater's an object in memory at some
+
+05:48.290 --> 05:50.390
+memory address which we can find.
+
+05:50.390 --> 05:51.710
+Let's call it Tom.
+
+05:51.830 --> 05:54.380
+Well actually it's just printed out.
+
+05:54.530 --> 05:55.010
+OK.
+
+05:55.120 --> 05:56.360
+So that memory address.
+
+05:56.360 --> 06:00.020
+Now when you run this code you'll get a different number of.
+
+06:00.200 --> 06:07.800
+So we have this object created in memory and a points to that memory address is a pointer.
+
+06:08.980 --> 06:17.950
+So now we can use the system to get ref counts and get ref count expects the variable name as its parameters.
+
+06:18.250 --> 06:20.020
+So in this case.
+
+06:20.320 --> 06:28.180
+Now what this means is that we're passing a to get ref count and its argument is taking the same reference
+
+06:28.300 --> 06:30.460
+that 8 is telling it.
+
+06:30.520 --> 06:35.410
+So it's going to point to the same object in memory.
+
+06:35.420 --> 06:40.150
+So really a reference count is going to become to get ref count runs.
+
+06:40.250 --> 06:43.500
+And indeed that's what we get to.
+
+06:43.550 --> 06:45.310
+So you can use get ref count.
+
+06:45.320 --> 06:46.570
+It's not an issue just.
+
+06:46.590 --> 06:52.730
+Just remember to subtract 1 from that answer because the simple fact of passing a Instead of passing
+
+06:52.730 --> 06:57.340
+the variable into it has increased the reference count by one.
+
+06:57.340 --> 07:01.760
+So if you don't have to deal with that then we can use the C types library.
+
+07:01.820 --> 07:08.930
+So we have to import C types first and then we have that long expression that I showed you in the slides.
+
+07:08.930 --> 07:16.930
+So I'm going to create a wrapper function called ref count that's going to take the address.
+
+07:16.940 --> 07:23.330
+And if you want to use annotations we can specify that the address is going to be an integer and it's
+
+07:23.330 --> 07:26.380
+going to return that k.
+
+07:26.420 --> 07:32.810
+So C types of C long dupped from address of the address which is the argument here the first argument
+
+07:32.810 --> 07:36.660
+and the function datt value k.
+
+07:36.830 --> 07:41.850
+That way we don't have to type that whole long expression every time.
+
+07:41.870 --> 07:45.270
+So now we can get the reference count of a.
+
+07:45.280 --> 07:56.810
+But we have to pass it the memory address so we can do ref count ID of a and we get a reference count
+
+07:56.810 --> 08:04.520
+of 1 which is what we expect now now you might be thinking wait a minute you said that we get a rough
+
+08:04.520 --> 08:11.160
+count here of two because we passed way into this function aren't we doing the same thing here.
+
+08:11.180 --> 08:15.890
+We're passing a inside this function why isn't the reference count too.
+
+08:16.430 --> 08:22.020
+Well what's happening is idea of a is getting evaluated first.
+
+08:22.040 --> 08:30.440
+So indeed when we call the idea of a one ID is running then the reference count to that memory address
+
+08:30.470 --> 08:38.720
+1 8 3 1 0 1 1 5 is 2 right because it's got a reference we passed it as a parameter.
+
+08:38.720 --> 08:43.520
+So the argument of that function has a reference to that same object in memory.
+
+08:43.550 --> 08:45.820
+So at that point the reference is too.
+
+08:46.350 --> 08:52.530
+But Id then finishes running and returns the memory address.
+
+08:52.530 --> 08:54.480
+OK what we have up here.
+
+08:55.000 --> 09:03.670
+So by the time we call ref count ID has finished running and it has released its pointer to that memory
+
+09:03.670 --> 09:04.420
+address.
+
+09:04.510 --> 09:04.750
+Right.
+
+09:04.750 --> 09:06.090
+That point is gone.
+
+09:06.100 --> 09:09.120
+So now the reference count is indeed back to 1.
+
+09:09.250 --> 09:09.850
+Right.
+
+09:09.880 --> 09:15.590
+So this is no different than doing it this way.
+
+09:16.060 --> 09:23.040
+Let me copy the memory address that we just took pass it in here and we get ref count of 1.
+
+09:23.050 --> 09:25.170
+So that's exactly the same thing right.
+
+09:25.210 --> 09:30.640
+So don't be confused by the fact that the ref count is 1 even though it's huge.
+
+09:30.730 --> 09:36.520
+That's because by the time ref count is called ID has finished running it has already returned the memory
+
+09:36.520 --> 09:42.160
+address and therefore it has released whatever reference it had to that memory address.
+
+09:43.820 --> 09:44.340
+OK.
+
+09:44.520 --> 09:46.740
+So now we have equals 1 to 3.
+
+09:46.890 --> 09:51.940
+Let's go ahead and say B is equal to a K so b equals a.
+
+09:52.170 --> 09:56.950
+And now we can call ref count again on the ID of a.
+
+09:57.060 --> 10:01.020
+Well before we do that let's take a look at the idea of B.
+
+10:01.170 --> 10:06.990
+Let's just make sure that it is indeed pointing to the same location in memory and it is as you can
+
+10:06.990 --> 10:11.340
+see a and b are both pointing to the same location in memory.
+
+10:11.370 --> 10:13.770
+So our reference count should be 2.
+
+10:14.010 --> 10:17.670
+So we can say ref count of the ID.
+
+10:17.670 --> 10:20.510
+Now we can use either a or b they're identical.
+
+10:20.760 --> 10:28.980
+And we can see the ref count is two we can go further and say C is equal to A and we can look at the
+
+10:28.980 --> 10:32.130
+ref count of the ID of a.
+
+10:32.400 --> 10:35.660
+And again now we have a reference count of three.
+
+10:35.660 --> 10:41.280
+Now if I change C to something else if I say sequel's 10 for example.
+
+10:41.280 --> 10:47.990
+Now if I do a rough count of ID of AA you'll see the ref count is back down to 2.
+
+10:48.720 --> 10:55.230
+And if I said the equal to maybe none OK then we can do ref count of ID.
+
+10:55.230 --> 11:01.350
+Now I have to use a I can't use idea of B because that would be a different object.
+
+11:01.350 --> 11:02.280
+Right.
+
+11:02.280 --> 11:12.670
+The idea of B let's put that in quick idea of B as you can see is not the same as it was before.
+
+11:12.720 --> 11:20.880
+That's because we've said be equal to none which is actually a real object that has no existence in
+
+11:20.880 --> 11:22.550
+memory that it's pointing to.
+
+11:22.680 --> 11:29.340
+So if I look at the reference count of a however I get down to 1.
+
+11:29.460 --> 11:37.590
+Now what I'm going to do is I'm going to store the memory address so I'm going to say ID equals ID of
+
+11:37.650 --> 11:38.850
+a.
+
+11:39.240 --> 11:41.570
+Then I'm going to set a whole to none.
+
+11:41.910 --> 11:45.690
+And then we're going to call ref count on a ID.
+
+11:45.690 --> 11:52.590
+Now the reason why I'm doing that is because I cannot call ref count an idea of a after offset equal
+
+11:52.590 --> 11:53.130
+to none.
+
+11:53.130 --> 11:58.750
+I still want to look at the original memory address.
+
+11:58.780 --> 11:59.400
+OK.
+
+12:00.000 --> 12:07.170
+So now the answer you're going to get here may very well be different than the answer I'm gonna get
+
+12:07.650 --> 12:11.470
+and I'll get into that into a lot more detail later.
+
+12:11.820 --> 12:14.210
+But let's take a look.
+
+12:14.250 --> 12:17.580
+So I still have a reference count of 1 for a.
+
+12:17.700 --> 12:21.360
+That's just weird or you know for that old memory address.
+
+12:21.360 --> 12:28.600
+OK so maybe I'll run it again and now it's 0 OK or if I run it again.
+
+12:28.910 --> 12:31.330
+Not some weird value.
+
+12:32.120 --> 12:32.700
+All right.
+
+12:32.790 --> 12:37.370
+So this is because we are using that C library.
+
+12:37.530 --> 12:42.850
+So we are actually in this code we are specifying the memory address.
+
+12:42.870 --> 12:52.590
+We're interested in care which was this memory address over here when the last reference to that memory
+
+12:52.590 --> 12:55.800
+address was dropped when we set a call to none.
+
+12:56.010 --> 13:02.940
+Remember what happens the memory manager frees up that memory address essentially tosses away the object
+
+13:03.390 --> 13:07.120
+and that memory address becomes available for something else.
+
+13:07.590 --> 13:09.970
+And that's what we're seeing here.
+
+13:10.110 --> 13:10.730
+Right.
+
+13:10.740 --> 13:14.180
+So typically in python we don't work with memory addresses.
+
+13:14.190 --> 13:16.920
+I'm just doing that as an illustration.
+
+13:16.930 --> 13:22.530
+And just to try and understand what's going on behind the scenes but what's happening here is that what
+
+13:22.530 --> 13:26.630
+is stored at that memory address once I said able to none.
+
+13:26.910 --> 13:28.710
+We don't know what's stored in there.
+
+13:28.860 --> 13:30.780
+It's probably just junk.
+
+13:31.350 --> 13:31.740
+Right.
+
+13:31.740 --> 13:33.510
+Or maybe something else.
+
+13:33.510 --> 13:37.050
+So in python we never deal with memory addresses directly.
+
+13:37.050 --> 13:40.020
+It's very dangerous to do that.
+
+13:40.320 --> 13:43.440
+And as you can see here you can't rely on that.
+
+13:43.650 --> 13:43.980
+OK.
+
+13:44.010 --> 13:45.630
+So we've got to be careful.
+
+13:45.630 --> 13:51.060
+Again just for illustration purposes you're never going to have to use that in Python unless you're
+
+13:51.060 --> 13:58.870
+trying to debug stuff or figure out you know what's going on especially with things like memory leaks.
+
+13:58.890 --> 14:00.090
+All right.
+
+14:00.090 --> 14:01.940
+So I'll see you in the next lesson.
+
+14:01.950 --> 14:07.500
+Well we'll talk about garbage collection which is related to reference counting but it is not the same
+
+14:07.560 --> 14:15.150
+as reference counting it's a different process that Python utilizes to also keep up with you know cleaning
+
+14:15.150 --> 14:20.140
+up the memory and keeping things freed up so we don't have memory leaks.
+
+14:20.230 --> 14:20.920
+So you know it's.

@@ -1,0 +1,409 @@
+WEBVTT
+
+00:00.420 --> 00:06.250
+High in this video we're going to take a deeper look at the keyword arguments that we saw in the on
+
+00:06.260 --> 00:08.320
+your lectures.
+
+00:08.370 --> 00:15.430
+So just recall that positional parameters can optionally be passed as named keyword awards arguments.
+
+00:15.450 --> 00:21.450
+So for example if we define a function with three positional parameters a b and c we can certainly call
+
+00:21.450 --> 00:22.040
+it this way.
+
+00:22.080 --> 00:26.460
+We pass the three values 1 2 and 3 and they will be positionally mapped.
+
+00:26.460 --> 00:33.530
+That's why they called positional parameters and so we get A's and B's and C's three on the other hand
+
+00:33.590 --> 00:37.040
+we can specify our arguments by naming them as well.
+
+00:37.130 --> 00:41.960
+Even though they're positional arguments are positional parameters when with the finding them in the
+
+00:41.960 --> 00:47.030
+function we can actually specify them using named keyword arguments.
+
+00:47.030 --> 00:52.250
+And because of that remember that also we don't have to keep the ordering the same that's what's handy
+
+00:52.250 --> 00:54.070
+about using keyword arguments.
+
+00:54.110 --> 00:55.680
+So Python is going to see this.
+
+00:55.700 --> 01:01.610
+It's going to look at the function and say well I'm really expecting three positional arguments but
+
+01:01.610 --> 01:05.880
+you've given me three named arguments that have the same names as the parameters.
+
+01:06.020 --> 01:08.460
+So that's good and it's going to map it appropriately.
+
+01:08.480 --> 01:09.670
+So we'll get the same thing.
+
+01:09.670 --> 01:17.120
+We'll get a as one these two indices three but do note that using named arguments in this case is entirely
+
+01:17.120 --> 01:18.250
+up to the caller.
+
+01:18.440 --> 01:18.690
+Right.
+
+01:18.710 --> 01:21.660
+We can call it using just one common two common three.
+
+01:21.680 --> 01:27.500
+There was nothing forcing the caller to use a named argument for any of those parameters.
+
+01:27.500 --> 01:31.180
+So sometimes we want to make those keyword arguments mandatory.
+
+01:31.190 --> 01:40.010
+Now what we want people to specify an argument using a name so we can make them mandatory and to do
+
+01:40.010 --> 01:46.430
+so we only need to make sure that we've exhausted all the positional parameters and then specify another
+
+01:46.430 --> 01:47.060
+parameter.
+
+01:47.060 --> 01:48.290
+So what I mean by that.
+
+01:48.380 --> 01:50.990
+Well exactly in this example here.
+
+01:50.990 --> 01:58.480
+Here we have two mandatory positional parameters and this one here the Starmen with the stack.
+
+01:58.490 --> 02:04.970
+Does it kind of exhaust the remaining positional arguments that are found when the function is called.
+
+02:05.270 --> 02:08.160
+And that will then go into the tuple which will be called.
+
+02:08.210 --> 02:09.920
+Or whatever you want to name it.
+
+02:10.190 --> 02:12.610
+But then noticed this D that comes after that.
+
+02:12.650 --> 02:18.710
+Well if we've exhausted all the positional parameters all the positional arguments those can't be a
+
+02:18.710 --> 02:25.280
+positional argument and in fact it becomes a keyword argument and it has to be specified as a keyword
+
+02:25.280 --> 02:25.960
+argument.
+
+02:26.840 --> 02:33.830
+So in that case to effectively exhaust all the positional arguments and deam must be passed as a keyword
+
+02:34.980 --> 02:39.910
+we could call it this way we can call from one comment to comment X come a y.
+
+02:39.920 --> 02:40.810
+So what will happen.
+
+02:40.810 --> 02:46.140
+Well one is going to go into a two is going to go into B X and Y are still positional parameters they're
+
+02:46.160 --> 02:47.820
+not named that of keywords.
+
+02:47.990 --> 02:50.680
+So they're going to be assigned to the tuple.
+
+02:50.990 --> 02:55.600
+And then we have this key word argument equals 100.
+
+02:55.610 --> 02:59.780
+So it's going to look at that and say OK so you want 100 to go into D.
+
+02:59.930 --> 03:04.030
+So this will actually work and we'll get exactly what we expect.
+
+03:05.440 --> 03:10.660
+Remember from the last video when we specified another parameter here without the equals we added an
+
+03:10.660 --> 03:14.350
+exception because it was basically another positional parameter.
+
+03:14.350 --> 03:16.570
+It was not a keyword argument.
+
+03:16.750 --> 03:22.600
+And so Python complained saying well no I can't do that because you exhausted all the positional parameters
+
+03:22.600 --> 03:24.690
+in this stark expression over here.
+
+03:26.520 --> 03:28.500
+So we can even call the function this way.
+
+03:28.500 --> 03:34.080
+One comment to add equals 100 what's going to happen is that while a and b are mandatory positionally
+
+03:34.520 --> 03:40.140
+they're going to get 1 and 2 respectively and there'll be nothing in tongues because there are no additional
+
+03:40.200 --> 03:43.110
+positional parameters and D will be 100.
+
+03:43.110 --> 03:49.240
+So in fact we get equals one equals two ounces in empty topple and D is 100.
+
+03:49.770 --> 03:55.200
+On the other hand if we try and call the function this way we've just one come to the first two positional
+
+03:55.200 --> 03:57.350
+arguments this will fail.
+
+03:57.360 --> 04:00.820
+This is going to give us an exception when we try to run this.
+
+04:00.840 --> 04:01.630
+Why.
+
+04:01.650 --> 04:06.450
+Because Python is expecting a keyword argument which he did not find.
+
+04:06.450 --> 04:07.550
+So we'll get an error.
+
+04:09.570 --> 04:13.920
+Now we can even omit any mandatory position along humans.
+
+04:13.920 --> 04:15.170
+Look at this function.
+
+04:15.210 --> 04:18.160
+Define Phunk with just start on comedy.
+
+04:18.480 --> 04:21.730
+Well that means that we're not requiring any position along humans.
+
+04:21.750 --> 04:25.770
+We're just saying hey you can pass as many as you want which could be none.
+
+04:26.040 --> 04:30.460
+But we do expect a keyword argument after those positional events.
+
+04:30.510 --> 04:35.010
+So let's see how we might call this function we might call it with one comma to come a three and equal
+
+04:35.010 --> 04:42.030
+to 100 in which case we'll end up with almost equal to the tuple 1 2 3 and D will be 100.
+
+04:42.060 --> 04:45.140
+We could also call it this way Phunk with D'Qwell to 100.
+
+04:45.150 --> 04:47.810
+There are no positional arguments in this call.
+
+04:48.030 --> 04:55.450
+And so we end up with an empty top of four ounce and then D will still be equal to 100 now we can actually
+
+04:55.450 --> 04:58.450
+force no positional arguments at all.
+
+04:58.510 --> 05:05.120
+All we can actually stop the positional arguments at some point and to do that we use this stuff.
+
+05:05.320 --> 05:11.170
+We don't use that and then the name it's just down by itself and you can think of it this way you can
+
+05:11.170 --> 05:18.370
+think of the star as indicating the end of positional arguments but without actually trying to grab
+
+05:18.370 --> 05:24.340
+positional arguments and put them into words it's basically not saying you know I can have an arbitrary
+
+05:24.340 --> 05:25.990
+number of arguments here.
+
+05:26.140 --> 05:27.580
+This is saying none.
+
+05:27.610 --> 05:29.510
+I don't want any right.
+
+05:29.530 --> 05:32.940
+I'm not going to look for positional arguments after this point.
+
+05:33.300 --> 05:39.100
+And because we don't have any positional arguments specified before that this effectively means that
+
+05:39.100 --> 05:43.480
+we have no positional arguments that we can pass to this function.
+
+05:43.480 --> 05:44.650
+So let's take a look.
+
+05:44.890 --> 05:50.980
+If we try and call the function this way one comma two common three while is going go look at the function
+
+05:50.980 --> 05:57.760
+definition and say well wait a minute I don't have any positional parameters defined here.
+
+05:57.880 --> 06:04.540
+You cannot pass positional arguments so this will actually create an exception it will fail to run.
+
+06:05.050 --> 06:07.340
+On the other hand we can call it this way.
+
+06:07.430 --> 06:12.880
+We have just the keyword argument with no positional arguments and that will work just fine and D will
+
+06:12.880 --> 06:15.890
+actually be equal to 100 which is what we specify there.
+
+06:17.500 --> 06:19.520
+OK so let's put it altogether.
+
+06:19.770 --> 06:21.390
+So let's look at this function first.
+
+06:21.400 --> 06:23.290
+Here we have a.
+
+06:23.470 --> 06:28.800
+And here we have a so I've got two functions and the only difference is that here I've got style arms
+
+06:28.840 --> 06:30.580
+and here I've got just the stuff.
+
+06:30.670 --> 06:35.260
+And let's take a look at the similarities and the differences between these two definitions.
+
+06:35.290 --> 06:41.430
+So a is in both and in and both times a is the first positional parameter.
+
+06:41.500 --> 06:49.460
+It doesn't have a default value so a is essentially a mandatory positional argument which may be specified
+
+06:49.460 --> 06:50.990
+using of course a named argument.
+
+06:51.020 --> 06:51.260
+Right.
+
+06:51.260 --> 06:54.490
+When you call the function you can call it with a equals some value.
+
+06:54.500 --> 06:59.750
+That's fine but it's actually positional parameter here in the function.
+
+06:59.750 --> 07:05.850
+Now B is an optional positional argument because we have provided a default value in both cases.
+
+07:06.080 --> 07:09.770
+So we don't have to specify B when we call the function.
+
+07:09.770 --> 07:12.940
+It will take on its default value if we don't.
+
+07:13.160 --> 07:15.350
+Next we have stout arms on this side.
+
+07:15.440 --> 07:21.440
+So what this means is that this becomes a catch all for any and there are of course optional additional
+
+07:21.500 --> 07:22.870
+positional arguments.
+
+07:22.910 --> 07:26.450
+We don't have to specify any but we can if we want to.
+
+07:26.540 --> 07:32.100
+On the other hand in here this the notes that no additional positional arguments are allowed.
+
+07:32.150 --> 07:37.330
+So in this case we are only allowing two positional arguments here.
+
+07:37.530 --> 07:40.760
+We're saying we need at least two positional arguments.
+
+07:40.760 --> 07:42.900
+The rest of them will be stored in arms.
+
+07:42.950 --> 07:49.760
+Here we are saying we have two positional arguments at most and we will not be looking or accepting
+
+07:49.790 --> 07:56.800
+any other position along moments in this case because B is default has a default.
+
+07:56.960 --> 08:04.010
+In fact this means that we really only have one mandatory position along event to which will be mapped
+
+08:04.010 --> 08:09.270
+individually to a and b and then the remaining if any will be in.
+
+08:09.550 --> 08:17.380
+Lastly we have D and E D is a keyword arguments and it comes after the star expression.
+
+08:17.490 --> 08:19.800
+In this case D does not have a default.
+
+08:19.800 --> 08:25.060
+So D is a mandatory argument and it's a mandatory keyword argument.
+
+08:25.260 --> 08:31.800
+On the other hand e which is also a keyword argument it has a default value in both cases which means
+
+08:31.800 --> 08:38.700
+that it's now an optional parameter and therefore it becomes an optional keyword argument which also
+
+08:38.700 --> 08:40.320
+defaults to true.
+
+08:41.010 --> 08:43.320
+OK so let's get a little confusing.
+
+08:43.410 --> 08:46.010
+So let's switch to some code and let's see all this in action.
+
+08:46.020 --> 08:48.610
+It will become much clearer as we work through that.
+
+08:48.750 --> 08:54.600
+And I really highly suggest that once you've gone through the code section the next video that you play
+
+08:54.600 --> 08:59.520
+around with it yourself as well before you go onto the next lecture because we're going to add additional
+
+08:59.520 --> 09:02.290
+complexity to this whole thing.
+
+09:02.370 --> 09:07.920
+So play around with it make sure that you're comfortable of what happens when you have positional parameters
+
+09:08.160 --> 09:11.080
+when you use the star when you use the star.
+
+09:11.250 --> 09:14.750
+And you have keyword arguments after that and how you can call it and so on.
+
+09:14.760 --> 09:17.900
+Just play around with it see what works see what doesn't work.
+
+09:17.910 --> 09:20.110
+That's the best way to learn this stuff.
+
+09:20.400 --> 09:20.800
+All right.
+
+09:20.850 --> 09:23.210
+So thanks for watching and I'll see you in a bit.

@@ -1,0 +1,580 @@
+WEBVTT
+
+00:00.270 --> 00:05.060
+High in this video we're going to look at unpacking.
+
+00:05.220 --> 00:08.740
+So first I want to make a quick side note on topples.
+
+00:08.760 --> 00:09.420
+So this is a top.
+
+00:09.420 --> 00:09.930
+All right.
+
+00:09.930 --> 00:17.320
+We have seen those before but what defines a top all in Python is not the parentheses it's the comma.
+
+00:17.720 --> 00:24.140
+So one comma to come at three without the parentheses is also a topical.
+
+00:24.190 --> 00:29.060
+In fact the top the parentheses are just used to make the top all clear.
+
+00:29.170 --> 00:35.920
+It's really more something to clarify saying hey this is a topple but the parentheses don't create the
+
+00:35.920 --> 00:42.860
+top or the comma is what indicates that something is a top now to create a topple over a single element.
+
+00:42.860 --> 00:48.140
+You might think that if you know with the parentheses while you would write parentheses one but of course
+
+00:48.140 --> 00:50.050
+parentheses don't create a topple.
+
+00:50.060 --> 00:55.650
+So what in fact happens is that this is not a tough ball and you should just get an integer back.
+
+00:55.700 --> 01:00.770
+It's just like having you know in expression one plus zero inside parentheses that's going to return
+
+01:00.990 --> 01:05.150
+a one that's not going to return a table which is a good thing right because you wouldn't be able to
+
+01:05.150 --> 01:12.270
+use your parentheses to do he ought to group either arithmetic expressions or to group boolean expressions.
+
+01:12.310 --> 01:16.160
+So instead we have to write one comma and that will create a topple.
+
+01:16.300 --> 01:20.520
+And if you want you can keep the parentheses but you still have to add the comma.
+
+01:20.620 --> 01:22.870
+That's what indicates the top hole.
+
+01:22.930 --> 01:27.170
+Now the only exception is when you're trying to create an empty topple.
+
+01:27.250 --> 01:30.910
+In that case you can certainly use an empty set of parentheses.
+
+01:31.120 --> 01:35.410
+You wouldn't have something like that in an arithmetic expression or a boolean expression.
+
+01:35.410 --> 01:36.550
+So that's OK.
+
+01:36.670 --> 01:38.200
+It's safe to use it that way.
+
+01:38.200 --> 01:42.140
+So Python will allow it and will recognize that this is an empty table.
+
+01:42.460 --> 01:46.800
+But if you prefer you can just use the table constructor instead.
+
+01:46.960 --> 01:50.230
+So up to you how you want to do it all right.
+
+01:50.230 --> 01:51.400
+So packed values.
+
+01:51.410 --> 01:55.120
+First let's take a look at you know we talk about unpacking.
+
+01:55.160 --> 01:57.940
+So what do we mean by packed values.
+
+01:58.010 --> 02:02.150
+Well-packed values refers to values that are bundled together in some way.
+
+02:02.330 --> 02:02.640
+Right.
+
+02:02.660 --> 02:05.230
+It's kind of a very vague definition.
+
+02:05.600 --> 02:08.160
+So tuples and lists are obvious there.
+
+02:08.300 --> 02:11.180
+We know they've got a number of bundled values.
+
+02:11.180 --> 02:13.770
+This table has three values in it.
+
+02:13.820 --> 02:16.600
+This list has three values in it.
+
+02:16.610 --> 02:23.000
+Strings are considered packed values too like the string here has individual characters P white T H
+
+02:23.000 --> 02:23.710
+O N.
+
+02:23.780 --> 02:30.410
+So they bundled together sets and dictionaries are obviously also packed values like a set which contains
+
+02:30.410 --> 02:38.220
+those three elements or a dictionary that contains those three key value pairs so in fact any iterable
+
+02:38.670 --> 02:40.490
+is considered a pact.
+
+02:40.860 --> 02:48.170
+So really when we talk about back to values we mean and iterable and we would talk about unpacking packed
+
+02:48.180 --> 02:52.650
+values we really mean unpacking iterable.
+
+02:52.700 --> 02:59.060
+So how do we go about doing that and what does it mean to unpack while unpacking is the act of splitting
+
+02:59.270 --> 03:03.760
+packed values into individual variables contained in a little topple.
+
+03:03.770 --> 03:10.580
+So in other words you create a top or a list that contains variable names and then you take an iterable
+
+03:10.790 --> 03:15.470
+and you unpack the iterable into those variable names.
+
+03:15.470 --> 03:21.770
+So for example if we have a comma become a C equals this list one comma to common three.
+
+03:21.770 --> 03:25.770
+Now remember this left hand side is just a topple with three values.
+
+03:26.060 --> 03:29.750
+And the right hand side is a list with three values.
+
+03:29.750 --> 03:31.530
+So there's three elements in the list.
+
+03:31.610 --> 03:38.510
+So we need three variables to unpack because we're going to then take this and put that into the first
+
+03:38.510 --> 03:40.390
+element of the top all right.
+
+03:40.390 --> 03:49.810
+So this is a table which has three variables a b and c so a will be one B will be 2 and C will be 3.
+
+03:49.810 --> 03:57.610
+Now that was the unpacking happens by taking the positions of each one's relatively on each on the left
+
+03:57.610 --> 03:59.230
+hand side on the right hand side.
+
+03:59.380 --> 04:05.260
+So the element that position one on the left will take on the value of the element that position 1 on
+
+04:05.260 --> 04:06.980
+the right and so on.
+
+04:07.150 --> 04:09.210
+So it's a positional assignment.
+
+04:09.990 --> 04:15.540
+Does that remind you of how arguments were passed to functions and how they were assigned to parameters
+
+04:15.540 --> 04:16.780
+in the function.
+
+04:17.220 --> 04:18.230
+Yeah right.
+
+04:18.240 --> 04:20.210
+That's exactly what's happening.
+
+04:20.280 --> 04:25.740
+We're really Arwin with when we're calling a function and we pass arguments to the function.
+
+04:25.850 --> 04:32.450
+It is then unpacking that topple into the parameters that are defined for the function.
+
+04:32.520 --> 04:34.340
+That's exactly what's happening.
+
+04:34.890 --> 04:37.150
+All right so how about unpacking other intervals.
+
+04:37.290 --> 04:45.790
+Well we can unpack a table into another table so we can unpacked 10:20 helo into a b and c.
+
+04:46.230 --> 04:49.660
+Remember that this is actually a table containing three values.
+
+04:49.680 --> 04:53.570
+And of course the left hand side is also a table containing three values.
+
+04:53.680 --> 05:00.810
+And so we'll end up with Akos 10 Beagle's 20 and sequel's Hello we can also unpack the string a string
+
+05:00.810 --> 05:03.510
+as an iterable so x y z.
+
+05:03.570 --> 05:09.100
+Well that's going to get unpacked and aid will be X B will b y and C will be Z again.
+
+05:09.120 --> 05:11.480
+This relative positioning.
+
+05:11.850 --> 05:17.760
+Now what this means by the way is that instead of writing equals 10 and Beagle's 20 on two lines of
+
+05:17.760 --> 05:21.970
+code you can if you want use unpacking and write it this way.
+
+05:22.050 --> 05:24.750
+A comma B equals 10 comma 20.
+
+05:24.750 --> 05:27.330
+That's a fairly actually common way in Python.
+
+05:27.510 --> 05:32.790
+Of you know giving initial values to your variables when you have multiple of them.
+
+05:32.910 --> 05:38.100
+Now be careful with clarity of code something like this is easy to read and understand that if it starts
+
+05:38.100 --> 05:42.940
+getting a little more complicated you might be better off splitting it over multiple lines.
+
+05:43.050 --> 05:45.260
+But it certainly works.
+
+05:45.330 --> 05:48.770
+And in fact unpacking works with any iterable type.
+
+05:48.990 --> 05:53.960
+And to understand the relative positioning just think of the full loop if you will iterate.
+
+05:53.970 --> 06:01.920
+Let's say this top are here for e n 10 come 20 come a hello while your loop is going to return 10 then
+
+06:01.920 --> 06:03.380
+20 then hello.
+
+06:03.390 --> 06:07.920
+At each iteration same thing you can iterate strings.
+
+06:07.920 --> 06:14.310
+So if you say for e and X Y Z while your loop is going to return X and the first iteration then Y and
+
+06:14.310 --> 06:18.880
+the second iteration and then z in the last iteration.
+
+06:19.080 --> 06:25.460
+So let's take a look at a simple application of unpacking swapping the values of two variables.
+
+06:25.500 --> 06:31.500
+So let's say we have two variables equals 10 Beagle's 20 and we want to swap them and essentially end
+
+06:31.500 --> 06:34.120
+up with because 20 and a 10.
+
+06:34.170 --> 06:38.140
+That's a fairly common task that's needed when we're programming.
+
+06:38.160 --> 06:42.500
+So the traditional approach might be something like this in other languages like Job.
+
+06:42.510 --> 06:45.930
+For example this is how you would swap two values.
+
+06:45.930 --> 06:48.090
+So we start with a and b defined right.
+
+06:48.100 --> 06:51.740
+Eight points to the 10 and B points to this object.
+
+06:51.900 --> 06:58.800
+That is the end of July 20 the first thing we do is we create a temporary variable that's going to point
+
+06:58.890 --> 07:01.070
+to the same object that is pointing to.
+
+07:01.070 --> 07:07.760
+We need to keep track of that because the next thing we do is we change a we make April to be.
+
+07:07.770 --> 07:09.090
+Now what does that mean.
+
+07:09.090 --> 07:16.050
+That means that we changed the reference of a point from where it used to point 10 to now point to wherever
+
+07:16.050 --> 07:18.650
+B is pointing which is 20.
+
+07:18.690 --> 07:24.480
+Now obviously we can set be equal to 8 because we'll just be setting B to itself at this point.
+
+07:24.570 --> 07:30.480
+But that's why we remembered temporise That's why we had time which remembers what 10 was or where 10
+
+07:30.480 --> 07:31.390
+was in memory.
+
+07:31.650 --> 07:34.730
+So now we can just said be equal to temp.
+
+07:35.070 --> 07:40.590
+And that changes the reference of B to this original object that was pointing to.
+
+07:40.950 --> 07:41.680
+And we're done.
+
+07:41.790 --> 07:42.970
+That's the swap.
+
+07:43.130 --> 07:43.530
+OK.
+
+07:43.860 --> 07:48.300
+But it did require the creation of a new variable.
+
+07:48.310 --> 07:55.860
+Now if we use unpacking to swap the two variables then we just do a comma B equals B comment a.
+
+07:55.880 --> 07:56.800
+That's pretty cool.
+
+07:56.840 --> 07:57.370
+Is Bob.
+
+07:57.410 --> 08:00.290
+So there's no time variable involved.
+
+08:00.290 --> 08:00.660
+Right.
+
+08:00.680 --> 08:05.880
+All we did was just unpacked become a into a copy.
+
+08:05.900 --> 08:12.950
+Now this works because in Python the entire right hand side is evaluated first and completely and then
+
+08:12.950 --> 08:15.550
+the assignments are made to the left hand side.
+
+08:15.770 --> 08:21.620
+In other words what happens here is that Python evaluates the right hand side and so it actually creates
+
+08:21.650 --> 08:28.550
+a couple It creates a table in memory the first element of that topple is a memory address which is
+
+08:28.550 --> 08:36.560
+what we're B was pointing to and the second element is a which is the memory address of what is pointing
+
+08:36.560 --> 08:40.130
+to and then it does the assignments.
+
+08:40.130 --> 08:45.410
+But at that point we're no longer looking at the values of A and B when we're assigning to a and b we're
+
+08:45.410 --> 08:49.550
+looking at copies of the memory addresses cause it to topple right.
+
+08:49.550 --> 08:53.100
+That was created based on what we specified here.
+
+08:53.170 --> 08:56.260
+Anyways that's kind of a little gritty details.
+
+08:56.420 --> 09:00.620
+But this is how we can use unpacking to swap two variables for example.
+
+09:00.620 --> 09:01.750
+So that's pretty handy.
+
+09:03.440 --> 09:06.090
+Back to unpacking sets and dictionaries.
+
+09:06.140 --> 09:10.430
+So let's say we have a dictionary contains these three key value pairs.
+
+09:10.820 --> 09:18.800
+Now we'll loop and Deif we loop if we say for B and D then what will actually be getting is our loop
+
+09:18.800 --> 09:21.260
+iterations are going to return the keys.
+
+09:21.260 --> 09:26.950
+So the first iteration will return key one second will return key to in the last will return key 3.
+
+09:27.020 --> 09:29.330
+So we're not looping through the key value pairs.
+
+09:29.450 --> 09:35.870
+When we iterate a dictionary it actually just iterates through the Keys.
+
+09:35.900 --> 09:42.130
+So when we're unpacking D we're actually unpacking the keys of d not the key value pairs.
+
+09:42.290 --> 09:44.930
+We can and will look at that later.
+
+09:44.960 --> 09:51.200
+So if we say a comma become a C equals D then what we actually end up with is A's key one B's key to
+
+09:51.200 --> 09:52.640
+and C is Q3.
+
+09:53.680 --> 10:05.110
+Or a is key to when B is key one and C is key 3 K or Akos key three Beatles key one sequel's key two
+
+10:05.110 --> 10:06.230
+etc..
+
+10:06.250 --> 10:08.350
+And now Bob's getting confused.
+
+10:08.380 --> 10:13.810
+What's going on why am I saying that it could be you know either of those things.
+
+10:14.110 --> 10:21.580
+Well you have to remember dictionaries and sets are unordered types unlike strings and lists and tuples
+
+10:21.580 --> 10:22.850
+that are ordered types.
+
+10:22.870 --> 10:23.360
+Right.
+
+10:23.470 --> 10:28.120
+There is the concept of a first element and a second element and so on.
+
+10:28.150 --> 10:28.420
+Right.
+
+10:28.420 --> 10:30.290
+You can slice those objects.
+
+10:30.580 --> 10:31.650
+You cannot do that.
+
+10:31.660 --> 10:34.620
+Dictionaries and sets there an unordered type.
+
+10:34.660 --> 10:40.510
+You can iterate through them but there's no guarantee of the order in which that iteration will return
+
+10:40.510 --> 10:42.620
+results.
+
+10:43.030 --> 10:48.580
+It might return the things you know the keys in the order in which you and of them in that role or that
+
+10:48.580 --> 10:53.670
+you appended to the dictionary as your code was you know adding things to a dictionary.
+
+10:53.800 --> 10:56.010
+It might but it probably won't.
+
+10:56.260 --> 10:58.230
+So you can't count on that.
+
+10:58.240 --> 11:04.840
+So the problem is that when you unpack this way A is not the first element because there is no first
+
+11:04.840 --> 11:07.020
+element because there is no ordering.
+
+11:07.150 --> 11:12.880
+So you have to be really careful with that and because of that it's rare that we would unpack in this
+
+11:12.880 --> 11:18.250
+manner a dictionary because it's it's kind of a limited use here.
+
+11:18.470 --> 11:24.530
+There are uses for unpacking dictionaries that we'll get to in a subsequent video but this is probably
+
+11:24.530 --> 11:26.320
+not the best approach here.
+
+11:27.170 --> 11:28.190
+All right what about sets.
+
+11:28.190 --> 11:33.610
+Will sets work the same way sets are also essentially like dictionaries except they don't have values
+
+11:33.620 --> 11:39.570
+they only have keys you can think of a set as a dictionary that has keys only and no Vandas.
+
+11:39.770 --> 11:41.300
+So the same thing happens right.
+
+11:41.300 --> 11:44.300
+There is no concept of ordering in sets either.
+
+11:44.570 --> 11:51.590
+So even though I've created my set this way if I was to loop through the set it might print it out this
+
+11:51.590 --> 11:52.040
+way.
+
+11:52.040 --> 11:52.310
+Right.
+
+11:52.310 --> 11:59.390
+There is no guarantee to the older in which those elements are going to come back when we iterate through
+
+11:59.480 --> 12:00.230
+the set.
+
+12:00.440 --> 12:07.970
+And so if we were to do this kind of assignment ABC equals S then we might end up with a equals P Beagle's
+
+12:07.970 --> 12:14.240
+t Segal's 8 basically the same thing that the you know iteration might be returning an all the way up
+
+12:14.240 --> 12:15.590
+to F equals Y.
+
+12:15.890 --> 12:20.250
+So again you cannot count on the order because there is no ordering.
+
+12:20.720 --> 12:26.350
+So something like that could be pretty limited if you're trying to say hey I want to get the first element.
+
+12:26.390 --> 12:27.800
+Well there is no first element.
+
+12:27.800 --> 12:33.830
+So that's not going to you know get the first element of course there will be a first element because
+
+12:33.830 --> 12:35.420
+it's got to start somewhere.
+
+12:35.420 --> 12:35.730
+Right.
+
+12:35.810 --> 12:36.470
+But who knows.
+
+12:36.470 --> 12:42.560
+It really depends on how the set of the dictionary is being stored in you know in memory and how the
+
+12:42.560 --> 12:45.610
+C code that's doing all this is actually working.
+
+12:45.800 --> 12:49.630
+But as a Python developer we don't know how it's doing it.
+
+12:49.640 --> 12:50.870
+It's opaque.
+
+12:50.870 --> 12:54.660
+And so there's no guarantee on how it's going to come back.
+
+12:54.680 --> 12:55.020
+All right.
+
+12:55.070 --> 12:58.460
+So let's switch to some code and let's see all this in action.
+
+12:58.460 --> 13:00.750
+Thanks for watching and I'll see you in a bit.

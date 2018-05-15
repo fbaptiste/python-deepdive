@@ -1,0 +1,385 @@
+WEBVTT
+
+00:00.110 --> 00:05.910
+Hi here's one last thing I want to show you in the random library and it's the samples method.
+
+00:05.910 --> 00:09.390
+So let's just recall what we did with the choices.
+
+00:09.450 --> 00:09.720
+Right.
+
+00:09.720 --> 00:17.490
+So if we have let's say random choices we can choose from a list let's say of three characters containing
+
+00:17.490 --> 00:18.490
+a b and c.
+
+00:18.660 --> 00:26.310
+And since it does the random pics with replacement It means that we can actually pick more items that
+
+00:26.340 --> 00:27.390
+are in the list.
+
+00:27.390 --> 00:32.970
+So in this case we just get these things repeated because every time basically we make a new choice
+
+00:33.060 --> 00:34.070
+of ABC.
+
+00:34.110 --> 00:36.800
+We can do this of course as many times as we want.
+
+00:36.930 --> 00:41.990
+Sometimes however what we want to do is we want to pick a random selection from a population.
+
+00:42.000 --> 00:48.350
+So we want to do a random sample which means that essentially we wanted two choices but without replacement
+
+00:48.870 --> 00:49.590
+here's what I mean.
+
+00:49.650 --> 00:51.790
+Let's take a look at a simple list.
+
+00:52.080 --> 00:58.460
+Let's look at all equal to a list of range of 10 for example and I'll make it into a list so we could
+
+00:58.470 --> 01:00.270
+print it.
+
+01:00.900 --> 01:06.030
+So let's say this is my population and what I want to do is I'm going to pick a random sample out of
+
+01:06.030 --> 01:09.900
+that population let's say upsized 5.
+
+01:09.930 --> 01:19.700
+Now if I was to use the choices so far 5 did random choices and we'll take l and with say cake will
+
+01:19.710 --> 01:20.990
+to five.
+
+01:21.150 --> 01:23.820
+Then we run the risk of having repetitions.
+
+01:23.850 --> 01:25.310
+And indeed we had it.
+
+01:25.350 --> 01:26.620
+In this case here.
+
+01:27.150 --> 01:28.280
+But that's not what we want.
+
+01:28.290 --> 01:32.890
+If we've picked six once already we want to not have six come up again.
+
+01:32.910 --> 01:36.660
+We don't want replacement and this is with sample comes in.
+
+01:36.660 --> 01:41.280
+So instead of doing random choices we would do random sample.
+
+01:41.430 --> 01:46.750
+We would tell that which list to sample from and then we also have to specify how many samples we want.
+
+01:46.750 --> 01:51.530
+So like KCl 5 we can run this any time any number of times we want.
+
+01:51.630 --> 01:54.350
+We won't get elements repeated.
+
+01:54.390 --> 01:59.280
+What this means of course is that you cannot specify K greater than the sample length.
+
+01:59.280 --> 02:01.740
+Here are sample or then the population length.
+
+02:01.980 --> 02:05.890
+So here our population has one has ten elements.
+
+02:06.030 --> 02:10.280
+So we can go up to 10 but we certainly can go beyond 10.
+
+02:10.440 --> 02:16.500
+We'll get an exception right smaller sampler sample larger than the population or is negative.
+
+02:16.500 --> 02:18.870
+We can have a negative sample size either.
+
+02:19.350 --> 02:21.050
+So when might this come in useful.
+
+02:21.120 --> 02:27.120
+Well if you for example selecting random counts from a deck of Count You obviously don't want to have
+
+02:27.180 --> 02:32.160
+count repeated because once you have drawn a count from the deck you can't possibly pick it again if
+
+02:32.160 --> 02:34.070
+it's a standard deck of cards.
+
+02:34.380 --> 02:37.020
+So let's take a look at just a simple example of that.
+
+02:37.020 --> 02:41.580
+Let's go ahead and build a deck and first thing I'm going to want to build is my soup's.
+
+02:41.610 --> 02:44.260
+So for the suits I'm going use a top.
+
+02:44.340 --> 02:45.910
+We're going to have clubs.
+
+02:46.140 --> 02:47.660
+We're going to have diamonds.
+
+02:47.670 --> 02:52.910
+We're going to have hearts and we're going to have spades.
+
+02:52.950 --> 02:53.500
+OK.
+
+02:53.760 --> 03:00.700
+And then for my ranks I'm going to use the numbers so I'm going to make a way we can make a topple out
+
+03:00.720 --> 03:01.480
+of that as well.
+
+03:01.500 --> 03:07.810
+We're going to take the range from two up to and including 10 so range 2 through 11 plus.
+
+03:07.890 --> 03:09.740
+And then I want to append to that.
+
+03:09.930 --> 03:12.340
+What I want to append the jack.
+
+03:12.360 --> 03:14.220
+So actually I'm going to do it this way.
+
+03:14.220 --> 03:17.300
+I want to append jack queen king ace.
+
+03:17.310 --> 03:20.680
+So I'll make a table out of that and we'll form our ranks.
+
+03:20.700 --> 03:22.490
+Now look at our suits.
+
+03:22.770 --> 03:23.420
+We have that.
+
+03:23.430 --> 03:28.600
+And if you look at the ranks we have that what I want to do though is I want to create a deck.
+
+03:28.610 --> 03:32.100
+The deck should look something like the two of clubs.
+
+03:32.210 --> 03:36.190
+The three of clubs all the way up to the ace of clubs.
+
+03:36.230 --> 03:40.310
+Then we have the two of diamonds all the way up to the ace of diamonds.
+
+03:40.320 --> 03:46.340
+Then the two of hearts up to the Ace of Hearts and then the two of spades all the way up to the ace
+
+03:46.340 --> 03:47.040
+of spades.
+
+03:47.060 --> 03:47.300
+Right.
+
+03:47.300 --> 03:49.860
+So that's what we want to do 52 counts.
+
+03:50.210 --> 03:51.780
+So really this is a nested loop.
+
+03:51.800 --> 03:57.440
+We have to loop through the suits to get each suit and then for each suit we have to tack on the rank
+
+03:57.500 --> 03:58.450
+in front of it.
+
+03:58.670 --> 04:01.180
+And then we had gone to the next suit and do the same thing.
+
+04:01.460 --> 04:03.350
+So we could certainly use a double loop.
+
+04:03.350 --> 04:04.630
+We could do something like this.
+
+04:04.640 --> 04:05.860
+That equals that.
+
+04:05.870 --> 04:16.160
+And then with say fourth suit in our pocket and type four suit in suits and then four rank in ranks
+
+04:16.500 --> 04:21.890
+and we would say decked out of hand whether we want to append we want to take the rank so it would take
+
+04:21.890 --> 04:25.790
+a string of the rank because right now my ranks could be numbers or strings.
+
+04:25.820 --> 04:27.640
+So I'm going to convert that to a strength.
+
+04:27.680 --> 04:29.660
+I'm going to concatenate onto that.
+
+04:29.690 --> 04:31.620
+The suit itself can't.
+
+04:31.910 --> 04:37.430
+And so now if we print the deck we have a deck as expected two of clubs three of clubs all the way up
+
+04:37.430 --> 04:38.320
+to the ace of clubs.
+
+04:38.330 --> 04:41.510
+Then the two of diamonds all the way up through the ace of spades.
+
+04:41.510 --> 04:44.740
+Now of course again this isn't the cleanest way of doing it.
+
+04:44.750 --> 04:47.390
+Much simpler is to use a list comprehension.
+
+04:47.450 --> 04:52.220
+So we're going to basically take that code and rewrite it as a comprehension.
+
+04:53.810 --> 04:59.940
+So this is the element we want to generate for each element of the resulting list.
+
+05:00.260 --> 05:09.560
+And we're going to do this for what 12 full suits in suits and fold deck in a full deck for rank and
+
+05:09.560 --> 05:10.290
+ranks.
+
+05:10.300 --> 05:11.070
+OK.
+
+05:11.630 --> 05:12.500
+The same thing.
+
+05:12.500 --> 05:13.270
+It's just right.
+
+05:13.280 --> 05:15.710
+Written using a list comprehension.
+
+05:15.710 --> 05:17.400
+And there we go we have all deck.
+
+05:17.480 --> 05:17.720
+Right.
+
+05:17.720 --> 05:20.030
+So pretty straightforward.
+
+05:20.030 --> 05:22.640
+Now let's go ahead and choose a random sample.
+
+05:22.640 --> 05:28.400
+Now if we were to use choices we would get something like random choices from the deck and let's say
+
+05:28.670 --> 05:30.370
+we want to choose 10.
+
+05:30.950 --> 05:35.630
+And I don't know if we're going to get any repetitions or we're going to see necessarily but eventually
+
+05:35.660 --> 05:36.610
+we will.
+
+05:36.650 --> 05:36.910
+Right.
+
+05:36.920 --> 05:44.240
+If we make this large enough let's say we want to choose you know 40 counts then we're probably going
+
+05:44.240 --> 05:45.240
+to get some repetition.
+
+05:45.260 --> 05:46.540
+How can we figure that out.
+
+05:46.760 --> 05:52.710
+Well we can look at random dot and Ringle what that class name was counted.
+
+05:52.880 --> 05:55.530
+Actually it's not in random.
+
+05:55.550 --> 05:56.020
+Sorry.
+
+05:56.070 --> 05:58.940
+Let's go ahead and import it.
+
+05:59.060 --> 06:03.730
+So from collections import count.
+
+06:03.960 --> 06:04.530
+OK.
+
+06:04.790 --> 06:09.020
+And then what we're going to do here we're going to look at counter all this.
+
+06:09.440 --> 06:12.740
+And if you see well yeah we can see the 10 of diamonds.
+
+06:12.740 --> 06:13.050
+No.
+
+06:13.070 --> 06:16.730
+10 of the hands of Jared wants that we go for pass was generated twice.
+
+06:16.760 --> 06:19.310
+Nine of diamonds was generated twice.
+
+06:19.310 --> 06:22.000
+QUEEN OF DIAMONDS three times Jack of Spades three times.
+
+06:22.160 --> 06:24.970
+That's because we have replacement when we use choices.
+
+06:24.980 --> 06:32.170
+So instead with we have to do is we have to use random dots sample and again or just pass the deck in.
+
+06:32.230 --> 06:38.420
+And then we'll make that say we're pull 10 cards out and we won't get repetition even if we look at
+
+06:38.480 --> 06:40.820
+let's say pulling 40 counts out of this.
+
+06:40.850 --> 06:42.620
+We're not going to get repetition.
+
+06:42.810 --> 06:43.850
+And let's check that.
+
+06:43.850 --> 06:44.940
+Using counters.
+
+06:45.410 --> 06:48.810
+And as you can see everything in there is a 1.
+
+06:48.860 --> 06:55.180
+In fact we can go all the way up to 52 and we won't get a repetition because this is a sample.
+
+06:55.190 --> 06:59.630
+This is not just replacing choice selection.
+
+06:59.630 --> 07:00.160
+All right.
+
+07:00.200 --> 07:00.920
+Thanks for watching.
+
+07:00.920 --> 07:01.990
+I'll see you in the next video.

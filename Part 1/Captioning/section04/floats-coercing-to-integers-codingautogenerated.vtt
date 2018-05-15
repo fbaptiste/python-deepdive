@@ -1,0 +1,238 @@
+WEBVTT
+
+00:00.510 --> 00:08.070
+High in this video we're going to switch to some code and look at truncation ceiling and floor that
+
+00:08.130 --> 00:09.920
+we looked at in the previous video.
+
+00:10.110 --> 00:15.110
+So the first thing is we're going to need the trunk function from the math module.
+
+00:15.120 --> 00:23.400
+So from math we'll import trunk and you can always as usual do help if you want.
+
+00:23.400 --> 00:27.410
+On that it will tell you exactly what it does it takes some real numbers.
+
+00:27.690 --> 00:31.500
+In this case we're going to use floats but could use other real number types as well.
+
+00:31.650 --> 00:36.450
+And it will convert it to an integral type and an integer in particular.
+
+00:36.450 --> 00:41.630
+So let's try this let's say we're going to do trunk of ten point three.
+
+00:41.860 --> 00:44.160
+Look at the ten point five.
+
+00:44.160 --> 00:49.230
+Kind of halfway between 10 and 11 and then we'll even look at ten point nine.
+
+00:49.230 --> 00:57.960
+So it doesn't matter how close or how far we are from 10 as long as that prefix is 10 before the decimal
+
+00:57.960 --> 01:01.760
+point the truncation will just return the integer portion.
+
+01:01.770 --> 01:03.020
+So this isn't rounding.
+
+01:03.150 --> 01:07.560
+This is just basically ditching everything after the decimal point.
+
+01:07.560 --> 01:09.450
+Now the end constructive.
+
+01:09.510 --> 01:12.620
+So we do have help on.
+
+01:13.020 --> 01:20.010
+You'll notice that it can take a constructor where X is can be a number one in particular it can be
+
+01:20.010 --> 01:20.730
+a float.
+
+01:20.820 --> 01:31.860
+So we can also do the same thing we can say and ten point four and ten point five and in ten point nine.
+
+01:31.860 --> 01:35.440
+And you'll notice that it returns 10 10 and 10 in each case as.
+
+01:35.460 --> 01:40.400
+The constructor actually uses truncation when you pass it a real number.
+
+01:40.810 --> 01:41.390
+OK.
+
+01:41.550 --> 01:43.230
+So that's truncation.
+
+01:43.230 --> 01:44.930
+Next one we have is flawed.
+
+01:45.000 --> 01:51.900
+And again the math module has the floor function so we can say from math import floor.
+
+01:52.320 --> 01:58.910
+And again if you want to help on floor and it just tells you what it does.
+
+01:59.060 --> 01:59.730
+OK.
+
+02:00.090 --> 02:05.660
+So this is the largest integer less than equal to x as we saw in the previous video.
+
+02:05.670 --> 02:14.910
+So we can look at the floor of ten point three and the floor of ten point four groups of ten point five
+
+02:15.300 --> 02:17.360
+and the floor of ten point nine.
+
+02:17.700 --> 02:20.100
+And again we would get 10 10 and 10.
+
+02:20.250 --> 02:23.880
+So you might think oh well this is the same thing as truncation.
+
+02:23.880 --> 02:24.950
+Not really.
+
+02:25.080 --> 02:25.380
+Right.
+
+02:25.380 --> 02:28.180
+The difference is because of negative numbers.
+
+02:28.200 --> 02:36.660
+So if we look at the truncation of negative ten point four negative ten point five or negative ten point
+
+02:36.660 --> 02:39.470
+nine.
+
+02:39.520 --> 02:47.200
+How about I put trunked around each one like to help.
+
+02:48.200 --> 02:48.860
+And
+
+02:51.350 --> 02:52.420
+trunk.
+
+02:52.770 --> 02:53.340
+OK.
+
+02:53.640 --> 02:55.680
+So negative 10 negative 10 negative 10.
+
+02:55.680 --> 03:01.260
+As we said with truncation we'll just ditch everything after the decimal point and we're left with just
+
+03:01.260 --> 03:03.410
+the integral portion of the numbers.
+
+03:03.570 --> 03:12.190
+However if we take this and let's go ahead and I'll copy paste and then I'll change these the two floor.
+
+03:12.300 --> 03:14.070
+And again I'm just going to copy paste
+
+03:17.280 --> 03:18.900
+then here's what happens.
+
+03:18.900 --> 03:22.220
+The floor of negative ten point four is negative 11.
+
+03:22.260 --> 03:25.180
+The truncation is negative 10 but the floor is negative 11.
+
+03:25.400 --> 03:27.300
+We saw that in the previous video.
+
+03:27.300 --> 03:31.360
+All right so just be careful Floren truncation doesn't mean the same thing.
+
+03:31.580 --> 03:34.060
+And it does when the numbers are positive.
+
+03:34.400 --> 03:41.180
+But it stops meaning the same thing as being equal when the numbers are negative and then the last one
+
+03:41.180 --> 03:42.700
+we have is seeing.
+
+03:42.710 --> 03:45.410
+So from the math simple.
+
+03:45.540 --> 03:46.350
+Seal.
+
+03:46.670 --> 03:47.070
+OK.
+
+03:47.120 --> 03:51.350
+And again we can get help on that method.
+
+03:53.420 --> 03:53.700
+OK.
+
+03:53.750 --> 03:58.250
+So here's the function returns the ceiling of x as an integral This is the smallest integer greater
+
+03:58.250 --> 03:59.180
+than or equal to x.
+
+03:59.180 --> 04:05.960
+Again we saw that in the previous video so we can look at the ceiling of ten point four the ceiling
+
+04:05.960 --> 04:10.160
+of ten point five and the ceiling of ten point nine.
+
+04:10.160 --> 04:12.330
+And those will all be 11.
+
+04:12.320 --> 04:15.940
+Right it's going to look for the next basically integer.
+
+04:16.040 --> 04:19.280
+That's greater than that those numbers that we have here.
+
+04:19.760 --> 04:25.280
+Now of course when we deal with negative numbers again we always have to be a little careful with that
+
+04:25.940 --> 04:32.360
+because what is the negative number that's greater than negative ten point four or negative ten point
+
+04:32.360 --> 04:36.930
+five or negative ten point nine.
+
+04:37.600 --> 04:39.470
+You know that's the next step up.
+
+04:39.710 --> 04:42.130
+Well it is negative 10 right.
+
+04:42.140 --> 04:44.060
+Because think of the number line.
+
+04:44.060 --> 04:46.960
+Negative 10 is greater than negative ten point four.
+
+04:47.000 --> 04:48.420
+And that's what we're looking for.
+
+04:48.500 --> 04:49.210
+Right.
+
+04:49.220 --> 04:56.390
+So we're looking for the smallest integer that's greater than or equal to the number that we pass into
+
+04:56.390 --> 04:57.590
+the function.
+
+04:57.590 --> 04:57.980
+All right.
+
+04:57.980 --> 05:03.290
+Thanks for watching and I'll see you in the next video where we start looking at the round function.

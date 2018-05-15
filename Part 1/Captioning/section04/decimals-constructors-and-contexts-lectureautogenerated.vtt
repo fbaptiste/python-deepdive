@@ -1,0 +1,460 @@
+WEBVTT
+
+00:00.750 --> 00:07.760
+Try and welcome to this video we're going to dig now into the constructor's that we have for decimals
+
+00:07.850 --> 00:13.780
+and we'll look at it also in context of context no pun intended there.
+
+00:14.750 --> 00:15.170
+All right.
+
+00:15.200 --> 00:20.750
+So to construct the decimal objects we're going to use the decimal class in the decimal module.
+
+00:22.070 --> 00:26.720
+So we would do something like this maybe from decimal import decimal of a capital D.
+
+00:26.720 --> 00:31.420
+That's the class decimal of a lower case D is the.
+
+00:32.100 --> 00:36.120
+Import decimals simply because sometimes I also want to work the context.
+
+00:36.170 --> 00:38.180
+And so I do both imports.
+
+00:38.420 --> 00:45.320
+You could technically when you want to refer to the decimal class say decimal dot decimal but I don't
+
+00:45.320 --> 00:50.470
+want to do that so I'd use both imports really just for simplicity sake.
+
+00:50.630 --> 00:58.160
+So the constructor just takes a single parameter x so decimal X and X can be a variety of data types.
+
+00:58.220 --> 00:59.280
+It can be an integer.
+
+00:59.390 --> 01:04.370
+So you could say something like Avril's decimal 10 and it will give you 10.
+
+01:04.370 --> 01:06.160
+Basically it'll store 10.
+
+01:06.650 --> 01:10.410
+You can also use other decimal objects obviously.
+
+01:10.480 --> 01:16.620
+You can also use strings just like we had with floats or integers and so you can say Akos decimal strings
+
+01:16.640 --> 01:25.290
+0 count 1 and you get 0.1 as your number and it will be stored exactly as 0.1 unlike floats.
+
+01:25.400 --> 01:27.200
+You could also use a tuple.
+
+01:27.260 --> 01:30.400
+And here's an example of it.
+
+01:30.410 --> 01:32.720
+Now this Poppel will generate this number here.
+
+01:32.720 --> 01:34.350
+Negative three point 1 4 1 5.
+
+01:34.400 --> 01:36.680
+And the next slide will go over.
+
+01:36.680 --> 01:38.620
+You know how this works exactly.
+
+01:38.660 --> 01:41.930
+But there is this second mechanism as well.
+
+01:41.930 --> 01:43.250
+Now what about using floats.
+
+01:43.250 --> 01:45.940
+Can we just pass in a float to the decimal.
+
+01:45.950 --> 01:49.790
+And the answer is yes but you don't usually do it right.
+
+01:49.790 --> 01:55.430
+The problem here is that if we say decimal 0.1 Well what is 0.1.
+
+01:55.430 --> 01:56.940
+That's a float literal.
+
+01:57.140 --> 01:59.160
+What is the value of 0.1.
+
+01:59.450 --> 02:04.990
+It's not exactly 0.1 it's 0.1 0 0 0 and then some digits by 5.
+
+02:04.990 --> 02:07.290
+Something that comes after that.
+
+02:07.580 --> 02:11.680
+And the problem is that decimal is going to receive that number.
+
+02:11.690 --> 02:17.570
+It's not going to receive 0.1 precisely it's going to receive that approximation and it's going to do
+
+02:17.570 --> 02:20.810
+its job and stole that number exactly.
+
+02:20.810 --> 02:26.550
+So it will actually store exactly 1 0 0 0 5 5 5 1.
+
+02:26.630 --> 02:28.280
+It's not going to store 0.1.
+
+02:28.280 --> 02:32.910
+So it's kind of useless using a float in this case right.
+
+02:32.930 --> 02:35.580
+It's not going to achieve what we want.
+
+02:35.720 --> 02:38.840
+So we don't use them in general.
+
+02:38.850 --> 02:41.230
+Instead we use strings or topples.
+
+02:41.280 --> 02:48.920
+So creating a decimal object is a little harder than using a you know creating a float because now we
+
+02:48.920 --> 02:52.080
+have to use this string right over the top.
+
+02:53.590 --> 02:58.660
+So let's look at the top of constructor and first thing we're going to look at is let's just look at
+
+02:58.660 --> 03:02.300
+numbers and let's just decompose them a little bit and rewrite them.
+
+03:02.320 --> 03:09.070
+So one point two three can be written as positive 123 times 10 to the negative two.
+
+03:09.160 --> 03:09.430
+Right.
+
+03:09.430 --> 03:14.530
+So we basically get rid of the decimal point which means we have a 123.
+
+03:14.530 --> 03:20.120
+So we have to multiply by 10 to the negative 2 to actually position the decimal point where we want
+
+03:20.470 --> 03:23.060
+and we have a positive number.
+
+03:23.260 --> 03:29.770
+If we look at negative 1.2 3 Well it's the same except we have negative 123 times 10 to the negative
+
+03:29.860 --> 03:30.500
+2.
+
+03:30.790 --> 03:33.130
+So let's take a look at this expression.
+
+03:33.130 --> 03:34.520
+So we have a sign right.
+
+03:34.540 --> 03:37.170
+We have this positive or negative sign.
+
+03:37.210 --> 03:40.830
+We have the digits that make up the number that we're interested in.
+
+03:40.960 --> 03:41.240
+Right.
+
+03:41.260 --> 03:43.930
+And you'll notice this looks now like an integer.
+
+03:44.370 --> 03:50.530
+And so maybe you start getting some idea of how the numbers are stored in the digits are objects in
+
+03:50.530 --> 03:51.550
+the decimal objects.
+
+03:51.550 --> 03:57.000
+I should say and then we have the exponent that's negative 2 over here.
+
+03:57.250 --> 03:59.320
+So those are the three pieces that we need.
+
+03:59.320 --> 04:00.580
+We need a sign.
+
+04:00.610 --> 04:02.850
+We need the digits which is an integer.
+
+04:02.920 --> 04:03.900
+Right 123.
+
+04:03.910 --> 04:07.770
+And we need the exponent which is also an integer negative 2.
+
+04:08.380 --> 04:16.030
+So the way we can look at this is to say well we have a table that contains X where X is the sign and
+
+04:16.030 --> 04:18.460
+S is an integer which is defined this way.
+
+04:18.470 --> 04:19.740
+We've seen this before.
+
+04:19.780 --> 04:27.130
+When we look at the binary float expansions and the decimal expansions for real numbers we define S
+
+04:27.220 --> 04:28.290
+as 0.
+
+04:28.330 --> 04:30.880
+If that number is non negative.
+
+04:30.920 --> 04:34.330
+Now if it's 0 0 positive we pass in zero.
+
+04:34.510 --> 04:40.420
+If the number is negative we'd pass in a 1 so 1 here means it's a negative number.
+
+04:40.480 --> 04:42.060
+Otherwise it's zero.
+
+04:42.190 --> 04:46.690
+The digits are passed not as an integer but as a tuple of digits.
+
+04:46.720 --> 04:54.130
+So D1 D2 D3 which in this case would be 1 comet to come at 3 and then we pass the exponent as the last
+
+04:54.130 --> 04:57.820
+element of the topple which is negative 2 in this case.
+
+04:57.850 --> 04:59.220
+So let's take a look at an example.
+
+04:59.230 --> 05:05.830
+Let's say we want to represent negative three point 1 4 1 5 and we want to you know use the top all
+
+05:06.010 --> 05:07.780
+to generate the decimal.
+
+05:08.170 --> 05:12.520
+While it would be the top of here one would be the sign because it's negative.
+
+05:12.850 --> 05:15.600
+The digits are 3 1 4 1 5.
+
+05:15.940 --> 05:21.100
+But of course in order to make sure we have the decimal point at the correct location we have to pass
+
+05:21.100 --> 05:26.550
+in negative for right minus one minus two minus three minus four.
+
+05:26.560 --> 05:28.900
+This is where we have the decimal point.
+
+05:28.900 --> 05:37.410
+It really just means that we multiply 3 1 4 1 5 times 10 to the negative for so now if we create the
+
+05:37.410 --> 05:43.580
+decimal this way equals decimal of that apple then it will actually still negative three point 1 4 1
+
+05:43.590 --> 05:44.300
+5.
+
+05:44.610 --> 05:49.210
+So that's how we use the top all you can of course also use just a string to do that.
+
+05:49.230 --> 05:53.910
+But depending on what you're doing and how you're generating those numbers maybe it's easier using a
+
+05:53.910 --> 06:00.450
+couple that's getting generated in code for some reason it might be easier to do using literals inside
+
+06:00.450 --> 06:01.210
+your code.
+
+06:01.230 --> 06:05.460
+You're going to use strings you're not going to use them to topple in-general.
+
+06:05.700 --> 06:13.080
+So now let's talk about context precision and the constructor and how they affect or in this case don't
+
+06:13.080 --> 06:19.740
+affect each other in the context precision affects the mathematical operations.
+
+06:19.740 --> 06:21.830
+It does not affect the constructor.
+
+06:22.020 --> 06:27.070
+So the constructor and the number of digits that you have when you're creating your decimal numbers
+
+06:27.630 --> 06:30.600
+are not affected by the precision of the context here.
+
+06:30.620 --> 06:34.720
+Global or local So let's take a look at an example.
+
+06:34.780 --> 06:43.030
+Let's say we do our import and we set our global context to a precision of two.
+
+06:43.040 --> 06:48.690
+Now if we do a decimal zero point 0.1 2 3 4 5 what is actually getting stoned.
+
+06:48.910 --> 06:50.790
+Zero Point 1 2 3 4 5.
+
+06:50.810 --> 06:56.510
+It is not being limited by the precision of the context that's really important to understand that it's
+
+06:56.720 --> 07:05.180
+the same thing if we go with B then B will be exactly 0 1 1 2 3 4 5 again where we do have a difference
+
+07:05.240 --> 07:07.840
+is that if we say sequels A plus B.
+
+07:07.880 --> 07:15.090
+Now we have our arithmetic a mathematical operation where we're adding A and B together then C right.
+
+07:15.090 --> 07:23.670
+Well a plus b if we were to do the full thing would be zero point 2 4 6 9 k 2 4 6 9 0 if you want to
+
+07:23.670 --> 07:26.070
+add in that five plus five is 10 right.
+
+07:26.070 --> 07:28.020
+That's what the real sum is.
+
+07:28.290 --> 07:31.760
+But we're working in a context that has a precision of two.
+
+07:31.830 --> 07:39.030
+So C will actually be zero point to five and we'll get rounded to two decimal to two digits after the
+
+07:39.030 --> 07:40.230
+decimal point.
+
+07:40.230 --> 07:43.500
+That's because our context has a precision of two.
+
+07:43.500 --> 07:52.140
+So again the precision of the context does not affect the storage or the creation of the decimal objects
+
+07:52.920 --> 07:57.380
+but it does affect what happens during calculations right.
+
+07:57.420 --> 08:01.280
+That's the only time that that precision matters to us here.
+
+08:03.140 --> 08:08.080
+So the same thing also of local versus global context but the one thing I want to point out.
+
+08:08.480 --> 08:10.540
+So let's say we have our usual imports.
+
+08:10.580 --> 08:18.080
+Let's say we set our global context precision to six and we create our two numbers a and b and let's
+
+08:18.080 --> 08:22.610
+say we print a plus b while it's going to print 0 point 2 4 6 9 0.
+
+08:22.640 --> 08:22.930
+Right.
+
+08:22.940 --> 08:26.440
+We kept a precision of six and we have exactly that.
+
+08:26.690 --> 08:28.810
+So that's all well and fine.
+
+08:29.000 --> 08:32.080
+Now let's say that we create a local context.
+
+08:32.150 --> 08:32.430
+Right.
+
+08:32.450 --> 08:35.500
+We're using with with statement with the context manager.
+
+08:35.630 --> 08:38.840
+And for that local context we set the precision to.
+
+08:39.170 --> 08:41.840
+And now we add those two numbers a and b.
+
+08:41.990 --> 08:47.960
+Right we add them and put them into the variable c and we print out because we are working with a precision
+
+08:47.960 --> 08:48.850
+of two.
+
+08:48.920 --> 08:52.450
+The result is zero point to five right.
+
+08:52.470 --> 08:54.720
+So we've seen that before that hasn't changed.
+
+08:55.480 --> 09:01.280
+The thing is that because we're in a local context and within this with block it is using the precision
+
+09:01.280 --> 09:02.610
+of two.
+
+09:02.690 --> 09:08.060
+Now if we leave once we exit out of this with block if we print C again.
+
+09:08.060 --> 09:09.680
+So now within our main program.
+
+09:09.680 --> 09:14.500
+So now we're back to using the global context there is no local context here.
+
+09:14.780 --> 09:23.720
+What is c is c 0.25 or a C zero point 2 4 6 9 0 while it's toward zero point to 5.
+
+09:23.720 --> 09:25.760
+There's no magic here right.
+
+09:25.770 --> 09:30.210
+Seegar created as a decimal zero point to five you know.
+
+09:30.410 --> 09:32.980
+And that's because we limited the precision to.
+
+09:33.140 --> 09:38.300
+During the calculations when we exit out and we go back to a higher precision context.
+
+09:38.390 --> 09:43.490
+While it's full 0.35 there's no magic here it's not going to suddenly realize like oh wait a minute
+
+09:43.760 --> 09:48.100
+it really was zero point 2 4 6 9 0 9 0 6 2 0 1 2 5.
+
+09:48.110 --> 09:48.920
+That's it.
+
+09:48.920 --> 09:54.140
+So I just wanted to point that out in case you might be thinking that the precision will be know magically
+
+09:54.470 --> 09:57.330
+start increasing once you increase your precisions.
+
+09:57.330 --> 09:59.310
+Can't you know your context precision.
+
+09:59.630 --> 10:00.160
+All right.
+
+10:00.230 --> 10:01.060
+Thanks for watching.
+
+10:01.190 --> 10:04.840
+And in the next video we're going to look at the code for all this stuff.
+
+10:04.890 --> 10:05.620
+See you in a bit.

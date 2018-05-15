@@ -1,0 +1,1225 @@
+WEBVTT
+
+00:00.510 --> 00:05.760
+High in this video we're going to look at rounding up floats.
+
+00:05.760 --> 00:09.550
+So we have the ROUND function which is available in Python.
+
+00:09.570 --> 00:10.260
+It's built in.
+
+00:10.260 --> 00:16.410
+You don't have to import it from the math library or anything and it takes in one parameter at least
+
+00:16.410 --> 00:18.460
+mandatory which is the number we want to round.
+
+00:18.480 --> 00:27.150
+And then another parameter and that defaults to 0 that specifies you know the arm multiples of ten that
+
+00:27.150 --> 00:28.710
+we want to round to.
+
+00:28.710 --> 00:34.410
+So that's what we'll wrap our heads around what that means exactly is actually pretty straightforward.
+
+00:34.410 --> 00:39.360
+So you might think of it if you see around 1.2 3Com a one as we all.
+
+00:39.360 --> 00:43.040
+You're rounding the number to 1 digit after the decimal point.
+
+00:43.230 --> 00:44.730
+And that's correct.
+
+00:44.730 --> 00:48.310
+That's true but and can also be negative.
+
+00:48.510 --> 00:53.490
+And so it's not really just number of digits after the decimal point that we can run to it's number
+
+00:53.490 --> 00:56.280
+of digits before the decimal point.
+
+00:56.280 --> 01:01.720
+And in fact what it means is that we are rounding to multiples of powers of 10.
+
+01:01.890 --> 01:03.770
+Be negative or positive.
+
+01:03.930 --> 01:06.720
+We'll take a look at that in some detail.
+
+01:06.720 --> 01:10.840
+So the round function is the last way that we looked at.
+
+01:10.980 --> 01:12.980
+Of course it floats to integers.
+
+01:12.980 --> 01:18.330
+So remember we had truncation with cieling we have flow and now we also have round.
+
+01:18.360 --> 01:25.920
+And so we can use any of those methods to cause a floating point number or a non-integer number to an
+
+01:26.010 --> 01:28.210
+integer numbers an integral number.
+
+01:29.720 --> 01:34.340
+So one thing to point out are if end is not specified it defaults to 0.
+
+01:34.520 --> 01:40.070
+And so when we round with just the number but no n will get an integer back.
+
+01:40.070 --> 01:47.010
+We're going around to a power of 10 to the negative zero which is one right tend to the zero is 1.
+
+01:47.030 --> 01:53.010
+So we're going around to a multiple of one which are the integers integers all multiples of 1.
+
+01:53.480 --> 01:58.820
+So when we do that the round function will actually return an int data type.
+
+01:58.820 --> 02:06.270
+So if we call round X for any valid or acceptable number here we'll get an int back.
+
+02:06.320 --> 02:12.100
+However if you actually specify n then you'll get the same type that you use to call in.
+
+02:12.140 --> 02:16.580
+So if X was a float we'll get a float back if X was an int.
+
+02:16.670 --> 02:22.520
+Get an int back course you probably wouldn't pass in an int with an end that's positive.
+
+02:22.520 --> 02:28.100
+It doesn't make sense but you might want to pass an int with a negative number n right and we'll we'll
+
+02:28.100 --> 02:30.800
+see examples of that later what that means.
+
+02:30.800 --> 02:36.370
+Now it also does mean that if you call round X-Com zero were actually specified.
+
+02:36.380 --> 02:42.500
+And in this case even though it's going to round x to an integral number.
+
+02:42.620 --> 02:44.900
+Now that would do a whole number.
+
+02:44.900 --> 02:47.110
+It would be the same type that was passed in.
+
+02:47.110 --> 02:49.590
+So if you use the float they'll get a float back.
+
+02:49.820 --> 02:54.820
+So if you round 1.2 three you'll get one back which is the integer 1.
+
+02:54.860 --> 03:01.510
+If you round one point two three commas 0 you'll get 1 point 0 or 1 as a float back.
+
+03:01.580 --> 03:02.620
+Small distinction.
+
+03:02.670 --> 03:08.170
+And you know usually again in python we don't really care that much about the data types.
+
+03:08.180 --> 03:10.760
+Mean it just works and we don't have to.
+
+03:10.820 --> 03:13.890
+You know unlike other languages have static typing.
+
+03:13.910 --> 03:16.020
+So that's why we don't have to worry about it too much.
+
+03:16.220 --> 03:18.530
+But it's there just in case you need to know.
+
+03:18.920 --> 03:20.320
+So let's look at an example.
+
+03:20.330 --> 03:25.310
+Let's start with an equal to zero which means what we're looking at the closest multiple of 10 to the
+
+03:25.310 --> 03:28.080
+negative and then to the negative zero which is 1.
+
+03:28.100 --> 03:34.960
+So we're looking at the closest multiples of 1 What are multiples of 1 1 2 3 4 5 6 0.
+
+03:34.970 --> 03:37.140
+Negative One negative to negative 3 and so on.
+
+03:37.160 --> 03:39.110
+It's all the integers.
+
+03:39.230 --> 03:43.970
+So in fact what we're going to do is look at this on a number line much easier to see what's happening
+
+03:43.970 --> 03:44.750
+there.
+
+03:45.970 --> 03:51.490
+So the two contenders that we have all one and two there are multiples of one and there are two numbers
+
+03:51.490 --> 03:53.810
+that are around 1.2 threes.
+
+03:53.830 --> 03:57.880
+So one point two three sets in this interval one to two and two round.
+
+03:57.880 --> 04:00.120
+We therefore have to find the closest one.
+
+04:00.310 --> 04:06.240
+So we have to look at the distance between X and those two and we find that the closest one is one.
+
+04:06.490 --> 04:10.020
+So when we call round one point two three we'll get one.
+
+04:10.320 --> 04:10.590
+OK.
+
+04:10.600 --> 04:11.820
+So pretty straightforward.
+
+04:11.860 --> 04:13.230
+Nothing very fancy here.
+
+04:13.340 --> 04:18.400
+That's called rounding to the closest but the closest What multiple of.
+
+04:18.460 --> 04:19.620
+Powers of 10.
+
+04:20.030 --> 04:22.080
+So for this case an equal to zero.
+
+04:22.090 --> 04:27.460
+We're looking to go to the closest multiples of 1.
+
+04:27.820 --> 04:29.860
+Now we can look at and greater than zero.
+
+04:29.950 --> 04:32.180
+Let's look at unequals one.
+
+04:32.290 --> 04:37.630
+So we're rounding to the closest multiple of 10 to the negative 1 which is zero point 1.
+
+04:37.810 --> 04:46.180
+So we're going to look at multiples of 0.1 what are multiples of 0.1 while 0 0 0 0.1 0.2 0.3.
+
+04:46.240 --> 04:51.940
+And on the negative side negative 0.1 negative 0.2 negative 0.3 and so forth.
+
+04:52.120 --> 04:54.880
+Again let's just look at a number line.
+
+04:55.150 --> 05:00.880
+So if we look at X equals 1.2 three then the two numbers that are going to be contenders for this are
+
+05:00.880 --> 05:05.100
+1.2 1.3 multiples of 0.1.
+
+05:05.180 --> 05:11.360
+Again we have to look at the distance and again as we can see one point two three is closer to one point
+
+05:11.570 --> 05:12.230
+two.
+
+05:12.620 --> 05:21.520
+And so therefore the round of one point two three come of one will give us one point to back.
+
+05:21.890 --> 05:24.020
+So now let's look at negative numbers.
+
+05:24.020 --> 05:28.400
+It works just as easily so any equals negative 1.
+
+05:28.400 --> 05:32.420
+Now remember we're looking at closest multiples of 10 to the negative end.
+
+05:32.750 --> 05:37.360
+So that means turn to the negative negative 1 which is 10 to 1 which is just 10.
+
+05:37.460 --> 05:43.480
+So when we specify and equals negative 1 we're rounding to the closest multiples of ten.
+
+05:43.580 --> 05:49.520
+If we had any call to negative two would be wrong to the closest multiples of 100 with an equal to negative
+
+05:49.520 --> 05:52.740
+3 closest multiples of a thousand and so on.
+
+05:52.880 --> 05:57.070
+So this end is very flexible and allows us to work both ways.
+
+05:58.900 --> 06:04.390
+First take a look at eighteen point two and we're going to want to run to the closest multiple of 10.
+
+06:04.510 --> 06:07.140
+So again on a number line what are the two contenders.
+
+06:07.210 --> 06:08.710
+10 and 20.
+
+06:08.810 --> 06:13.720
+These are both multiples of 10 and eighteen point two sits right between them.
+
+06:13.990 --> 06:15.730
+Again we have to look at the closest one.
+
+06:15.790 --> 06:22.150
+So we look at the distances and we find that 20 is the closest so round of eighteen point to common
+
+06:22.150 --> 06:25.260
+negative one will return 20.
+
+06:25.550 --> 06:32.360
+It's the closest number and you can walk with high values of an in the negative direction as well.
+
+06:34.200 --> 06:39.780
+Now one thing I didn't talk about all ties ties is what really causes some of the issues with this the
+
+06:39.780 --> 06:40.500
+closest.
+
+06:40.500 --> 06:41.730
+That's easy.
+
+06:41.730 --> 06:43.170
+But look at this example here.
+
+06:43.290 --> 06:45.330
+Let's look at sequels one point to five.
+
+06:45.330 --> 06:52.320
+And let's assume we're working with multiples of 0.1 and equal to 1 then the two contenders are 1.2
+
+06:52.490 --> 06:58.450
+1.3 What's the distance now 0.05 0.05.
+
+06:58.520 --> 07:00.100
+It's the same distance.
+
+07:00.110 --> 07:01.810
+So what's the round equal to.
+
+07:02.000 --> 07:02.410
+Right.
+
+07:02.420 --> 07:04.460
+We don't have a closest value.
+
+07:04.460 --> 07:05.900
+There is no cost as the value.
+
+07:06.020 --> 07:09.910
+So we need a tiebreaker we need to figure out where we need to decide.
+
+07:10.070 --> 07:12.040
+Well which one are we going to pick.
+
+07:12.170 --> 07:19.720
+Now typically we would expect 1.5 to run to 1.3 that's kind of what we've grown up with what we learnt
+
+07:19.730 --> 07:26.030
+in school and we just always round up and that's called rounding up now a better terminology than rounding
+
+07:26.030 --> 07:28.510
+up is called rounding a way from zero.
+
+07:28.580 --> 07:33.710
+Because if you round 1.2 5 up to 1.3 you've moved just a little bit away from zero.
+
+07:33.980 --> 07:34.560
+Right.
+
+07:34.820 --> 07:36.690
+So we're running away from zero.
+
+07:36.800 --> 07:42.470
+And the reason why it's a better terminology becomes more apparent when we look at negative numbers
+
+07:42.600 --> 07:46.690
+as those pesky negative numbers they always cause problems.
+
+07:46.820 --> 07:53.630
+So if we have a round of negative 1.2 five come a one we would expect the result to be negative 1.3.
+
+07:53.630 --> 07:55.140
+In other words we've rounded down.
+
+07:55.160 --> 07:57.660
+We've rounded away from zero.
+
+07:57.670 --> 07:57.940
+Right.
+
+07:57.950 --> 08:02.770
+We were at negative 1.2 five and we've now moved a slight step away from there.
+
+08:02.870 --> 08:03.150
+Right.
+
+08:03.150 --> 08:06.890
+So let's step away from zero down to negative 1.3.
+
+08:06.890 --> 08:12.170
+So instead of saying we're rounding up the positive rounding down negatives we can just say we're rounding
+
+08:12.230 --> 08:13.290
+away from zero.
+
+08:13.460 --> 08:17.900
+That's why it's a better terminology it's consistent between those two.
+
+08:18.260 --> 08:21.990
+So this type of rounding is called rounding to the nearest.
+
+08:22.010 --> 08:23.100
+That's how we run.
+
+08:23.390 --> 08:27.960
+And then we have to specify the tiebreakers with ties away from zero.
+
+08:28.010 --> 08:32.190
+So that's a standard way of rounding the one that we're just used to.
+
+08:32.780 --> 08:39.200
+However here's what happens if you write this in python round 1.2 five common one and Python is not
+
+08:39.200 --> 08:40.400
+the only language that does that.
+
+08:40.400 --> 08:42.170
+Many others do it as well.
+
+08:42.200 --> 08:50.210
+If we round one point two five to one decimal point and equals to 1 we don't get 1.3 back 1.2 back.
+
+08:50.460 --> 08:51.300
+Fuck Oh.
+
+08:51.430 --> 08:54.520
+So it's rounding down right.
+
+08:54.590 --> 08:58.870
+Sort of rounded towards zero not away from zero.
+
+08:58.910 --> 08:59.680
+What's going on.
+
+08:59.840 --> 09:02.310
+Well how about round 1.3 five.
+
+09:02.840 --> 09:04.450
+While that's 1.4.
+
+09:04.520 --> 09:06.820
+That rounded away from zero.
+
+09:06.830 --> 09:08.160
+What's going on.
+
+09:08.180 --> 09:12.350
+You know it doesn't seem very consistent away from 0 to 1 0.
+
+09:12.550 --> 09:13.270
+Right.
+
+09:13.280 --> 09:13.720
+This one.
+
+09:13.730 --> 09:14.150
+Yeah.
+
+09:14.180 --> 09:14.450
+OK.
+
+09:14.450 --> 09:15.390
+That's what we would do.
+
+09:15.410 --> 09:21.380
+But this 1.2 now we expect at expected 1.3 and the same thing happens with negative numbers.
+
+09:21.380 --> 09:27.500
+If you look at negative 1.2 vibe you get negative 1.2 which was towards zero and negative 1.3 5 you
+
+09:27.500 --> 09:30.750
+get negative 1.4 which was away from zero as well.
+
+09:30.770 --> 09:32.180
+So something's going on here.
+
+09:32.270 --> 09:37.490
+It's not the standard rounding algorithm and that's why I said Tai's can be pesky because you have different
+
+09:37.490 --> 09:42.110
+ways of determining and defining how you deal with tides.
+
+09:42.130 --> 09:45.760
+Everything is going on to the closest value.
+
+09:45.770 --> 09:50.990
+So if you don't have a tie then the round works just as expected.
+
+09:50.990 --> 09:55.990
+But when you have a time when you have a problem so what's going on.
+
+09:56.240 --> 09:58.890
+Well let's look at something called banker's rounding.
+
+09:58.910 --> 10:02.220
+That's kind of the common term for what we just saw.
+
+10:02.660 --> 10:06.920
+And it's basically specified in the Tripoli 1754 standard.
+
+10:06.920 --> 10:08.570
+You can go look it up if you want.
+
+10:08.720 --> 10:11.280
+But essentially here's how it works.
+
+10:11.300 --> 10:13.490
+It runs to the nearest value.
+
+10:13.670 --> 10:16.840
+So it's the regular you know causes value.
+
+10:17.000 --> 10:18.630
+But it ties for ties.
+
+10:18.650 --> 10:24.540
+They're rounded to the nearest value which haven't even least significant digit.
+
+10:24.560 --> 10:25.940
+What does that mean.
+
+10:26.390 --> 10:30.040
+Let's look at the example that's the easiest way to understand what's going on here.
+
+10:30.290 --> 10:36.350
+So here we have 1.2 five and we're using an end of one again which means the two contenders are 1.2
+
+10:36.350 --> 10:37.270
+or 1.3.
+
+10:37.280 --> 10:41.190
+So we need to find the closest one in this case we have a tie.
+
+10:41.620 --> 10:47.170
+And so what we do is we look at the least significant digit which in this case here is two.
+
+10:47.420 --> 10:53.600
+And this case here is three and we round then to the one that's even.
+
+10:53.720 --> 10:57.260
+So in this case to me is even three As'ad right.
+
+10:57.360 --> 10:58.800
+So two is even.
+
+10:58.800 --> 11:08.630
+Which means that when we round 1.2 5 come a one we're going to return 1.2 to if we look at exit to 1.3
+
+11:08.630 --> 11:13.500
+fire then one point three five sets between 1.3 and 1.4 again.
+
+11:13.520 --> 11:15.600
+It's equidistance we have a tie.
+
+11:15.980 --> 11:20.000
+And the least significant digit for here is even is odd.
+
+11:20.230 --> 11:26.240
+So since 4 is even right we only look at the last at the least significant digit for even.
+
+11:26.240 --> 11:30.530
+Which means that we're going to pick 1.4 for the round.
+
+11:30.620 --> 11:33.950
+And in fact that's what it returns and returns 1.4.
+
+11:34.310 --> 11:36.350
+So this is called banker's rounding.
+
+11:36.350 --> 11:37.700
+Now why do we do that.
+
+11:37.700 --> 11:40.610
+Why not just use the round away from zero.
+
+11:40.820 --> 11:48.090
+The way that you know we're kind of used to let's look at an example of an equal to negative one so
+
+11:48.090 --> 11:53.640
+we round to the closest multiple of 10 to the negative negative one which is 10.
+
+11:53.640 --> 11:53.920
+Right.
+
+11:53.920 --> 11:56.840
+So we're going around to the closest multiples of 10.
+
+11:57.450 --> 11:59.550
+So let's take a look at equal to 15.
+
+11:59.580 --> 12:04.070
+And on the number line it means that we want to you know the two contenders are 10 and 20.
+
+12:04.170 --> 12:06.690
+Again the distance is equidistant.
+
+12:06.690 --> 12:08.010
+We have five right.
+
+12:08.010 --> 12:09.170
+So we have a tie.
+
+12:09.360 --> 12:10.660
+So how do we define the tie.
+
+12:10.680 --> 12:16.680
+We look at the least significant digit the least significant digit Here is one it's to the zeros don't
+
+12:16.680 --> 12:17.160
+count.
+
+12:17.160 --> 12:19.790
+Remember that leading trailing zeros don't count.
+
+12:19.830 --> 12:21.530
+So two is even.
+
+12:21.720 --> 12:24.320
+So 20 is going to be our choice.
+
+12:24.330 --> 12:31.770
+And so when we round 15 with a negative one for n we get 20 back on the other hand if we did 25 which
+
+12:31.770 --> 12:35.660
+sits between 20 and 30 that distance is also five it's equidistant.
+
+12:35.850 --> 12:38.990
+And we have a tie the two here in the 20.
+
+12:39.030 --> 12:39.300
+Right.
+
+12:39.300 --> 12:43.920
+The least significant digit to in the 20 is even the three in here is odd.
+
+12:43.950 --> 12:46.950
+So we pick but even one will always have one even one.
+
+12:46.950 --> 12:52.070
+And so we do that and therefore we'll return 20 as well.
+
+12:52.110 --> 12:55.830
+So that's kind of surprising if we round 15 will get 20.
+
+12:55.830 --> 12:56.820
+We're around 25.
+
+12:56.820 --> 12:58.440
+We'll also get 20.
+
+12:58.920 --> 13:03.240
+So it's kind of sometimes we round away from 0 sometimes we're down towards zero.
+
+13:03.350 --> 13:03.650
+OK.
+
+13:03.660 --> 13:08.670
+It's kind of going to be hopefully evenly spread since we're picking the even one and we always have
+
+13:08.760 --> 13:12.060
+either even or odd you know digits.
+
+13:12.600 --> 13:14.250
+Now why do that.
+
+13:14.250 --> 13:16.050
+Why do bankers rounding.
+
+13:16.050 --> 13:23.670
+Well it's less biased than always taking ties away from 0 and consider this let's wait.
+
+13:23.710 --> 13:28.750
+Averaging three numbers and this really comes into play when you're let's say doing a lot of computations
+
+13:28.750 --> 13:29.480
+with numbers.
+
+13:29.500 --> 13:31.120
+And banks do that right.
+
+13:31.120 --> 13:35.440
+They add up amount maybe they calculate interest rates and they need to round two.
+
+13:35.440 --> 13:41.770
+Let's say two digits after the decimal point and if each time they round and let's say that you know
+
+13:41.770 --> 13:50.020
+your you interest you earned for that month rounds and let's say you were at one point to five then
+
+13:50.020 --> 13:52.900
+you're going to actually get rounded to one point.
+
+13:52.930 --> 13:54.790
+Well that's one digit.
+
+13:54.790 --> 13:59.890
+That said if they wanted one digit one point to five is going around to 1.3 one point three five is
+
+13:59.890 --> 14:01.370
+going around to 1.4.
+
+14:01.540 --> 14:07.690
+Well each time they're giving you that you know point 0 five extra bit of interest that you didn't actually
+
+14:07.750 --> 14:10.210
+on when you're at times right.
+
+14:10.210 --> 14:11.080
+When you're on time.
+
+14:11.290 --> 14:17.260
+And so what happens is that if you have billions of transactions well that decimal dust builds up pretty
+
+14:17.260 --> 14:18.050
+quick.
+
+14:18.130 --> 14:23.460
+In fact that's how some people think that they can skim from banks.
+
+14:23.470 --> 14:29.530
+Right you basically kind of you know skim off the decimal dust after rounding and you can make a lot
+
+14:29.530 --> 14:31.960
+of money because you have a lot of transactions.
+
+14:31.990 --> 14:37.510
+So that's the problem of running away from zero is that you know you kind of have this bias where you're
+
+14:37.510 --> 14:42.640
+dealing with a set of positive numbers and you're always running away from zero and you add that up
+
+14:42.910 --> 14:48.920
+you're starting to move further and further away from the true addition.
+
+14:49.150 --> 14:54.790
+So we can look at that in a simplistic way by looking at these three numbers and let's say we want to
+
+14:54.880 --> 14:57.400
+average these three numbers.
+
+14:57.400 --> 15:01.020
+So if we average them well the sum is 4.5 divided by three.
+
+15:01.030 --> 15:03.880
+So the average is 1.5.
+
+15:03.880 --> 15:07.590
+Now let's say that we want to find the arm.
+
+15:07.630 --> 15:11.170
+Get around first and then average Let's see what happens.
+
+15:11.170 --> 15:16.690
+So using standard rounding 0.5 would become one 1.5 would be 2 2.5 would be 3.
+
+15:16.690 --> 15:21.010
+If we find that average we get six divided by three which is 2.
+
+15:21.550 --> 15:30.160
+On the other hand if we use banker's rounding 0.5 will round 2 0 1.5 will round 2 2 and 2.5 will also
+
+15:30.160 --> 15:31.360
+ramp to 2.
+
+15:31.510 --> 15:39.620
+Every time we're rounding to the even so if we take a look at the average the sum divided by 3 is 1.3
+
+15:39.730 --> 15:44.180
+recurring which is a little closer to 1.5 than 2 watts.
+
+15:44.210 --> 15:48.630
+So this is what we mean by it's less biased than always moving away from zero.
+
+15:48.680 --> 15:55.040
+And in certain cases banking for example it's really really important that you consider those kinds
+
+15:55.040 --> 15:57.590
+of problems you know and in finance as well.
+
+15:57.610 --> 16:03.130
+You want to be careful and even in numerical computations you want to be careful that you don't you're
+
+16:03.140 --> 16:06.330
+rounding errors don't accumulate too much.
+
+16:06.440 --> 16:12.560
+And so if you have a biased way of rounding then you're going to further exacerbate the rounding errors
+
+16:12.560 --> 16:13.630
+in the rounding issues.
+
+16:13.730 --> 16:18.400
+So Bengal's round rounding is a pretty good way of getting rid of that bias.
+
+16:18.410 --> 16:21.760
+It doesn't necessarily get rid of it but at least it tries to get rid of it.
+
+16:23.710 --> 16:26.860
+Now if you really insist on rounding away from zero.
+
+16:26.860 --> 16:28.690
+Well that's not built into Python.
+
+16:28.900 --> 16:29.180
+Right.
+
+16:29.190 --> 16:31.120
+Your round is using banker's rounding.
+
+16:31.120 --> 16:32.630
+So what can we do.
+
+16:32.980 --> 16:37.630
+Well a common way that comes up on the internet you'll find is this.
+
+16:37.660 --> 16:42.630
+They'll say Oh just take X plus 0.5 and then truncate it right.
+
+16:42.640 --> 16:44.140
+And that kind of works.
+
+16:44.170 --> 16:49.480
+Ten point three if you take that into a ten point three plus 0.5 you get into ten point eight which
+
+16:49.480 --> 16:50.760
+is 10 right.
+
+16:50.770 --> 16:57.850
+So we just ran a ten point three to 10 with a ten point nine while ten point five to 0.5 adds up to
+
+16:57.850 --> 17:03.070
+eleven point four of would take the truncation of that we get 11 so ten point nine was rounded to 11.
+
+17:03.070 --> 17:05.650
+That kind of walks ten point five.
+
+17:05.860 --> 17:06.160
+Right.
+
+17:06.160 --> 17:08.580
+We get ten point five closer 0.5 which is 11.
+
+17:08.570 --> 17:09.460
+We truncate that.
+
+17:09.460 --> 17:13.550
+We get 11 fall back kind of walks to ten point five rounded up to 11.
+
+17:13.780 --> 17:18.600
+So we're good now there are a couple of problems with this however.
+
+17:19.120 --> 17:23.130
+One is that this is only really valid for rounding to integers right.
+
+17:23.170 --> 17:28.480
+But if you want other powers of 10 you'd have a more complicated way of doing this.
+
+17:28.480 --> 17:33.940
+The other thing too is that it doesn't work with negative numbers and very often people forget about
+
+17:33.940 --> 17:35.380
+negative numbers.
+
+17:35.380 --> 17:40.510
+And if you're dealing with values that you know are always going to be positive then this might work
+
+17:40.510 --> 17:41.040
+for you.
+
+17:41.110 --> 17:46.210
+And if you're trying to find a quick way of doing this round away from 0 4 positive numbers and you're
+
+17:46.210 --> 17:49.240
+rounding to integers by all means this works fine.
+
+17:49.240 --> 17:50.500
+This is great.
+
+17:50.680 --> 17:56.020
+However if numbers could be negative you'll run into a problem that's not going to work.
+
+17:56.020 --> 17:58.390
+Let's look at negative ten point three.
+
+17:58.390 --> 18:00.860
+If we rounding our away from zero.
+
+18:01.060 --> 18:08.450
+We should expect to get negative 10 but if we look at the end of negative ten point three plus 0.5 which
+
+18:08.450 --> 18:13.500
+is what this formula was we get into negative nine point eight which is negative nine.
+
+18:13.550 --> 18:15.160
+Not what we expected.
+
+18:15.200 --> 18:22.070
+So it doesn't work and negative ten point nine that will actually round to negative 10.
+
+18:22.100 --> 18:25.130
+Again not what we expected not what we want.
+
+18:25.130 --> 18:29.270
+The problem here is that we needed to switch for a negative number.
+
+18:29.290 --> 18:34.400
+This needed to switch to a negative 0.5 and a net a minus 0.5.
+
+18:35.000 --> 18:35.970
+Then it would work.
+
+18:36.020 --> 18:43.520
+But now we have this thing of well if x is positive then at 0.5 if x is negative subtract 0.5 and then
+
+18:43.520 --> 18:44.770
+truncate right.
+
+18:44.800 --> 18:48.890
+So you have to be careful it's not quite straightforward enough.
+
+18:49.610 --> 18:52.550
+And then the negative ten point five also runs the negative turns.
+
+18:52.550 --> 18:53.530
+Same problem there.
+
+18:54.830 --> 18:58.710
+So this is an acceptable rounding method that that's fine.
+
+18:58.730 --> 19:01.670
+This is called Rounding toward plus infinity.
+
+19:01.670 --> 19:05.820
+In other words we always round up right even with negative numbers.
+
+19:05.820 --> 19:06.740
+We'll round up
+
+19:09.680 --> 19:11.440
+but of course we still have to be careful.
+
+19:11.450 --> 19:11.740
+Right.
+
+19:11.740 --> 19:15.490
+We have problems here surrounding two wars plus infinity is fine.
+
+19:15.530 --> 19:17.260
+That is an acceptable way of rounding.
+
+19:17.270 --> 19:21.920
+And when we get to the section on decimals We'll take a look at that as well in more detail because
+
+19:21.980 --> 19:26.360
+all these ranting mechanisms are actually implemented in the decimal library.
+
+19:26.360 --> 19:30.650
+When you deal with decimal numbers they are not however implemented in the floats.
+
+19:32.480 --> 19:36.850
+So this works but it's not rounding towards zero.
+
+19:38.740 --> 19:44.250
+So if you really insist on rounding away from 0 Let's see how we can do it.
+
+19:46.030 --> 19:47.850
+So here's how we want to think about it.
+
+19:47.860 --> 19:50.760
+We first want to strip the sign of X away.
+
+19:50.800 --> 19:52.520
+Forget about the sign for going with.
+
+19:52.570 --> 20:00.310
+But whether it's negative or positive so take the absolute value of x at 0.5 to it and then truncate
+
+20:00.310 --> 20:01.180
+it.
+
+20:01.180 --> 20:06.430
+So basically what we had before in the last slide except that we have to take the absolute value of
+
+20:06.430 --> 20:11.410
+x and then after we have that result put back the sign.
+
+20:11.410 --> 20:18.040
+Now what's the sign of X sign of x is simply a function that returns 1 if x is greater than or equal
+
+20:18.040 --> 20:22.450
+to zero and returns negative 1 if X is less than zero.
+
+20:22.450 --> 20:27.670
+Now if you use two math to the signum function this is not the same as the signum function has got a
+
+20:27.670 --> 20:28.570
+little difference right.
+
+20:28.570 --> 20:31.330
+We don't have a zero value for x equal to zero.
+
+20:31.480 --> 20:32.740
+It's a little different.
+
+20:32.740 --> 20:34.000
+So be careful there.
+
+20:35.520 --> 20:38.610
+So let's take a look at an example of how this actually works.
+
+20:38.610 --> 20:44.190
+So let's say we have ten point four then the sign of X's plus right so the sign of X is going to be
+
+20:44.270 --> 20:45.850
+1.
+
+20:46.290 --> 20:50.320
+Now absolute rule of X plus 0.5 will be ten point nine.
+
+20:50.390 --> 20:55.560
+We get ten point four percent 0.5 the integer value of that is 10.
+
+20:55.980 --> 21:01.990
+And if we multiply sign of X which will be 1 since we have a positive times this we get 10.
+
+21:02.220 --> 21:10.260
+So we are ten point four got rounded down to 10 most of it ten point five ten point five.
+
+21:10.260 --> 21:17.400
+We expect when we're running away from 0 that it's going to go up to the next number so it's going to
+
+21:17.400 --> 21:18.550
+go up to 11.
+
+21:18.640 --> 21:19.720
+Right because we have a tie.
+
+21:19.860 --> 21:21.750
+And so we're going to go away from zero.
+
+21:21.960 --> 21:24.820
+Again the sign is positive it will be a value of 1.
+
+21:25.050 --> 21:29.010
+The absolute value here of X is ten point five point zero point five.
+
+21:29.010 --> 21:30.650
+We get one we truncate that.
+
+21:30.660 --> 21:31.560
+We get 11.
+
+21:31.560 --> 21:33.770
+Multiply that by 1 we get 11.
+
+21:34.020 --> 21:36.930
+So we have the right result.
+
+21:37.020 --> 21:38.690
+Let's look at ten point six.
+
+21:38.910 --> 21:40.380
+Well the same thing that's positive.
+
+21:40.470 --> 21:44.520
+So the sign will be one of the absolute values 11 you know.
+
+21:44.760 --> 21:50.260
+That's ten point six percent 0.5 is eleven point one with truncated multiply by 1.
+
+21:50.280 --> 21:51.130
+We got 11.
+
+21:51.270 --> 21:53.700
+Everything works good so far.
+
+21:53.790 --> 21:55.560
+But these positive numbers.
+
+21:55.560 --> 21:58.220
+Now we need to also make sure that works for negative numbers.
+
+21:58.380 --> 22:00.710
+So negative ten point four that's a negative.
+
+22:00.720 --> 22:05.260
+So the sign is going to be negative 1 the absolute value.
+
+22:05.400 --> 22:09.240
+Well it's going to be ten point four plus 0.5.
+
+22:09.240 --> 22:15.610
+So ten point nine and now we get when we truncate we get 10.
+
+22:15.780 --> 22:21.140
+We multiply that now by the negative one and we get negative 10.
+
+22:21.210 --> 22:27.750
+So that was negative ten point four rounded to negative 10 and rounded away from zero.
+
+22:28.320 --> 22:33.900
+Let's look at negative ten point five which is the tie again to negative values we'll have minus 1 for
+
+22:33.900 --> 22:34.880
+the sign.
+
+22:35.220 --> 22:37.890
+The absolute value plus 0.5 is 11.
+
+22:37.890 --> 22:43.470
+When we truncate that we get 11 and we multiply that by negative 1 to get our result which is negative
+
+22:43.560 --> 22:44.370
+11.
+
+22:44.370 --> 22:48.500
+Again that worked the tiebreaking rounded away from zero.
+
+22:48.570 --> 22:49.550
+That's what we wanted.
+
+22:51.580 --> 22:56.510
+With negative 10:26 this would just run to the closest Just like negative ten point four or ten point
+
+22:56.510 --> 22:58.260
+four and ten point six right.
+
+22:58.280 --> 23:03.070
+It's only four times that we have to decide whether it would go away from zero or not.
+
+23:03.320 --> 23:05.020
+So negative ten point six is negative.
+
+23:05.020 --> 23:09.350
+We do the calculation 11 and we end up with negative 11.
+
+23:09.410 --> 23:11.210
+So this works right.
+
+23:11.210 --> 23:16.610
+Negative ten point four on the negative 10 negative ten point five to negative 11 negative ten point
+
+23:16.600 --> 23:17.880
+six to negative 11.
+
+23:18.170 --> 23:20.510
+And positives work as well.
+
+23:20.510 --> 23:26.900
+Now I do want to point out that this formula here is also the same thing as doing this as taking the
+
+23:26.900 --> 23:31.580
+sign of X multiplying that by 0.5 and adding that to x.
+
+23:31.610 --> 23:38.580
+Basically we're saying do we want to add or remove 0.5 from the value before we truncate that's equivalent.
+
+23:38.580 --> 23:40.830
+And so this might be a little easier to code.
+
+23:40.940 --> 23:46.610
+Here we only have a single kind of special function called Sign whereas here we have the sign and the
+
+23:46.610 --> 23:47.680
+absolute value.
+
+23:47.690 --> 23:50.080
+So a little more efficient.
+
+23:50.300 --> 23:52.430
+Now Python doesn't have a sine function.
+
+23:54.310 --> 23:59.630
+But it does have a function in the math module called copy sign.
+
+23:59.980 --> 24:06.340
+Now how does the copy assign work while copy sign takes two parameters x and y and it returns the magnitude
+
+24:06.340 --> 24:07.690
+with the absolute value of x.
+
+24:07.750 --> 24:09.720
+But with the sign of Y.
+
+24:10.150 --> 24:17.470
+So in other words if we do sign of X that's the same thing as saying copy sign of the sign of X and
+
+24:17.590 --> 24:22.270
+apply it to one that will then return either negative one plus one.
+
+24:22.410 --> 24:22.640
+Right.
+
+24:22.660 --> 24:26.630
+If x is greater than or equal to zero the sign here will be one.
+
+24:26.680 --> 24:31.620
+So we'll get one back and if it's negative We'll get the negative one back so we can use that one.
+
+24:34.530 --> 24:38.760
+So let's look at this formula again which was that original formula will have that.
+
+24:38.880 --> 24:40.810
+And we can write the Python code.
+
+24:40.860 --> 24:41.150
+Right.
+
+24:41.160 --> 24:47.970
+So we have to grab the absolute and the copy sign methods and then we can just return copy sign 1 comma
+
+24:48.000 --> 24:51.520
+x that will be the sign of X times the end.
+
+24:51.570 --> 24:56.470
+The truncation right essentially of the absolute value of x Clozaril point five.
+
+24:56.640 --> 24:57.660
+That will work just fine.
+
+24:57.720 --> 25:01.890
+But a simpler way to look at it is using these alternative way.
+
+25:02.070 --> 25:07.470
+And here we can just say end of X plus copy sine 0.5 comma x.
+
+25:07.470 --> 25:11.830
+So that works the same way and we'll see that in the code that they're equivalent.
+
+25:12.050 --> 25:15.100
+It's just a different way of writing it which is a lot simpler.
+
+25:15.720 --> 25:16.240
+All right.
+
+25:16.260 --> 25:17.440
+So thanks for watching.
+
+25:17.460 --> 25:20.100
+And in the next video we'll jump right into the code.
+
+25:20.480 --> 25:21.090
+So you innovate.

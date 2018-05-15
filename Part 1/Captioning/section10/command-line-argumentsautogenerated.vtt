@@ -1,0 +1,2494 @@
+WEBVTT
+
+00:00.200 --> 00:00.760
+Hi.
+
+00:00.990 --> 00:06.690
+So in this video I want to talk a little bit about the dance that's available in Python.
+
+00:06.690 --> 00:09.300
+Somebody asked me to do a video on that.
+
+00:09.330 --> 00:12.830
+So let me go ahead and show you a few things.
+
+00:12.870 --> 00:18.320
+So first of all the thing is that when we call a Python program we can do so from the command line.
+
+00:18.330 --> 00:22.610
+So we would type python so here I am in my environment called deep dive.
+
+00:22.800 --> 00:28.180
+So I have Python configured and I can call a python module.
+
+00:28.180 --> 00:33.290
+Essentially we've solved that in the section on modules and packages.
+
+00:33.310 --> 00:39.160
+So I can call Amadeo and to do that I'm going to have to write a module first.
+
+00:39.160 --> 00:42.030
+So let's go ahead and write a simple module.
+
+00:42.070 --> 00:45.380
+Let's call this example one IPY.
+
+00:45.820 --> 00:47.620
+And now I can call that example.
+
+00:47.620 --> 00:50.080
+So for now I'm just going to print Hello.
+
+00:50.170 --> 00:54.280
+OK so just as a reminder of how this can work.
+
+00:55.030 --> 01:00.600
+So if I call the program I get my output on my console called Hello.
+
+01:00.610 --> 01:02.970
+Because the print is going to print out to the console
+
+01:05.680 --> 01:06.240
+box.
+
+01:06.290 --> 01:10.590
+We can't actually pass arguments to our module.
+
+01:10.940 --> 01:15.100
+So we can pass arguments like this maybe 10 20 and 30.
+
+01:15.150 --> 01:19.640
+Now if I just run this I'm not doing anything with those arguments inside the program.
+
+01:19.640 --> 01:25.850
+So it wouldn't do anything but I want to be able to pick up those arguments and I can do that by using
+
+01:25.940 --> 01:30.080
+the ARG the property that we have in the CIS module.
+
+01:30.080 --> 01:36.840
+So here I'm going to do is I'm going to print since Cisco up the gate so that that's all I'm doing.
+
+01:37.220 --> 01:44.120
+And I'm not going to call this program passing in those three arguments and you can see what is it is
+
+01:44.120 --> 01:47.240
+a list that contains four items.
+
+01:47.240 --> 01:53.830
+It contains the name of the module that I called the script file essentially that I ran.
+
+01:54.410 --> 01:57.950
+And then it contains 10 20 30 strings.
+
+01:57.950 --> 02:06.200
+You'll notice but as elements of that list and I can put in as many as I want I can put in you know
+
+02:06.500 --> 02:08.880
+let's say on John.
+
+02:09.250 --> 02:16.680
+Whoops John I can type it CLI's Eric Idle.
+
+02:16.730 --> 02:22.350
+And you'll notice what's happening is that I'm separating those values by spaces.
+
+02:23.000 --> 02:26.210
+And I get that 10 20 John Cleese.
+
+02:26.210 --> 02:33.980
+Eric Idle you'll notice that the spacing essentially that space is what determines which of these arguments
+
+02:33.980 --> 02:37.390
+where this string essentially is being split.
+
+02:37.430 --> 02:43.450
+It's the same thing as doing a split on a string where the split is based on a space.
+
+02:43.640 --> 02:45.590
+So that's what SR does.
+
+02:45.590 --> 02:51.980
+So we can recover command line arguments and use them in our program because now we have a handle on
+
+02:51.980 --> 02:53.210
+them.
+
+02:53.420 --> 02:55.360
+So let's do another example.
+
+02:56.690 --> 03:03.320
+Let's create a example to and we'll work our way up slowly.
+
+03:03.620 --> 03:10.460
+And here I want to be able to use those values that are in the system on the list.
+
+03:10.460 --> 03:21.100
+So let's write a simple let's say importance and numbers equal Sisk that aren't we.
+
+03:21.210 --> 03:26.350
+Now I'm not interested in the first element of the arguments because that's the name of the file.
+
+03:26.390 --> 03:28.220
+So I don't really care about that.
+
+03:28.490 --> 03:31.040
+And I'm going to sum those numbers up.
+
+03:31.040 --> 03:32.650
+We have some function right.
+
+03:32.660 --> 03:36.770
+So those numbers I'm going to pass it numbers and I'm going to sum them up.
+
+03:36.890 --> 03:39.530
+Let's see what happens when I do that.
+
+03:39.530 --> 03:41.860
+So now I'm going to call Python.
+
+03:42.410 --> 03:48.500
+I'm going to do exampled to Doppie why I'm going to pass it 10 20 and 30.
+
+03:48.800 --> 03:51.850
+So what do you think is going to happen at this point.
+
+03:53.860 --> 03:55.420
+Well let's see.
+
+03:58.180 --> 03:59.360
+We get an error.
+
+03:59.530 --> 04:05.190
+What does it tell us unsupported operand types for plus int and string.
+
+04:05.500 --> 04:06.220
+Well yeah.
+
+04:06.250 --> 04:07.990
+We can't some numbers.
+
+04:08.020 --> 04:09.190
+What are the numbers.
+
+04:09.190 --> 04:12.240
+Let's print them out let's print numbers out.
+
+04:12.490 --> 04:19.630
+OK and let's rerun this and you'll see that the numbers of the strings 10 20 40.
+
+04:19.810 --> 04:21.240
+So we need to fix that.
+
+04:21.250 --> 04:25.020
+We need to now basically go ahead and change our program.
+
+04:25.030 --> 04:32.370
+So let me make a new file call this example three and
+
+04:36.340 --> 04:39.660
+then we remove the second dot over here.
+
+04:41.190 --> 04:43.160
+So we're going to keep doing the same thing.
+
+04:43.170 --> 04:47.200
+We're going to import this then I'm going to say numbers.
+
+04:47.310 --> 04:52.790
+Now I need to convert those numbers so I want to basically put an end.
+
+04:52.860 --> 04:53.210
+Right.
+
+04:53.250 --> 04:59.580
+I want to pass those strings to the end and I'm going to say into AA but for what I'm going to use a
+
+04:59.580 --> 05:05.150
+list comprehension for a in that says that the 1 onwards.
+
+05:05.160 --> 05:10.650
+So again now I am however still assuming that we're going to be passing numbers in.
+
+05:10.740 --> 05:14.580
+Yes there will be strings but we'll be able to convert them to ints.
+
+05:14.640 --> 05:15.160
+OK.
+
+05:15.420 --> 05:18.810
+And now we can say print some numbers.
+
+05:18.990 --> 05:26.310
+OK so now let's go ahead and run example 3 which now will work properly.
+
+05:26.400 --> 05:30.000
+And indeed we get the some 60.
+
+05:30.220 --> 05:37.030
+Now very often though we need more complicated inputs we want maybe repeated values maybe we want different
+
+05:37.090 --> 05:41.300
+inputs and different types and optional inputs and so on.
+
+05:41.680 --> 05:48.150
+So we could certainly try and use this you know this approach here of using the system.
+
+05:48.180 --> 05:57.440
+And we ourselves and try and somehow pass the data out of this list that's coming back from system of.
+
+05:57.730 --> 05:59.030
+Let's let's try that.
+
+05:59.080 --> 06:01.620
+Let's actually try that using an example.
+
+06:01.630 --> 06:04.800
+So let's call this example fold.
+
+06:05.710 --> 06:12.850
+And I'm going to import this small module and now I'm going to assume that maybe we're going to call
+
+06:13.180 --> 06:20.830
+our application example for we're going to call it maybe using parameters like last name.
+
+06:20.950 --> 06:24.740
+So we'll be able to specify the parameter name.
+
+06:24.760 --> 06:27.670
+And then followed by the value.
+
+06:27.670 --> 06:32.920
+So and then forced name followed by the value.
+
+06:32.920 --> 06:38.020
+So this is kind of the pattern that I want to use to pass parameters to my application.
+
+06:38.020 --> 06:43.650
+I'm going to name the parameter that I want followed by the value that I want for that parameter.
+
+06:43.690 --> 06:48.580
+And now I'm going to have to deal with that in code because remember that my parameters are going to
+
+06:48.580 --> 06:50.040
+be in says that V
+
+06:52.840 --> 06:54.040
+from 1 onwards.
+
+06:54.040 --> 06:56.330
+Let's go ahead and print that out.
+
+06:56.380 --> 06:57.910
+Let's do that first.
+
+06:57.910 --> 07:04.660
+So let's go ahead and call for example 4 and I'm going to follow kind of what I did over here.
+
+07:04.660 --> 07:10.430
+I'm going to say the last name of John Cleese sorry.
+
+07:10.990 --> 07:14.360
+And first name John.
+
+07:14.410 --> 07:14.700
+OK.
+
+07:14.710 --> 07:20.950
+So now when I do that here's the list that I have I have the parameter name the value the parameter
+
+07:20.950 --> 07:22.120
+name the value.
+
+07:22.270 --> 07:29.760
+So I need to look at these values these these parameter name and values as pairs essentially.
+
+07:29.770 --> 07:31.100
+So how could I do that.
+
+07:31.330 --> 07:34.940
+Well let's go ahead and do this for I in range.
+
+07:35.470 --> 07:43.250
+And we're going to go from one up to six dark the length of six aren't going to go insteps of two.
+
+07:43.270 --> 07:44.320
+Why one.
+
+07:44.500 --> 07:48.100
+Because I'm not interested in the first element of system of the.
+
+07:48.430 --> 07:55.370
+And I want to go up to but not including the last element of says that the insteps of two.
+
+07:55.510 --> 08:00.290
+So this will allow me to grab things pairwise Let me show you we can do this.
+
+08:00.280 --> 08:07.390
+Dobbed V I think says Dot vene plus one.
+
+08:07.450 --> 08:07.790
+OK.
+
+08:07.930 --> 08:12.150
+So let's see what we get when we now run the same thing right.
+
+08:12.160 --> 08:13.930
+We get last name.
+
+08:13.990 --> 08:16.050
+First name John.
+
+08:16.150 --> 08:16.590
+All right.
+
+08:16.630 --> 08:23.830
+So we're getting there but we still need to be able to somehow grab those values and put them into variables
+
+08:24.700 --> 08:27.670
+and maybe we want to do something like this.
+
+08:27.700 --> 08:30.350
+So let me start a new example.
+
+08:30.820 --> 08:32.620
+For example 5.
+
+08:33.060 --> 08:34.550
+And you can download all those files.
+
+08:34.550 --> 08:39.320
+They'll be in the repository as well as zipped up with this lecture.
+
+08:40.970 --> 08:43.140
+So let's go ahead and impulses.
+
+08:43.430 --> 08:50.930
+And basically I want to create a dictionary that's going to have these as the keys and these as the
+
+08:50.930 --> 08:57.230
+values then will be easy for me to look up a parameter is a value by name.
+
+08:57.230 --> 08:59.270
+I'll just be able to pass the key in.
+
+08:59.420 --> 09:04.110
+Now have those double dashes I could write code to take that out.
+
+09:04.280 --> 09:05.270
+But I'm not going to do that.
+
+09:05.270 --> 09:07.390
+I'm going to keep it relatively simple.
+
+09:07.490 --> 09:11.860
+So let's go ahead and assume that we have assisted v.
+
+09:11.900 --> 09:18.170
+Right so we're going to have to start with the those are going to be the keys what are going to be the
+
+09:18.170 --> 09:18.580
+keys.
+
+09:18.590 --> 09:27.320
+Well we start at remember if I print out let me go ahead and print out the entire array OK says that
+
+09:27.410 --> 09:28.120
+Arvie.
+
+09:28.160 --> 09:34.430
+So let's just rerun this program remember again the first element is the script name the file name.
+
+09:34.430 --> 09:35.940
+I'm not interested in that.
+
+09:35.960 --> 09:42.860
+So my keys are where they start at 1 and they always go in steps of 2 because I'm using this convention
+
+09:42.890 --> 09:45.590
+of passing the parameter name followed by the value.
+
+09:46.040 --> 09:50.040
+So we can do it this way we can start at 1.
+
+09:50.240 --> 09:53.930
+We'll end at the end and we'll go in steps of two.
+
+09:53.930 --> 09:55.110
+Now what about the values.
+
+09:55.130 --> 09:57.030
+Well the values are.
+
+09:57.140 --> 10:03.080
+We're going to kind of get them the same way but where are the values where the values don't hinge right
+
+10:03.380 --> 10:05.530
+at index 0 1 2.
+
+10:05.570 --> 10:07.760
+And again they'll go insteps of two.
+
+10:07.910 --> 10:10.550
+So we'll go from starting at two.
+
+10:10.850 --> 10:13.240
+All the way to the end instead of two.
+
+10:13.250 --> 10:16.560
+This will give me the keys and the verniers.
+
+10:16.640 --> 10:19.750
+Let's check that.
+
+10:19.760 --> 10:26.480
+So now I want to run example number five with the same parameters as before.
+
+10:26.810 --> 10:32.740
+And you'll see that we've printed the keys out last name first name and the values CLI's and John.
+
+10:32.810 --> 10:34.730
+So far so good.
+
+10:34.730 --> 10:40.310
+Now what I want to do though is I want to create a dictionary while I have the keys in this list and
+
+10:40.310 --> 10:42.240
+the values in this list.
+
+10:42.320 --> 10:49.010
+So I'm going to use a dictionary comprehension as well as the zip function.
+
+10:49.010 --> 10:50.690
+Think back to the zoom function.
+
+10:50.810 --> 10:59.070
+What happens if we print that say will zip up keys and values what do we get when we do this.
+
+10:59.070 --> 11:00.670
+Well let's see.
+
+11:00.780 --> 11:09.070
+Well I have to get it as a list because it's actually just an iterable and you'll see that we now have
+
+11:09.090 --> 11:13.420
+two couples where the first element of the top all is the key.
+
+11:13.420 --> 11:14.950
+The second element is the vendor.
+
+11:14.970 --> 11:15.180
+Right.
+
+11:15.220 --> 11:20.680
+That's what happens when you zip up to it triples you get an interval where the top holes contain the
+
+11:20.950 --> 11:24.560
+corresponding elements from each iterable.
+
+11:25.450 --> 11:32.380
+So now that should be fairly simple to go ahead and create a dictionary that contains the keys and the
+
+11:32.380 --> 11:33.090
+values.
+
+11:33.100 --> 11:34.540
+So let's go ahead and do that.
+
+11:34.590 --> 11:37.640
+Let's call equals K..
+
+11:37.960 --> 11:45.100
+So I'm doing a dictionary comprehension for k comma V thin soup keys comma values.
+
+11:45.130 --> 11:52.960
+Basically I'm iterating through this zipped up keys and values extracting K and so on unpacking the
+
+11:52.960 --> 11:58.860
+top all that comes back for you know in each loop on the zip on unpacking it into K and V.
+
+11:58.870 --> 12:04.000
+This will be the first element of a toppled the second element of the table and then making a dictionary
+
+12:04.000 --> 12:04.700
+out of it.
+
+12:04.930 --> 12:07.720
+So let's go ahead and print it.
+
+12:07.740 --> 12:11.600
+Now let's see what we have when we do that.
+
+12:11.710 --> 12:13.860
+Now we have indeed our dictionary.
+
+12:14.040 --> 12:14.980
+OK.
+
+12:15.190 --> 12:21.880
+Now I want to get those values into variables in my program so I can use them as straight variables
+
+12:21.880 --> 12:25.040
+instead of having to pick them out of the dictionary all the time.
+
+12:25.180 --> 12:27.190
+Well that's really straightforward.
+
+12:27.220 --> 12:32.240
+I can just do an OGs that gets.
+
+12:32.350 --> 12:35.380
+And if you want to be say if you could do something like this.
+
+12:35.530 --> 12:37.280
+And then last but they are in there.
+
+12:37.330 --> 12:43.020
+I know they're in there so I could just use regular square brackets as well to get it
+
+12:46.030 --> 12:48.580
+last name and it's free.
+
+12:48.620 --> 12:54.020
+I know for Dashon I have not forced to underscore names in there so I'm glad I put that get.
+
+12:54.070 --> 12:57.100
+None that would that will not crash.
+
+12:57.940 --> 13:01.600
+And then we can print first name last name.
+
+13:01.810 --> 13:02.400
+OK.
+
+13:04.960 --> 13:05.610
+So there we go.
+
+13:05.620 --> 13:11.290
+We printed John Cleese we basically recovered Cleve's and John right.
+
+13:11.290 --> 13:13.950
+We didn't specify the name the first name fourth.
+
+13:13.990 --> 13:16.020
+We put the last name first.
+
+13:16.060 --> 13:25.660
+It all work equally well if we do this if we say first name is John followed by last name is CLI's you'll
+
+13:25.660 --> 13:30.300
+notice that the older in which we specify those parameters doesn't matter.
+
+13:30.430 --> 13:38.750
+We still end up with John Cleese correctly now of course it gets more complicated because what happens
+
+13:38.750 --> 13:42.220
+if we want to say may be the birth year.
+
+13:42.320 --> 13:42.650
+Right.
+
+13:42.650 --> 13:47.340
+So maybe the year of birth is 2000.
+
+13:47.690 --> 13:50.110
+What's going to happen when we do that.
+
+13:50.420 --> 13:52.240
+Well nothing much right.
+
+13:52.250 --> 13:55.380
+We're going to end up with this minus y o b.
+
+13:55.430 --> 13:55.790
+All right.
+
+13:55.820 --> 14:01.140
+I use the single dash there and a value of 2000 as a string.
+
+14:01.320 --> 14:04.970
+Now it's in my dictionary but I don't have it in a variable.
+
+14:04.970 --> 14:06.980
+I'd have to put it into a variable.
+
+14:07.130 --> 14:10.260
+So let me go ahead and do that.
+
+14:10.280 --> 14:11.350
+I will say.
+
+14:11.480 --> 14:21.690
+Year of birth unequals angst dog get and I'll fix it to a double dash Y or B.
+
+14:23.030 --> 14:24.560
+And there we go.
+
+14:24.560 --> 14:25.300
+We have that.
+
+14:25.310 --> 14:28.800
+The problem is that this y o b is going to be a string.
+
+14:28.890 --> 14:35.510
+So now I mean to cast it to a string on it to coerce it into a string into an end.
+
+14:35.510 --> 14:45.660
+Sorry to go from the strings so if I run this again and I will print why OAB as well while I'm there.
+
+14:46.280 --> 14:49.530
+And let's run this and we get John Cleese two thousand.
+
+14:49.790 --> 14:52.720
+Well he wasn't born in 2000 but.
+
+14:53.250 --> 14:56.510
+But you'll notice that I had to do the cast myself.
+
+14:56.510 --> 15:03.200
+I have to try and you know pass this thing out from the array get the names and that's not a very clean
+
+15:03.200 --> 15:04.260
+name here.
+
+15:04.280 --> 15:11.510
+There's a lot of work involved in basically extracting information from this string essentially that's
+
+15:11.510 --> 15:16.980
+being passed right into my module when I call it.
+
+15:16.990 --> 15:23.880
+So instead of trying to do this ourselves we can use Python's built in while it's in the standard library
+
+15:23.890 --> 15:26.820
+it's got a module called Aag pass.
+
+15:26.830 --> 15:29.980
+So let's go ahead and start using that.
+
+15:29.980 --> 15:32.420
+And that's going to make life a lot simpler.
+
+15:32.590 --> 15:41.200
+So let's go is example number six and we're going to import the arc pass module and the Akbar's module
+
+15:41.230 --> 15:44.680
+gives us a object a class that we can use.
+
+15:44.770 --> 15:46.350
+And it's a parser.
+
+15:46.570 --> 15:57.720
+So we're going to create that passive type calling argument passage and argument passage.
+
+15:58.150 --> 16:03.850
+We'll take one of the things that it takes is something called a description which is basically describing
+
+16:03.850 --> 16:10.240
+this as kind of think of this as help for the users when they call our application.
+
+16:10.450 --> 16:15.480
+They will be able to request help to see what other parameters and what does this thing do.
+
+16:15.760 --> 16:19.390
+So here I'm going to say this calculates
+
+16:22.410 --> 16:30.390
+the difference a div B and mod a mod B of two integers.
+
+16:30.510 --> 16:33.330
+So that's that's what this does.
+
+16:33.930 --> 16:36.250
+That's what this program does not the person.
+
+16:36.390 --> 16:40.890
+The past is just going to help us retrieve information from the command line.
+
+16:40.920 --> 16:46.210
+How do we tell the pouncer what to expect in this command line in these command line arguments.
+
+16:46.260 --> 16:52.230
+What we have to basically tell it that we have arguments that we're expecting and we do this by now
+
+16:52.290 --> 16:56.700
+adding arguments to the parser object that we just created.
+
+16:56.700 --> 17:00.550
+So first step create the parser second step at arguments.
+
+17:00.720 --> 17:03.330
+So let's go ahead and create an argument.
+
+17:03.630 --> 17:05.540
+We'll give that name a.
+
+17:05.640 --> 17:07.020
+We'll give it a name A.
+
+17:07.220 --> 17:12.070
+But you'll see that this is actually a positional argument.
+
+17:12.570 --> 17:21.870
+So let's go ahead and call this fourth integer and then we can also specify the type.
+
+17:21.960 --> 17:28.710
+So add argument we're specifying a name but this is the name that we're going to see this argument as
+
+17:29.070 --> 17:33.290
+it is not a name that's going to be passed on the command line we're not there yet.
+
+17:33.300 --> 17:35.480
+We're just going to pass values.
+
+17:35.490 --> 17:41.720
+So in other words we're going to call this program by saying Python example six p y.
+
+17:41.850 --> 17:43.970
+Maybe 10 and 3.
+
+17:44.100 --> 17:51.240
+So there will be two values 10 and three that are going to be retrieved and the first one is going to
+
+17:51.240 --> 17:53.610
+be this positional argument here.
+
+17:53.730 --> 17:55.300
+Now we need to add another one.
+
+17:55.410 --> 18:02.400
+So let's go ahead and add the second one because we need two arguments for this program and we'll call
+
+18:02.400 --> 18:03.800
+this beep.
+
+18:04.200 --> 18:07.420
+And let me change those quotes to single parents.
+
+18:07.480 --> 18:08.000
+OK.
+
+18:08.340 --> 18:12.670
+And then we'll say help equals for a second integer.
+
+18:14.860 --> 18:17.410
+And the type is also going to be an int.
+
+18:17.980 --> 18:25.450
+So this is what we expect to be provided on the command line when we call the application.
+
+18:25.450 --> 18:29.430
+Once we're done with that we now have to pass those values.
+
+18:29.440 --> 18:31.310
+Now where are those values sitting.
+
+18:31.480 --> 18:32.700
+Well they're sitting.
+
+18:32.730 --> 18:35.960
+Are we starting at position number one.
+
+18:36.130 --> 18:36.470
+Right.
+
+18:36.530 --> 18:40.200
+The the second element basically of the onwards.
+
+18:40.480 --> 18:48.180
+So we need to tell the passer to pass those arguments and we can do it this way.
+
+18:48.190 --> 18:48.990
+We're going to say.
+
+18:49.190 --> 18:49.990
+So.
+
+18:50.080 --> 18:56.140
+Arms will return an object and we have to tell it which arguments.
+
+18:56.180 --> 19:03.920
+Well if we don't specify any parameters here all it's going to do it's going to look at syste of V and
+
+19:03.920 --> 19:05.540
+get those values then.
+
+19:07.410 --> 19:09.480
+I don't have to do it this way.
+
+19:09.540 --> 19:15.590
+And you have for example you may want to say and of course this is going to look very very silly.
+
+19:15.840 --> 19:23.040
+I'm going to do one hundred and 300 OK and let's say even strings in here so I can tell it to pass this
+
+19:23.040 --> 19:24.350
+list right.
+
+19:24.360 --> 19:30.220
+So the answer really has nothing to do with the arguments that are being passed on the command line.
+
+19:30.240 --> 19:33.420
+You can use the parser independently right here.
+
+19:33.480 --> 19:41.830
+I'm not relying on the arguments of pass come back and ought to be passed from the command line.
+
+19:41.910 --> 19:44.850
+So let me go ahead now and access those variables.
+
+19:44.910 --> 19:49.920
+How am I going to access those variables that have been passed those values that have been passed by
+
+19:49.920 --> 19:51.490
+using the names a and b.
+
+19:51.540 --> 19:55.960
+So now I can say print is not a and print.
+
+19:56.180 --> 19:59.410
+Dot B.
+
+19:59.840 --> 20:04.230
+So let's go ahead and run this.
+
+20:04.420 --> 20:09.730
+And you'll notice that it printed one hundred and 300 not the 10 and the three that I passed on the
+
+20:09.730 --> 20:10.810
+command line.
+
+20:10.810 --> 20:15.820
+How do I tell that what I want that would be all that I want the arguments to come from the command
+
+20:15.820 --> 20:16.350
+line.
+
+20:16.510 --> 20:24.470
+Well I can do it one of two ways I can impulses and I can pass it right says that.
+
+20:24.580 --> 20:28.280
+But of course starting at the index number one.
+
+20:28.750 --> 20:35.650
+And if we do this and now run this example you'll notice that we get 10 and 3 it grabbed 10 and three
+
+20:35.710 --> 20:38.420
+because there was in the sense that we.
+
+20:38.440 --> 20:40.470
+That's what it passed.
+
+20:40.480 --> 20:45.190
+And by default if you don't specify it it does exactly the same thing.
+
+20:45.220 --> 20:53.540
+So really you know when you're grabbing parameters from the command line you don't need to pass it to.
+
+20:53.680 --> 21:00.490
+But I wanted to show you that you can use this argument Pelzer for your own list of stuff that you want
+
+21:00.490 --> 21:00.940
+to pass.
+
+21:00.940 --> 21:03.100
+It doesn't have to be from command line.
+
+21:03.430 --> 21:05.990
+So let's go ahead and run this again.
+
+21:06.160 --> 21:06.530
+OK.
+
+21:06.580 --> 21:09.950
+And you can see we get the same thing 10 and 3.
+
+21:09.970 --> 21:14.780
+So now let's do something we did promise that we would calculate div and model.
+
+21:14.780 --> 21:16.640
+So let's go ahead and do that.
+
+21:16.990 --> 21:25.360
+So we have let's say a equals Ogg's dot A and B equals dot B.
+
+21:25.600 --> 21:27.160
+And then we're going to print.
+
+21:27.160 --> 21:29.050
+I'm going to use an F string for that.
+
+21:29.050 --> 21:30.550
+We're using Python 3:6.
+
+21:30.550 --> 21:35.430
+So got f strings which was I into played values.
+
+21:36.670 --> 21:42.460
+So we'll say a div B is equal to a div B.
+
+21:42.520 --> 21:42.970
+K.
+
+21:43.090 --> 21:50.940
+And then a mod B equals a mod B.
+
+21:57.280 --> 21:58.830
+So now let's try running this.
+
+21:58.900 --> 21:59.990
+So 10 3.
+
+22:00.070 --> 22:04.700
+And as you can see we get Tendo the threes 3 and 10 mod 3 is 1.
+
+22:05.350 --> 22:09.550
+That's the remainder after we've done our integer division.
+
+22:09.680 --> 22:13.790
+Let's go ahead and try and call this thing with no arguments.
+
+22:13.850 --> 22:15.560
+Let's see what happens.
+
+22:16.220 --> 22:17.690
+It tells us there was an error.
+
+22:17.810 --> 22:21.590
+The following arguments are required a and b.
+
+22:21.800 --> 22:27.630
+So you can see that the Peloso provides extra information extra functionality to us.
+
+22:27.770 --> 22:35.650
+For example we could also say Python example sixt IPY dash H or minus H.
+
+22:36.050 --> 22:39.440
+And here will get help for help.
+
+22:39.550 --> 22:45.200
+Message at first tells us what this does so it gives us the usage it tells us this is how you should
+
+22:45.200 --> 22:46.640
+call this.
+
+22:46.640 --> 22:54.050
+You can call example 6 with optionally dash H which is what we just did to get help.
+
+22:54.050 --> 22:59.710
+And then we need we have two required positional parameters a and b.
+
+22:59.990 --> 23:05.780
+This is what this script is going to do it's going to calculate the div and the mound and it tells us
+
+23:05.780 --> 23:08.500
+what the positional arguments are.
+
+23:08.540 --> 23:17.600
+The first integer is the second integer we can also call it instead of Dash h we can use dash dash.
+
+23:17.600 --> 23:25.050
+So usually when we have multiple letters for a parameter name we use a double dash.
+
+23:25.090 --> 23:25.850
+It's a single letter.
+
+23:25.850 --> 23:27.500
+We use a single dash.
+
+23:27.590 --> 23:30.470
+So this will work the same way and give us the same result.
+
+23:30.470 --> 23:35.040
+So again we got a lot of extra functionality for free essentially from passing.
+
+23:35.150 --> 23:40.310
+It was able to display these help messages this description these helps.
+
+23:40.390 --> 23:40.760
+Right.
+
+23:40.790 --> 23:43.910
+And it was able to tell that it needed to integers.
+
+23:44.060 --> 23:45.940
+What happens if we don't pass an integer.
+
+23:46.100 --> 23:54.120
+Let's say we pass in ten and twenty point five again you can see the extra functionality we get from
+
+23:54.120 --> 23:57.480
+the parents or it tells us that nunna B is an invalid.
+
+23:57.470 --> 23:59.010
+It has to be an integer value.
+
+23:59.010 --> 24:00.490
+This is not an integer value.
+
+24:00.510 --> 24:03.080
+Twenty point five is not there.
+
+24:03.270 --> 24:06.920
+And if we forget to pass the second parameter we will get the same thing.
+
+24:06.930 --> 24:08.600
+The following arguments are required.
+
+24:08.610 --> 24:10.060
+It knows all that.
+
+24:10.440 --> 24:15.620
+So there's a lot of really good stuff that you get for free essentially out of argument passing.
+
+24:15.720 --> 24:21.480
+If we were to write this ourselves the way we were doing up you know up till now in the first five examples
+
+24:21.840 --> 24:23.090
+it would be a lot of work.
+
+24:23.190 --> 24:28.910
+So now the next example I want to show you is how do we use named arguments not just positional arguments
+
+24:28.920 --> 24:30.300
+the way we have here.
+
+24:30.600 --> 24:38.550
+So let's call this the example seven and calls that let's go ahead and write this.
+
+24:38.550 --> 24:44.600
+So let's import class and I'm also going to import data.
+
+24:44.610 --> 24:46.810
+Time I'm going to work with data a little bit.
+
+24:46.890 --> 24:51.720
+So I'm going to do something where I'm going to pass in the person's name their first name and last
+
+24:51.720 --> 24:53.380
+name as two separate arguments.
+
+24:53.520 --> 24:59.580
+And they're both here as an integer and then I'm going to calculate how old they are based on the value
+
+24:59.790 --> 25:03.510
+that was passed in for the year of birth.
+
+25:03.510 --> 25:08.270
+So let's go ahead and create I'll pass it to the first thing we have to do is create the passage.
+
+25:08.340 --> 25:14.000
+So outpolls argument Pasdar let's give it a description.
+
+25:14.160 --> 25:16.440
+Get in the habit of providing descriptions.
+
+25:16.650 --> 25:27.510
+And this returns a string containing the name and age of the person.
+
+25:27.540 --> 25:28.240
+Something like that.
+
+25:28.260 --> 25:34.380
+So kind of silly example but this is really just to show you how this works.
+
+25:34.500 --> 25:40.480
+I'm sure you can come up with your own real life examples of where you want to use this kind of functionality.
+
+25:41.220 --> 25:45.530
+So no we have to create our arguments and we want to make the name.
+
+25:45.810 --> 25:47.350
+Well it's very easy.
+
+25:47.460 --> 25:51.690
+Use a name that contains either a dash or a double dash.
+
+25:51.690 --> 25:56.800
+In general we always provide both but you don't have to.
+
+25:57.600 --> 25:59.890
+And so I'm going to provide both.
+
+25:59.910 --> 26:06.510
+So I'll be able to specify the name of this parameter on the command line using either dash F or dash
+
+26:06.510 --> 26:07.080
+dash.
+
+26:07.080 --> 26:14.970
+First I want to specify a help as well to specify the first name.
+
+26:15.930 --> 26:17.400
+The type is going to be a string.
+
+26:17.480 --> 26:18.170
+OK.
+
+26:18.660 --> 26:21.280
+And I'm not going to make this required.
+
+26:21.350 --> 26:27.570
+So here's another property that we have and other arguments are that we have an add argument which is
+
+26:27.570 --> 26:30.780
+required and we can make that true or false.
+
+26:30.810 --> 26:40.170
+I'm going to make this argument not required and I'm going to add another argument and this one will
+
+26:40.170 --> 26:40.470
+do.
+
+26:40.470 --> 26:50.110
+Dash L and dash dash last help will be the last name.
+
+26:51.900 --> 26:55.040
+File pistis call it last name not specified last name.
+
+26:55.040 --> 26:58.150
+It's just the last name the type is going to be string.
+
+26:58.160 --> 27:01.120
+And this one however I am going to require.
+
+27:01.700 --> 27:10.690
+I want to have at least the last name then I want to add another argument so add argument.
+
+27:11.240 --> 27:18.950
+And this one I'm not going to provide a single letter name for that parameter.
+
+27:18.950 --> 27:24.460
+I'm just going to say you have to use dash dash y all B for y you're of both.
+
+27:24.740 --> 27:27.350
+Help is going to be of no
+
+27:30.110 --> 27:33.690
+and the type for this one well I want it to be an integer.
+
+27:34.000 --> 27:40.010
+I am not going to make it required.
+
+27:40.360 --> 27:46.820
+And we could leave it at that case and now we would have all three arguments.
+
+27:46.900 --> 27:53.050
+But one thing that I want to do is I want to specify by default by the way I'll be able to.
+
+27:53.050 --> 27:55.080
+Well actually let's let's just do this.
+
+27:55.270 --> 27:57.180
+Let's go ahead and print.
+
+27:57.580 --> 28:01.070
+Well we first have to recover the arguments.
+
+28:01.090 --> 28:01.320
+Right.
+
+28:01.320 --> 28:08.810
+So we have to pass our says not on these we have to say args let's say equals passing that path.
+
+28:09.820 --> 28:12.950
+And then let's go ahead and print this namespace salt.
+
+28:12.970 --> 28:18.190
+We're going to print basically the dictionary that contains our past data.
+
+28:18.250 --> 28:20.830
+So let's go ahead and call this.
+
+28:20.830 --> 28:22.650
+So this is going to be example.
+
+28:22.680 --> 28:29.290
+7. why I'm going to say dash F equals Pauli dash.
+
+28:29.340 --> 28:37.360
+L is going to be carrot and dash dash Y or B is going to be 1969.
+
+28:37.500 --> 28:38.380
+OK.
+
+28:39.250 --> 28:46.400
+So you'll notice the way that it actually named the arguments it was forced last and why orbi.
+
+28:46.420 --> 28:50.040
+It basically used the long name that we had.
+
+28:50.290 --> 28:55.720
+Let's say we didn't have a long name for if I only had the shortened name dash y.
+
+28:55.850 --> 28:57.100
+OK let's see what happens.
+
+28:57.100 --> 29:05.000
+Now when I call this um yeah I obviously write I can't use why I will be.
+
+29:05.020 --> 29:07.260
+That's no longer used.
+
+29:07.330 --> 29:08.910
+So I have to use dash y.
+
+29:09.010 --> 29:11.250
+You'll notice that I just have the Y over here.
+
+29:11.290 --> 29:21.020
+So if you specify both However it will use the long name you may not want that name in the answer to
+
+29:21.020 --> 29:25.340
+be the name that's provided on the command line and you can change that if you want.
+
+29:25.340 --> 29:29.840
+All you need to do is specify this destination argument.
+
+29:29.930 --> 29:37.900
+So here for example I might want to say my destination is going to be first underscore name.
+
+29:38.080 --> 29:38.730
+OK.
+
+29:39.080 --> 29:46.650
+So here basically I'm remapping what the value is going to be of this variable in that namespace.
+
+29:46.650 --> 29:51.920
+So instead of being forced which is what it would be right now it's going to be forced on the school
+
+29:51.920 --> 29:52.760
+name.
+
+29:52.760 --> 29:57.690
+So I'm going to do the same thing overkilled destination equals flask underscore name.
+
+29:57.920 --> 30:00.080
+And here I'm going to say destination
+
+30:02.150 --> 30:09.470
+equals year because I want something that's a little bit more helpful for me in my code but I don't
+
+30:09.470 --> 30:12.340
+want to make these long names for the users.
+
+30:12.350 --> 30:12.890
+Right.
+
+30:13.010 --> 30:20.330
+That's why we have short even you know short single characters and then you know the long ones should
+
+30:20.660 --> 30:21.690
+still be short.
+
+30:21.710 --> 30:28.820
+You don't want to make your users have to type a lot of characters just to pass in a few parameters.
+
+30:29.020 --> 30:29.620
+OK.
+
+30:30.140 --> 30:34.300
+So now that we have that we can still pass it just as before.
+
+30:34.310 --> 30:38.240
+Nothing's changed and we can print the arguments out.
+
+30:38.240 --> 30:40.470
+So let's go ahead and run this.
+
+30:40.490 --> 30:43.880
+So we'll go back to the dash dash Y or B.
+
+30:44.450 --> 30:50.700
+And you'll notice now of past arguments we have both underscore your first underscore name last on the
+
+30:50.700 --> 30:52.280
+school name.
+
+30:52.280 --> 30:56.080
+So let's do a little bit of work with that just to make it more interesting.
+
+30:56.120 --> 31:01.910
+Let's go ahead and concatenate the first and last name to get the full name.
+
+31:01.910 --> 31:06.450
+Now the problem is however that first name is not required.
+
+31:06.530 --> 31:13.850
+So if I print let me show you what happens when I print the args out and I don't pass the first name
+
+31:13.850 --> 31:16.540
+in because it's not a required argument.
+
+31:16.760 --> 31:17.380
+OK.
+
+31:17.840 --> 31:24.640
+Then you'll notice that first name is none and will get to default values in a bit.
+
+31:24.770 --> 31:30.510
+So I have to be careful I can just concatenate first name and last name because I'd be concatenating
+
+31:30.530 --> 31:32.220
+none with last name.
+
+31:32.480 --> 31:32.780
+Right.
+
+31:32.780 --> 31:34.340
+And then I want a space in between.
+
+31:34.340 --> 31:34.880
+And so on.
+
+31:34.880 --> 31:36.850
+So how am I going to do that.
+
+31:37.100 --> 31:45.950
+Well I'm going to create this arm array basically.
+
+31:45.980 --> 31:47.090
+And now what do we want to do.
+
+31:47.090 --> 31:49.060
+Well we want to generate the full name.
+
+31:49.100 --> 31:55.690
+So to generate a full name we're just going to join basically the names together with a space.
+
+31:55.730 --> 32:01.640
+So there's only one name it's not going to join anything it will just return one name if both names
+
+32:01.640 --> 32:04.270
+are present and we'll join them with a space in between.
+
+32:04.550 --> 32:05.980
+So that's exactly what I want.
+
+32:05.980 --> 32:12.170
+So this avoids me having to put all kinds of logic in terms of you know if the first name exists then
+
+32:12.530 --> 32:14.830
+put it into a string then put a space.
+
+32:14.840 --> 32:17.000
+But if the first name doesn't exist and so on.
+
+32:17.000 --> 32:22.180
+So I'm avoiding some of that logic it's little cleaner doing it this way.
+
+32:22.460 --> 32:32.020
+And that's because I'm using the dzong So current year equals date time Dot date time UTC.
+
+32:32.100 --> 32:35.990
+Now I got you.
+
+32:36.660 --> 32:45.910
+And now we have to get the age so that age is going to be the current year minus dot birth
+
+32:48.340 --> 32:49.860
+year.
+
+32:49.950 --> 32:51.400
+That's what we call it.
+
+32:51.600 --> 32:56.790
+And I don't want to deal with the logic of having to figure out if the year was not passed so I'm going
+
+32:56.790 --> 32:59.990
+to make required true in this case.
+
+33:00.330 --> 33:06.630
+So basically when you call this program you can specify the first name.
+
+33:06.840 --> 33:09.950
+But then you have to specify the last name and the year of birth.
+
+33:10.320 --> 33:15.390
+And once that's done I'm just going to print out an F string.
+
+33:15.690 --> 33:23.780
+We're going to print out the full name and we'll say full name is age years old.
+
+33:23.940 --> 33:24.270
+OK.
+
+33:24.360 --> 33:26.050
+Something like that.
+
+33:26.070 --> 33:33.570
+So now let's go ahead and run this and I will now put in the last name we have the last name I'm going
+
+33:33.570 --> 33:35.520
+to put in the first name.
+
+33:35.690 --> 33:35.940
+OK.
+
+33:35.940 --> 33:40.880
+So again the order in which I specify the parameters doesn't matter.
+
+33:41.400 --> 33:48.590
+So here on specifying a last name for us then the year of birth then the first name which will be poly.
+
+33:48.770 --> 33:50.880
+So if we run this we have an error.
+
+33:50.880 --> 33:53.260
+It's telling us I don't know what first name is.
+
+33:53.290 --> 33:57.010
+Yeah because we didn't call it first name would just call that forced.
+
+33:57.040 --> 33:58.830
+So let's go ahead and fix that.
+
+34:00.280 --> 34:00.910
+OK.
+
+34:01.300 --> 34:05.160
+Remember that this last name is the destination.
+
+34:05.200 --> 34:12.130
+That is what our internal values name is going to be what that symbol is going to be.
+
+34:12.160 --> 34:16.300
+Well let's run this and it tells us Polly parrot is 49 years old.
+
+34:16.360 --> 34:22.110
+Now you can try calling it with different parameters you might even call it with a dash dash help.
+
+34:22.300 --> 34:22.740
+OK.
+
+34:22.900 --> 34:25.300
+And you will get the help for this.
+
+34:25.360 --> 34:29.760
+It's going to use the description returns a string containing the name and age of the person.
+
+34:29.800 --> 34:34.350
+It's going to tell us what the parameters are right and what they are.
+
+34:34.360 --> 34:36.040
+First Name Last Name your of birth.
+
+34:36.040 --> 34:37.670
+That's the help message.
+
+34:37.690 --> 34:40.000
+So let's move on to the next example.
+
+34:40.000 --> 34:43.520
+And in this example scroll example 8.
+
+34:43.840 --> 34:48.640
+I want to show you that we can specify multiple values for a single argument and there's different ways
+
+34:48.640 --> 34:49.440
+of doing that.
+
+34:49.450 --> 34:51.250
+I'm going to show you one way.
+
+34:51.490 --> 34:57.290
+There are other things that you can do and that gets pretty fancy with the outbox.
+
+34:57.340 --> 35:06.410
+So let's go ahead and create our password our instance of a password so argument password.
+
+35:06.670 --> 35:19.180
+And we're going to say description equals Prince the squares of a list of numbers and the cubes of another
+
+35:19.540 --> 35:22.160
+list of numbers.
+
+35:22.990 --> 35:23.920
+So
+
+35:28.280 --> 35:33.420
+I'm kind of running over the my 80 character limit but that's OK.
+
+35:33.650 --> 35:35.020
+You get the idea.
+
+35:35.060 --> 35:38.310
+So let me just make that a little wider.
+
+35:38.690 --> 35:39.630
+And what do I want.
+
+35:39.650 --> 35:42.670
+Well here's what I want is I want to add two arguments.
+
+35:42.670 --> 35:46.860
+I want to add let's say an argument called Eskew.
+
+35:47.090 --> 35:53.990
+And that's going to capture a list of integers that I want to square and maybe not even integers maybe
+
+35:53.990 --> 36:02.530
+floats floats and then I'm going to want to pass another list may be called See you for cubes.
+
+36:02.700 --> 36:04.090
+Another list of numbers.
+
+36:04.130 --> 36:06.730
+So I want to pass two lists of numbers.
+
+36:06.780 --> 36:12.870
+So let's go ahead and do this or we're going to add argument and we're going to call this s.
+
+36:12.880 --> 36:15.560
+Q So I'm not going to give a short name for this.
+
+36:15.560 --> 36:27.010
+Just the long one the help will just be a list of numbers to square.
+
+36:27.240 --> 36:34.540
+And now I'm going to use this and as argument to the ADD argument.
+
+36:34.800 --> 36:42.360
+This basically is saying I have a variable number of values that I'm going to take in but you can actually
+
+36:42.360 --> 36:44.090
+specify a value.
+
+36:44.100 --> 36:53.120
+Well not only can you have two and the value of an ox can be either a star or a plus.
+
+36:53.130 --> 36:54.890
+What happens when it's a stump.
+
+36:54.900 --> 36:58.320
+It means take in 0 or more.
+
+36:58.320 --> 37:03.570
+In other words we're allowing an empty argument here not optional.
+
+37:03.570 --> 37:11.250
+It's mandatory I haven't made it optional so I have to specify when I call the python app but it's saying
+
+37:11.880 --> 37:14.210
+I want to take a variable number of arguments.
+
+37:14.310 --> 37:15.760
+Possibly none.
+
+37:15.900 --> 37:18.880
+OK possibly no arguments and then we'll specify the type.
+
+37:18.890 --> 37:20.590
+Has flopped.
+
+37:20.980 --> 37:22.520
+Then let me do another one.
+
+37:22.650 --> 37:25.030
+Let me add another argument.
+
+37:25.140 --> 37:30.480
+This one will call C-u for cubes for help.
+
+37:30.480 --> 37:34.470
+We will see a list of numbers to cube.
+
+37:34.950 --> 37:39.750
+Again we're going to use an odds to specify this as a variable number of values that we're going to
+
+37:39.750 --> 37:46.890
+pass in but not going to put in a plus and the plus basically is saying I need at least one value in
+
+37:46.890 --> 37:47.480
+here.
+
+37:48.090 --> 37:56.160
+And the type is going to be float and required is going to be trued by default when required is not
+
+37:56.160 --> 37:57.690
+specified it's false.
+
+37:57.690 --> 38:05.990
+So here I'm saying that Eskew is not required and if even if you pass it in you don't have to pass any
+
+38:05.990 --> 38:12.420
+numbers to it see you is required and you have to pass at least one value.
+
+38:14.740 --> 38:23.360
+So now let's go ahead and tell us what we'll get back when we call those module plus scripts essentially.
+
+38:23.910 --> 38:25.220
+OK.
+
+38:29.530 --> 38:31.660
+That sounds OK.
+
+38:32.420 --> 38:34.060
+Now square is optional.
+
+38:34.130 --> 38:37.250
+So we're going to say if Scott Eskew.
+
+38:37.590 --> 38:44.890
+So here noticed that I'm not saying if On-Star Eskew is not none I'm using the truthiness of stop s.
+
+38:44.890 --> 38:49.610
+Q When is a list because this will be a list.
+
+38:49.880 --> 38:51.340
+Because we use an arms.
+
+38:51.410 --> 38:54.780
+When is a list truthy when it's not.
+
+38:54.780 --> 38:55.340
+None.
+
+38:55.340 --> 39:00.460
+First of all so if it was passed then Eskew will exist it won't be none.
+
+39:00.800 --> 39:05.460
+But if we don't specify any values it will be an empty list which will be falsie.
+
+39:05.510 --> 39:12.200
+So in other words here I'm doing two things here and when one shot I'm basically saying if x is not
+
+39:12.230 --> 39:13.100
+None.
+
+39:14.180 --> 39:15.840
+And Len of.
+
+39:15.890 --> 39:18.460
+Dodd Eskew is greater than zero.
+
+39:18.590 --> 39:24.020
+Kate this is the way that you would probably write it in other languages or if you come from other language
+
+39:24.020 --> 39:31.560
+backgrounds you may be writing something like this don't you don't have to it all you can use the truthiness.
+
+39:31.650 --> 39:32.660
+You forgot about that.
+
+39:32.660 --> 39:40.050
+Go back to the other section in the videos on Boolean values by the way.
+
+39:40.090 --> 39:45.910
+So here if we're now inside the if statement it means that Eskew exists.
+
+39:45.910 --> 39:48.860
+It's a list and it's not empty yet.
+
+39:49.140 --> 39:50.680
+For now we can say squares.
+
+39:50.680 --> 39:57.000
+I'm just going to square every element and I'm going to use a list comprehension for n in angst on rescue
+
+39:57.850 --> 40:00.950
+and then we're going to print squares.
+
+40:01.390 --> 40:02.450
+Now for the cubes.
+
+40:02.500 --> 40:05.420
+I know that they exist because it was required.
+
+40:05.500 --> 40:09.110
+And we said you have to pass and at least one value.
+
+40:09.170 --> 40:15.290
+So for cubes I can use again a list comprehension.
+
+40:16.920 --> 40:21.320
+Ken and I didn't use a destination name so it's just going to be see you.
+
+40:21.490 --> 40:26.080
+If I wanted to I could say destination equals cubes.
+
+40:26.250 --> 40:28.930
+In which case here I would have to use cubes.
+
+40:28.990 --> 40:29.520
+OK.
+
+40:29.800 --> 40:32.960
+And then we'll print cubes out.
+
+40:33.940 --> 40:37.510
+So let's go ahead and run this let's see what happens.
+
+40:37.510 --> 40:38.680
+So we're going to call.
+
+40:38.680 --> 40:44.870
+Example eight Doppie Y and rescue is not required.
+
+40:44.890 --> 40:46.390
+So I'm not going to pass it in.
+
+40:46.540 --> 40:50.740
+To start off with I'll pass in the cubes and I won't pass any values in.
+
+40:50.800 --> 40:53.570
+So I'm going to say OK cubes is required.
+
+40:53.620 --> 40:59.220
+So if we do that and as you can see tells me in knownow So you expect at least one argument.
+
+40:59.470 --> 41:05.470
+And if you look at the usage example it tells us that the square brackets here indicate something that's
+
+41:05.590 --> 41:06.640
+optional.
+
+41:06.640 --> 41:16.600
+So Eskew is itself optional and it optional has one or more vamp's cubes is not optional you'll notice
+
+41:16.600 --> 41:21.520
+that the dash dash see you is not surrounded by square brackets the way this one is.
+
+41:21.550 --> 41:27.090
+So this is indicating that cubes is a non optional parameter it's a required named parameter.
+
+41:27.430 --> 41:31.510
+And this Cube's value here is not in square brackets either.
+
+41:31.570 --> 41:34.550
+So it is mandatory saying you need at least one.
+
+41:34.750 --> 41:36.850
+And then as many more as you want.
+
+41:37.390 --> 41:45.330
+So if we call it this way one two three four then we'll get our cubes 1 8 27 64.
+
+41:45.340 --> 41:47.230
+Now why do we get floats back.
+
+41:47.260 --> 41:49.220
+We passed in integers.
+
+41:49.630 --> 41:51.950
+Well to us we think of them as integers.
+
+41:52.000 --> 41:57.440
+But what did we tell the Passo that we were expecting here floats.
+
+41:57.460 --> 41:59.850
+So that's why it actually converted them to float.
+
+41:59.860 --> 42:06.410
+If we had said and then we would get integers 1 8 27 64.
+
+42:06.550 --> 42:11.000
+However if we now try and say you know 4.5 it's going to tell us.
+
+42:11.020 --> 42:12.510
+No no you can't.
+
+42:12.520 --> 42:14.650
+The value is not an integer.
+
+42:14.650 --> 42:20.860
+On the other hand if this was a float then this would work just fine.
+
+42:20.860 --> 42:24.960
+Now of course we can all for Passons squares now for squares.
+
+42:24.970 --> 42:25.470
+Right.
+
+42:25.480 --> 42:27.910
+We don't have to pass a value for the square.
+
+42:27.940 --> 42:34.330
+So this is legal and you'll notice it doesn't print the squares out but if I pass some values for square
+
+42:34.360 --> 42:41.690
+1 2 3 4 then you'll notice that I have the squares 1 4 9 16 and then also the cubes.
+
+42:41.710 --> 42:46.480
+So this is how you can specify arguments that take multiple values.
+
+42:46.480 --> 42:51.950
+This is one way of doing so so let's look at the next example.
+
+42:52.010 --> 42:56.180
+And in this one I want to talk about default values and flags.
+
+42:56.210 --> 42:58.210
+So let's call this example number nine.
+
+42:58.580 --> 43:00.440
+And we're going to import the answers.
+
+43:00.620 --> 43:10.730
+And as usual we're going to create Bolsinger one instance of ALPA passer's and description will make
+
+43:10.730 --> 43:15.600
+it something like testing defaults and flags.
+
+43:16.030 --> 43:23.100
+All right so now the first thing I want to do is show you this thing called Action.
+
+43:23.120 --> 43:24.620
+When we add an argument.
+
+43:24.710 --> 43:33.620
+So we have a argument to add argument and let's start with let's say Monte that's going to be the name
+
+43:33.620 --> 43:41.490
+of the field and the action is going to be Stoffe cat and I'm going to leave it at that.
+
+43:41.630 --> 43:49.400
+And then we're going to say ants equals Prasoon that pass.
+
+43:50.030 --> 43:51.640
+And then we'll print the arguments out.
+
+43:51.920 --> 44:03.400
+Let's see what happens when we Nakul by phone example up y dash dash Monty and let's say it's John you'll
+
+44:03.400 --> 44:07.520
+notice that we get the same behavior as we've seen so far.
+
+44:07.780 --> 44:11.000
+And that's because the default value for action is stored.
+
+44:11.080 --> 44:17.370
+That's why we don't specify it but it exists and there are other things that we could put in here.
+
+44:17.690 --> 44:20.720
+So let's go ahead and use instead of store.
+
+44:20.780 --> 44:29.800
+We're going to say still constant and we have to then tell it what the constant should be.
+
+44:30.710 --> 44:38.630
+What this means is that we now have a command line argument that is going to be named but will not take
+
+44:38.630 --> 44:41.920
+or value this kind of things or constant means.
+
+44:41.930 --> 44:52.070
+I expect that I'm going to call my script this way and I'll specify dash dash Montie but no name I specify
+
+44:52.070 --> 44:53.050
+a name.
+
+44:53.090 --> 44:57.590
+You'll notice what happens is I get an error it tells me no that's unrecognized.
+
+44:57.590 --> 45:01.260
+I don't know what this is because it's not expecting a value for this.
+
+45:01.250 --> 45:05.060
+So this is an unknown argument name.
+
+45:05.060 --> 45:07.730
+Instead I have to call it this way.
+
+45:08.210 --> 45:12.330
+And when I do that you'll notice that I have Python inside of you.
+
+45:12.980 --> 45:15.380
+Now this isn't quite the same as a default.
+
+45:15.380 --> 45:18.380
+Let me show you a default.
+
+45:19.850 --> 45:28.610
+Let's say that I'm going to say minus N and dash dash name and the action is going to be storm which
+
+45:28.610 --> 45:38.100
+is the default so I don't need to specify it and I'm going to say default equals let's say John.
+
+45:38.300 --> 45:39.110
+OK.
+
+45:39.830 --> 45:42.710
+So now I have this thing over here.
+
+45:44.910 --> 45:51.370
+This argument now if I don't specify the argument so I'm only going to call this dash dash Montie.
+
+45:51.790 --> 45:58.560
+What happens is that Montie still gets Python just as before and the name defaulted to John.
+
+45:58.570 --> 46:00.640
+Now I can however specify a name.
+
+46:00.640 --> 46:04.920
+I can say the name is Eric in which case my name will be Eric.
+
+46:04.930 --> 46:06.230
+So that's the default.
+
+46:06.250 --> 46:11.440
+That's not the same thing as a constant with a still constant store constant means we're not taking
+
+46:11.440 --> 46:12.150
+a value.
+
+46:12.370 --> 46:14.980
+And whatever it is we're going to put into here.
+
+46:15.560 --> 46:16.010
+OK.
+
+46:16.090 --> 46:19.690
+But I cannot say this and not pass a parameter in.
+
+46:19.800 --> 46:20.280
+OK.
+
+46:20.470 --> 46:21.460
+That's going to tell me.
+
+46:21.460 --> 46:24.890
+No no it expects at least one argument right.
+
+46:24.910 --> 46:28.930
+I have a default when the argument is not specified at all.
+
+46:28.930 --> 46:31.350
+Not when I don't specify a value.
+
+46:31.570 --> 46:34.110
+Different scenarios different use cases.
+
+46:36.730 --> 46:41.240
+OK so let's see how we might use that were flagged very often y'all.
+
+46:41.270 --> 46:47.270
+If you used Unix or Mac you'll know that you can specify arguments with certain commands and bash like
+
+46:47.340 --> 46:52.830
+a verbose or a quiet and it basically changes how much output you get on the console.
+
+46:52.850 --> 46:55.480
+So let's see how we might implement something like this.
+
+46:55.480 --> 46:57.950
+Yeah we might implement such an argument.
+
+46:58.190 --> 47:03.930
+So let's go ahead and say mine is vi vatos.
+
+47:04.070 --> 47:04.680
+OK.
+
+47:05.090 --> 47:14.810
+And the action is going to be Stoff constant and the constant is going to be true.
+
+47:14.860 --> 47:20.720
+So if we specify Dasch V we're going to set a constant to true.
+
+47:20.950 --> 47:27.670
+And if we don't specify it I may want to say oh well in that case I want the default to be false.
+
+47:27.700 --> 47:29.310
+So let's see what happens now.
+
+47:29.320 --> 47:34.460
+And let me get rid of these two I'll just comment these two out just to keep it simple.
+
+47:35.140 --> 47:37.290
+So let's see what happens when we call that.
+
+47:37.330 --> 47:43.490
+And we're going to pass the flag dash VI.
+
+47:44.460 --> 47:48.960
+And you can see that verbose came back as true because we passed it.
+
+47:48.960 --> 47:52.020
+And so it took Trewin put it inside of a box.
+
+47:52.290 --> 47:54.860
+Let's say that we don't pass in the dash V.
+
+47:54.930 --> 47:55.590
+What happens.
+
+47:55.590 --> 47:59.370
+It uses the default which is false.
+
+47:59.370 --> 48:06.630
+So this is one way that you can implement flags and then change the value that's been passed whether
+
+48:06.630 --> 48:08.930
+the flag was specified or not.
+
+48:09.850 --> 48:15.630
+Now there's actually a simpler way of creating these flags.
+
+48:15.670 --> 48:21.750
+So again we're going to add an argument and here's I'm going to say.
+
+48:22.180 --> 48:27.180
+Well before I do that let me show you a variant on those goals.
+
+48:27.370 --> 48:36.160
+So I'm just I'm not going to put a long name and the action is going to be store constant and I'm going
+
+48:36.160 --> 48:41.760
+to specify that the constant is true but I'm not going to specify a default value.
+
+48:42.100 --> 48:49.090
+So now if I try and call this with minus VI you'll notice that V-2 is none.
+
+48:49.180 --> 48:49.470
+OK.
+
+48:49.480 --> 48:51.730
+It didn't have a default.
+
+48:51.850 --> 48:58.540
+It's still not required but it has no default values so its value is none.
+
+48:58.630 --> 49:00.310
+So now let's see what happens.
+
+49:00.310 --> 49:06.790
+So while we saw what happens when I don't pass in V-2 and if I pass in the two then that will be set
+
+49:06.790 --> 49:07.460
+to true.
+
+49:07.540 --> 49:12.330
+So you could use a flag that's either set to the constant or none.
+
+49:12.360 --> 49:17.980
+If you don't specify it all you could have a flag that's set to the constant offset to the default.
+
+49:17.980 --> 49:22.500
+If it's not passed him it's up to you how you want to do it.
+
+49:22.700 --> 49:33.760
+And then we also have another action that is very often used for arguments for flags.
+
+49:35.290 --> 49:44.950
+So at argument let's do this one called quiet and the action is going to be
+
+49:48.610 --> 49:51.470
+still false.
+
+49:51.540 --> 49:57.160
+So we're not storing up constant We're just saying store falls and we don't specify the constant false.
+
+49:57.420 --> 50:04.680
+So again let me just comment these ones out just to keep things a little quieter on the command line.
+
+50:04.880 --> 50:08.130
+If I don't specify it I get quite equals.
+
+50:08.160 --> 50:09.090
+True.
+
+50:09.450 --> 50:10.670
+So you'll notice what have.
+
+50:10.680 --> 50:13.230
+What's happening here is that we've got this flag right.
+
+50:13.230 --> 50:20.530
+This would be the same thing as doing constant is false and default is true.
+
+50:20.580 --> 50:25.050
+So what I have achieved there was the same thing as doing.
+
+50:25.080 --> 50:31.310
+And the argument let's call it minus.
+
+50:32.340 --> 50:37.950
+And let's say that the action was still constant.
+
+50:38.310 --> 50:43.840
+Let's say that the constant is false and the default is true.
+
+50:44.160 --> 50:48.810
+This is kind of doing the same thing because what happens if I don't pass anything in.
+
+50:48.810 --> 50:51.140
+You'll see that Q2 is true.
+
+50:51.390 --> 50:59.360
+If I pass in Q2 and I pass in queue you'll notice that Q2 is false and quite is false.
+
+50:59.360 --> 50:59.790
+OK.
+
+51:00.000 --> 51:06.780
+So there is still false is basically a shorthand for doing this.
+
+51:07.020 --> 51:10.940
+On the other hand we can also say store troll.
+
+51:11.400 --> 51:13.920
+Now what happens if I don't specify.
+
+51:13.990 --> 51:20.190
+Q I get that my quiet is false if I specify.
+
+51:20.220 --> 51:22.710
+Q My quiet is true.
+
+51:22.710 --> 51:29.880
+In other words it's the same thing as saying The constant is true with the defaults is false.
+
+51:29.960 --> 51:36.200
+Ok this is again just a shorthand way of doing this thing over here.
+
+51:36.570 --> 51:42.140
+So if I call it without you'll notice that both Q2 and quite often false.
+
+51:42.210 --> 51:43.170
+If I call them
+
+51:45.990 --> 51:48.660
+both You'll notice that both of them are true.
+
+51:48.720 --> 51:49.030
+Right.
+
+51:49.040 --> 51:55.390
+They're set to the constant so for Flav's very often we use store true and store false.
+
+51:55.410 --> 52:00.140
+If you're using true and false but sometimes you may have Constans that you don't want to be booleans
+
+52:00.150 --> 52:01.580
+you want it to be something else.
+
+52:01.770 --> 52:08.100
+In which case you can use Stolk constant specify where the constant is and then specify if you want
+
+52:08.100 --> 52:09.530
+to what the default should be.
+
+52:09.540 --> 52:17.330
+If it's not specified otherwise you'll get none for that because this video is getting pretty long so
+
+52:17.360 --> 52:18.480
+I'm going to wrap up.
+
+52:18.590 --> 52:26.870
+But let me show you one last example and this is where we have mutually exclusive arguments.
+
+52:26.870 --> 52:29.890
+So for example this verbose and this quiet.
+
+52:30.020 --> 52:38.890
+I want to be able to specify that the user should specify verbose or quiet but not both.
+
+52:39.020 --> 52:39.720
+That can be.
+
+52:39.770 --> 52:43.650
+You can have both verbose and quiet output.
+
+52:43.790 --> 52:45.100
+You can have neither verbose.
+
+52:45.100 --> 52:45.810
+No quite.
+
+52:45.830 --> 52:46.680
+That's OK.
+
+52:46.820 --> 52:49.680
+But you can have both verbose and quite.
+
+52:49.750 --> 53:02.300
+So let's go ahead and do this and let's create our passwords.
+
+53:03.270 --> 53:07.440
+Thanks Dot argument Prasser.
+
+53:07.880 --> 53:10.640
+I'm not even going to give a description this time.
+
+53:10.640 --> 53:15.260
+Now I'm going to create a group and this comes from that passage.
+
+53:15.320 --> 53:21.870
+So the instance of the pastor has this thing called add a mutually exclusive group.
+
+53:22.100 --> 53:23.230
+So that's all I'm doing.
+
+53:23.390 --> 53:27.950
+I'm basically creating a group from the past for instance.
+
+53:27.950 --> 53:35.450
+So now I've got this group which is associated with the passage and to that group I can add arguments
+
+53:35.930 --> 53:38.930
+and those arguments are going to be mutually exclusive.
+
+53:38.930 --> 53:44.660
+In other words every argument that I add to the group I will be able to specify one and only one of
+
+53:44.660 --> 53:46.290
+them on the command line.
+
+53:46.370 --> 53:50.180
+Otherwise the policy will split on an error.
+
+53:50.390 --> 53:57.390
+So why do this verbose and then the action is going to be still true.
+
+53:57.560 --> 53:57.890
+Right.
+
+53:57.890 --> 54:01.320
+So I'm just using this as a plain flag.
+
+54:01.340 --> 54:03.330
+Now you don't have to use flags here.
+
+54:03.380 --> 54:05.580
+I just am choosing to use flags
+
+54:08.590 --> 54:13.500
+all mine rescue and mine is quiet
+
+54:15.980 --> 54:19.600
+and the action here is going to be still true as well.
+
+54:19.730 --> 54:20.140
+OK.
+
+54:20.180 --> 54:22.140
+So I'm just using the same thing.
+
+54:22.850 --> 54:29.050
+And no I'm going to say pantsuit but add arguments and I'm going to add an argument to the person not
+
+54:29.060 --> 54:32.840
+to the not to the mutually exclusive group to the class directly.
+
+54:33.110 --> 54:34.720
+I'm going to say add in.
+
+54:34.880 --> 54:40.610
+Let's say something called End and that type is going to be and I'm going to use a complex number just
+
+54:40.610 --> 54:45.590
+to show you that we can have other types as well even with things like complex numbers.
+
+54:46.010 --> 54:52.350
+And then we'd have you know help on this which I'm going to leave Alpes not going to specify the help
+
+54:52.820 --> 54:59.390
+and I am however going to make it required and I'm not going to set a default on making this required
+
+54:59.390 --> 55:00.480
+anyways.
+
+55:00.680 --> 55:08.800
+So no I can say honestly equals passing Don't pass.
+
+55:10.100 --> 55:12.630
+And we can go ahead and print the odds of.
+
+55:12.830 --> 55:13.580
+OK.
+
+55:13.610 --> 55:15.560
+So let's go ahead now and call.
+
+55:15.590 --> 55:18.880
+Example 10.
+
+55:19.390 --> 55:23.230
+And I'm going to quote with while I need to pass in the numbers.
+
+55:23.320 --> 55:25.510
+So it needs to be a complex number.
+
+55:25.700 --> 55:27.000
+Well I can pass in 10.
+
+55:27.070 --> 55:29.590
+Ten is a complex number.
+
+55:29.680 --> 55:31.300
+Real numbers are complex numbers.
+
+55:31.300 --> 55:34.400
+Integers are real so integers are complex numbers as well.
+
+55:34.480 --> 55:36.060
+So that should be just fine.
+
+55:36.160 --> 55:38.480
+And then I have to pass minus or minus Q.
+
+55:38.500 --> 55:42.690
+I don't have to pass them in I can just call it this way in which case quietist falls.
+
+55:42.710 --> 55:43.990
+Verbose is false.
+
+55:44.110 --> 55:47.870
+And you'll notice that my number n is 10 plus zero g.
+
+55:48.040 --> 55:53.250
+So the parser did the work correctly of casting those two complex numbers 10.
+
+55:53.760 --> 55:58.980
+But of course I can call this let's say 10 plus three J I can type it this way.
+
+55:59.290 --> 56:05.050
+And then I can pass in mind this Q and if I do this while the end are picked up correctly and the quiet
+
+56:05.060 --> 56:08.460
+is true for both is false as expected.
+
+56:08.650 --> 56:14.320
+But if I try and pass in both quiet and verbose you'll notice that it tells me no you can't.
+
+56:14.350 --> 56:20.860
+You have to either specify V or Q And you'll notice you in the usage help.
+
+56:20.860 --> 56:25.600
+We have the square brackets which means that what's inside here is optional.
+
+56:25.600 --> 56:28.270
+So I don't have to specify anything inside here.
+
+56:28.540 --> 56:31.890
+And the pipe character here means one or the other.
+
+56:32.020 --> 56:36.480
+So I have to specify minors V or minus Q But not both.
+
+56:36.640 --> 56:41.210
+And of course it could be minus me or minus minus the both of mine as mine is quite.
+
+56:41.280 --> 56:43.450
+Which have one but not both.
+
+56:43.600 --> 56:47.830
+So that's what the add mutually exclusive group would be.
+
+56:47.830 --> 56:50.400
+And so how might I use something like this.
+
+56:50.410 --> 56:57.610
+Well I'm going to import the C math library I'm just going to do something just to complete the example.
+
+56:57.610 --> 56:59.260
+I'm going to do something kind of silly.
+
+56:59.260 --> 57:00.590
+I'm going to save stuff.
+
+57:00.640 --> 57:15.550
+Quite so if I'm been told be quiet I'm going to say quiet motive and you know print nothing to see move
+
+57:15.550 --> 57:16.730
+along now.
+
+57:17.390 --> 57:19.430
+OK.
+
+57:19.600 --> 57:29.080
+Else if the ONS don't Vogue those specified then I'm going to say print close mode and that's probably
+
+57:29.080 --> 57:34.810
+not the best way of structuring it but that will be good enough and the lecture is getting way too long
+
+57:36.520 --> 57:45.940
+so I'm going to be verbose so I'm going to specify a lot of extra information so will go ahead and print
+
+57:45.940 --> 57:52.960
+out stuff and so will print out the number that was passed then and then we'll print out maybe the real
+
+57:52.960 --> 57:53.560
+part.
+
+57:53.570 --> 58:04.630
+Equals will have to say start and not real serial number and then the imaginary part is as Dot and dog
+
+58:04.720 --> 58:07.450
+Imaginarium.
+
+58:07.690 --> 58:11.340
+And then finally we'll print f
+
+58:14.400 --> 58:20.290
+dot an and then we'll convert that to polar coordinates.
+
+58:20.290 --> 58:23.510
+Y imported the C math library.
+
+58:24.320 --> 58:36.510
+K so we'll convert that to polar coordinates and otherwise I'll say that print normal mode and.
+
+58:36.780 --> 58:38.170
+And this is why I have to.
+
+58:38.250 --> 58:40.290
+I have to repeat this piece of code twice.
+
+58:40.300 --> 58:44.210
+So I'm saying I don't structure it properly but that's fine.
+
+58:44.630 --> 58:51.000
+OK so now that I have this code over here and this is really nothing to do with the arguments here we've
+
+58:51.000 --> 58:54.470
+already seen how to pass the arguments of mutually exclusive.
+
+58:54.660 --> 59:00.060
+I'm just showing your where you might use some your mutually exclusive thing using verbose and quite
+
+59:00.100 --> 59:01.520
+but not both.
+
+59:01.530 --> 59:03.790
+So go ahead and do that.
+
+59:03.870 --> 59:07.480
+So when we can't do both so we can do neither.
+
+59:07.530 --> 59:14.270
+Which is fine so we get normal mode and we get our numbers and the conversion to polar coordinates.
+
+59:14.340 --> 59:18.450
+We could say this isn't quite mode and which case we get quite mode.
+
+59:18.450 --> 59:24.690
+Nothing to see here but we could say this is in verbose mode and you can see we get the votes mode output
+
+59:24.690 --> 59:26.820
+instead.
+
+59:26.820 --> 59:30.920
+All right so this is kind of an introduction and it covers most I would say.
+
+59:30.930 --> 59:37.970
+You know the majority of what you probably going to need when passing arguments from the command line.
+
+59:38.250 --> 59:44.990
+If you do want more information on that there is help in the online documentation for Python.
+
+59:45.150 --> 59:47.070
+There's actually two places you can look.
+
+59:47.070 --> 59:54.340
+One is the actually the docs for the OG pass module and if you look there's also a tutorial.
+
+59:54.510 --> 1:00:04.310
+So just do a search for Python tutorial Thanks that's in the standard python web site's documentation.
+
+1:00:04.380 --> 1:00:04.750
+All right.
+
+1:00:04.760 --> 1:00:07.150
+Thanks for watching and I'll see you in the next video.

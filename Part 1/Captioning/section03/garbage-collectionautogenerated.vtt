@@ -1,0 +1,1141 @@
+WEBVTT
+
+00:01.460 --> 00:04.740
+Hi and welcome to this lesson on garbage collection.
+
+00:06.000 --> 00:10.890
+Now in the previous video we took a look at something called reference counting.
+
+00:10.920 --> 00:16.020
+So remember what reference counting is as we create objects in memory.
+
+00:16.050 --> 00:22.380
+Python keeps track of the number of references we have to those objects that could be one reference
+
+00:22.380 --> 00:24.990
+to references three references.
+
+00:24.990 --> 00:31.880
+But no matter what the number of references is as soon as that reference count hits zero.
+
+00:32.070 --> 00:38.820
+The Python memory manager then reclaims it destroys that object and reclaims the memory.
+
+00:38.820 --> 00:40.920
+So that's called reference counting.
+
+00:40.920 --> 00:43.820
+But sometimes that just doesn't work.
+
+00:43.920 --> 00:48.910
+And in particular we have to look at a situation called circular references.
+
+00:48.960 --> 00:51.470
+So what are circular references.
+
+00:51.600 --> 00:54.290
+Well let's take a look at an example.
+
+00:54.300 --> 00:55.710
+Let's say we have a variable.
+
+00:55.720 --> 00:59.610
+My bar and let's say that my VAR points to object A.
+
+00:59.740 --> 01:03.380
+So so far you know it's exactly what we've seen.
+
+01:03.540 --> 01:10.980
+If my VAR goes away if we pointed to another object or to none then the reference count of object 8
+
+01:11.000 --> 01:17.280
+goes from 1 to 0 and the Python memory manager at that point destroys the object.
+
+01:17.280 --> 01:18.940
+So so far so good.
+
+01:19.590 --> 01:26.980
+But let's suppose that object A has an instance variable let's say vol 1 that points to another object.
+
+01:27.000 --> 01:29.440
+Let's say Object B.
+
+01:29.460 --> 01:33.740
+So at this point what happens if we get rid of that.
+
+01:33.750 --> 01:35.470
+My VAR pointer.
+
+01:35.660 --> 01:37.420
+So we pointed to none.
+
+01:37.500 --> 01:42.810
+Then the reference count of object A goes down to zero.
+
+01:42.810 --> 01:48.600
+Now the reference count of object B is for 1 because object A's pointing to B but the reference count
+
+01:48.600 --> 01:51.410
+of object A has gone down to zero.
+
+01:51.570 --> 01:57.030
+And so by reference counting it will get destroyed once it gets destroyed.
+
+01:57.030 --> 02:02.970
+Object B's reference count also goes down to zero and it gets destroyed as well.
+
+02:02.970 --> 02:09.780
+So by destroying my VAR by removing that reference the python memory manager through reference counting
+
+02:09.960 --> 02:12.310
+will get rid of object A and B.
+
+02:12.450 --> 02:15.240
+So so far no problem.
+
+02:15.360 --> 02:24.420
+But now let's suppose that object B also has an instance variable let's say var 2 and 2 points back
+
+02:24.660 --> 02:27.320
+to object A.
+
+02:27.320 --> 02:29.150
+Now we have a circular reference.
+
+02:29.150 --> 02:31.940
+So what happens if we get rid of the.
+
+02:31.970 --> 02:34.370
+My VAR reference.
+
+02:34.370 --> 02:42.820
+So if that goes away then the reference count for object 8 you will notice is 1 still right.
+
+02:42.820 --> 02:47.470
+It was 2 because my VAR was pointing to a B was pointing to a.
+
+02:47.480 --> 02:50.170
+So a had a reference count of two.
+
+02:50.570 --> 02:52.030
+My vote went away.
+
+02:52.310 --> 02:52.650
+Right.
+
+02:52.650 --> 03:01.280
+So the reference count now on a is 1 it's not 0 and the reference count on B is also 1 because 8 is
+
+03:01.280 --> 03:03.130
+pointing to be.
+
+03:03.230 --> 03:09.890
+So in this case reference counting isn't going to destroy either A or B it can't because they both have
+
+03:09.890 --> 03:16.560
+references that both have a reference count that is non-zero and that is called a circular reference.
+
+03:16.610 --> 03:23.930
+And because the Python memory manager cannot clean that up if we were to leave things as is we would
+
+03:23.930 --> 03:27.410
+have a memory leak right because my VAR went away.
+
+03:27.740 --> 03:33.790
+But object A and B didn't and there's no way that they'll get destroyed.
+
+03:34.380 --> 03:35.810
+Not for reference counting.
+
+03:36.050 --> 03:42.440
+So that's where the garbage collector comes in the garbage collector would look and we'll be able to
+
+03:42.440 --> 03:46.180
+identify these circular references and clean them up.
+
+03:46.190 --> 03:48.130
+And so the memory goes away.
+
+03:48.130 --> 03:51.400
+We we do get cleanup.
+
+03:51.560 --> 03:57.890
+So the garbage collector can be controlled programmatically using the GC module there's a built in module
+
+03:57.890 --> 04:04.670
+to Python call GC for garbage collector where you can interact with a garbage collector and you can
+
+04:04.670 --> 04:06.630
+even modifieds behavior.
+
+04:07.130 --> 04:16.190
+So by default garbage collection is turned on you can turn it off so you can turn it off but you really
+
+04:16.190 --> 04:23.390
+have to be absolutely sure that your code is not creating circular references because if it does you
+
+04:23.390 --> 04:30.270
+will end up with memory leaks and it's very easy to create circular references.
+
+04:30.380 --> 04:35.600
+And you know without even knowing that you've created that circular reference.
+
+04:35.600 --> 04:39.410
+So be very very careful if you do turn it off.
+
+04:39.440 --> 04:41.330
+Now why would you want to turn it off.
+
+04:41.360 --> 04:43.730
+Well it's really just performance reasons.
+
+04:43.730 --> 04:50.270
+The garbage collector is something that runs periodically by default by every minute or so and it has
+
+04:50.270 --> 04:55.730
+to identify these circular references so obviously it takes a little bit of you know computing power
+
+04:55.730 --> 04:56.710
+to do so.
+
+04:56.960 --> 04:59.570
+And so you may want to turn it off.
+
+04:59.720 --> 05:04.100
+But this is really more advanced and you have to be careful.
+
+05:04.130 --> 05:06.620
+I would just leave the garbage collector turned on.
+
+05:06.620 --> 05:11.320
+Unless you have a specific need to turn it off.
+
+05:11.810 --> 05:13.720
+So it runs on its own.
+
+05:13.850 --> 05:15.910
+If it's turned on you can turn it off.
+
+05:16.220 --> 05:22.500
+You can also call it manually and you can also interact with a garbage collector to see what's in there
+
+05:22.500 --> 05:26.980
+and that needs to be cleaned up especially if you've turned it off and do your own cleanup.
+
+05:27.020 --> 05:28.670
+And so some people do that.
+
+05:28.700 --> 05:32.780
+There's other ways you can also avoid having to do your own clean up.
+
+05:32.780 --> 05:34.580
+You can use weak references.
+
+05:34.580 --> 05:36.900
+There's a variety of things that you can do.
+
+05:36.950 --> 05:42.330
+We'll look at weak references when we get to the sections on object oriented programming.
+
+05:42.800 --> 05:49.250
+But for now just be aware the garbage collector is there to really clean up circular references.
+
+05:49.250 --> 05:54.850
+It's turned on by default and you really should leave it on.
+
+05:55.270 --> 05:57.940
+So in general it works just fine.
+
+05:58.420 --> 06:03.300
+But as always there's a caveat it doesn't always work.
+
+06:03.760 --> 06:09.470
+But this really applies to Python versions of less than 3.4.
+
+06:09.670 --> 06:16.910
+So if as long as you're using Python 3 4 and above 3:6 as we are this recording then you're fine.
+
+06:17.410 --> 06:25.280
+What was happening before is that if even one of the objects in the circular references had a destructive.
+
+06:25.510 --> 06:31.800
+So for example if you're creating your own class you can create a construct constructor for the class.
+
+06:31.810 --> 06:34.410
+Yes but you can also create a destructor.
+
+06:34.420 --> 06:40.370
+Now the destructor is code that you run when you're destroying the object.
+
+06:40.390 --> 06:46.450
+And typically you might put things in there that might be cleaning up files maybe deleting files that
+
+06:46.450 --> 06:52.810
+you created that were needed during the duration of that object may maybe closing a database connection
+
+06:52.810 --> 06:53.970
+whatever it is.
+
+06:54.190 --> 07:01.430
+And you would put that code in these and in the delete method in this donder the elder Dundon method.
+
+07:02.020 --> 07:11.530
+So if even one of the objects in the circular reference has a destructive then the order of the destructors
+
+07:11.950 --> 07:13.510
+might be important.
+
+07:13.670 --> 07:19.210
+Write the order in which you destroy your object might be important maybe you cannot close the database
+
+07:19.210 --> 07:25.450
+connection until some other class that you have there was dependent or that was in the circular reference
+
+07:25.830 --> 07:29.900
+maybe deletes or commits a transaction or rollback back a transaction.
+
+07:29.920 --> 07:30.760
+Who knows.
+
+07:30.760 --> 07:31.190
+Right.
+
+07:31.240 --> 07:36.820
+There could be steps or as a certain order in which those steps have to be taken.
+
+07:37.000 --> 07:40.220
+So the garbage collector doesn't know what that order should be.
+
+07:40.390 --> 07:45.340
+And it would basically mark those objects as uncollectable they would say you know what.
+
+07:45.550 --> 07:47.050
+I don't know how to handle this.
+
+07:47.050 --> 07:49.030
+I'm not going to do that.
+
+07:49.060 --> 07:56.170
+And so when you have that situation with a circular reference where at least one of the objects had
+
+07:56.230 --> 07:59.320
+a destructor then they weren't getting cleaned up.
+
+07:59.350 --> 08:01.030
+Not by the garbage collector.
+
+08:01.060 --> 08:03.470
+And of course not by reference counting.
+
+08:03.610 --> 08:06.300
+And we would end up with a memory leak.
+
+08:06.520 --> 08:11.060
+Now that is no longer the case with version 3 4 and up.
+
+08:11.080 --> 08:13.160
+That particular problem has been resolved.
+
+08:13.240 --> 08:18.270
+So I really suggest that you do not use Python less than 3.4.
+
+08:18.450 --> 08:18.870
+Right.
+
+08:18.880 --> 08:21.190
+Use Python 3 4 and above.
+
+08:21.190 --> 08:21.490
+All right.
+
+08:21.490 --> 08:27.790
+So let's take a look at some code and just put the garbage collector module through its paces and see
+
+08:27.790 --> 08:30.520
+what happens with circular references.
+
+08:30.550 --> 08:36.250
+So the first thing we're going to do is we're going to import the C types library call from the last
+
+08:36.250 --> 08:42.300
+video that's we're going to use that to look at the reference count given a memory address.
+
+08:42.520 --> 08:47.610
+We're also going to need to import GC which is the garbage collection module.
+
+08:48.210 --> 08:48.870
+OK.
+
+08:49.120 --> 08:56.650
+And we're going to bring back that same method that we had before to find the reference count for a
+
+08:56.740 --> 09:04.420
+object at a given memory address and just returns C type.
+
+09:04.420 --> 09:10.470
+See long the dot from address address that value.
+
+09:10.630 --> 09:11.140
+OK.
+
+09:11.230 --> 09:13.980
+So just what we had before.
+
+09:14.110 --> 09:15.630
+Nothing new here.
+
+09:16.240 --> 09:23.710
+Now what is new is we're going to look at a method that's going to dig into the garbage collector and
+
+09:23.890 --> 09:32.470
+it will tell us whether that object exists in the garbage collector or not and we'll do that again by
+
+09:32.560 --> 09:33.840
+memory address.
+
+09:33.910 --> 09:37.200
+So we're going to define a new method let's call it.
+
+09:37.210 --> 09:45.830
+Objects by id and will pass in the object id or the memory address.
+
+09:46.670 --> 09:55.420
+And we're going to loop through every object in the garbage collector and we're going to call the objects
+
+09:56.020 --> 10:04.460
+get objects method of the GC that will basically look at every object that's inside the garbage collector.
+
+10:04.480 --> 10:10.630
+There's a lot of objects that get generated and that's going to be the easiest way for us to find the
+
+10:10.630 --> 10:19.970
+object we're interested in and we'll say if Id of object equals equals the ID that we pass then.
+
+10:19.990 --> 10:24.110
+Right so we're just going to compare memory addresses.
+
+10:25.960 --> 10:32.430
+We're going to say return object exists right.
+
+10:32.650 --> 10:39.310
+And if we don't if we exhaust the loop then we'll return not fund.
+
+10:39.610 --> 10:40.180
+OK.
+
+10:40.780 --> 10:46.410
+So this method is basically going to look at all the objects that are tracked by the garbage collector
+
+10:46.540 --> 10:51.610
+and it will try and find the object that we're interested in by comparing the IDs
+
+10:55.840 --> 11:02.050
+now there's another way that we can compare memory addresses and we'll get to that in some future lesson.
+
+11:03.710 --> 11:10.760
+All right so now comes time to create those two classes that are going to create a circular reference.
+
+11:10.850 --> 11:13.800
+So let's go ahead and create class Abe.
+
+11:14.030 --> 11:19.490
+Now if you don't know object oriented programming in Python don't worry about it.
+
+11:19.490 --> 11:21.060
+These are pretty straightforward.
+
+11:21.170 --> 11:26.730
+And as I said we'll dig into objects in our programming and a lot more detail in a future section.
+
+11:27.500 --> 11:40.250
+So we're going to create a constructor and that constructor is basically going to call on another class
+
+11:40.250 --> 11:42.220
+that we haven't created yet.
+
+11:42.800 --> 11:51.740
+And what it's going to do it's going to set it's be variable equal to the an instance of the class B
+
+11:52.040 --> 11:53.120
+passing self.
+
+11:53.120 --> 11:58.400
+Now self in this context means a right means this instance of A.
+
+11:58.820 --> 12:05.630
+So we're going to pass the instance of A to B and in B's constructor will store that reference.
+
+12:05.630 --> 12:11.090
+So right now we're setting up that circular reference in exactly the same way we had in that diagram
+
+12:11.420 --> 12:13.670
+just a little while ago.
+
+12:14.360 --> 12:17.690
+So we have that and then we're going to print some stuff out.
+
+12:17.690 --> 12:20.340
+Let's go ahead and print a.
+
+12:21.770 --> 12:30.470
+Will print out what self is and then we'll print out what B is and by printed out we're going to print
+
+12:30.470 --> 12:34.400
+out the memory address so Dark's format.
+
+12:34.400 --> 12:40.940
+So what are we going to print out for a self-soothing the A instance the self which is going to be the
+
+12:40.940 --> 12:46.230
+instance of A is going to be Hecht's of ID of self.
+
+12:46.340 --> 12:46.770
+Right
+
+12:49.830 --> 12:50.600
+and
+
+12:53.670 --> 13:00.110
+for B we're going to print pecks of ID of self doubt.
+
+13:00.210 --> 13:02.430
+B OK.
+
+13:03.020 --> 13:08.330
+So basically when the class instantiates itself we're going to print out the memory addresses of the
+
+13:08.330 --> 13:13.130
+references we're going to print out the memory address of ourself the instance of A.
+
+13:13.340 --> 13:19.950
+And we're also going to print out the memory address of the B instance that we created in this line
+
+13:19.960 --> 13:21.580
+here in the constructor.
+
+13:22.960 --> 13:24.870
+OK so that's class A.
+
+13:24.880 --> 13:28.610
+Now we need to do class B and class B.
+
+13:28.810 --> 13:34.150
+Again we're going to declare an initializer.
+
+13:34.780 --> 13:37.060
+And here we're going to say self.
+
+13:37.060 --> 13:40.700
+Now the initializer takes in an extra parameter.
+
+13:40.780 --> 13:43.130
+Let's call it a right.
+
+13:43.180 --> 13:52.180
+That is what's being passed when B calls we all get gets called gets constructed we pass in this reference
+
+13:52.180 --> 13:53.010
+to a.
+
+13:53.200 --> 13:54.280
+So that's going to come in here.
+
+13:54.280 --> 13:56.630
+So be careful this self here in the self.
+
+13:56.650 --> 13:58.870
+They don't mean the same thing.
+
+13:59.050 --> 14:03.830
+Self refers to the instance of this class B self.
+
+14:03.850 --> 14:11.080
+Here refers and this self and this self refers to the instance of class A in the code.
+
+14:11.590 --> 14:15.270
+So here we're going to set self-taught eight equals eight.
+
+14:15.790 --> 14:16.440
+Right.
+
+14:16.450 --> 14:19.580
+So we're going to store the reference to a.
+
+14:20.200 --> 14:23.500
+And we're going to print out something very similar.
+
+14:23.620 --> 14:25.880
+So I'm going to copy paste.
+
+14:27.160 --> 14:32.560
+But now of course we're in class B and we are going to print out ourselves.
+
+14:34.150 --> 14:39.380
+But now we're not going to print out the we're going to print out a that's the internal variable a.
+
+14:39.670 --> 14:44.730
+And so we're going to return the memory address of a k.
+
+14:45.110 --> 14:51.840
+So now we've set up those two classes a and b with a circular reference.
+
+14:52.110 --> 14:59.070
+The next step we are going to disable the garbage collector so we can see what's going on because if
+
+14:59.070 --> 15:04.800
+we don't disable it then as references go away it's going to clean up the circular reference.
+
+15:04.800 --> 15:10.120
+But I don't want to clean that up now because we really want to take a look at what's going on.
+
+15:10.470 --> 15:13.930
+So we're going to disable the garbage collectors.
+
+15:14.250 --> 15:20.110
+And now let's go ahead and create my van my van is just an instance of a.
+
+15:20.640 --> 15:26.340
+And the initialiser for aid doesn't take any variable any parameter.
+
+15:26.520 --> 15:27.310
+OK.
+
+15:27.540 --> 15:31.290
+So as you can see both the constructor will be ran.
+
+15:31.290 --> 15:33.120
+This is what it printed out.
+
+15:33.200 --> 15:36.290
+It said its reference was this number here.
+
+15:36.570 --> 15:40.930
+And then the reference for 8 was that 1 8 to have 16 whatever.
+
+15:41.190 --> 15:47.390
+And you can see the constructor for a Rannells So now you can see that the memory address of a.
+
+15:47.400 --> 15:52.900
+Here is the same as the memory address of a hinge.
+
+15:52.950 --> 15:53.300
+Right.
+
+15:53.310 --> 15:57.390
+This one is the object self.
+
+15:57.450 --> 15:58.220
+Right.
+
+15:58.320 --> 16:03.140
+And this is the BS dot a memory address.
+
+16:03.360 --> 16:03.540
+Right.
+
+16:03.540 --> 16:04.760
+This is the circular reference.
+
+16:04.800 --> 16:08.050
+And then these two are also equal to each other.
+
+16:08.160 --> 16:12.510
+Again this is the reference that a holes to be right.
+
+16:12.510 --> 16:17.470
+This is the memory address of the instance of B and it's the same memory address here.
+
+16:17.660 --> 16:22.470
+Now in fact we can look at the ID of my van.
+
+16:22.530 --> 16:25.300
+Now what do you think that should be.
+
+16:25.320 --> 16:28.050
+I'll let you think about it for a few seconds.
+
+16:30.050 --> 16:32.830
+My VAR is pointing to a.
+
+16:33.020 --> 16:41.700
+So the memory reference of my VAR should be exactly what it is which is this one right here.
+
+16:41.950 --> 16:42.200
+OK.
+
+16:42.350 --> 16:43.030
+So that matters.
+
+16:43.030 --> 16:44.130
+So that's good.
+
+16:44.300 --> 16:46.080
+Right so far so good.
+
+16:48.160 --> 16:48.960
+OK.
+
+16:50.410 --> 16:55.690
+So now I mean there's another way you can look at it as well.
+
+16:55.690 --> 16:55.990
+Right.
+
+16:55.990 --> 16:58.010
+We can look at print.
+
+16:58.240 --> 16:59.700
+Let's say my.
+
+16:59.880 --> 17:09.460
+The dot B and my VAR remember B is an instance of property of the class A.
+
+17:09.490 --> 17:18.200
+So my var which is an instance of A has this property B and we can call hecks of ID of my VAR B.
+
+17:18.370 --> 17:20.200
+We can also print.
+
+17:20.260 --> 17:25.260
+Now we're going to print my VAR dot B.
+
+17:25.300 --> 17:30.580
+Now my VAR dog B is an instance of Class B and it has a property called a.
+
+17:30.650 --> 17:32.260
+So we can say Dot A.
+
+17:32.530 --> 17:37.400
+And again we're going to print the memory address of that as well.
+
+17:37.810 --> 17:40.530
+So if we print that you'll notice that B.
+
+17:40.540 --> 17:43.070
+This should be the memory address for B.
+
+17:43.240 --> 17:43.760
+Right.
+
+17:43.810 --> 17:45.970
+Which is exactly this one here.
+
+17:46.030 --> 17:48.630
+And this is the memory address from a.
+
+17:48.880 --> 17:50.210
+Which is this one right here.
+
+17:50.260 --> 17:58.320
+And you can see that we recovered the memory address from a by looking at the object instance of B.
+
+17:59.440 --> 18:02.640
+So we have that circular reference.
+
+18:03.080 --> 18:08.230
+All right so now let's take a look at a few things.
+
+18:08.440 --> 18:14.780
+Let's go ahead and print let's print the reference count.
+
+18:14.860 --> 18:17.960
+So I'm just going to print like this graph count.
+
+18:17.980 --> 18:22.130
+Remember that method that we created right arm.
+
+18:22.330 --> 18:32.230
+Actually before I do that I need to hold references to a and b so 8 or ID equals ID of a and b ID is
+
+18:32.230 --> 18:34.120
+equal to the idea of B.
+
+18:34.180 --> 18:39.820
+I don't need to store the idea of my VAR because it happens to be the same as the idea of a.
+
+18:39.880 --> 18:45.560
+Since they are both pointing to the same object and I do here in
+
+18:51.110 --> 18:54.590
+all idea of a is my VAR.
+
+18:54.680 --> 18:55.210
+Sorry.
+
+18:55.220 --> 18:55.460
+Right.
+
+18:55.460 --> 18:57.150
+We don't have a variable a.
+
+18:57.440 --> 19:02.440
+And the idea of B is simply my VAR to be.
+
+19:02.460 --> 19:04.490
+OK that's all the better.
+
+19:04.820 --> 19:10.210
+And again we can check that just to be absolutely sure.
+
+19:11.500 --> 19:12.490
+OK.
+
+19:13.190 --> 19:14.170
+We should probably.
+
+19:14.590 --> 19:18.100
+I'm storing the decimal because that's what we need to pass to those two functions.
+
+19:18.110 --> 19:20.780
+But I'll print out the hex version.
+
+19:21.050 --> 19:21.540
+OK.
+
+19:21.720 --> 19:26.240
+As you can see again a is this reference here.
+
+19:26.270 --> 19:27.230
+And B.
+
+19:27.450 --> 19:30.150
+Well my Voller B is this reference stuff here.
+
+19:30.260 --> 19:30.840
+OK.
+
+19:31.040 --> 19:34.720
+And you'll see why I'm storing those memory addresses.
+
+19:34.730 --> 19:40.910
+We're going to need to have the stored memory addresses once those objects go away we won't be able
+
+19:40.910 --> 19:45.980
+to access them by using my van because we're going to get rid of my VAR right.
+
+19:46.040 --> 19:49.840
+So we're going to need to store those addresses.
+
+19:49.910 --> 19:50.410
+All right.
+
+19:50.450 --> 19:52.400
+So let's take a look at the.
+
+19:52.420 --> 19:56.290
+We're going to call a method ref count of a ID.
+
+19:56.300 --> 20:00.830
+Now what should that be while they should really be two right.
+
+20:00.840 --> 20:04.660
+Because my VAR is pointing to a and b is pointing to a.
+
+20:05.010 --> 20:06.960
+And that's indeed what we get.
+
+20:06.960 --> 20:12.360
+Now what about the ref count for the B object.
+
+20:12.450 --> 20:16.480
+Well the ref count is one right because only a is pointing to be.
+
+20:16.680 --> 20:19.370
+So that all seems to work out.
+
+20:19.380 --> 20:22.430
+Now we're also going to use that new method that we defined.
+
+20:22.430 --> 20:23.660
+Remember this one up here.
+
+20:23.700 --> 20:25.230
+Object by ID.
+
+20:25.380 --> 20:30.010
+We're going to look in the garbage collector to see is that object there.
+
+20:30.480 --> 20:40.440
+So we're going to say object by id and we're going to pass in the idea of.
+
+20:40.890 --> 20:42.640
+And the object exists right.
+
+20:42.660 --> 20:42.960
+Yeah.
+
+20:42.970 --> 20:43.840
+OK cool.
+
+20:43.890 --> 20:45.690
+That's what we expected.
+
+20:45.720 --> 20:48.420
+And let's do the same thing for B.
+
+20:49.410 --> 20:51.400
+And the object exists.
+
+20:51.400 --> 20:53.300
+All right good.
+
+20:53.640 --> 20:57.440
+So we have those references we see what the reference count is.
+
+20:57.540 --> 20:58.180
+OK.
+
+20:58.590 --> 21:03.500
+So now let's go ahead and set my VAR equal to none.
+
+21:03.630 --> 21:10.200
+So basically I'm destroying that reference between my VAR and a object.
+
+21:10.230 --> 21:10.630
+OK.
+
+21:10.770 --> 21:15.180
+So now let's look at the reference count of 8.
+
+21:16.080 --> 21:22.860
+And the reference count is 1 and then the reference count of B is also 1.
+
+21:23.400 --> 21:31.560
+So as you can see we got rid of my vav but the stall pointers to a and b because that's a circular reference
+
+21:31.640 --> 21:39.360
+is pointing to B and B is pointing back to a and reference counting therefore is not going to help us
+
+21:39.360 --> 21:41.900
+out here because the reference count is non-zero.
+
+21:42.150 --> 21:44.460
+That's where the garbage collector comes in.
+
+21:44.460 --> 21:54.120
+Now we can check still make sure that those objects are indeed thought being tracked by the garbage
+
+21:54.120 --> 21:56.410
+collector.
+
+21:56.650 --> 21:59.540
+You can see the object still exists.
+
+22:02.150 --> 22:04.200
+And we'll do the same thing with B.
+
+22:04.780 --> 22:08.640
+And we can see the object still exists so those objects definitely are wrong.
+
+22:08.650 --> 22:12.400
+They have a reference count and the garbage collector is tracking them.
+
+22:12.700 --> 22:14.050
+But it hasn't cleaned them up.
+
+22:14.050 --> 22:15.070
+Why.
+
+22:15.100 --> 22:17.730
+Because we stopped the garbage collector remember.
+
+22:18.000 --> 22:18.380
+OK.
+
+22:18.400 --> 22:20.780
+So not something that you necessarily want to do.
+
+22:22.300 --> 22:25.960
+So now we're going to run the garbage collector manually.
+
+22:25.960 --> 22:29.610
+We're going to say GC dot collect.
+
+22:29.890 --> 22:33.110
+And that's how you can run the garbage collector manually.
+
+22:33.250 --> 22:47.140
+So now we ran the garbage collector and we're going to look at the object by ID of a underscore ID.
+
+22:47.500 --> 22:49.680
+It's not phone gone right.
+
+22:49.700 --> 22:55.580
+And let's take a look at the object by id of B underscore ID.
+
+22:55.960 --> 22:57.250
+And it's not found.
+
+22:57.250 --> 22:59.770
+It's no longer in memory.
+
+23:00.160 --> 23:07.550
+So let's take a look at the reference count of a underscore ID Hoopes
+
+23:10.780 --> 23:12.950
+What's the method call ref underscore counts
+
+23:18.430 --> 23:20.700
+1 hour.
+
+23:20.750 --> 23:22.750
+That's kind of weird right.
+
+23:24.320 --> 23:25.890
+Should have destroyed that object.
+
+23:25.890 --> 23:38.740
+What about the reference count for the.
+
+23:39.250 --> 23:40.140
+That's weird.
+
+23:40.150 --> 23:42.690
+Let's try that again.
+
+23:46.510 --> 23:49.040
+Wol 1 2 5 4.
+
+23:49.090 --> 23:54.320
+We have that many references to that memory address but that should be zero.
+
+23:54.450 --> 23:55.640
+What about a
+
+24:00.320 --> 24:04.080
+ball that's changed now it's some other big number.
+
+24:05.060 --> 24:10.100
+Now the odds are that when you run this code yourself you'll get different numbers and you'll see them
+
+24:10.100 --> 24:12.990
+fluctuating possibly.
+
+24:13.010 --> 24:14.170
+So what's going on.
+
+24:16.710 --> 24:18.400
+You want to think about that a little bit.
+
+24:19.380 --> 24:23.360
+What is going on why we were not seeing the objects right.
+
+24:23.430 --> 24:30.090
+If we try object by ID then the garbage collector tells us it's not in there.
+
+24:30.540 --> 24:36.900
+But I'm getting a reference count for that object a dot ID and it seems to change over time if we do
+
+24:36.900 --> 24:37.920
+it again.
+
+24:38.040 --> 24:41.920
+Who knows what we're going to get while we get the same number.
+
+24:43.510 --> 24:45.700
+But it's definitely not zero.
+
+24:46.400 --> 24:52.900
+Well this is why we usually don't use memory addresses and we don't work with memory addresses in Python
+
+24:53.380 --> 24:57.190
+unless you're trying to debug stuff where you're trying to do your own memory clean up.
+
+24:57.190 --> 25:03.900
+You've got to be really careful using memory addresses what is that memory address right now.
+
+25:03.910 --> 25:07.610
+Remember the memory address that we stored for a right.
+
+25:07.650 --> 25:09.310
+It was up here somewhere.
+
+25:09.630 --> 25:10.160
+OK.
+
+25:10.220 --> 25:11.470
+A-Rod ID.
+
+25:11.670 --> 25:12.150
+Right.
+
+25:12.160 --> 25:15.240
+Was this value here right.
+
+25:15.240 --> 25:17.450
+We still did an eight on the ID.
+
+25:17.770 --> 25:20.560
+What's in there right now.
+
+25:22.360 --> 25:23.650
+We don't know.
+
+25:23.650 --> 25:25.800
+It could be something else it could be nothing.
+
+25:25.810 --> 25:26.850
+Who knows.
+
+25:26.980 --> 25:30.010
+But that object is no longer a right.
+
+25:30.040 --> 25:36.190
+It's no longer what this variable here was it's no longer this instance of a.
+
+25:36.190 --> 25:37.730
+It's something else.
+
+25:37.840 --> 25:46.000
+And so try to get the reference count of a memory address that is no longer necessarily managed by Python
+
+25:46.000 --> 25:49.900
+even or even if it is it's been reclaimed.
+
+25:49.900 --> 25:54.600
+Remember the space the memory address that was used by that variable was reclaimed.
+
+25:54.910 --> 25:56.730
+It's now being used for something else.
+
+25:56.740 --> 25:58.350
+Yeah pretty obviously.
+
+25:58.630 --> 25:59.320
+Right.
+
+25:59.620 --> 26:02.300
+And so who knows what that means.
+
+26:02.710 --> 26:05.620
+So you've got to be very careful using memory addresses.
+
+26:05.620 --> 26:07.860
+It's OK to do this in this context.
+
+26:07.870 --> 26:09.920
+It's OK when you're trying to debug stuff.
+
+26:10.120 --> 26:15.280
+And it's OK if you understand what you're doing and as long as you're using a memory address for an
+
+26:15.280 --> 26:18.860
+object that you know existed you know what it is.
+
+26:18.940 --> 26:26.010
+But once the garbage collector ran it destroyed all the objects involved in that circular reference.
+
+26:26.140 --> 26:30.730
+And those memory addresses we had stored are no longer applicable.
+
+26:31.140 --> 26:31.550
+OK.
+
+26:31.720 --> 26:35.820
+So you really have to be careful with that.
+
+26:35.820 --> 26:36.150
+All right.
+
+26:36.150 --> 26:38.550
+Thanks for watching and I'll see you in the next video.

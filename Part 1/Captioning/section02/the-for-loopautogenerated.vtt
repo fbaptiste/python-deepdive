@@ -1,0 +1,754 @@
+WEBVTT
+
+00:00.480 --> 00:04.630
+High in this video we're going to take a quick look at the fall.
+
+00:04.800 --> 00:10.800
+Now I want to first of all discuss the full loop in other languages in case you've actually used them
+
+00:10.800 --> 00:18.030
+before and run across them in languages like C C shell Java and so on and Javascript because this is
+
+00:18.030 --> 00:21.390
+kind of the way that for loops might be written.
+
+00:21.390 --> 00:29.980
+So forth when you declare some kind of loop variable maybe and you start it at some initial value.
+
+00:30.210 --> 00:35.320
+So that is code that will run one time before the loop starts executing.
+
+00:35.340 --> 00:38.570
+Next you have the condition for the loop to continue executing.
+
+00:38.570 --> 00:41.750
+So you might have that say I was less than five.
+
+00:42.090 --> 00:48.120
+So every time that the loop finishes its code block it goes back to the beginning and it checks that
+
+00:48.120 --> 00:50.510
+condition if that condition is true.
+
+00:50.550 --> 00:52.710
+It will then execute the for loop again.
+
+00:53.160 --> 00:58.380
+And then finally we have a piece of code that gets run at the end of every iteration.
+
+00:58.380 --> 01:01.510
+So very often you know this is how it's kind of written.
+
+01:01.530 --> 01:08.210
+And then you have your code block in here and you know that's when you'll know.
+
+01:08.260 --> 01:14.210
+So that's how loops follows work in many other languages and C-style languages.
+
+01:14.740 --> 01:18.780
+But of course that's not at all the same in Python Python.
+
+01:18.810 --> 01:22.640
+The Python for loop in this kind of state doesn't exist.
+
+01:22.680 --> 01:25.200
+There is no such thing.
+
+01:25.260 --> 01:32.350
+So before we get to that I want to then define something called an interval now an interval and I'll
+
+01:32.350 --> 01:36.170
+just put in this definition right here in the notebook that you can download.
+
+01:36.540 --> 01:41.950
+But an interval is an object capable of returning values one at a time.
+
+01:42.450 --> 01:43.790
+So iterable.
+
+01:43.860 --> 01:49.560
+And please note I didn't say that an interval was a collection of values that could be returned one
+
+01:49.560 --> 01:50.150
+at a time.
+
+01:50.160 --> 01:56.640
+I just said an interval is an object capable of returning values one at a time and we'll see what that
+
+01:56.640 --> 02:02.760
+means when we start looking into things like iterators and generators later in the in this course.
+
+02:02.940 --> 02:06.980
+But it's not quite the same thing as a just a list of stuff.
+
+02:07.140 --> 02:09.190
+Now lists are pit bulls.
+
+02:09.330 --> 02:09.880
+Right.
+
+02:09.900 --> 02:16.320
+So we have lots of objects in Python that are edible tadpoles or iterable strings or iterable and many
+
+02:16.320 --> 02:17.220
+others.
+
+02:17.730 --> 02:23.250
+So let me go back to this piece of code right here because I just want to show you that although we
+
+02:23.250 --> 02:28.010
+don't have those this is something that basically just does repetition.
+
+02:28.500 --> 02:36.030
+The for loop is something that will allow us to iterate over an interval so it will basically go and
+
+02:36.030 --> 02:37.410
+get the next value.
+
+02:37.410 --> 02:42.000
+You know as it's running the loop which is not the same thing as this thing over here.
+
+02:42.000 --> 02:44.950
+Now we do we can write this equivalent in Python.
+
+02:45.090 --> 02:47.230
+And the way to do it is to use the Wildblue.
+
+02:47.250 --> 02:53.100
+So the while loop is probably the closest thing that you'll find to the full two of these other C-style
+
+02:53.100 --> 02:56.650
+languages which also have a WHILE loop too.
+
+02:56.730 --> 03:00.800
+And in fact in those languages you can always rewrite a follow as a Wild.
+
+03:01.200 --> 03:04.080
+Because it really just means that it does certain things.
+
+03:04.230 --> 03:09.890
+So if I wanted to rewrite this over here specifically in Python then I would write it this way.
+
+03:09.900 --> 03:11.060
+Equals zero.
+
+03:11.280 --> 03:15.480
+Then the next thing is we have to do a while loop and we want to continue running as long as I'm less
+
+03:15.480 --> 03:17.250
+than 5 k.
+
+03:17.460 --> 03:18.600
+So here we go.
+
+03:18.720 --> 03:20.200
+Now we need to do our code block.
+
+03:20.220 --> 03:21.100
+I'm just going to print.
+
+03:21.100 --> 03:22.820
+I came.
+
+03:22.980 --> 03:28.790
+Now the next thing is that this is the piece of code that runs after the end of each iteration.
+
+03:28.920 --> 03:34.230
+Well that's what we have to do here we have to increment high or we don't have a plus plus operator
+
+03:34.230 --> 03:38.660
+in Python but we can write it as I plus equals 1.
+
+03:38.670 --> 03:46.290
+Now the only difference is that once this fall loop has finished executing the i variable goes out of
+
+03:46.290 --> 03:48.910
+scope it goes away basically it gets discounted.
+
+03:48.900 --> 03:50.280
+And so we can do the same thing.
+
+03:50.280 --> 03:52.270
+We can just say equals none.
+
+03:52.310 --> 03:58.290
+Now you'll see that later on when we take a look at memory and memory references you'll see that we
+
+03:58.290 --> 04:00.140
+don't actually need to do this.
+
+04:00.240 --> 04:06.730
+This will actually get done for us automatically and in certain cases actually this will not even help.
+
+04:06.870 --> 04:09.820
+So you know your on this.
+
+04:09.820 --> 04:10.450
+This is it.
+
+04:10.450 --> 04:11.980
+So we have the same four.
+
+04:12.520 --> 04:17.730
+But of course that's not what the for statement is in Python.
+
+04:17.740 --> 04:24.610
+It is something to iterate over and iterable now and iterable a very simple interval operable that you
+
+04:24.610 --> 04:27.680
+can create is by using the range function.
+
+04:27.700 --> 04:29.380
+So you've probably seen this before.
+
+04:29.380 --> 04:33.780
+For i in range let's say 5 and then we'll print.
+
+04:35.770 --> 04:37.610
+And there we go 0 1 2 3 4.
+
+04:37.790 --> 04:42.430
+So you might think that hey this is exactly the same as this over here.
+
+04:42.470 --> 04:49.100
+It's not again this fall loop was in fact run using code that looks like this.
+
+04:49.130 --> 04:50.470
+This is different.
+
+04:50.480 --> 04:57.230
+This is using an adorable object range 5 which is iterable and when it runs its loop it just basically
+
+04:57.230 --> 05:03.440
+calls the next day you know it asks the object here for the next value and then it puts that value in
+
+05:03.530 --> 05:08.560
+I and then we have that value available in the loop and languages like Java.
+
+05:08.570 --> 05:15.210
+You have the for each right for x in some object collection.
+
+05:15.230 --> 05:21.090
+So if you've done Java before and you're aware of that this is more what the for in Python does.
+
+05:21.260 --> 05:24.070
+It basically iterates and iterable.
+
+05:24.150 --> 05:30.130
+I'm not saying a collection just uneatable range is not a collection range is not a list.
+
+05:30.410 --> 05:35.000
+And we'll take a much closer look at all that in detail later on in the schools.
+
+05:35.060 --> 05:39.910
+Of course lots of other objects are iterable as well so high in range and use Range.
+
+05:39.910 --> 05:45.580
+Let's say we use a list right so we can do one two three four and we can say print I.
+
+05:45.800 --> 05:52.370
+And again here we go with print that we can say for C in a hello.
+
+05:52.400 --> 05:55.010
+So a string is just a roll.
+
+05:55.160 --> 05:58.640
+We can get each character one by one.
+
+05:58.650 --> 06:02.770
+There we go for you know in hello we get the string and so on.
+
+06:02.770 --> 06:10.600
+You can even use tables to avoid trouble as well solve for x in A B C.
+
+06:10.620 --> 06:16.700
+So we're going to top all that contain them for a number just for good measure and we can print X and
+
+06:16.700 --> 06:20.440
+we just get the individual elements of the top.
+
+06:20.450 --> 06:26.360
+Now of course you can also have more complex objects listed in and iterable type.
+
+06:26.360 --> 06:33.810
+So for example you might have 4 x in and here I'm going to do a list containing couples.
+
+06:33.920 --> 06:38.950
+So let's say one comma to prevent a four five to six.
+
+06:39.110 --> 06:39.350
+Right.
+
+06:39.350 --> 06:41.570
+So this list contains tables.
+
+06:41.960 --> 06:46.760
+And when we print X you'll see that we actually get that topples back.
+
+06:46.760 --> 06:50.520
+Now of course we can unpack the top or we might say Eircom and J.
+
+06:50.750 --> 06:55.360
+So it's going to take each topple and it's going to take the first element of the top or put it in.
+
+06:55.370 --> 06:58.870
+I think the second element of the table and put it in J.
+
+06:58.880 --> 07:02.880
+So now we can do things like this.
+
+07:03.470 --> 07:09.120
+And we actually as you can see we were extracting the individual elements of each table that was returned.
+
+07:09.200 --> 07:13.070
+Every time that the next object was requested in the fall.
+
+07:13.310 --> 07:17.230
+So we'll take a look at that in lot more detail as well later on.
+
+07:18.020 --> 07:22.700
+Now the break and the continuous statements work just the same as with the while loop.
+
+07:22.700 --> 07:34.420
+So if we have something like for I in range 5 if I equals let's say 3 will continue.
+
+07:35.030 --> 07:37.660
+And otherwise we'll print.
+
+07:37.840 --> 07:38.280
+OK.
+
+07:38.330 --> 07:44.900
+So basically this should skip when I equals three and they would go 0 1 2 three but it's for continued
+
+07:45.170 --> 07:46.110
+running the loop.
+
+07:46.280 --> 07:52.250
+Now we can take the same thing and sort of do and continue if we do break then you'll notice that we
+
+07:52.250 --> 07:53.110
+stop right.
+
+07:53.120 --> 07:57.430
+So we exited the loop at that point so we stop iterating at that point
+
+08:00.080 --> 08:00.740
+k.
+
+08:00.760 --> 08:09.260
+Now you also have the L squalls so we can do something like this for I in range and I'll start at 1
+
+08:09.280 --> 08:18.520
+and 4 and we'll print this to see what's going on and then we'll do this if I Mada let's say seven equals
+
+08:18.520 --> 08:26.460
+zero print multiple of seven found.
+
+08:26.610 --> 08:27.460
+OK.
+
+08:28.030 --> 08:30.120
+And what we'll do here is we'll break.
+
+08:30.120 --> 08:34.840
+So we're going to exit out of the loop so once we hit the first multiple of seven we'll break out of
+
+08:34.840 --> 08:35.590
+the loop.
+
+08:35.960 --> 08:36.520
+OK.
+
+08:36.730 --> 08:39.590
+Now in this case are we going to hit the multiple of seven.
+
+08:39.610 --> 08:44.380
+Well no because we're going to have really you know we're going to be iterating over the numbers 2 3
+
+08:44.380 --> 08:45.010
+and 4.
+
+08:45.190 --> 08:47.500
+So that's never going to happen.
+
+08:48.880 --> 08:55.640
+Let's put in a break statement and well what's going to happen is to reach the else statement.
+
+08:55.670 --> 08:57.190
+How does that get reached.
+
+08:57.190 --> 09:00.120
+Well it only gets reached if we never hit the break.
+
+09:00.160 --> 09:11.260
+So it means we didn't find a multiple of seven so we can just write no multiples of seven in the brain
+
+09:11.730 --> 09:13.620
+game something like that.
+
+09:13.750 --> 09:17.930
+So if we run this you'll see that we are printing out all the numbers here.
+
+09:18.130 --> 09:21.840
+One two three four and we're exhausted the loop.
+
+09:21.880 --> 09:22.180
+Right.
+
+09:22.190 --> 09:25.370
+We're exhausted we ran through this range one through five.
+
+09:25.480 --> 09:27.820
+So one for inclusive.
+
+09:28.210 --> 09:31.520
+And we didn't find a multiple of seven so the else brand.
+
+09:31.600 --> 09:37.450
+Now if we make this little larger let's call it age that we include seven there then you'll see that
+
+09:37.540 --> 09:39.610
+we found a multiple of seven.
+
+09:39.940 --> 09:44.200
+Now of course there's better ways of actually finding you know who have a multiple of seven in a range
+
+09:44.230 --> 09:50.930
+but this is good enough as an example of the break and the else and how they work together.
+
+09:50.950 --> 09:58.080
+Also if you use a try catch inside the for loop it works exactly the same way as with the WHERE clause.
+
+09:58.120 --> 10:06.700
+The final statement will execute whether you put break or continue inside your try catch statements.
+
+10:06.730 --> 10:10.840
+The Finally will still execute if those getting counted.
+
+10:10.840 --> 10:16.200
+So let's take a look at a quick example for I in range to again range 5
+
+10:19.420 --> 10:24.370
+and we're just going to print out some characters to indicate the beginning of the loop so we can see
+
+10:24.370 --> 10:25.270
+what's going on.
+
+10:25.490 --> 10:26.860
+And we're going to try doing this.
+
+10:26.860 --> 10:31.080
+We're going to try 10 divided by I'm minus three.
+
+10:31.540 --> 10:37.210
+So when I 3 we're going to hit a problem we're going to have a division by zero error.
+
+10:37.720 --> 10:40.470
+So we're going to catch that.
+
+10:40.470 --> 10:44.750
+So we're going say except 0 division.
+
+10:45.070 --> 10:54.630
+Make I spell error correctly this time and we'll print divided divided by zero.
+
+10:54.790 --> 10:55.270
+OK.
+
+10:55.540 --> 10:59.730
+And we're going to continue the loop we're not going to break out of it but we're going to stop that
+
+10:59.730 --> 11:02.530
+current iteration and move onto the next one.
+
+11:02.530 --> 11:07.330
+We don't want to deal with you know when we have a value of either that's going to cause a division
+
+11:07.330 --> 11:08.240
+by zero.
+
+11:08.710 --> 11:11.750
+And then we want to do something though we're going to put the finally in.
+
+11:11.940 --> 11:19.750
+Now all this is kind of you know not exactly practical code but it's good to illustrate what's happening.
+
+11:19.750 --> 11:22.530
+So finally it's just going to print always run.
+
+11:22.550 --> 11:25.040
+I would love to write anything like that in your code.
+
+11:25.080 --> 11:31.030
+You can do something that handles you know maybe closing a connection maybe handle some open transactions
+
+11:31.120 --> 11:33.370
+whatever it is you can put in there.
+
+11:33.880 --> 11:34.200
+OK.
+
+11:34.200 --> 11:41.110
+And then we're going to print it in the main body of the block of the of the loop lock.
+
+11:41.560 --> 11:44.670
+OK so if we run this let's see what happens.
+
+11:44.710 --> 11:47.910
+So you'll notice that no error happens here.
+
+11:47.950 --> 11:50.480
+So we printed the beginning of the loop right.
+
+11:50.500 --> 11:53.690
+This was the print the beginning of the iteration.
+
+11:53.820 --> 11:55.860
+We didn't get a division by zero error.
+
+11:55.890 --> 11:59.310
+And then finally round something with when I was.
+
+11:59.310 --> 12:00.930
+And then we printed out which was zero.
+
+12:00.960 --> 12:02.070
+Then we did the same thing again.
+
+12:02.070 --> 12:03.580
+So we start the loop again.
+
+12:03.750 --> 12:10.110
+We print always run we print I which was 1 etc. when we hit 0 then look what happened.
+
+12:10.140 --> 12:10.440
+Right.
+
+12:10.440 --> 12:11.150
+We printed.
+
+12:11.160 --> 12:14.130
+First of all the beginning of the loop right here.
+
+12:14.430 --> 12:16.210
+Then we printed divided by zero.
+
+12:16.230 --> 12:17.440
+Right here.
+
+12:17.700 --> 12:19.570
+Now we don't put a continuum here.
+
+12:19.680 --> 12:25.900
+So technically we should have gone immediately to the beginning of the next loop but that didn't happen.
+
+12:25.900 --> 12:32.580
+What happened is that we printed all was wrong and then we went to the beginning of the next loop that
+
+12:32.640 --> 12:36.870
+there are a standard number of techniques that you can use to iterate over iterable.
+
+12:37.050 --> 12:48.370
+So the standard one which we saw just now is the one for C in S and then we print C and so we get that.
+
+12:48.870 --> 12:51.980
+What you don't get here is the index.
+
+12:52.020 --> 12:57.920
+If you're talking about a iterable that is indexable right that has indexes.
+
+12:57.920 --> 13:04.560
+For example a string or a list or a tuple all these are intervals that also have an index.
+
+13:04.560 --> 13:09.600
+You can talk about the first element and the second element and the third element.
+
+13:09.600 --> 13:15.060
+You can talk about that when you talk about sets of sets and we'll see all this later in detail but
+
+13:15.060 --> 13:17.120
+sets up iterable dictionaries.
+
+13:17.270 --> 13:23.310
+The iterable but they don't have an index you can talk about the first element of the set or the first
+
+13:23.310 --> 13:24.700
+element of the dictionary.
+
+13:24.870 --> 13:28.680
+There is no concept of first and last.
+
+13:28.680 --> 13:35.820
+You know there is no ordering of objects inside a set or inside a dictionary but they are still ignorable.
+
+13:35.820 --> 13:41.300
+You can still you know start somewhere and then just call next to get the next thing.
+
+13:41.430 --> 13:47.490
+But we'll see how it works exactly with sets and dictionaries it's a little different because sets.
+
+13:47.490 --> 13:54.530
+Well dictionaries have keys and values and the keys actually are iterable and the values can be in trouble.
+
+13:54.780 --> 13:59.880
+And then you can also iterate over the key value pairs but it works just a little differently.
+
+14:00.150 --> 14:02.480
+But it's full iterable using a full.
+
+14:03.090 --> 14:04.270
+This is a little different.
+
+14:04.290 --> 14:05.720
+This has an index right.
+
+14:05.730 --> 14:11.210
+We can say that H is at index of 0 and 1 is at index 1 and so on.
+
+14:11.400 --> 14:14.250
+So we want to be able to get the index back.
+
+14:14.340 --> 14:19.830
+So you might be tempted to write something like this.
+
+14:29.820 --> 14:30.490
+Right.
+
+14:30.780 --> 14:31.960
+So we have cycles.
+
+14:31.990 --> 14:39.450
+Hello I call 0 foreseen as and now we're going to iterate C over s and we're going to print this I which
+
+14:39.450 --> 14:42.250
+is going to be our index and we know we started 0.
+
+14:42.450 --> 14:44.620
+So our first index will be zero.
+
+14:44.670 --> 14:46.810
+We'll print the character and then we'll increment eyes.
+
+14:46.830 --> 14:49.260
+So when we do this we get zero.
+
+14:49.300 --> 14:54.360
+H one was e to is L-3 as l forests o k.
+
+14:54.450 --> 14:59.300
+So that works I mean there's nothing wrong with this piece of code but you have something that you can
+
+14:59.300 --> 15:04.050
+do that might be a little simpler which is to just use indexing.
+
+15:04.050 --> 15:08.000
+So you might do something like this instead let's try again as equals.
+
+15:08.200 --> 15:15.060
+Hello and here we're going to say for I in and here we're going to use a range and we're going to range
+
+15:15.060 --> 15:15.580
+over with.
+
+15:15.590 --> 15:20.330
+Well we're going to range from zero to the length of the string as minus one.
+
+15:20.340 --> 15:23.780
+The last index will be the line of S minus one.
+
+15:23.850 --> 15:24.160
+Right.
+
+15:24.180 --> 15:31.770
+So the range will be from 0 to lend as minus 1 because as we know the high number here in the range
+
+15:31.770 --> 15:33.280
+is not inclusive.
+
+15:33.780 --> 15:37.190
+K so if we do that we can then print.
+
+15:37.470 --> 15:40.700
+And as I said That's another way of doing it.
+
+15:40.710 --> 15:42.710
+We run this we get the exact same thing.
+
+15:42.870 --> 15:45.250
+That's just another way of doing that.
+
+15:45.630 --> 15:48.260
+But there's an even better way that we can use.
+
+15:48.300 --> 15:52.780
+Now again I'm not saying this is wrong it is not it's perfectly fine code it's fine.
+
+15:52.800 --> 16:00.440
+This is where this code works but it might be a little easier to write and understand what's going on
+
+16:00.440 --> 16:01.340
+here.
+
+16:01.820 --> 16:10.290
+So I come in and we're going to use a special function in Python called enumerate that can work and
+
+16:10.740 --> 16:14.680
+it will actually return the index and the element.
+
+16:14.700 --> 16:18.830
+So it's going to basically do this kind of thing that we did here manually.
+
+16:18.990 --> 16:21.010
+And here it's going to do that for us.
+
+16:21.010 --> 16:24.460
+So it's just a little cleaner and we can print.
+
+16:24.480 --> 16:30.310
+I can see and enumerate returns or topple the top all the first element of the top of the index.
+
+16:30.330 --> 16:36.280
+The second element of the table is the actual value that we're getting back from the iteration.
+
+16:36.360 --> 16:40.170
+And so we can store that into two local variables.
+
+16:40.170 --> 16:42.680
+And when we do that we get the same thing.
+
+16:43.050 --> 16:45.700
+So that's the numerator function.
+
+16:45.810 --> 16:52.470
+Very handy and it saves you having to write this kind of code over here which although perfectly fine.
+
+16:52.470 --> 16:54.190
+This is a little simpler.
+
+16:54.240 --> 16:58.470
+It's also quicker to read and easier to understand what's going on.
+
+16:58.590 --> 17:04.040
+You're enumerating as here I'd have to say OK you are declaring you know equal to zero.
+
+17:04.050 --> 17:05.370
+And then you're just incremental.
+
+17:05.460 --> 17:11.400
+OK so that's the index you have to read the code a little bit and spend some time understanding what
+
+17:11.400 --> 17:12.110
+it does.
+
+17:12.210 --> 17:16.560
+Whereas this is immediately obvious what you're doing because it's a standard function and we know what
+
+17:16.740 --> 17:17.910
+it does.
+
+17:17.910 --> 17:18.250
+All right.
+
+17:18.270 --> 17:20.880
+Thanks for watching and I'll see you in the next video.

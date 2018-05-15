@@ -1,0 +1,580 @@
+WEBVTT
+
+00:00.510 --> 00:04.400
+High in this video we're going to switch to code for rounding.
+
+00:04.560 --> 00:07.020
+So let's go ahead and take a look at that.
+
+00:07.020 --> 00:13.170
+Now the round function is built into Python so it's not in the math library in the math module.
+
+00:13.200 --> 00:14.320
+It's just built in.
+
+00:14.460 --> 00:16.900
+So it's right there you can do help on it if you want.
+
+00:17.130 --> 00:23.010
+Or just refer to the last video where we talked extensively about the ROUND function.
+
+00:23.100 --> 00:25.520
+So let's just go ahead and do some examples.
+
+00:25.560 --> 00:32.610
+So I want to talk about round when we only specify a single parameter which is the number we want to
+
+00:32.610 --> 00:33.200
+run.
+
+00:33.420 --> 00:35.790
+Then this means that our digits.
+
+00:35.850 --> 00:43.200
+And as we had in the previous video defaults to 0 and so when we do that we'll get a some a will have
+
+00:43.200 --> 00:44.700
+a value which should be 2.
+
+00:44.750 --> 00:45.050
+Right.
+
+00:45.060 --> 00:49.300
+We're going around 1.9 to the closest integer which should be too.
+
+00:49.680 --> 00:58.200
+But I also want to look at the type of pay and as you can see a got round to 2 and the type of a wasn't
+
+00:58.380 --> 00:59.310
+in price.
+
+00:59.310 --> 01:07.280
+So it actually cast 1.9 and returns a two integer type.
+
+01:07.680 --> 01:14.870
+That's not the same thing that happens if you were to say around 1.9 and then make an equal to zero.
+
+01:14.880 --> 01:20.160
+Right now it's the same thing it's still going to around 1.9 to 2.
+
+01:20.700 --> 01:28.590
+But because we have specified the second parameter it's going to keep the type the type that gets returns
+
+01:29.080 --> 01:31.110
+will be the type that was passed.
+
+01:31.140 --> 01:37.290
+And so that's the only difference between those two variants it doesn't really matter because of the
+
+01:37.290 --> 01:42.600
+polymorphism we don't care a whole lot and because of the non-static typing We don't care a whole lot
+
+01:43.020 --> 01:47.940
+about whether this is an int or float but it's for the to know that that's happening.
+
+01:49.040 --> 01:49.640
+All right.
+
+01:49.640 --> 01:53.460
+So let's go ahead and start looking at positive.
+
+01:53.570 --> 01:53.870
+Right.
+
+01:53.870 --> 02:01.910
+So in other words I want to look at and greater than zero kind of examples and just go ahead and do
+
+02:01.910 --> 02:02.300
+this.
+
+02:02.300 --> 02:10.120
+Round 1 point 8 8 8 8 3 them is we're going around to three digits after the decimal point or that's
+
+02:10.160 --> 02:15.860
+probably easier to understand we're going to round to the closest multiple of 10 to the negative 3 to
+
+02:15.860 --> 02:19.970
+the closest multiple of zero point zero zero or 1 No.
+
+02:20.280 --> 02:26.310
+And so I want to show you the progression this way so we'll do that take the same number.
+
+02:26.320 --> 02:36.640
+Round two and then we'll round 1.8 888 to 1 and we can even run 1.8 8 0 right which we've seen before.
+
+02:37.010 --> 02:37.680
+So there you go.
+
+02:37.700 --> 02:38.030
+Right.
+
+02:38.030 --> 02:39.190
+We ran to the thought.
+
+02:39.380 --> 02:47.110
+So we keep basically three digits after the decimal point here we kept 2 1 and 0 1.
+
+02:47.190 --> 02:50.190
+They're just multiples of 10 to the negative 3.
+
+02:50.270 --> 02:50.730
+Right.
+
+02:50.780 --> 02:58.130
+The last digit here is is a multiple of 10 to the negative 3 1.8 9 that 9 is a multiple of 10 to the
+
+02:58.130 --> 02:59.200
+negative 2.
+
+02:59.210 --> 03:02.350
+So so that's positive.
+
+03:02.360 --> 03:09.400
+Now we can also have negative values for and this is where you may not be used to that.
+
+03:09.560 --> 03:12.270
+So let's take a look at it.
+
+03:14.030 --> 03:15.810
+And so we'll keep 4.
+
+03:15.840 --> 03:18.540
+And less than zero.
+
+03:18.650 --> 03:19.180
+Okay.
+
+03:19.640 --> 03:24.950
+And let's try this non-guilty use a slightly different number because now we're going to be rounding
+
+03:25.850 --> 03:28.260
+to the left of the decimal point.
+
+03:28.310 --> 03:31.010
+So I want to use a bigger number than 1 point something.
+
+03:31.010 --> 03:38.120
+So let's use a 8 date point a date and go around that to one after the decimal point I'd sort of show
+
+03:38.120 --> 03:45.950
+you the progression then we'll round 8 8 8 8 8 2 0.
+
+03:46.190 --> 03:48.250
+I'm going to use my line continuation.
+
+03:48.250 --> 03:55.130
+Remember that one of the other variables and then we're going to do round the eighty eight point eight.
+
+03:55.130 --> 04:08.630
+Now let's start with the negatives negative 1 Round 8 8 8 8 8 negative 2 Round 8 8 8 4 8 negative 3
+
+04:08.980 --> 04:11.370
+and for good measure we'll throw in as well.
+
+04:11.390 --> 04:16.170
+Eight eight eight point eight eights negative four.
+
+04:16.530 --> 04:18.710
+And we'll see what happens.
+
+04:18.710 --> 04:24.470
+All right so paid eighty eight point nine right.
+
+04:24.490 --> 04:29.730
+That's because there was one after the decimal point zero point eight eight.
+
+04:29.950 --> 04:30.370
+Right.
+
+04:30.370 --> 04:35.990
+It just rounded to the closest multiple of 10 to the 0 and to the negative 0 which is 1.
+
+04:36.150 --> 04:37.650
+So the closest integer.
+
+04:38.050 --> 04:38.880
+Now look here.
+
+04:38.950 --> 04:45.000
+When we switch to negative numbers it's rounding this number to the closest multiple of 10 to the one
+
+04:45.820 --> 04:52.120
+which is 10 so it's wrong to the closest multiple of 10 the code has multiple of 10 to this number is
+
+04:52.240 --> 05:00.750
+eight hundred ninety this one it's rounding to the closest multiple of ten to the negative negative
+
+05:00.750 --> 05:07.170
+to which is 10 to the two which is a hundred to two closest multiple of 100 for the closest multiple
+
+05:07.170 --> 05:10.710
+of 100 to 8 8 is 900.
+
+05:10.710 --> 05:17.040
+Now what about this one we're looking to run tend to the negative negative Friso tend to freeze a thousand
+
+05:17.040 --> 05:19.840
+to the closest multiple of 1000.
+
+05:19.950 --> 05:24.600
+The closest multiple of 1000 is 8 8 8 8 8.
+
+05:24.610 --> 05:26.240
+Now what about this last one.
+
+05:26.280 --> 05:29.450
+Why is it suddenly 0 1 What are we doing here.
+
+05:29.580 --> 05:37.510
+We're looking at rounding 8 8 8 8 8 to the closest multiple of ten to the four right which is 10000.
+
+05:37.800 --> 05:44.690
+Well 8 8 8 is closer to zero which is a multiple of 10000 than 10000 does.
+
+05:44.700 --> 05:53.640
+Now if we're done rounding something I was a little closer to 10000 let's say nine thousand eight hundred.
+
+05:53.700 --> 05:59.150
+Now we do that they will get 10000 right.
+
+05:59.280 --> 06:05.070
+But if we do something that's smaller that's closer to zero then we'll get there.
+
+06:05.270 --> 06:09.510
+Remember it's rounded to the closest multiple OK.
+
+06:09.540 --> 06:12.580
+So the next thing I want to talk about are ties.
+
+06:12.960 --> 06:15.450
+So we really haven't seen that in the code yet.
+
+06:15.450 --> 06:17.460
+I've purposely left that out.
+
+06:17.580 --> 06:23.080
+So let's go ahead and take a look at what happens when we have ties when we're running.
+
+06:23.070 --> 06:30.030
+What I mean by ties is that we're rounding to the closest multiple remember of some Power of 10 and
+
+06:30.270 --> 06:33.630
+the two closest multiples are actually equal distance.
+
+06:33.660 --> 06:39.600
+So we have a tie and we need some rule to do tiebreaking so we can take a look at this example let's
+
+06:39.600 --> 06:42.220
+say 1 point to five.
+
+06:42.340 --> 06:45.860
+Now we would expect this to round up to 1.3.
+
+06:45.870 --> 06:49.370
+But Python actually rounds that down to one point two.
+
+06:49.620 --> 06:49.990
+Right.
+
+06:50.010 --> 06:55.960
+And However if we round one point forty five it runs to one point four.
+
+06:56.220 --> 06:56.610
+Right.
+
+06:56.610 --> 06:58.850
+Which is well well we would have expected.
+
+06:59.310 --> 07:04.140
+What's happening here as we discussed in the last video was banned because rounding we're always rounding
+
+07:04.140 --> 07:07.320
+to the closest even digits.
+
+07:07.500 --> 07:13.740
+Right well the closest multiple that has an even less significant digit to be more precise in the case
+
+07:13.740 --> 07:14.950
+of Tides.
+
+07:15.420 --> 07:22.020
+So with 1.2 five and with a power of 10 to the negative one another what's the closest multiple of zero
+
+07:22.020 --> 07:23.270
+point one.
+
+07:23.310 --> 07:26.600
+We have either 1.3 or 1.4 right.
+
+07:26.610 --> 07:29.230
+Sorry 1.2 or 1.3.
+
+07:29.510 --> 07:38.520
+So 1.2 has an even less significant digits and 1.3 has an odd least significant digit.
+
+07:38.520 --> 07:40.290
+So we're going to pick one point two.
+
+07:40.540 --> 07:48.410
+However in the case of 1.3 5 which is between 1.3 and 1.4 for 1.4 Caite's equidistant between the two
+
+07:48.420 --> 07:52.450
+and 1.4 has an even less significant digit.
+
+07:52.590 --> 07:54.400
+So we're going to pick one point four.
+
+07:54.660 --> 08:02.870
+And this also works with negative numbers so if we do negative 1 to 5 and we do negative 1.3 5 you'll
+
+08:02.910 --> 08:04.720
+notice that we get the same thing.
+
+08:04.780 --> 08:07.290
+It runs to the closest
+
+08:09.570 --> 08:11.830
+multiple of 0.1.
+
+08:11.970 --> 08:16.500
+And in the event of a tie it picks the one that hasn't even least significant digit.
+
+08:16.500 --> 08:22.300
+So in this case and for in the case of negative one point three five.
+
+08:22.340 --> 08:24.080
+So that's called banker's rounding.
+
+08:24.080 --> 08:26.440
+We discussed that in the last video and some detail.
+
+08:26.540 --> 08:33.590
+And that's really the kind of the default rounding that we have in Python and in many other languages
+
+08:33.620 --> 08:34.320
+as well.
+
+08:34.370 --> 08:41.710
+It has less bias as we saw than the rounding that we're used to which is called Rounding away from zero.
+
+08:41.710 --> 08:49.610
+We're always rounding away from 0 to 1.2 5 rounds up to 1.3 and Negat of 1.2 five all round down to
+
+08:49.610 --> 08:53.290
+negative 1.3 in both cases we're rounding away from zero.
+
+08:53.540 --> 08:59.330
+So that's why it's called round you know rounding to the closest with ties away from 0.
+
+08:59.340 --> 09:04.390
+Now if you really want to implement that method you're kind of on your own.
+
+09:04.470 --> 09:07.450
+It's not built into Python you're going to have to do it yourself.
+
+09:07.710 --> 09:09.810
+And so we can do it this way.
+
+09:09.850 --> 09:17.580
+Now when we get to decimals and then some of the next videos and the upcoming videos those do have those
+
+09:17.580 --> 09:21.320
+model that Mondial does have all these different rounding techniques.
+
+09:21.320 --> 09:27.600
+So there we don't have to reinvent the wheel but for floats However we're left with this round function.
+
+09:27.600 --> 09:28.680
+We don't have anything else.
+
+09:28.680 --> 09:31.710
+We don't have a way of specifying a different rounding mechanism.
+
+09:31.710 --> 09:34.040
+So we kind of have to do it ourselves again.
+
+09:34.110 --> 09:40.710
+I'll refer you back to the previous video if you haven't seen it so let's go ahead and just write it
+
+09:40.710 --> 09:41.190
+ourselves.
+
+09:41.190 --> 09:43.560
+Now a common technique.
+
+09:43.560 --> 09:43.800
+Right.
+
+09:43.800 --> 09:47.840
+I cannot write a function call wrong because it's already defined.
+
+09:48.000 --> 09:49.690
+So I mean yes I can.
+
+09:49.860 --> 09:55.710
+But the problem is that now in this current module what I call wrong it's always going to call my function
+
+09:55.710 --> 09:56.330
+wrong.
+
+09:56.460 --> 09:57.300
+Right.
+
+09:57.780 --> 10:00.840
+So let's try this.
+
+10:02.610 --> 10:04.230
+Let's say something really stupid.
+
+10:04.350 --> 10:05.040
+Right.
+
+10:05.070 --> 10:06.090
+It returns a string.
+
+10:06.090 --> 10:13.080
+So now if I say round of ten point five it returns a that's really not what I want.
+
+10:13.190 --> 10:13.980
+Right.
+
+10:14.310 --> 10:24.650
+So I'm going to restart the Colonel and get rid of this I don't want to redefine wrong.
+
+10:25.050 --> 10:28.640
+So instead what I'm going to do is I'm going to call it underscore wrong.
+
+10:28.680 --> 10:34.950
+That's a pretty common way if you're going to be using a function name that would shadow a built in
+
+10:34.950 --> 10:38.580
+function then you just put an underscore in front of it.
+
+10:38.580 --> 10:43.160
+And so it's not the same thing it's differentiated but the name is for the same.
+
+10:43.160 --> 10:44.420
+So I want to keep it as wrong.
+
+10:44.530 --> 10:44.960
+Right.
+
+10:45.120 --> 10:47.150
+But you know maybe that's not what you want to do.
+
+10:47.220 --> 10:55.940
+Maybe you want to say round the ties or away from zero.
+
+10:55.950 --> 10:58.060
+You can certainly do that as well.
+
+10:58.110 --> 11:01.710
+I don't want to have to write that every time I called around function.
+
+11:01.860 --> 11:04.480
+So I'm going to call this code raw.
+
+11:04.890 --> 11:08.720
+And now this is only going to round to an integral value.
+
+11:09.030 --> 11:13.410
+So this technique only works for rounding up you know to an integral value.
+
+11:14.840 --> 11:19.680
+So from math import we need the copy sign right.
+
+11:19.700 --> 11:22.880
+We need that copy sign method that's in the math module.
+
+11:23.210 --> 11:26.430
+And then remember we had that slightly simplified formula.
+
+11:26.630 --> 11:33.520
+We're going to say X costs 0.5 times copy's find one x.
+
+11:34.010 --> 11:35.930
+So that's all wrong function.
+
+11:36.230 --> 11:40.630
+And there was a slightly longer way of doing it as well if you remember from the last video.
+
+11:40.670 --> 11:43.060
+I'm only going to show you this method here.
+
+11:43.370 --> 11:50.370
+So now if we call round 1.5 that's going to be all previous.
+
+11:50.520 --> 11:52.370
+Our built in method right.
+
+11:52.400 --> 12:00.120
+The the round two pulses with ties to the even least significant digit value.
+
+12:00.260 --> 12:06.890
+And then we'll also count call Sorry wrong 1.5 with our round function.
+
+12:07.280 --> 12:13.640
+And what happens well in both cases we rounded up to two and that's expected because 1.5 is between
+
+12:13.640 --> 12:16.600
+1 and 2 2 has.
+
+12:16.610 --> 12:21.600
+So it's equal distance and 2 is the one with the least significant even digits.
+
+12:21.690 --> 12:22.180
+Right.
+
+12:22.370 --> 12:26.490
+And then 1.5 we ran away from 0 so that should go to 2.
+
+12:26.510 --> 12:37.290
+Now we can try that again with this time 2.5 and we'll call all function 2.5 K so Nakia what we expect
+
+12:37.650 --> 12:38.650
+and what we get.
+
+12:38.850 --> 12:44.110
+Well 2.5 is between two and three equidistant that's a tie.
+
+12:44.250 --> 12:49.160
+So as a tiebreaker we pick the one that has an even least significant digit.
+
+12:49.260 --> 12:51.960
+Well two is even three is odd.
+
+12:52.050 --> 12:53.210
+We picked two.
+
+12:53.320 --> 13:00.210
+So round 2.5 returns two but all method that runs away from zero return three.
+
+13:00.310 --> 13:06.540
+And so that work correctly and you have the same thing will happen if we deal with negative numbers.
+
+13:06.540 --> 13:08.150
+Let's put that in.
+
+13:09.240 --> 13:14.200
+As you can see negative 1.5 the both methods rounded to negative 2.
+
+13:14.430 --> 13:23.220
+And in this case here round negative 2.5 also ran into negative to same as the one point negative 1.5
+
+13:23.340 --> 13:24.160
+over here.
+
+13:24.450 --> 13:26.800
+But all around method runs away from zero.
+
+13:26.820 --> 13:27.480
+Always.
+
+13:27.510 --> 13:30.900
+And so we ran into negative 3.
+
+13:30.900 --> 13:31.180
+All right.
+
+13:31.200 --> 13:33.170
+Thanks for watching and I'll see you in the next video.

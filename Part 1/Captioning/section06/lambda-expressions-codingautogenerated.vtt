@@ -1,0 +1,760 @@
+WEBVTT
+
+00:00.300 --> 00:04.570
+High in this video which is going to jump straight into lambda expressions.
+
+00:04.950 --> 00:11.400
+So let's go ahead and create first a regular function or at least what we consider a regular function
+
+00:11.400 --> 00:12.960
+using that death statement.
+
+00:12.960 --> 00:14.090
+So we use def.
+
+00:14.430 --> 00:19.680
+Then we have the name for the function then we specify any parameters if we have any.
+
+00:19.680 --> 00:22.500
+So in this case let's say I'm going to do a single parameter.
+
+00:22.560 --> 00:27.460
+I'm going to name it X and the function is simply going to return x squared.
+
+00:27.900 --> 00:32.030
+So this is a function for look at the type of rescue.
+
+00:32.070 --> 00:32.940
+It's a function.
+
+00:32.940 --> 00:39.060
+If we just go ahead and print out ask here is what Python tells us it is a function.
+
+00:39.270 --> 00:43.290
+It's in the main module and it's named Eskew.
+
+00:43.560 --> 00:46.920
+Now we can also define function using a lambda expression.
+
+00:46.920 --> 00:48.090
+So let's do the same thing.
+
+00:48.150 --> 00:49.690
+Let's say we have lambda.
+
+00:49.980 --> 00:51.450
+So that's the keyword right.
+
+00:51.540 --> 00:52.620
+Here we use def.
+
+00:52.620 --> 00:54.220
+Now we're using lambda.
+
+00:54.270 --> 00:59.780
+The difference is that with Def we specify the name of the function and then the parameters in parentheses
+
+01:00.090 --> 01:00.750
+for lambda.
+
+01:00.750 --> 01:06.660
+There is no name for the function and therefore we specify the parameters without the parentheses.
+
+01:06.660 --> 01:13.840
+But the same rules that apply to specifying parameters defaults the star aren't all that stuff works
+
+01:13.860 --> 01:14.760
+just as well.
+
+01:14.900 --> 01:17.990
+Lamda The only difference is that there is no name.
+
+01:18.030 --> 01:24.150
+So let's see what happens so let's say we take a single parameter and we'll return x squared.
+
+01:24.150 --> 01:29.110
+Now there's a limitation as well on what you can do in the body of this function.
+
+01:29.130 --> 01:34.440
+When you use a lambda expression it has to be an expression because that expression is what will get
+
+01:34.500 --> 01:36.380
+evaluated and returned.
+
+01:36.600 --> 01:36.870
+Right.
+
+01:36.870 --> 01:39.490
+So it's like having an implicit return.
+
+01:39.600 --> 01:39.770
+Right.
+
+01:39.770 --> 01:43.640
+You can return you know a bunch of statements or comments.
+
+01:43.650 --> 01:43.950
+Right.
+
+01:43.950 --> 01:46.740
+You need to return an expression.
+
+01:46.740 --> 01:47.950
+So same thing here.
+
+01:48.090 --> 01:50.380
+You can't put in you know common.
+
+01:50.380 --> 01:53.810
+You can't put in notations you can't have multiple lines of code.
+
+01:53.910 --> 02:00.030
+So lambdas are meant to be very very simple functions essentially write things that can be done this
+
+02:00.030 --> 02:00.850
+way.
+
+02:01.410 --> 02:02.820
+All right so that's the lambda.
+
+02:02.820 --> 02:04.260
+Let's go ahead and run this.
+
+02:04.260 --> 02:06.030
+And let's see what Python does.
+
+02:06.390 --> 02:13.650
+Well it created this function and so it created the function in memory at some memory address and it
+
+02:13.650 --> 02:15.060
+assigned it.
+
+02:15.060 --> 02:15.870
+So here we go.
+
+02:15.870 --> 02:21.180
+All right so it's a function again same as before it's in the main module that's where we're running
+
+02:21.270 --> 02:22.610
+the notebook.
+
+02:22.650 --> 02:26.310
+But notice here it just has the generic lambda name.
+
+02:26.310 --> 02:32.510
+If we're to do another lambda expression lambda r y o say X as well.
+
+02:32.940 --> 02:37.290
+Well with 2 x comma y so I'd say we do two parameters right.
+
+02:37.530 --> 02:39.810
+And we're going to take X plus Why.
+
+02:40.320 --> 02:44.670
+Well again you see we get the exact same thing function main lambda.
+
+02:44.700 --> 02:45.810
+There is no name.
+
+02:45.810 --> 02:51.510
+So it just sticks in this word you know lambda to tell us Hey this is a lambda expression it's an anonymous
+
+02:51.570 --> 02:52.120
+function.
+
+02:52.140 --> 02:57.050
+There is no name on like Eskew that had a name.
+
+02:57.620 --> 02:59.590
+So what can we do with lambdas.
+
+02:59.900 --> 03:03.350
+Well we can assign them to a variable right.
+
+03:03.350 --> 03:05.180
+We can assign a function to a variable.
+
+03:05.180 --> 03:08.190
+For example we can say F is equal to as Q..
+
+03:08.360 --> 03:15.200
+So now if we look at the ID of F and the idea of Eskew we know that they're going to be the same there
+
+03:15.230 --> 03:17.410
+pointing to the same object.
+
+03:17.450 --> 03:20.520
+That means that f is also a function so it's callable.
+
+03:20.690 --> 03:25.330
+So callable means we can call it we call it using these round parentheses.
+
+03:25.450 --> 03:28.000
+And so we can pass in three and we get nine.
+
+03:28.010 --> 03:31.090
+That's the same thing as doing Eskew of three that's nine.
+
+03:31.310 --> 03:34.350
+Right so this is how we could assign a function to another variable.
+
+03:34.350 --> 03:40.230
+Now the name of the function is still if we say F it is still the name of the function is.
+
+03:40.300 --> 03:49.870
+S Q It's not f f is just a variable that points to the memory location that contains that function object.
+
+03:49.970 --> 03:53.460
+So we can do the same thing with anonymous functions with these lambdas.
+
+03:53.480 --> 04:00.130
+We can say F is equal to lambda X and returns x squared.
+
+04:00.470 --> 04:02.260
+So now we can look at f itself.
+
+04:02.270 --> 04:04.600
+Well F is just that lambda expression.
+
+04:04.670 --> 04:05.000
+Right.
+
+04:05.030 --> 04:06.170
+It is that lambda.
+
+04:06.200 --> 04:08.840
+It is that function that anonymous function.
+
+04:09.470 --> 04:15.150
+And so f is callable and we can say F of 3 for example that will read to a 9.
+
+04:15.410 --> 04:16.980
+We can do something similar.
+
+04:17.240 --> 04:24.850
+Let's say we have a lambda that takes two parameters X and Y.
+
+04:25.000 --> 04:29.020
+And in this case I just want to show you we can set also the default for y.
+
+04:29.090 --> 04:32.290
+So we'll do that and then we'll just return x plus y.
+
+04:32.390 --> 04:32.880
+OK.
+
+04:33.110 --> 04:34.610
+So that's what we want.
+
+04:36.260 --> 04:36.920
+To retort.
+
+04:37.030 --> 04:44.270
+So let's go ahead and see what G is.
+
+04:45.230 --> 04:50.970
+So g is just some function right but it's an anonymous function as we can see here from the word lambda.
+
+04:51.080 --> 04:54.270
+But we can call it so we can say g of one comma to.
+
+04:54.550 --> 04:56.620
+And I will return the sum three.
+
+04:56.730 --> 05:02.630
+Of course since y is optional we can specify one positional argument and y will default to 10 and so
+
+05:02.630 --> 05:08.260
+we get a sum of 11 of course you can get you know more complicated than that if you want.
+
+05:08.320 --> 05:15.160
+You can make a function let's say F is equal to lambda and we're going to take in a positional arguments
+
+05:15.220 --> 05:20.050
+then we're going to take in an arbitrary number of additional arguments positions then maybe we're going
+
+05:20.050 --> 05:25.330
+to take a keyword only argument that's going to be mandatory because I'm not specifying a default for
+
+05:25.330 --> 05:25.960
+it.
+
+05:26.170 --> 05:31.780
+And then maybe an arbitrary number of keyword only arguments after that.
+
+05:31.960 --> 05:33.460
+And what are we going to do with that.
+
+05:33.460 --> 05:36.130
+Well you could manipulate this in different ways.
+
+05:36.190 --> 05:42.070
+I'm just going to create a top all that's going to read on basically the values that were passed in.
+
+05:42.080 --> 05:45.250
+Just so we can see that the values were successfully passed in.
+
+05:45.270 --> 05:51.430
+So I'm going to return x as the first element of the top all then I want to return args right which
+
+05:51.430 --> 05:53.840
+was the put the extra positional.
+
+05:53.860 --> 05:55.570
+But of course ours is a list.
+
+05:55.570 --> 05:59.390
+So I need to unpack it into the topic.
+
+05:59.640 --> 06:01.390
+Well actually I don't have to unpack it.
+
+06:01.450 --> 06:02.830
+I can leave it that way.
+
+06:03.010 --> 06:07.790
+Let's let's do that and then Y and then we'll take twangs.
+
+06:08.710 --> 06:11.910
+So if we do that we can now call f.
+
+06:11.920 --> 06:15.040
+Now if I try and call f just by itself it's going to tell me.
+
+06:15.040 --> 06:16.290
+No no you can't.
+
+06:16.300 --> 06:18.210
+You're missing the argument x.
+
+06:18.210 --> 06:22.820
+This function here whatever it is is missing one positional argument.
+
+06:22.840 --> 06:25.090
+Well yeah we've got to specify X at the very least.
+
+06:25.090 --> 06:27.100
+So let's put in a value of x a.
+
+06:27.170 --> 06:33.080
+Well one maybe some extra arguments while we're at it but I don't have to write that it's optional.
+
+06:33.100 --> 06:35.480
+But I'll put in a few maybe a and b.
+
+06:35.890 --> 06:37.240
+Then we need this keyword.
+
+06:37.270 --> 06:41.460
+It's mandatory and it's a keyword only argument really why because a hundred.
+
+06:41.500 --> 06:43.780
+And then we can pass in a few extra ones as well.
+
+06:43.960 --> 06:49.450
+Maybe a equals one and be close to right.
+
+06:49.510 --> 06:54.490
+Or maybe equals 10 differentiated from the Y value.
+
+06:55.570 --> 06:56.530
+And so there we go.
+
+06:56.560 --> 06:56.880
+Right.
+
+06:56.890 --> 07:04.600
+We have one and we have this top all that contains a and b that's what got packed into or Gupte got
+
+07:04.600 --> 07:06.350
+collected into a I should say.
+
+07:06.550 --> 07:11.350
+And then Kwan's was collected into this dictionary over here and why is 100.
+
+07:11.350 --> 07:13.960
+Now of course if you want you can unpack things this way.
+
+07:13.960 --> 07:14.460
+Right.
+
+07:14.500 --> 07:17.960
+Unpack the bags and if you do that you just get the list this way.
+
+07:17.980 --> 07:19.910
+So depends on how you want to use it.
+
+07:20.080 --> 07:21.900
+Very often that's how we want to use it.
+
+07:21.900 --> 07:28.510
+Now I can't unpack Quad's directly into a top hole but I could unpack it into a dictionary which is
+
+07:28.510 --> 07:31.230
+kind of redundant since it's already a dictionary.
+
+07:31.420 --> 07:32.990
+So I'm not going to do that.
+
+07:33.130 --> 07:35.110
+But you can get.
+
+07:35.200 --> 07:37.080
+And now you just get it this way.
+
+07:37.810 --> 07:42.070
+So lambdas are functions the real functions just like anything else.
+
+07:43.370 --> 07:45.390
+Just like any other function I should say.
+
+07:45.840 --> 07:49.390
+OK so now let's look at how we might pass it.
+
+07:49.400 --> 07:55.130
+Now as an argument to another function very often right we pass functions to other functions.
+
+07:55.130 --> 07:57.530
+So let's take a look at a very simple example.
+
+07:57.530 --> 08:00.170
+Let's write a function called apply func.
+
+08:00.380 --> 08:05.600
+That's going to take two parameters x and f and f n is going with the function and X is going to be
+
+08:05.600 --> 08:06.760
+a parameter.
+
+08:06.800 --> 08:08.840
+So F-in we're going to call.
+
+08:08.900 --> 08:11.420
+And we're going to pass it the parameter x.
+
+08:11.450 --> 08:20.280
+So we expect to receive FM as a function that accepts at least 1 positional argument.
+
+08:20.630 --> 08:25.740
+So now that we have that we can call apply func and maybe three.
+
+08:25.800 --> 08:30.710
+And now we need to pass it a function that's callable with one argument.
+
+08:30.770 --> 08:32.120
+Well we have that already right.
+
+08:32.120 --> 08:35.450
+We have this Eskew this square function that we wrote up there.
+
+08:35.690 --> 08:37.700
+So let's go ahead and just use that.
+
+08:37.910 --> 08:39.550
+So we can call it this way.
+
+08:39.860 --> 08:45.470
+And of course here I have to return not just evaluates to that again.
+
+08:45.980 --> 08:51.750
+And here we have just print it of nine right because it ran Eskew passing it a value of three pass a
+
+08:51.750 --> 08:53.660
+value of five.
+
+08:54.950 --> 08:56.490
+I get 25.
+
+08:56.990 --> 09:03.650
+But well if we didn't have this function ask you to find a ready Well we could get to it the same way
+
+09:03.650 --> 09:05.070
+by using lambda.
+
+09:05.120 --> 09:12.520
+So that's a 5 for lambda X which returns x square and we get the same result.
+
+09:12.710 --> 09:20.420
+What happened is that instead of first creating the function up here and then passing it in to the Apply
+
+09:20.420 --> 09:24.430
+func call we just created this function here on the fly.
+
+09:24.440 --> 09:27.310
+That's a very common use case for lambda expressions.
+
+09:27.310 --> 09:32.360
+When you want to do a quick function that you are passing to another function and you don't want to
+
+09:32.360 --> 09:38.090
+define necessarily a full fledged function using def not that lambda is on full fledged But you don't
+
+09:38.090 --> 09:42.740
+want to you know go ahead and do a def statement to create the function you just want to create this
+
+09:42.740 --> 09:43.750
+very quickly.
+
+09:43.970 --> 09:45.900
+It's useful for those kinds of cases.
+
+09:45.950 --> 09:51.080
+We'll see some examples of that in the next video when we look at sorting and how we can use lambdas
+
+09:51.350 --> 09:52.530
+for sorting.
+
+09:53.210 --> 09:53.570
+OK.
+
+09:53.620 --> 09:54.240
+Of course not.
+
+09:54.290 --> 09:56.470
+We can use any other function we want.
+
+09:56.540 --> 09:56.840
+Right.
+
+09:56.840 --> 09:59.210
+We don't have to use a square.
+
+09:59.240 --> 10:02.330
+We can define whatever the function we want to be.
+
+10:02.330 --> 10:04.900
+Maybe it's a cube or whatever it is.
+
+10:05.120 --> 10:08.700
+So five cube is 125.
+
+10:08.850 --> 10:11.260
+Now we can get a little more sophisticated with this.
+
+10:11.310 --> 10:15.960
+And this is going to tie into the whole thing with the arguments and the keyword arguments that we did
+
+10:15.960 --> 10:17.450
+in the last section.
+
+10:17.530 --> 10:20.920
+So let's do this let's say we want apply funk.
+
+10:21.240 --> 10:26.520
+And what I really want to do is I'm going to pass in an arbitrary number of arguments an arbitrary number
+
+10:26.520 --> 10:31.350
+of keyword arguments so this is very generic and then I want a function.
+
+10:31.350 --> 10:32.500
+Now this is incorrect.
+
+10:32.550 --> 10:33.430
+Do you see why.
+
+10:35.120 --> 10:40.150
+Write we can't specify F-in after star star Kwan's that doesn't work.
+
+10:40.160 --> 10:44.370
+We can't do that so we're going to have to define the function first.
+
+10:44.370 --> 10:51.410
+That's going to be a mandatory positional argument that is going to be the function and whether we want
+
+10:51.410 --> 10:57.360
+to do what we want to return the function applied to council and Kwan's.
+
+10:57.500 --> 11:01.720
+Right now of course I'm calling a function so I cannot pass it.
+
+11:01.730 --> 11:07.190
+I'm calling a function that's going to accept an arbitrary number of arguments an arbitrary number of
+
+11:07.310 --> 11:08.560
+keyword arguments.
+
+11:08.630 --> 11:09.340
+Right.
+
+11:09.590 --> 11:11.620
+And this is a list.
+
+11:11.660 --> 11:15.040
+This is actually a table and this is a dictionary.
+
+11:15.050 --> 11:19.160
+Well we don't want that that's not what we can pass so we need to unpack.
+
+11:19.400 --> 11:21.710
+And we need to unpack Quad's right.
+
+11:21.770 --> 11:26.790
+So if that's all confusing go back to the previous section and take a look at.
+
+11:26.800 --> 11:28.710
+When we were doing that.
+
+11:28.760 --> 11:30.560
+So this is very generic right.
+
+11:30.560 --> 11:36.770
+This is a very generic thing it's kind of useless in a way because you know we're essentially going
+
+11:36.770 --> 11:41.120
+to call the function on all the hours in the Quad's we might as well call it directly but I just want
+
+11:41.120 --> 11:42.830
+to illustrate something here.
+
+11:43.310 --> 11:45.050
+So how do we use that function.
+
+11:45.140 --> 11:51.230
+Well we can call apply funk and then we pass in the square function and we pass in three right.
+
+11:51.380 --> 11:57.770
+So three is going to go into and xcuse going to go into ethane and it's going to call rescue of three
+
+11:58.010 --> 11:59.330
+and return that value.
+
+11:59.450 --> 12:00.350
+So we get nine.
+
+12:00.430 --> 12:02.020
+So it was just as before.
+
+12:02.390 --> 12:07.460
+But of course now we can get a little bit more fancy with this instead of putting the square function.
+
+12:07.460 --> 12:09.760
+Maybe we're going to do Alamdar again.
+
+12:09.800 --> 12:11.240
+We can do it this way.
+
+12:11.240 --> 12:11.530
+Right.
+
+12:11.540 --> 12:15.960
+So and 3 so we get the same thing.
+
+12:16.170 --> 12:18.490
+If I don't dare.
+
+12:19.150 --> 12:21.490
+Or just call apply phunk.
+
+12:21.590 --> 12:21.970
+Right.
+
+12:21.980 --> 12:23.030
+So here we go.
+
+12:23.060 --> 12:28.130
+We created this function x squared anonymous function that returns the square of the argument and then
+
+12:28.130 --> 12:30.560
+we pass and three is the argument.
+
+12:30.700 --> 12:36.690
+Now we can of course get more complicated now because that apply phunk is very generic.
+
+12:36.850 --> 12:38.140
+So maybe we do a lambda.
+
+12:38.140 --> 12:41.580
+That takes two parameters and returns the sum.
+
+12:41.590 --> 12:47.740
+So now we need to pass two parameters to apply phunk so that it gets passed to the lambda and we get
+
+12:47.740 --> 12:53.740
+that we get a result of three because we can also get even more complicated.
+
+12:54.110 --> 12:55.990
+Maybe we're going to do something like this.
+
+12:56.000 --> 12:58.900
+We're going to say Lander's going to take a single positional.
+
+12:59.180 --> 13:05.550
+No more positional than a mandatory P-word only argument is going to return also x plus y.
+
+13:05.570 --> 13:13.170
+So now we have to specify one and then y equals to right or Winkle's 20 gets to keep it different.
+
+13:13.190 --> 13:20.980
+And as you can see that works as expected y goes into quads one goes into ons and then we call this
+
+13:20.990 --> 13:26.670
+lambda passing it the arms which was 1 and the quads which was white was 20.
+
+13:26.750 --> 13:36.140
+We can also do this apply phunk let's do Alamdar that only takes basically our positional arguments.
+
+13:36.140 --> 13:39.620
+Arbitrary number of them and what are they going to do.
+
+13:39.770 --> 13:42.930
+It's going to return to some of those arguments.
+
+13:43.100 --> 13:43.330
+Right.
+
+13:43.330 --> 13:45.400
+So that's the Lamda that's going to sum up.
+
+13:45.590 --> 13:50.930
+And we're going to pass now an arbitrary number of positional arguments to our apply phunk let's say
+
+13:50.930 --> 13:54.060
+1 2 3 4 5.
+
+13:54.110 --> 13:57.460
+So now we're going to sum that up and we get 15.
+
+13:57.500 --> 14:02.960
+Now of course you didn't have to do it using Alamdar because remember what does apply phunk do.
+
+14:02.960 --> 14:07.460
+It takes a function and applies it to the parameters that are passed.
+
+14:07.550 --> 14:13.730
+So we could do this we could say apply phunk we're going to take the function itself and then one two
+
+14:13.730 --> 14:15.250
+three four five.
+
+14:15.260 --> 14:23.210
+Now that's not going to work because some doesn't take on some expects a list or a tadpole or something
+
+14:23.210 --> 14:24.140
+like that.
+
+14:24.170 --> 14:33.500
+So let's create the topple and two and that's how we get the same thing right.
+
+14:33.520 --> 14:35.170
+Of course you can also just do this
+
+14:38.580 --> 14:39.080
+right.
+
+14:39.100 --> 14:40.840
+And we get the same thing as well.
+
+14:40.930 --> 14:45.340
+But again I just want to show you how you can write your lambdas right.
+
+14:45.340 --> 14:51.370
+They can be very powerful expressions and you can pass and then the arbitrary number of arguments but
+
+14:51.370 --> 14:56.180
+that's only because we're calling this apply phunk that handles an arbitrary number of arguments.
+
+14:56.180 --> 14:56.700
+All right.
+
+14:56.830 --> 14:59.390
+So thanks for watching and I'll see you in the next video.

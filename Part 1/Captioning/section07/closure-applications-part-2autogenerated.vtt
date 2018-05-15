@@ -1,0 +1,856 @@
+WEBVTT
+
+00:00.450 --> 00:05.000
+Hi and welcome to the video on the second application of closures.
+
+00:05.280 --> 00:10.000
+So here we're going to start with a very simple Kloser that's essentially going to be a counter.
+
+00:10.080 --> 00:15.930
+So we'll want to be able to provide an initial value and then this quarter will just increment that
+
+00:15.930 --> 00:18.440
+value by one every time.
+
+00:18.450 --> 00:19.980
+So let's go ahead and create that.
+
+00:19.980 --> 00:25.170
+So let's create count and we want to pass an initial value.
+
+00:25.180 --> 00:29.900
+Now we want the initial value to be defined when we create this increment.
+
+00:30.000 --> 00:36.060
+So it's going to be a variable a parameter of the counter and it's going to be a local variable accounted
+
+00:36.300 --> 00:43.350
+for and we don't have anything else and we're going to create our in a function think which is going
+
+00:43.350 --> 00:49.770
+to be incremental and will allow also specifying what the increment should be and we'll default it to
+
+00:49.770 --> 00:50.460
+1.
+
+00:50.610 --> 00:54.360
+And if we want we can even add a default of zero for the initial value.
+
+00:54.810 --> 00:59.200
+And what are we going to do when we're going to assert our initial value of salt.
+
+00:59.250 --> 01:04.180
+Now our initial value really is our current value but it's the initial value.
+
+01:04.890 --> 01:14.430
+And we're going to increment by increment and then we're going to return the initial value and then
+
+01:14.430 --> 01:17.090
+we have to return our quarter.
+
+01:17.490 --> 01:23.820
+So you'll notice that Anke is a closure because it's referencing initial value it's saying initial value
+
+01:24.060 --> 01:26.230
+plus equals increment.
+
+01:26.460 --> 01:30.130
+So initial value is the initial value from counter.
+
+01:30.150 --> 01:33.460
+So hopefully again you'll realize that there's a problem here.
+
+01:33.720 --> 01:39.870
+We're assigning something to initial value when Python sees that it says ah initial value is a local
+
+01:39.870 --> 01:41.120
+variable therefore.
+
+01:41.460 --> 01:46.810
+But in this case it's not we want it to be the non-local variable that's in the external or you know
+
+01:46.870 --> 01:47.730
+out of function.
+
+01:47.850 --> 01:52.100
+So we have to specify non-local initial value.
+
+01:52.390 --> 01:53.200
+Okay.
+
+01:53.730 --> 01:59.190
+And now everything should work just fine and we can create a counterfeit let's say count of 1 that's
+
+01:59.190 --> 02:00.120
+equal to.
+
+02:00.150 --> 02:05.110
+Now we're going to call the account a function and we'll just differ let it default to 0.
+
+02:05.280 --> 02:10.980
+So now we have that and if we call Count 1 we get one we get counted for called Count 1 again we get
+
+02:10.980 --> 02:12.380
+2 and so on.
+
+02:12.600 --> 02:19.500
+So this is a very simple closure that basically allows us to define a counter and we can specify both
+
+02:19.500 --> 02:21.190
+the stamp value and the step.
+
+02:21.190 --> 02:27.190
+Then if you think back to a few videos back we did the same thing but we used like two nested functions.
+
+02:27.300 --> 02:30.620
+And I'd mention at the time that there's actually an easier way of doing it.
+
+02:30.720 --> 02:36.540
+While this is a much easier way of doing it but at the time I wanted to show you nested closures here
+
+02:36.540 --> 02:38.320
+we don't require nested closures.
+
+02:38.690 --> 02:43.190
+OK so now we have that let's expand this a little bit.
+
+02:43.710 --> 02:50.700
+And what I want to be able to do is I want to be able to maintain a count of how many times a function
+
+02:50.850 --> 02:52.100
+has been run.
+
+02:52.170 --> 02:54.780
+So I want to be able to do that in my programs.
+
+02:54.810 --> 02:57.400
+So let's see how we might do something like that.
+
+02:57.450 --> 03:00.510
+So I'm going to call it counter's.
+
+03:00.680 --> 03:04.110
+So I'm not going to specify an initial value that's always going to be zero.
+
+03:04.160 --> 03:04.700
+Right.
+
+03:04.760 --> 03:08.210
+How many times has a function been called initially 0 times.
+
+03:08.210 --> 03:13.320
+But what I do want to pass in is the function that I'm going to call cabe.
+
+03:13.370 --> 03:17.200
+So I'm going to pass in the function so this is a higher order function already.
+
+03:17.250 --> 03:17.500
+Right.
+
+03:17.510 --> 03:20.520
+Because it's taking in a function as a parameter.
+
+03:21.050 --> 03:23.730
+And I'm going to set my count equal to zero.
+
+03:24.020 --> 03:27.620
+OK then I'm going to call in a while I'm going to call in.
+
+03:27.680 --> 03:35.180
+I'm going to define in here and it is going to be a function that takes in an arbitrary number of positional
+
+03:35.180 --> 03:39.650
+parameters and an arbitrary number of key what only parameters.
+
+03:39.740 --> 03:40.620
+Why am I doing that.
+
+03:40.640 --> 03:44.880
+Well you'll see first of all let me make a count non-local.
+
+03:44.900 --> 03:46.880
+I want to be able to increment count.
+
+03:47.090 --> 03:49.010
+So there we go non-local.
+
+03:49.250 --> 03:51.870
+And then I can say count plus two equals one.
+
+03:52.010 --> 03:58.610
+Right so I'm incrementing count by 1 which count while the counting the closure and then next I'm going
+
+03:58.610 --> 04:08.990
+to just print out so this week so we can see the message that has been called of 1 times can and will
+
+04:08.990 --> 04:09.630
+format.
+
+04:09.630 --> 04:14.320
+And what are we going to passen we're going to pass in the name of the function.
+
+04:14.330 --> 04:19.640
+So if done in the name and then we also want to pass in the count.
+
+04:19.670 --> 04:25.760
+So we'll say you know all this function has been called one times two times three times however many
+
+04:25.760 --> 04:26.950
+times it is.
+
+04:27.260 --> 04:28.550
+And then what are we going to do.
+
+04:28.550 --> 04:34.120
+Well we want the in a function to basically now execute that function to call that function.
+
+04:34.310 --> 04:41.270
+So it's going to call the function passing in whatever arguments we have in store hours in Stockwell.
+
+04:41.270 --> 04:46.940
+So it's going to basically take any positional and any keyword parameters and throw them back to the
+
+04:46.940 --> 04:47.890
+function.
+
+04:47.900 --> 04:54.110
+So this in a function is essentially going to kind of replace our function FM because it's going to
+
+04:54.110 --> 04:55.370
+call it for us.
+
+04:55.370 --> 05:01.310
+So we're not going to call f and directly we're going to call it indirectly by using this in a function
+
+05:01.310 --> 05:01.850
+here.
+
+05:01.940 --> 05:03.790
+That's our closure.
+
+05:03.800 --> 05:09.050
+The only thing it does extra about from just running the function is to keep track of how many times
+
+05:09.080 --> 05:11.220
+it's been called.
+
+05:11.390 --> 05:15.860
+So now we have to of course remember to return the closures.
+
+05:16.130 --> 05:16.850
+So there we go.
+
+05:16.910 --> 05:23.680
+So now we have that and let's define a couple of functions let's say and a B.
+
+05:23.930 --> 05:33.630
+And that's going to return a plus b and then maybe molt a common B and it will return a tiny bit.
+
+05:33.740 --> 05:33.980
+Right.
+
+05:33.980 --> 05:37.400
+So we have these two functions addition and multiplication.
+
+05:37.430 --> 05:38.460
+So now what we can do.
+
+05:38.480 --> 05:41.300
+Well we can say counter add.
+
+05:41.330 --> 05:46.890
+So this is a function that we all going to get by calling counting.
+
+05:47.090 --> 05:51.850
+So we're going to call counter and we're going to pass it the add function.
+
+05:51.920 --> 05:57.290
+You'll notice we're not passing the arguments of and we're just passing em because that's all that we
+
+05:57.290 --> 05:58.610
+need for counting.
+
+05:59.120 --> 06:04.400
+We will pass in the arguments to and when we call the closure because the closure they will capture
+
+06:04.400 --> 06:09.320
+these arguments and then pass them along to the original function which in this case now is going to
+
+06:09.320 --> 06:09.790
+be.
+
+06:09.790 --> 06:12.680
+And so now we have our closure.
+
+06:12.800 --> 06:13.100
+Right.
+
+06:13.100 --> 06:14.340
+This is just a closure.
+
+06:14.430 --> 06:16.110
+I can see it this way.
+
+06:16.190 --> 06:16.820
+Right.
+
+06:17.090 --> 06:19.130
+And we have two things in the closure.
+
+06:19.130 --> 06:19.880
+What are they.
+
+06:20.060 --> 06:23.360
+Well we have AFN and C.A. right.
+
+06:23.420 --> 06:28.360
+We have both of these things that are part of the closure because they are local variables to counter
+
+06:28.460 --> 06:30.320
+but they're being referenced inside in it.
+
+06:30.440 --> 06:39.140
+So we can look at our counter and code the code for rounds and you can see that the free variables are
+
+06:39.210 --> 06:41.710
+C.A. and F-in as expected.
+
+06:42.080 --> 06:43.920
+So now we can call it and say count.
+
+06:43.950 --> 06:46.050
+And now how do we call it count.
+
+06:46.070 --> 06:51.290
+Add is what it's the inner function that will do some things and then call F-in.
+
+06:51.290 --> 06:57.110
+So we need to pass it the arguments that we want to provide to a to add just as if we had called add
+
+06:57.200 --> 06:57.970
+directly.
+
+06:58.010 --> 06:59.500
+So let's say 10 and 20.
+
+06:59.930 --> 07:05.640
+And as you can see we get our result of Thirlby that's what comes back from those counted up.
+
+07:05.660 --> 07:06.560
+And right.
+
+07:06.620 --> 07:13.140
+So if you want to make it stand out even more when you call it it's been called now two times.
+
+07:13.160 --> 07:15.430
+Yeah we called counter add two times.
+
+07:15.440 --> 07:19.910
+That's what it's doing it's counting how many times we're calling the closure.
+
+07:20.090 --> 07:21.970
+And this court has been called two times.
+
+07:22.070 --> 07:26.810
+And then the result is the result of adding 10 to 20.
+
+07:26.810 --> 07:35.720
+Now of course we could say count palm note equals Callanan moĂŤt right.
+
+07:35.780 --> 07:40.690
+So now we're going to track how many times we're calling this function over here.
+
+07:41.030 --> 07:45.320
+And we can say Kelner ought to call him a 5.
+
+07:45.500 --> 07:45.830
+Right.
+
+07:45.830 --> 07:46.990
+So that's good.
+
+07:47.030 --> 07:48.810
+What am I doing.
+
+07:49.670 --> 07:51.320
+Sorry about that.
+
+07:51.550 --> 07:55.370
+The Colts Kelner melt execute that.
+
+07:55.400 --> 07:56.570
+And then we can count.
+
+07:56.720 --> 08:03.130
+Call count a multi let's say with two and five and we get that mulct has been called one times and the
+
+08:03.220 --> 08:06.360
+result of that multiplication is 10.
+
+08:06.850 --> 08:07.470
+All right.
+
+08:07.630 --> 08:11.230
+So very simple extension to our original count.
+
+08:11.290 --> 08:15.790
+We can now count the number of times a function has been called.
+
+08:16.120 --> 08:17.890
+So now let's take it a step further.
+
+08:18.250 --> 08:23.920
+And let's do this so that instead of just having the you know the function defined inside and the name
+
+08:23.920 --> 08:29.210
+being written in the print I may want to store that value somewhere and not just have it print it out.
+
+08:29.290 --> 08:34.600
+So to do this we're going to create a global variable that's essentially going to be a dictionary that
+
+08:34.600 --> 08:39.690
+contains the name of the function has its key and the number of times it's been called as a value.
+
+08:39.790 --> 08:44.460
+So let's go ahead and do that and we're going to use there for a global variable here.
+
+08:44.710 --> 08:47.470
+And we're going to start with an empty dictionary right.
+
+08:47.530 --> 08:50.080
+So Kalmus is an empty dictionary.
+
+08:50.080 --> 08:56.010
+Now we have to define our Kelner function and what is it going to take.
+
+08:56.020 --> 08:59.340
+Well once more it's going to take efen as an argument.
+
+08:59.410 --> 08:59.710
+Right.
+
+08:59.710 --> 09:03.810
+We're going to pass of the function that we want to keep track of.
+
+09:03.820 --> 09:07.230
+Now if we're going to say count equals zero just as before.
+
+09:07.730 --> 09:14.140
+And in a function is going to be the same it's going to be Starns stuff qualms.
+
+09:15.220 --> 09:20.980
+So it's going to basically capture the parameters the arguments needed to call the function f then once
+
+09:20.980 --> 09:22.930
+it's done with whatever it needs to do.
+
+09:23.020 --> 09:24.410
+Well what does it need to do.
+
+09:24.460 --> 09:29.390
+It needs to make a non-local count and then it's going to increment count by 1 right.
+
+09:29.590 --> 09:32.610
+Because once we call the closure we're going to be calling the function.
+
+09:32.680 --> 09:34.790
+So it's increment the count.
+
+09:34.960 --> 09:42.610
+Now however what we want to do well we want to store how many times this has been run called in the
+
+09:42.700 --> 09:45.180
+counters object in the count is dictionary.
+
+09:45.370 --> 09:51.840
+So we're going to say counters and then the key is going to be the name of the function.
+
+09:52.390 --> 09:54.530
+And it's going to be equal to count.
+
+09:54.550 --> 09:57.770
+So now you'll notice that we have a few things going on here.
+
+09:58.090 --> 10:05.110
+Count is a non-local variable but calendar's hasn't been a you know is not being assigned a value because
+
+10:05.110 --> 10:11.050
+if you think about this this is not an assignment to counter's it's an assignment to an element of Cowen's
+
+10:11.770 --> 10:13.130
+so yes.
+
+10:13.180 --> 10:14.620
+And which counters do we want.
+
+10:14.620 --> 10:15.890
+We want the global count.
+
+10:15.910 --> 10:17.700
+So yeah you could certainly do.
+
+10:17.810 --> 10:18.430
+Right.
+
+10:18.460 --> 10:19.270
+That's fine.
+
+10:19.300 --> 10:20.750
+That will work just fine.
+
+10:21.010 --> 10:25.180
+But that's we don't need to do this.
+
+10:25.580 --> 10:33.640
+So now we've assigned that and we're going to return efen stands up starstuff quolls.
+
+10:33.710 --> 10:39.680
+So basically whatever we pass then we'll pass back to the function f and call it and grab the return
+
+10:39.680 --> 10:42.460
+value and then return that from our closure.
+
+10:42.620 --> 10:45.580
+And then of course we need to return the closure itself.
+
+10:46.130 --> 10:49.200
+So now we have something that's a little bit more general.
+
+10:49.350 --> 10:51.280
+Right now we could do something like this.
+
+10:51.290 --> 11:01.610
+We could say counted add equals counter add and counted most Newport's counter mode.
+
+11:02.180 --> 11:02.770
+Okay.
+
+11:03.110 --> 11:10.400
+So now we've got these two functions counter add or counted add and that's called counted mulct which
+
+11:10.460 --> 11:13.060
+are which have been run through calendar.
+
+11:13.070 --> 11:16.090
+So we've got a closer back to different quarters of course.
+
+11:16.220 --> 11:20.980
+But those are two different clauses are still talking essentially to the same global variable.
+
+11:21.200 --> 11:30.620
+So now we can call counted had 10 20 we can say counted and 20 30 right.
+
+11:30.620 --> 11:35.960
+We get the value back that we would expect from the add function but now we can look at the calendars
+
+11:36.080 --> 11:40.840
+collection and we can see that we have and was called two times.
+
+11:40.880 --> 11:48.740
+We now call counted most let's say two and five it we get the value back 10 and then Kallas the global
+
+11:48.740 --> 11:52.450
+counter's has now this function melt.
+
+11:52.650 --> 11:53.470
+OK.
+
+11:53.900 --> 11:54.560
+All right.
+
+11:54.560 --> 11:55.990
+So that was.
+
+11:56.150 --> 11:59.290
+And that does kind of what we wanted to do.
+
+11:59.390 --> 12:04.750
+The only thing here is that I'm realizing this this function here counts.
+
+12:04.880 --> 12:05.260
+Right.
+
+12:05.270 --> 12:12.310
+And the closure in here relies on the fact that there is a global variable called counties.
+
+12:12.350 --> 12:17.750
+So instead of doing that because I don't want to have to we are always remembered say well what should
+
+12:17.750 --> 12:19.380
+the name of the dictionary be.
+
+12:19.430 --> 12:24.160
+Because it essentially is what I've done of hand-coded the name of the dictionary inside this closure.
+
+12:24.410 --> 12:24.920
+Right.
+
+12:25.040 --> 12:25.790
+So there's closure.
+
+12:25.790 --> 12:27.440
+This is a global variable.
+
+12:27.440 --> 12:32.450
+I still want it to be potentially a global variable but I don't want to have to always have to remember
+
+12:32.450 --> 12:34.880
+that I have to define Calamus first.
+
+12:34.880 --> 12:38.850
+So let's go ahead and modify this slightly now.
+
+12:41.080 --> 12:52.040
+We're going to basically pass in the dictionary so it will get a pass in the calendar's dictionary and.
+
+12:52.210 --> 12:52.660
+So no.
+
+12:52.690 --> 12:53.900
+Notice what happens.
+
+12:54.010 --> 12:56.070
+Yes we still have this calendars.
+
+12:56.080 --> 12:59.890
+That's a global variable right there in the global scope.
+
+12:59.980 --> 13:02.810
+But now this calendar is that's over here.
+
+13:02.890 --> 13:05.130
+It's going to refer to which one.
+
+13:05.590 --> 13:11.260
+Well pythons are going to look at this and it's going to look in the inclosing scope first and it finds
+
+13:11.260 --> 13:12.670
+it as a local variable.
+
+13:12.670 --> 13:16.430
+So it's a going to think OK count this as a non-local variable.
+
+13:16.720 --> 13:22.060
+And again for the same reason we didn't have to specify global counter's we don't have to specify non-local
+
+13:22.060 --> 13:25.140
+counter's since we're not modifying what counter's is.
+
+13:25.210 --> 13:31.910
+We're just modifying the contents of counters just like when we modify the contents of a list.
+
+13:33.390 --> 13:41.110
+So now we can call it this way we can say let's say see quolls a new dictionary object.
+
+13:41.170 --> 13:50.570
+And now I can say count counted as equals counter and and see.
+
+13:50.620 --> 13:51.420
+Right.
+
+13:51.610 --> 13:56.420
+And then we can say counted most equals counter.
+
+13:56.750 --> 14:02.420
+I can type of mult and C K.
+
+14:02.470 --> 14:07.180
+So now we have these two again functions and we can call them just as before counted.
+
+14:07.200 --> 14:08.310
+Add 10.
+
+14:08.320 --> 14:13.710
+Now before I do that them and show you what the count is global variable contains right.
+
+14:13.750 --> 14:14.840
+It has that.
+
+14:14.890 --> 14:22.550
+Now I'm going to call counter that rather than 20 when called counted.
+
+14:23.590 --> 14:31.900
+Mulct to come up 5 and we'll call it again counted molt three commas six.
+
+14:32.010 --> 14:32.740
+OK.
+
+14:33.070 --> 14:38.010
+Now if we look at the global Kelvins it's all the same as two multis 1.
+
+14:38.050 --> 14:42.940
+But if we look at c which is the variable we use you could see that add is 1 in multis two guys.
+
+14:42.970 --> 14:46.000
+Yeah we called add once and multiply twice.
+
+14:46.000 --> 14:46.730
+All right.
+
+14:46.840 --> 14:55.930
+So you can see how we were able to essentially modify what you don't multa did we we still retained
+
+14:56.230 --> 15:01.530
+the multiplication was told we could retain the result of multiplying or adding these two values.
+
+15:01.720 --> 15:08.080
+But we added some extra functionality using a closure which is counting how many times they've been
+
+15:08.080 --> 15:08.980
+called.
+
+15:08.980 --> 15:13.260
+And you could do this of other things as well like timing a function for example.
+
+15:13.310 --> 15:20.380
+Now as one last example of using count for these functions let's go ahead and write a factorial function.
+
+15:20.410 --> 15:22.880
+So let's go ahead and write factorial.
+
+15:22.890 --> 15:25.410
+And so it's going to calculate the factorial.
+
+15:25.420 --> 15:33.220
+Now I'm not going to use recursion instead I'm just going to do is using a loop for so for I in range
+
+15:33.220 --> 15:35.320
+and we'll start at 2 am and at.
+
+15:35.350 --> 15:42.350
+And so we need to go to end plus 1 and we'll say the product is equal to the product times.
+
+15:42.970 --> 15:46.320
+And then we'll return product.
+
+15:46.630 --> 15:49.550
+So this will calculate the factorial.
+
+15:49.630 --> 15:54.320
+We can calculate the factorial of three would get 6 the factorial of 5 right.
+
+15:54.340 --> 16:03.530
+We get hundred twenty and so on you can say callid fact equals counted or counted in factorial.
+
+16:04.180 --> 16:07.470
+And of course we need to pass in the dictionary see.
+
+16:07.550 --> 16:08.260
+OK.
+
+16:08.890 --> 16:15.700
+So now we can say counted fact five right and we get 120 back.
+
+16:15.700 --> 16:20.560
+And of course if we look at see we now see that fact was it was called once.
+
+16:20.560 --> 16:26.890
+But what I want to show here is that we don't have to rename this to counted fact and instead of assigning
+
+16:26.890 --> 16:32.340
+it to counted fact I'm going to assign it to the same name.
+
+16:34.300 --> 16:38.830
+And we need see hopefully our to keep remembering that one.
+
+16:38.920 --> 16:39.600
+OK.
+
+16:40.000 --> 16:44.300
+So fact now is no longer this function over here.
+
+16:44.470 --> 16:44.820
+Right.
+
+16:44.830 --> 16:49.540
+If we look at fact now it is indeed a closure.
+
+16:49.780 --> 16:50.530
+Right.
+
+16:50.560 --> 16:55.360
+And so we have three things in the closure what do we have while we have the integer which is the count
+
+16:55.450 --> 17:00.370
+we have the dictionary object which is that C that we passed in and we have the function object which
+
+17:00.370 --> 17:05.020
+is the function that we pass to right at located in three different cells.
+
+17:05.020 --> 17:08.430
+So as you can see fact now works just as before.
+
+17:08.440 --> 17:10.090
+Remember I could call fact three.
+
+17:10.320 --> 17:13.490
+Now I can do that and I can call fact five and so on.
+
+17:13.810 --> 17:18.940
+The only difference is that there's something extra going on if I look at c you can see that it's been
+
+17:18.940 --> 17:20.580
+called a few more times.
+
+17:20.590 --> 17:20.910
+Right.
+
+17:20.970 --> 17:23.030
+It's called fact 10.
+
+17:23.500 --> 17:26.730
+And let's look at c and fact is now three.
+
+17:26.770 --> 17:33.790
+And of course I can do the same thing with and I can say add equals can range add a C and I can say
+
+17:33.790 --> 17:42.370
+molts equals are counted in mult commas C and I can still call add just as before.
+
+17:42.370 --> 17:43.620
+So now right.
+
+17:43.630 --> 17:46.650
+I don't have to change the function name.
+
+17:46.660 --> 17:50.390
+It looks the same but it's not quite the same function.
+
+17:50.410 --> 17:53.660
+It's been modified to add some extra stuff.
+
+17:53.920 --> 17:58.530
+And yet I can still call the function as if I was using the original function right.
+
+17:58.570 --> 18:05.450
+My original factorial function was this one but I've essentially modified that function.
+
+18:05.590 --> 18:07.200
+So we added an extra bit.
+
+18:07.270 --> 18:07.660
+Right.
+
+18:07.660 --> 18:11.080
+Our original function was factorial or add on mult.
+
+18:11.080 --> 18:14.300
+We still are able to call factorial at or mult.
+
+18:14.350 --> 18:18.820
+In fact we call it using the same label but that label now has changed.
+
+18:18.820 --> 18:22.330
+What it really is before it was the original add mold.
+
+18:22.330 --> 18:30.220
+In fact functions now it's the closure and the closure basically still executes the original function
+
+18:30.250 --> 18:32.500
+but does some extra bit.
+
+18:32.740 --> 18:38.260
+And that leads us directly into our next video which is going to be on decorator's.
+
+18:38.260 --> 18:40.470
+So thanks for watching and I'll see you in a bit.

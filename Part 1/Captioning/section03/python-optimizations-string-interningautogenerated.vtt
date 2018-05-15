@@ -1,0 +1,814 @@
+WEBVTT
+
+00:00.330 --> 00:06.750
+Hi and welcome to this video that continues our series on Python optimizations in particular we're going
+
+00:06.750 --> 00:09.130
+to look at something called String interning.
+
+00:09.180 --> 00:15.240
+Now we've seen interning before we saw that in the last video and we saw that Python automatically turns
+
+00:15.510 --> 00:22.080
+a certain range of integers but some strings are also in turn by Python but not all.
+
+00:22.170 --> 00:26.690
+And that's really important to understand that not all strings are interned.
+
+00:27.800 --> 00:34.490
+Now as the Python code is compiled identifiers aren't turned on what are identifiers there are things
+
+00:34.490 --> 00:41.960
+like variable names function names class names you know and anything else that you use inside your code.
+
+00:41.960 --> 00:44.640
+Your code is essentially a lot of strings.
+
+00:44.660 --> 00:45.000
+Right.
+
+00:45.010 --> 00:50.510
+And it gets compiled by Python and it will in turn all these identifiers.
+
+00:50.510 --> 00:56.990
+Now just as a reminder identifiers must start of an underscore or a letter and then that can only contain
+
+00:57.200 --> 01:00.670
+underscores letters and numbers.
+
+01:01.060 --> 01:08.680
+So some string literals also get automatically and again not all but some in general any string that
+
+01:08.680 --> 01:11.490
+looks like an identifier will get entered.
+
+01:11.560 --> 01:13.450
+So the string Hello world.
+
+01:13.450 --> 01:18.940
+Well that satisfies the rules for an identifier and that will get entered.
+
+01:19.120 --> 01:24.310
+Now even though it may start of a digit so that technically it's not an identifier.
+
+01:24.460 --> 01:29.560
+Those strings will still get interned as long as everything else looks like an identifier.
+
+01:31.170 --> 01:33.020
+But don't count on it.
+
+01:33.090 --> 01:33.540
+Right.
+
+01:33.540 --> 01:36.640
+You shouldn't count on things getting interned.
+
+01:36.690 --> 01:39.420
+Python is intoning those things for a reason.
+
+01:39.780 --> 01:42.660
+So why why is python doing that.
+
+01:42.840 --> 01:49.690
+Well it's all about optimization and it's really about speed optimization and possibly memory optimization.
+
+01:49.770 --> 01:56.580
+If you think about what's happening as your Python code is running Python needs to look up your you
+
+01:56.580 --> 02:02.760
+know your identifies your variable names if you reference a variable and you say print a while it needs
+
+02:02.760 --> 02:04.280
+to go and look up a.
+
+02:04.290 --> 02:09.070
+So it goes into a dictionary essentially and says hey you know was a find a.
+
+02:09.210 --> 02:13.890
+And tell me what it is and then I can find the object and do whatever you know whatever needs to happen
+
+02:13.890 --> 02:14.540
+with it.
+
+02:14.550 --> 02:19.500
+So there's a lot of you know string comparisons that have to occur.
+
+02:19.860 --> 02:20.180
+Right.
+
+02:20.190 --> 02:22.740
+A lot of string equality testing.
+
+02:23.580 --> 02:25.060
+So let's say let's.
+
+02:25.080 --> 02:26.220
+Let's look at two strings.
+
+02:26.220 --> 02:27.360
+Let's look at an example.
+
+02:27.360 --> 02:29.390
+Let's say we have some long string.
+
+02:29.430 --> 02:29.970
+Ok so.
+
+02:30.000 --> 02:31.410
+Equals some long string.
+
+02:31.410 --> 02:34.250
+And B is the same value some long string.
+
+02:34.590 --> 02:41.160
+Well if we use a equals equals B if we use equality comparison to compare the two strings we have to
+
+02:41.160 --> 02:44.160
+do this character by character.
+
+02:44.190 --> 02:52.740
+However if we know that some long string has been interned then we know that a and b are both going
+
+02:52.740 --> 02:55.650
+to point to the same memory address.
+
+02:55.650 --> 03:02.040
+In that case to check whether a and b are the same strings we could actually just check whether they
+
+03:02.040 --> 03:04.850
+have the same memory address or not.
+
+03:04.890 --> 03:05.590
+Right.
+
+03:05.700 --> 03:12.840
+And so we can use the identity operator is instead of the equality operator the double equal sign.
+
+03:12.840 --> 03:17.850
+So we can compare memory addresses which is just comparing two integer values for equality.
+
+03:17.850 --> 03:19.920
+Instead of comparing two long strings.
+
+03:19.920 --> 03:21.750
+Character by character.
+
+03:21.750 --> 03:26.330
+And this is much faster than doing the character by character comparison.
+
+03:26.330 --> 03:31.110
+And in fact we'll take a look at that in the code that will look at a little later in the video.
+
+03:32.930 --> 03:36.140
+So not all strings are interned by Python.
+
+03:36.140 --> 03:41.570
+You've got to be careful about that but you can't force strings to be interned yourself.
+
+03:41.570 --> 03:48.310
+So there is a method the in-turn method in the sense module that you can use to actually force interning
+
+03:48.540 --> 03:49.180
+of strings.
+
+03:49.190 --> 03:52.910
+Basically making that particular string a singleton.
+
+03:53.270 --> 03:58.130
+So the way you would use it as you would first have to import the Madill impulses and then you would
+
+03:58.130 --> 04:03.470
+say eight equals and instead of just making it equal to the string you would say systole in turn and
+
+04:03.470 --> 04:05.330
+then the string that you want.
+
+04:05.330 --> 04:09.420
+Now when you create B you have to also do sister enter.
+
+04:09.440 --> 04:15.680
+You can just make it equal to the string itself otherwise there will be a new object in memory.
+
+04:15.710 --> 04:23.150
+So in this case a is b will evaluate to true and it's a much faster comparison than doing a equals equals
+
+04:23.180 --> 04:24.870
+B.
+
+04:24.890 --> 04:26.350
+So when should you do this.
+
+04:26.420 --> 04:31.070
+Well in general don't do it right unless you have a specific need.
+
+04:31.070 --> 04:32.570
+Now when does that happen.
+
+04:32.600 --> 04:36.820
+Well for example let's say you're dealing with a very large corpus of data.
+
+04:36.980 --> 04:37.290
+Right.
+
+04:37.310 --> 04:43.460
+Large number of strings that maybe has a high repetition maybe say you know you're trying to tokenize
+
+04:44.750 --> 04:46.510
+you know a big set of text.
+
+04:46.520 --> 04:52.180
+Maybe you're trying to tokenize or Shakespeare's plays for example or whatever it is you know and especially
+
+04:52.190 --> 04:57.730
+in things like natural language processing then you have a lot of strings that have a lot of repetition.
+
+04:57.770 --> 05:04.970
+So instead of creating a new object for each occurrence of the word though for example if you in turn
+
+05:04.970 --> 05:11.420
+everything then every string is actually going to point to the same object in memory and you're going
+
+05:11.420 --> 05:13.480
+to reduce your memory overhead.
+
+05:13.820 --> 05:19.810
+So there might be a memory optimization here that you may want to use string interning for of course
+
+05:19.820 --> 05:24.030
+it also is going to help up your help speed up comparisons.
+
+05:24.080 --> 05:30.470
+Now when you're trying to find or compare a string against another string you know if you know that
+
+05:30.470 --> 05:36.320
+both strings have been interned you can use the is operator instead of the equals equals operator which
+
+05:36.320 --> 05:37.530
+will be much faster.
+
+05:37.670 --> 05:42.670
+So if you've got lots of string comparisons going on then it might make sense to do some string and
+
+05:42.670 --> 05:43.380
+turn it.
+
+05:43.760 --> 05:50.210
+But in general unless you actually find that you need it don't do it don't start you know Inter-railing
+
+05:50.300 --> 05:53.870
+strings right off the bat just do your strings normally.
+
+05:53.870 --> 05:57.820
+And then if you find that you need to speed things up well you need to reduce your memory footprint
+
+05:57.830 --> 06:00.720
+depending on the circumstances you're working with.
+
+06:00.890 --> 06:04.060
+Then start doing and looking at string intoning.
+
+06:04.100 --> 06:09.080
+So don't optimize things until you need to actually optimize them.
+
+06:10.070 --> 06:10.500
+OK.
+
+06:10.550 --> 06:14.390
+So let's take a look at some code and see how all this works in practice.
+
+06:14.390 --> 06:18.830
+So let's take a look at string interning in practice.
+
+06:18.890 --> 06:24.240
+So we'll take two variables A and B.
+
+06:24.750 --> 06:31.880
+And this will get intoned because hello looks like an identifier to a short string for standards but
+
+06:32.180 --> 06:35.240
+that doesn't really matter as long as it looks like an identifier.
+
+06:35.270 --> 06:36.860
+It will get intoned.
+
+06:37.040 --> 06:43.270
+So if we do that we can see what the ID of a B and B is.
+
+06:43.370 --> 06:44.050
+OK.
+
+06:44.290 --> 06:47.900
+And we can see there the same memory address.
+
+06:47.990 --> 06:56.660
+Now on the other hand if we take something like hello world with a space in it k and then we do the
+
+06:56.660 --> 06:59.970
+same thing with B.
+
+07:01.220 --> 07:07.040
+Then you'll notice when we print the ID of a and the idea of beam
+
+07:15.160 --> 07:18.810
+that we do not have the same memory address.
+
+07:18.880 --> 07:23.000
+And that's because A and B do not look what is those strings.
+
+07:23.020 --> 07:23.930
+Hello world.
+
+07:24.460 --> 07:31.540
+Don't look like an identifier and they just don't get interned at least not automatically.
+
+07:31.540 --> 07:34.960
+So don't count on string and turning to happen.
+
+07:34.960 --> 07:37.010
+Now why is that important.
+
+07:37.240 --> 07:43.610
+Well because now I can do I can so easily compare a equals equals B.
+
+07:43.690 --> 07:44.120
+OK.
+
+07:44.200 --> 07:45.380
+Which is true.
+
+07:45.490 --> 07:46.210
+Now 86.
+
+07:46.210 --> 07:49.060
+B In this case is going to be false.
+
+07:49.090 --> 07:52.350
+Right because hello world is not interned.
+
+07:52.360 --> 07:55.510
+So the idea of the idea of B is different.
+
+07:55.690 --> 08:03.550
+But if we take this example over here let's paste it back in and let's do a equals equals B.
+
+08:03.850 --> 08:11.560
+As we can see a equals equals B is true which is as it should be but a is b is also true because those
+
+08:11.560 --> 08:13.720
+two strings were interned.
+
+08:13.720 --> 08:18.300
+So we have let's say one more example that I want to show you eight equals.
+
+08:18.520 --> 08:25.490
+This is a long string.
+
+08:26.410 --> 08:27.990
+That's good.
+
+08:28.000 --> 08:29.030
+Oh no no space.
+
+08:29.030 --> 08:37.870
+That's the thing that could be used as an identifier.
+
+08:37.870 --> 08:39.680
+It doesn't even have to be spelled correctly.
+
+08:39.920 --> 08:40.290
+OK.
+
+08:40.300 --> 08:42.340
+So this is what a is.
+
+08:42.340 --> 08:49.330
+Now I'm going to copy that and I'll run that statement and then I'll paste that them and do B as well
+
+08:50.340 --> 08:53.980
+K and A is B is going to return true.
+
+08:54.250 --> 08:59.920
+So as you can see even for a long string as long as it looks like an identifier it will get in turn
+
+08:59.950 --> 09:01.090
+automatically.
+
+09:01.090 --> 09:02.190
+Why is that.
+
+09:02.350 --> 09:08.300
+Well because you may very well be using an identifier in your code.
+
+09:08.410 --> 09:12.910
+Right and maybe it's in a string and later on you're going to try and find let's say a function whose
+
+09:12.910 --> 09:17.320
+name is whatever's in that string or a class whose name is in that string.
+
+09:17.560 --> 09:22.550
+So Python says Well in case you're going to do that I'm going to turn those two strings.
+
+09:22.620 --> 09:23.090
+OK.
+
+09:23.380 --> 09:25.050
+So it does that automatically.
+
+09:25.060 --> 09:29.540
+Now we don't have to rely on the automatic string interning all the time.
+
+09:29.560 --> 09:34.810
+We can actually force string interning so we can do it in this way.
+
+09:34.810 --> 09:39.100
+We're going to import Ciss this module.
+
+09:39.490 --> 09:47.890
+And in order to do a string interning we're going to have to set a tsis dot in-turn and then whatever
+
+09:47.890 --> 09:49.320
+string we want.
+
+09:49.330 --> 09:54.490
+So this case I'll do this hello world that we've seen before doesn't get turned automatically.
+
+09:54.670 --> 10:02.540
+So let's do that let's do the same thing for B sis dot in-turn.
+
+10:02.980 --> 10:04.450
+Hello world.
+
+10:05.170 --> 10:09.780
+And then C I'm going to make to just hello world itself.
+
+10:09.940 --> 10:14.480
+And you're noticing I'm creating C after I've created a and b.
+
+10:14.710 --> 10:24.550
+So let's look at the ID of each of these variables so the idea of a idea of the idea of C K.
+
+10:24.970 --> 10:32.380
+Now you'll notice that the idea of a and b are equal and that is as expected because we have intoned
+
+10:32.800 --> 10:34.690
+that string Hello world.
+
+10:34.690 --> 10:36.520
+In both cases.
+
+10:36.520 --> 10:43.360
+Now for the third one we just set sequel to Hello World so Python doesn't try to enter the string even
+
+10:43.360 --> 10:44.810
+though technically it could.
+
+10:45.010 --> 10:47.990
+Because this is over here but it doesn't even try.
+
+10:48.130 --> 10:54.220
+So remember if you're going to intone your strings you need to make sure that you in-turn every instance
+
+10:54.280 --> 10:55.290
+of that string.
+
+10:55.420 --> 10:59.190
+Ok not just the one to enter on all of them right.
+
+10:59.410 --> 11:06.880
+So now what this means is that if I know that a and b interned strings I can certainly test for equality
+
+11:06.880 --> 11:08.470
+between the two values.
+
+11:08.500 --> 11:12.890
+Hello world hello world using the equality operator equals equals.
+
+11:13.120 --> 11:21.640
+But since those strings are interned I also know that they are going to match if and only if their memory
+
+11:21.640 --> 11:23.800
+address matches as well.
+
+11:23.830 --> 11:26.570
+Right because I've interned those strings.
+
+11:26.650 --> 11:30.900
+So instead I can test a is b which will also return true.
+
+11:31.000 --> 11:33.100
+Now what is a is b testing.
+
+11:33.130 --> 11:39.280
+It is testing the quality of those two values over here right which are two integer values.
+
+11:39.310 --> 11:44.420
+Very fast test gets very fast to test the quality of two integers.
+
+11:44.410 --> 11:52.210
+This equality operator here equals equals B on the other hand is trying to compare this string and the
+
+11:52.210 --> 11:54.920
+string character by character.
+
+11:55.150 --> 11:59.560
+And if it runs out of characters and nothing's mismatched then you have an equal string.
+
+11:59.980 --> 12:05.820
+So it takes longer to run that kind of comparison in everyday code.
+
+12:05.830 --> 12:10.660
+You really don't need to worry about this but if you are doing a lot of string comparisons and by a
+
+12:10.660 --> 12:14.510
+lot I mean a lot of string comparisons and your code.
+
+12:14.550 --> 12:17.040
+Then you might want to consider string interning.
+
+12:17.400 --> 12:20.130
+Let's take a look actually at an example.
+
+12:20.130 --> 12:24.730
+We're just going to do a very kind of quick and dirty benchmark on this.
+
+12:24.880 --> 12:28.580
+So let's do this let's say.
+
+12:28.580 --> 12:40.850
+Def compare using equals will take some parameter and that's going to be how many times we want to run
+
+12:40.850 --> 12:42.930
+this comparison.
+
+12:43.160 --> 12:52.030
+K and we are going to first create two strings that are not entered.
+
+12:52.070 --> 13:00.820
+So a long string that is not interned and will do that time is 200.
+
+13:00.850 --> 13:04.820
+So we've got a long string that is not interned repeated two hundred times.
+
+13:04.820 --> 13:11.120
+That's really a long string that is not interned petrol and then B we're going to make exactly the same
+
+13:11.120 --> 13:12.570
+thing.
+
+13:16.420 --> 13:19.620
+OK but we're going to change it and call it B.
+
+13:19.820 --> 13:27.810
+Ok so now that we have that we're going to write a loop we're going to say for pi in range and so we're
+
+13:27.820 --> 13:30.230
+going to loop end times basically.
+
+13:30.520 --> 13:38.770
+And we're going to say if a equals equals B and we're not going to do anything right it is going to
+
+13:38.770 --> 13:39.810
+pass.
+
+13:39.910 --> 13:42.570
+So really over what we're going to do here.
+
+13:42.700 --> 13:42.990
+Right.
+
+13:43.000 --> 13:48.010
+This function is going to create two strings and it's going to run an equality operation between those
+
+13:48.010 --> 13:52.520
+two strings and times whatever and happens to be OK.
+
+13:53.140 --> 13:54.880
+So that's that one.
+
+13:54.880 --> 14:03.640
+Now instead what we're going to do here if we're going to say compare using interning and or again will
+
+14:03.640 --> 14:12.770
+pass a parameter n the only difference is that I'm going to just copy all the code over the first two.
+
+14:12.780 --> 14:18.210
+Difference is that since stopped in-turn we're going to use K.
+
+14:19.440 --> 14:27.720
+So we're going to take the same string that we had before but we are going to interpret
+
+14:32.180 --> 14:38.420
+OK and then the other difference is that instead of using equals equals B we can get the same result
+
+14:38.450 --> 14:43.700
+by using the identity operator is because we know that the two strings are interned.
+
+14:43.790 --> 14:44.090
+Right.
+
+14:44.090 --> 14:46.670
+So we're just going to check that memory address.
+
+14:46.700 --> 14:47.230
+OK.
+
+14:47.450 --> 14:52.820
+So this is obviously you know I mean in general you know it was going to be comparing the same string
+
+14:52.830 --> 14:58.570
+you're going to want to be comparing different strings and then see when you get quality on.
+
+14:58.730 --> 15:04.220
+But in this case what I'm really interested in is the speed difference between the equality operator
+
+15:04.610 --> 15:06.110
+and the identity operator.
+
+15:06.290 --> 15:08.160
+So we're going to run this.
+
+15:08.180 --> 15:12.340
+Right now we're going to have to run this a number of times and then we're going to time it.
+
+15:12.470 --> 15:13.880
+So we're going to import time.
+
+15:13.880 --> 15:15.230
+We've seen this before.
+
+15:15.500 --> 15:26.400
+And then we're going to set stout equals time dots for our counter which is basically a number of milliseconds
+
+15:26.850 --> 15:32.790
+then compare using equals.
+
+15:33.840 --> 15:36.450
+And we're going to run this.
+
+15:36.480 --> 15:42.540
+Now let me see exactly how many I can around this before and I want a number that's big enough that
+
+15:42.540 --> 15:43.930
+we'll see a difference.
+
+15:43.950 --> 15:51.460
+We'll see a substantial difference in the performance of each of those.
+
+15:51.460 --> 15:54.400
+So as you can see I wish
+
+15:57.400 --> 15:59.500
+so 3 6.
+
+15:59.500 --> 16:01.570
+OK so 10 million times.
+
+16:01.570 --> 16:04.630
+So we're going to run this comparison here.
+
+16:04.670 --> 16:07.570
+This equals equals be 10 million times.
+
+16:07.690 --> 16:08.400
+Okay.
+
+16:08.800 --> 16:18.820
+And once it's finished running We'll look at all the time dubbed perf counters.
+
+16:21.080 --> 16:28.720
+And post-cancer has an underscore kind of counter.
+
+16:28.740 --> 16:33.900
+And then we will print and minus.
+
+16:35.430 --> 16:40.620
+And maybe we'll even print this year saying this is for the equality.
+
+16:41.690 --> 16:49.350
+All right so this is going to run basically that equality operator ten million times.
+
+16:49.500 --> 16:51.060
+This is only going to run once.
+
+16:51.090 --> 16:51.390
+Right.
+
+16:51.380 --> 16:54.240
+Not 10 million times just the equality operator.
+
+16:54.240 --> 17:01.140
+So it's not like we're timing creating you know these two strings 10 million times and the same thing's
+
+17:01.140 --> 17:02.040
+going to happen here.
+
+17:02.040 --> 17:07.990
+The majority of the time is going to be taken by these two loops.
+
+17:08.360 --> 17:12.930
+So let's run it and let's see what it doesn't like.
+
+17:13.160 --> 17:19.520
+Compare using equals compare using equals as have a typos on the
+
+17:23.270 --> 17:24.020
+go.
+
+17:24.430 --> 17:27.720
+Now we can run it.
+
+17:27.900 --> 17:29.310
+Let's go take a little while.
+
+17:29.580 --> 17:30.010
+OK.
+
+17:30.060 --> 17:30.510
+There we go.
+
+17:30.510 --> 17:33.420
+Three point nine three nine seconds OK.
+
+17:33.510 --> 17:35.350
+That's how long it took to run.
+
+17:35.490 --> 17:37.930
+So now we're going to do the same thing.
+
+17:37.950 --> 17:42.540
+So we're going to copy paste but I'm not going to use copy using equals.
+
+17:42.540 --> 17:46.050
+We're going to say copy using interning.
+
+17:46.260 --> 17:47.150
+OK.
+
+17:47.610 --> 17:49.870
+So we're going to run it again 10 million times.
+
+17:49.920 --> 17:54.810
+We'll do a pot counter at the beginning of our at the end and then we'll take a look at the number of
+
+17:55.110 --> 18:01.760
+seconds that have elapsed and there you go Zero Point 3 8.
+
+18:02.070 --> 18:07.830
+So that's why I wanted a big number I wanted to show you kind of a more drastic difference right between
+
+18:07.830 --> 18:08.530
+the two.
+
+18:08.700 --> 18:14.310
+But still you can see that when you are doing lounge numbers of comparisons of strings you're better
+
+18:14.310 --> 18:20.670
+off in turning right and then doing the equality comparison.
+
+18:20.670 --> 18:23.610
+Now of course intoning takes a certain amount of time.
+
+18:23.640 --> 18:23.990
+Right.
+
+18:23.990 --> 18:26.720
+It takes a certain amount of effort to do the turning.
+
+18:26.730 --> 18:33.870
+So if you're going to be loading let's say 10 million strings and comparing each string once.
+
+18:34.290 --> 18:39.000
+Well I don't know that you're going to gain much speed by doing and turning right.
+
+18:39.150 --> 18:44.100
+But if you're loading 10 million strings and you're going to do you know millions and hundreds of millions
+
+18:44.160 --> 18:51.510
+of you know are comparisons between those strings then start considering and turning right even if you're
+
+18:51.510 --> 18:52.970
+loading you know a thousand strings.
+
+18:52.980 --> 18:59.290
+But you know you're going to do you know five 10 15 million comparisons between those strings.
+
+18:59.370 --> 18:59.850
+Right.
+
+18:59.880 --> 19:01.540
+Then think about string and turning.
+
+19:01.620 --> 19:06.130
+But if all you're going to do is do a one time comparison between two strings.
+
+19:06.150 --> 19:08.090
+There's no point in turning then.
+
+19:08.330 --> 19:08.700
+OK.
+
+19:08.880 --> 19:09.180
+All right.
+
+19:09.180 --> 19:11.060
+Thanks for watching and I'll see you in the next video.

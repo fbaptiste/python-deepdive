@@ -1,0 +1,1585 @@
+WEBVTT
+
+00:00.540 --> 00:01.110
+Hi.
+
+00:01.410 --> 00:04.710
+So here let's jump into the code for the operating module.
+
+00:05.670 --> 00:10.840
+So the first thing is we're going to have to import the operator module so we can simply do an import
+
+00:10.900 --> 00:13.220
+operator to import the entire module.
+
+00:13.360 --> 00:18.520
+If you just want specific items from operator just you know say from operator import whatever you want
+
+00:18.520 --> 00:19.590
+to import.
+
+00:19.990 --> 00:25.150
+So however you want to do it you can also look at what's inside you can do a help an operator or you
+
+00:25.150 --> 00:32.920
+can do a door to see all the attributes and you can see the ones that we've talked about in the lecture
+
+00:32.920 --> 00:33.660
+we have.
+
+00:33.660 --> 00:40.320
+And there's an absolute value you have the and that the boolean and good attribute getter concat contains
+
+00:40.330 --> 00:42.170
+count of the lead item.
+
+00:42.250 --> 00:45.890
+You know the quality equals equals Q floor.
+
+00:45.940 --> 00:48.840
+And so on are a bunch of others as well.
+
+00:49.070 --> 00:52.030
+Um you know you've got the floor the version you have now.
+
+00:52.030 --> 00:56.280
+These ones with like I power or I add.
+
+00:56.470 --> 01:00.560
+And so on will look at that later in the section on object to programming.
+
+01:00.580 --> 01:02.050
+These are basically the In-Place.
+
+01:02.080 --> 01:07.620
+So for example I add is the equivalent functional equivalent to the plus equals operator.
+
+01:08.020 --> 01:14.650
+And of course these actually although we think that they behave like a equals a plus one the plus equals
+
+01:14.650 --> 01:19.330
+actually can behave a little differently and we'll get into the details of that and to the nitty gritty
+
+01:19.330 --> 01:21.650
+details of that later on in the schools.
+
+01:21.790 --> 01:27.350
+But that's what those are and that's why you have the eye in front for the in-place operators.
+
+01:27.600 --> 01:30.130
+We have a bunch of other ones like I drew.
+
+01:30.150 --> 01:34.550
+Well I do but you also have Truda of which is the real division.
+
+01:34.780 --> 01:37.920
+You know you've got the ex-SO power and so on.
+
+01:38.230 --> 01:43.100
+So let's start taking a look at some of the arithmetic operators just to see how it works.
+
+01:43.300 --> 01:48.360
+So for example if we want to add let's say two numbers while we can say one plus two.
+
+01:48.580 --> 01:48.950
+Right.
+
+01:48.960 --> 01:52.120
+We can write it that way I can type it one plus two.
+
+01:52.360 --> 02:01.560
+But we also call it using a Mefford using a function I should say operator dot and one comma too.
+
+02:01.960 --> 02:04.600
+And that returns the sum of 1 and 2.
+
+02:04.600 --> 02:10.480
+So it's just a functional equivalent to the plus we have that for multiplication so we can say uprated
+
+02:10.750 --> 02:11.580
+no.
+
+02:12.010 --> 02:14.810
+Let's say two and three that will get six.
+
+02:14.920 --> 02:21.270
+You can do operator dog true division 3 and two that will give us 1.5.
+
+02:21.280 --> 02:29.560
+You can say uprated that the flow division let's say 13 and 2 that should return 6.
+
+02:29.560 --> 02:30.240
+All right.
+
+02:30.280 --> 02:31.150
+Twenty six.
+
+02:31.150 --> 02:34.650
+That's the same thing as saying 13 Div 2.
+
+02:35.410 --> 02:37.830
+So you have the Mod operator and so on.
+
+02:37.900 --> 02:41.630
+So there's a bunch of these arithmetic operators that are available.
+
+02:41.710 --> 02:44.520
+You can certainly look at the documentation see what's there.
+
+02:44.530 --> 02:47.350
+What does do the door or help on the model.
+
+02:47.440 --> 02:50.080
+And you'll get information there as well.
+
+02:50.170 --> 02:54.280
+So why this where it can be useful.
+
+02:54.280 --> 02:58.110
+Well think back to what we did in The Last Lecture.
+
+02:58.150 --> 03:03.670
+Well not this lecture on the operating model but on the higher order functions than the reduce for example
+
+03:03.700 --> 03:04.420
+the math.
+
+03:04.570 --> 03:05.080
+Right.
+
+03:05.080 --> 03:10.470
+We were passing in functions and we were creating all our own lambdas to add two things together or
+
+03:10.510 --> 03:13.860
+to multiply two things together two variables together.
+
+03:13.990 --> 03:15.340
+So let's see how we might use them.
+
+03:15.370 --> 03:22.510
+So let's go ahead and from fun tools let's just reduce what we need from there.
+
+03:22.720 --> 03:27.740
+So let's import that and let's think back to one of the previous examples.
+
+03:27.820 --> 03:29.700
+Very simple.
+
+03:29.950 --> 03:33.280
+We want to let's say multiply all the items in a list.
+
+03:33.370 --> 03:33.610
+Right.
+
+03:33.610 --> 03:41.530
+So we created a lambda that took in two parameters x and y and it just returned X times Y and then we
+
+03:41.530 --> 03:45.470
+passed in a list that's a 1 2 3 and 4 right.
+
+03:45.640 --> 03:51.210
+And this gave us 1 times 2 which is 2 times 3 which is 6 times 4 which is 24.
+
+03:51.400 --> 03:52.840
+So we have 24.
+
+03:53.010 --> 03:55.900
+So think back to the lecture that we had on Reduce.
+
+03:56.290 --> 04:00.000
+But you'll notice that we had to create this lambda function here.
+
+04:00.130 --> 04:07.040
+And all it really did was really make a functional equivalent of the multiplication operator.
+
+04:07.450 --> 04:09.940
+Well that's what the operator module gives us.
+
+04:09.970 --> 04:11.910
+So we don't have to do that.
+
+04:11.920 --> 04:19.180
+Instead we can just say operator dot Moe and they will pass in one two three and four as well and we
+
+04:19.180 --> 04:20.600
+get the same result.
+
+04:20.620 --> 04:22.850
+So you can see where this might be useful.
+
+04:22.870 --> 04:28.330
+Basically it gives you a functional equivalent so you can use that wherever you would need that functionally
+
+04:28.330 --> 04:28.840
+equivalent.
+
+04:28.840 --> 04:32.530
+You don't have to write your own death you know definition for a function.
+
+04:32.600 --> 04:36.680
+Your own def will lambda however you want to do it.
+
+04:36.690 --> 04:39.030
+Now we also have comparison operators.
+
+04:39.060 --> 04:43.920
+So again you could say operator less than is 10 less than three.
+
+04:43.920 --> 04:44.870
+The answer is false.
+
+04:44.880 --> 04:45.120
+Right.
+
+04:45.120 --> 04:47.130
+Ten is not less than three.
+
+04:47.610 --> 04:48.980
+You also have the is.
+
+04:49.230 --> 04:53.850
+Now that is of course is going to be with the under school.
+
+04:54.090 --> 04:57.220
+So it doesn't clash with the built in is function.
+
+04:58.050 --> 05:00.930
+And the reason why you might think well how can a clash.
+
+05:00.930 --> 05:01.150
+Right.
+
+05:01.170 --> 05:02.870
+I'm saying operator that is.
+
+05:03.020 --> 05:06.190
+Well remember you can say from operator.
+
+05:06.520 --> 05:08.860
+Import is.
+
+05:08.940 --> 05:13.680
+And now I can just use is by itself I don't have to prefix it with operator because I've imported it
+
+05:13.680 --> 05:14.440
+directly.
+
+05:14.670 --> 05:22.190
+If the name had been is then that's going to clash with the built in is an operator in Python.
+
+05:22.230 --> 05:28.080
+So is let's say is ABC the same as the f.
+
+05:28.080 --> 05:30.290
+And of course the answer would be false.
+
+05:30.330 --> 05:30.860
+Right.
+
+05:30.870 --> 05:36.090
+What about is of ABC and ABC.
+
+05:36.450 --> 05:42.710
+I remember about interning all the way back to the beginning of the Cause remember about Python intoning
+
+05:42.750 --> 05:43.890
+strings for us.
+
+05:43.890 --> 05:48.620
+So in this case ABC and ABC are indeed the same object not just the same values.
+
+05:50.490 --> 05:57.720
+You can also look at the truthiness or there's a doctrine function so you can say operator dark truth
+
+05:58.170 --> 06:04.320
+and you pass and let's say an empty list that should get us false empty lists or falsie and you can
+
+06:04.320 --> 06:06.150
+do the same thing.
+
+06:06.240 --> 06:12.170
+But passing in let's say a list that has at least one element and then the values.
+
+06:12.170 --> 06:17.830
+Truth is truth because it has a NLM that's not an empty list.
+
+06:18.650 --> 06:21.270
+OK so that's those are pretty straightforward right.
+
+06:21.270 --> 06:24.600
+They're just functional equivalent to what we've seen before.
+
+06:25.320 --> 06:31.410
+So let's look at attribute an element getters and setters because those can be a little bit more interesting
+
+06:32.010 --> 06:34.630
+and a little bit more complicated as well.
+
+06:34.740 --> 06:36.120
+So let's start with a list.
+
+06:36.180 --> 06:39.170
+Let's say my list equals 1 2 3 4.
+
+06:39.330 --> 06:40.040
+OK.
+
+06:40.410 --> 06:45.760
+Now I've got this list and I can request an element at a specific index.
+
+06:46.220 --> 06:47.130
+That's a sequence type.
+
+06:47.130 --> 06:52.330
+So let's say I want my list are at and I want the element that index 1.
+
+06:52.410 --> 06:54.030
+Well let's return to.
+
+06:54.040 --> 06:54.310
+Right.
+
+06:54.340 --> 06:56.300
+It's this element right here.
+
+06:56.730 --> 06:57.430
+OK.
+
+06:57.660 --> 07:02.980
+Now sometimes though we need to be able to do this using kind of more of a functional call.
+
+07:03.450 --> 07:04.520
+So how do we do that.
+
+07:04.560 --> 07:09.100
+Well that's by using the Get item in the function in the operator module.
+
+07:09.120 --> 07:17.460
+So we would say operator doglegs item and get item is going to be it's going to take my list and I want
+
+07:17.460 --> 07:18.580
+item number one.
+
+07:18.690 --> 07:22.640
+So at index 1 and we get 2 so we get the same thing.
+
+07:22.650 --> 07:27.730
+So this and this are essentially equivalent.
+
+07:28.250 --> 07:32.710
+Now if the sequence is mutable we can also set or remove items.
+
+07:32.750 --> 07:34.800
+So the same thing can be done here.
+
+07:35.000 --> 07:38.120
+So let's say we want to save my list.
+
+07:38.120 --> 07:39.440
+Now this is immutable right.
+
+07:39.440 --> 07:40.780
+It's a list that's mutable.
+
+07:40.790 --> 07:44.390
+So I can set my list to 100.
+
+07:44.390 --> 07:51.590
+Right now I can print my list out and you can see that we changed the second element to 100 while we
+
+07:51.590 --> 07:58.850
+can also go ahead and delete something so we can say delete my list 3 so we'll delete the last item
+
+07:58.850 --> 07:59.150
+right.
+
+07:59.150 --> 08:01.990
+0 1 2 3 we're going to delete the last item.
+
+08:02.120 --> 08:05.260
+So now if we look at my list we're left with one.
+
+08:05.260 --> 08:07.990
+One hundred and three we deleted four from there.
+
+08:08.030 --> 08:10.620
+So these are operations that we can do on sequences.
+
+08:10.760 --> 08:14.150
+We'll come back to them when we do sequence times in more detail.
+
+08:14.630 --> 08:20.460
+But of course we can do the same operations using the operator models functions.
+
+08:20.780 --> 08:26.750
+So here let me redefine my list again equal to we'll start with the same list as before.
+
+08:26.770 --> 08:29.570
+One two three four but now I'm going to say.
+
+08:29.570 --> 08:30.470
+Operator.
+
+08:30.680 --> 08:31.830
+Dark set.
+
+08:32.480 --> 08:35.080
+So I want to set an item on my list.
+
+08:35.180 --> 08:36.500
+I want to set the.
+
+08:36.530 --> 08:37.310
+Which item.
+
+08:37.310 --> 08:44.800
+We set the item number one that index 1 so 1 and we set it to a value of 100.
+
+08:44.990 --> 08:47.150
+So let's go ahead and do that.
+
+08:47.360 --> 08:49.610
+And now let's print this out again.
+
+08:49.610 --> 08:51.500
+And as you can see just as before.
+
+08:51.620 --> 08:54.600
+Now we have 100 in the second position.
+
+08:54.730 --> 08:57.570
+We also delete an item using the same technique.
+
+08:57.580 --> 09:01.570
+So the operators dart the lead item.
+
+09:01.580 --> 09:08.120
+Now we want to delete an item from my list and we want to delete the last item in this case it was position
+
+09:08.120 --> 09:09.310
+number three.
+
+09:09.500 --> 09:17.610
+So we yeah I can type.
+
+09:18.190 --> 09:19.480
+Eventually I'll get it right.
+
+09:19.710 --> 09:20.230
+There we go.
+
+09:20.240 --> 09:25.220
+Operator dot Del item is the lead item from my list at position 3.
+
+09:25.540 --> 09:31.240
+So now if you look at my list or do we have we have the same thing as before we actually remove the
+
+09:31.240 --> 09:32.820
+last element.
+
+09:32.830 --> 09:37.420
+So again these are functional equivalent to what we're doing here with indexing.
+
+09:37.510 --> 09:37.810
+Right.
+
+09:37.840 --> 09:43.780
+And either getting or setting these values OK.
+
+09:43.870 --> 09:52.570
+So we did the said item the lead item and get item but the get item returns a value it actually takes
+
+09:52.750 --> 09:58.780
+two parameters it takes the object the sequence type we're interested in and the index that we're interested
+
+09:58.780 --> 10:02.970
+in and returns the actual element at that position.
+
+10:03.100 --> 10:07.750
+Right so it returns the value of the value of course could be a function if your sequence happens to
+
+10:07.750 --> 10:08.620
+contain functions.
+
+10:08.640 --> 10:10.470
+While it will return a function right.
+
+10:10.600 --> 10:12.910
+But it's going to return that element.
+
+10:12.910 --> 10:18.020
+So there is a thing where if you think back to partial functions that we did before.
+
+10:18.070 --> 10:18.610
+Right.
+
+10:18.610 --> 10:21.850
+So get item requires two arguments.
+
+10:21.850 --> 10:27.970
+It requires the object and requires the index while we have this thing in the operating module called
+
+10:27.970 --> 10:29.100
+the item getter.
+
+10:29.200 --> 10:35.830
+So I get to think of it as a partial function which will you specify the index but you don't specify
+
+10:36.160 --> 10:39.220
+the list so that will come later.
+
+10:39.280 --> 10:42.590
+So that's why we can think of this as a partial.
+
+10:42.590 --> 10:44.490
+Essentially how do we do this.
+
+10:44.740 --> 10:52.170
+Let's go ahead and I'm going to assign it to a variable for now so we can say operator Dark's item getter.
+
+10:52.390 --> 10:58.820
+So item getter is something that will get an item and it will get the item at position 2.
+
+10:59.230 --> 11:03.870
+But of course if you look at f f is a function right.
+
+11:03.880 --> 11:05.960
+F is not a value.
+
+11:06.130 --> 11:07.510
+It's actually a function
+
+11:10.400 --> 11:11.970
+it's an operator item getter.
+
+11:12.010 --> 11:14.250
+But that's a that's a type function.
+
+11:14.260 --> 11:15.990
+So it's a callable essentially.
+
+11:16.000 --> 11:21.600
+So we need to call it but we can't call it with nothing that's going to say Well no because I didn't
+
+11:21.670 --> 11:24.340
+get her expected one argument and got zero.
+
+11:24.550 --> 11:24.880
+Yes.
+
+11:24.880 --> 11:29.360
+Remember if it's a partial function it still needs this object.
+
+11:29.470 --> 11:40.720
+So let's go ahead and let's redefine my list again and let's say we want to get half of my list and
+
+11:40.720 --> 11:41.400
+we get 3.
+
+11:41.410 --> 11:44.500
+Because remember what was f it was I didn't get it too.
+
+11:44.500 --> 11:46.910
+So 0 1 2 is the value 3.
+
+11:46.930 --> 11:48.740
+So that's what got returned.
+
+11:48.820 --> 11:57.270
+Now of course if we have as equals python we can say half of pass and we'll regret t 0 1 2.
+
+11:57.280 --> 11:57.880
+Right.
+
+11:57.880 --> 12:05.800
+This is the item at position 2 so item get a f. we'll get the element at position 2 for whatever gets
+
+12:05.800 --> 12:06.950
+passed in.
+
+12:07.480 --> 12:12.760
+So this can be quite useful we'll see that when we look at some examples of how to apply this let's
+
+12:12.760 --> 12:14.350
+say to solving.
+
+12:14.380 --> 12:14.610
+Right.
+
+12:14.620 --> 12:16.120
+And we'll see where that's useful.
+
+12:19.650 --> 12:24.240
+The next thing also that I want to point out with item getter that we saw in the lecture is that you
+
+12:24.240 --> 12:27.780
+can have more than one argument an item getter.
+
+12:27.780 --> 12:29.970
+It takes a variable number of arguments.
+
+12:30.000 --> 12:31.210
+So let's take a look.
+
+12:31.320 --> 12:36.880
+Let's say that F equals operator dot item getter.
+
+12:37.140 --> 12:41.810
+And let's say we want item number at position to an item at position 3.
+
+12:42.150 --> 12:47.700
+So again if we look at the type of aircraft it's not a value it's a function it's a callable right.
+
+12:47.730 --> 12:54.330
+It's an item get a callable and it's now still waiting to be called with whatever object we want to
+
+12:54.330 --> 12:54.880
+pass it.
+
+12:54.930 --> 12:59.520
+So let's say we say my list equals 1 2 3 4.
+
+12:59.720 --> 13:00.360
+OK.
+
+13:00.810 --> 13:09.310
+And now we can call half of my list and we get the 2 pool 3 and 4 because we got items 2 and 3 right.
+
+13:09.480 --> 13:14.880
+If I did items 1 2 and 3 then we'd get 2 3 and 4.
+
+13:15.180 --> 13:15.540
+Right.
+
+13:15.540 --> 13:17.850
+So we can pass in as many as we want.
+
+13:17.850 --> 13:25.990
+Obviously if you pass in more let's say I say I want you know 2 3 and 4 right.
+
+13:26.040 --> 13:31.800
+Then when we apply it to him we're going to get an index out of range because two and three are OK but
+
+13:31.800 --> 13:33.120
+four is not.
+
+13:33.120 --> 13:35.350
+So just be careful with that right.
+
+13:35.520 --> 13:36.900
+There's no magic here.
+
+13:36.910 --> 13:38.990
+The owner was not available for that to fail.
+
+13:41.120 --> 13:41.560
+OK.
+
+13:41.690 --> 13:47.090
+So let's go back to one is to send it back to two and three.
+
+13:47.740 --> 13:47.990
+Get
+
+13:50.750 --> 13:55.390
+and of course if we apply this to you know we apply this to my lists.
+
+13:55.460 --> 13:56.000
+Right.
+
+13:56.090 --> 13:58.180
+We did that and we got items three and four.
+
+13:58.190 --> 14:05.510
+But of course we can apply this to a string and we can say as applied to Python that will give us TMH.
+
+14:05.630 --> 14:05.950
+Right.
+
+14:05.960 --> 14:13.380
+It's the same thing it's just whatever sequence type gets passed in now the attribute getter that we
+
+14:13.380 --> 14:16.820
+saw in the lecture works it's kind of similar to item get.
+
+14:16.830 --> 14:18.320
+But I didn't get it if you think about it.
+
+14:18.330 --> 14:23.820
+It's taking an index attribute get her on the other hand is going to work with objects and it's going
+
+14:23.820 --> 14:25.750
+to look for attribute names.
+
+14:25.800 --> 14:32.330
+So it's going to basically taking strings as parameters not integers which are presenting indices.
+
+14:32.370 --> 14:36.660
+So let's talk about and let's define a very simple class.
+
+14:37.230 --> 14:44.120
+Let's say my class and we're going to initialize the class arm.
+
+14:44.130 --> 14:55.840
+So in the arm when we're initialising we'll create three properties a b and c sets to 10 20 and 30 respectively.
+
+14:56.200 --> 14:56.730
+OK.
+
+14:56.970 --> 14:58.580
+So that's that.
+
+14:58.590 --> 15:00.180
+And then we also go into the fine.
+
+15:00.180 --> 15:05.000
+So now this class has three attributes which are properties A B and C..
+
+15:05.070 --> 15:11.940
+We're also going to create one more attribute which is going to be a method and it's just going to do
+
+15:12.000 --> 15:16.000
+this going to say test method running.
+
+15:16.740 --> 15:17.130
+OK.
+
+15:17.250 --> 15:18.660
+So that's all that method does.
+
+15:18.660 --> 15:23.400
+It's just going to print out test method running so very very simple class.
+
+15:23.400 --> 15:29.850
+Now let's see how we might be able to retrieve those values invoke that function using the attribute
+
+15:29.860 --> 15:34.620
+getter function in the module operator in the operator module sorry.
+
+15:35.250 --> 15:41.090
+So let's go ahead and create an object because an instance of my class.
+
+15:41.100 --> 15:42.600
+So now we have object.
+
+15:42.700 --> 15:49.650
+So object is an instance of my class and it has properties like a.
+
+15:49.770 --> 15:51.610
+It has a property like B.
+
+15:51.690 --> 15:52.230
+Right.
+
+15:52.260 --> 15:55.730
+It also has a property called first.
+
+15:56.070 --> 15:56.520
+Right.
+
+15:56.550 --> 16:02.700
+And you can see it's just telling you hey this is a bound method of my class that test to this object
+
+16:02.880 --> 16:03.790
+object.
+
+16:03.940 --> 16:04.170
+Right.
+
+16:04.190 --> 16:06.270
+So it's an instance method.
+
+16:06.270 --> 16:07.110
+It hasn't call it.
+
+16:07.110 --> 16:10.130
+You'll notice that it just tells me hey this is what God returned.
+
+16:10.140 --> 16:12.710
+Test is callable in order to call it.
+
+16:12.780 --> 16:14.860
+I have to put these parentheses in.
+
+16:14.940 --> 16:16.450
+Now I'd call that method.
+
+16:16.560 --> 16:18.820
+And now we can see test method running.
+
+16:19.110 --> 16:24.290
+So I just wanted to really point out the difference between this and this.
+
+16:24.300 --> 16:28.550
+This returns the method this calls the method.
+
+16:28.550 --> 16:29.200
+OK.
+
+16:30.150 --> 16:38.300
+So now let's see how we might do that using the operator model using the attributes.
+
+16:38.830 --> 16:42.600
+So attribute it takes a string as a parameter.
+
+16:43.020 --> 16:46.050
+And in this case I know that I have an attribute called a.
+
+16:46.110 --> 16:51.360
+So I'm just going to pass in this string and the string will contain the name of the attribute that
+
+16:51.360 --> 16:54.150
+I'm looking for in this case the Prop. 8.
+
+16:54.450 --> 16:56.640
+If I do that I'm going to get this.
+
+16:56.640 --> 17:04.740
+Now this is a callable right because as I specified which object I want to get the attribute a full
+
+17:05.210 --> 17:06.040
+note.
+
+17:06.240 --> 17:07.710
+So this is like item get.
+
+17:07.920 --> 17:09.570
+It's returning a callable.
+
+17:09.570 --> 17:10.950
+This thing is a callable.
+
+17:10.980 --> 17:14.670
+It needs to know which object you want to apply this to.
+
+17:14.670 --> 17:16.590
+So let's go ahead and give it a name.
+
+17:16.890 --> 17:19.890
+Let's say Property A.
+
+17:20.040 --> 17:21.560
+OK let's call it that.
+
+17:21.770 --> 17:28.320
+Now I need to call it but I need to call it telling it which object I'm interested in.
+
+17:28.320 --> 17:31.300
+I'm going to tell it while I'm interested in Object RBJ.
+
+17:31.640 --> 17:35.570
+And so when I do that now I get the value turned back.
+
+17:35.840 --> 17:36.370
+OK.
+
+17:36.540 --> 17:38.670
+Obviously I cannot call it this way.
+
+17:38.670 --> 17:40.850
+It will complain say no you can't.
+
+17:40.980 --> 17:42.870
+Just like we saw with item Geter.
+
+17:43.080 --> 17:45.180
+So attribute getter is no different.
+
+17:45.180 --> 17:47.310
+I have to tell it which object.
+
+17:47.580 --> 17:54.130
+So you might say well why you know I mean why why can't I just say you know RBJ dot a.
+
+17:54.450 --> 18:00.380
+Well what happens if let's say the property name right or the property that you're interested in returning
+
+18:00.390 --> 18:03.470
+let's say in your program is dependent on something else.
+
+18:03.480 --> 18:07.480
+Maybe it's stored in a variable and the variable contains the property name.
+
+18:07.500 --> 18:10.290
+So let's say my VAR equals B.
+
+18:10.590 --> 18:13.000
+And now I want to return an object docked.
+
+18:13.020 --> 18:14.240
+Well what can I do.
+
+18:14.240 --> 18:15.420
+Can I say object.
+
+18:15.590 --> 18:16.750
+Doc MAIAVA.
+
+18:17.130 --> 18:20.740
+Well the answer is no because my class right.
+
+18:20.910 --> 18:24.960
+Object right doesn't have a property called my VAR vault.
+
+18:24.960 --> 18:30.800
+Python is looking for a property called my dislike when I say it's looking for a property called a.
+
+18:30.960 --> 18:32.340
+So I can't do that.
+
+18:32.340 --> 18:38.970
+Instead what I could do though is I could do it this way I can use the attribute getter attribute get
+
+18:39.030 --> 18:40.070
+just once a string.
+
+18:40.110 --> 18:44.900
+So that's OK I'm giving it the string and that's now going to return.
+
+18:44.900 --> 18:50.910
+You can see attribute get a B it's the same thing as if I typed in and hardcoded the value being there
+
+18:51.240 --> 18:55.490
+except now the property name I'm interested in is stored in a variable.
+
+18:55.650 --> 18:58.160
+So that could be useful in certain circumstances.
+
+18:58.320 --> 19:01.750
+Now obviously this doesn't actually get cold.
+
+19:01.770 --> 19:07.750
+It's a callable and I need to tell it which object I'm interested in when I actually want to get there
+
+19:07.830 --> 19:16.160
+so I can either call it directly sway or if I want and I need to read it multiple times I may say property
+
+19:16.210 --> 19:21.380
+be called property might that well actually property be in this case.
+
+19:22.050 --> 19:22.660
+OK.
+
+19:22.690 --> 19:25.180
+Because once the actual begetter is created.
+
+19:25.330 --> 19:32.230
+Be careful if you change by later on to see this attribute getter callable code probably isn't going
+
+19:32.230 --> 19:33.780
+to magically change.
+
+19:33.940 --> 19:34.330
+Right.
+
+19:34.420 --> 19:41.410
+So let's let's actually see that let's say Prop B of J K we get 20 back.
+
+19:41.410 --> 19:46.870
+Now let's say I set my vote equal to c k.
+
+19:47.200 --> 19:54.950
+So if I do that and I call Prop B of RBJ I'm not going to get the value for seabag which was 30.
+
+19:54.970 --> 19:56.930
+I'm still getting 20 back.
+
+19:56.980 --> 20:00.150
+So just be little bit aware of that.
+
+20:02.180 --> 20:03.720
+All right.
+
+20:04.100 --> 20:06.820
+Also attribute Geter can take in more than one.
+
+20:06.830 --> 20:11.470
+So we can look at operator the attributes together.
+
+20:11.600 --> 20:19.030
+Let's say a and b applied to object B to object or B J and we get 10 and 20 back.
+
+20:19.070 --> 20:21.920
+So you can specify multiple things.
+
+20:21.920 --> 20:22.410
+Right.
+
+20:22.460 --> 20:26.100
+And if you want you could even say a comma be comma.
+
+20:26.210 --> 20:38.140
+And here I'm going to call it test equals and you're going to say I'm looking for the attribute test.
+
+20:38.300 --> 20:38.750
+OK.
+
+20:38.900 --> 20:46.080
+So a is 10 B is 20.
+
+20:46.290 --> 20:49.520
+And what's the first test is that method again.
+
+20:49.530 --> 20:51.840
+So we want we can call it like this.
+
+20:51.840 --> 20:52.230
+Right.
+
+20:52.380 --> 21:00.180
+But remember this test method here the callable here that's assigned to the variable name test is actually
+
+21:00.180 --> 21:06.500
+the test method that's bound to this object here because it was specific to that object.
+
+21:06.510 --> 21:12.200
+All right so of course a lot of that stuff you can do using Lander's as well.
+
+21:12.230 --> 21:17.790
+Right you could always say lambda X returns X dot 8.
+
+21:17.960 --> 21:18.280
+Right.
+
+21:18.320 --> 21:20.400
+And we give that a name right.
+
+21:20.420 --> 21:22.380
+And now we can say f r b j.
+
+21:22.550 --> 21:29.180
+You can do that as well in this way in this way as you know equivalently It's no different.
+
+21:29.180 --> 21:30.520
+Same thing with item getter.
+
+21:30.560 --> 21:35.270
+If you want you can say equals lambda X return x 2.
+
+21:35.360 --> 21:42.700
+For example snarfed X equals 1 2 3 4 looking for X that's greater than 3.
+
+21:43.010 --> 21:47.420
+Or maybe you wanted to do the same thing that I didn't get a double attribute get a does with multiple
+
+21:47.420 --> 21:48.380
+values.
+
+21:48.380 --> 21:51.870
+Well you could say something like this return X to an x 3.
+
+21:52.010 --> 21:52.310
+Right.
+
+21:52.310 --> 21:53.630
+So what are we going to return here.
+
+21:53.630 --> 21:56.950
+We're actually returning a tuple right.
+
+21:57.170 --> 21:59.000
+So define it this way.
+
+21:59.960 --> 22:05.610
+And now when I do that I get three full background I get items two and three.
+
+22:05.630 --> 22:09.600
+So obviously you can use your own lambda functions as well or what you want.
+
+22:09.650 --> 22:13.660
+In some cases though using the operator module might be a little easier.
+
+22:14.450 --> 22:17.280
+Let's look at a use case let's look at Sony.
+
+22:17.420 --> 22:24.860
+So let's look at soring where let's say we have complex numbers so we'll call the lecture on complex
+
+22:24.860 --> 22:25.250
+numbers.
+
+22:25.250 --> 22:26.640
+Let's say we have a complex number.
+
+22:26.660 --> 22:29.040
+April 5 plus 10 J.
+
+22:29.150 --> 22:33.380
+Right so is just this complex number here five plus 10 J.
+
+22:33.400 --> 22:39.310
+Now a has a real path which is fine also has an imaginary parent which is 10.
+
+22:39.320 --> 22:46.970
+So suppose we have a list that contains multiple complex numbers and we want to solve them based on
+
+22:46.970 --> 22:48.730
+the real path of the numbers.
+
+22:48.740 --> 22:53.160
+So we have five minus 10 J.
+
+22:53.300 --> 22:56.260
+We have three plus three J.
+
+22:56.870 --> 23:02.020
+And then maybe we have to minus 100 J K.
+
+23:02.300 --> 23:06.140
+So here we have this list and we want to sort L..
+
+23:06.290 --> 23:12.020
+Now we can just call sawder right because complex numbers don't support less than or greater than there's
+
+23:12.020 --> 23:13.300
+no way to do that.
+
+23:13.310 --> 23:18.800
+So we saw that what we could have done and we did that in the past before we use let's say the distance
+
+23:19.070 --> 23:22.340
+of the complex number from the origin.
+
+23:22.340 --> 23:24.490
+That was one way of sorting here.
+
+23:24.560 --> 23:27.620
+I just want to say that based on the real part.
+
+23:27.680 --> 23:34.700
+So I want Basically I want this to be sorted in increasing order based on the real power of 2 3 and
+
+23:34.700 --> 23:35.440
+5.
+
+23:35.720 --> 23:40.680
+So what should my key be what my key needs to be something that's going to return the real power.
+
+23:40.760 --> 23:45.710
+So I can certainly do this I can say X and then look at X got real.
+
+23:45.890 --> 23:52.180
+So now if we do that that's sort of properly as we expected to 3 and 5 nodes there.
+
+23:52.450 --> 23:55.140
+Of course we don't have to use lambda.
+
+23:55.520 --> 23:58.030
+Instead we can use the operator.
+
+23:58.310 --> 23:59.460
+And what are we looking for.
+
+23:59.480 --> 24:07.550
+Well in this case we're looking for the attribute called real so we can say attributes get real.
+
+24:07.550 --> 24:09.640
+That's another way of doing this.
+
+24:09.650 --> 24:14.740
+Now remember attribute getter returns are callable which is expecting the number to get.
+
+24:14.780 --> 24:15.850
+That's going to get passed then.
+
+24:15.850 --> 24:17.600
+Which is exactly what he wants.
+
+24:17.600 --> 24:22.680
+It wants a function here that takes a single parameter just like a lambda did.
+
+24:22.850 --> 24:26.800
+So if we do this we get the same result.
+
+24:26.810 --> 24:32.480
+Now you may also have another use case let's say you have a bunch of lists or a list that contains a
+
+24:32.480 --> 24:33.530
+bunch of tuples.
+
+24:33.590 --> 24:36.240
+Let's say for a bunch of lists doesn't matter.
+
+24:36.390 --> 24:42.270
+Let's say we have 2 3 4 1 3 5.
+
+24:42.470 --> 24:54.420
+Maybe we have 6 toes by itself and maybe we have all 4 and 100.
+
+24:54.530 --> 24:55.490
+OK.
+
+24:55.940 --> 25:02.830
+So this is our list and we want to sort these tuples based on the first item of each tuple.
+
+25:02.840 --> 25:05.580
+So again we can to say sorted L.
+
+25:05.770 --> 25:07.300
+Now our key would be what.
+
+25:07.310 --> 25:12.380
+Well if we wanted to use Alamdar we would say lambda X return x 0.
+
+25:12.380 --> 25:12.860
+Right.
+
+25:13.070 --> 25:17.620
+And so this will solve it according to the first element of each one.
+
+25:18.380 --> 25:21.900
+So that's perfectly fine but you can also use the operator module.
+
+25:22.160 --> 25:25.610
+You can use now.
+
+25:26.700 --> 25:27.740
+So what do we want.
+
+25:27.740 --> 25:29.590
+Well in this case we want items right.
+
+25:29.600 --> 25:37.060
+We want the item at position 0 so we want to use the item getter function and we want item get a 0.
+
+25:37.430 --> 25:42.750
+So when we do that we get the exact same result.
+
+25:42.830 --> 25:46.910
+So lastly I want to look at calling call obols again.
+
+25:46.940 --> 25:49.520
+Now we've seen that already before in this class.
+
+25:49.520 --> 25:54.470
+Remember we defined this class I'm going to copy this code will we use this.
+
+25:54.650 --> 26:01.790
+And then we were able to call the test method by using the duct notation but we did the same thing by
+
+26:02.030 --> 26:04.810
+basically extracting it using attribute together.
+
+26:05.000 --> 26:08.770
+And to you know this third element of the tuple.
+
+26:08.870 --> 26:13.680
+So let me just clean that up a little bit make it a little clearer.
+
+26:14.180 --> 26:21.590
+OK so here's my class and now I'm going to say RBJ pull from an instance of my class and I'm going to
+
+26:21.590 --> 26:21.760
+say.
+
+26:21.760 --> 26:22.510
+Operator.
+
+26:22.570 --> 26:24.860
+Dark attributes Geter.
+
+26:25.100 --> 26:27.290
+We're going to retrieve the test attribute.
+
+26:27.290 --> 26:29.570
+I'm going to call this F right.
+
+26:29.570 --> 26:36.060
+That's now the test method that was bound to whatever's going to be passed into F..
+
+26:36.080 --> 26:42.210
+So now half of RBJ is returning what it's returning that bound test method.
+
+26:42.330 --> 26:43.950
+Just like we saw before.
+
+26:44.060 --> 26:46.310
+Now I need to call it.
+
+26:46.360 --> 26:48.050
+I need to do it this way.
+
+26:48.380 --> 26:50.460
+Test method running.
+
+26:51.320 --> 26:55.970
+So alternatively if we want to call it at the same time instead of using this kind of more convoluted
+
+26:55.970 --> 27:00.320
+syntax we can use the operator method caller.
+
+27:01.480 --> 27:01.830
+Right.
+
+27:01.840 --> 27:02.890
+And so what do we want.
+
+27:02.890 --> 27:05.800
+We want to call the test method.
+
+27:05.800 --> 27:08.680
+Now this is going to be callable.
+
+27:08.770 --> 27:09.300
+Right.
+
+27:09.340 --> 27:14.620
+So this is going to return a callable that expects what works the least know the object.
+
+27:14.640 --> 27:14.900
+Right.
+
+27:14.980 --> 27:21.910
+So now we can call f of object and that will actually run the test method as opposed to just returning
+
+27:21.910 --> 27:25.550
+it which is what attribute get it did right when we said F of object.
+
+27:25.600 --> 27:31.660
+We actually got the method back here where we say F of object because we use method caller basically
+
+27:31.660 --> 27:36.110
+Python put in this thing and actually called the method for us.
+
+27:36.830 --> 27:41.270
+Now you can also pass in parameters extra parameters.
+
+27:41.290 --> 27:47.470
+Let's say that this method here test requires an extra parameter then that might be a problem.
+
+27:47.470 --> 27:48.990
+How are you going to pass that in.
+
+27:49.060 --> 27:50.440
+And let's see what I mean by that.
+
+27:50.440 --> 27:56.620
+So let's go ahead and we have this test method and let's say it needs another
+
+27:58.900 --> 27:59.700
+parameter.
+
+27:59.740 --> 28:01.180
+And then here what are we going to print.
+
+28:01.180 --> 28:06.140
+We're going to print self-taught a self-taught B.
+
+28:06.470 --> 28:09.400
+Well let me change that as well.
+
+28:09.400 --> 28:13.280
+So now this class will only have two properties A and B.
+
+28:13.450 --> 28:15.740
+And then we'll print C K.
+
+28:16.030 --> 28:18.310
+So if we run all this again.
+
+28:18.400 --> 28:20.530
+Get rid of all this.
+
+28:20.530 --> 28:23.330
+Now we can say RBJ that a.
+
+28:23.390 --> 28:23.670
+Right.
+
+28:23.680 --> 28:28.020
+That's 10 object B's property is 20.
+
+28:28.210 --> 28:36.120
+And now if we call object dot test it needs an extra parameter we call it just this way it says no no
+
+28:36.130 --> 28:37.650
+you need an extra parameter.
+
+28:37.870 --> 28:40.070
+So let's say we call it with 100.
+
+28:40.210 --> 28:46.880
+Then you can see it printed out 10 and 20 which was the built in a and b and 100 as well.
+
+28:48.120 --> 28:56.310
+So let's say now that we want to do this what we did here calling this method but using the method call
+
+28:56.310 --> 28:58.560
+a function in the operator module.
+
+28:58.560 --> 28:59.870
+How would we do that.
+
+29:00.150 --> 29:01.800
+Well let's try it.
+
+29:01.980 --> 29:11.640
+Let's say that we say operator Dark's method called We want to call test and we're going to call it
+
+29:11.700 --> 29:13.570
+on the object.
+
+29:13.570 --> 29:14.080
+OK.
+
+29:14.250 --> 29:17.550
+So because object is the instance of my class.
+
+29:17.850 --> 29:22.920
+But if we do that right we're going to get the same error that we had before.
+
+29:22.920 --> 29:25.060
+It requires one rule.
+
+29:25.290 --> 29:28.040
+There's one missing required positional argument.
+
+29:28.050 --> 29:30.930
+We provided see how do we do it.
+
+29:30.930 --> 29:32.160
+Where do we pass it.
+
+29:32.370 --> 29:33.960
+Well method caller is nice about it.
+
+29:33.960 --> 29:35.510
+It's going to take it right here.
+
+29:35.850 --> 29:41.480
+So if I put in a 100 then we're going to get what we had before 10 20 or 100.
+
+29:41.580 --> 29:44.120
+So basically it's going to take any arguments here.
+
+29:44.280 --> 29:46.870
+Let's say I had C and D.
+
+29:47.040 --> 29:47.820
+Right.
+
+29:47.880 --> 29:55.610
+So if I have that and we redo this then here I've got to pass in 100 comic 200 and it two values.
+
+29:55.600 --> 30:00.760
+Now we get that and I can achieve the same result using it this way.
+
+30:00.840 --> 30:02.310
+So that works as well.
+
+30:04.040 --> 30:10.140
+Now of course what happens if you have this and then we'll print as well.
+
+30:11.850 --> 30:13.200
+So how would we call this one.
+
+30:13.200 --> 30:17.430
+Well we need to pass in the two positions that are mandatory and their positions.
+
+30:17.430 --> 30:25.160
+So 10 and 200 and here however we have a mandatory key keyword argument.
+
+30:25.260 --> 30:28.210
+So we have to say p equals let's say 300.
+
+30:28.500 --> 30:32.000
+So when we do that we get 10 20 or 100 200 300.
+
+30:32.100 --> 30:35.210
+How about method color how would we do that there.
+
+30:35.460 --> 30:36.970
+Well very simply.
+
+30:37.230 --> 30:40.000
+E equals 300.
+
+30:40.020 --> 30:45.890
+So method is going to gather up an arbitrary number of arguments so basically it's looking at Star Wars
+
+30:46.260 --> 30:48.110
+and Star Star quolls.
+
+30:48.150 --> 30:48.540
+Right.
+
+30:48.600 --> 30:55.530
+He's going to collect those and then pass them out to this method His So when we run that we get the
+
+30:55.530 --> 30:56.400
+same thing.
+
+30:57.610 --> 31:03.780
+And of course you know we looked at method call but we also looked earlier at the attribute getter.
+
+31:04.000 --> 31:11.410
+So if we do it this way right let's say F equals operated of attributes together.
+
+31:12.160 --> 31:13.590
+Test OK.
+
+31:14.440 --> 31:15.160
+So
+
+31:17.920 --> 31:23.240
+we do that if we now say F off object we get this.
+
+31:23.260 --> 31:25.110
+Now we need to call it right.
+
+31:25.240 --> 31:32.320
+So we call it tells us hey you can't you're missing at least two positional requite arguments C and
+
+31:32.320 --> 31:36.490
+D and hasn't even realized that we're also missing the key word only argument.
+
+31:36.490 --> 31:38.230
+So how am I to do it.
+
+31:38.230 --> 31:40.790
+Well you could do it here right.
+
+31:40.990 --> 31:42.800
+But now I said all we need is well.
+
+31:42.850 --> 31:50.630
+So go ahead and say B equals 100 and you've got the same thing again but when you're using method call
+
+31:50.630 --> 31:52.970
+or remember colza method right away.
+
+31:53.110 --> 31:59.090
+So here you can delay passing in the parameters until after attribute getter has come back.
+
+31:59.090 --> 32:00.640
+It's called a ball here.
+
+32:00.670 --> 32:05.830
+You can't so it will take it in as extra parameters and pass them through.
+
+32:05.830 --> 32:07.140
+So that's quite neat.
+
+32:10.450 --> 32:17.530
+So if you want more information on that then certainly you can look at the documentation the built in
+
+32:17.530 --> 32:26.200
+you can do a help you can do it there but also suggest just going to this link right here.
+
+32:26.530 --> 32:32.390
+It has a lot of really useful information on the standard operators as functions in the operator module
+
+32:32.500 --> 32:34.270
+and it's pretty complete.
+
+32:34.300 --> 32:36.930
+There's a lot of information there.
+
+32:37.150 --> 32:38.980
+I suggest you look at that as well.
+
+32:38.980 --> 32:39.620
+All right.
+
+32:39.880 --> 32:42.610
+So thanks for watching and I'll see you in the next video.

@@ -1,0 +1,169 @@
+WEBVTT
+
+00:00.450 --> 00:01.080
+High.
+
+00:01.190 --> 00:07.050
+This section of the course we're going to look at functions now functions are first class functions
+
+00:07.110 --> 00:10.950
+all functions in Python are first class functions.
+
+00:10.950 --> 00:16.710
+What do we mean by first class First let's define what a fourth class object means.
+
+00:16.710 --> 00:20.150
+But just that's a pretty standard definition a.
+
+00:20.180 --> 00:25.400
+An object is a first class object if it has the following characteristics.
+
+00:25.410 --> 00:28.120
+It can be passed to a function as an argument.
+
+00:28.330 --> 00:28.590
+Right.
+
+00:28.620 --> 00:35.730
+An integer can be passed to function as an argument can be written from a function and an integer can
+
+00:35.730 --> 00:38.680
+also be returned from a function.
+
+00:38.780 --> 00:45.690
+It can be assigned to a variable all an integer can be assigned to a variable and it can be stored in
+
+00:45.690 --> 00:51.060
+a data structure such as a list or a topple you know any data structure that we have of course integers
+
+00:51.060 --> 00:54.370
+can be stored in lists and tables and dictionaries and so on.
+
+00:54.750 --> 00:59.680
+So any object that has these characteristics is called a first class object.
+
+00:59.850 --> 01:04.220
+So most of the objects we've seen actually all of the objects we've seen so far.
+
+01:04.380 --> 01:12.240
+Like ants and floats and lists and topples all these are first class objects but functions are also
+
+01:12.300 --> 01:13.530
+first class objects.
+
+01:13.560 --> 01:15.240
+First of all functions are objects.
+
+01:15.240 --> 01:16.420
+We've seen that before.
+
+01:16.590 --> 01:22.410
+But moreover they also have these characteristics a function can be passed to function as an argument
+
+01:22.830 --> 01:28.770
+function can be returned from a function a function can be assigned to a variable and a function can
+
+01:28.770 --> 01:30.520
+be stored in a data structure.
+
+01:30.630 --> 01:35.560
+So we can have you know an element in a list that happens to be a function.
+
+01:35.700 --> 01:41.850
+So that's possible as well so all functions in Python are first class objects and so we refer to them
+
+01:41.880 --> 01:50.760
+as first class citizens of first class functions higher order functions is another term that will come
+
+01:50.760 --> 01:52.740
+across and that's pretty straightforward.
+
+01:52.740 --> 01:58.570
+Higher order functions are simply functions that either take a function as an argument.
+
+01:58.680 --> 02:03.600
+So for example the simple timer that we wrote in the last section of the calls right.
+
+02:03.600 --> 02:07.570
+It was a function that ran another function and timed it.
+
+02:07.650 --> 02:10.890
+So it took that function that it was going to run as an argument.
+
+02:11.100 --> 02:17.160
+Therefore that timing function was a higher order function because it took in a function as an argument
+
+02:17.700 --> 02:21.890
+but a higher order function can also be a function that returns a function.
+
+02:22.080 --> 02:28.680
+Remember functions are first class objects so they can be passed to functions and they can be returned
+
+02:28.710 --> 02:29.780
+from functions.
+
+02:30.060 --> 02:37.530
+So a function that either takes in or returns a function is a a higher order function.
+
+02:37.950 --> 02:42.270
+And we haven't seen those yet but we're going to see that a lot especially when we cover decorators
+
+02:42.270 --> 02:48.150
+in the next section where we have functions that return functions and also when we look at closures
+
+02:48.150 --> 02:49.760
+and things like that.
+
+02:50.460 --> 02:56.920
+So some of the topics in this section we're going to focus on function annotations and documentation.
+
+02:57.180 --> 03:01.080
+Then we'll look at lambda expressions and anonymous functions.
+
+03:01.080 --> 03:07.080
+We'll look at call obols and really we're just going to redefine what is callable What are the different
+
+03:07.080 --> 03:08.770
+callable types in Python.
+
+03:09.060 --> 03:13.650
+And we'll take a look at that little bit of code as well then we'll look at function.
+
+03:13.670 --> 03:20.160
+Introspection that's kind of interesting this allows us to use code to look at the meta data essentially
+
+03:20.160 --> 03:20.830
+of a function.
+
+03:20.850 --> 03:25.850
+What are its parameters for example and other properties too.
+
+03:26.410 --> 03:31.050
+And then we'll look at some of the built in higher order functions like silted which allows us to sort
+
+03:31.290 --> 03:35.910
+things right so it rebels that we'll look at other things as well like map and filter.
+
+03:35.910 --> 03:39.220
+These are all built in functions that are higher order functions.
+
+03:39.240 --> 03:44.790
+We'll also look at the phunk tools module that has a lot of higher order functions as well.
+
+03:44.790 --> 03:49.500
+We'll look at some of them we'll look at reduce for example and we'll look at other ones like all and
+
+03:49.500 --> 03:51.420
+any as well.
+
+03:51.420 --> 03:56.340
+And then lastly we'll also look at something called Parshall's and Paschall methods and that's kind
+
+03:56.340 --> 03:59.650
+of interesting that allows us to do some interesting stuff.
+
+03:59.820 --> 04:02.930
+So we'll take a look at that at the end of the section.
+
+04:03.000 --> 04:05.350
+So thanks for watching and I'll see you in the next video.

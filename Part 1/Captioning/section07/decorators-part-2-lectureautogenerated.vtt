@@ -1,0 +1,478 @@
+WEBVTT
+
+00:00.540 --> 00:05.850
+High in this video we're going to continue looking at decorator's and in particular we're going to look
+
+00:05.850 --> 00:12.720
+at how to parameterize of decorator's we've seen already that Python has some built in decorator's that
+
+00:13.080 --> 00:19.080
+can take parameters for example the wraps decorator takes in a parameter of the function that we're
+
+00:19.230 --> 00:25.170
+decorating that allows us to copy some of the metadata over into the decorated function.
+
+00:25.170 --> 00:32.310
+We also saw that the LRU cache the memoization built in decorator can also take some parameters for
+
+00:32.310 --> 00:36.880
+example max size being the maximum size of the cache.
+
+00:36.900 --> 00:40.950
+Now that should look quite different from the decorator's that we've been creating.
+
+00:40.980 --> 00:44.060
+For example we've been creating this timed decorator's.
+
+00:44.310 --> 00:48.370
+And you'll notice that there's a major difference between those two.
+
+00:48.390 --> 00:50.380
+This is a function call.
+
+00:50.460 --> 00:56.760
+You can see the parentheses LRU cache parentheses and then the parameter that's a function call.
+
+00:56.760 --> 01:00.580
+Same thing with wraps wraps parameter parentheses.
+
+01:00.600 --> 01:03.590
+And then the parameter that's again a function call.
+
+01:03.600 --> 01:10.340
+This is very different from our decorator which doesn't take any functions which doesn't take any Presario
+
+01:10.350 --> 01:15.890
+any parameters and doesn't have a call it doesn't have these parentheses it's not being called.
+
+01:16.290 --> 01:23.250
+So time is a decorator but it's being used differently than these decorators over here.
+
+01:23.640 --> 01:24.920
+So what's going on.
+
+01:25.260 --> 01:32.210
+Well in order to do that let's go back to our time decorator's And let's just make a few tweaks to it.
+
+01:32.250 --> 01:37.620
+So if you don't remember the time decorator you can go back a couple of videos back in one of the applications
+
+01:37.710 --> 01:38.890
+we developed this time.
+
+01:38.940 --> 01:43.260
+Decorator and you really should understand it quite well because we're going to use that throughout
+
+01:43.260 --> 01:45.070
+this video and the next.
+
+01:45.120 --> 01:51.270
+Basically what I've done is I've tweaked this so instead of calling the function once calculating the
+
+01:51.270 --> 01:57.900
+elapsed time printing out the elapsed time and then returning the result of the function call I'm actually
+
+01:57.900 --> 02:03.210
+going to call the function 10 times and then calculate an average.
+
+02:03.210 --> 02:07.460
+So basically what I'm doing here I'm selling my total elapsed time to zero.
+
+02:07.470 --> 02:11.010
+I then have a loop which I'm where I'm looping 10 times.
+
+02:11.010 --> 02:14.890
+I set my start of real inside that loop.
+
+02:14.910 --> 02:22.380
+So I set my start time I call the function and then to the total elapsed time I add the elapsed time
+
+02:22.380 --> 02:25.170
+for this particular iteration of the loop.
+
+02:25.200 --> 02:30.240
+Then once the loop is finished I calculate the average elapsed time being the total AFP's divided by
+
+02:30.420 --> 02:31.560
+10 right.
+
+02:31.590 --> 02:33.720
+And then we print the average elapsed time.
+
+02:33.810 --> 02:35.190
+We return the result.
+
+02:35.280 --> 02:40.430
+It actually we had 10 results but we just return the last one doesn't matter.
+
+02:40.500 --> 02:42.030
+They should all have the same result.
+
+02:42.030 --> 02:48.100
+In this case we use our Fibonacci for example and then we return the function.
+
+02:48.270 --> 02:48.720
+OK.
+
+02:48.810 --> 02:54.330
+So that's how decorator nothing different except that I've added in this thing where it repeats the
+
+02:54.330 --> 02:59.120
+function call 10 times and then calculates the average elapsed time.
+
+02:59.820 --> 03:06.240
+So now we can decorate my fund using either the decorator syntax at time as we've done before or and
+
+03:06.240 --> 03:08.870
+this is important to understand that this is equivalent.
+
+03:09.000 --> 03:11.810
+We can say my phone calls times of my funk.
+
+03:11.970 --> 03:15.640
+So time does our decorator which takes in a single parameter.
+
+03:15.650 --> 03:16.490
+Have fun.
+
+03:16.500 --> 03:21.090
+In this case my funk one have my funk is OK.
+
+03:21.570 --> 03:28.140
+So there's a problem though here the value of ten has been hardcoded and that's never a good idea to
+
+03:28.140 --> 03:30.500
+have code values in our code.
+
+03:30.510 --> 03:34.920
+What happens if I want to time a function by calling it five times or a hundred times.
+
+03:35.100 --> 03:38.240
+Well I can't I'm kind of stuck with 10 right.
+
+03:38.250 --> 03:40.990
+I'd have to go back in the code and change this to five.
+
+03:41.160 --> 03:46.710
+But then what happens if in the same piece of code I want to time something with five calls five repetitions
+
+03:47.040 --> 03:51.130
+and another function I want to time with maybe 100 repetitions.
+
+03:51.320 --> 03:52.330
+All I can do.
+
+03:52.560 --> 03:53.110
+Right.
+
+03:53.310 --> 03:58.400
+So we have to put this as a parameter we have to pass this in as a parameter.
+
+03:58.500 --> 04:00.790
+Where are we going to pass this in as a parameter.
+
+04:00.990 --> 04:06.460
+Well a pretty obvious way here would be to pass it into the time decorator's.
+
+04:06.720 --> 04:09.680
+So let's see how we might try something like that.
+
+04:09.690 --> 04:13.380
+So this is the same decorator as before the same time function.
+
+04:13.500 --> 04:20.940
+But you'll notice now that I've added the reps parameter to the time function and the RX parameter now
+
+04:21.000 --> 04:23.460
+is reference so it's a free variable right.
+
+04:23.460 --> 04:27.990
+This extra parameter is now free variables being referenced inside inner.
+
+04:28.080 --> 04:34.380
+So we have a closure that contains wraps wraps this coming in from the parameter time.
+
+04:34.860 --> 04:40.870
+And then we do the same thing as before except now we no longer have a hardcoded value of 10.
+
+04:40.870 --> 04:45.490
+All right so now can we use this to decorate our function.
+
+04:45.550 --> 04:55.250
+And the answer is yes we can do it this way we can say my phunk equals timed of my funk commet 10 right.
+
+04:55.270 --> 04:57.060
+We're going to call the time function.
+
+04:57.070 --> 05:02.670
+We're going to pass it the function my funk into AFN and then we'll go into reps.
+
+05:02.770 --> 05:04.150
+That works just fine.
+
+05:04.180 --> 05:05.750
+This is fine.
+
+05:05.800 --> 05:15.130
+The problem is that this syntax will not work because at timed well what is it doing it's calling timed
+
+05:15.220 --> 05:17.930
+turn false that's the first thing it's going to do.
+
+05:18.680 --> 05:23.110
+Time 10 well timed expects two parameters not one.
+
+05:23.150 --> 05:24.860
+Here we're only passing one in.
+
+05:24.950 --> 05:27.760
+So this syntax will fail completely.
+
+05:28.100 --> 05:29.750
+So that's not going to work.
+
+05:29.900 --> 05:38.340
+So we have to try and change our approach here and see where how can we make this work so rethinking
+
+05:38.340 --> 05:39.200
+the solution.
+
+05:39.300 --> 05:47.130
+If we look at what this is at times and then we have we all function my funk what it means equivalently
+
+05:47.250 --> 05:50.470
+is that my phone equals times of my funk.
+
+05:50.610 --> 05:51.370
+Right.
+
+05:51.690 --> 05:57.990
+So timed is a function that returns that in a closure that contains our original function.
+
+05:57.990 --> 05:58.310
+Right.
+
+05:58.350 --> 06:07.610
+When time is called it's called with this function my phunk it returns the in a function.
+
+06:07.670 --> 06:17.000
+So in order for this to work as intended it means that timed 10 so calling timed with 10 that should
+
+06:17.000 --> 06:25.580
+return the decorator not the inner function it should return the decorator so time 10 will need to return
+
+06:25.580 --> 06:33.980
+our original timed decorator when called so now we would have this wave want to break it out.
+
+06:34.060 --> 06:37.710
+We could say DEC equals time 10 time 10.
+
+06:37.720 --> 06:39.330
+So time is a function.
+
+06:39.460 --> 06:42.070
+It's not our current time function right.
+
+06:42.070 --> 06:50.020
+It's a different function that takes in a single parameter 10 and it's going to return a decorator and
+
+06:50.020 --> 06:59.020
+let's assign it to the label deck and then we can decorate my funk with this decorated deck just as
+
+06:59.020 --> 06:59.550
+before.
+
+06:59.590 --> 07:02.730
+You'll notice that we don't have the parentheses here.
+
+07:03.340 --> 07:12.200
+So what's important to understand is that these this type of decorator time is not the decorator tined
+
+07:12.280 --> 07:17.340
+is a function that takes in one or more parameters or zero depending how you write it.
+
+07:17.350 --> 07:24.580
+But that can take in parameters but you have to call it in order to get a decorator back and then you'd
+
+07:24.640 --> 07:28.760
+apply that decorator to my phunk that.
+
+07:29.320 --> 07:31.520
+So let's see how we can do that.
+
+07:31.870 --> 07:37.870
+Let's go ahead and create this outer function that takes in a single parameter called reps.
+
+07:38.380 --> 07:45.410
+And I'm just going to take that timed decorator that we had Azeez and pasted right in here.
+
+07:45.610 --> 07:46.770
+Nothing has changed.
+
+07:46.780 --> 07:49.890
+This is the original decorator that we were doing just now.
+
+07:50.020 --> 07:50.500
+Right.
+
+07:50.590 --> 07:55.880
+Except that I took away wraps from the parameter list for time.
+
+07:56.200 --> 08:00.850
+If time is going to be a decorator it can only take a single parameter.
+
+08:00.880 --> 08:02.410
+The function being decorated.
+
+08:02.470 --> 08:03.810
+That's it.
+
+08:03.910 --> 08:10.360
+But you'll notice what's happening here is that reps is really the reps that's in the outer function
+
+08:10.630 --> 08:10.990
+right.
+
+08:10.990 --> 08:20.230
+This is a free variable that's bound to Rapson our right reps is not defined in there it's not assigned
+
+08:20.230 --> 08:21.290
+a value in her.
+
+08:21.350 --> 08:27.680
+It's not a sign of value in timed but it is being created in our pocket.
+
+08:28.190 --> 08:34.720
+So now we have our time decorated as before it has its function when timed will be called.
+
+08:34.730 --> 08:40.630
+It will return that in a function but now in addition we return timed.
+
+08:40.840 --> 08:44.990
+So you'll notice that if we call our let's say 10.
+
+08:45.130 --> 08:46.480
+What is it going to return.
+
+08:46.600 --> 08:48.950
+It's a return a decorator.
+
+08:49.360 --> 08:53.710
+And that decorator will know what Rx is because it's a free variable.
+
+08:53.710 --> 09:04.660
+It's a Koser So calling outer n will return our original decorator with reps set to n right the closure.
+
+09:05.100 --> 09:11.150
+So now we could decorate our function this way we could say my phunk equals Alt-A 10.
+
+09:11.230 --> 09:13.690
+So we call out a forest with 10.
+
+09:13.810 --> 09:22.370
+We get the time decorator back and then we apply that to my phunk decorated that way so that syntax
+
+09:22.390 --> 09:23.950
+will work just fine.
+
+09:23.950 --> 09:30.290
+Which means that this syntax will work just fine as well because that's doing exactly the same thing.
+
+09:30.730 --> 09:32.990
+So you see what's happening here.
+
+09:33.160 --> 09:36.150
+This outer function is not a decorator.
+
+09:36.400 --> 09:45.800
+It is creating a decorator so the function is not itself a decorator it creates a decorator what it's
+
+09:45.800 --> 09:46.270
+called.
+
+09:46.280 --> 09:54.410
+And for that reason it's called a decorator factory because it's a factory function it creates a decorator.
+
+09:54.620 --> 09:56.840
+So it's a decorator factory.
+
+09:59.370 --> 10:05.220
+So to wrap things up we probably don't want our decorator to be cold out here.
+
+10:05.400 --> 10:05.730
+Right.
+
+10:05.730 --> 10:08.200
+We would probably want it to be called time.
+
+10:08.430 --> 10:09.360
+Well that's very simple.
+
+10:09.360 --> 10:13.430
+All we need to do is to change the name of that outer function to time.
+
+10:13.770 --> 10:17.970
+And of course the inner function which is also called Time is going to have to change to something else
+
+10:18.000 --> 10:18.220
+now.
+
+10:18.240 --> 10:21.290
+So it doesn't clash.
+
+10:21.330 --> 10:24.570
+So this is how I would make more sense to write.
+
+10:24.720 --> 10:32.460
+But keep in mind that timed is not the decorator time as a decorator factory that when called in this
+
+10:32.460 --> 10:41.240
+case parentheses 10 being called value 10 of a parabola 10 and that will then return the decorator that
+
+10:41.240 --> 10:43.940
+then gets applied to my func.
+
+10:43.970 --> 10:49.280
+So all we need to do is change the names of the outer and the time functions so we can do it this way.
+
+10:49.280 --> 10:56.450
+Now our other function we're calling a timed the function that used to be called Time is not called
+
+10:56.630 --> 10:59.530
+Deck decorator that whatever you want to call it.
+
+10:59.840 --> 11:06.610
+And of course we return the in a function we return the decorator and we're done.
+
+11:06.800 --> 11:07.220
+OK.
+
+11:07.250 --> 11:13.730
+Now of course I also added in the wraps we can still use wraps that's perfectly fine right now decorator
+
+11:13.730 --> 11:16.650
+function DECT can have wraps in it.
+
+11:16.920 --> 11:17.490
+OK.
+
+11:20.600 --> 11:24.250
+And now we can decorate it this way at times 10.
+
+11:24.300 --> 11:26.770
+Def my phunk right.
+
+11:26.910 --> 11:31.650
+So let's switch to some code and let's see this in action and I'll add a few more examples as well so
+
+11:31.650 --> 11:35.820
+we can see what's going on with this idea of a factory right.
+
+11:35.840 --> 11:41.350
+A factory function as opposed to having a direct arm decorator.
+
+11:41.580 --> 11:42.150
+All right.
+
+11:42.150 --> 11:44.260
+Thanks for watching and I'll see you in the next video.

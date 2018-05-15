@@ -1,0 +1,361 @@
+WEBVTT
+
+00:00.960 --> 00:06.570
+Hi I just want to mention a few things about what's new in Python 3.6 and hopefully convince you that
+
+00:06.630 --> 00:10.280
+if you haven't upgraded to 3.6 yet you probably should.
+
+00:10.560 --> 00:17.120
+And I'll create more videos that will kind of explore these topics here in a little bit more detail.
+
+00:17.130 --> 00:19.980
+So first of all dictionaries maintain sort order.
+
+00:19.980 --> 00:23.430
+Now technically this is not a feature of 3.6.
+
+00:23.430 --> 00:29.370
+It is an implementation detail in the sense that it's only because of the way the implementation was
+
+00:29.370 --> 00:30.100
+done.
+
+00:30.120 --> 00:33.110
+The new implementation for dictionaries in Python.
+
+00:33.270 --> 00:35.960
+And what happens is that they maintain the key order.
+
+00:35.970 --> 00:42.060
+So if you you know insert keys into a dictionary in a certain order because you're doing it sequentially
+
+00:42.540 --> 00:47.560
+then when you read back those keys there they will come back you know in the same order.
+
+00:47.940 --> 00:49.510
+So this was never guaranteed.
+
+00:49.510 --> 00:56.010
+We've always had that dictionaries do not guarantee their key owner and in general they don't.
+
+00:56.100 --> 00:58.190
+But in this particular implementation they do.
+
+00:58.290 --> 01:02.970
+And in fact now it seems that in 3.7 this will be guaranteed.
+
+01:02.970 --> 01:09.700
+So that's great and I'll cover in more detail what this means in an upcoming video than actually unrelated
+
+01:09.700 --> 01:10.120
+to this.
+
+01:10.120 --> 01:16.590
+We have that the older of the keyword arguments passed to a function is maintained.
+
+01:16.650 --> 01:18.230
+You remember that starstuff.
+
+01:18.280 --> 01:20.040
+KW And that we looked at.
+
+01:20.320 --> 01:23.020
+Well when you were iterating through this.
+
+01:23.020 --> 01:25.930
+KW parameter inside the function.
+
+01:25.930 --> 01:31.150
+There was no guarantee that it came back in the same order in which it was passed to the function.
+
+01:31.150 --> 01:33.010
+Now there is and that's great.
+
+01:33.010 --> 01:38.410
+Actually that's quite a big deal because I'll show you how we can now leverage this to relook at the
+
+01:38.410 --> 01:42.700
+code that we had for named topples that used default values.
+
+01:42.700 --> 01:49.150
+And I'll show you how we can create our own name topple function that will allow us to specify the field
+
+01:49.150 --> 01:51.820
+names and the default values at the same time.
+
+01:51.880 --> 01:57.700
+Of course we'll still use the name topple you know built in function inside our own name type of function.
+
+01:57.700 --> 01:59.650
+But I'll show you how easy it becomes.
+
+01:59.710 --> 02:05.640
+Now that we have this guarantee of the preservation in the arguments or another one is the underscores
+
+02:05.640 --> 02:06.520
+in numeric literals.
+
+02:06.520 --> 02:07.870
+That's actually quite nice.
+
+02:07.900 --> 02:12.400
+You know for example you can just write your literals and actually put underscores in them and you can
+
+02:12.400 --> 02:18.340
+see it's just a regular one and it works with integers with hex numbers binary numbers floats all that
+
+02:18.340 --> 02:19.210
+stuff.
+
+02:19.210 --> 02:20.080
+So that's great.
+
+02:20.080 --> 02:22.100
+Makes code more readable again.
+
+02:22.180 --> 02:26.030
+You know this one is really for readability of strings.
+
+02:26.050 --> 02:28.000
+That's a much simpler string interpolation.
+
+02:28.000 --> 02:30.820
+You know how to use the Format function already.
+
+02:31.060 --> 02:35.240
+And there's also the old style you know the percentage that I don't use.
+
+02:35.320 --> 02:41.470
+I only use the format but this one now is really handy and what it is is that you basically just put
+
+02:41.470 --> 02:45.510
+an F lowercase or uppercase doesn't matter in front of your string.
+
+02:45.790 --> 02:52.510
+And now inside those curly braces that you are used to using and the dot with the DOT format method
+
+02:52.810 --> 02:55.530
+you can actually put expressions in here.
+
+02:55.600 --> 02:59.860
+So for example I've got a numerator denominator that are variables in the global scope.
+
+03:00.070 --> 03:02.500
+Then I can reference them directly in here.
+
+03:02.770 --> 03:03.220
+Right.
+
+03:03.280 --> 03:07.410
+And then here I actually have an expression I have numerator divided by denominators.
+
+03:07.480 --> 03:09.910
+And then of course I also have some formatting as well.
+
+03:09.910 --> 03:16.360
+So now when I run this you can see it works quite nicely and it's a lot shorter than writing you know
+
+03:16.440 --> 03:21.310
+F and if I had written it this way I you know I this wouldn't work I would have to write as a single
+
+03:21.310 --> 03:26.980
+variable and I have to say Dopp format and then pass in the arguments that are going to get interpreted
+
+03:26.980 --> 03:27.820
+into the string.
+
+03:28.030 --> 03:29.290
+So that's really nice.
+
+03:30.710 --> 03:36.740
+Type annotations so basically that allows us to provide type information to function arguments class
+
+03:36.740 --> 03:37.780
+variables and so on.
+
+03:37.780 --> 03:42.410
+And you can find more information about it in pepped for a foreign 5:26.
+
+03:42.410 --> 03:47.960
+Now according to them and it's really worth emphasizing that Python will remain dynamically typed language
+
+03:48.320 --> 03:49.990
+this is not static typing.
+
+03:50.030 --> 03:51.610
+This changes nothing.
+
+03:51.710 --> 03:55.670
+These type annotations will not affect how Python runs.
+
+03:55.670 --> 03:57.900
+It won't make it run fast or slow or anything.
+
+03:57.890 --> 04:02.150
+They just think of them like doc strings right and think so.
+
+04:02.150 --> 04:03.260
+Think of them that way.
+
+04:03.440 --> 04:09.140
+And so an external tool is going to have to make use of those so the doc strings of get included with
+
+04:09.140 --> 04:13.600
+the objects and then an external tool can make use of it like for example the help function.
+
+04:13.820 --> 04:19.890
+Right but also your auto documenting documentation generators can use those as well.
+
+04:20.030 --> 04:21.850
+Well this is going to be the same thing.
+
+04:21.960 --> 04:27.950
+These these type annotations are included with the object but Python doesn't actually use it so they
+
+04:27.950 --> 04:33.830
+are passed and they're you know they've kind of integrated now with the metadata of the object but extol
+
+04:33.860 --> 04:34.920
+tools like my.
+
+04:34.910 --> 04:36.810
+My point is probably the biggest one.
+
+04:37.010 --> 04:42.680
+That's the one that really started pushing all this and I think that was the catalyst for a lot of the
+
+04:43.010 --> 04:48.870
+type annotations as well as for the syntax will support that pipe from the patch.
+
+04:48.890 --> 04:52.200
+Edited does support for any foreign 5:26.
+
+04:52.250 --> 04:56.000
+I'm not sure if it supports them in their entirety yet they might.
+
+04:56.000 --> 04:59.420
+That's something we'll just have to look into but here's an example.
+
+04:59.420 --> 05:06.000
+So let's say I want to create this function squares and normally squares would just be squares.
+
+05:06.020 --> 05:11.090
+L Coel on return that you can add these annotations.
+
+05:11.120 --> 05:14.420
+These hints essentially and you can say OK.
+
+05:14.450 --> 05:16.600
+Else should be of type list.
+
+05:16.670 --> 05:23.030
+So I had to import this list from the Taiping module and it's going to contain integers and it's going
+
+05:23.030 --> 05:25.600
+to return a list containing integers.
+
+05:25.610 --> 05:31.280
+We've seen how to use this syntax before for annotations but here this is type notation not just an
+
+05:31.310 --> 05:32.840
+arbitrary string.
+
+05:33.110 --> 05:34.030
+And then we return that.
+
+05:34.040 --> 05:37.850
+So now we can call my list but here's how we can call squiz.
+
+05:37.940 --> 05:40.350
+But here's my list which is a variable.
+
+05:40.490 --> 05:46.010
+And again I can give it a notation I can say my list is going to be a list containing integers and then
+
+05:46.010 --> 05:51.420
+here I'm also initializing at the same time providing a value essentially at the same time.
+
+05:52.400 --> 05:56.390
+And so when we run all this let's go ahead and run it.
+
+05:58.540 --> 06:04.960
+You see it works properly and Python doesn't really care what you're passing into squares it doesn't
+
+06:04.960 --> 06:09.280
+care that you know if my list contains integers or not it's not going to complain.
+
+06:09.370 --> 06:12.130
+This is not static typing I just want to re-emphasize that.
+
+06:12.160 --> 06:18.340
+So for example let's say I do this that I take a dictionary and I purposely made my keys integers because
+
+06:18.340 --> 06:24.290
+when I iterate a dictionary like in this miscomprehension here it's to iterate the keys.
+
+06:24.360 --> 06:28.490
+So I would just wanted to make sure that my keys are going to be integers for now if I call this.
+
+06:28.660 --> 06:30.310
+That was just fine as well.
+
+06:30.340 --> 06:30.890
+Why.
+
+06:31.030 --> 06:35.050
+Well it's not a list right a dictionary isn't a list but Python doesn't care.
+
+06:35.050 --> 06:38.080
+These notations are not static type checking.
+
+06:38.080 --> 06:43.480
+Now something like my pie or pie Chelm should pick that up and should give you a warning saying hey
+
+06:43.510 --> 06:50.960
+you know you're passing a dictionary to squares it's actually expecting a list of integers and then
+
+06:50.960 --> 06:54.890
+there's a few other enhancements as well actually there's a lot of other enhancements that I'm not going
+
+06:54.890 --> 06:55.940
+to cover.
+
+06:55.940 --> 06:58.990
+I just want to mention the one about asynchronous.
+
+06:59.060 --> 07:04.610
+There's a lot there's been a lot of enhancements to a synchronous programming in Python 3 and Python
+
+07:04.610 --> 07:08.750
+3:6 just keeps building up on that Python 3:5 added quite a bit.
+
+07:08.990 --> 07:15.500
+And then 3:6 So take a look at that if you're interested I will cover that in the latest section of
+
+07:15.500 --> 07:18.880
+the course cause probably in four of the.
+
+07:19.700 --> 07:25.730
+Because we still have to cover iterators and generators and then we have to look at our class programming.
+
+07:25.730 --> 07:26.090
+Right.
+
+07:26.090 --> 07:32.540
+And then you object normal programming and then we can look at a synchronous programming as well as
+
+07:32.540 --> 07:34.120
+probably metaprogramming.
+
+07:34.730 --> 07:37.400
+And so there's also a lot more in 3.6.
+
+07:37.400 --> 07:42.590
+Again just go to this link and if you're interested see everything that's come out but a whole lot of
+
+07:42.590 --> 07:44.720
+good stuff came out and 3.6.
+
+07:44.840 --> 07:49.030
+And hopefully if you're not in 3.6 already go for it.

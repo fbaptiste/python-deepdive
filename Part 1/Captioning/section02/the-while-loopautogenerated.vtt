@@ -1,0 +1,670 @@
+WEBVTT
+
+00:00.890 --> 00:04.090
+High in this video we're going to take a look at the wild.
+
+00:04.190 --> 00:06.370
+Now the while loop is pretty straightforward.
+
+00:06.440 --> 00:12.250
+It is something that basically repeats a code of block as long as some expression is true.
+
+00:12.410 --> 00:16.410
+And so the way it might work very simply might have equal zero.
+
+00:16.610 --> 00:20.050
+Well I'm less than five maybe you will print.
+
+00:20.070 --> 00:26.360
+I know of course we need to remember to increment that counter.
+
+00:26.360 --> 00:28.100
+Otherwise we'll have an infinite loop.
+
+00:28.160 --> 00:32.060
+And so when we run that you know just print out 0 1 2 3 4.
+
+00:32.420 --> 00:35.820
+Now what happens is that it's also equal to zero.
+
+00:35.840 --> 00:39.560
+And then it tests the condition is I less than 5.
+
+00:39.680 --> 00:46.510
+If yes if the answer is true then it will execute this piece of code and then it goes back to the beginning
+
+00:46.550 --> 00:48.510
+and it tests the condition again.
+
+00:48.770 --> 00:52.670
+And it will keep doing that as long as that condition evaluates to TRUE.
+
+00:52.910 --> 00:59.000
+Once I reaches 5 then we come back to here and we test is five less than five.
+
+00:59.000 --> 01:05.030
+And the answer is false and therefore the while loop is now finished it has exhausted what it needs
+
+01:05.030 --> 01:06.090
+to do now.
+
+01:06.100 --> 01:11.810
+And the one thing here though is that you'll notice that you're not guaranteed that the code inside
+
+01:11.810 --> 01:14.170
+the code block will run at all.
+
+01:14.180 --> 01:18.010
+In fact if we start with equal to 5 it doesn't run at all.
+
+01:18.050 --> 01:21.060
+Well sure because five less than five is false.
+
+01:21.080 --> 01:22.580
+So it never runs.
+
+01:22.580 --> 01:29.750
+Now sometimes you do want your code inside the while loop to always run at least once and you'll find
+
+01:29.750 --> 01:33.090
+that that you have that possibility in other languages.
+
+01:33.140 --> 01:38.730
+For example you have something called the do while loop and the do while loop kind of looks like this.
+
+01:38.750 --> 01:42.370
+And this isn't Python so this won't work but you might have you know do.
+
+01:42.650 --> 01:48.500
+And then maybe your code block in here and then a while and then your expression that you want to evaluate
+
+01:48.500 --> 01:50.790
+and test for true comes at the end.
+
+01:50.840 --> 01:57.950
+And so what happens is that this code block executes at least once and then the test for the loop is
+
+01:58.070 --> 01:59.000
+done at the end.
+
+01:59.030 --> 02:02.830
+And if it's true it goes back to the beginning runs the code block again.
+
+02:02.900 --> 02:05.630
+If it's false it exits out of the loop.
+
+02:05.630 --> 02:09.110
+Now we don't have that in Python but it's very easy to emulate that.
+
+02:09.380 --> 02:12.470
+And we can do something like the following.
+
+02:13.100 --> 02:16.850
+So we can say that say I equals five.
+
+02:17.660 --> 02:20.480
+And then we can say While true.
+
+02:21.200 --> 02:26.420
+So what we do is we're essentially creating an infinite loop here right because true is always going
+
+02:26.420 --> 02:27.350
+to evaluate to true.
+
+02:27.350 --> 02:33.770
+So whatever comes inside here is going to run the code block inside here is going to run and it's going
+
+02:33.770 --> 02:37.230
+to run for ever because this is always going to be true.
+
+02:37.250 --> 02:38.430
+So that's called an infinite loop.
+
+02:38.450 --> 02:41.830
+Obviously we don't want that that's kind of bad.
+
+02:41.840 --> 02:47.230
+So what we're going to do instead is we're going to use the break statement and we're going to put on
+
+02:47.230 --> 02:53.300
+a termination clause inside the loop and we'll write it this way.
+
+02:53.360 --> 02:56.880
+So while true so while true it's always going to be true.
+
+02:57.050 --> 02:57.920
+So it will run.
+
+02:57.920 --> 03:00.730
+And so this will print 5.
+
+03:00.980 --> 03:04.230
+Then it's going to test to see if I's greater than or equal to 5.
+
+03:04.250 --> 03:07.420
+And if it is it's going to break out of the loop.
+
+03:07.610 --> 03:12.110
+So break is a statement that terminates that loop immediately.
+
+03:12.140 --> 03:19.510
+It doesn't matter if we put something afterwards you print you know something this print something here
+
+03:20.660 --> 03:22.400
+will never run.
+
+03:22.880 --> 03:24.620
+So let's go ahead and test that out.
+
+03:24.950 --> 03:32.150
+And as you can see it printed five because well it ran the code on like this loop here that didn't print
+
+03:32.150 --> 03:34.220
+5 because well we never reached it.
+
+03:34.250 --> 03:35.620
+Here we reached the print statement.
+
+03:35.660 --> 03:38.630
+Then we did the test then we did the break.
+
+03:38.630 --> 03:41.210
+And obviously as you could see this never ran.
+
+03:41.210 --> 03:43.790
+Now where else might you use something like this.
+
+03:43.790 --> 03:45.370
+Where is that useful.
+
+03:45.470 --> 03:51.170
+Well maybe in an example like this Suppose that we want to use the console to let users enter their
+
+03:51.170 --> 03:57.410
+name right and we just want to make sure that their name is at least two characters long that it's contains
+
+03:57.410 --> 04:03.560
+only printable characters and that it only contains alphabetic letters so we don't want numbers mixed
+
+04:03.560 --> 04:05.220
+in there and things like that.
+
+04:05.240 --> 04:08.120
+So here's one way that we might want to do it.
+
+04:08.390 --> 04:09.590
+We might do this.
+
+04:09.590 --> 04:14.470
+So men let's something make that a variable that's going to be the minimum length of the name.
+
+04:14.780 --> 04:17.050
+And then we might do something like this.
+
+04:17.080 --> 04:27.780
+Name equals input please and your name and then we're going to say while not.
+
+04:27.830 --> 04:29.620
+And then what do we want in the not.
+
+04:29.630 --> 04:36.240
+Well we want the LEnfant the name to be greater than or equal to the Midlands game.
+
+04:36.320 --> 04:43.080
+And we want the name to be printable so we can use this method that's in the string class.
+
+04:43.130 --> 04:48.650
+Our code is printable and we want to also make sure that it's alphanumeric.
+
+04:48.650 --> 04:52.190
+So name dot is alpha.
+
+04:53.330 --> 04:55.980
+And if that is true.
+
+04:56.420 --> 05:04.200
+So basically if the length of the name is not greater than or equal to the mean length or the name is
+
+05:04.200 --> 05:07.120
+not printable or the name is not alpha.
+
+05:07.230 --> 05:10.450
+Right because we're not of this entire thing here.
+
+05:10.560 --> 05:16.490
+If that's the case then we're going to want to ask the user to re-enter their name.
+
+05:16.620 --> 05:21.050
+So when that happens we're just going to basically take this code here.
+
+05:22.400 --> 05:25.950
+And repeat it again.
+
+05:26.660 --> 05:27.960
+So we want to repeat that code.
+
+05:27.980 --> 05:33.110
+And then this loop is essentially going to continue until we have a valid thing.
+
+05:33.410 --> 05:40.580
+But you'll notice that I can't just I have to put this name in put outside the loop because while I
+
+05:40.580 --> 05:43.340
+need to know what was entered the first time around.
+
+05:43.490 --> 05:51.970
+And then if it was incorrect I can ask again and I can go into the loop so that we can say print Hello
+
+05:53.350 --> 05:57.620
+name.
+
+05:59.750 --> 06:01.970
+And of course that comes after the loop.
+
+06:01.970 --> 06:06.150
+And so if we run that we then get asked to enter your name So-Cal type A.
+
+06:06.230 --> 06:07.610
+It's like no that's not valid.
+
+06:07.640 --> 06:12.100
+OK fine I'll type a number and something is wrong here.
+
+06:13.600 --> 06:15.490
+String object has no is alpha.
+
+06:15.490 --> 06:19.290
+Yes I have to kind of spell things correctly.
+
+06:19.870 --> 06:20.750
+So let's try again.
+
+06:20.780 --> 06:23.290
+A doesn't work 12 doesn't work.
+
+06:23.380 --> 06:26.100
+And if I type my name in that works fine.
+
+06:26.140 --> 06:27.610
+Hello friend.
+
+06:27.610 --> 06:32.410
+So the only thing here you'll notice is that we repeated this code right.
+
+06:32.410 --> 06:34.860
+I typed the same code in twice.
+
+06:35.110 --> 06:38.590
+It's really never a good idea to type code twice.
+
+06:38.590 --> 06:40.860
+You always want to make sure that you only do once.
+
+06:40.870 --> 06:41.880
+Whenever you can.
+
+06:41.980 --> 06:45.540
+And in this case it's really quite easy to clean up.
+
+06:45.790 --> 06:47.320
+And the way we would do that.
+
+06:47.320 --> 06:50.890
+I'm just going to take this code here and we'll refactor it.
+
+06:51.280 --> 06:54.620
+So I don't want to ask this at this point.
+
+06:54.760 --> 06:58.310
+But of course if I do that I can't make that test.
+
+06:58.330 --> 07:03.670
+So instead I'm going to do this infinite loop that we talked about and then I'm going to ask for the
+
+07:03.670 --> 07:04.080
+name.
+
+07:04.090 --> 07:11.200
+So I'll put that up here and then I'm going to say if the length of the name is greater than or equal
+
+07:11.200 --> 07:15.370
+to the mainland and the name is printable and the name is up for then we're done right.
+
+07:15.370 --> 07:19.540
+We're done with that so we can break out of the loop.
+
+07:19.540 --> 07:22.390
+And as you can see and we'll see when we run it.
+
+07:22.410 --> 07:25.620
+But this code and this code does the same thing.
+
+07:25.630 --> 07:32.420
+The only difference is that we didn't have to specify this name equals input twice in our code.
+
+07:32.500 --> 07:38.120
+So let's go ahead and run it and we'll will get the same things we have PE doesn't work 12 doesn't work.
+
+07:38.230 --> 07:40.340
+And Fred walks just fine.
+
+07:40.390 --> 07:45.280
+So that's a standard pattern it's used obviously in other cases than just something like that.
+
+07:45.280 --> 07:48.310
+This is pretty simplistic but it's a good example.
+
+07:48.310 --> 07:51.610
+Now we also have something called the continue statement.
+
+07:51.610 --> 07:57.610
+So what the break statement does is that it basically breaks out of the loop and it terminates the loop
+
+07:57.700 --> 07:58.600
+immediately.
+
+07:59.420 --> 08:01.580
+The continue statement is a little bit different.
+
+08:01.580 --> 08:07.850
+Continue means hey the current iteration that we're in right now just skip everything that comes after
+
+08:07.850 --> 08:12.760
+this continuous statement and go back to the beginning of the loop rerun the test.
+
+08:12.920 --> 08:15.160
+And if it's true continue running.
+
+08:15.230 --> 08:16.360
+So it's a little bit different.
+
+08:16.370 --> 08:21.050
+It doesn't terminate the loop it just stops the iteration the current iteration.
+
+08:21.200 --> 08:25.300
+It basically bails out of it right away and continues the loop.
+
+08:25.550 --> 08:27.810
+So let's look at a simple example.
+
+08:27.920 --> 08:29.280
+Equals zero.
+
+08:29.660 --> 08:36.990
+And we'll loop until it reaches 10 and I'll increment it right away so we don't get an infinite loop.
+
+08:37.160 --> 08:42.490
+And then we're going to say if a lot two equals equals zero.
+
+08:42.530 --> 08:46.520
+So if A is divisible by 2 continue.
+
+08:46.520 --> 08:51.470
+So basically skipped whatever comes afterwards in the loop and all we're going to do afterwards in the
+
+08:51.470 --> 08:53.440
+loop is just print a out.
+
+08:53.480 --> 08:59.330
+So if we do that you'll notice that we just print everything that's not divisible by 2 1 3 5 7 9.
+
+08:59.450 --> 09:06.020
+So this continue did not allow us to continue onto the print statement but it still allowed the loop
+
+09:06.020 --> 09:06.980
+to continue.
+
+09:06.980 --> 09:09.930
+That's why it's called continue.
+
+09:10.240 --> 09:13.930
+So there's also something kind of interesting with the wild.
+
+09:13.990 --> 09:16.900
+Is that the wild look can have an else clause.
+
+09:16.900 --> 09:18.550
+Now we've seen the else clause of it.
+
+09:18.580 --> 09:20.420
+If if then else.
+
+09:20.590 --> 09:20.860
+Right.
+
+09:20.860 --> 09:24.770
+So if something else if and then we had the else clause.
+
+09:24.790 --> 09:27.860
+But that's actually also available with the While loop.
+
+09:28.030 --> 09:36.040
+And the way it works is that the else clause of a WHILE loop will execute if and only if the while loop
+
+09:36.220 --> 09:38.790
+did not encounter a break statement.
+
+09:38.810 --> 09:46.870
+So in other words if the loop ran to extermination Normally we would say that it ran normally then it
+
+09:46.870 --> 09:48.690
+will execute the else statement.
+
+09:48.700 --> 09:50.630
+And that's actually quite useful.
+
+09:50.650 --> 09:53.240
+Let's suppose that we have the following.
+
+09:53.290 --> 09:58.480
+So we have now equals 1 2 3 and value equals 10.
+
+09:58.480 --> 09:59.560
+And what we want to do.
+
+09:59.650 --> 10:01.950
+And by the way there's much better ways of doing this.
+
+10:01.960 --> 10:06.540
+I'm just trying to use this example to show you how the statement works.
+
+10:06.580 --> 10:10.720
+There's better ways of doing this particular example we'll see when we get to lists and generators and
+
+10:10.720 --> 10:11.610
+so on.
+
+10:11.650 --> 10:13.440
+But for now here's what we want to do.
+
+10:13.450 --> 10:20.860
+We want to look at that list L and if Velle is not in that list we want to add it to the list.
+
+10:20.920 --> 10:23.880
+So let's suppose that you know we didn't know about the else statement.
+
+10:23.890 --> 10:25.120
+We don't know what it does.
+
+10:25.240 --> 10:29.610
+Then typically the way that would go about it is to keep track of a flag.
+
+10:29.710 --> 10:34.270
+Basically that's you know we'll loop through L and then we'll have this flag and if we find the value
+
+10:34.270 --> 10:35.790
+we'll set the flag to true.
+
+10:35.860 --> 10:37.990
+Otherwise it will remain false.
+
+10:38.020 --> 10:44.540
+So we have to start with found equals 12 so we set the flag and use an index to iterate through.
+
+10:45.090 --> 10:48.490
+Again much better ways of doing this.
+
+10:48.580 --> 10:57.460
+So as long as the index is less than the length of L then we're going to say if l idea X equals equals
+
+10:57.490 --> 11:01.240
+Well then found equals true.
+
+11:01.400 --> 11:01.850
+OK.
+
+11:02.020 --> 11:05.350
+Now at this point we don't even need to continue the loop.
+
+11:05.350 --> 11:09.250
+We found the item in the list we can just break right away.
+
+11:09.490 --> 11:13.020
+And otherwise we're just going to increment the index.
+
+11:13.120 --> 11:19.150
+And so at once this code finishes running while this loop for you know when the loop finishes running
+
+11:19.660 --> 11:26.530
+either found will be false which means it has exhausted the loop or we found the value in which case
+
+11:26.590 --> 11:28.050
+found was set to true.
+
+11:28.210 --> 11:30.750
+And we also terminated early on the loop.
+
+11:30.760 --> 11:33.550
+So now at that point we would say if not found
+
+11:36.280 --> 11:39.530
+if not found well that's pinned.
+
+11:39.930 --> 11:49.990
+Well and then we'll print well just to see what the final result is not.
+
+11:49.990 --> 11:54.640
+Else should be one two three with 10 appended since it wasn't in there who were on that.
+
+11:54.640 --> 11:55.240
+Fair enough.
+
+11:55.240 --> 11:56.380
+That's what we get.
+
+11:56.380 --> 11:58.330
+Suppose I had put ten in there.
+
+11:58.670 --> 12:00.650
+Well that works fine as well.
+
+12:00.760 --> 12:02.790
+Add it because of that.
+
+12:02.830 --> 12:04.870
+So that's one way of doing it.
+
+12:05.080 --> 12:11.610
+But it's there's a way to do this a little bit better without having to keep track of that flag basically.
+
+12:11.710 --> 12:16.740
+And that's why using the else statement so let's rewrite this that way for let's say Alec with one two
+
+12:16.750 --> 12:19.330
+three vowels equals ten.
+
+12:19.360 --> 12:24.010
+Now we're not going to use found equals false but we are going to need the index so we'll set the index
+
+12:24.010 --> 12:25.110
+equal to zero.
+
+12:25.510 --> 12:41.870
+And then while RDX is less than length of L we're going to say if l idea X harm equals equals value.
+
+12:41.860 --> 12:45.980
+So we found the value then what are we going to do.
+
+12:46.060 --> 12:47.430
+Well we're just going to break.
+
+12:47.510 --> 12:48.100
+OK.
+
+12:48.380 --> 12:49.170
+Are we're going to do.
+
+12:49.210 --> 12:50.430
+We're not going to do anything else.
+
+12:50.440 --> 12:56.210
+We're just going to break otherwise we're going to incremental index by one.
+
+12:56.210 --> 13:02.990
+Now what this means is that we can now write the else clause and the else clause will only run if the
+
+13:02.990 --> 13:06.840
+while loop ran without encountering a break statement.
+
+13:06.850 --> 13:11.960
+Other words it terminated normally if it terminated normally what does that mean.
+
+13:11.960 --> 13:13.900
+Well that means we didn't find the value.
+
+13:14.060 --> 13:17.290
+So at this point we can say l dot append.
+
+13:17.430 --> 13:18.380
+Wow.
+
+13:18.800 --> 13:22.060
+And now we can just go ahead and print again.
+
+13:22.430 --> 13:27.050
+And so when we run there we see that we get 1 2 3 comet turn 1 2 3 come at 10.
+
+13:27.050 --> 13:29.740
+You know we started one two three 10 wasn't found.
+
+13:29.810 --> 13:31.220
+We added in there.
+
+13:31.550 --> 13:38.110
+Now suppose that 10 was in there then you'll notice that while it didn't get added There's another element.
+
+13:38.170 --> 13:38.750
+Why.
+
+13:38.840 --> 13:45.410
+While it's founded so it did a break because it encountered the break else calls that appends did not
+
+13:45.470 --> 13:50.570
+added to the list here so that's how the else statement works.
+
+13:50.580 --> 13:56.720
+It's kind of weird you wouldn't expect Python or you wouldn't expect a loop in general to have an else
+
+13:56.720 --> 14:04.430
+calls but the while loop certainly does and so does the full loop that we'll look at in the next video.
+
+14:04.550 --> 14:07.060
+But the fall of a little bit different and we'll get to that.
+
+14:07.070 --> 14:07.400
+All right.
+
+14:07.400 --> 14:11.130
+I think I'll stop there and I'll break this up into two videos in the next video.
+
+14:11.120 --> 14:18.390
+What I want to look at is how these breaks and continues that are used inside loops work.
+
+14:18.410 --> 14:21.620
+When you have a try statement inside the loop.
+
+14:21.710 --> 14:23.220
+So we'll do that in the next video.
+
+14:23.240 --> 14:25.280
+So thanks for watching and I'll see you in a bit.

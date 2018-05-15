@@ -1,0 +1,649 @@
+WEBVTT
+
+00:00.990 --> 00:06.960
+Either in this video we're going to continue looking at equality testing in floats and some of the issues
+
+00:06.960 --> 00:11.220
+that arise because of the fact that floats cannot be stored exactly.
+
+00:11.430 --> 00:18.270
+You know at least the binary representation of a float isn't necessarily a finite representation which
+
+00:18.270 --> 00:22.560
+means we only have an approximation to the number that we want to store.
+
+00:22.860 --> 00:30.540
+So for example we saw that if we take Ezekial zero point one then if we format X to actually display
+
+00:30.630 --> 00:37.060
+let's say twenty five digits after the decimal point we end up with this number here.
+
+00:37.260 --> 00:37.570
+Right.
+
+00:37.570 --> 00:43.300
+So 0.1 even though pre-print X it will tell us zero point 1.
+
+00:43.320 --> 00:46.290
+In fact it's not exactly zero point 1.
+
+00:46.410 --> 00:50.200
+On the other hand we might have something like 0.1 to 5.
+
+00:50.400 --> 00:53.020
+Now we know that that is equal to 1 8.
+
+00:53.130 --> 00:55.490
+So that is a power of two in the denominator.
+
+00:55.530 --> 00:58.620
+So we do have an exact representation for that.
+
+00:58.620 --> 01:01.110
+So if we were to take this code again
+
+01:04.440 --> 01:09.360
+then as you can see we do have 0.1 to 5 and then everything is 0 after that.
+
+01:09.360 --> 01:16.270
+So that works right which means that if we do something like this XP equals zero point 1 2 5 plus 0
+
+01:16.500 --> 01:20.520
+1 2 5 0 1 2 5 k.
+
+01:20.790 --> 01:29.370
+So that's X and let's say we circle y equal to the sum of those three numbers which is 0.3 75 k then
+
+01:29.370 --> 01:33.530
+if we say X equals equals Y that will return true.
+
+01:33.630 --> 01:38.430
+Well that's because those two numbers one you know one plus one plus one eighth.
+
+01:38.550 --> 01:40.190
+Those were exact representations.
+
+01:40.200 --> 01:44.010
+So the sum becomes an exact or a finite representation.
+
+01:44.070 --> 01:48.960
+And then why is the same thing it has a finite representation and the number of significant digits fits
+
+01:48.960 --> 01:52.520
+within what can be handled by the float type in Python.
+
+01:52.740 --> 01:54.410
+So that works.
+
+01:54.450 --> 02:00.760
+But on the other hand if we do this let's look at 0.1 as we did before.
+
+02:01.590 --> 02:04.750
+And let's say Weikel 0.3.
+
+02:04.920 --> 02:08.950
+Then when we do X equals equals Y that turns out to be false.
+
+02:09.000 --> 02:14.400
+And that's because 0.1 and 0.3 do not have finite binary representations.
+
+02:14.400 --> 02:19.050
+Therefore they can all be stored as approximations in our float data type.
+
+02:19.890 --> 02:20.780
+OK.
+
+02:21.390 --> 02:27.090
+So how do we compare floats and we look at that in some detail in the previous video and we really have
+
+02:27.090 --> 02:28.200
+two ways of doing it.
+
+02:28.200 --> 02:30.680
+One is two rounds we could do something like this.
+
+02:30.690 --> 02:36.060
+We could say round x comma three equals equals round.
+
+02:36.090 --> 02:37.340
+Why can't a 3.
+
+02:37.350 --> 02:41.420
+So we're rounding x and y to three decimal points.
+
+02:41.430 --> 02:43.830
+Now what are x and y.
+
+02:43.920 --> 02:45.520
+Let's just print that out quickly.
+
+02:45.630 --> 02:51.270
+Let's print while it's format x 25 F.
+
+02:54.330 --> 02:57.340
+helps if I type correctly.
+
+02:57.390 --> 02:57.950
+OK.
+
+02:57.990 --> 03:03.400
+So that's X and Y we can do the same thing to that.
+
+03:04.170 --> 03:04.770
+And we get that.
+
+03:04.770 --> 03:08.150
+So as we can see these two numbers are not exactly the same.
+
+03:08.160 --> 03:12.990
+And so when we round them to three decimal points what's going to happen.
+
+03:13.260 --> 03:21.450
+We get true right because it's rounding to 9 9 9 9 to zero point 3 0 0 which will be the same as this
+
+03:21.450 --> 03:23.080
+round here.
+
+03:23.100 --> 03:29.580
+The problem with round is that if you think about what round is doing it's basically doing a test to
+
+03:29.580 --> 03:33.930
+see how close the two numbers are within an absolute tolerance.
+
+03:33.990 --> 03:39.110
+Right because we're rounding to three digits after the decimal point was saying are they within the
+
+03:39.330 --> 03:47.580
+you know that that that number here are they within 0.00 1 of each other essentially 0 0 1 0 0 0 1 3
+
+03:47.590 --> 03:49.170
+0 0 0 1.
+
+03:50.100 --> 03:52.620
+And of course that has problems that has problems.
+
+03:52.640 --> 03:59.130
+And we saw that when we looked at the close method we looked at using absolute and relative tolerances
+
+03:59.130 --> 04:05.850
+and we saw that absolute tolerances can be a problem when we're dealing with large numbers compared
+
+04:05.850 --> 04:07.720
+to numbers close to zero.
+
+04:08.160 --> 04:09.880
+So what do I mean by that.
+
+04:10.380 --> 04:19.410
+Well if you take a look at two numbers let's say X equals ten thousand point 0 1 and let's say y equals
+
+04:19.650 --> 04:22.700
+ten thousand point or two.
+
+04:22.710 --> 04:28.740
+Now because of the magnitude of the two numbers we might really want to consider these two numbers to
+
+04:28.740 --> 04:29.420
+be equal.
+
+04:29.490 --> 04:30.770
+But what's the delta.
+
+04:31.050 --> 04:34.330
+Well the delta here is equal to 0.1.
+
+04:34.380 --> 04:36.090
+Right and right.
+
+04:36.750 --> 04:37.820
+But that's the Delta.
+
+04:37.920 --> 04:43.560
+And so the Delta zero point one and we would probably want to consider these two numbers as close to
+
+04:43.560 --> 04:44.380
+each other.
+
+04:44.670 --> 04:49.500
+On the other hand if we take zero point zero one and Weikel zero point zero one.
+
+04:49.800 --> 04:50.780
+Well what's that.
+
+04:50.790 --> 04:52.820
+Sorry zero point zero or two.
+
+04:52.860 --> 04:54.120
+What's the delta here.
+
+04:54.270 --> 05:02.620
+It is also zero point zero or 1 and yet relatively speaking x and y are very different from each other.
+
+05:02.640 --> 05:03.060
+Why.
+
+05:03.090 --> 05:05.940
+Well why is two times X right.
+
+05:05.940 --> 05:07.770
+Why is it not 2 times X here.
+
+05:07.950 --> 05:10.090
+It's a very small difference.
+
+05:10.140 --> 05:14.550
+In fact if we're going to see what that is here we can just say why divided by x.
+
+05:14.640 --> 05:15.980
+Give us an approximate value.
+
+05:16.020 --> 05:19.360
+It's 1 point 0 0 0 0 9 9 9 times x.
+
+05:19.360 --> 05:20.460
+Whereas hishe.
+
+05:20.490 --> 05:24.330
+If we do that y divided by x we get that it's two times.
+
+05:24.420 --> 05:26.800
+So that's kind of an issue right.
+
+05:26.820 --> 05:30.610
+Because do we consider this close to we consider that close.
+
+05:30.630 --> 05:33.960
+It kind of depends on the problems you're working with.
+
+05:34.320 --> 05:42.300
+But generally speaking using this absolute tolerance is going to cause a problem because it might walk
+
+05:42.300 --> 05:47.010
+and say yeah you know if I round these two numbers they're not close.
+
+05:47.040 --> 05:51.480
+Now if I round them to let's say one decimal point then they're not close.
+
+05:51.480 --> 05:57.620
+And if I don't also keep round 1 around 2 1 digit after the decimal point of these two numbers there
+
+05:57.630 --> 06:00.520
+will also be considered not clocks.
+
+06:00.520 --> 06:01.790
+Let's take a look at example.
+
+06:01.830 --> 06:07.170
+Round x corner one day what does that give us that gives us zero point zero.
+
+06:07.170 --> 06:15.470
+So if we do that and y come along where we get that true right there close to each other.
+
+06:15.690 --> 06:21.120
+And in fact we probably would say no they're not close to each other relatively speaking.
+
+06:21.120 --> 06:27.660
+On the other hand if we take x and y equal to those two values and then we round them off and check
+
+06:27.660 --> 06:28.980
+up what happens.
+
+06:29.010 --> 06:30.140
+It tells us that it's true.
+
+06:30.150 --> 06:35.810
+And in that case yeah they're close enough because relatively speaking they're close to each other.
+
+06:36.390 --> 06:41.940
+So for that reason we're going to use the as close method instead of the round method since the round
+
+06:41.940 --> 06:46.140
+method really is only an absolute tolerance kind of technique.
+
+06:46.140 --> 06:53.040
+So for that we're going to import so from the math we're going to import this is close method.
+
+06:53.430 --> 06:56.860
+And if you want you can always get help on the method itself.
+
+06:56.870 --> 07:03.980
+In the python Townsell this way we can see as we saw that it's close takes two parameters the two values
+
+07:03.990 --> 07:06.550
+a and b that we want to check if they close to each other.
+
+07:06.750 --> 07:11.590
+And then the relative and absolute tolerances which are optional parameters.
+
+07:11.850 --> 07:16.870
+And if you don't specify relative tolerance it will default to this value here.
+
+07:16.920 --> 07:18.640
+Tend to the negative 9.
+
+07:18.810 --> 07:24.780
+And if you don't specify the absolute tolerance it will default to 0 which means in essence that if
+
+07:24.780 --> 07:31.860
+you don't specify the absolute tolerance we're ending up with a method that only uses the relative tolerance
+
+07:32.430 --> 07:38.130
+and as we saw before using only a relative tolerance can also cause problems.
+
+07:38.160 --> 07:44.100
+The best way to deal with something that kind of fits just about any number you'll encounter as your
+
+07:44.100 --> 07:48.670
+program is running is to use both relative and absolute tolerances.
+
+07:49.050 --> 07:52.660
+So let's take a look at some examples of that.
+
+07:52.700 --> 07:55.860
+So again let's go back to our standard of 1.
+
+07:56.040 --> 07:57.720
+OK.
+
+07:58.740 --> 08:03.210
+So we'll look at that and we're going to use the method as it is.
+
+08:03.210 --> 08:08.340
+We're not going to specify the relative and absolute tolerances and we're going to ask whether they're
+
+08:08.340 --> 08:09.110
+close.
+
+08:09.150 --> 08:10.790
+And the answer is true.
+
+08:11.040 --> 08:11.520
+OK.
+
+08:11.730 --> 08:15.850
+So whereas if we are done X equals Y obviously we get false.
+
+08:15.860 --> 08:16.420
+All right.
+
+08:16.710 --> 08:22.150
+So that's kind of a very simplistic way of using the close method you just use the defaults.
+
+08:22.260 --> 08:26.390
+It uses a relative tolerance and it kind of works.
+
+08:26.550 --> 08:34.950
+But let's take a look at numbers like one two three four five one two three four five six seven eight
+
+08:35.010 --> 08:43.110
+nine point or 1 and let's take it y equal one two three four five six seven eight nine point two just
+
+08:43.170 --> 08:46.240
+to change up numbers a little bit.
+
+08:46.860 --> 08:50.790
+So in this situation we might consider X and Y to be close to each other.
+
+08:50.790 --> 08:51.190
+Why.
+
+08:51.210 --> 08:54.150
+Because relatively speaking they are right.
+
+08:54.180 --> 08:57.370
+But if we take X equal to zero point zero one.
+
+08:57.870 --> 09:00.180
+And if we take Weikel to 0 1 0 2.
+
+09:00.210 --> 09:03.460
+Well we don't consider those close to each other.
+
+09:04.230 --> 09:09.720
+So let's go ahead and look at what happens if we use the as close method with those two numbers x and
+
+09:09.720 --> 09:10.450
+y.
+
+09:10.680 --> 09:17.150
+And here I'm going to specify a lower relative tolerance so will specify this.
+
+09:17.160 --> 09:18.720
+And what do we get.
+
+09:18.720 --> 09:28.020
+We get that it's true and which if we use is close x come y and we'll use the same relative tolerance.
+
+09:28.020 --> 09:33.240
+That's the important point here that we don't have to change our relative tolerance and then we get
+
+09:33.240 --> 09:36.340
+false which is kind of what we would expect.
+
+09:36.420 --> 09:36.840
+Right.
+
+09:36.840 --> 09:43.170
+I mean again depending on the problems you're walking with but 0.01 0.02 relatively speaking are very
+
+09:43.170 --> 09:44.070
+different.
+
+09:44.070 --> 09:49.060
+Whereas relatively speaking these two numbers are quite close to each other.
+
+09:50.400 --> 09:55.350
+But we have to be careful when we deal with relative tolerances only because right now remember the
+
+09:55.350 --> 09:57.550
+absolute tolerance is what it's zero.
+
+09:57.570 --> 09:57.810
+Right.
+
+09:57.810 --> 10:00.510
+It's not being used at all.
+
+10:00.690 --> 10:02.920
+So we have to be careful with small numbers.
+
+10:02.970 --> 10:07.990
+So let's take Ezekial zero point and it's put in 6 0 1 2 3 4 5 6 1.
+
+10:08.070 --> 10:11.910
+And it's like Weikel Zero Point 1 2 3 4 5 6 2.
+
+10:12.240 --> 10:16.330
+And let's look again at the close method of x and y.
+
+10:16.530 --> 10:24.710
+And again we'll keep the relative tolerance to 0.01 and we get false.
+
+10:24.840 --> 10:25.370
+Right.
+
+10:25.530 --> 10:31.800
+So now we might be getting to a point where we're dealing with numbers where you know maybe we're only
+
+10:31.800 --> 10:36.400
+dealing in digits or numbers that should be accurate up to two decimal points.
+
+10:36.630 --> 10:39.570
+And so that's why we put our right of tolerance to that let's say.
+
+10:39.660 --> 10:43.340
+But in this case this is told not close.
+
+10:43.380 --> 10:49.170
+So that's the problem when you're very close to zero the relative tolerance is really going to cause
+
+10:49.170 --> 10:50.140
+you a problem.
+
+10:51.300 --> 10:55.350
+So we would want to use an absolute tolerance in this case.
+
+10:55.380 --> 10:55.680
+Right.
+
+10:55.710 --> 11:02.070
+We want to we would check and see is the Delta you know X minus Y absolute value is that less than or
+
+11:02.070 --> 11:07.600
+equal to let's say 0.01 in which case I will say they're equal.
+
+11:07.600 --> 11:07.780
+Right.
+
+11:07.800 --> 11:10.960
+It kind of depends on how many significant digits you want to work with.
+
+11:13.230 --> 11:13.880
+OK.
+
+11:14.070 --> 11:22.010
+So what we can do here to fix this is to use the as close method again why we'll leave our road of tolerance
+
+11:24.070 --> 11:26.040
+people to 0.01.
+
+11:26.320 --> 11:30.200
+But now we're going to specify in absolute tolerance as well.
+
+11:30.280 --> 11:37.450
+And let's say that we want the absolute tolerance to be also within 0.01 of each other.
+
+11:38.110 --> 11:40.070
+And so now we get that it's true.
+
+11:42.940 --> 11:50.020
+So that's why we want to combine relative an absolute tolerances is because we can set those tolerances
+
+11:50.110 --> 11:55.990
+up you know once and for all in our program it's rare that you would change your tolerance levels as
+
+11:55.990 --> 12:00.090
+your program is running because you don't know what numbers you're expecting.
+
+12:00.100 --> 12:04.780
+You don't necessarily you might know the ranges that you're expecting and therefore you can set up ahead
+
+12:04.780 --> 12:10.640
+of time and determine what your relative and absolute tolerances should be when you're comparing floats.
+
+12:10.900 --> 12:15.820
+But in general you're not changing your tolerances as your program is running because you don't know
+
+12:15.820 --> 12:17.350
+what numbers are coming at you.
+
+12:17.590 --> 12:20.890
+So you set them up and you set both the relative and the absolute up.
+
+12:20.890 --> 12:23.080
+And that way I can handle most cases.
+
+12:23.080 --> 12:25.150
+So let's take a look at another example.
+
+12:25.600 --> 12:29.780
+So again 1 2 3 4 5 6 1 why pools.
+
+12:30.190 --> 12:34.640
+One two three four five six and two minutes they equal two.
+
+12:34.650 --> 12:36.970
+Now that big number we had before.
+
+12:37.480 --> 12:38.010
+OK.
+
+12:38.230 --> 12:42.470
+And people equal to 1 2 3 4 5 6 8 9 0 2.
+
+12:42.650 --> 12:43.630
+OK.
+
+12:44.290 --> 12:52.900
+And now we're going to print is a close X-Com AYSO will take the first two numbers will set up an absolute
+
+12:52.900 --> 12:55.250
+tolerance of zero point zero zero.
+
+12:55.270 --> 12:57.010
+Let's say 0 1.
+
+12:57.100 --> 12:59.790
+Let's say we want to go there for the absolute Tarrant's.
+
+13:00.010 --> 13:06.830
+So if numbers absolutely are within zero point zero zero zero one of each other they're considered close.
+
+13:06.850 --> 13:07.180
+Right.
+
+13:07.270 --> 13:14.380
+But of course we also specify the relative tolerance so that as the numbers get larger then the absolute
+
+13:14.380 --> 13:16.300
+tolerance maybe doesn't matter as much.
+
+13:16.330 --> 13:20.590
+And we wanted to see if relatively speaking they're close to each other for small numbers.
+
+13:20.590 --> 13:26.590
+We look at absolute tolerances large numbers we'll look at relative tolerances so let's do that.
+
+13:26.680 --> 13:32.920
+And let's also do the same thing right now in both of these cases we would consider these two numbers
+
+13:32.920 --> 13:40.840
+to be let's say close to each of because you know they're quite close they're within that tolerance
+
+13:40.870 --> 13:42.040
+absolutely given.
+
+13:42.070 --> 13:43.380
+Absolutely speaking.
+
+13:43.540 --> 13:48.890
+And these two well they're definitely not within zero point 0 0 0 1 of each other.
+
+13:49.060 --> 13:52.580
+But relatively speaking those two numbers are pretty close to each other.
+
+13:52.630 --> 13:58.140
+So I know I'm rehashing this stuff a lot but it takes some getting used to.
+
+13:58.540 --> 14:00.590
+And then we'll just specify the same.
+
+14:00.640 --> 14:06.190
+And that's the important part here is that we can specify the same absolute and relative tolerances.
+
+14:06.190 --> 14:11.240
+We don't have to change them according to the numbers that we're examining.
+
+14:11.290 --> 14:14.710
+And as you can see we get that both are true.
+
+14:15.410 --> 14:15.990
+OK.
+
+14:16.000 --> 14:21.890
+So this kind of wraps up how we look at a quality testing for floats and so we have to be a little careful.
+
+14:21.910 --> 14:28.840
+It's not as simple as using an equals equals and even rounding although it can work in some cases doesn't
+
+14:28.840 --> 14:34.930
+work properly when we're talking about relative and absolute tolerances since rounding basically only
+
+14:34.960 --> 14:37.920
+does an absolute tolerance check.
+
+14:38.080 --> 14:39.190
+Our thanks for watching.
+
+14:39.190 --> 14:40.300
+I'll see you in the next video.

@@ -1,0 +1,715 @@
+WEBVTT
+
+00:00.580 --> 00:07.770
+You're in this video we're going to look at function doc strings and notations So what are the strings.
+
+00:07.770 --> 00:14.060
+Well we've seen how we can use the help function before Wrightwood can go help on some object X and
+
+00:14.060 --> 00:19.740
+it will return some documentation if it's available for whatever X was and X and the function could
+
+00:19.740 --> 00:21.700
+be a module could be a class.
+
+00:21.750 --> 00:27.360
+And here we're going to focus on documents strings for functions but it applies as well to other things
+
+00:27.360 --> 00:30.420
+like classes and modules and methods.
+
+00:30.420 --> 00:36.150
+So we can document our functions to achieve the same result using something called a docstring a document
+
+00:36.180 --> 00:42.490
+string and that's defined in Pepp 2:57 if you want to read up more about its.
+
+00:42.560 --> 00:45.740
+Now if the first line in the function body is a string.
+
+00:45.910 --> 00:51.280
+So it has to be the first line and it has to be a string not an assignment of a string to a variable
+
+00:51.280 --> 00:54.740
+not a comment just a string by itself.
+
+00:55.030 --> 00:58.410
+Then it will be interpreted as a documentation string.
+
+00:58.660 --> 01:04.080
+It's going to be a string there's nothing special about doctrines that just strings.
+
+01:04.190 --> 01:05.870
+For example we could do this.
+
+01:05.870 --> 01:07.320
+Def my phunk A.
+
+01:07.400 --> 01:08.500
+And then here's the string.
+
+01:08.540 --> 01:12.890
+That's the first line of the function the function's body.
+
+01:12.890 --> 01:13.220
+Right.
+
+01:13.250 --> 01:16.290
+And it's just a string sitting there by itself.
+
+01:16.310 --> 01:22.070
+So this is not a comment and this is why earlier on in the course I was trying to make a distinction
+
+01:22.070 --> 01:23.490
+between comments and strings.
+
+01:23.510 --> 01:30.710
+Strings are not comments but you can use them as comments essentially But there are special types of
+
+01:30.710 --> 01:31.580
+comments.
+
+01:31.580 --> 01:33.700
+First of all they get compiled into your code.
+
+01:33.830 --> 01:34.070
+Right.
+
+01:34.070 --> 01:35.320
+Kamens Denot.
+
+01:35.510 --> 01:38.870
+But secondly they all use for documentation and in particular.
+
+01:38.870 --> 01:42.690
+Now if you could help on my phunk here's what will get returned.
+
+01:42.770 --> 01:46.650
+We'll have my phunk of a followed by the documentation string that we provided
+
+01:49.430 --> 01:56.180
+so multiline strings are of course available we can do that using while multiline strings and this is
+
+01:56.180 --> 02:02.890
+why you'll see if you look at Python code that has dot strings dot strings usually have triple delimiters
+
+02:03.170 --> 02:05.210
+even if they are just on one line.
+
+02:05.420 --> 02:09.680
+It's preferred to use trippled delimiters for your couple of reasons.
+
+02:09.680 --> 02:14.590
+First one is that it's it's kind of more obvious that hey this is a documentation string.
+
+02:14.600 --> 02:18.950
+I mean you should know it's a documentation string if it's the first you know string that just sits
+
+02:18.950 --> 02:20.360
+kind of by itself.
+
+02:20.360 --> 02:21.920
+You know as the first line.
+
+02:22.140 --> 02:28.580
+But moreover what happens if that if you use trippled delimiters if later on you want to expand and
+
+02:28.580 --> 02:29.780
+put multiple lines.
+
+02:29.810 --> 02:35.420
+Then it's very easy to just start adding lines you don't have to change the delimiters so you don't
+
+02:35.420 --> 02:36.990
+have to do it.
+
+02:37.100 --> 02:40.540
+Just be aware that it works with anything I could put a single quote here.
+
+02:40.640 --> 02:44.320
+I could put double quotes I could put trouble single quotes triple double quotes.
+
+02:44.480 --> 02:46.040
+It will work just fine.
+
+02:46.490 --> 02:52.620
+Of course if you want a multi-line string then you have to use the triple delimiters so well documented
+
+02:52.620 --> 02:55.650
+strings stoned because they are still part of your code.
+
+02:55.650 --> 02:56.780
+Where are they stored.
+
+02:57.150 --> 02:59.040
+Well a function is an object.
+
+02:59.040 --> 03:03.780
+Objects have properties functions in particular have this done the duck property.
+
+03:03.800 --> 03:07.540
+And that's what will be used to store that documentation string.
+
+03:07.580 --> 03:09.950
+The single line or multi-line.
+
+03:10.130 --> 03:12.840
+So for example let's say we have this function here.
+
+03:13.100 --> 03:16.440
+And you can see we've got a multi-line docstring right here.
+
+03:16.880 --> 03:25.220
+Then when we look at the Dunder dock property of the fact function it will actually contain all multi-line
+
+03:25.220 --> 03:30.620
+string it's just a string but it happens to be stored in this Dunder dock property.
+
+03:30.620 --> 03:36.830
+And so external tools that are trying to maybe create documentation on your code by looking for dark
+
+03:36.830 --> 03:40.100
+strings will go ahead and find those done the dock.
+
+03:40.100 --> 03:44.080
+Same thing with the help write the help function does the same thing.
+
+03:44.150 --> 03:50.160
+It just goes and looks for the documentation string if it exists for the function and if it does.
+
+03:50.360 --> 03:55.310
+Well the first thing it does it just returns the function header and then it returns the documentation
+
+03:55.580 --> 03:58.850
+string so that strings are just there that you.
+
+03:58.880 --> 04:05.600
+So you can attach meta data essentially to your objects your functions and classes and modules and so
+
+04:05.600 --> 04:05.970
+on.
+
+04:08.530 --> 04:12.470
+We also have another way of adding documentation to all functions.
+
+04:12.530 --> 04:20.390
+And this is by adding documentation that essentially or adding documentation to the parameters of the
+
+04:20.390 --> 04:22.950
+function.
+
+04:23.230 --> 04:26.920
+And this is defined by the way pepped thought 31 or 7 if you want to take a look at that.
+
+04:26.920 --> 04:32.040
+Now there were enhancements made and we'll talk about that later when we get to Typepad thing.
+
+04:32.920 --> 04:36.820
+So in general here's how you annotate your parameters.
+
+04:36.820 --> 04:42.670
+You just take your regular parameter whatever it was a B could be positional parameters it could be
+
+04:42.670 --> 04:45.780
+a star or you know a double Stockwell's.
+
+04:45.790 --> 04:50.000
+It could be a key you know a keyword only parameter.
+
+04:50.230 --> 04:55.010
+You can stall and rotate each one of those and it's done by putting a colon.
+
+04:55.180 --> 05:03.790
+And if you want a space it's not necessary and then some expression to document the return value of
+
+05:03.790 --> 05:08.860
+a function we use this minus greater than and then the expression.
+
+05:09.160 --> 05:09.360
+Right.
+
+05:09.370 --> 05:14.950
+So we don't use a call on there because the call on is used to indicate the end of the header of the
+
+05:14.950 --> 05:15.880
+function.
+
+05:15.910 --> 05:20.170
+So instead we use this sequence of characters here.
+
+05:20.580 --> 05:25.870
+But let's look at an example that will be much simpler if we do that so if we have def of my funk.
+
+05:26.020 --> 05:31.270
+Right so we were defining a function and it is a first parameter it's a positional parameter a.
+
+05:31.480 --> 05:36.540
+And we're just going to put a string but remember this can be any expression doesn't have to be a string
+
+05:36.550 --> 05:39.050
+could be something else and we'll see examples of that.
+
+05:39.430 --> 05:44.500
+And then we have the second positional and then a string and then we have something that's going to
+
+05:44.500 --> 05:50.950
+document the return of the function and we can say hey it's going to return a string and then we have
+
+05:50.950 --> 05:52.960
+the body of the function itself.
+
+05:52.960 --> 05:55.230
+So now when we call help of my.
+
+05:55.750 --> 06:03.160
+It's going to tell us my funk a a string be a positive integer and returns a string.
+
+06:03.910 --> 06:07.470
+So first of all the dumb The duck is actually empty.
+
+06:07.480 --> 06:09.790
+There is no document string in this function.
+
+06:09.790 --> 06:11.320
+So the dummy the dock is empty.
+
+06:11.320 --> 06:13.280
+So these annotations don't get stored.
+
+06:13.300 --> 06:20.470
+And Donald Duck that gets taught somewhere else and the help function just happens to collect the notations
+
+06:20.470 --> 06:22.320
+and display them this way.
+
+06:22.490 --> 06:25.000
+All the tools extol tools maybe that too.
+
+06:25.000 --> 06:31.360
+Does that create documentation may actually you know split these out and maybe you'll have multiple
+
+06:31.360 --> 06:37.390
+lines that will tell you hey the parameter a is a string from a to b is a positive integer.
+
+06:37.390 --> 06:39.490
+The function returns a string.
+
+06:39.580 --> 06:43.650
+So and whatever you put in there again this is method data.
+
+06:43.690 --> 06:47.210
+It doesn't affect how your Python code runs.
+
+06:47.260 --> 06:53.650
+It doesn't help it doesn't hinder it doesn't do anything other than just you know attach itself as method
+
+06:53.650 --> 06:57.360
+data that can be used in any variety of ways.
+
+06:57.400 --> 06:59.920
+The help function happens to use it this way.
+
+06:59.920 --> 07:04.120
+External tools might use it for something else.
+
+07:04.420 --> 07:09.870
+So I notations can be any expression I want to come back to that because it means that if it's any expression
+
+07:09.900 --> 07:12.290
+while we can put in let's say a type.
+
+07:12.290 --> 07:13.000
+Right.
+
+07:13.030 --> 07:18.760
+So as TR We can put a string right and whatever we want in the string.
+
+07:18.790 --> 07:21.730
+You can even do multiline strings if you want.
+
+07:21.730 --> 07:24.070
+I know you can.
+
+07:24.910 --> 07:29.590
+And then the return again I use the type as an example but you can also do things like this you can
+
+07:29.590 --> 07:34.390
+say B is this object this literal right this list one two three.
+
+07:34.390 --> 07:35.770
+That's perfectly fine as well.
+
+07:35.770 --> 07:37.150
+This is just an expression.
+
+07:37.480 --> 07:43.510
+And then when you look at your documentation it will show 1 2 3 In fact you can even call functions
+
+07:43.760 --> 07:46.260
+in your own notation since the expressions.
+
+07:46.310 --> 07:46.790
+Right.
+
+07:47.020 --> 07:49.060
+So you could write something like this.
+
+07:49.150 --> 07:52.110
+Def my phunk 8 code on string.
+
+07:52.120 --> 07:57.280
+So that's the notation for a note that this does not restrict a to be a string.
+
+07:57.280 --> 08:03.460
+This is just an add notation again on re-emphasise it doesn't change how your code runs or what Python
+
+08:03.460 --> 08:05.590
+can or can't do.
+
+08:05.590 --> 08:10.150
+And then the return our notation is a repeated.
+
+08:10.150 --> 08:12.330
+That's a string plus.
+
+08:12.400 --> 08:16.850
+So now we're starting to have an actual expression right with doing string concatenation here.
+
+08:16.930 --> 08:23.650
+And what are we concatenating with we're calculating the max of X and Y and X was 3 and Y was 5 so that
+
+08:23.650 --> 08:25.310
+Max is going to be 5.
+
+08:25.390 --> 08:34.090
+So we get to get a repeated a repeated five times and indeed when we call helco of my funk that's exactly
+
+08:34.090 --> 08:37.350
+what we get a repeated five times.
+
+08:37.390 --> 08:39.840
+Now one word of caution here.
+
+08:40.420 --> 08:44.380
+First of all this max of X Y gets evaluated.
+
+08:44.410 --> 08:50.670
+When you remember when we look at default values we look at some kind of caveats of default values in
+
+08:50.680 --> 08:52.780
+the last section.
+
+08:53.110 --> 08:58.980
+There is a statement that creates the function and that runs when its first encountered.
+
+08:59.140 --> 09:02.170
+Once the function is created it's created right.
+
+09:02.340 --> 09:07.270
+Every time you call a function it doesn't recreate the function it already has.
+
+09:07.570 --> 09:14.770
+So just like default values were calculated and evaluated when the function was defined.
+
+09:14.770 --> 09:21.280
+So to our notation expressions which means that if later on in your code you change the values of x
+
+09:21.280 --> 09:27.060
+and y then that maximum may change and it will affect how the function runs.
+
+09:27.060 --> 09:31.450
+Because here the function body is re-evaluating the max of x and y.
+
+09:31.470 --> 09:32.890
+Every time it runs.
+
+09:33.060 --> 09:40.490
+However your notation will not be updated because it gets evaluated once when the function is defined.
+
+09:40.510 --> 09:42.850
+So just a caveat there.
+
+09:43.470 --> 09:46.470
+So what about default values start Stockwell's.
+
+09:46.590 --> 09:48.490
+Well they can still be used as before.
+
+09:48.570 --> 09:50.850
+So for example here's how you would do it.
+
+09:50.850 --> 09:52.460
+You would have your parameter name.
+
+09:52.620 --> 09:54.620
+Then you put in your notation.
+
+09:54.660 --> 10:01.510
+So the parameter then the notation and then the default value you can also do it this way and you're
+
+10:01.580 --> 10:04.840
+just using multi-line continuation.
+
+10:04.910 --> 10:12.210
+So again a straight equals x y z so a equals x y z as I'm not saying that a has to be a string.
+
+10:12.230 --> 10:14.840
+You could say a call on string equals 10.
+
+10:14.930 --> 10:16.220
+I'd be perfectly fine.
+
+10:16.220 --> 10:18.320
+Python doesn't care right.
+
+10:18.320 --> 10:22.680
+The notation is just metadata doesn't affect the code.
+
+10:22.860 --> 10:24.900
+Stuff can be documented as well.
+
+10:24.930 --> 10:29.880
+This put the code on and then whatever you want from your documentation for your notation sending what
+
+10:30.020 --> 10:32.460
+you know will be within the form and style Stockwell's.
+
+10:32.510 --> 10:34.890
+Same deal works exactly the same way.
+
+10:35.120 --> 10:41.540
+So where are notations stored while they are stored in the donder annotations property of the function.
+
+10:41.540 --> 10:45.020
+Doc Strange remember was stored in the dumdum doc property.
+
+10:45.160 --> 10:54.170
+Notations are stored in the dhanda notations property and that donder adaptations property is a dictionary.
+
+10:54.210 --> 11:00.500
+It's not a string it's a dictionary where the keys are the parameter names and the only exception is
+
+11:00.500 --> 11:08.680
+that for the return notation The key is specified automatically for us and just called return and then
+
+11:08.680 --> 11:11.190
+the values of the notations.
+
+11:11.190 --> 11:13.310
+So for example if we have this right.
+
+11:13.320 --> 11:19.030
+So this is the notation for a notation for B and this is the notation for the return.
+
+11:19.070 --> 11:26.040
+Then if we look at my func Dondre annotations will get a dictionary with a key right the parameter has
+
+11:26.110 --> 11:32.230
+the parameter b his return for the return notation and then the values just for whatever this happen
+
+11:32.230 --> 11:32.920
+to be.
+
+11:32.920 --> 11:34.660
+So in this case this was a string.
+
+11:34.660 --> 11:35.560
+This was a typo.
+
+11:35.590 --> 11:38.930
+This was the type.
+
+11:39.020 --> 11:41.880
+So where does Python used doc strings and annotations.
+
+11:41.900 --> 11:45.760
+And I've repeated this before and I'm going to say it one more time.
+
+11:46.580 --> 11:53.410
+It doesn't it's mainly used by external tools and modules like for example the help function can use
+
+11:53.410 --> 11:56.620
+it but it doesn't affect your code right.
+
+11:56.620 --> 11:59.710
+It doesn't change the way Python runs your code.
+
+11:59.950 --> 12:02.470
+Not in any way.
+
+12:02.480 --> 12:07.580
+Another example would be applications that generate documentation from your code like Spinx for example
+
+12:07.940 --> 12:11.260
+is a pretty typical document generator for Python.
+
+12:11.480 --> 12:16.460
+And it will run through your code and will look for all the documents strings and all the annotations
+
+12:16.460 --> 12:21.170
+that you have and it's going to compile documentation for your code.
+
+12:21.350 --> 12:26.960
+So that's why it's really useful and recommended to document stuff in your code because if you ever
+
+12:26.960 --> 12:33.860
+want to write documentation Let's say you write you know a library of functions and classes that are
+
+12:33.860 --> 12:35.700
+going to be used by somebody else.
+
+12:35.960 --> 12:38.960
+Well you're going to need to tell them how to use it.
+
+12:38.990 --> 12:39.740
+So what are you going to do.
+
+12:39.740 --> 12:43.180
+You're going to fire up your word processor and start typing stuff in.
+
+12:43.370 --> 12:44.920
+Yeah you can certainly do that.
+
+12:45.140 --> 12:51.200
+You know maybe you're going to create a you know a little Web site that has you know the documentation
+
+12:51.200 --> 12:52.500
+and edged himself format.
+
+12:52.580 --> 12:54.600
+Yeah you can certainly do that too.
+
+12:55.190 --> 12:59.810
+But why not just include the documentation directly in your code.
+
+13:00.050 --> 13:06.620
+If you do that and you use a tool like sphinx for example it will generate a really good looking you
+
+13:06.620 --> 13:13.070
+know template and documentation for your code and it will be readable list out the classes and the documentation
+
+13:13.070 --> 13:18.110
+for the class and then underneath all of that you'll have the documentation for the different methods
+
+13:18.410 --> 13:23.330
+and you'll have you know documentation for the different parameters of your methods and functions and
+
+13:23.330 --> 13:25.480
+so on and all that is done automatically.
+
+13:25.490 --> 13:30.430
+All you have to do is just do the annotations and the doc strings as you're writing your code.
+
+13:30.530 --> 13:36.710
+So it's a good habit to form of actually putting those things in as you write your code not going back
+
+13:36.710 --> 13:44.060
+later on you know and spending days and days filling in documentation which is very tedious and much
+
+13:44.060 --> 13:46.060
+better done right away as you do.
+
+13:46.190 --> 13:48.560
+And of course it doesn't affect your Python code right.
+
+13:48.560 --> 13:49.550
+Nothing changes.
+
+13:50.860 --> 13:52.550
+So it's entirely optional.
+
+13:53.460 --> 13:58.380
+Now there is something else too which is an enhanced version of annotations and we'll take a look at
+
+13:58.380 --> 14:02.280
+that in a later section and we're going to have a section on that just by itself because it's actually
+
+14:02.280 --> 14:08.430
+a pretty broad topic called type hints that this is a recent development type Taipans came pretty late
+
+14:08.770 --> 14:11.830
+on I think version 3.5 is where it started.
+
+14:11.870 --> 14:14.580
+And there was some extra refinements in 3.6.
+
+14:14.580 --> 14:18.290
+So it's really going to apply to just the later versions of Python.
+
+14:18.570 --> 14:23.800
+But it allows us to do something more with the annotations so basically it's of building on the annotations
+
+14:24.210 --> 14:28.780
+you saw how we could have an adaptation be actual type write like string or INT.
+
+14:29.100 --> 14:34.740
+Well now if you really have that and you have a system in place that kind of standardizes how that is
+
+14:34.740 --> 14:37.730
+done then external tools can use it.
+
+14:37.740 --> 14:44.300
+It will still not affect how Python runs but external tools can use it to maybe do some type checking.
+
+14:44.310 --> 14:47.240
+Remember in Python everything is dynamically typed.
+
+14:47.370 --> 14:48.630
+That hasn't changed.
+
+14:48.810 --> 14:52.930
+But you may want to sometimes have this static typing.
+
+14:53.190 --> 14:57.560
+You know we can have it in python but at least you can try to check.
+
+14:57.570 --> 15:02.540
+So if you say hey here's a function it needs a write the positional a.
+
+15:02.550 --> 15:06.450
+And that's going to be an end if later on you say equals ABC.
+
+15:06.690 --> 15:11.880
+Well depending how you wrote your code in your function it may fail if you pass that a string.
+
+15:12.240 --> 15:17.580
+So you may want you know to know before you run the code that or wait a minute I'm supposed to be passing
+
+15:17.580 --> 15:19.290
+an integer here not a string.
+
+15:19.590 --> 15:21.900
+So you might get a warning in your id say.
+
+15:21.930 --> 15:24.440
+Well I was expecting an integer you passed the string.
+
+15:24.450 --> 15:25.800
+There's something wrong here.
+
+15:26.010 --> 15:27.510
+It's still going to run right.
+
+15:27.510 --> 15:29.930
+Nothing's going to change it's going to run.
+
+15:30.150 --> 15:32.430
+But at least you'll get a warning.
+
+15:32.430 --> 15:38.190
+So that's called type checking and we'll look at that in that section on typings in more detail.
+
+15:38.190 --> 15:45.270
+For now just think of notation simply as meta data attached to the parameters and doc strings as just
+
+15:45.520 --> 15:50.830
+you know documentation strings attached to the functions or method or class or whatever it is that you
+
+15:50.850 --> 15:52.560
+document.
+
+15:52.560 --> 15:55.740
+So let's take a look at some code and we'll do that in the next video.
+
+15:55.950 --> 15:57.800
+So thanks for watching and I'll see you in a bit.

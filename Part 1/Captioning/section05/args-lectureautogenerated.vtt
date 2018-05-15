@@ -1,0 +1,262 @@
+WEBVTT
+
+00:00.540 --> 00:06.590
+High in this video we're going to turn our attention back to function parameters and function arguments.
+
+00:06.590 --> 00:12.530
+So first let's just recall from iterable unpacking what we so we can unpack and iterable on the right
+
+00:12.530 --> 00:16.790
+hand side into a table on the left hand side and we just get positional mapping.
+
+00:16.790 --> 00:20.470
+So we get April 10 Beagle's 20 and sequel's 30.
+
+00:20.510 --> 00:23.420
+Now something very similar happens when you call a function.
+
+00:23.660 --> 00:29.600
+So we can first define a function with three parameters a b and c and then we can call it using these
+
+00:29.600 --> 00:32.530
+values as arguments 10 20 and 30.
+
+00:32.720 --> 00:39.980
+And essentially it's going to be as if we're unpacking this tuple 10:23 into the variables a b and c
+
+00:39.980 --> 00:42.130
+which are the parameters of the function.
+
+00:42.370 --> 00:47.200
+And so we end up inside the function with a equals 10 vehicles 20 and Segal's 40.
+
+00:47.330 --> 00:50.610
+So it's very similar to iterable unpacking.
+
+00:50.660 --> 00:55.420
+In fact it's so similar that it also supports the star expressions.
+
+00:55.430 --> 00:59.050
+So let's just recall from iterable unpacking how that worked.
+
+00:59.180 --> 01:05.630
+If we had a camera become a star C that meant take any iterable on the right hand side take its first
+
+01:05.630 --> 01:12.500
+element put it in a take the second element put it in B and then any remaining elements go into a list
+
+01:12.620 --> 01:19.170
+that's going to be called C and so here we end up with a 10 B's 20 and sees the list a comma B.
+
+01:19.370 --> 01:23.750
+Of course if we had nothing after the 20 this would just be an empty list.
+
+01:24.870 --> 01:30.360
+Now something similar happens when we use positional arguments that are being passed to a function.
+
+01:30.390 --> 01:37.290
+For example we could define a function with these parameters a b and c and that essentially means that
+
+01:37.350 --> 01:43.200
+we will be able to accept two or more parameters when we call func one.
+
+01:43.320 --> 01:47.910
+So we can specify two or as many more as we want arguments.
+
+01:47.940 --> 01:54.900
+When we call for one and for example we could call func one with 10 and 20 and then these two extra
+
+01:54.900 --> 01:57.720
+positional parameters A and B.
+
+01:57.730 --> 01:57.930
+Right.
+
+01:57.930 --> 02:00.590
+Actually technically arguments A and B.
+
+02:00.780 --> 02:07.860
+And so 8 will be 10 B will be 20 and then C will collect the rest of the positional arguments and C
+
+02:07.860 --> 02:10.530
+will end up as a tuple a comma B.
+
+02:10.560 --> 02:17.460
+So note though that this is a tuple it's not a list unlike what we had when we were doing iterable unpacking.
+
+02:17.640 --> 02:19.000
+We do end up with a tuple.
+
+02:19.110 --> 02:21.790
+That's kind of a minor difference.
+
+02:21.850 --> 02:24.210
+Now the style parameter name is arbitrary.
+
+02:24.220 --> 02:30.300
+Here's I used style C but you can make it whatever you want and it is customary but it's not required
+
+02:30.360 --> 02:32.780
+just customary to name it style.
+
+02:32.850 --> 02:37.510
+You'll see that that's a fairly common convention that everybody uses.
+
+02:37.530 --> 02:39.090
+We just call it style.
+
+02:39.180 --> 02:42.010
+But in reality you can make it whatever you want.
+
+02:42.060 --> 02:44.280
+The name is just the variable name.
+
+02:44.280 --> 02:47.040
+What makes this special is the star.
+
+02:47.040 --> 02:51.510
+Just like we had with iterable unpacking of the UN with the extended unpacking.
+
+02:52.020 --> 02:57.560
+So for example in this case we would probably write it as def phunk one a comma B comma Starns
+
+03:00.220 --> 03:06.350
+now starts exhausts the positional arguments this is a little bit different than iterable unpacking.
+
+03:06.850 --> 03:11.080
+So you cannot add more positional arguments after Stangs.
+
+03:11.110 --> 03:14.100
+That's what I mean by exhausts the positional arguments.
+
+03:14.140 --> 03:15.900
+So that's what I mean by that.
+
+03:16.000 --> 03:23.020
+Well we could define a function this way with these parameters a b Starns and another parameter that
+
+03:23.020 --> 03:24.990
+comes after that.
+
+03:25.570 --> 03:33.220
+But if we try and call the function this will not work if we try and call func one with 10 20 a b and
+
+03:33.220 --> 03:41.980
+then 100 Python is going to complain saying no you cannot pass a positional argument after basically
+
+03:41.980 --> 03:44.970
+this has exhausted your positional arguments.
+
+03:45.190 --> 03:46.940
+So that will not work.
+
+03:47.050 --> 03:49.990
+I will rectify that in the next set of lectures.
+
+03:49.990 --> 03:52.800
+We'll take a look at something else that allows us to do that.
+
+03:53.050 --> 03:59.140
+But for now when we're using positional arguments we can't do that and we'll see that in the code example.
+
+03:59.890 --> 04:02.500
+So writing this is actually OK right.
+
+04:02.500 --> 04:06.660
+Defining a function with this style of parameter list is fine.
+
+04:06.790 --> 04:07.980
+That's perfectly acceptable.
+
+04:07.980 --> 04:12.520
+That works but it doesn't work in quite the same way that we would expect.
+
+04:12.610 --> 04:18.670
+We have trouble unpacking right where we would just take the last element of the interval and then it
+
+04:18.670 --> 04:20.490
+would take the first and the second.
+
+04:20.620 --> 04:26.950
+So it would turn into a 20 to be 100 into D and then start args would be the remaining which would be
+
+04:26.950 --> 04:33.490
+a and b doesn't work that way and functions because after we've exhausted all the positional arguments
+
+04:33.790 --> 04:37.770
+we get something else which we've seen before actually the call keyword arguments.
+
+04:37.840 --> 04:39.780
+But we'll get to that in the next lecture.
+
+04:41.120 --> 04:43.870
+So as far as unpacking arguments go.
+
+04:43.970 --> 04:49.340
+Suppose we have this function we have a function again one that just takes three positional parameters
+
+04:49.400 --> 04:50.770
+a b and c.
+
+04:51.230 --> 04:56.030
+And suppose we have this list with three values 10 20 and 30.
+
+04:56.120 --> 05:02.650
+And we essentially want to pass 10 20 and 30 as the arguments of the function.
+
+05:02.900 --> 05:03.140
+Right.
+
+05:03.140 --> 05:08.680
+We have three and three parameters we have three elements here's we should be able to get three arguments
+
+05:09.200 --> 05:13.630
+but this will not work if you try and call func one and pass it the list.
+
+05:13.640 --> 05:15.690
+It's good to say no.
+
+05:15.710 --> 05:17.930
+I'm expecting three positional arguments.
+
+05:17.930 --> 05:19.420
+You only passed in one.
+
+05:19.580 --> 05:20.900
+So we can't do that.
+
+05:20.930 --> 05:22.890
+That's not going to work.
+
+05:22.940 --> 05:28.540
+However we can unpack the list first and then pass it to the function.
+
+05:28.580 --> 05:30.940
+And again we've seen that when we're unpacking iterable.
+
+05:30.950 --> 05:36.260
+Now this is really just iterable unpacking but it's iterable unpacking on the right hand side of the
+
+05:36.260 --> 05:37.000
+assignment.
+
+05:37.010 --> 05:38.080
+If you remember.
+
+05:38.570 --> 05:42.340
+So we can call it this way we can't say phunk one stop L.
+
+05:42.530 --> 05:46.810
+So first unpack the list and then pass it to the function.
+
+05:47.030 --> 05:48.260
+And that will work just fine.
+
+05:48.260 --> 05:54.830
+And inside the function will have eight to 10 be equal to 20 and C equal to 30.
+
+05:54.830 --> 05:58.670
+All right let's switch to some code and let's take a look at that in more detail.
+
+05:58.670 --> 06:00.400
+Thanks for watching and I'll see you in a bit.

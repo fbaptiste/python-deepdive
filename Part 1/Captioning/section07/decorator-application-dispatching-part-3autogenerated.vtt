@@ -1,0 +1,1180 @@
+WEBVTT
+
+00:00.850 --> 00:09.320
+Hi and welcome back to pelf three of the single dispatch generic function so we've seen how we could
+
+00:09.320 --> 00:11.650
+write those decorator right.
+
+00:11.660 --> 00:16.770
+We have a decorator that decorates the default function right.
+
+00:16.790 --> 00:18.840
+Which was the function that we had here.
+
+00:18.890 --> 00:22.900
+Initially when we create we use the single dispatch decorator.
+
+00:23.050 --> 00:28.430
+This becomes the default function associated with the object key in the dictionary.
+
+00:28.610 --> 00:35.750
+And then that single dispatch decorator returns a decorated him Tim allies which itself now has an attribute
+
+00:35.810 --> 00:41.480
+of register that we can use to register other types and inject that into the dictionary.
+
+00:41.480 --> 00:46.820
+In addition we saw how we could actually expose the registry dictionary which I wouldn't do but you
+
+00:46.820 --> 00:48.020
+certainly can.
+
+00:48.110 --> 00:56.360
+And we also were able to create this dispatch function that we could use to ask the h tim Elisir which
+
+00:56.360 --> 01:00.880
+function are you going to use a 2:05 this specific type.
+
+01:01.550 --> 01:06.920
+So we also saw that we have some problems where things weren't very general we couldn't for example
+
+01:06.920 --> 01:13.520
+register a sequence or an integral number and then expect to walk the way we intended to because we're
+
+01:13.520 --> 01:17.690
+using type instead of using things that use inheritance.
+
+01:17.690 --> 01:24.290
+So we need to fix that up and there's a very very simple way to fix it up of course because this is
+
+01:24.290 --> 01:30.590
+Python and Python as you know is you know known as a batteries included language which means that it
+
+01:30.590 --> 01:36.570
+actually includes a decorator that's in the standard library for doing exactly what we've done.
+
+01:36.650 --> 01:40.580
+So all the work that we've done so far we're not going to use.
+
+01:40.640 --> 01:47.270
+However you should now have a really good understanding of how the single dispatch decorator in Python
+
+01:47.480 --> 01:50.920
+works how its internal mechanics work.
+
+01:51.170 --> 01:55.280
+It's more complicated than what we've done because we've got to handle a few different things.
+
+01:55.460 --> 02:00.010
+And when it was time handling also these more generic kind of types.
+
+02:00.010 --> 02:05.910
+There's other factors that become important as well that could become bugs if we don't handle them properly.
+
+02:05.930 --> 02:11.930
+So let's go ahead and look at that decorator that built in and I'll show you what some of the bugs are
+
+02:12.010 --> 02:16.550
+and what you have to watch out for when you start using things like sequence for example and sort of
+
+02:16.550 --> 02:20.600
+list and topple and string which is also a sequence type.
+
+02:20.610 --> 02:28.880
+So let's go ahead and say from thunked tools and bolt single dispatch that's what it's called.
+
+02:28.880 --> 02:30.740
+The same name that we use.
+
+02:31.020 --> 02:34.580
+So from thumb tools impled single dispatch of that single dispatch.
+
+02:34.590 --> 02:37.060
+Now is the one from the standard library.
+
+02:37.080 --> 02:39.520
+And of course it's in the frontals module.
+
+02:39.690 --> 02:46.260
+Lots of useful tools and the tools Montu we already have numbers and sequence but I'm just going to
+
+02:46.260 --> 02:47.120
+re-import them.
+
+02:47.130 --> 02:51.390
+And if you've restarted your notebook then you should do that as well.
+
+02:51.390 --> 02:54.080
+Otherwise you won't have them.
+
+02:58.580 --> 03:00.620
+So let's go ahead and import those two things.
+
+03:00.920 --> 03:04.790
+And now let's go ahead and do our H-2 analyzer again.
+
+03:04.820 --> 03:08.360
+But this time using the built in single dispatch decorator.
+
+03:08.570 --> 03:13.090
+So we're going to decorate it just as normal.
+
+03:13.730 --> 03:20.150
+This will now become the default function that gets used when that argument type is not specifically
+
+03:20.150 --> 03:24.500
+registered in the on that registry dictionary.
+
+03:24.500 --> 03:27.580
+And we're going to return escaped.
+
+03:27.710 --> 03:30.020
+And of string of the argument.
+
+03:30.020 --> 03:35.590
+OK so now we have that and h tim allies is the decorated function.
+
+03:35.930 --> 03:40.040
+And the single dispatch decorator provides a number of things.
+
+03:40.040 --> 03:42.290
+One is that it is a decorator itself.
+
+03:42.410 --> 03:50.120
+Just like all single dispatch was it has a registry attribute just like we had except we ended up by
+
+03:50.120 --> 03:50.920
+removing it.
+
+03:51.140 --> 03:52.430
+But it isn't there.
+
+03:52.490 --> 03:56.810
+You can actually access the dictionary so let's see.
+
+03:57.860 --> 03:59.210
+And you have this.
+
+03:59.210 --> 04:01.860
+Now that's not exactly a dictionary it's a different object.
+
+04:01.870 --> 04:03.060
+We won't get into that.
+
+04:03.350 --> 04:10.780
+But here's the essentially the key and the associated function just like we had in our example.
+
+04:11.330 --> 04:17.680
+And then we also have the dispatch function so aged him allies does dispatch and let's say we tell it's
+
+04:17.690 --> 04:19.760
+hey what happens if I give you a string.
+
+04:19.760 --> 04:21.080
+What are you going to do.
+
+04:21.080 --> 04:23.660
+And it tells us I'm going to use h tim allies.
+
+04:23.810 --> 04:25.700
+So it's going to use the default.
+
+04:25.700 --> 04:25.970
+Right.
+
+04:25.970 --> 04:33.470
+So think of this h tim allys when you create when you start a single dispatch function then the first
+
+04:33.470 --> 04:38.780
+one that you do that you use with the single dispatch decorator becomes your default function essentially
+
+04:40.460 --> 04:43.400
+just like we had in our own example.
+
+04:43.420 --> 04:45.570
+Now we can go ahead and register.
+
+04:45.570 --> 04:47.770
+It also has the register attribute.
+
+04:47.890 --> 04:55.810
+So we can go ahead and say Tim allies which is that decorated function DOPs register and let's go ahead
+
+04:55.840 --> 04:58.360
+and register the integral.
+
+04:58.360 --> 05:00.260
+So remember that this wasn't working.
+
+05:00.270 --> 05:01.470
+In our case.
+
+05:01.510 --> 05:04.350
+So let's go ahead and see how this works here integral.
+
+05:04.630 --> 05:08.710
+And we're going to say Big H Tim lies in a.
+
+05:08.740 --> 05:09.790
+And what is it going to do.
+
+05:09.790 --> 05:12.940
+While he can I'm going to go back and just copy paste.
+
+05:12.940 --> 05:17.370
+So there we go that and going to call it in.
+
+05:17.410 --> 05:26.090
+I'm going to quote integral number just like we had before and it's going to return that k.
+
+05:26.110 --> 05:32.860
+So now we've injected that into that dictionary and we can check that by looking at the registry and
+
+05:32.860 --> 05:33.860
+the registry is there.
+
+05:33.910 --> 05:34.740
+We have numbers.
+
+05:34.760 --> 05:36.190
+Integral is that.
+
+05:36.230 --> 05:43.450
+And now we can actually before we call it we can look at the dispatch we can say what are you going
+
+05:43.450 --> 05:50.410
+to use if I pass you an integer and you remember that with owls that use the default here however you'll
+
+05:50.410 --> 05:55.410
+notice that it's going to use the integral number the HDMI lies integral number.
+
+05:55.450 --> 05:56.080
+Why.
+
+05:56.080 --> 06:04.770
+Because it handles this correctly an int is an integral because we have is instance let's take integer
+
+06:04.770 --> 06:05.360
+numbers.
+
+06:05.380 --> 06:07.480
+So its type is int.
+
+06:07.550 --> 06:09.030
+Right.
+
+06:14.420 --> 06:24.100
+The type of 10 is int but in terms of an instance yes it is an instance of int but it is also an instance
+
+06:24.430 --> 06:29.850
+of integral number and
+
+06:34.650 --> 06:37.040
+integral that's the class name.
+
+06:37.080 --> 06:43.080
+So it is an instance of integral numbers as well and the same thing with Boolean instance
+
+06:46.420 --> 06:49.120
+that's true.
+
+06:50.650 --> 06:53.010
+The answer to that is true as well.
+
+06:53.050 --> 06:59.950
+So if we now also asked to dispatch what would it do if we passed a boolean.
+
+06:59.950 --> 07:07.460
+You'll notice that h tim l eyes the dispatch you'll notice it also correctly uses the integral number
+
+07:08.680 --> 07:12.790
+function that we associated with an integral data type.
+
+07:12.880 --> 07:14.620
+When we registered here.
+
+07:14.980 --> 07:17.780
+So now of course we can call h him allies on 10.
+
+07:17.920 --> 07:23.660
+We get what we expect we can call h tim allys Hong true and we get what we expect as well.
+
+07:23.680 --> 07:28.430
+We can also now register sequence types like lists and tuples.
+
+07:28.450 --> 07:31.100
+So let's go ahead and grab that code.
+
+07:31.150 --> 07:33.320
+So here's what we did right.
+
+07:33.340 --> 07:38.900
+And actually I can copy even the decorator because it's actually the same decorator.
+
+07:39.040 --> 07:39.360
+Right.
+
+07:39.400 --> 07:40.540
+It's h tim allies.
+
+07:40.630 --> 07:44.230
+That's the one we're using register and this time we're going to register a sequence.
+
+07:44.230 --> 07:50.650
+Now let's see what the sequence does it says OK it's going to take every item in the sequence I'm using
+
+07:50.700 --> 07:58.900
+this comprehension and all the generator expression and I'm taking every item in there and I'm going
+
+07:58.900 --> 08:06.070
+to h tim Elize each item because I need to encase the item that's inside the list is maybe an integer
+
+08:06.160 --> 08:09.410
+in which case I want to be H to memorize as well.
+
+08:09.410 --> 08:09.950
+Right.
+
+08:11.530 --> 08:12.340
+But.
+
+08:12.440 --> 08:13.910
+So let's go ahead and do that.
+
+08:13.990 --> 08:14.270
+OK.
+
+08:14.290 --> 08:15.210
+So that's what it does.
+
+08:15.220 --> 08:19.540
+And then it creates those strings and then it concatenates them basically and then wraps them up in
+
+08:19.540 --> 08:20.930
+those you will text.
+
+08:21.130 --> 08:27.460
+So now we have this h tim l sequence that's defined for sequence types in general so we can say h tim
+
+08:27.480 --> 08:29.240
+l eyes.
+
+08:30.470 --> 08:32.220
+One true.com 3.
+
+08:32.380 --> 08:34.370
+And you'll notice we get that back.
+
+08:34.390 --> 08:35.110
+That's great.
+
+08:35.110 --> 08:36.780
+That works exactly as intended.
+
+08:38.170 --> 08:40.090
+But there is a problem right.
+
+08:40.090 --> 08:41.780
+It works with couples as well.
+
+08:41.800 --> 08:44.140
+I'll show you that one two three.
+
+08:44.650 --> 08:45.250
+OK.
+
+08:45.430 --> 08:46.900
+We get that back.
+
+08:47.050 --> 08:48.700
+But the problem is this.
+
+08:48.790 --> 08:52.610
+Let's say I pass it a string that say I pass it Python.
+
+08:52.930 --> 08:54.040
+What is python.
+
+08:54.310 --> 08:57.840
+What's the type of Python Yes it's a string.
+
+08:57.910 --> 08:58.970
+Or what else.
+
+08:59.320 --> 09:01.070
+It's a sequence type.
+
+09:01.150 --> 09:05.660
+In fact let's see his ends.
+
+09:05.840 --> 09:10.880
+Turns Python of sequence.
+
+09:11.200 --> 09:12.730
+And the answer is true.
+
+09:13.150 --> 09:15.780
+So guess what's going to happen when we pass that in
+
+09:18.920 --> 09:19.850
+what happened.
+
+09:21.210 --> 09:26.430
+Maximum recursion depth exceeded what happened.
+
+09:26.580 --> 09:29.500
+So we basically had an overflow error right.
+
+09:29.500 --> 09:35.040
+We we exceeded the number of recursive calls that we can make Remember what we discussed with causin
+
+09:35.070 --> 09:36.480
+earlier in Python.
+
+09:36.480 --> 09:41.640
+There is a maximum you can change the maximum but the point is something's going wrong here.
+
+09:42.060 --> 09:46.230
+And the something that's going wrong is because Python is itself a sequence.
+
+09:46.260 --> 09:48.900
+Right a string is a sequence.
+
+09:48.930 --> 09:50.450
+And let's go back to the code.
+
+09:50.490 --> 09:52.240
+Let's see what we're doing here.
+
+09:52.590 --> 09:59.220
+We're saying that if you take if you get a sequence string as a sequence to get a string go ahead and
+
+09:59.220 --> 10:01.270
+grab every item in the string.
+
+10:01.400 --> 10:03.560
+What is the item in the string.
+
+10:03.630 --> 10:08.730
+Well remember when we would have you know if you want to see that we can just do something like this
+
+10:08.760 --> 10:11.680
+for s in Python.
+
+10:15.140 --> 10:19.640
+Print s we get the characters each character.
+
+10:19.640 --> 10:26.840
+So basically what this is doing here with this loop here item an L it's grabbing the characters in the
+
+10:26.840 --> 10:31.260
+string Python one by one what is each element.
+
+10:31.280 --> 10:33.930
+What is the type of each element.
+
+10:33.950 --> 10:38.380
+It's a string and we're calling h tim allies on the string again.
+
+10:38.480 --> 10:43.460
+So it's saying all OK I have a sequence because the string is a sequence.
+
+10:43.460 --> 10:48.020
+So it's going to call stem time sequence on the item on the P.
+
+10:48.110 --> 10:50.040
+Let's say as the false character.
+
+10:50.240 --> 10:51.520
+So it gets that.
+
+10:51.890 --> 10:55.030
+And so this runs and it says OK for every item in P.
+
+10:55.070 --> 10:57.670
+Well there's only one but it's still doing the same thing.
+
+10:57.860 --> 11:03.500
+It again calls h tim allies on P which means it's going to end up calling the sequence again.
+
+11:03.560 --> 11:05.050
+And so we have an infinite loop.
+
+11:05.060 --> 11:06.510
+We have a problem.
+
+11:06.830 --> 11:11.530
+So these are things that again we have to be careful with in our own code.
+
+11:11.600 --> 11:13.080
+How would we fix this.
+
+11:13.100 --> 11:18.230
+Well with the built in one or the one in the in the standard library it's quite simple.
+
+11:18.230 --> 11:23.510
+All we need to do is to actually define the function that we need to use for strings.
+
+11:23.510 --> 11:29.510
+We don't want to handle strings like we do a regular sequence like for example a list or a couple we
+
+11:29.510 --> 11:32.120
+want to handle strings a little bit differently.
+
+11:32.120 --> 11:35.920
+So let's go ahead and grab the function that we use for strings.
+
+11:35.920 --> 11:38.740
+It's somewhere we'll find it.
+
+11:38.780 --> 11:39.680
+It's somewhere
+
+11:43.160 --> 11:44.180
+think all the way at the top.
+
+11:44.190 --> 11:44.880
+There we go.
+
+11:45.030 --> 11:47.560
+Here's how we handle strings right.
+
+11:47.580 --> 11:53.140
+So let's go ahead let's go back to the bottom and let's say etched in our lives.
+
+11:53.300 --> 11:59.780
+Don't register this time I'm going to register for a string specifically this thing over here.
+
+12:00.210 --> 12:01.080
+OK.
+
+12:01.440 --> 12:07.430
+So now we have a specific registry entry for a string type.
+
+12:07.570 --> 12:11.370
+So enough we say it implies Python.
+
+12:11.400 --> 12:13.770
+You'll notice it actually does it correctly.
+
+12:13.830 --> 12:19.440
+Five put in some you know extra characters and we'll leave it at that.
+
+12:19.620 --> 12:22.800
+I'm going to do a multi-line string but you'll notice it does it correctly.
+
+12:22.800 --> 12:30.140
+It doesn't get into that infinite recursion but you'll notice that it's not that simple because when
+
+12:30.140 --> 12:31.910
+we pass the sin.
+
+12:31.910 --> 12:32.230
+Right.
+
+12:32.240 --> 12:33.810
+This is a string.
+
+12:33.920 --> 12:36.240
+It is also a sequence.
+
+12:36.260 --> 12:44.010
+So what's the what the decorated does with the you know what that look up function does inside our arm
+
+12:44.310 --> 12:51.140
+and inside our single dispatch decorator or from the standard library.
+
+12:51.140 --> 12:53.690
+It finds the closest match.
+
+12:53.720 --> 12:55.550
+So yes it gets a string.
+
+12:55.550 --> 12:59.540
+A string is a sequence but a string is also a string.
+
+12:59.780 --> 13:06.910
+And there is something specific for strings in the registry which is less generic than sequence.
+
+13:07.010 --> 13:12.350
+So it's kind of lower in the you know class hierarchy in the inheritance hierarchy if you want to think
+
+13:12.350 --> 13:14.330
+of it that way a string.
+
+13:14.420 --> 13:15.800
+So Python is a string.
+
+13:15.820 --> 13:17.420
+A string is a sequence.
+
+13:17.420 --> 13:20.800
+But Python is Koza to string that it is to sequence.
+
+13:20.810 --> 13:22.680
+So it's good to use string.
+
+13:22.730 --> 13:27.800
+So that's what I meant what I was saying that earlier if we implement this ourselves it actually gets
+
+13:27.800 --> 13:28.970
+quite complicated.
+
+13:28.970 --> 13:35.540
+Not only do we have to handle these more general types like sequins or integral but we also have to
+
+13:35.720 --> 13:41.900
+find the closest match up in this hierarchy of class inheritance you know chains.
+
+13:42.140 --> 13:47.150
+So it gets a lot more complicated and it is in the standard library and if you want to see how it's
+
+13:47.150 --> 13:47.570
+done.
+
+13:47.600 --> 13:49.880
+Again you can bring up something like pie chow.
+
+13:50.090 --> 13:58.340
+You can import the on you can import the single dispatch from the from tools and you can go and basically
+
+13:58.340 --> 13:59.250
+look at the code.
+
+13:59.390 --> 14:02.530
+Let's take a look at that very quickly and see what it looks like.
+
+14:03.470 --> 14:06.140
+So here I just have a blank python file.
+
+14:06.350 --> 14:14.840
+So I'm going to say from phunk tools impuls single dispatch and all I'm going to do is I'm going to
+
+14:14.840 --> 14:20.840
+double click and I'm going to sort of double click on when to right click on single dispatch and go
+
+14:20.840 --> 14:22.090
+to the declaration.
+
+14:22.400 --> 14:25.420
+And here we have the single dispatch decorator.
+
+14:25.490 --> 14:28.260
+And so you have the code available right here.
+
+14:28.460 --> 14:32.480
+If you want to see how it's done and it gets quite complicated.
+
+14:32.810 --> 14:39.020
+But essentially it's kind of what we did except they have more work to do in order to figure out you
+
+14:39.010 --> 14:42.860
+know what the best type matches in the registry.
+
+14:42.880 --> 14:43.280
+OK.
+
+14:43.340 --> 14:49.650
+So back to our tip of the notebook and let me show you for example also where something like this might
+
+14:49.650 --> 14:50.630
+be useful.
+
+14:50.670 --> 14:53.810
+So we've registered sequence right.
+
+14:53.820 --> 15:03.640
+So if we say H-2 implies of a sequence let's say a list 1 to 3 we get this representation.
+
+15:03.810 --> 15:10.320
+And if we do it for a top hold we also get the same representation because a tuple and a list are both
+
+15:10.470 --> 15:11.370
+sequences.
+
+15:11.670 --> 15:16.840
+But let's say that we want something that's a little bit more specific for topples we don't want to
+
+15:17.010 --> 15:22.200
+we don't want to use the more generic sequence representation we want something specific for topple
+
+15:22.380 --> 15:24.200
+We'll just like we did with string.
+
+15:24.240 --> 15:28.160
+We're just going to create a function that we're going to register.
+
+15:28.230 --> 15:32.690
+That's going to handle tuples specifically.
+
+15:32.940 --> 15:39.120
+So let's say that's an argument is Tiv and let's say we want to do something else with the couple we
+
+15:39.120 --> 15:49.550
+want to maybe just take all the items that are in the top all and we're just going to escape each item.
+
+15:50.600 --> 15:54.070
+Because again we want to make sure that we have correct H-2 him.
+
+15:54.980 --> 15:58.170
+Fourth item in t.
+
+15:58.190 --> 16:00.430
+So we're just going to create all items.
+
+16:00.530 --> 16:02.250
+And so we're just going to return
+
+16:05.940 --> 16:07.270
+this couple.
+
+16:07.830 --> 16:14.820
+And we're going to format it with we're going to basically join all the items that are in items now
+
+16:14.820 --> 16:19.260
+which basically were in the top all but escaped and we're going to join that up
+
+16:22.500 --> 16:26.970
+and actually joined called join kept.
+
+16:27.090 --> 16:29.620
+And so that's going to be what we use.
+
+16:29.850 --> 16:34.060
+And of course I have to call him old eyes not to celebrate Easter.
+
+16:34.290 --> 16:34.900
+OK.
+
+16:35.100 --> 16:35.950
+So age to my.
+
+16:35.950 --> 16:40.110
+So now that's in there we should be able to see the registry.
+
+16:40.320 --> 16:42.830
+And as you can see we have something full topple.
+
+16:42.830 --> 16:50.370
+We also have something for sequence so we know when it encounters a topple instead of using the sequence
+
+16:50.370 --> 16:51.630
+like we saw over here.
+
+16:51.750 --> 16:57.430
+It's actually going to use the more specific version and call the one that we've defined for topple.
+
+16:57.450 --> 17:02.140
+So let's try this one again and you'll see we get something very different.
+
+17:02.190 --> 17:04.230
+We just get this representation now.
+
+17:04.410 --> 17:06.990
+But the list will go walk as before.
+
+17:07.020 --> 17:11.340
+That hasn't changed because we didn't provide something specific for lists.
+
+17:11.340 --> 17:17.850
+One last thing I want to mention is maybe some code that you'll run across when people use the single
+
+17:17.850 --> 17:19.330
+dispatch.
+
+17:19.350 --> 17:26.430
+Keep in mind that once we've actually registered the function with our single DISPATCHER We don't really
+
+17:26.430 --> 17:28.380
+care about that function anymore.
+
+17:28.530 --> 17:35.220
+So that label that we have here is really irrelevant because we don't call him El toppled directly we
+
+17:35.220 --> 17:41.880
+call it by calling him lies and then it figures out which function to call and if it's a topical it
+
+17:41.880 --> 17:46.960
+will call whatever H.T. multiple was you know whatever that function is.
+
+17:47.610 --> 17:51.150
+But we have to remember that these are just labels.
+
+17:51.150 --> 17:57.730
+Labels point to objects and so in this case we're not interested in the label once we've actually registered
+
+17:57.730 --> 17:58.110
+it.
+
+17:58.320 --> 18:00.300
+So what will happen is something like this.
+
+18:00.330 --> 18:08.200
+And let's go back and I'm going to start a a single dispatcher again from scratch.
+
+18:08.230 --> 18:10.010
+So let's start here.
+
+18:10.220 --> 18:10.570
+OK.
+
+18:10.600 --> 18:16.230
+We're going to take single dispatch and we're going to create like sawbuck.
+
+18:16.750 --> 18:21.250
+But then what will happen is that people will let's say register something for an integral.
+
+18:21.280 --> 18:26.140
+So let's go ahead and let's find that somewhere.
+
+18:26.140 --> 18:26.770
+There we go.
+
+18:26.870 --> 18:32.140
+I'm just going to copy paste this code and I'm going to put it here.
+
+18:32.280 --> 18:34.680
+Actually we'll put it in the next cell.
+
+18:35.740 --> 18:40.400
+But what they'll do is that they'll say well I don't really care about the name of the function.
+
+18:40.510 --> 18:45.760
+And so they'll replace that with an underscore or maybe a double underscore and then they'll do the
+
+18:45.760 --> 18:48.090
+same thing again with maybe string.
+
+18:48.260 --> 18:51.780
+So actually let's take the sequence.
+
+18:56.170 --> 18:58.860
+So let's go let's add in the sequence
+
+19:01.370 --> 19:03.830
+and then let's add in the table as well.
+
+19:03.870 --> 19:04.660
+The string
+
+19:07.520 --> 19:12.200
+so we don't create that in you know infinite recursion problem.
+
+19:12.380 --> 19:13.010
+OK.
+
+19:13.160 --> 19:15.640
+And again they don't care about the label here.
+
+19:16.040 --> 19:19.790
+And they'll do this and then they'll do this.
+
+19:19.910 --> 19:20.620
+OK.
+
+19:20.660 --> 19:24.060
+So you might see code written this way.
+
+19:24.080 --> 19:31.280
+Personally I don't like this approach very much but it does make a point and the point is that you shouldn't
+
+19:31.280 --> 19:33.840
+be calling these functions directly.
+
+19:33.980 --> 19:39.530
+You should be only calling them via the single dispatch function the h t implies function.
+
+19:39.710 --> 19:42.570
+It's going to pick which function to call.
+
+19:42.590 --> 19:44.560
+So it would be done this way.
+
+19:44.630 --> 19:53.180
+Now that can be confusing because if you look at the registry for HCM allies you'll notice that we have
+
+19:53.600 --> 20:00.230
+object you know it's going to run h tim allies integral is going to run underscore sequence is going
+
+20:00.230 --> 20:03.870
+to run underscore and string is also going to run underscore.
+
+20:04.160 --> 20:09.590
+So at this point you may be thinking hang on there's something wrong because I can't all be the same
+
+20:09.590 --> 20:10.340
+function.
+
+20:10.370 --> 20:11.300
+That's what it looks like.
+
+20:11.300 --> 20:13.430
+Right it's telling us that this one is this function.
+
+20:13.430 --> 20:17.730
+This one's this function and this one's the same function right the same name.
+
+20:17.900 --> 20:23.960
+But this is where you have to distinguish between the name the label that's assigned to the function
+
+20:24.230 --> 20:26.050
+and the function object.
+
+20:26.120 --> 20:29.440
+Remember that the label just points to an object in memory.
+
+20:29.510 --> 20:38.450
+So in fact if we call a T.M. eyes on a hundred it does it correctly difficult HVM allies on a list it
+
+20:38.450 --> 20:40.260
+does that correctly as well.
+
+20:41.190 --> 20:42.640
+So what's going on.
+
+20:43.080 --> 20:47.940
+Well remember that when we call this register function.
+
+20:47.940 --> 20:48.220
+Right.
+
+20:48.230 --> 20:51.660
+So Tim allys top register integral is a function.
+
+20:51.690 --> 20:59.300
+It's a decorator and we pass it this function here that's labeled underscore we see that as a label.
+
+20:59.340 --> 21:03.550
+Python doesn't look at the label it doesn't really care what that label is.
+
+21:03.750 --> 21:07.140
+It cares about what the function is and what is the function.
+
+21:07.290 --> 21:09.330
+It's the object in memory.
+
+21:09.660 --> 21:17.790
+So what gets registered in the registry isn't the label it's whatever that label is currently pointing
+
+21:17.790 --> 21:19.370
+to.
+
+21:19.530 --> 21:25.110
+And the same thing happens here when we call registry again we again use this underscores the label
+
+21:26.090 --> 21:32.300
+and Python gets this it doesn't care about the label it just says hey what's this label currently pointing
+
+21:32.300 --> 21:36.040
+to it's pointing to this function over here.
+
+21:36.290 --> 21:44.000
+It's in memory somewhere or some memory address it binds itself to that memory address as a reference.
+
+21:44.150 --> 21:49.720
+And the same thing again with the when we do the last register the same thing happens again.
+
+21:49.730 --> 21:56.450
+So in fact if we were to look at each of these functions the ID is not going to be the same it's going
+
+21:56.450 --> 22:03.530
+to be the ID of those three different functions even though by now of course my underscore and remember
+
+22:03.530 --> 22:05.650
+underscore is a legal variable name.
+
+22:05.660 --> 22:09.860
+So there's nothing magical about the underscore the underscore is just a variable name.
+
+22:09.860 --> 22:16.190
+I could have just told you so called it Python and done it this way and then call this python and do
+
+22:16.190 --> 22:17.390
+it this way.
+
+22:17.390 --> 22:17.810
+Right.
+
+22:17.840 --> 22:19.000
+It doesn't matter.
+
+22:19.230 --> 22:25.920
+It's just a convention that people use to indicate that they don't really care about a particular variable.
+
+22:25.970 --> 22:29.700
+And we've seen that for example in unpacking intervals.
+
+22:29.760 --> 22:36.260
+So if we look now at this function this is the main function which one is it.
+
+22:36.330 --> 22:39.660
+Well it's really this one over here because that's the last one right.
+
+22:39.660 --> 22:42.480
+That's the last underscore that we defined.
+
+22:42.750 --> 22:44.630
+So it's that one over there.
+
+22:44.940 --> 22:49.920
+And in fact we can look at the memory addresses of these functions in the registry.
+
+22:49.920 --> 22:53.800
+Very simply we can call the dispatch.
+
+22:54.560 --> 22:57.900
+So if we call dispatch on let's say integral
+
+23:01.810 --> 23:05.930
+and it's H.T. implies I keep doing that then we get this thing here.
+
+23:05.980 --> 23:15.570
+If we call him allies dispatch on our string we get this which again looks like the same function.
+
+23:15.880 --> 23:17.830
+And if we call the last one
+
+23:20.620 --> 23:28.060
+on a sequence again we get the same label because that was the name of the function where it was bound
+
+23:28.060 --> 23:28.840
+to it.
+
+23:28.850 --> 23:34.390
+However if we look at the memory address of each one you'll notice that
+
+23:39.440 --> 23:41.980
+I just put in the IDs for each one.
+
+23:42.340 --> 23:44.100
+Now let's execute that.
+
+23:44.120 --> 23:49.530
+This is the memory address of the function that's associated with the integral data type.
+
+23:49.580 --> 23:54.110
+This is the memory address of the function associated with strings not the same.
+
+23:54.140 --> 23:59.600
+And lastly this is the memory address of the function associated with the sequence.
+
+23:59.600 --> 24:06.020
+And if we look at the ID of all undiscoverable on this code label will see that it's the string.
+
+24:06.020 --> 24:06.230
+Right.
+
+24:06.230 --> 24:11.400
+It's the same memory address as string which makes sense because that was the last one that we used.
+
+24:11.450 --> 24:14.760
+That was the one that we defined when we registered string.
+
+24:15.110 --> 24:19.220
+So don't get confused if you see something like this in code.
+
+24:19.370 --> 24:21.580
+It's just because we don't care about the name.
+
+24:21.650 --> 24:26.810
+So we end up throwing it away just like we were doing when we were doing our edible unpacking.
+
+24:26.810 --> 24:36.890
+For example we unpacked arguments or we unpack topple for example we have this actually we don't even
+
+24:36.890 --> 24:38.810
+need the parentheses around over a top all.
+
+24:38.960 --> 24:46.860
+So if we have this vague Here's one see is three and underscore is a real variable right.
+
+24:46.880 --> 24:48.920
+It's a real variable label.
+
+24:48.920 --> 24:56.120
+It's pointing to this object here to it just means though by convention that we don't care.
+
+24:56.300 --> 25:03.440
+We saw that as well if we had something like You know we used this kind of unpacking.
+
+25:04.720 --> 25:12.650
+So now same thing happened we unpacked one into a c was five the last one and then underscore is now
+
+25:12.710 --> 25:16.160
+actually a list that contains 2 3 and 4.
+
+25:16.170 --> 25:20.850
+Again this is just a convention that says I don't really care about this variable.
+
+25:20.870 --> 25:23.380
+Some people use an underscore.
+
+25:23.420 --> 25:25.660
+Some people would use a double underscore.
+
+25:25.730 --> 25:27.600
+Kind of depends.
+
+25:27.740 --> 25:29.050
+But that's all it means.
+
+25:29.180 --> 25:31.400
+So hopefully that's not confusing.
+
+25:31.610 --> 25:36.980
+If it is I have some extra notes in the open a notebook that you can look at that you can download along
+
+25:36.980 --> 25:40.610
+with this video but that should be pretty straightforward.
+
+25:42.300 --> 25:46.480
+So this concludes our look at single dispatch generic functions.
+
+25:46.480 --> 25:48.250
+We saw how to build it ourselves.
+
+25:48.270 --> 25:50.780
+But of course there were some shortcomings in what we built.
+
+25:50.790 --> 25:54.870
+We couldn't use more generic types like sequence or integral.
+
+25:54.880 --> 25:58.410
+But if you don't need to you know that would still work properly.
+
+25:58.410 --> 26:02.450
+However Python has that already in the standard library for us.
+
+26:02.460 --> 26:05.490
+It's in the tools module it's called single dispatch.
+
+26:05.530 --> 26:12.150
+It had basically the same kind of base functionality that we had except that it went far beyond what
+
+26:12.150 --> 26:17.690
+we implemented and had some more things for example handling the sequence and integral types.
+
+26:17.880 --> 26:22.740
+But of course we saw as well that we can introduce bugs if we're not careful.
+
+26:22.740 --> 26:29.760
+We saw that when we had a function you know a handler essentially for sequence types we ran into problems
+
+26:29.760 --> 26:30.450
+with strings.
+
+26:30.450 --> 26:32.140
+We got into an infinite recursion.
+
+26:32.250 --> 26:38.010
+So we saw how to get around that problem and we saw how the built in single dispatcher is able to pick
+
+26:38.280 --> 26:45.660
+the closest match of the type and the you know in your hierarchical chain of inheritance.
+
+26:45.660 --> 26:47.600
+So hopefully you found this interesting.
+
+26:47.670 --> 26:50.430
+Thanks for watching and I'll see you in the next video.

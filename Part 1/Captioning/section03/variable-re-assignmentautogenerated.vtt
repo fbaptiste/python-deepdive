@@ -1,0 +1,214 @@
+WEBVTT
+
+00:00.450 --> 00:06.000
+High in this video I just want to talk very quickly about variable re-assignment and we've already seen
+
+00:06.000 --> 00:10.460
+this before but I want to emphasize a certain point.
+
+00:10.560 --> 00:13.920
+So suppose we have this line of code by var equals 10.
+
+00:13.920 --> 00:16.080
+Now we know already what's happening right.
+
+00:16.080 --> 00:22.670
+We have an object in memory that gets created at some memory address type integer value 10 and my VAR
+
+00:22.680 --> 00:25.440
+is simply a reference to that object to point.
+
+00:25.920 --> 00:33.600
+If we later write a line of code like my variables 15 then we are not changing the value inside that
+
+00:33.600 --> 00:34.130
+object.
+
+00:34.140 --> 00:37.190
+That's the point that I want to make in this video.
+
+00:37.260 --> 00:42.060
+Instead what's happening is that a new object also of type integer.
+
+00:42.180 --> 00:50.760
+But to have a value of 15 is created at some different memory address and the reference of my VAR changes
+
+00:51.060 --> 00:55.260
+to this new object so my version of points to this new object.
+
+00:55.260 --> 01:00.320
+But we have not changed the value of the object that memory address.
+
+01:00.350 --> 01:02.060
+Let's a thousand K..
+
+01:02.130 --> 01:05.720
+Instead we created a new object at a different memory address.
+
+01:05.790 --> 01:08.980
+So that's a really important point that I want to stress that.
+
+01:09.300 --> 01:13.510
+And in fact even if you look let's say at this code so let's start again.
+
+01:13.560 --> 01:14.970
+My VAR equals 10.
+
+01:15.000 --> 01:17.150
+My voice is a pointer to that object.
+
+01:17.310 --> 01:21.670
+We write my articles my VAR plus five the same thing happens.
+
+01:21.690 --> 01:27.480
+Don't be fooled don't think that because we have my var on both sides of the expression that somehow
+
+01:27.510 --> 01:32.710
+something changes and now we're changing the value of that object.
+
+01:32.850 --> 01:36.560
+We are not Python first evaluates the right hand side.
+
+01:36.570 --> 01:40.770
+So it looks at my VAR says hey I have to add five to my value.
+
+01:40.980 --> 01:42.400
+OK what's my VAR.
+
+01:42.600 --> 01:44.980
+My VAR is an integer value of 10.
+
+01:45.100 --> 01:48.870
+OK that's integer addition 10 plus 5 is 15.
+
+01:48.870 --> 01:55.340
+It creates a new object in memory at a different memory address with a value of 15.
+
+01:55.470 --> 01:59.890
+And my VAR now points to that new object.
+
+02:00.010 --> 02:07.330
+But we did not change the contents or the value or the state of the object at address 1000.
+
+02:07.330 --> 02:11.660
+In fact the content of integers can never be changed.
+
+02:11.860 --> 02:18.580
+And we'll look at that in the next section when we look at mutability immutability of objects so that
+
+02:18.580 --> 02:20.320
+will be coming right up for us.
+
+02:20.320 --> 02:24.050
+Let's take a look at some code and just see this in action very quickly.
+
+02:24.100 --> 02:24.740
+OK.
+
+02:25.060 --> 02:27.670
+So let's just look at this in some code.
+
+02:27.670 --> 02:31.370
+So we create this variable A We assign it the value of 10.
+
+02:31.480 --> 02:38.290
+So it created an object in memory of type integer at some memory address.
+
+02:38.290 --> 02:42.760
+We can look at the memory address that the memory address we can even if we want to look at the type
+
+02:42.760 --> 02:45.270
+of a which is integer.
+
+02:46.240 --> 02:49.180
+So let's now say equals 15.
+
+02:49.400 --> 02:50.050
+OK.
+
+02:50.200 --> 02:57.580
+Now we can again look at the memory address of AA and you'll notice that the memory address of a has
+
+02:57.580 --> 02:58.360
+changed.
+
+02:58.370 --> 03:07.290
+It used it was know ending in a zero and here we see it ends in B 9 0 different object.
+
+03:07.340 --> 03:09.970
+So that's what happened when we changed the value of a.
+
+03:10.010 --> 03:15.470
+We actually just reassigned the reference of a a different object and it's no different if we say equals
+
+03:15.560 --> 03:19.760
+a plus one then we'll get something similar.
+
+03:20.000 --> 03:22.070
+We'll see that the memory address.
+
+03:22.070 --> 03:25.310
+Now if a has changed yet again.
+
+03:25.310 --> 03:30.680
+Right now is a value of 16 and it's a different object in memory.
+
+03:30.680 --> 03:33.530
+EBV zero in this case.
+
+03:33.530 --> 03:38.470
+Now before we finish up I want to show you something that might surprise you.
+
+03:38.480 --> 03:42.020
+Let's say we have eight pools 10 again.
+
+03:42.040 --> 03:43.580
+Now let's create another variable.
+
+03:43.630 --> 03:45.120
+B equals 10.
+
+03:45.620 --> 03:49.650
+And let's look at the memory address of a.
+
+03:51.230 --> 03:54.930
+And let's look at the memory address of B.
+
+03:55.820 --> 04:00.410
+You'll notice the memory address of a and b are the same.
+
+04:00.410 --> 04:04.930
+Now other words A and B are both pointing to the same object.
+
+04:05.660 --> 04:11.300
+They're both pointing to an object at that memory address that happens to be an integer value of 10.
+
+04:12.390 --> 04:14.980
+So we'll look at that in the next video.
+
+04:15.010 --> 04:19.650
+We'll consider mutability immutability and we'll see then after that.
+
+04:19.680 --> 04:22.200
+Why it's actually safe for that to happen.
+
+04:22.380 --> 04:26.750
+And then in a future video are probably four five videos from here.
+
+04:26.880 --> 04:31.260
+We'll look at why this is happening why is python doing this.
+
+04:31.260 --> 04:35.270
+Why is it reusing that memory address essentially.
+
+04:35.530 --> 04:35.990
+OK.
+
+04:36.240 --> 04:42.330
+So but first we're going to look at mutability immutability and then we'll see why it's actually safe
+
+04:42.480 --> 04:46.820
+for Python to do something like that and then we'll look at why it actually does.
+
+04:46.980 --> 04:48.510
+All right I'll see in the next video.

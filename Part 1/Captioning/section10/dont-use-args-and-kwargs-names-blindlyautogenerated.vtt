@@ -1,0 +1,343 @@
+WEBVTT
+
+00:00.300 --> 00:08.460
+High in this video just a quick note about the usage of the variable names and kw args which are traditional
+
+00:08.730 --> 00:13.590
+when we have a variable number of positional and keyword only arguments respectively.
+
+00:13.590 --> 00:14.780
+So we've seen this before.
+
+00:14.880 --> 00:21.150
+Let's go ahead and try to create a very simple decorator so our decorator is going to decorate some
+
+00:21.150 --> 00:25.000
+function f I'm calling it f because I don't know what the function is.
+
+00:25.000 --> 00:30.480
+So I'm not trying to give any particular meaning to f other than indicating it's a function.
+
+00:30.480 --> 00:37.310
+So maybe you're better off writing clunk let's say to be even more explicit about what we're expecting.
+
+00:37.590 --> 00:39.250
+Now we have in a function.
+
+00:39.600 --> 00:43.330
+And remember what our inner function is going to do it's going to do two things.
+
+00:43.330 --> 00:45.180
+Q I'm going to do something very simple.
+
+00:45.210 --> 00:54.770
+I'm just going to print out a formatted string that says that we called our phunk Dunder name.
+
+00:55.030 --> 00:55.620
+OK.
+
+00:55.920 --> 01:00.930
+So we will print out to the Consolo we call that function and then it's going to call the function with
+
+01:00.930 --> 01:02.060
+what will.
+
+01:02.100 --> 01:09.300
+Whatever the arguments are that that function func expects I don't know what they are but I'm collecting
+
+01:09.300 --> 01:15.970
+them in the in a function because that's going to be our closure that gets returned.
+
+01:16.500 --> 01:22.590
+So in this case it makes sense to use generic names for the arguments and the KW The keyword arguments
+
+01:22.830 --> 01:26.640
+because we don't know what those arguments are going to be we don't know the names of them we don't
+
+01:26.640 --> 01:27.940
+know the meaning of them.
+
+01:27.990 --> 01:29.700
+We don't even know what the function is.
+
+01:29.700 --> 01:32.280
+So something like this is perfectly fine.
+
+01:32.280 --> 01:35.360
+And of course we then have to pass those along.
+
+01:35.670 --> 01:40.170
+So whenever we pass things along because we don't know what's coming in and we're just passing it to
+
+01:40.170 --> 01:45.240
+something else then typically we'll use these generic names and the convention that everybody seems
+
+01:45.240 --> 01:48.490
+to use is in capable hands and that's fine.
+
+01:48.710 --> 01:49.370
+OK.
+
+01:49.770 --> 01:53.980
+And that's fine if I can get my syntax right.
+
+01:54.330 --> 01:56.460
+String code.
+
+01:56.490 --> 01:58.240
+I don't need that opening brace.
+
+01:58.320 --> 01:58.770
+OK.
+
+01:59.040 --> 01:59.580
+There we go.
+
+02:01.070 --> 02:04.760
+So now let's go ahead and decorate two functions let's say.
+
+02:04.880 --> 02:14.000
+Say hello and I'm calling my variable my parameter name and I'm going to return again a formatted string
+
+02:14.360 --> 02:16.630
+that's going to be hello name.
+
+02:16.750 --> 02:18.020
+OK.
+
+02:18.380 --> 02:22.500
+Now you'll notice here I didn't use on it right.
+
+02:22.550 --> 02:27.520
+I used the name because it makes more sense I'm passing in the name to this function.
+
+02:27.530 --> 02:32.450
+I want to know somebody to know when they look at this function that hey you're going to pass a name
+
+02:32.450 --> 02:32.960
+to it.
+
+02:33.980 --> 02:35.080
+So that's the first one.
+
+02:35.090 --> 02:41.660
+And let's go ahead and create another function that's going to calculate the product of whatever values
+
+02:41.660 --> 02:42.620
+we passing.
+
+02:42.890 --> 02:45.110
+So again I'm passing in values.
+
+02:45.110 --> 02:48.970
+I'm going to call my variable number of positional argument values.
+
+02:48.980 --> 02:50.290
+I'm not going to call it.
+
+02:50.900 --> 02:57.980
+I could take I could say this but in this case I know the meaning of what those we are.
+
+02:57.980 --> 03:02.680
+Those arguments are going to be values that we want to find the product of.
+
+03:02.900 --> 03:05.830
+So in order to find the product I'm going to use Reduce.
+
+03:05.840 --> 03:07.670
+So from operators.
+
+03:08.020 --> 03:15.830
+I'm going to import the multiplication operators from and then from phunk tools.
+
+03:15.830 --> 03:19.540
+I'm going to import to reduce you've seen this before so I'm not going to discuss that.
+
+03:19.760 --> 03:25.910
+So I think we're going to return reduce Climo values.
+
+03:26.080 --> 03:29.540
+Okay that's it.
+
+03:30.920 --> 03:35.070
+It made more sense using the name values then rather arms.
+
+03:35.090 --> 03:42.220
+So now of course I can say hello and I can even pass it as a keyword argument if I want.
+
+03:42.500 --> 03:43.650
+Hello Polly.
+
+03:44.090 --> 03:49.940
+And here we have the decorator around called say hello and then we get the return value of our function
+
+03:49.940 --> 03:50.430
+call.
+
+03:50.600 --> 03:55.580
+Similarly I can call product on 1 2 3 4 5 for example.
+
+03:55.790 --> 04:02.490
+We get the decorator around and then we get the product result which is 120 Similarly let's say that
+
+04:02.490 --> 04:09.570
+we have a class and in that class we want to allow users to specify during the initialization stage
+
+04:09.840 --> 04:12.830
+any extra attributes custom attributes that they want.
+
+04:13.020 --> 04:19.770
+So I'm going to keep it kind of very simple let's say we have a person class and let's define the Dunder
+
+04:19.770 --> 04:26.940
+init method which is going to take a name and an age and then some extra stuff whatever else the user
+
+04:27.030 --> 04:32.760
+wants to pass us kind of custom attributes for this class and I'm going to store them as attributes
+
+04:32.790 --> 04:33.840
+on the class.
+
+04:33.840 --> 04:39.320
+But I'm going to take them in through the initializers so I could definitely say KW.
+
+04:39.540 --> 04:45.810
+But I have you know I know the meaning of the things being passed in their custom attributes.
+
+04:45.810 --> 04:52.150
+I'm going to call them custom at tributes Rockholt by the full name.
+
+04:52.150 --> 04:52.760
+Right.
+
+04:52.780 --> 04:53.680
+I know what they are.
+
+04:53.680 --> 04:56.580
+The custom attributes so in here what am I going to do.
+
+04:56.590 --> 05:02.290
+I'm going to say self-taught name the chords name self-drive age equals page and then I'm going to loop
+
+05:02.320 --> 05:08.050
+through my custom attributes and I'm going to get the key name which is you know in this dictionary
+
+05:08.080 --> 05:13.180
+which is going to be the attribute name and the value which is going to become the value of the attribute.
+
+05:13.210 --> 05:24.650
+So I'm going to unpack attribute name and attribute value in custom attributes on items.
+
+05:24.730 --> 05:25.240
+OK.
+
+05:25.530 --> 05:28.630
+So I'm iterating the custom attributes dictionary.
+
+05:29.150 --> 05:32.750
+Then what I want to do I want to set the attributes of self.
+
+05:32.980 --> 05:38.410
+I want to set the attribute name and the attribute value.
+
+05:38.980 --> 05:40.450
+All right that's it.
+
+05:40.450 --> 05:44.830
+So it made more sense calling those custom attributes than calling it.
+
+05:44.890 --> 05:46.450
+KW arms.
+
+05:46.660 --> 05:51.660
+So now of course I can say for example parrots equals Palsson.
+
+05:51.880 --> 05:53.660
+The name is Polly.
+
+05:53.710 --> 05:56.710
+The ages are 101 the status.
+
+05:56.710 --> 05:59.710
+Now these are my custom attributes that I want to add.
+
+05:59.860 --> 06:05.530
+I want to add an attribute that the status is stiff and whether its rooms or not.
+
+06:05.530 --> 06:07.020
+I'm going to say that's false.
+
+06:07.570 --> 06:08.770
+So now I have my parrot.
+
+06:08.800 --> 06:13.780
+And if I look at the vowels in our parrots
+
+06:16.750 --> 06:22.060
+you can see that I have my name and my age and then the other attributes that I passed in status and
+
+06:22.060 --> 06:23.370
+rooms boom's right.
+
+06:23.470 --> 06:29.960
+I could say Michael equals Palsson.
+
+06:30.160 --> 06:33.130
+My name is Pailin ages.
+
+06:33.180 --> 06:34.930
+Well give him an age of 42.
+
+06:34.930 --> 06:38.590
+His role is the shop keepers.
+
+06:38.920 --> 06:40.770
+And he's crooked.
+
+06:40.960 --> 06:41.860
+He's crooked.
+
+06:41.870 --> 06:42.420
+True.
+
+06:42.570 --> 06:43.240
+OK.
+
+06:43.300 --> 06:50.980
+So again half passed in these custom attributes and if I print the last of my coke then you'll see that
+
+06:50.980 --> 06:53.890
+I have my custom attributes in the class.
+
+06:54.010 --> 07:00.460
+Again just naming conventions name your variables mean give them meaningful names.
+
+07:00.710 --> 07:08.470
+So KW arts is not meaningful in cases like this where we're basically only use them as a way to catch
+
+07:08.800 --> 07:11.580
+arguments being passed but we have no idea what they are.
+
+07:11.620 --> 07:16.810
+Sure we can't give those meaningful names other than these other positional arguments and these are
+
+07:16.810 --> 07:21.100
+the keyword arguments that were called when the funk was called.
+
+07:21.580 --> 07:23.370
+But from that we don't know anything else.
+
+07:23.530 --> 07:28.840
+But in other cases like here we know what the meaning is of that particular parameter.
+
+07:28.840 --> 07:31.850
+We know the meaning of this particular parameter here.
+
+07:32.780 --> 07:33.140
+All right.
+
+07:33.140 --> 07:33.890
+Thanks for watching.
+
+07:33.890 --> 07:35.020
+See you in the next video.

@@ -1,0 +1,1234 @@
+WEBVTT
+
+00:00.960 --> 00:05.130
+High in this video we're going to talk about reducing functions.
+
+00:05.130 --> 00:11.400
+So what are reducing functions what reducing functions are functions that recombine and iterable recursively
+
+00:11.970 --> 00:13.580
+ending up of a single return.
+
+00:13.580 --> 00:20.380
+Van they're also called accumulators aggregators or sometimes even folding functions.
+
+00:20.380 --> 00:24.150
+I'm just going to keep referring to them as reducing functions.
+
+00:24.310 --> 00:30.210
+But let's look at an example that will make it quite clear as to what this means and what's going on.
+
+00:30.220 --> 00:35.580
+For example we want to find the maximum value and then iterable that's a reducing function.
+
+00:35.610 --> 00:39.950
+It's taking a sequence or an iterable in more general terms.
+
+00:40.060 --> 00:46.650
+And from that it's giving us a single value back based on all the elements in that sequence so essentially
+
+00:46.750 --> 00:52.660
+it's a mapping right from an iterable to a value and it's a mapping that happens in a very specific
+
+00:52.660 --> 00:53.750
+way.
+
+00:54.490 --> 00:56.230
+So let's take a look at an example.
+
+00:56.230 --> 01:00.060
+How might we find the maximum in a sequence.
+
+01:00.130 --> 01:04.390
+So our sequence let's say we have and values from 0 to a and minus one.
+
+01:04.480 --> 01:08.680
+So here I'm indexing which is why I'm calling this a sequence not just an iterable.
+
+01:08.710 --> 01:14.440
+There's a Z all kind of there's a notion of order in this so we can take elements out we can talk about
+
+01:14.440 --> 01:17.250
+the first element the second element and so on.
+
+01:18.950 --> 01:24.650
+Next let's define a small function that is going to take two parameters A and B.
+
+01:24.860 --> 01:29.390
+And it's going to return the maximum value of those two arguments.
+
+01:29.510 --> 01:31.130
+So that's all it does.
+
+01:31.130 --> 01:33.740
+Just returns the max of two values.
+
+01:33.740 --> 01:38.100
+Now let's do this let's say that we want to find the maximum of iterable.
+
+01:38.150 --> 01:44.050
+So we want to end up with a result that's going to be the maximum of all the values in this sequence.
+
+01:44.840 --> 01:48.200
+We start by setting a result equal to the first element.
+
+01:48.200 --> 01:48.490
+Right.
+
+01:48.500 --> 01:52.340
+That's usually how you're going to find a max in the list are you going to say OK we'll make the maximum
+
+01:52.340 --> 01:53.780
+equal to the first element.
+
+01:53.870 --> 01:55.140
+That might be correct.
+
+01:55.370 --> 01:59.350
+And then what do you do you look at every element thereafter and you check.
+
+01:59.360 --> 02:00.180
+Is it bigger.
+
+02:00.350 --> 02:06.290
+If it is well OK that's the biggest element and you keep going till you've exhausted the list.
+
+02:06.290 --> 02:08.410
+So we're going to do that exactly here.
+
+02:08.480 --> 02:14.990
+We're going to say result is the maximum of that result the current one which is a zero with a 1 and
+
+02:14.990 --> 02:16.210
+whichever one is bigger.
+
+02:16.250 --> 02:19.810
+We're going to put that into the result and say well that's the maximum now.
+
+02:20.180 --> 02:23.870
+And we're going to keep doing that for every element in the sequence.
+
+02:23.870 --> 02:28.970
+So after we've done that and exhausted all the elements of the sequence we've essentially found the
+
+02:28.970 --> 02:31.910
+maximum value in that sequence.
+
+02:32.330 --> 02:38.950
+So you can see what's happening is that we're just applying the max value recursively or it critically
+
+02:39.270 --> 02:39.780
+right.
+
+02:39.800 --> 02:44.250
+We're doing it multiple times and I'm saying recursive because what's result here.
+
+02:44.420 --> 02:45.460
+Well it's the previous one.
+
+02:45.500 --> 02:46.690
+But what's the result here.
+
+02:46.880 --> 02:47.840
+It's the max.
+
+02:47.840 --> 02:51.060
+Right so this is the max of the MAX a result.
+
+02:51.080 --> 02:53.330
+A come one with a comma too.
+
+02:53.390 --> 02:59.130
+So you can think of this as a recursion but think of it in terms of loops.
+
+02:59.150 --> 03:01.430
+That's probably going to be simpler for now.
+
+03:01.430 --> 03:05.170
+So this allows us to find the maximum value in that sequence.
+
+03:06.260 --> 03:10.970
+Now we haven't studied it troubles in general so I'm going to stick to sequences in all the examples
+
+03:10.970 --> 03:20.290
+I do but as we'll see later on this will actually work with any iterable not just sequences so using
+
+03:20.290 --> 03:20.750
+a loop.
+
+03:20.800 --> 03:23.880
+Let's actually write this out in code using a loop.
+
+03:23.890 --> 03:25.860
+So we'll start with a list right.
+
+03:25.870 --> 03:32.590
+This is the list we're going to define this function called max value and it's basically just a small
+
+03:32.590 --> 03:35.550
+lambda function and it's going to take two arguments.
+
+03:35.590 --> 03:38.490
+So again this is critical it's always two arguments.
+
+03:38.650 --> 03:40.150
+And what is it going to return.
+
+03:40.280 --> 03:45.130
+What's going to return a if is greater than be otherwise it's going to be basically it's going to return
+
+03:45.130 --> 03:48.810
+the maximum of those two values next.
+
+03:48.850 --> 03:49.980
+Let's look at the code.
+
+03:50.050 --> 03:56.530
+Let's define this function Max sequence it takes in a parameter called sequence which is which will
+
+03:56.530 --> 03:59.660
+pass you know l as an argument when we call this function.
+
+03:59.920 --> 04:00.910
+And what does it do.
+
+04:00.910 --> 04:03.200
+It says result is sequence 0.
+
+04:03.430 --> 04:04.020
+Right.
+
+04:04.030 --> 04:06.310
+So in other words result equals five.
+
+04:06.400 --> 04:08.230
+That's the false element.
+
+04:08.230 --> 04:12.030
+Now we're going to loop through every element in sequence.
+
+04:12.220 --> 04:18.430
+And for every element in sequence starting at 1 right we're not going to redo the first one there's
+
+04:18.430 --> 04:19.260
+no need.
+
+04:19.450 --> 04:20.550
+We've already handled it.
+
+04:20.560 --> 04:21.910
+It's a nine hour result.
+
+04:21.910 --> 04:28.720
+So we always start at the second element and we're going to set the result equal to the maximum value
+
+04:28.720 --> 04:31.040
+of our previous result with each.
+
+04:31.060 --> 04:36.880
+So in this case we're going to set the result to the maximum of five which is our current result and
+
+04:36.940 --> 04:40.510
+8 so 8 being the second element here.
+
+04:40.690 --> 04:41.020
+Right.
+
+04:41.020 --> 04:46.910
+Or the first element in this loop but that's we start the loop at the second elements or we're at 8.
+
+04:46.930 --> 04:48.420
+So the result is eight.
+
+04:48.490 --> 04:49.500
+We do that again.
+
+04:49.510 --> 04:56.590
+So now we say result is the max of 8 and 6 which is the next value in our sequence.
+
+04:56.590 --> 04:58.790
+So the result is still eight.
+
+04:58.840 --> 05:04.260
+We do that again and we take a max of eight with the next value in the sequence which is 10.
+
+05:04.270 --> 05:11.290
+So now we get a value of 10 for our maximum for our result and we do that again and we take the max
+
+05:11.290 --> 05:15.760
+of 10 and 9 will a max of 10 and nine is four tenths or result is 10.
+
+05:16.150 --> 05:17.590
+And that's it we're done with the loop.
+
+05:17.620 --> 05:24.480
+And now we return the result which is 10 which happens to be the maximum value in the sequence.
+
+05:26.510 --> 05:31.180
+Notice the sequence of steps we initialize our result to five.
+
+05:31.480 --> 05:35.220
+Next we set our result was equal to the maximum of five and eight.
+
+05:35.230 --> 05:42.220
+The next element in the sequence that gave us some value 8 that's now on your result we now apply this
+
+05:42.220 --> 05:48.280
+again and we say take the max of the current result and 6 while the max with the current result occurs
+
+05:48.310 --> 05:51.380
+with all these 8 6 max to 8.
+
+05:51.460 --> 05:56.640
+So now our current result on you current result is 8 again.
+
+05:56.690 --> 05:58.680
+Rinse and repeat max of eight.
+
+05:58.740 --> 06:02.710
+That eight here that we obtained in the previous step with 10.
+
+06:02.930 --> 06:04.250
+Now the max is 10.
+
+06:04.250 --> 06:05.760
+The result is 10.
+
+06:06.170 --> 06:09.660
+And we applied one small max of 10 and 9.
+
+06:09.680 --> 06:11.330
+And that result is 10.
+
+06:11.540 --> 06:16.620
+And that's what we return because we're done we've exhausted the list all the iterable.
+
+06:16.730 --> 06:21.060
+So the result is 10 and that is the maximum of that list.
+
+06:21.110 --> 06:27.020
+So it's pretty straightforward if you think of it in terms of that loop that we wrote in that code so
+
+06:27.020 --> 06:28.930
+we could do the same thing for other things.
+
+06:28.940 --> 06:30.640
+Let's say we want to find the minimum.
+
+06:30.740 --> 06:35.750
+Well the only thing that we need to do to find the minimum instead of using a function that returns
+
+06:35.750 --> 06:37.320
+the maximum of two values.
+
+06:37.520 --> 06:42.470
+We're going to use a function that returns the minimum of two values for every time we're going to find
+
+06:42.650 --> 06:45.240
+something that's smaller potentially.
+
+06:45.240 --> 06:46.420
+So how would we do it.
+
+06:46.590 --> 06:49.290
+Well this is the same code as before.
+
+06:49.410 --> 06:52.910
+The only difference is that I've renamed this function here.
+
+06:53.190 --> 06:57.450
+And the function that I'm applying inside the loop is the main value function.
+
+06:57.480 --> 06:58.960
+This function here.
+
+06:59.010 --> 07:00.280
+It's not that Max Battey.
+
+07:00.480 --> 07:01.640
+That's the only difference.
+
+07:01.650 --> 07:05.060
+Everything else stayed the same.
+
+07:05.120 --> 07:07.240
+So we could do this instead.
+
+07:07.250 --> 07:07.540
+Right.
+
+07:07.550 --> 07:10.260
+You start to see a pattern that everything changed.
+
+07:10.280 --> 07:11.720
+Everything stays the same.
+
+07:11.720 --> 07:14.440
+The only thing that changes is meant value.
+
+07:14.480 --> 07:17.920
+So let's write a reduced function that's a little bit more general.
+
+07:18.140 --> 07:20.670
+And we're going to need to know what the function is.
+
+07:20.720 --> 07:25.880
+So we're going to need to pass it as a parameter as an argument to this function.
+
+07:26.130 --> 07:30.590
+So the parameter F and we'll take the function and then the sequence will be what it was before.
+
+07:30.620 --> 07:33.330
+What is the sequence that we want to apply this to.
+
+07:33.830 --> 07:39.780
+And then our code will be identical result it sequence 0 4 x in sequence one result equals.
+
+07:39.800 --> 07:41.670
+And now this is the key difference.
+
+07:41.720 --> 07:44.750
+We're going to take f n and apply that.
+
+07:44.930 --> 07:46.500
+Right so we're not going to pass.
+
+07:46.520 --> 07:49.430
+We're not going to hard code the function that we're using.
+
+07:49.490 --> 07:53.640
+We're just going to pass that as an argument and then once we're done we return the result.
+
+07:55.210 --> 07:59.920
+So if we call underscore reduce with this lambda a greater than B else b.
+
+07:59.920 --> 08:03.770
+What is this lambda do it returns the maximum right of a and b.
+
+08:03.910 --> 08:10.720
+So this will give us the maximum of the list and if we use the other lambda that we saw before is less
+
+08:10.720 --> 08:13.670
+than B else b that's calculating the minimum of two values.
+
+08:13.870 --> 08:20.410
+We'll end up with the minimum of the list what about adding all the elements.
+
+08:20.450 --> 08:28.650
+We can also reduce by adding all the elements in a sequence or in iterable in general well we just need
+
+08:28.650 --> 08:33.480
+to define a lambda a function that basically adds its two arguments.
+
+08:33.550 --> 08:35.950
+So let's do that let's apply to L.
+
+08:36.100 --> 08:41.420
+So let's run this code and let's see if we run through this code what's happening right.
+
+08:41.460 --> 08:45.190
+So this code is the same as that reduce function that we just wrote.
+
+08:45.240 --> 08:46.920
+I haven't changed that at all.
+
+08:46.920 --> 08:53.550
+The only thing I've changed is that we're going to pass that and function right for the function in
+
+08:53.580 --> 08:55.500
+this underscore reduce function.
+
+08:55.740 --> 09:01.170
+So if we call underscore Rhodes-Hughes ads come El what happens when I step through it.
+
+09:01.170 --> 09:03.300
+The result is going to be sequence 0.
+
+09:03.360 --> 09:05.430
+So the result is going to be five.
+
+09:05.550 --> 09:09.960
+Next we're in the loop now and we're going to add functions.
+
+09:10.010 --> 09:11.860
+And right that's what we're past.
+
+09:11.910 --> 09:15.600
+We're going to add results with eight.
+
+09:15.760 --> 09:20.550
+So we're going to add five and eight and that's going to be on your result that's going to be 13.
+
+09:20.710 --> 09:22.110
+Rinse and repeat.
+
+09:22.210 --> 09:28.050
+We now move on to six and we're going to add the previous results 13 with 6 that's 19.
+
+09:28.060 --> 09:32.550
+You see are we creating this cumulative sum would do that one more time.
+
+09:32.620 --> 09:39.130
+We have 19 the previous result and then we get 29 and for the last element and the last iteration in
+
+09:39.130 --> 09:43.150
+this loop we're going to take 29 and add that to 9.
+
+09:43.210 --> 09:44.740
+And so we end up with 38.
+
+09:44.860 --> 09:45.880
+That's all result.
+
+09:46.000 --> 09:47.340
+That's what gets returned.
+
+09:47.710 --> 09:51.500
+And that is the sum of all the elements in this list.
+
+09:54.340 --> 10:01.480
+So this reduce is a really important kind of concept it's an important function and Python actually
+
+10:01.840 --> 10:02.530
+has it for us.
+
+10:02.530 --> 10:04.000
+We don't have to write it ourselves.
+
+10:04.000 --> 10:07.900
+I created this underscore redos to help you understand how it works.
+
+10:08.080 --> 10:15.100
+But Python has it and it doesn't have the restriction of only you being you know able to specify sequence
+
+10:15.100 --> 10:15.570
+types.
+
+10:15.610 --> 10:17.530
+You can use any kind of iterable.
+
+10:17.680 --> 10:22.140
+We had to stick to a sequence because we were using indexing and the slicing right.
+
+10:22.150 --> 10:24.020
+We had to sequence 0.
+
+10:24.040 --> 10:29.020
+That was an index and then we had you know four x in sequence one colon that was a slice.
+
+10:29.020 --> 10:34.420
+You can only do that with sequence types and you can't do that let's say with a set that won't work.
+
+10:34.430 --> 10:41.230
+However Python's reduced function will work with sets as well and we'll see that in the code where we
+
+10:41.230 --> 10:47.200
+switch to that so we would have to import it from the phunk tools module.
+
+10:47.200 --> 10:50.340
+That's where it resides in the frontals module.
+
+10:50.380 --> 10:55.030
+So let's do this again with our example not here I'm using a list which is a sequence type.
+
+10:55.120 --> 10:57.530
+But again we don't have to use a sequence type.
+
+10:57.880 --> 11:00.500
+And now I'm calling Python's reduce.
+
+11:00.520 --> 11:06.160
+And you'll notice that's why I called my reduced function underscore reduce to so I'm not stepping over
+
+11:06.160 --> 11:13.930
+the toes of this reduce function otherwise I might be shadowing its $5 from frontals import reduce and
+
+11:13.930 --> 11:19.990
+then later on I do a def reduce or guess what whenever you call reduce it's going to call your definition
+
+11:19.990 --> 11:22.630
+your implementation of reduce not pythons.
+
+11:22.630 --> 11:29.920
+So it's generally a good idea not to use Python's methods in your method names for your function names
+
+11:30.310 --> 11:32.820
+and also go ahead and just put an underscore in front.
+
+11:32.920 --> 11:35.090
+That works just as easily or call it something else.
+
+11:35.260 --> 11:39.360
+Whatever but the underscore is fairly common.
+
+11:39.490 --> 11:44.530
+So if we call reduce just as before we're calling with this lambda here that's going to return the maximum
+
+11:44.530 --> 11:51.730
+of a and b and we apply that to L and it's going to give us the maximum which is going to be 10 Similarly
+
+11:51.800 --> 11:56.690
+if we use Alamdar that's returning the minimum of a and b then when we do that it's going to return
+
+11:56.690 --> 11:58.350
+the minimum just as before.
+
+11:58.490 --> 12:01.730
+Except we're using pythons built in reduce again.
+
+12:01.760 --> 12:07.310
+We can also use an addition for the lambda function and it's just going to return Therefore the sum
+
+12:07.430 --> 12:12.880
+of everything in that list so reduce works on any iterable.
+
+12:12.970 --> 12:19.720
+As I mentioned I may just show you that now if we have a set this wouldn't walk of the underscore reduce
+
+12:20.140 --> 12:22.320
+that will fail because this is a set.
+
+12:22.480 --> 12:26.730
+And you can find you know the zero element of a set.
+
+12:26.740 --> 12:28.340
+There is no such concept.
+
+12:28.550 --> 12:31.710
+But now by phone reduce that will work just fine.
+
+12:31.750 --> 12:36.100
+So if we do this we're again looking for the minimum and it will work and return the minimum of that
+
+12:36.100 --> 12:42.380
+set which is to now we can also apply to other things like for example a string.
+
+12:42.540 --> 12:44.590
+A string is a sequence type.
+
+12:44.590 --> 12:46.010
+It's a sequence of characters.
+
+12:46.030 --> 12:48.790
+So our underscore reduce function would actually work.
+
+12:48.790 --> 12:54.370
+In this case and all we're doing here is we're finding the minimum Well what does it mean when we talk
+
+12:54.370 --> 12:58.390
+about the minimum of characters while we're talking about lexicographical ordering.
+
+12:58.390 --> 13:05.860
+So if you think of the ASCII table for example that's lexicographically ordered on characters and it
+
+13:05.860 --> 13:09.220
+will actually work out the same thing here or the same way.
+
+13:09.430 --> 13:12.810
+So the smallest character in here is going to be h.
+
+13:12.820 --> 13:15.380
+That's going to have the lowest character code.
+
+13:15.430 --> 13:16.990
+If you want to think of it that way.
+
+13:17.380 --> 13:24.890
+So when we apply reduce to that we are going to get H-back because that is the smallest element.
+
+13:24.990 --> 13:26.640
+We can also do something like this.
+
+13:26.640 --> 13:32.430
+This is kind of a little different and it's still a reducing function but what is it doing.
+
+13:32.430 --> 13:33.480
+Let's take a look.
+
+13:33.570 --> 13:38.580
+Ahlam the hinge is saying a plus a space plus B.
+
+13:38.580 --> 13:40.720
+So we doing string concatenation here.
+
+13:40.740 --> 13:43.000
+That's why I'm passing in strings.
+
+13:43.000 --> 13:46.970
+So I'm here I'm passing a tuple which again is an admirable.
+
+13:47.160 --> 13:50.110
+And so the first element is python.
+
+13:50.280 --> 13:53.070
+So Python and then what are we going to do.
+
+13:53.070 --> 13:59.640
+Well that's going to be all results are going to be Python Plus a space plus the next element.
+
+13:59.730 --> 14:04.900
+So Plus is so we're going to get Python space is and we apply again again going to get Python.
+
+14:04.920 --> 14:06.970
+Space is space awesome.
+
+14:07.310 --> 14:09.300
+And so we end up with Python is awesome.
+
+14:09.510 --> 14:11.640
+Now there's actually a better way of doing this.
+
+14:11.850 --> 14:16.740
+Add the string when we get to the string library and the string data type later on in the course.
+
+14:16.740 --> 14:17.180
+We'll see.
+
+14:17.190 --> 14:19.210
+But there is a join method.
+
+14:19.550 --> 14:22.850
+In string objects that we can use instead.
+
+14:22.950 --> 14:27.440
+But I just want to show you that you can get something that you may not have expected.
+
+14:27.600 --> 14:32.430
+Also by using a reduce right here we're just concatenated strings together.
+
+14:34.060 --> 14:34.550
+OK.
+
+14:34.640 --> 14:39.910
+So let's look at some of the built in reducing functions because Python has a few built in functions
+
+14:39.960 --> 14:42.260
+of a built in reducing functions.
+
+14:42.260 --> 14:43.620
+It's got a lot of built in functions.
+
+14:43.820 --> 14:49.040
+But if you are reducing functions joined is one that I just mentioned but we have some other ones as
+
+14:49.040 --> 14:49.380
+well.
+
+14:49.400 --> 14:54.870
+Like men it's so common to try and find the minimum value in an interval that's built in.
+
+14:54.890 --> 14:56.130
+You don't even have to import it.
+
+14:56.140 --> 14:56.840
+It's just right.
+
+14:56.840 --> 14:58.800
+Built into the standard library.
+
+14:59.030 --> 15:04.140
+And so we get this men of this list will return the minimum.
+
+15:04.250 --> 15:07.870
+So we don't have to do reduce and then the lambda none of that.
+
+15:07.880 --> 15:09.760
+It's just built in something with Max.
+
+15:09.770 --> 15:16.140
+Max is built in that will return the maximum inside that iterable sum is also defined.
+
+15:16.310 --> 15:20.740
+It's so common to try and add up all the elements of an interval that's built it as well.
+
+15:20.810 --> 15:26.270
+So if we call some of some iterable in this case the list will get the sum of all the elements in that
+
+15:26.270 --> 15:27.020
+iterable.
+
+15:27.150 --> 15:30.730
+In this case 38 now we have two more.
+
+15:30.890 --> 15:33.810
+And these are related to boolean expressions.
+
+15:33.830 --> 15:36.050
+So we have any and all.
+
+15:36.050 --> 15:38.800
+So let's look at any force than any is defined this way.
+
+15:38.930 --> 15:46.050
+You call it by saying any and then you're iterable and it will return true if any element in L is truthy
+
+15:46.670 --> 15:48.430
+it will return false otherwise.
+
+15:49.190 --> 15:56.600
+And all is called by all with whatever iterable and it will return true if every element in L is truthy
+
+15:57.110 --> 15:58.920
+and false otherwise.
+
+15:59.360 --> 16:05.810
+So what's happening with any and all is that it's looking at the truth value of each element in your
+
+16:05.810 --> 16:06.540
+iterable.
+
+16:06.950 --> 16:11.140
+And in any case it will return true if any of them are truthy.
+
+16:11.270 --> 16:17.450
+So basically it's doing an on between the truth values of every element in your iterable and returning
+
+16:17.450 --> 16:22.600
+that result the all on the other hand is putting an end between all the values.
+
+16:22.610 --> 16:24.840
+So if every element in L is truthy.
+
+16:24.860 --> 16:31.460
+So if the true value of element 1 and the true value of element 2 and the truth value of element 3 and
+
+16:31.460 --> 16:35.730
+so on is true that's what gets returned true.
+
+16:35.780 --> 16:37.660
+So that's a reduction as well.
+
+16:38.600 --> 16:44.450
+Let's see how we might actually implement it ourselves using the reduced function.
+
+16:44.990 --> 16:51.630
+So let's say if we start with a sequence 0 empty string none and 100 0 has a truth value.
+
+16:51.910 --> 16:55.040
+False that's false see the empty string is also falsie.
+
+16:55.070 --> 16:58.430
+None is falsie and 100 is truthy.
+
+16:58.460 --> 17:05.270
+So if we were to look at our result and make that equal to the truth value of zero all the truth value
+
+17:05.270 --> 17:11.960
+of the empty string and so on while we get true or true or false sorry we get false or false or false
+
+17:12.020 --> 17:14.640
+or true the whole thing will be true.
+
+17:14.830 --> 17:15.040
+Right.
+
+17:15.050 --> 17:16.540
+So our results will be true.
+
+17:16.790 --> 17:23.750
+Now note that I'm not doing zero or empty string or not or 100 because if you remember what we did when
+
+17:23.750 --> 17:27.800
+we looked at the boolean operators that's not going to return a boolean value that's actually going
+
+17:27.800 --> 17:30.500
+to return one of the elements in the owners.
+
+17:30.620 --> 17:34.920
+And in this case it's going to return 100 because that's the first truthy value.
+
+17:35.150 --> 17:35.680
+Right.
+
+17:35.690 --> 17:37.210
+So be careful with that.
+
+17:37.280 --> 17:38.390
+That's not what we want.
+
+17:38.390 --> 17:40.760
+We actually want to return a true or false.
+
+17:40.760 --> 17:42.520
+We don't want to return the element.
+
+17:42.560 --> 17:49.780
+In this case so we're going to cast everything to a book we're going to basically look at the truth
+
+17:49.810 --> 17:54.060
+value first and then do the.
+
+17:54.220 --> 17:56.730
+So you'll see what are we doing repeatedly.
+
+17:56.800 --> 17:58.600
+We're taking two values.
+
+17:58.600 --> 18:04.380
+We're looking at the truth value of both values and we're offering them and we're doing that repeatedly.
+
+18:04.450 --> 18:06.800
+While that's a reduction we're reducing.
+
+18:07.300 --> 18:11.630
+So we do this right would say result equals bulat zero.
+
+18:11.830 --> 18:13.240
+That would be false.
+
+18:13.240 --> 18:15.370
+Next we say result equals result.
+
+18:15.370 --> 18:16.940
+All bull of the empty string.
+
+18:16.990 --> 18:18.730
+While bull of empty string is false.
+
+18:18.760 --> 18:20.070
+So we have false or false.
+
+18:20.070 --> 18:21.830
+That's false.
+
+18:21.910 --> 18:26.080
+Then we have result equals our previous result which was false or Bush have none.
+
+18:26.090 --> 18:29.730
+Well again Bill not his fault so we have false or false that's false.
+
+18:30.010 --> 18:38.050
+And then the last element we handled that would have resulted result or Bush of 100 of 100 is true 100
+
+18:38.050 --> 18:39.010
+is truthy.
+
+18:39.010 --> 18:41.030
+So we have now false or true.
+
+18:41.140 --> 18:45.210
+So the net effect is that result is not equal to true.
+
+18:45.520 --> 18:50.140
+And so that's what we return so we can do this now by just using Roger's right.
+
+18:50.140 --> 18:53.540
+We see this pattern here and we know what it means.
+
+18:53.620 --> 18:53.910
+Right.
+
+18:53.920 --> 18:59.600
+Even this pattern here by now you should start realizing we can use or reduce this.
+
+18:59.720 --> 19:02.380
+So what are we going to pass for the function.
+
+19:02.380 --> 19:07.990
+Well we're going to pass this now lambda is going to take two parameters A and B and it's going to look
+
+19:07.990 --> 19:14.480
+at the truth value of a or the truth value of b and then we'll apply it in this case to the list.
+
+19:14.760 --> 19:17.210
+When we do that we get true as well.
+
+19:17.230 --> 19:21.700
+So this is the same thing as any and is just an implementation for us.
+
+19:21.700 --> 19:23.360
+So we don't have to go through this.
+
+19:23.410 --> 19:25.390
+But that's how you would implement it yourself.
+
+19:26.520 --> 19:29.410
+And you can do the same thing with all as well of course.
+
+19:30.150 --> 19:35.910
+So let's look at a another example which is finding all the product or the funding the product of all
+
+19:35.910 --> 19:39.070
+the elements in an iterable that's not built into Python.
+
+19:39.090 --> 19:40.980
+The sum is but not the product.
+
+19:40.980 --> 19:42.480
+Sometimes you may want to do that.
+
+19:42.600 --> 19:45.370
+So let's see how we might do that.
+
+19:45.390 --> 19:46.900
+So it's very similar to adding.
+
+19:46.920 --> 19:47.340
+Right.
+
+19:47.340 --> 19:53.400
+The difference is that let's say for this list here we just want to find the multiplication right instead
+
+19:53.400 --> 19:59.280
+of doing a sum instead of doing an addition we want to find the product of all the elements in this
+
+19:59.280 --> 19:59.860
+list.
+
+20:01.240 --> 20:06.340
+So as you might think all we need to do is just change all Lamda all and as the product right a times
+
+20:06.370 --> 20:08.440
+b and then we apply that to the sequence.
+
+20:08.450 --> 20:10.360
+L So what's our results.
+
+20:10.390 --> 20:15.680
+Our result starts with one that gets initialized to the first element of the sequence.
+
+20:15.730 --> 20:21.460
+Next weeks go into a loop that basically will iterate through the remaining elements of the iterable
+
+20:22.330 --> 20:24.900
+and we're going to multiply it with the previous result.
+
+20:24.940 --> 20:29.650
+So the next result is going to be the previous result times 3 which is 3.
+
+20:29.770 --> 20:34.450
+The next result is going to be the previous result times five or previous result was three so three
+
+20:34.450 --> 20:40.140
+times by 15 and once more our next result is going to be the previous result times six.
+
+20:40.150 --> 20:42.020
+The last element in the sequence.
+
+20:42.100 --> 20:49.610
+So we have 15 times 6 which is 90 and so we end up with the product of 1 3 5 and 6.
+
+20:49.680 --> 20:54.210
+So that's how you might find the product of elements and iterable.
+
+20:54.270 --> 20:59.830
+So of course this has actually an application we can calculate and factorial using that.
+
+21:00.210 --> 21:02.520
+Let's take a look at what end factorial is.
+
+21:02.520 --> 21:06.940
+Just to refresh your memory it's one times two times three all the way up to N right.
+
+21:06.960 --> 21:11.950
+So we're multiplying the sequence of numbers 1 2 3 up to N right.
+
+21:11.970 --> 21:19.450
+So for example 5 5 factorial would be one times two times three times four times five.
+
+21:19.800 --> 21:26.160
+So if we look at this range function if we look at the range starting at 1 and ending but not including
+
+21:26.160 --> 21:31.830
+six that will generate basically an iterable containing 1 2 3 4 5.
+
+21:32.000 --> 21:32.300
+Right.
+
+21:32.310 --> 21:35.470
+That's going to generate the sequence of numbers 1 2 3 4 and 5.
+
+21:35.670 --> 21:43.680
+If we can then multiply all these numbers together we've just calculated 5 factorial in general we do
+
+21:43.680 --> 21:52.090
+range from 1 to plus 1 will end up with a sequence of numbers from 1 up to an so to calculate and factorial
+
+21:52.090 --> 21:57.010
+we just find the product of all the elements in the range of well that straightforward.
+
+21:57.010 --> 22:02.800
+We have a reduced function so we call reduce the function we use is going to be this eight times B which
+
+22:02.800 --> 22:05.230
+is multiplying and we pass in the range.
+
+22:05.230 --> 22:11.170
+So for five factorial with passen six you know a range of 1 to 6 and that will actually calculate five
+
+22:11.170 --> 22:11.940
+factors.
+
+22:11.980 --> 22:15.000
+We didn't have to write the recursive function in this case.
+
+22:15.130 --> 22:19.440
+We use Reduce which has kind of all that built in for us already.
+
+22:22.000 --> 22:22.470
+OK.
+
+22:22.480 --> 22:27.290
+So the last thing that I want to mention is that the reduced function actually has an initializer.
+
+22:27.340 --> 22:31.000
+And in the code I'll show you how we might implement something like that ourselves.
+
+22:31.090 --> 22:36.730
+Although I won't do a full implementation of it but the reduced function has a third optional parameter
+
+22:36.730 --> 22:37.960
+that defaults to none.
+
+22:37.960 --> 22:40.330
+Which is why we haven't talked about it so far.
+
+22:41.160 --> 22:47.260
+And you can think of it essentially as adding something to the front of the iterable.
+
+22:47.310 --> 22:51.620
+Remember in the code when we wrote our own reduce We had an initializer.
+
+22:51.660 --> 22:58.620
+Right we were initializing the result to the first element of the sequence or the first element of the
+
+22:58.620 --> 23:03.540
+iterable what the initialiser does in the reduced function in Python.
+
+23:03.570 --> 23:10.380
+It basically overrides that and say No no don't use the first element right as your initial value for
+
+23:10.390 --> 23:10.980
+result.
+
+23:11.010 --> 23:11.580
+Use this.
+
+23:11.580 --> 23:19.650
+Initialize a value instead and then do the same thing but apply to all the elements of the iterable.
+
+23:19.670 --> 23:21.770
+So it's like adding a value.
+
+23:21.770 --> 23:28.130
+Basically ahead of the remaining troubles ahead of the you know elements of the troubles and then Python
+
+23:28.130 --> 23:35.190
+will use that as its start value as it start doing its recursion.
+
+23:35.230 --> 23:41.290
+So it's often used to handle the case when you iterable is empty because what happens if we have this
+
+23:41.290 --> 23:47.270
+piece of code where L is an empty list and then we call reduce We want to add all the elements in.
+
+23:47.300 --> 23:50.960
+L. Well if we do that then we're going to get an exception.
+
+23:50.980 --> 23:52.450
+We're going to get a runtime error.
+
+23:52.450 --> 23:58.110
+Python is going to basically bark at us and say oh I can't do this because this is empty.
+
+23:58.180 --> 24:06.020
+So to avoid that problem we pass it the initializers and we tell it hey use an initializer of one.
+
+24:06.150 --> 24:09.210
+In this case I'm saying use an initializer of one.
+
+24:09.280 --> 24:12.310
+Now we're going to be a little careful in this case what's going to happen.
+
+24:12.310 --> 24:13.720
+Well the list is empty.
+
+24:13.930 --> 24:15.160
+So it's been written one.
+
+24:15.310 --> 24:18.140
+Because that was the initial value of that result.
+
+24:18.160 --> 24:19.860
+So it's going to return one.
+
+24:20.140 --> 24:26.290
+But now you have to be careful because if it's not empty then that's how list as one to three and we
+
+24:26.290 --> 24:28.110
+give it an initializer of 1.
+
+24:28.120 --> 24:33.910
+Remember that we are essentially adding this with putting this in front of everything and saying that's
+
+24:33.910 --> 24:35.540
+the initial value.
+
+24:35.560 --> 24:38.430
+So the initial value is not this one over here.
+
+24:38.560 --> 24:40.600
+It's this one over here.
+
+24:40.810 --> 24:45.650
+So in fact we're going to end up adding one plus one plus two plus three.
+
+24:45.670 --> 24:47.840
+And so we would get a result of seven.
+
+24:48.270 --> 24:54.130
+But just to make it clear let's say that I specified the initializer to be 100 then what we would have
+
+24:54.130 --> 24:55.340
+would be a 100.
+
+24:55.420 --> 24:59.890
+As our initial value plus everything else that's in the list.
+
+24:59.890 --> 25:03.030
+So in this case we'll end up with a 106.
+
+25:03.040 --> 25:04.570
+So be careful with the initialiser.
+
+25:04.630 --> 25:04.900
+Right.
+
+25:04.900 --> 25:11.580
+So to do a summation of a list I would not use an initializer of 1 or 100.
+
+25:11.620 --> 25:15.600
+I would use an initialiser 0 because it won't affect the sum.
+
+25:15.610 --> 25:20.780
+If something is in there zero plus one plus two plus three will still be six.
+
+25:20.860 --> 25:25.590
+If the list is empty it will give me 0 back in the case of a product.
+
+25:25.620 --> 25:31.420
+Let's say I want to find the product of everything I would use an initialiser of one because one isn't
+
+25:31.420 --> 25:38.170
+going to modify the product of 1 2 and 3 but if my list is empty it will return a one that may not be
+
+25:38.170 --> 25:38.710
+what I want.
+
+25:38.710 --> 25:42.070
+In which case I'd have to put an if statement in front of that and test for it.
+
+25:42.100 --> 25:43.540
+And so.
+
+25:44.350 --> 25:45.940
+So be careful with initialiser.
+
+25:46.120 --> 25:49.810
+So with that said let's jump into some code and see how all that works.
+
+25:49.810 --> 25:50.710
+Thanks for watching.
+
+25:50.710 --> 25:51.640
+I'll see you in a bit.

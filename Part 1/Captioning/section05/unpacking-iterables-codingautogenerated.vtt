@@ -1,0 +1,925 @@
+WEBVTT
+
+00:00.420 --> 00:05.320
+High in this video we're going to continue our discussion on unpacking it Robles.
+
+00:05.370 --> 00:10.470
+So the first thing that we looked at in the lecture were tuples So let's just review that very quickly.
+
+00:10.830 --> 00:17.610
+So for example we can make a tuple this way we use this parentheses and then we use these commas between
+
+00:17.610 --> 00:23.880
+the different elements of the tuple and the round parentheses year we think indicates that this is a
+
+00:23.910 --> 00:24.650
+tuple.
+
+00:24.990 --> 00:31.890
+So if we look at the type of page it is in fact that but the parentheses are not required to actually
+
+00:31.890 --> 00:35.800
+define a tuple what really defines the tuple is the comma.
+
+00:35.880 --> 00:38.340
+So we can write this as well this way.
+
+00:38.400 --> 00:40.110
+This is just the same thing.
+
+00:40.350 --> 00:44.630
+And if we look at the type of a while it is still one common to come at three.
+
+00:44.640 --> 00:49.690
+In fact if we print a we get one comma to come in three with the parentheses.
+
+00:49.710 --> 00:54.790
+So the parentheses in cases like that are really just there for display purposes.
+
+00:54.840 --> 00:57.300
+They don't actually defined the tuple itself.
+
+00:57.570 --> 01:03.610
+In fact if we want to create a tuple that has a single element you might be tempted to do this equals
+
+01:03.660 --> 01:04.190
+one.
+
+01:04.200 --> 01:09.060
+Thinking that this these parentheses here is actually creating the tuple.
+
+01:09.090 --> 01:12.590
+In fact the type of A in this case is just an integer.
+
+01:12.630 --> 01:16.620
+It just so a single value an integer value in here and said hey this is an int.
+
+01:16.650 --> 01:24.710
+If we were to write something like this let's say then the type of a would be a string.
+
+01:24.750 --> 01:25.070
+Right.
+
+01:25.080 --> 01:27.480
+A contains the value a.
+
+01:27.720 --> 01:33.930
+So it is not the parentheses that kind of defines or creates the tuple.
+
+01:33.930 --> 01:34.850
+It is the comma.
+
+01:34.860 --> 01:40.200
+So if you want to create a tuple of a single element then you would have to created with a single comma.
+
+01:40.290 --> 01:42.200
+So we could do something like this.
+
+01:42.210 --> 01:48.640
+Now if you look at a it is a single element tuple and a type of A is indeed tuple.
+
+01:48.720 --> 01:50.870
+Of course you don't need the parentheses.
+
+01:50.910 --> 01:58.330
+So you can just write a equals that say 100 comma and this will also create a tuple with a single element
+
+01:58.780 --> 02:00.060
+right of one hundred.
+
+02:00.060 --> 02:02.630
+So if we print out we get the 100 comma.
+
+02:02.690 --> 02:05.610
+Again the display just adds the parentheses around.
+
+02:05.610 --> 02:09.970
+Is it more clearly delineates the tuple itself.
+
+02:10.320 --> 02:15.890
+And we'll see that there are also cases where you have to use the parentheses also.
+
+02:16.250 --> 02:21.150
+And the first case to we'll look at in this lecture is when you want to create an empty tuple.
+
+02:21.180 --> 02:26.230
+So for some reason you want to create an empty tuple then you have to use just the wrong parentheses.
+
+02:26.310 --> 02:27.120
+You would do this.
+
+02:27.120 --> 02:31.210
+And now you get the type of a is that you cannot say a comma.
+
+02:31.230 --> 02:40.390
+That's just bad syntax that won't work and you can't say a equals comma in parentheses either.
+
+02:40.450 --> 02:43.820
+That will not work and is also invalid syntax.
+
+02:44.340 --> 02:47.720
+OK so that's how we create tuples.
+
+02:47.740 --> 02:51.460
+And just remember that tuples don't need the parentheses.
+
+02:51.820 --> 02:54.830
+So with that said let's go ahead and look into unpacking.
+
+02:54.940 --> 03:01.000
+So we're first going to look at how to unpack a list which is an interval type into a tuple.
+
+03:01.090 --> 03:08.020
+Remember that we can unpack any iterable type so we can unpack lists we can unpack sets we can unpack
+
+03:08.350 --> 03:14.590
+tuples we can unpack dictionaries whether the collections are ordered or not doesn't matter we can still
+
+03:14.620 --> 03:17.610
+unpack as long as it is iterable we can unpack.
+
+03:17.620 --> 03:22.000
+In fact you can create your own custom classes that are iterable will see how to do that later in the
+
+03:22.000 --> 03:22.500
+school.
+
+03:22.750 --> 03:27.190
+And it will work the same way you will be able to unpack it in exactly the same way.
+
+03:27.640 --> 03:29.610
+So let's go ahead and take a look at an example.
+
+03:29.650 --> 03:38.410
+Let's say well we have two or three variables a b and c and we're going to unpack into it the values
+
+03:38.420 --> 03:44.390
+one a and three point one food.
+
+03:45.250 --> 03:47.740
+So what happens here is I would do a position on packing.
+
+03:47.740 --> 03:54.140
+So one is going to go into a A.s going to go into B and 3.1 four isn't going to see.
+
+03:54.190 --> 04:00.870
+In other words it is going to be this is one B is A and C is three point 1 4.
+
+04:00.880 --> 04:03.670
+So we just unpack that list into the tuple.
+
+04:03.670 --> 04:05.320
+Now you could write it this way.
+
+04:05.320 --> 04:09.270
+Right because the left hand side just has to be a tuple.
+
+04:09.280 --> 04:11.660
+So you could do this.
+
+04:12.730 --> 04:19.140
+That works just as well and a as one B is 2 and C is three.
+
+04:19.160 --> 04:22.720
+All we did was just unpack one two three the list into the tuple.
+
+04:22.760 --> 04:28.900
+ABC again since tuples don't really require the parentheses we can write it this way.
+
+04:30.420 --> 04:36.110
+You can also unpack a tuple into a tuple so you could say a comma become a C equals.
+
+04:36.470 --> 04:37.510
+Well let's just do two.
+
+04:37.510 --> 04:40.510
+For now a column B equals one comma to.
+
+04:40.590 --> 04:40.860
+Right.
+
+04:40.860 --> 04:42.410
+So here we have two tuples.
+
+04:42.420 --> 04:48.870
+You can even if you want put in the parentheses here if you want to make things a little clearer and
+
+04:48.870 --> 04:51.620
+we get a is 1 and B is 2.
+
+04:51.660 --> 04:57.810
+So we just unpacked the iterable tuple on the right hand side into the iterable table on the left hand
+
+04:57.810 --> 04:58.350
+side.
+
+04:58.590 --> 05:04.320
+Now you have to remember what happens and we discussed that in the lecture but Python will first evaluate
+
+05:04.320 --> 05:06.750
+this completely in memory first.
+
+05:06.840 --> 05:13.230
+So when it sees this it's going to create a new table object that will contain references to the integer
+
+05:13.230 --> 05:15.650
+1 and references to the integer 2.
+
+05:16.290 --> 05:18.120
+And then it does the assignment.
+
+05:18.120 --> 05:23.880
+So then it's going to take the reference for the first position and put it into the first positions
+
+05:23.970 --> 05:28.380
+variable reference and it's going to take the reference from the second position and do the same thing
+
+05:28.380 --> 05:32.120
+and make be equal to that reference.
+
+05:32.120 --> 05:40.550
+So what this means is that we can do things like this so we can say a comma B is 10 20.
+
+05:40.940 --> 05:45.610
+And this is sometimes called parallel assignments some people call it parallel assignment.
+
+05:45.620 --> 05:52.910
+But what it really is as to unpacking it is unpacking this adorable which is a tuple into this tuple
+
+05:52.910 --> 05:53.580
+over here.
+
+05:53.600 --> 05:56.870
+And so now we have that a 10 and B is 20.
+
+05:57.110 --> 05:58.550
+And of course you can expand on that.
+
+05:58.550 --> 06:00.320
+You don't have to stay with just two.
+
+06:00.320 --> 06:03.820
+You can go three as many as you want or 10 20 30.
+
+06:04.010 --> 06:05.590
+And now we have a 10.
+
+06:05.660 --> 06:06.570
+The is 20.
+
+06:06.590 --> 06:07.990
+And C is 30.
+
+06:08.360 --> 06:08.960
+Right.
+
+06:08.990 --> 06:14.360
+So that's a very common way when you have a few number of variables that you want to assign literals
+
+06:14.360 --> 06:14.990
+to.
+
+06:14.990 --> 06:16.330
+You might do something like this.
+
+06:16.340 --> 06:19.790
+You don't have to even stick with homogeneous types here.
+
+06:19.800 --> 06:28.290
+We can say 10 A and 3.1 for that works just as well it doesn't matter what the types of write you could
+
+06:28.290 --> 06:36.120
+even have a comic A B C equals 10 comma and then he will do a set with two elements and he will do a
+
+06:36.120 --> 06:40.470
+list with two elements as well as do A and B.
+
+06:40.770 --> 06:42.530
+So you can even do things like this.
+
+06:42.540 --> 06:46.600
+It starts getting a little more difficult to read but it's OK in this case.
+
+06:46.620 --> 06:53.070
+And so S10 B is the set 1 2 and C is the list a B.
+
+06:53.130 --> 06:55.090
+So that works just fine as well.
+
+06:56.950 --> 06:57.530
+OK.
+
+06:58.870 --> 07:04.750
+So one of the consequences of the unpacking and also the fact that Python evaluates the right hand side
+
+07:04.750 --> 07:10.070
+completely is how we can very easily swap two variables in Python.
+
+07:10.300 --> 07:16.180
+And we saw in the lecture and if you already use other programming languages before you've probably
+
+07:16.400 --> 07:23.690
+you know use a temp variable to swap two values you have to store the value of one variable before you
+
+07:23.710 --> 07:25.630
+override the other one.
+
+07:25.630 --> 07:27.160
+In Python you don't need to do that.
+
+07:27.190 --> 07:31.090
+So let's say we say A cannot be equal to 10 20.
+
+07:31.120 --> 07:33.460
+So now we've just done this assignment right.
+
+07:33.460 --> 07:36.150
+We've unpacked 10 Kummer 20 into a and b.
+
+07:36.220 --> 07:40.740
+So if we print a and b then we have 10 and 20.
+
+07:41.060 --> 07:44.840
+OK so now let's go ahead and swap the two values.
+
+07:44.890 --> 07:48.800
+Well all we have to say is that a comma B B calls B comma.
+
+07:48.880 --> 07:50.340
+That's all we have to do.
+
+07:50.530 --> 07:56.890
+And that was why normally in other programming languages you've seen that as soon as we take a and we
+
+07:56.920 --> 08:02.740
+override it with the value of B while we've lost the value of A's so we can't put it into B.
+
+08:02.980 --> 08:06.750
+But you have to remember Python evaluates this right hand side completely forced.
+
+08:06.790 --> 08:14.140
+So it creates a topple in memory with its first element being the memory address that he's referencing.
+
+08:14.140 --> 08:18.760
+And the second element being the memory address that is referencing In other words you can think of
+
+08:18.760 --> 08:26.430
+it this way that it's doing a tadpole with Idea A or idea of B in this case an idea of a right.
+
+08:26.440 --> 08:28.840
+That's kind of what it's doing.
+
+08:28.960 --> 08:32.110
+And if we can see out we just get these two memory addresses.
+
+08:32.260 --> 08:36.630
+That's kind of what it's doing and it's creating this table here.
+
+08:36.670 --> 08:38.650
+So this thing now is in memory.
+
+08:38.760 --> 08:39.650
+OK.
+
+08:39.780 --> 08:46.900
+This python has a handle on this thing and then it says OK now do the assignment to a comma B.
+
+08:46.900 --> 08:48.680
+Now obviously it's not going to sign.
+
+08:48.870 --> 08:54.750
+You know when we print a we can do the assignment this way we can say eight equals c.
+
+08:54.910 --> 08:56.080
+Right because.
+
+08:56.080 --> 08:56.740
+Or a comma.
+
+08:56.740 --> 09:01.540
+B I should say people c because a then is going to be that memory reference.
+
+09:01.540 --> 09:02.750
+That's not what we want.
+
+09:02.760 --> 09:07.420
+We technically these are memory references but we don't want a memory reference.
+
+09:07.470 --> 09:10.270
+So let's get rid of all that.
+
+09:10.960 --> 09:14.880
+So it has these two memory references in memory and they fixed that.
+
+09:14.950 --> 09:15.560
+Right.
+
+09:15.560 --> 09:19.710
+So now it goes ahead and says OK is going to point to that memory address.
+
+09:19.750 --> 09:22.330
+And B is going to point to that memory address.
+
+09:22.390 --> 09:28.120
+So there's no overriding or variables here and hence why this was perfectly fine.
+
+09:28.120 --> 09:30.380
+Actually it's just run the whole thing again.
+
+09:30.850 --> 09:40.540
+And now if we again print a comma B We will get the variables have been swapped 20 come at 10.
+
+09:40.570 --> 09:40.850
+All right.
+
+09:40.850 --> 09:46.170
+So that's just a nice side effect of this unpacking that we have in Python.
+
+09:46.540 --> 09:51.640
+So let's go ahead and look at some more examples we can come back any iterable type.
+
+09:51.640 --> 09:59.270
+So a string for example is iterable we can say for an x y z.
+
+09:59.840 --> 10:07.580
+B and I will just print the characters X Y and Z it iterates through every character in the string.
+
+10:08.140 --> 10:11.600
+So wherever is iterable we can unpack.
+
+10:11.680 --> 10:17.290
+So we could say a column become a C equals x y z.
+
+10:17.650 --> 10:22.200
+And if we have that then we have x y and z z.
+
+10:22.270 --> 10:26.550
+So we just unpack the string into that tuple on the left hand side.
+
+10:27.350 --> 10:32.600
+Now of course since it was for an iterable it will also work for things like dictionaries and sets.
+
+10:32.600 --> 10:34.520
+Now these are unordered collections.
+
+10:34.550 --> 10:40.910
+So the concept of position is kind of odd here because there is no concept of position right.
+
+10:40.910 --> 10:48.860
+If you're looking at a string right if you have let's say as equals x y z then you can look at the fourth
+
+10:48.860 --> 10:51.190
+character there is a concept of the first character.
+
+10:51.190 --> 10:54.480
+There was a concept of the second character.
+
+10:54.590 --> 10:55.260
+Right.
+
+10:55.280 --> 11:01.040
+But if we look at a set let's say the set is 1 come to come 3 then there is no such thing you cannot
+
+11:01.040 --> 11:02.000
+write as 0.
+
+11:02.000 --> 11:08.560
+That will give you an error because the said object does not support indexing.
+
+11:08.710 --> 11:09.180
+Well yeah.
+
+11:09.200 --> 11:13.130
+There is no order in sets and the same thing with dictionaries.
+
+11:13.170 --> 11:15.570
+So let's go ahead and take a look.
+
+11:15.570 --> 11:17.090
+Now we unpack.
+
+11:17.090 --> 11:19.070
+You just have to remember that when you unpack.
+
+11:19.070 --> 11:23.660
+There is no guarantee of the order in which the assignment is going to be done.
+
+11:23.660 --> 11:27.650
+So in other words let's do this let's say S-League calls p.
+
+11:27.930 --> 11:28.900
+We want a set.
+
+11:28.910 --> 11:37.050
+So it's true pythonic P Y T H O N K.
+
+11:37.060 --> 11:38.310
+So here's our set.
+
+11:38.310 --> 11:41.210
+Now if we print s what do we get.
+
+11:41.270 --> 11:44.870
+Well you can see it's not in the same order that we defined it in.
+
+11:44.870 --> 11:50.090
+Now your mileage may vary here you may get something different it will depend on you know the Python
+
+11:50.180 --> 11:53.750
+implementation that you're using the version of Python that you are using.
+
+11:53.810 --> 11:56.770
+So you may not even get the same result I get here.
+
+11:57.050 --> 12:02.610
+And we'll get to what's happening with sets and dictionaries and why we don't have that ordering.
+
+12:02.780 --> 12:07.010
+And I mean there is some ordering in the sense that it's coming back in some order.
+
+12:07.010 --> 12:12.680
+Right but that's because of the way the data is being stored in memory and how you know how the data
+
+12:12.680 --> 12:14.580
+is being stored and how it's being retrieved.
+
+12:14.870 --> 12:18.700
+So that has nothing to do with how we specify that here.
+
+12:20.060 --> 12:21.600
+Let's go ahead and iterate.
+
+12:21.660 --> 12:28.930
+S SS iterable so we can say for e n s and we can print EIP.
+
+12:29.110 --> 12:34.050
+And as you can see we get that iteration here again the order is not guaranteed.
+
+12:34.250 --> 12:36.050
+However we can still unpack it.
+
+12:36.050 --> 12:41.900
+It may not be very useful although in this case to unpack it you know but maybe there's a reason for
+
+12:41.900 --> 12:42.020
+it.
+
+12:42.020 --> 12:49.760
+So ABC even f right when you have six elements so we'll need six variables in these and the tuple on
+
+12:49.760 --> 12:53.750
+the left hand side on backward and we can unpack s into that.
+
+12:53.750 --> 12:59.350
+So if we do this then we get a is H B is P and so forth.
+
+12:59.480 --> 13:03.680
+And you can see that it's coming back in the same order though it was iterated because in fact that's
+
+13:03.680 --> 13:04.190
+what happens.
+
+13:04.190 --> 13:10.850
+Python will iterate through the right hand side and do the assignment to the left hand side variables.
+
+13:11.570 --> 13:13.130
+Dictionaries work the same way.
+
+13:13.310 --> 13:15.430
+So let's say we have dict one.
+
+13:15.470 --> 13:16.500
+Actually I'm going to use D.
+
+13:16.580 --> 13:18.110
+I want to point out something as well.
+
+13:18.290 --> 13:24.080
+So let's say we have D with three key value pairs.
+
+13:25.820 --> 13:26.830
+OK.
+
+13:27.170 --> 13:28.910
+So again we can iterate D.
+
+13:28.910 --> 13:31.140
+Now what happens when we iterate the dictionary.
+
+13:31.190 --> 13:32.850
+So let's say for B and D.
+
+13:33.380 --> 13:34.330
+Print B.
+
+13:34.610 --> 13:36.850
+You can see that we get just the keys back.
+
+13:36.860 --> 13:39.920
+Now that just happened to come back in the same order not guaranteed.
+
+13:39.930 --> 13:41.920
+So I'll count on that.
+
+13:41.990 --> 13:44.650
+So it just iterates the keys.
+
+13:44.660 --> 13:49.070
+So if we are going to do an unpacking it's going to unpack the piece.
+
+13:49.250 --> 13:57.810
+So if we do a comma B A C equals D then we get that A is A B B C C.
+
+13:58.100 --> 14:01.760
+Right and D of course is still just the dictionary.
+
+14:02.300 --> 14:06.920
+But let's go ahead and let's add one more element to the dictionary.
+
+14:06.920 --> 14:14.290
+I'll just copy paste this down here and let's go ahead and create d for.
+
+14:14.480 --> 14:15.220
+OK.
+
+14:15.470 --> 14:20.560
+So now we've got a dictionary of four elements and I'm going to unpack ABC right.
+
+14:20.570 --> 14:22.740
+I'm gonna unpack D into a b c d.
+
+14:22.770 --> 14:28.220
+Now I see what's happening here.
+
+14:28.250 --> 14:32.630
+I bet there's the variable here and I got the variable here that the same name.
+
+14:32.750 --> 14:34.690
+So don't be confused by this.
+
+14:34.700 --> 14:40.250
+Remember that what's going to happen is that forced Python is going to take D and it's going to have
+
+14:40.250 --> 14:46.670
+this dictionary it's not going to have D it's going to have whatever is referencing which is this object
+
+14:46.700 --> 14:48.030
+here in memory.
+
+14:48.320 --> 14:48.870
+OK.
+
+14:49.070 --> 14:50.750
+Once that's done that's it.
+
+14:50.750 --> 14:52.420
+DS no longer in play.
+
+14:53.380 --> 14:56.140
+But here we're not assigning the first element.
+
+14:56.170 --> 15:02.920
+The first key to the second key to be the second the third key of C and the fourth key to D.
+
+15:02.950 --> 15:09.400
+So at that point the memory reference of D is going to change from pointing to this object in memory
+
+15:09.740 --> 15:13.290
+to pointing to this object in memory.
+
+15:13.600 --> 15:21.300
+So if we run this code and we get A's A or B B is B c is c and d is in fact the string D.
+
+15:21.340 --> 15:23.720
+It's no longer pointing to that dictionary.
+
+15:25.150 --> 15:31.630
+So that's maybe a little confusing but let me maybe do something a little bit different.
+
+15:31.640 --> 15:35.600
+Let's go ahead and recreate the dictionary since we just overrode it.
+
+15:35.800 --> 15:41.000
+And no I'm going to actually unpack d first.
+
+15:42.220 --> 15:47.320
+So again just to emphasize the the right hand side is evaluated first.
+
+15:47.320 --> 15:52.560
+So Python now has a reference to this dictionary not too deep.
+
+15:52.720 --> 15:58.020
+It has a point where essentially it's pointing to this object here.
+
+15:58.510 --> 16:01.510
+D happens to be pointing to the same object.
+
+16:01.660 --> 16:03.150
+But now we have two pointers.
+
+16:03.160 --> 16:08.560
+Right so the the reference count if you only think of that when we did this when we do this on facking
+
+16:08.560 --> 16:13.620
+here the reference count for just went up by 1.
+
+16:13.640 --> 16:20.860
+Here we are unpacking the first element of d the dictionary into the first variable D.
+
+16:20.870 --> 16:26.900
+So what's going to happen is that it's going to take the memory address of this key here and assign
+
+16:26.900 --> 16:32.530
+it to D so d will be essentially equal to the string a.
+
+16:32.570 --> 16:34.810
+And now we continue to the unpacking.
+
+16:34.820 --> 16:40.820
+Yes D is no longer pointing to the dictionary but by the time the assignment occurs that doesn't matter
+
+16:40.820 --> 16:47.640
+anymore because Python is now directly unpacking this object into this object over here.
+
+16:48.170 --> 16:50.820
+So this is why this will work just as expected.
+
+16:50.930 --> 17:00.980
+So we get DS The string a a is the string B C is the string D and D is the string a all right.
+
+17:01.070 --> 17:04.770
+So that's the unpacking of dictionaries again.
+
+17:04.830 --> 17:08.480
+Just remember that the order doesn't matter right.
+
+17:08.520 --> 17:10.410
+You don't have children guaranteed.
+
+17:10.530 --> 17:15.540
+So there's no guarantee you will come back in the same order in which you specified the dictionary literal
+
+17:15.540 --> 17:17.680
+on which you added it to the dictionary.
+
+17:17.790 --> 17:21.200
+And same with sets and same with any order type.
+
+17:21.210 --> 17:27.900
+The last thing that I want to talk about is the dictionary again not used so that if we have the need
+
+17:27.900 --> 17:31.120
+to recreate it since I overrode it.
+
+17:32.010 --> 17:33.850
+If we iterate the
+
+17:39.140 --> 17:42.100
+then we are iterating keys.
+
+17:42.110 --> 17:46.080
+Now sometimes you may want to unpack not the keys but the values of the dictionary.
+
+17:46.220 --> 17:51.830
+While that's possible as well it's very simple because there is a method in the dictionary class that
+
+17:51.830 --> 17:56.840
+allows us to create essentially an iterable of the values right.
+
+17:56.870 --> 18:01.300
+By default the iterable will be iterating the keys but we can do this.
+
+18:01.300 --> 18:08.120
+We can say 40 in d Dobbs values now values is a method that will allow us to iterate the values of the
+
+18:08.120 --> 18:08.640
+dictionary.
+
+18:08.740 --> 18:11.270
+And let's see what we get.
+
+18:11.270 --> 18:17.840
+And indeed you can see that now instead of getting a b c d we are getting the values 1 2 3 4.
+
+18:17.950 --> 18:26.260
+So we can do that now and unpack that into the dictionary into four different variables so we can say
+
+18:26.320 --> 18:30.620
+a comma to become a C comedy equals Deardorff value.
+
+18:31.060 --> 18:34.290
+So again Python is just going to evaluate the right hand side.
+
+18:34.300 --> 18:36.640
+We're not unpacking a function into this.
+
+18:36.640 --> 18:42.970
+We're unpacking the result of a function which happens to be an iterable and it will go into a b c and
+
+18:42.970 --> 18:43.340
+d.
+
+18:43.390 --> 18:49.740
+So now if we look at a good one B is to C is 3 and D are going to be 4.
+
+18:49.760 --> 18:52.090
+That's the last remaining one again.
+
+18:52.120 --> 18:56.550
+The order in which this happens is not guaranteed OK.
+
+18:56.580 --> 18:58.870
+So that allows you to unpack the values.
+
+18:59.040 --> 19:03.750
+Now you may also want to maybe unpack both the key and the value.
+
+19:03.930 --> 19:09.680
+Well there is another method and again all this will come back into much greater detail in the videos
+
+19:09.690 --> 19:18.960
+on dictionaries but you can also look at the items and we can say for indeed not wealth in this case
+
+19:20.130 --> 19:25.420
+let me skip the variable name in Deedat items.
+
+19:25.610 --> 19:32.970
+If we do that then items is actually going to return a topple with the first element of the top of containing
+
+19:32.970 --> 19:33.450
+the key.
+
+19:33.450 --> 19:36.390
+The second element of the table containing the value.
+
+19:36.420 --> 19:41.260
+So maybe we say for p in d items and then we can print out
+
+19:44.730 --> 19:47.710
+I again overwrote my dictionary.
+
+19:47.870 --> 19:54.570
+Let's go ahead and rerun this but I'm going to change it.
+
+19:54.580 --> 19:59.490
+I don't want to run into that problem again ever.
+
+19:59.950 --> 20:01.930
+So let's do it this way.
+
+20:02.110 --> 20:03.170
+Run it first.
+
+20:03.310 --> 20:03.910
+OK.
+
+20:04.240 --> 20:09.580
+So what's happening you can see that the element that we're iterating that we get back at each iteration
+
+20:10.300 --> 20:16.890
+is a topple a comma a one B.Com to see Comet 3 again the old is not guaranteed.
+
+20:17.110 --> 20:18.280
+But this is a topple.
+
+20:18.370 --> 20:22.730
+So now you would have to say well they can't be equal speed.
+
+20:22.780 --> 20:23.220
+Right.
+
+20:23.230 --> 20:27.420
+And then you could say print and we could say key equals
+
+20:30.020 --> 20:33.310
+and value equals that.
+
+20:33.720 --> 20:37.000
+And we'll pass it a comet B.
+
+20:37.060 --> 20:43.630
+So if we do that then you can see that we unpacked the tuple that we get in the iteration into two separate
+
+20:43.630 --> 20:44.760
+variables A and B.
+
+20:44.800 --> 20:46.780
+So this was just unpacking.
+
+20:47.260 --> 20:50.460
+Of course you don't actually have to do it this way.
+
+20:50.650 --> 20:57.490
+We can take this out and instead of saying either we can say a of B we can unpacked directly into this
+
+20:57.580 --> 21:02.550
+tuple here a com comma B and it will work exactly the same.
+
+21:02.580 --> 21:02.940
+All right.
+
+21:03.000 --> 21:06.660
+We'll see this again in more detail when we get to the section on dictionaries.
+
+21:06.950 --> 21:09.360
+But thanks for watching and I'll see you in the next video.

@@ -1,0 +1,907 @@
+WEBVTT
+
+00:00.560 --> 00:06.230
+High in this video we're going to take a look at a pretty simple application of what we've been covering
+
+00:06.230 --> 00:09.360
+in the section so far regarding arguments.
+
+00:09.410 --> 00:14.740
+So what we want to do is we want to time how long it takes a function to run.
+
+00:14.810 --> 00:19.640
+So if we call a function we'll have a function name and we've got the parameters the arguments for the
+
+00:19.640 --> 00:24.260
+function that could be positional and or key would only arguments.
+
+00:24.320 --> 00:30.220
+So we want to be able to time this so we want to write a function that can time it and we want our function
+
+00:30.220 --> 00:35.480
+our timing function to be generic so it could work with any function and any parameters that are needed
+
+00:35.720 --> 00:37.330
+for that function.
+
+00:37.340 --> 00:40.090
+So let's take a look at how we might do something like that.
+
+00:40.100 --> 00:45.200
+First thing is under the import the time module we'll need that for timings later on so we may as well
+
+00:45.230 --> 00:51.530
+get that out of the way and let's go ahead and define a function called Tynemouth and that function
+
+00:51.530 --> 00:56.570
+is going to then run and time the function we actually want to run.
+
+00:56.570 --> 00:57.890
+So what is it going to need.
+
+00:57.890 --> 01:02.690
+Well it's going to need the function itself and remember functions are objects in Python so we could
+
+01:02.690 --> 01:04.190
+pass them to other functions.
+
+01:04.190 --> 01:05.550
+We've seen that before.
+
+01:07.050 --> 01:12.390
+And we also need though arguments for that function right that function isn't going to run by itself.
+
+01:12.390 --> 01:18.880
+Most likely it might need arguments positional arguments and potentially even he would only arguments.
+
+01:19.020 --> 01:20.830
+So we're going to need to collect them.
+
+01:21.210 --> 01:22.410
+And that's pretty easy.
+
+01:22.410 --> 01:25.730
+We can collect them using star arms and stock wands.
+
+01:25.740 --> 01:32.610
+So if we do that this is go ahead and print out and let's print and let's print out Quantic And let's
+
+01:32.610 --> 01:38.010
+just see what happens if I could time it were let's say the function that I want to run is the print
+
+01:38.070 --> 01:39.250
+function.
+
+01:39.540 --> 01:42.810
+So I just have to specify the function name right.
+
+01:42.830 --> 01:47.250
+It's not making it callable or not doing this which would actually execute the function.
+
+01:47.250 --> 01:49.350
+That's not what we want here.
+
+01:49.350 --> 01:51.700
+I want the actual function itself.
+
+01:51.900 --> 01:52.900
+So you just print.
+
+01:53.160 --> 01:56.520
+And then the arguments to the function well what happens when I call print.
+
+01:56.520 --> 02:01.440
+While I might want to print let's say one two and three and then what happens with the quads.
+
+02:01.440 --> 02:07.300
+Well maybe I want to change the separator right in the print to be a space dash space.
+
+02:07.500 --> 02:08.700
+Something like that.
+
+02:08.850 --> 02:16.250
+I if I want I can even add the end and change them to maybe a space and three sounds OK.
+
+02:16.620 --> 02:18.860
+So maybe that's how I want to run the print function.
+
+02:18.870 --> 02:19.870
+I want to run it.
+
+02:19.950 --> 02:23.310
+Passing this to it.
+
+02:23.670 --> 02:27.080
+So here you can see that we scooped up 1 2 and 3 and 2 0.
+
+02:27.150 --> 02:33.900
+And then 7 and ended up as keywords you know our parameters arguments that ended up in a dictionary.
+
+02:34.320 --> 02:39.570
+So we're getting there we kind of have what we want but we're not actually executing the function which
+
+02:39.570 --> 02:40.980
+is what we need to do.
+
+02:42.120 --> 02:43.900
+So let's go ahead and change that.
+
+02:44.040 --> 02:51.300
+Let's copy paste where you can just modify what you've got up there and not going to print out on quads
+
+02:51.350 --> 02:51.890
+anymore.
+
+02:51.900 --> 02:53.510
+We know where it's going to contain.
+
+02:53.730 --> 03:00.080
+So what we want to do is we want to call the function effen and we want to pass it the arguments.
+
+03:00.240 --> 03:03.300
+And the keyword arguments right.
+
+03:03.300 --> 03:04.610
+That's how we would pass it.
+
+03:04.890 --> 03:06.880
+But we've got to be a little careful here.
+
+03:07.110 --> 03:09.450
+This isn't going to quite work right.
+
+03:09.450 --> 03:17.200
+If we do this and we execute this over here let's see what we get.
+
+03:17.560 --> 03:23.310
+Well we printed out the tuple one two three and we printed out this dictionary what's going on.
+
+03:23.550 --> 03:27.960
+Well remember that ephah And in this case is really just print.
+
+03:28.200 --> 03:31.300
+Well what if I print a tuple is that really the arguments.
+
+03:31.320 --> 03:32.580
+No it's a tuple.
+
+03:32.580 --> 03:34.330
+What if I print a dictionary.
+
+03:34.470 --> 03:37.440
+Are these actual arguments to the print function.
+
+03:37.440 --> 03:41.240
+No this is just the second positional right.
+
+03:41.250 --> 03:45.220
+It's the same thing as if I'd said print one coming to comma three.
+
+03:45.300 --> 03:45.640
+Right.
+
+03:45.660 --> 03:52.560
+As my last positional elements so that tuple which I'm going to need to separate You're using the parentheses
+
+03:52.560 --> 03:58.350
+to indicate this is the first element and then the second element was a dictionary which you know happens
+
+03:58.350 --> 04:02.570
+to be our surp.
+
+04:02.960 --> 04:06.410
+What did we make it a space.
+
+04:06.840 --> 04:07.220
+Right.
+
+04:07.230 --> 04:08.760
+And then we had and this well
+
+04:12.180 --> 04:16.420
+which was a space and we started like that.
+
+04:16.560 --> 04:19.740
+So yeah I'm sorry put the closing print.
+
+04:19.740 --> 04:22.220
+So this is what we actually did right.
+
+04:22.320 --> 04:26.630
+When we executed this we actually just executed this.
+
+04:26.640 --> 04:27.760
+So what do we need to do.
+
+04:27.780 --> 04:32.880
+Well we want these songs to become actual arguments so we need to unpack them right.
+
+04:32.880 --> 04:39.180
+We need to basically do this or remember how we were unpacking lists and things like that when we were
+
+04:39.180 --> 04:44.570
+then that we were then able to like when we did the merge of lists for example or dictionary merges
+
+04:44.760 --> 04:46.200
+with the a star.
+
+04:46.290 --> 04:46.590
+Right.
+
+04:46.590 --> 04:50.410
+So we have to use a stout star to unpack the dictionary.
+
+04:50.700 --> 04:53.970
+So now if we do this now you'll see what we get.
+
+04:54.240 --> 05:00.210
+Now we get what we originally wanted it executed the print function with three positional parameters
+
+05:00.210 --> 05:06.690
+one two and three and then it specified set an end as the separator and end for that.
+
+05:06.690 --> 05:10.920
+And so we had the separator and we have the end of the line OK.
+
+05:11.170 --> 05:12.500
+So much better.
+
+05:12.570 --> 05:14.310
+That's what we want to do right.
+
+05:14.310 --> 05:19.230
+We want to be able to just run the function from within this because now we can Tynemouth But there's
+
+05:19.230 --> 05:21.060
+one additional tweet that I want to make.
+
+05:21.180 --> 05:26.800
+I want to be able to specify when we run the time the function the number of times we want to do this.
+
+05:26.880 --> 05:32.700
+And so I'm going to need to specify a keyword only arguments that's going to be called a rep and I'm
+
+05:32.700 --> 05:34.350
+going to default it for maybe 1.
+
+05:34.350 --> 05:37.430
+So by default it will run one time.
+
+05:37.440 --> 05:42.720
+Now you think that this may affect Kwan's that we're going to send to FM but it won't because this isn't
+
+05:42.720 --> 05:48.280
+named right keyword only argument that's going to be you know populated right.
+
+05:48.300 --> 05:49.530
+So it's not going to get.
+
+05:49.560 --> 05:57.060
+So if I have read in here what Rep equal to 5 it is not going to go into Kwan's it's going to go into
+
+05:57.080 --> 06:01.620
+REPP so Kwan's is still going to be just the CEP in the end.
+
+06:01.620 --> 06:02.070
+All right.
+
+06:02.070 --> 06:04.030
+So that's kind of what we wanted.
+
+06:04.080 --> 06:05.460
+Let's make sure that this works.
+
+06:05.460 --> 06:12.240
+So now I'm going to say for I in range of repetition and we're just going to repeat the function that
+
+06:12.240 --> 06:13.380
+many times.
+
+06:13.470 --> 06:17.430
+Now let's see what happens we should get this printed out five times.
+
+06:17.430 --> 06:21.460
+The only thing is I'm going to put a character or two I'm going to put a newline at the end.
+
+06:21.540 --> 06:23.720
+Otherwise it's all going to end up on the same line.
+
+06:23.730 --> 06:25.200
+I want to differentiate the lines.
+
+06:25.260 --> 06:31.120
+So let's go ahead and run this and indeed we get that this thing was repeated five times.
+
+06:31.250 --> 06:31.490
+Right.
+
+06:31.490 --> 06:32.320
+So it's pretty neat.
+
+06:32.340 --> 06:39.150
+We were able to essentially pass the parameters through from here to the end a function that we called
+
+06:39.150 --> 06:43.230
+here so now let's go ahead and time things.
+
+06:43.360 --> 06:47.830
+So I'll leave that up there I'll just copy paste and let's put the Times well.
+
+06:47.850 --> 06:54.290
+Well the timing's all we need to do is basically use starts it equals time Dot perf calendar.
+
+06:54.550 --> 06:55.050
+OK.
+
+06:55.210 --> 06:58.980
+And then over here after the loop is finished we'll save time.
+
+06:59.030 --> 07:04.510
+Got countered again so we'll look at our post count the value and then we'll just return the elapsed
+
+07:04.780 --> 07:06.970
+time and minus that.
+
+07:07.210 --> 07:09.180
+But of course we've done some repetition.
+
+07:09.190 --> 07:11.920
+Someone to define to divide this by Rep.
+
+07:12.010 --> 07:15.870
+This will give us kind of the average runtime.
+
+07:17.130 --> 07:18.180
+So pretty good.
+
+07:18.180 --> 07:19.080
+So we've got it now.
+
+07:19.100 --> 07:25.190
+If we were to do this we could call you know time it or we could just basically rerun this.
+
+07:25.470 --> 07:27.040
+Right.
+
+07:27.360 --> 07:28.160
+And there we go.
+
+07:28.170 --> 07:33.540
+It tells us that it executed in that amount of time so each function on average that's how long it took
+
+07:33.540 --> 07:34.780
+to execute.
+
+07:35.250 --> 07:40.000
+So let's go ahead and write some functions that actually take a little longer to run.
+
+07:40.170 --> 07:41.140
+And let's see.
+
+07:41.520 --> 07:46.440
+So what we're going to do we're going to create a function that is going to calculate that's going to
+
+07:46.440 --> 07:51.510
+create a list essentially or calculate powers of n for k.
+
+07:51.540 --> 07:54.780
+You don't enter the power of k k in some range.
+
+07:54.780 --> 07:55.880
+So how are we going to do this.
+
+07:55.890 --> 08:02.520
+Well let's go ahead and call it compute powers and I'm going to call it function number one because
+
+08:02.670 --> 08:06.100
+are we going to write three different versions of the same function.
+
+08:06.150 --> 08:07.110
+So what do we want to do.
+
+08:07.120 --> 08:09.950
+We're going to want to calculate powers of N.
+
+08:10.170 --> 08:10.770
+Right.
+
+08:10.920 --> 08:13.110
+And then we want to have a start and an end.
+
+08:13.110 --> 08:19.360
+So we want to say we want a standard end to the power of something and do the calculations up to enter
+
+08:19.380 --> 08:22.720
+the power of something else which is going to be the start and the end.
+
+08:22.980 --> 08:25.910
+And I want those to be key word only on gibbets.
+
+08:26.010 --> 08:32.400
+So I'm going to put a stop to stop the positional is at that point then I'm going to make a stance start.
+
+08:32.450 --> 08:37.350
+I'm going to default to one like you know if you don't specify what the start is it will start at once
+
+08:37.350 --> 08:42.320
+it will start and end to the power one and then it will continue up to the end.
+
+08:42.330 --> 08:43.920
+I'm not going to specify Dbl.
+
+08:44.010 --> 08:50.130
+And this will force the caller to actually specify the and then so we get to calculate end to the power
+
+08:50.130 --> 08:50.890
+of one.
+
+08:50.970 --> 08:55.270
+And if end was 10 we'd go up to and to the bar 10.
+
+08:55.290 --> 09:01.250
+So let's go ahead now and just use that so we're going to do a full loop.
+
+09:01.440 --> 09:03.780
+So we're going to start with something pretty straightforward.
+
+09:04.020 --> 09:10.100
+So we need to create an empty list and we're going to populate the powers of an inside that list.
+
+09:10.140 --> 09:14.170
+So I think in range of what do we want.
+
+09:14.160 --> 09:17.550
+What we want to stop at stop and end up and right.
+
+09:17.550 --> 09:19.050
+So that's our range.
+
+09:19.200 --> 09:22.010
+And then we say results Dock's append.
+
+09:22.080 --> 09:27.900
+We're going to append PAOs of N to the power of I OK.
+
+09:28.500 --> 09:31.130
+And then we're going to return the results.
+
+09:32.880 --> 09:35.390
+So there's our function and we can call it right.
+
+09:35.400 --> 09:36.600
+We can see what it does.
+
+09:36.690 --> 09:40.610
+And let me actually call it compute not computed.
+
+09:40.950 --> 09:45.100
+And let's go ahead and compute powers version 1.
+
+09:45.120 --> 09:46.910
+Let's say we do powers of 2.
+
+09:47.190 --> 09:56.580
+And we'll let it start at 1 by default at will and at maybe 5 and then we go we have 2 4 8 16 right.
+
+09:56.580 --> 10:00.520
+So remember the end doesn't include end when we do our range.
+
+10:00.540 --> 10:02.350
+So it's going to be up to but not including me.
+
+10:02.340 --> 10:06.280
+And so we're going to use the same kind of way of doing things here.
+
+10:06.740 --> 10:07.240
+OK.
+
+10:07.290 --> 10:09.650
+So that works that's fine.
+
+10:09.660 --> 10:12.220
+Now let's go ahead and do this again.
+
+10:12.270 --> 10:22.890
+We're going to call it there compute powers to and and we'll use the exact same definitions for the
+
+10:22.890 --> 10:23.600
+parameters.
+
+10:23.730 --> 10:32.000
+But in this case we're going to use them using a list comprehension and again we don't know list comprehensions
+
+10:32.010 --> 10:34.500
+we'll cover those in detail later on in the scores.
+
+10:34.650 --> 10:38.900
+But for now we can use a list comprehension which is very simple to write.
+
+10:38.910 --> 10:48.750
+We're going to want to return N to the power of I for I in range start comma and so this will be our
+
+10:48.750 --> 10:50.010
+list comprehension.
+
+10:50.010 --> 10:51.090
+Now we can run it.
+
+10:51.090 --> 10:54.620
+Just make sure it runs and it does what is supposed to do.
+
+10:55.260 --> 10:57.180
+And then we go to 4 8 16.
+
+10:57.240 --> 10:58.960
+So that works as well.
+
+10:59.490 --> 11:02.550
+And then lastly I'm going to copy paste this.
+
+11:02.550 --> 11:07.230
+We're going to do a third volume but in this case we're going to use generators.
+
+11:07.380 --> 11:09.290
+So this is going to be using generators.
+
+11:09.300 --> 11:14.520
+Again I'm not familiar with generators don't work we'll cover those and a lot more detail later on in
+
+11:14.520 --> 11:17.070
+the cause and I'm going to copy this.
+
+11:17.070 --> 11:20.070
+And this is using a generator expression.
+
+11:22.620 --> 11:24.150
+To be more exact.
+
+11:24.150 --> 11:25.860
+So let's go ahead and put that in.
+
+11:26.040 --> 11:31.890
+And all I need to do here is to use round brackets and sort of using square brackets which would be
+
+11:31.890 --> 11:33.660
+a list comprehension.
+
+11:33.900 --> 11:37.410
+So let's go ahead and do that and let's go ahead and run this.
+
+11:37.410 --> 11:39.770
+Now you'll see that there's a slight difference.
+
+11:39.780 --> 11:43.090
+When I run this right I don't actually get my list.
+
+11:43.110 --> 11:44.940
+I get this generator object.
+
+11:44.940 --> 11:46.130
+It's a little different.
+
+11:46.470 --> 11:54.190
+And so to fix that I'm actually going to create a list out of it essentially and then show the list.
+
+11:54.330 --> 12:00.780
+And so they would go to 4 16 will get into generate is in much more detail but I'm not going to spoil
+
+12:00.780 --> 12:02.850
+the surprise quite yet.
+
+12:02.850 --> 12:06.990
+The last thing we now need to do is to actually time those functions.
+
+12:07.050 --> 12:10.720
+And so we're going to use up time at a function that we wrote.
+
+12:10.870 --> 12:14.520
+Now what does time it require a way to requies the function that we want to run.
+
+12:14.610 --> 12:23.080
+Well in this case it's going to be compute powers one.
+
+12:23.540 --> 12:24.950
+And what do we want to compute.
+
+12:24.950 --> 12:27.640
+Well we need to pass it and bright and.
+
+12:27.770 --> 12:32.650
+And it's the same for compute 1 2 and 3 so we can use this look and look at this one.
+
+12:32.720 --> 12:38.310
+So we need and which is a positional which is we're going to do powers of two.
+
+12:38.690 --> 12:40.300
+We have then start and end.
+
+12:40.370 --> 12:45.590
+Now we don't have to specify stealth because it defaults to 1 and that's why while we all want to stuff
+
+12:45.620 --> 12:50.630
+but do you want to start somewhere else so maybe start at zero start at 1 if you really want to make
+
+12:50.630 --> 12:56.900
+sure that it's 1 even though it's the default we'll start it at 0 and then we'll want to end and we're
+
+12:56.900 --> 12:59.540
+going to run this so it takes actually a certain amount of time.
+
+12:59.630 --> 13:03.540
+We're going to calculate up to powers of 20000.
+
+13:04.280 --> 13:09.620
+And then lastly we need to put the repetition REPP equals and how many times do we want to repeat running
+
+13:09.620 --> 13:13.010
+this function so we can time it and get an average of the timings.
+
+13:13.220 --> 13:15.750
+So let's say we want to run this five times.
+
+13:15.920 --> 13:20.870
+Now the older in which you specify the keyword arguments doesn't matter.
+
+13:22.270 --> 13:25.480
+We could actually put it here right in the middle.
+
+13:25.480 --> 13:27.400
+It doesn't matter the order doesn't matter.
+
+13:27.780 --> 13:30.810
+OK so let's go ahead and run this and see what we get.
+
+13:31.060 --> 13:33.650
+And we'll take a few seconds to run.
+
+13:33.700 --> 13:34.210
+Here we go.
+
+13:34.270 --> 13:43.000
+So on average it takes about 0.4 nine seconds to run this loop over here with an equal to two and start
+
+13:43.000 --> 13:45.910
+with 0 and was 20000.
+
+13:45.910 --> 13:50.950
+So now we can do the same thing and basically we can just copy paste this and we're going to time it
+
+13:50.980 --> 13:52.270
+using two.
+
+13:52.690 --> 14:01.780
+Now I also want to show you that even though this here is a positional argument technically we can pass
+
+14:01.780 --> 14:04.250
+it as a named argument.
+
+14:04.300 --> 14:09.590
+Let's see what happens when we do that works just fine.
+
+14:09.730 --> 14:10.490
+What happened.
+
+14:10.690 --> 14:17.500
+Well remember that even though we've specified it here as a named argument is a keyword argument what's
+
+14:17.500 --> 14:26.030
+going on in here in the time it's right it's going to put it into KW arms right.
+
+14:26.110 --> 14:32.300
+If we were to print out those when we pass a named variable let's say we say here.
+
+14:32.410 --> 14:33.970
+Well we haven't named variables here.
+
+14:33.970 --> 14:34.230
+Right.
+
+14:34.230 --> 14:38.060
+So it's the same thing as saying let's say and equals one.
+
+14:38.240 --> 14:38.530
+Right.
+
+14:38.530 --> 14:41.530
+Let's just actually test the South End equals one.
+
+14:42.370 --> 14:45.300
+And then what do we have we have start rappin and OK.
+
+14:45.340 --> 14:49.240
+So let's go ahead and I can find it.
+
+14:49.360 --> 14:53.640
+Let's say we have to start equals zero and equals 20 thousand.
+
+14:53.920 --> 14:56.250
+And rep equals 5 K..
+
+14:56.710 --> 15:01.500
+And I probably yeah I can't run this.
+
+15:01.530 --> 15:10.570
+So let me redefine let's just redefine this very quickly and then we'll fix We'll fix that back up.
+
+15:10.580 --> 15:18.300
+Let's just go ahead and print right rep and KW And I just want to show you what's actually happening.
+
+15:18.670 --> 15:25.510
+So now you can see that the owner has nothing in it right then our rep was five.
+
+15:25.550 --> 15:26.290
+So there we go.
+
+15:26.300 --> 15:30.820
+Here's the rep of five and then querent contains the N.
+
+15:31.070 --> 15:31.770
+Right.
+
+15:31.820 --> 15:36.730
+But now when we call our function over here it's expecting an end.
+
+15:36.860 --> 15:43.140
+So it's getting it's positional through a named argument and that's perfectly fine as well.
+
+15:43.160 --> 15:46.160
+So it's just kind of bouncing around and that's fine.
+
+15:46.520 --> 15:47.850
+So that's why it works.
+
+15:47.870 --> 15:51.950
+Let's go ahead and redefine the hits make sure it's going to do what we want.
+
+15:51.950 --> 15:55.040
+So basically yes I can specify any call to two this way.
+
+15:55.040 --> 15:55.690
+Right.
+
+15:56.630 --> 16:00.300
+And here we get approximately the same time that it took 0.4 9.
+
+16:00.350 --> 16:08.060
+And so lastly let's go ahead and run this with the third function that we had and that runs a whole
+
+16:08.060 --> 16:08.880
+lot faster.
+
+16:08.900 --> 16:12.150
+One point nine times 10 to the negative six seconds.
+
+16:12.320 --> 16:12.570
+Right.
+
+16:12.590 --> 16:14.210
+As opposed to half a second.
+
+16:14.210 --> 16:16.500
+So this is very very fast.
+
+16:16.550 --> 16:20.670
+But before you go and start thinking oh I'm going to use generators for everything.
+
+16:20.720 --> 16:25.980
+I'm kind of you know tricking you a little bit and we'll see when we get to generators later on in the
+
+16:26.020 --> 16:26.460
+course.
+
+16:26.480 --> 16:33.590
+But a generator doesn't actually generate you know the list it generates a generator.
+
+16:33.590 --> 16:39.650
+A generator expression like we have here creates a generator and generators don't actually compute their
+
+16:39.650 --> 16:40.690
+contents.
+
+16:40.700 --> 16:48.500
+They compute them one at a time as they are being requested which is why when we did this and actually
+
+16:48.500 --> 16:53.960
+let me just show you outside of that let's go ahead and write a generator expression here.
+
+16:54.230 --> 17:04.380
+So we'll say eight equals let's say two to the power of I for high in range five.
+
+17:04.490 --> 17:07.730
+So it'll go from zero to four and we'll take a look at what we get.
+
+17:07.730 --> 17:10.430
+So now if we print a lot we don't get a list.
+
+17:10.460 --> 17:16.370
+We get this generator object and the generator object can actually calculate everything.
+
+17:16.370 --> 17:21.680
+If we want to get the list if we want to get the generator to calculate everything and give it back
+
+17:21.680 --> 17:27.560
+to us in a list we can do so by just using the list constructor and passing the generator.
+
+17:27.560 --> 17:30.950
+Again we'll cover this in a lot of detail later on in the schools.
+
+17:31.070 --> 17:37.260
+But now if we do this of course added to the power of one will does get to.
+
+17:37.310 --> 17:37.660
+Right.
+
+17:37.670 --> 17:39.220
+And that sort of work correctly.
+
+17:39.380 --> 17:40.440
+Let's do that again.
+
+17:40.710 --> 17:40.990
+Right.
+
+17:41.000 --> 17:46.090
+And now we'll get powers of 2 2 0 1 2 3 and 4 as the powers of 2.
+
+17:46.250 --> 17:50.200
+So that's why this looks like it's runs very fast.
+
+17:50.210 --> 17:53.630
+It's because it didn't actually do this calculation here.
+
+17:53.630 --> 17:54.160
+Right.
+
+17:54.170 --> 17:56.130
+It just returned the generator.
+
+17:56.330 --> 18:00.140
+It created this generator but didn't actually evaluate anything.
+
+18:00.140 --> 18:07.650
+Now if we were to here instead of returning the generator if we want to then do the list of the generator.
+
+18:07.730 --> 18:12.860
+Right now in this case I wouldn't need to say list anymore because it is returning a list I get the
+
+18:12.860 --> 18:20.900
+2 4 8 16 and now if we were to time this then we go ahead and copy paste it here and then you'll see
+
+18:20.900 --> 18:24.480
+that now it actually starts using more times than 0.4.
+
+18:24.500 --> 18:26.790
+So again it's in line with the other methods.
+
+18:27.590 --> 18:32.810
+But the advantage of generators is that if you don't use up all the values then it doesn't spend the
+
+18:32.810 --> 18:38.520
+time calculating them and you're not necessarily spending the time up front calculating everything.
+
+18:38.570 --> 18:43.740
+So you know maybe it makes your code maybe a little more responsive your program will more responsive.
+
+18:43.760 --> 18:46.690
+Whatever the case may be there are use cases for generators.
+
+18:46.820 --> 18:49.960
+And we'll get to that when we get to that section.
+
+18:49.970 --> 18:56.600
+All right so that's it for an example of how we can use it all star and keyword only arguments and the
+
+18:56.690 --> 18:59.240
+Stockwell's to pass things around.
+
+18:59.600 --> 19:01.190
+So it's a pretty neat way.
+
+19:01.190 --> 19:04.280
+Python is very very flexible when it comes to that.
+
+19:04.280 --> 19:04.970
+All right.
+
+19:04.970 --> 19:07.810
+Thanks for watching and I'll see you in the next video.

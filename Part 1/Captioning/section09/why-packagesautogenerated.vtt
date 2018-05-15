@@ -1,0 +1,598 @@
+WEBVTT
+
+00:00.120 --> 00:00.510
+Hi.
+
+00:00.600 --> 00:02.030
+And welcome back.
+
+00:02.070 --> 00:03.560
+So let's look at this question.
+
+00:03.570 --> 00:05.490
+Why packages.
+
+00:05.820 --> 00:09.080
+Mainly it's for code organization and ease of use.
+
+00:09.770 --> 00:10.820
+Let's take an example.
+
+00:10.820 --> 00:16.190
+Suppose you've got you know like 50 different functions and classes in your program that you need to
+
+00:16.190 --> 00:17.240
+use.
+
+00:17.450 --> 00:22.910
+And let's say we're writing an API now we could put things into a single file but what would have to
+
+00:22.910 --> 00:28.580
+go into that single file would have to do things like connecting to a database executing queries against
+
+00:28.580 --> 00:29.600
+a database.
+
+00:29.720 --> 00:34.720
+You know a type that doesn't return results one that returns a single row multiple rows.
+
+00:34.730 --> 00:41.660
+Maybe we need some data manipulation functions like normalize a string convert a string to a boolean
+
+00:41.660 --> 00:48.170
+format a date into an ISO standard maybe get the current time in UTC because we'd never remember how
+
+00:48.170 --> 00:50.450
+to get the or the current UTC times.
+
+00:50.480 --> 00:52.500
+We package it up at a function.
+
+00:52.790 --> 00:56.750
+We need probably something to authenticate or user against our app API.
+
+00:56.960 --> 00:59.950
+We need to validate maybe the API tokens get passed.
+
+00:59.950 --> 01:05.810
+When you do get permissions we maybe need to authorize various endpoints differently based on the authentication
+
+01:05.810 --> 01:07.140
+and the permissions.
+
+01:07.480 --> 01:12.920
+And then maybe we have got a bunch of classes as well and if we have a user class and a user profile
+
+01:12.920 --> 01:19.070
+class and we have a users class for collections of users and maybe this is a web site with blogging.
+
+01:19.070 --> 01:25.490
+So this blog post and blog posts there's a route table if we're doing an API this probably some configuration
+
+01:25.490 --> 01:32.060
+going on somewhere and we usually have to take Jaison from post requests and put them into objects and
+
+01:32.600 --> 01:38.360
+take the results that we want to bring back from the API put it into a J-Zone payload and send that
+
+01:38.360 --> 01:38.920
+back out.
+
+01:38.920 --> 01:43.380
+So we need some kind of Jaison encoder with encoding decoding.
+
+01:43.400 --> 01:47.750
+We probably want to put unit tests and then we have other things too that we will want to audit the
+
+01:47.750 --> 01:53.240
+endpoints and we've got a logger that we're using maybe we've got validation code for emails and phones
+
+01:53.240 --> 01:54.640
+and names and so on.
+
+01:54.890 --> 01:57.390
+So we have all this stuff going on.
+
+01:57.970 --> 01:59.560
+But in one file.
+
+01:59.810 --> 02:03.050
+Even poor old blob you know is scared to look at this.
+
+02:03.050 --> 02:06.750
+It's going to be very difficult to understand what's going on in that single file.
+
+02:06.980 --> 02:09.090
+So we don't write it in a single file.
+
+02:09.260 --> 02:13.060
+Let's talk about modules so we might break it down this way.
+
+02:13.070 --> 02:19.610
+Let's say our route of our application is called API and we have our main application code script API.
+
+02:19.740 --> 02:25.550
+Why that's going to start the you know let's say the rests API isover and then maybe we have a file
+
+02:25.550 --> 02:29.780
+a module for the database utilities you know the connections and the queries.
+
+02:29.780 --> 02:34.020
+Maybe we'll go one for the Jason utility's the J song decoding code and so on.
+
+02:34.340 --> 02:40.520
+Maybe we've got these type conversions converting you know a string to a boolean normalizing strings
+
+02:40.520 --> 02:45.830
+and doing all kinds of stuff that we need to do that we have all validations you know validate email
+
+02:45.830 --> 02:50.420
+validate name we've got the authentication piece you know basically you know how do we have theni Kate
+
+02:50.420 --> 02:51.410
+the user.
+
+02:51.410 --> 02:54.750
+Then there's the authorization piece once we've authenticated the user.
+
+02:54.770 --> 02:56.120
+What are they authorized to do.
+
+02:56.120 --> 02:58.730
+Maybe we're using roles What roles do they have.
+
+02:59.000 --> 03:04.530
+And then we have of course our users we have the user the user profile and then the users collection.
+
+03:04.700 --> 03:05.860
+We've got blog posts.
+
+03:05.860 --> 03:08.630
+Same deal of the blogs the blog posts.
+
+03:08.750 --> 03:12.470
+We've got out logging all we have our unit tests etc..
+
+03:12.500 --> 03:14.260
+There's probably a bunch more in there.
+
+03:14.330 --> 03:15.880
+So this is better.
+
+03:15.920 --> 03:18.810
+The code now is at least a little bit better organized.
+
+03:18.860 --> 03:23.870
+We can understand that if we're looking for authorization code we probably should go to the authorization
+
+03:24.010 --> 03:27.240
+IPY module but it's still unwieldy.
+
+03:27.240 --> 03:28.890
+Everything's at the top level.
+
+03:29.210 --> 03:31.780
+And you just have too many impled if you don't.
+
+03:31.820 --> 03:37.960
+If API IPY is the main app then it's going to have to import all those things at some point.
+
+03:37.970 --> 03:39.900
+It's going to need them.
+
+03:39.950 --> 03:45.170
+So you end up with code like this you could import DB utilities based on utilities type conversions
+
+03:45.450 --> 03:52.720
+etc. and that's just very unwieldy and also certain modules could probably be broken down further.
+
+03:52.760 --> 03:57.350
+For example DB utilities would probably want to break that out into the connections and the queries
+
+03:57.350 --> 04:01.760
+that kind of two separate things you need a connection to make a query but you'd probably want to break
+
+04:01.760 --> 04:03.020
+your code out that way.
+
+04:03.020 --> 04:09.010
+So think of uses you know the uses p y contains all these different classes use a user's user profile
+
+04:09.200 --> 04:13.610
+would probably want to break that out again into separate files and separate modules.
+
+04:13.610 --> 04:18.720
+But if we do like you know user Doppie why uses duppy Why use a profiler.
+
+04:18.830 --> 04:24.430
+Why that's even more impuls that we have to do and then Soden modules kind of belong together.
+
+04:24.440 --> 04:29.810
+They should be grouped together like for example authentication and authorization that I have here.
+
+04:29.900 --> 04:35.180
+They kind of all related to security so we probably want to somehow you know bind them together as one
+
+04:35.180 --> 04:42.450
+thing saying well this is the security stuff just the same way if we break out users into user users
+
+04:42.450 --> 04:48.060
+and use profile we'd want to be able to kind of you know package them together so that what package
+
+04:48.300 --> 04:52.140
+packages them together into something may be called users.
+
+04:52.560 --> 04:54.750
+So that's what packages are for.
+
+04:55.110 --> 05:00.330
+Let's go ahead and take this and let's convert that to a better format using packaging.
+
+05:00.330 --> 05:05.640
+So again here's the route and let's say we create this utilities package the I'm not saying this is
+
+05:05.640 --> 05:06.500
+the best way to do it.
+
+05:06.510 --> 05:09.210
+I'm just showing you how you know one way of doing this.
+
+05:09.240 --> 05:11.240
+So we create the utilities package.
+
+05:11.240 --> 05:11.880
+It's a package.
+
+05:11.880 --> 05:13.800
+It's a directory of a danger in it.
+
+05:13.860 --> 05:15.060
+So it's a package.
+
+05:15.270 --> 05:19.240
+And then it contains itself a sum package called database.
+
+05:19.260 --> 05:20.500
+Again that's a package.
+
+05:20.610 --> 05:24.570
+And maybe the database contains these two models connections and queries.
+
+05:24.570 --> 05:31.310
+Maybe we have a Jasen package inside our utilities and maybe that contains our encoders and our decoders.
+
+05:31.380 --> 05:36.630
+Then under the you know in the main Our top level we have another package called security and maybe
+
+05:36.630 --> 05:38.340
+that contains those two models.
+
+05:38.340 --> 05:42.890
+Or maybe you have all the sub packages that breaks things down from way.
+
+05:42.900 --> 05:48.180
+B We have a models package and the model contains the different data models that we have.
+
+05:48.190 --> 05:53.610
+Like the users and the block post so we may have a users sub package in there that might contain use
+
+05:53.610 --> 05:58.520
+it or P Why use a profiled P Y and maybe some other modules as well.
+
+05:58.830 --> 06:02.970
+So this allows us to give structure to our code.
+
+06:03.000 --> 06:05.110
+Its now much easier to navigate.
+
+06:05.220 --> 06:09.540
+Also we're starting to break things down into smaller code files.
+
+06:09.540 --> 06:11.490
+We don't want large code files.
+
+06:11.490 --> 06:16.760
+But it's you know the larger the code file the module file is the more difficult it is to understand.
+
+06:16.870 --> 06:22.110
+And so we want to try and break things down into smaller components just like we don't write functions
+
+06:22.620 --> 06:24.580
+that have thousands of lines of code.
+
+06:24.660 --> 06:31.350
+We usually will break that down into smaller subfunctions that do us one specific task and then when
+
+06:31.350 --> 06:35.790
+we call them unsaddle main function it's much easier to understand what the main function does.
+
+06:36.000 --> 06:41.310
+If it's only a few lines of code because conceptually we can say OK this main function calls function
+
+06:41.310 --> 06:42.970
+one two three and four.
+
+06:43.020 --> 06:45.990
+I understand what those functions do conceptually.
+
+06:46.050 --> 06:47.860
+So I know now what the main function does.
+
+06:47.970 --> 06:52.020
+And then if you want to understand specifically how the different pieces are implemented you go and
+
+06:52.020 --> 06:53.280
+look at the subfunction.
+
+06:53.280 --> 06:55.090
+So that's called decomposition.
+
+06:55.080 --> 07:02.280
+You decompose problems into smaller and smaller you know specific chunks that do a single thing and
+
+07:02.440 --> 07:07.060
+that's much easier to test now because you can test does this function do this one thing.
+
+07:07.200 --> 07:08.480
+So here's another use case.
+
+07:08.550 --> 07:13.510
+Let's say you've got a module that implements two functions and classes for users of this module.
+
+07:13.620 --> 07:19.470
+So let's say there's a function in a class that this module is going to you know export essentially
+
+07:19.470 --> 07:22.260
+make available to a user of that module.
+
+07:22.260 --> 07:27.840
+So here we're differentiating two you know two ways of looking at this module from the developer of
+
+07:27.840 --> 07:29.270
+the modules perspective.
+
+07:29.430 --> 07:33.350
+So you say writing the module and from somebody who uses the module.
+
+07:33.360 --> 07:34.760
+So also a developer.
+
+07:34.830 --> 07:37.070
+But in this case there are actually eight users.
+
+07:37.230 --> 07:44.410
+They your users so these two objects require 20 different helper functions and two additional helper
+
+07:44.420 --> 07:46.240
+classes and who knows what else.
+
+07:46.260 --> 07:46.700
+OK.
+
+07:46.790 --> 07:48.320
+So it needs a bunch of stuff.
+
+07:48.620 --> 07:54.140
+So from the module developers perspective it's of course much easier to break the code down into multiple
+
+07:54.140 --> 07:56.380
+modules including packages.
+
+07:56.590 --> 08:01.850
+But from the module users perspective they just want a single import for the function in the class because
+
+08:01.850 --> 08:07.080
+that's all they need that's all this module right or this what's it's going to end up being a package.
+
+08:07.190 --> 08:08.210
+That's all it provides.
+
+08:08.210 --> 08:12.560
+It provides one function in one class to the uses of that module.
+
+08:12.770 --> 08:17.700
+And so they should just be able to import that function in that class and then be done with it.
+
+08:19.280 --> 08:25.910
+So to them it should look like a single module but to us writing the module we're going to want to break
+
+08:25.910 --> 08:31.940
+this thing up into chunks because you know 20 functions two additional classes you know we're going
+
+08:31.940 --> 08:33.990
+to want to break that up.
+
+08:34.040 --> 08:37.350
+So let's take a look at it from the module developer's perspective.
+
+08:37.400 --> 08:41.540
+Here's how we might break up let's say a package called my lib.
+
+08:41.630 --> 08:47.780
+So we don't have a package and we create two submodules in that package and then we also create a sub
+
+08:47.780 --> 08:52.350
+package and inside that sub package it also has two modules.
+
+08:52.440 --> 08:54.800
+OK so this is what our code looks like.
+
+08:54.800 --> 09:00.230
+And let's say that the function that the user wants is located in submodel one and let's say that the
+
+09:00.230 --> 09:02.810
+class they want to use is located here.
+
+09:02.840 --> 09:05.110
+Pack 1 month to dopy y.
+
+09:05.720 --> 09:11.030
+So from our perspective we've broken this thing down in a way that's easy for us to code the module
+
+09:11.060 --> 09:15.550
+easy to understand it easy to test it and easy to document it for that matter.
+
+09:16.910 --> 09:19.840
+So smaller code modules with specific purpose.
+
+09:19.900 --> 09:23.330
+Right the easy to write and so on debug and read.
+
+09:23.330 --> 09:25.640
+But what about from the module users perspective.
+
+09:25.790 --> 09:28.060
+So let's say we have the structure.
+
+09:28.370 --> 09:34.580
+Now if the user wants to use a function in this module and a class in this module Here's what they would
+
+09:34.580 --> 09:41.050
+have to write that would have to say from my lib Dud's submarined one import my funkin from my lib.
+
+09:41.180 --> 09:45.150
+Doug Sebag one pack one more to import my class.
+
+09:45.440 --> 09:52.820
+What's happening here is that they're seeing the internal kind of implementation details of our package.
+
+09:52.820 --> 09:55.090
+And that's really not very user friendly.
+
+09:55.100 --> 09:58.270
+Sure it works but that's not the best approach.
+
+09:58.310 --> 10:05.600
+It would be much easier for the user if they could just say from my lib import my funkin my class or
+
+10:05.720 --> 10:12.260
+even simpler to say import my lib and then call my Akido my lived up my phunk or instantiate classes
+
+10:12.260 --> 10:15.770
+with my list of my class from the user's perspective.
+
+10:15.770 --> 10:19.400
+That's what they want to see from the package developer's perspective.
+
+10:19.400 --> 10:22.050
+This is how we want to structure our code.
+
+10:22.160 --> 10:27.590
+That's the implementation details but we really don't want the user to have to deal with implementation
+
+10:27.590 --> 10:29.670
+details.
+
+10:29.750 --> 10:37.730
+So this is where we can use the under and why we can use packages in the code to export to ex-POWs just
+
+10:37.730 --> 10:39.720
+what's needed by our users.
+
+10:40.070 --> 10:42.830
+So let's take a look again at that same example.
+
+10:43.280 --> 10:49.850
+And in the Duntroon that file of my live the package we're going to write this we're going to say from
+
+10:49.850 --> 10:57.680
+my live submodel one import my phunk from my lib sub package one doc package one module to import my
+
+10:57.680 --> 10:58.990
+class.
+
+10:59.030 --> 11:02.600
+So now the user sees it this way and they use it this way.
+
+11:02.600 --> 11:09.290
+They say improve my lib my Leboeuf my funk because that was imported by the package man you know code
+
+11:09.290 --> 11:13.890
+itself and in my classes well has just been exposed or exploited.
+
+11:13.940 --> 11:20.080
+So our internal implementation now is good and we'll cover this in a lot more detail in the next video
+
+11:21.840 --> 11:24.000
+so to recap why packages.
+
+11:24.330 --> 11:28.340
+Well it gives us the ability to break code up into smaller chunks.
+
+11:29.110 --> 11:31.440
+And it makes our code easier to write.
+
+11:31.450 --> 11:36.730
+It's easier to test and debug it's easier to read and understand and it's actually easier to document
+
+11:36.730 --> 11:40.610
+as well instead of trying to document you know one huge module.
+
+11:40.660 --> 11:46.830
+We just have to document individual functions individual submodules and sub packages.
+
+11:46.900 --> 11:50.040
+So this is just the way the whole books are done as well.
+
+11:50.050 --> 11:54.370
+When you get a book it's not just you know sentences from beginning to end.
+
+11:54.430 --> 11:58.840
+It's broken down into chapters into sections into paragraphs right.
+
+11:58.930 --> 12:05.780
+Things are broken down there's a hierarchical structure to that book the same thing with our code but
+
+12:05.780 --> 12:07.530
+there can still be stitched together.
+
+12:07.810 --> 12:08.050
+Right.
+
+12:08.050 --> 12:13.900
+Just like the book is bound into you know all these chapters and sections are bound into one book that
+
+12:13.900 --> 12:19.330
+can be all same thing of our packages that can be stitched together but unlike books of course it can
+
+12:19.330 --> 12:22.580
+hide the implementation from all users.
+
+12:22.600 --> 12:27.750
+They don't have to know exactly how we structured our code where the code lives and so on.
+
+12:27.880 --> 12:34.660
+At the end of the day they just want to use our code and you know as a developer of a module you're
+
+12:34.660 --> 12:36.400
+actually your own user as well.
+
+12:36.430 --> 12:40.940
+So not only do develop your modules even if you don't hand them out to somebody else.
+
+12:41.070 --> 12:42.990
+You're still using them some way too.
+
+12:43.210 --> 12:44.470
+So sending your packages.
+
+12:44.470 --> 12:46.380
+You're a user of your own packages.
+
+12:46.600 --> 12:50.670
+So you want to make using your packages as simple as possible.
+
+12:50.680 --> 12:56.470
+So for our users it makes their code easier to write easier to test and debug and easier to read and
+
+12:56.470 --> 13:01.390
+understand as well they don't have these long imports of thousands of imports to do.
+
+13:01.420 --> 13:03.830
+It's much simpler to understand.
+
+13:04.450 --> 13:04.960
+All right.
+
+13:04.990 --> 13:07.050
+Thanks for watching and I'll see you in the next video.

@@ -1,0 +1,1384 @@
+WEBVTT
+
+00:00.840 --> 00:05.470
+High in this video we're going to look at yet another application of decorator's.
+
+00:05.700 --> 00:11.470
+So far we've seen some pretty straightforward decorator's a timing decorator logging decorator.
+
+00:11.550 --> 00:18.510
+We also saw we could stack them you know and have multiple decorators but you might think that decorators
+
+00:18.510 --> 00:25.350
+are relegated to these very simplistic kind of tasks which kind of occur outside of the function.
+
+00:25.350 --> 00:30.960
+They don't really change the behavior of the function they just call the function itself and they did
+
+00:30.960 --> 00:32.000
+some extra stuff.
+
+00:32.010 --> 00:38.370
+So they added some functionality but they really can modify the behavior of the function itself.
+
+00:38.760 --> 00:45.960
+But decorators can do a lot more than that they can in fact modify the behavior of the function by doing
+
+00:45.960 --> 00:47.570
+some pretty interesting stuff.
+
+00:47.790 --> 00:51.130
+In this case we're going to look at a technique called memoization.
+
+00:51.160 --> 00:58.380
+Now memoization is something that allows you to build up a cache of the function's value of functions
+
+00:58.380 --> 01:02.040
+return values based on the input parameters.
+
+01:02.100 --> 01:04.410
+So we'll take a look at a very simple example here.
+
+01:04.470 --> 01:07.320
+And it's going back to the Banaji sequence.
+
+01:07.320 --> 01:12.510
+So think back few videos ago we looked at the Fibonacci numbers and we looked at three different methods
+
+01:12.510 --> 01:13.810
+of calculating them.
+
+01:14.000 --> 01:15.510
+One was using recursion.
+
+01:15.510 --> 01:22.440
+Another one was a loop and another one was using that reduce function and we saw that the most elegant
+
+01:22.440 --> 01:26.640
+way of writing with or without meaning you know algorithm was using recursion.
+
+01:26.640 --> 01:31.080
+It was very straightforward but it was also the most inefficient way of doing it.
+
+01:31.170 --> 01:34.130
+And in fact the loop is the one that ran the fastest.
+
+01:34.170 --> 01:40.170
+So let's go back now to that recursive approach and let's see if we can do something to fix this.
+
+01:40.170 --> 01:45.450
+Now obviously there's going to be an associated cost and that cost is going to be memory because we're
+
+01:45.450 --> 01:51.300
+going to try and cache the values that have been already calculated so that the next time they're requested
+
+01:51.630 --> 01:54.010
+we don't have to calculate them again.
+
+01:54.210 --> 01:59.250
+But of course that means you're storing them in memory or on disk maybe if you try to you know use a
+
+01:59.250 --> 02:02.000
+database where you're caching but in this case we're going to use memory.
+
+02:02.040 --> 02:07.650
+So there's going to be a cost associated with that but it's going to decrease the computational time.
+
+02:07.650 --> 02:12.410
+So let's go ahead and try that so we can say death fib.
+
+02:12.420 --> 02:15.270
+We're just going to go back and use the same example.
+
+02:15.270 --> 02:22.230
+So I want to however print that we are calculating fib so that we can see the calculations that are
+
+02:22.230 --> 02:24.030
+happening.
+
+02:24.030 --> 02:29.490
+So we're going to say we're calculating five of em and then we'll return the Fibonacci numbers so we're
+
+02:29.490 --> 02:38.220
+going to say return 1 if and is less than 3 elf's we're going to return EF 5 and minus 1
+
+02:41.310 --> 02:43.820
+plus fib off and minus 2 right.
+
+02:43.860 --> 02:46.650
+The sum of the two previous numbers and that's it.
+
+02:46.680 --> 02:47.220
+That was it.
+
+02:47.220 --> 02:54.090
+So if we call fib let's say upturn then you as you can see we have all these interim calculations that
+
+02:54.150 --> 02:59.220
+these intermediary calculations that get repeated right seven gets repeated multiple times.
+
+02:59.310 --> 03:01.250
+And of course the two is the ones in the fives.
+
+03:01.260 --> 03:02.730
+Even more often.
+
+03:02.730 --> 03:04.960
+So it's inefficient.
+
+03:04.980 --> 03:11.030
+So this fib of seven gets really asked for at a later time.
+
+03:11.100 --> 03:11.810
+I can find it.
+
+03:11.820 --> 03:12.520
+There we go.
+
+03:12.540 --> 03:14.530
+Here's again another forbs seven.
+
+03:14.550 --> 03:22.260
+And because of that it was forced to calculate for both 6 and 5 again because it had already been calculated.
+
+03:22.350 --> 03:22.610
+Right.
+
+03:22.620 --> 03:26.730
+When we called fib 7 here we also calculated 6 and 5 before.
+
+03:26.730 --> 03:29.260
+So as you can see it's tremendously inefficient.
+
+03:29.670 --> 03:33.090
+So now let's go ahead and see how we could implement some kind of caching.
+
+03:33.270 --> 03:38.140
+And our first method is going to be just using a simple class.
+
+03:38.190 --> 03:42.170
+So let's go ahead and write this so-called class fib.
+
+03:42.840 --> 03:48.180
+And we have to do our in it and our initialization.
+
+03:48.340 --> 03:54.450
+We're going to create an instance property which is going to be our cash and our cash therefore is going
+
+03:54.450 --> 03:59.040
+to be a dictionary and the dictionary is going to contain key value pairs.
+
+03:59.040 --> 04:05.000
+The key is going to be the N and the value is going to be the end Fibonacci number the value itself.
+
+04:05.190 --> 04:09.940
+So in this case we are going to pre-populated our cash with two numbers.
+
+04:10.140 --> 04:15.130
+The first and second Fibonacci numbers which is both both of them are 1.
+
+04:15.410 --> 04:16.110
+And that's it.
+
+04:16.110 --> 04:17.520
+That's all we need for in it.
+
+04:17.550 --> 04:21.620
+Next we need to define the Fibonacci number itself.
+
+04:21.990 --> 04:24.370
+So the Fibonacci function itself.
+
+04:24.990 --> 04:26.690
+So that takes in a single parameter.
+
+04:26.730 --> 04:29.930
+And now this is an instance method.
+
+04:30.410 --> 04:31.740
+So what are we going to do.
+
+04:31.790 --> 04:34.340
+Well we're going to first look in the cache.
+
+04:34.490 --> 04:37.420
+If the element is not in the cache What do we want to do.
+
+04:37.460 --> 04:41.180
+Well we need to calculate it and store it in the cash.
+
+04:41.180 --> 04:42.530
+So let's go ahead and do that.
+
+04:42.590 --> 04:48.710
+So if and is not in self that cash.
+
+04:48.710 --> 04:50.910
+So it all adds up and is not in the cash.
+
+04:50.960 --> 04:54.200
+What do we need to do what we need to calculated and store it in the cash.
+
+04:54.200 --> 05:07.720
+So we have to say self-taught cash n equals fib and minus one plus and minus one plus fib and minus
+
+05:07.750 --> 05:08.970
+two.
+
+05:09.820 --> 05:13.520
+So now we've calculated it but of course it's not a fib.
+
+05:13.570 --> 05:15.410
+It's self-taught food.
+
+05:15.430 --> 05:15.710
+Right.
+
+05:15.730 --> 05:23.600
+Because we're using that method recursively so we're using our instance method.
+
+05:24.370 --> 05:29.530
+And then we have to return while at this point it is in the cash we just add it in.
+
+05:29.530 --> 05:31.020
+If it wasn't there already.
+
+05:31.220 --> 05:31.470
+Right.
+
+05:31.480 --> 05:34.550
+So if it wasn't there we calculated it started in the cash.
+
+05:34.570 --> 05:36.000
+Now we know it's in the cash.
+
+05:36.250 --> 05:40.450
+And if it was already in the cash Well it's already in the cash we can just return it.
+
+05:40.450 --> 05:45.800
+The only other thing that I want to do is do the same thing as before and just say that hey you know
+
+05:45.820 --> 05:49.460
+if we don't have a cash hit that means we have to calculate Thebe.
+
+05:49.630 --> 05:55.310
+So let's just go ahead and indicate that we're doing so by just doing the same thing as before just
+
+05:55.480 --> 05:56.610
+printing that out.
+
+05:57.810 --> 05:58.590
+OK.
+
+05:59.000 --> 06:00.230
+So that should do the trick.
+
+06:00.230 --> 06:03.030
+That should have implemented caching.
+
+06:03.290 --> 06:04.310
+Let's go ahead and try that.
+
+06:04.310 --> 06:07.390
+So first we have to create an instance of our first class.
+
+06:07.410 --> 06:08.580
+Let's do that.
+
+06:08.580 --> 06:14.740
+Assign it to F and now we can call f let's say that fib on 10.
+
+06:15.140 --> 06:20.490
+And what you'll notice is that it calculated ten nine eight seven six five four three.
+
+06:20.600 --> 06:25.700
+Yeah because those were not pre-calculated so I'd have to go figure them out and then two and one of
+
+06:25.700 --> 06:30.760
+them have to calculate because they were already in the cache two and one were already in the cache.
+
+06:30.800 --> 06:34.950
+But you'll notice it didn't have to redo any of those calculations.
+
+06:34.970 --> 06:43.130
+So instead of getting this huge long list of you know function calls it was limited to a far fewer number
+
+06:43.130 --> 06:45.200
+of calls and the result is still 55.
+
+06:45.200 --> 06:46.890
+It still works correctly.
+
+06:47.420 --> 06:54.800
+So this is an example of how we can essentially cash our results in order to make our function our recursive
+
+06:54.800 --> 06:57.200
+function more efficient.
+
+06:57.200 --> 07:04.210
+But as we saw in all your videos you know simple classes like this can also be written using closures.
+
+07:04.280 --> 07:05.510
+So let's do that.
+
+07:05.540 --> 07:08.420
+Let's go ahead and thost right a closer.
+
+07:08.630 --> 07:11.350
+Your approach to doing the same thing.
+
+07:11.390 --> 07:12.450
+So how are we going to do this.
+
+07:12.500 --> 07:15.240
+Well let's go ahead and create this function.
+
+07:15.590 --> 07:21.110
+And it doesn't take any parameters and it's going to have a cache and the cache is just going to be
+
+07:21.170 --> 07:26.590
+a dictionary and the dictionary is going to be pre-populated with these two values.
+
+07:26.810 --> 07:28.960
+The first two Fibonacci numbers.
+
+07:29.000 --> 07:34.420
+So I'm doing kind of exactly the same thing that's happening in the class except I'm using a closure
+
+07:34.420 --> 07:35.860
+now here.
+
+07:35.900 --> 07:42.970
+I'm going to call in a function I'm going to define an in a function and let's call it calc fib.
+
+07:43.190 --> 07:45.110
+Now it needs to know what end is.
+
+07:45.170 --> 07:50.000
+Right so this one is going to take on in a function which is going to be our closure is going to need
+
+07:50.000 --> 07:51.780
+to know what an is.
+
+07:51.980 --> 07:53.150
+Why is it a closure.
+
+07:53.420 --> 07:57.710
+Because I'm going to do the same thing I'm going to save n not in cash.
+
+07:58.070 --> 07:59.910
+But what is this cash.
+
+07:59.930 --> 08:05.210
+It's a non-local variable which means that it's going to be the one in the outer function since that's
+
+08:05.210 --> 08:09.220
+the first one that gets encountered on the way up from the nested scopes.
+
+08:09.440 --> 08:12.100
+So if N is not in cash what do I want to do.
+
+08:12.350 --> 08:15.800
+I want to calculate it and store it in the cash just as before.
+
+08:15.980 --> 08:24.560
+So I'm going to say cash n is equal to what will I need to calc fib of and minus one plus calculate
+
+08:24.560 --> 08:27.570
+fib of and minus two.
+
+08:28.390 --> 08:30.300
+And I do.
+
+08:30.580 --> 08:31.550
+OK.
+
+08:32.840 --> 08:36.510
+And then finally I need to return cash and right.
+
+08:36.540 --> 08:37.130
+I need to get on.
+
+08:37.130 --> 08:42.440
+So this is very similar to what I did in the class except we're doing this via closure.
+
+08:42.440 --> 08:47.500
+Of course we have to return the closures.
+
+08:49.070 --> 08:50.010
+So there we go.
+
+08:50.060 --> 08:53.890
+This is the same kind of caching algorithm but using a closure.
+
+08:53.960 --> 08:55.010
+How do we use it.
+
+08:55.140 --> 09:02.800
+Well we can just say applicable Syb like so and then we can call after Ken and we just get 55.
+
+09:02.990 --> 09:04.990
+That's because I didn't print out.
+
+09:05.030 --> 09:06.790
+So let's go ahead and redo this.
+
+09:07.030 --> 09:10.460
+And let's not forget to print this out so we can see what's going on.
+
+09:10.460 --> 09:12.550
+Were these the values correct.
+
+09:14.040 --> 09:19.000
+Go ahead copy and paste that in and I'm using.
+
+09:19.020 --> 09:20.140
+And so that's good.
+
+09:20.160 --> 09:24.580
+So let's go ahead redefine that redefine and get our closure.
+
+09:24.630 --> 09:29.230
+Now rewrite it and you'll see that we have the same behavior.
+
+09:29.310 --> 09:29.580
+Right.
+
+09:29.580 --> 09:33.760
+We didn't have any repeated calculations because it's using the cash.
+
+09:33.810 --> 09:43.440
+Now obviously you know just as with the class if I was to do g equals fib write and calculate g of 10
+
+09:43.850 --> 09:53.200
+while the dot fib of 10 well it has to redo all the calculations again it's a different instance of
+
+09:53.200 --> 09:58.270
+the class fib and the same thing with the closure if here.
+
+09:58.450 --> 10:00.020
+This is my closure f.
+
+10:00.130 --> 10:06.980
+I can create another closure by calling for it again and not by calculate G or 10.
+
+10:07.120 --> 10:13.390
+Well I get the same thing I have to recalculate those g f are not the same closures therefore they don't
+
+10:13.390 --> 10:14.470
+have the same cache.
+
+10:14.470 --> 10:16.940
+They have different cache has their own caches.
+
+10:17.200 --> 10:20.370
+OK so I just want to point that out and we've seen that before.
+
+10:22.220 --> 10:29.660
+So the next step now is to basically take a look at this and rewrite this in such a way that we can
+
+10:29.660 --> 10:30.360
+use it.
+
+10:30.380 --> 10:36.470
+Decorator's we want to use a decorated now to do the same thing because as we saw this is very close
+
+10:36.470 --> 10:37.470
+to decorator.
+
+10:37.700 --> 10:38.450
+Right.
+
+10:38.450 --> 10:43.680
+So let's go ahead and copy paste this and let's fix that up.
+
+10:43.700 --> 10:49.790
+So the first thing I'm going to do is that this is I'm going to be you know I'm going to make it specifically
+
+10:49.790 --> 10:56.870
+for the Fibonacci function but it's not going to be the full function because this is just going to
+
+10:56.870 --> 11:04.620
+be a decorator and I'm going to pass in the function as an argument so let's call this member wise fib.
+
+11:04.700 --> 11:09.710
+And I'm doing it memorize fib because it's specific to the full function let's call it Fullbright here.
+
+11:09.710 --> 11:11.480
+We're going to pass in the fib.
+
+11:11.640 --> 11:12.480
+OK.
+
+11:13.040 --> 11:19.130
+Now here actually I can leave the cash as is that's fine because it's specific for the fraternity but
+
+11:19.130 --> 11:24.860
+I actually don't have to and you'll see why in a minute so I'll leave that for now and let's just call
+
+11:24.860 --> 11:25.780
+this inertia.
+
+11:25.910 --> 11:31.040
+Right so this is a in a function which is going to take the N and it's going to do the same thing.
+
+11:31.070 --> 11:33.050
+It's going to save and is not in cash.
+
+11:33.240 --> 11:35.650
+Well I'm not going to print things out here.
+
+11:36.650 --> 11:42.950
+Because the finish is not the recursive function in or is just our closure right.
+
+11:42.950 --> 11:50.660
+And our decorator if it doesn't have the Fibonacci number in cash what should it do I should calculate
+
+11:50.660 --> 11:51.170
+it.
+
+11:51.170 --> 11:54.940
+How is it going to calculate it by calling the function.
+
+11:54.950 --> 11:58.630
+So here we don't have this whole thing here which is going to call.
+
+11:59.060 --> 12:03.110
+We can call Furber on and that's it.
+
+12:03.200 --> 12:04.460
+We don't need to do anything else.
+
+12:04.490 --> 12:10.200
+This is the function the Fibonacci function which is going to do and calculate and do its stuff.
+
+12:10.460 --> 12:17.510
+However it wants will implemented using recursion but this function here doesn't care if fibbers implemented
+
+12:17.510 --> 12:18.970
+using recursion or what.
+
+12:19.010 --> 12:23.720
+You know all it's looking at is Kennet cache something.
+
+12:23.720 --> 12:24.680
+And if it's in the cache.
+
+12:24.680 --> 12:25.140
+Use it.
+
+12:25.160 --> 12:28.470
+Otherwise call the function execute the function.
+
+12:28.520 --> 12:33.620
+So you see how it's a little different than what we had with just the plain closure where we had our
+
+12:33.890 --> 12:36.020
+recursion inside the closure.
+
+12:36.200 --> 12:36.490
+Right.
+
+12:36.500 --> 12:45.410
+That we had here in this decorator example we're not doing the recursion inside the decorator the decorator
+
+12:45.410 --> 12:47.520
+is just caching.
+
+12:47.520 --> 12:48.230
+OK.
+
+12:48.560 --> 12:49.810
+So this is good.
+
+12:49.820 --> 12:55.520
+This in a function requires one parameter which is fine because that's what Fibonacci expects one parameter
+
+12:55.600 --> 12:58.220
+because we call it for Banaji of and right here.
+
+12:58.220 --> 13:00.010
+So I think we're good to go there.
+
+13:00.380 --> 13:04.610
+So now let's go ahead and write off our decorated Fibonacci.
+
+13:04.610 --> 13:09.740
+And I'm just going to copy paste it right from the top so we'll go back to our original function.
+
+13:11.470 --> 13:12.760
+Copy paste that.
+
+13:12.900 --> 13:15.600
+But now I'm going to decorate it.
+
+13:15.630 --> 13:18.750
+So I'm going to call memorize fib.
+
+13:18.870 --> 13:19.810
+Right.
+
+13:19.980 --> 13:23.390
+So now I'm decorating it with that decorator.
+
+13:23.540 --> 13:27.200
+And let's go ahead and call it a fib 10.
+
+13:27.770 --> 13:29.120
+And what do we get.
+
+13:29.120 --> 13:31.720
+Lo and behold we get the same behavior.
+
+13:32.000 --> 13:32.660
+Why.
+
+13:32.840 --> 13:38.240
+Because the decorator was all returned a closure and that closures during the caching.
+
+13:38.240 --> 13:42.800
+Just like we had you know in the prior example that was just the closure.
+
+13:42.980 --> 13:47.370
+So here this decorator is basically doing the caching for us.
+
+13:48.680 --> 13:53.170
+Now one thing you'll notice is that we're passing in this fib specifically.
+
+13:53.180 --> 13:58.970
+But if you look at this Fatton it's basically saying hey I've got a cache where I've got the key the
+
+13:58.970 --> 14:03.470
+key is what it's the argument of this function here.
+
+14:04.260 --> 14:04.930
+Right.
+
+14:05.020 --> 14:08.080
+So let's go ahead and change this slightly
+
+14:10.690 --> 14:12.600
+and let's see what's going on.
+
+14:12.700 --> 14:19.840
+Well first of all I want to point out and while in here or here we didn't need the cash to be populated
+
+14:19.840 --> 14:26.140
+with anything because if it's not in the cash we go ahead and calculate it and it's got nothing to do.
+
+14:26.140 --> 14:29.430
+This cash doesn't have to know what the standing values are.
+
+14:29.650 --> 14:32.910
+If you want to check that let's go ahead and do this.
+
+14:33.400 --> 14:37.660
+It's just created as an empty dictionary if it doesn't find if it needs food.
+
+14:37.700 --> 14:40.660
+Won what are you going to do it's going to call for one.
+
+14:40.690 --> 14:41.070
+Right.
+
+14:41.080 --> 14:43.340
+And fibbed to it's going to call food too.
+
+14:43.540 --> 14:47.790
+And that's going to get calculated correctly from our food function right here.
+
+14:48.100 --> 14:49.460
+So that's why you don't need it.
+
+14:49.480 --> 14:53.710
+So let's go ahead and run this run this run this nothing has changed right.
+
+14:53.800 --> 14:55.240
+Everything stayed the same.
+
+14:55.680 --> 14:56.130
+OK.
+
+14:56.170 --> 15:01.810
+So we can remove this we can be completely agnostic and terms of the cash.
+
+15:01.810 --> 15:02.920
+What about the function.
+
+15:03.040 --> 15:08.100
+Well let's go ahead and just call with efen.
+
+15:08.110 --> 15:10.150
+Now here's what I want to do.
+
+15:10.150 --> 15:16.360
+Remember that we need to have a key for the cash and we'll get into dictionaries later on in the course
+
+15:16.390 --> 15:19.760
+and we'll see something called hash table values.
+
+15:19.930 --> 15:25.690
+And so here what I'm going to do is I'm going to keep it simple and I'm going to say that whatever function
+
+15:25.690 --> 15:29.340
+we pass in here should only take a single parameter.
+
+15:29.740 --> 15:32.550
+And that's just to make my life easier right now.
+
+15:32.560 --> 15:35.780
+We'll look at that later when we'll look into hashing techniques.
+
+15:35.950 --> 15:38.230
+For now this just sets a single parameter.
+
+15:38.230 --> 15:43.360
+However the function doesn't have to be the Fibonacci function it could be anything it could be the
+
+15:43.360 --> 15:47.100
+factorial function or any function that takes a single parameter.
+
+15:47.440 --> 15:54.300
+Let's say we have an integer and or a string and but something that's called a hash table type but you'll
+
+15:54.300 --> 15:55.470
+notice what it does it says.
+
+15:55.490 --> 15:56.180
+OK.
+
+15:56.520 --> 16:03.060
+I'm going to look in the dictionary if I find the result for this value n use it.
+
+16:03.150 --> 16:08.080
+Otherwise if it's not in their calculated and store it it's very generic now.
+
+16:08.250 --> 16:08.760
+Right.
+
+16:08.940 --> 16:10.890
+So this is a memorized fib anymore.
+
+16:10.890 --> 16:13.440
+This is just meant voice right.
+
+16:13.440 --> 16:15.960
+It's not memorizing just the fifth function.
+
+16:15.990 --> 16:21.680
+So let's try this out and let's go back to our first function that we have over here.
+
+16:22.080 --> 16:26.160
+And as you'd expect this is just going to work.
+
+16:28.190 --> 16:28.720
+Fine.
+
+16:28.850 --> 16:31.100
+So let's go ahead and call that 10.
+
+16:31.130 --> 16:33.230
+And you'll notice it calculates those.
+
+16:33.260 --> 16:34.450
+Of course I can show you that.
+
+16:34.460 --> 16:39.650
+But if you call for 10 again you don't have any calculations that come straight out of cash and if need
+
+16:39.650 --> 16:45.950
+to do the 11 while it needs to calculate Furber 11 but it didn't need to calculate for ten and nine
+
+16:46.280 --> 16:48.990
+because they already had those in cash right.
+
+16:49.010 --> 16:53.510
+So we can do that now of course we can also do this we can say memorize
+
+16:55.790 --> 16:56.860
+factorial.
+
+16:57.050 --> 16:57.400
+Right.
+
+16:57.410 --> 17:03.020
+And factorial of and again this is a function that takes a single parameter for a single integer.
+
+17:03.020 --> 17:10.950
+So this memorized decorator that we wrote will work just fine because it expects just a single parameter.
+
+17:11.260 --> 17:13.910
+So how do we calculate the factorial.
+
+17:14.050 --> 17:18.620
+Well again we're going to say print.
+
+17:19.390 --> 17:31.120
+Pyu late thing that factorial and we pass an N and then what we want to do once they return 1 if and
+
+17:31.120 --> 17:42.030
+is less than 2 else with one return fact of file on return 10 times factorial of minus one.
+
+17:42.040 --> 17:44.750
+Now let's do it without memorizing first OK.
+
+17:44.800 --> 17:45.120
+MR.
+
+17:45.130 --> 17:46.320
+Go ahead and do that.
+
+17:46.510 --> 17:56.120
+And let's call fact let's say up to six and I've been an error string object has no Frot maps formats.
+
+17:56.370 --> 17:56.860
+OK.
+
+17:57.100 --> 18:01.660
+So you'll notice that in order to calculate six factorial you have to calculate six five four three
+
+18:01.660 --> 18:03.120
+two one factorial.
+
+18:03.400 --> 18:11.030
+So now let's go ahead and memorize it so that it's not memorized.
+
+18:11.060 --> 18:14.250
+If I call fact of six you'll notice we get the same thing.
+
+18:14.260 --> 18:17.700
+Well yeah because none of these were in cash.
+
+18:17.740 --> 18:22.540
+But if we call it again you'll notice that it just comes straight out of cash.
+
+18:22.540 --> 18:24.310
+It doesn't have to do any calculation.
+
+18:24.310 --> 18:28.950
+And if we do factorial of 7 then obviously it has to calculate 7 factorial.
+
+18:28.960 --> 18:32.610
+But some factor is seven times six factorial.
+
+18:32.650 --> 18:35.320
+It already had six factorial right here.
+
+18:35.320 --> 18:38.110
+So it just had to do seven times 720.
+
+18:38.110 --> 18:39.800
+So of course it was much faster.
+
+18:41.230 --> 18:47.530
+And to show you another example of the memoization do you think back to the Fibonacci when we did that
+
+18:47.530 --> 18:51.340
+first example when we offered the Fibonacci of 35 and 36.
+
+18:51.340 --> 18:53.760
+It took an awful long time to run.
+
+18:53.980 --> 18:59.800
+So if we grab this and I'm just going to rerun it to make sure it's been defined properly now I can
+
+18:59.800 --> 19:01.970
+call for Bonacci of 35.
+
+19:02.230 --> 19:08.230
+And you'll notice OK it has to do these calculations initially came back real fast.
+
+19:08.320 --> 19:09.020
+Right.
+
+19:09.070 --> 19:14.260
+And what I'm going to do now is I'm going to take out the print just so we don't get that in between.
+
+19:14.260 --> 19:15.500
+So let's do that.
+
+19:16.400 --> 19:28.280
+The other day I'm going to do here is I'm going to say from time import of college cake and then Stout's
+
+19:28.700 --> 19:32.240
+equals Paul Callan or we're just going to time it quickly and then.
+
+19:32.240 --> 19:41.910
+And he calls Paul Callan and then we're going to say Prince and minus style.
+
+19:42.050 --> 19:42.460
+OK.
+
+19:42.500 --> 19:44.730
+So just I'm going to print the value out.
+
+19:44.840 --> 19:45.980
+Well actually we could print it out.
+
+19:45.980 --> 19:50.340
+Why not just print the result and then time it as well.
+
+19:50.360 --> 19:56.630
+So you'll notice that to do the job of 35 only took zero point 0 0 0 two seconds which is a far cry
+
+19:56.630 --> 20:01.640
+from the you know three four second time range that we had when we looked at that initially.
+
+20:01.850 --> 20:05.290
+Fact with Jack that up or even do it's a pool of 200.
+
+20:05.480 --> 20:07.940
+And you'll notice it only took that amount of time.
+
+20:07.940 --> 20:10.020
+It's far more efficient.
+
+20:11.340 --> 20:18.240
+So say I want to point out is that if you look at the memos that created that we wrote the one that
+
+20:18.240 --> 20:22.230
+was over here there's a few things.
+
+20:22.240 --> 20:24.600
+One is that it didn't.
+
+20:24.610 --> 20:29.310
+It really forced us to use functions that only used a single parameter.
+
+20:29.380 --> 20:30.710
+So we could fix that.
+
+20:30.730 --> 20:33.730
+We could say something like in here.
+
+20:33.760 --> 20:37.030
+So of course now ours is what it's a tuple.
+
+20:37.030 --> 20:43.530
+Now we can actually use a tuple as a key in a dictionary and we'll get to that later on in the course
+
+20:43.540 --> 20:49.000
+and we'll see precisely why you can do that but why you can't use for example a list is a key but he
+
+20:49.000 --> 20:52.100
+can use a tuple in certain circumstances.
+
+20:52.100 --> 20:54.310
+It depends what the tuple contains.
+
+20:54.430 --> 20:57.520
+And this all goes back to this thing called hash table.
+
+20:57.760 --> 21:04.270
+But you'll notice that you know even though we could do that we could use args and use ARGs in here
+
+21:04.300 --> 21:05.590
+as the key for the cache.
+
+21:05.590 --> 21:09.330
+We didn't do that just to keep it simple and make sure it works.
+
+21:09.340 --> 21:13.190
+The other thing too is that we're not handling the stolen stuff.
+
+21:13.420 --> 21:19.690
+You know the the variable length are keyword only arguments again it gets more complicated because you
+
+21:19.690 --> 21:26.570
+need to generate a key out of the positional and the keyword only parameters.
+
+21:26.800 --> 21:32.710
+So there's more complexity here if you really want to create a decorator that can work for just about
+
+21:32.740 --> 21:34.180
+any function.
+
+21:34.210 --> 21:36.310
+So we haven't done that.
+
+21:36.340 --> 21:37.280
+That's the one thing.
+
+21:37.300 --> 21:42.070
+The second thing that we haven't done yet also is to limit the cache size.
+
+21:42.070 --> 21:47.920
+In this case here if I want to count you know if I say calculate of you know 100 million what it's going
+
+21:47.920 --> 21:53.050
+to create a 100 million records in my cash and this is where you know you start getting problems with
+
+21:53.050 --> 21:58.390
+that tradeoff that I mentioned earlier you have a good tradeoff with memory but how big do you want
+
+21:58.390 --> 21:59.200
+this to get.
+
+21:59.200 --> 22:04.480
+So usually you want to put in some kind of limit and say well I don't want the cash to grow beyond a
+
+22:04.480 --> 22:11.080
+certain amount so maybe I only want to store the 10000 items in the cash or maybe 100 items in the cash
+
+22:11.510 --> 22:16.420
+and be after that I want to start discounting items in the cash.
+
+22:16.750 --> 22:22.480
+And typically a very common way of doing it is by using this least recently used items.
+
+22:22.480 --> 22:29.500
+So let's say your cash is limited to 20 items and you calculate 10 items and you calculate another 10
+
+22:29.500 --> 22:33.910
+items different ones you calculate another 10 items different ones again.
+
+22:34.010 --> 22:39.820
+Then what happens is that the first 10 items that were cashed will get thrown out of the cash and you
+
+22:39.820 --> 22:46.630
+still are kept on keeping a cash with 20 items in it it's just that as you add more items into the cash
+
+22:46.720 --> 22:50.390
+it starts discounting the oldest ones.
+
+22:50.470 --> 22:54.090
+So that's a fairly common approach.
+
+22:54.130 --> 22:57.250
+So we could certainly write our own code to do that.
+
+22:57.310 --> 22:58.930
+But of course this is Python.
+
+22:58.990 --> 23:00.800
+So it's built in.
+
+23:01.150 --> 23:02.880
+And that actually.
+
+23:02.920 --> 23:09.100
+So that whole exercise of the memo was really to show you kind of hard words but it really gets more
+
+23:09.100 --> 23:10.030
+complicated.
+
+23:10.240 --> 23:12.450
+And so Python has that for us.
+
+23:12.460 --> 23:16.020
+So let's take a look at that and it's in the From tools module.
+
+23:16.060 --> 23:22.720
+So yet another decorator that's in the frontal model that's really interesting so let's look at it.
+
+23:22.720 --> 23:29.350
+So from phunk tools import all you cache that's what it's called.
+
+23:29.380 --> 23:29.660
+Right.
+
+23:29.680 --> 23:35.600
+It's LRU cache and it stands for least recently used caching.
+
+23:35.620 --> 23:36.850
+So that's the decorator.
+
+23:37.090 --> 23:41.960
+So let's go ahead and grab alphabet action sequence right here.
+
+23:42.370 --> 23:46.730
+And let's go ahead and decorated with pelo you cash.
+
+23:46.750 --> 23:48.460
+Now there's a difference here as well.
+
+23:48.570 --> 23:53.720
+You cash just like wraps is actually a parameterised decorator it can take parameters.
+
+23:53.770 --> 23:56.840
+We'll see that coming up shortly.
+
+23:56.860 --> 23:59.040
+For now I'm not going to pass any parameters.
+
+23:59.110 --> 24:00.150
+I'm just going to leave it blank.
+
+24:00.160 --> 24:03.930
+But I still have to make a call and you'll see why.
+
+24:05.890 --> 24:07.730
+So let's go ahead and run this.
+
+24:07.930 --> 24:11.580
+And so now I can call FEBE of 10.
+
+24:11.710 --> 24:15.910
+Well let me change one thing here.
+
+24:16.150 --> 24:26.470
+Let's go ahead and say print calculating fib just so that you can see it is going to be doing its caching.
+
+24:26.820 --> 24:27.340
+OK.
+
+24:27.670 --> 24:31.560
+So here I'm going to print out that with calculating food.
+
+24:31.720 --> 24:37.940
+If food actually has to get calculated right has to be called in order to calculate the Fibonacci numbers.
+
+24:38.080 --> 24:42.800
+So if I say five 10 what happens while we get the same thing as before.
+
+24:42.940 --> 24:45.180
+Ten nine eight seven six five four three two one.
+
+24:45.190 --> 24:46.840
+All those had to be calculated.
+
+24:46.960 --> 24:54.640
+But if I call five of 10 again I'll just get the answer back and if I call fib of 11 you'll notice that
+
+24:54.850 --> 24:56.740
+I have to calculate 11.
+
+24:56.890 --> 24:59.440
+Right but not the remaining ones.
+
+24:59.440 --> 25:01.450
+So this is doing the same thing.
+
+25:01.480 --> 25:07.750
+The only difference is that LRU cache does all those extra stuff that I talked about including limiting
+
+25:07.750 --> 25:15.640
+the cache size and by default the cache size is set to 128 items in the cache and you can look that
+
+25:15.640 --> 25:16.690
+up in the documentation.
+
+25:16.690 --> 25:18.790
+I'm fairly certain it's on the 28.
+
+25:18.850 --> 25:24.230
+So what you can do though is you can modify that and this is where the parameters come in.
+
+25:24.250 --> 25:30.700
+So just like the wraps function under parameter to tell it which function is being decorated here we
+
+25:30.700 --> 25:34.970
+can actually specify the cache size so we can go in here.
+
+25:35.110 --> 25:40.290
+And let me go ahead and copy paste that.
+
+25:40.420 --> 25:46.010
+And let's set the max size let's say to 10.
+
+25:46.270 --> 25:46.860
+OK.
+
+25:47.290 --> 25:50.820
+So let's set the maximum size of the cache to 10.
+
+25:51.070 --> 25:53.650
+So by default it's 128.
+
+25:53.980 --> 25:55.950
+And actually I'm going to set it to 10.
+
+25:55.970 --> 25:58.290
+You should set it to a factor of two.
+
+25:58.290 --> 26:03.880
+I'm not going to get in the details of why but it's more efficient if you search your cache size to
+
+26:03.940 --> 26:05.350
+a power of two.
+
+26:05.350 --> 26:08.250
+So in this case I'm doing two to the power of three.
+
+26:08.260 --> 26:10.830
+So 10 wouldn't be a good idea.
+
+26:10.870 --> 26:14.470
+You can also set it to none if you set it to none.
+
+26:14.470 --> 26:17.200
+Then you're basically saying it's an unlimited cash.
+
+26:17.200 --> 26:20.860
+So it will just keep cashing until it basically runs out of memory.
+
+26:20.860 --> 26:21.110
+All right.
+
+26:21.110 --> 26:26.280
+Potentially So in this case I'm going to do eight because I want to show you how that works.
+
+26:26.620 --> 26:29.150
+So here I've got a cache size of eight.
+
+26:29.200 --> 26:32.550
+So let me go ahead and run third bifurcates.
+
+26:32.800 --> 26:40.030
+And you'll notice that it had to calculate eight items for I call full of 8 again.
+
+26:40.030 --> 26:41.930
+It don't have to calculate anything.
+
+26:42.400 --> 26:48.790
+So now let me call five of 16 let me calculate 16 items so what's going to happen is that it's actually
+
+26:48.790 --> 26:52.760
+I don't even have to do that but it's going to calculate.
+
+26:52.780 --> 26:54.690
+Let me show you the nine.
+
+26:54.760 --> 26:55.570
+Let's do that.
+
+26:55.570 --> 26:59.070
+So 59 it had to calculate for nine but none of the others.
+
+26:59.110 --> 27:03.890
+Now if I call five nine again you'll notice it doesn't have to do it again because while it's a read
+
+27:03.940 --> 27:04.750
+in cash.
+
+27:04.960 --> 27:08.420
+But what was the first item stored in the cash for.
+
+27:08.440 --> 27:10.080
+One right.
+
+27:10.240 --> 27:12.400
+We have one through eight.
+
+27:12.430 --> 27:14.200
+Now we added five nines of food.
+
+27:14.290 --> 27:15.950
+One fell off the table.
+
+27:16.060 --> 27:19.030
+Let's go ahead and take a look at that one.
+
+27:19.060 --> 27:21.440
+It had to recalculate it.
+
+27:21.810 --> 27:23.150
+So it had to recalculate.
+
+27:23.160 --> 27:24.600
+So I'd put that in the cash.
+
+27:24.600 --> 27:25.520
+So what fell off.
+
+27:25.520 --> 27:31.030
+Now ef 2 right now if I call flip 3 no notice it doesn't have to recalculate it.
+
+27:31.110 --> 27:37.730
+But if I call five of two it had to recalculate because 52 was now the oldest item.
+
+27:37.980 --> 27:38.530
+Right.
+
+27:38.730 --> 27:41.470
+So that's that's the way it works.
+
+27:41.470 --> 27:42.840
+So let me start again.
+
+27:42.930 --> 27:43.370
+OK.
+
+27:43.440 --> 27:47.610
+So let's go ahead and again call ferde eight.
+
+27:47.670 --> 27:50.200
+So now we we have the 8.
+
+27:50.220 --> 27:53.010
+Well yeah no it didn't clear the cash.
+
+27:53.010 --> 27:56.870
+Let me go ahead and run from here again for eight right.
+
+27:56.910 --> 27:59.780
+And let's just get rid of all this.
+
+27:59.790 --> 28:01.660
+So just a slightly different example.
+
+28:02.010 --> 28:04.040
+So if I call for 8 again right.
+
+28:04.050 --> 28:07.590
+It doesn't have to recalculate hits the cash directly.
+
+28:07.590 --> 28:09.590
+Now we call five of 16.
+
+28:09.810 --> 28:13.320
+What's going to happen is that one through eight is going to get tossed out.
+
+28:13.380 --> 28:14.090
+Right.
+
+28:14.130 --> 28:17.930
+So if I go for 16 it had to calculate 16 through 9.
+
+28:18.030 --> 28:25.110
+But now if I try and calculate from 8 it has to redo a whole bunch of calculations to get back from
+
+28:25.140 --> 28:25.630
+8.
+
+28:25.890 --> 28:29.330
+And now by the way that 16 is gone and so is 5 9.
+
+28:29.340 --> 28:36.280
+So if I call five of nine that's out of the cash that's why it had to be recalculated anyways.
+
+28:36.360 --> 28:41.810
+It's just a cash and it uses the least recently used basically the oldest item in the cash gets tossed
+
+28:41.920 --> 28:43.730
+forced.
+
+28:43.740 --> 28:44.260
+All right.
+
+28:44.290 --> 28:49.780
+So that's it for decorator's on you know this video with the memoization.
+
+28:49.800 --> 28:53.310
+Hopefully it shows you that they can be really powerful things.
+
+28:53.430 --> 28:56.340
+They don't have to be just simple little logging and timing things.
+
+28:56.340 --> 29:02.640
+You can see this can really enhance your code and you're really changing the way the behavior of your
+
+29:02.640 --> 29:03.460
+function.
+
+29:03.540 --> 29:03.750
+Right.
+
+29:03.760 --> 29:06.460
+Instead of recalculating every time it's now caching.
+
+29:06.510 --> 29:11.470
+So it's doing other things that make it a lot more powerful a lot more efficient.
+
+29:11.470 --> 29:13.480
+All right thanks for watching and I'll see you in the next video.

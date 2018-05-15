@@ -1,0 +1,184 @@
+WEBVTT
+
+00:00.180 --> 00:04.330
+High in this video I want to talk about Zip packages.
+
+00:04.370 --> 00:09.150
+I've mentioned that a little while back in some of the videos and so I want to come back to it and just
+
+00:09.150 --> 00:11.040
+show you how that works.
+
+00:11.040 --> 00:18.690
+So here I've just taken the same project that we had when we were looking at how to structure packages
+
+00:18.990 --> 00:21.080
+and then how to import them.
+
+00:21.090 --> 00:26.370
+So remember we had that big common package with everything in it with the validators and the models
+
+00:26.700 --> 00:27.800
+and so on.
+
+00:27.810 --> 00:35.820
+So I'm going to just take that very same project and all I did is I took that folder common and I zipped
+
+00:35.820 --> 00:38.700
+it up and I called it common dot zip.
+
+00:38.730 --> 00:40.200
+I don't even have to call it common.
+
+00:40.200 --> 00:44.640
+I don't even have to call it Dot zip but I do have to just zip that up.
+
+00:44.790 --> 00:47.680
+So I left the extension to show that it's an archive.
+
+00:48.270 --> 00:53.190
+So now we want to import from common but common of course is in zip.
+
+00:53.220 --> 00:54.940
+So this isn't going to work.
+
+00:54.960 --> 00:55.930
+Let's try it.
+
+00:56.250 --> 00:57.690
+And it's not going to find it.
+
+00:57.720 --> 01:00.170
+It's going to say no there's no module named common.
+
+01:00.420 --> 01:02.540
+Well what about common Dadds zip.
+
+01:02.550 --> 01:03.910
+Maybe this would work.
+
+01:03.960 --> 01:05.310
+Let's try that.
+
+01:05.340 --> 01:07.020
+Will that work.
+
+01:07.020 --> 01:10.110
+And it says no it's for can find common.
+
+01:10.140 --> 01:10.490
+Right.
+
+01:10.530 --> 01:11.600
+It still can't find it.
+
+01:11.640 --> 01:14.040
+So this is not the solution.
+
+01:14.700 --> 01:20.820
+Let's go ahead and bring up a python console and here basically I would be trying to do this I would
+
+01:20.820 --> 01:26.070
+say import comic and that's not going to work because there is no module named com.
+
+01:26.250 --> 01:28.260
+So let's import this model.
+
+01:28.320 --> 01:33.580
+And you remember the cist path this tells Python where to look for packages.
+
+01:33.840 --> 01:39.670
+Well the thing is it doesn't know that it should look for packages and files inside common commandant
+
+01:39.710 --> 01:40.490
+zip.
+
+01:40.530 --> 01:45.560
+So we just need to tell it hey you need to look in this zip archive as well.
+
+01:45.780 --> 01:47.220
+So let's go ahead and do it.
+
+01:47.220 --> 01:49.810
+So he's going to say stop path that happened.
+
+01:50.070 --> 01:54.970
+And since the zip archive is actually in my zip package this project doesn't have to be.
+
+01:55.110 --> 02:00.570
+But since it is I can use a relative path so I'm going to say using the current directory.
+
+02:00.630 --> 02:03.790
+Go and look at common dot zip.
+
+02:04.260 --> 02:04.920
+OK.
+
+02:05.280 --> 02:08.960
+So now if I do this cannot import common.
+
+02:09.240 --> 02:10.890
+And the answer is yes I can.
+
+02:10.890 --> 02:12.260
+Common has been loaded up.
+
+02:12.270 --> 02:13.320
+There we go.
+
+02:13.350 --> 02:18.800
+Can I import something inside that's nested inside like common validator.
+
+02:19.740 --> 02:22.660
+And the answer again is yes I can.
+
+02:22.680 --> 02:23.550
+Right.
+
+02:23.550 --> 02:25.470
+So this is kind of pretty magical.
+
+02:25.530 --> 02:31.380
+I think it's really cool but you can essentially zip up your packages and then pull them out of that
+
+02:31.410 --> 02:32.510
+whenever you want.
+
+02:32.880 --> 02:34.410
+So let's see how we would fix.
+
+02:34.410 --> 02:38.730
+Now our main program to do that we just have to basically do this.
+
+02:38.730 --> 02:43.310
+That's all we have to do at the beginning of our program before we try and do those imports.
+
+02:43.560 --> 02:48.720
+So we're going to say imports this and then systole the path that append
+
+02:51.420 --> 02:59.760
+and we'll use the relative file path and will want to come in dock in November and we'll add the common
+
+02:59.880 --> 03:05.580
+zip to the suspects and now we should be able to run our program just as before.
+
+03:05.730 --> 03:08.130
+As you can see we've got the exit code of zero.
+
+03:08.130 --> 03:14.660
+It did all these imported called validators it was able to find posts and posts and user.
+
+03:14.760 --> 03:22.580
+We printed out the name spaces and so on and all those from files that were zipped up archived and is
+
+03:22.760 --> 03:23.670
+archived.
+
+03:24.180 --> 03:24.610
+That's it.
+
+03:24.630 --> 03:26.350
+That's as simple as it gets.
+
+03:26.350 --> 03:28.650
+So thanks for watching and I'll see you in the next video.

@@ -1,0 +1,859 @@
+WEBVTT
+
+00:00.090 --> 00:00.630
+High.
+
+00:00.870 --> 00:06.260
+So in this video I want to talk very quickly about reloading modules and we can certainly do that.
+
+00:06.270 --> 00:11.730
+That's actually built into the python standard library but there are some dangers with that.
+
+00:11.730 --> 00:16.530
+So let me go ahead and show you now what I'm going to do here is I'm going to create my modules using
+
+00:16.530 --> 00:17.400
+that same trick.
+
+00:17.430 --> 00:23.130
+I'm going to write out a module file from inside the Jupiter notebook so I keep things self-contained
+
+00:23.140 --> 00:28.200
+I don't have to switch back and forth between you know editors and the Python notebook and so on.
+
+00:28.530 --> 00:31.420
+But you can go ahead and just create those files by hand.
+
+00:31.440 --> 00:33.370
+I'm just going to do it the hard way.
+
+00:33.690 --> 00:39.630
+So I'm going to import os and I'm going to create a function that's going to generate a module file
+
+00:40.830 --> 00:48.330
+and the module file is going to have a name and then I'm also going to pass an arbitrary number of keyword
+
+00:48.330 --> 00:49.200
+only arguments.
+
+00:49.200 --> 00:54.560
+I don't know the meaning so I'm just using the generic KW Arne's and what this is going to do.
+
+00:54.570 --> 01:00.960
+It's going to create a module file that's going to be named module name.
+
+01:01.140 --> 01:01.730
+Y.
+
+01:01.920 --> 01:09.100
+Right with the module name is what gets passed in it's that variable that was passing in that argument.
+
+01:10.200 --> 01:14.780
+And then the module is going to have a single function.
+
+01:15.060 --> 01:23.220
+And we're going to call it let's say print values and that will print out the supply of the string of
+
+01:23.220 --> 01:23.630
+file.
+
+01:23.640 --> 01:26.200
+Basically string if fired on.
+
+01:26.550 --> 01:28.110
+KW ounce OK.
+
+01:28.500 --> 01:30.660
+So that's what we're going to do with something very simple.
+
+01:30.660 --> 01:36.030
+So let's go ahead and build out the path where I want to save this I'm going to save the same directory
+
+01:36.060 --> 01:37.870
+as the Jupiter and Northpark.
+
+01:37.890 --> 01:41.380
+So this is just going to be the module name.
+
+01:41.700 --> 01:44.590
+That's why I'm using strings here.
+
+01:44.730 --> 01:47.870
+I could have done module name.
+
+01:47.940 --> 01:51.830
+I know I could have done it this way if you're not familiar with the string notation.
+
+01:51.870 --> 01:54.720
+You can do this as well this way.
+
+01:55.550 --> 01:56.040
+OK.
+
+01:56.070 --> 01:58.140
+Like that dobbed format.
+
+01:58.260 --> 02:01.240
+And then the module name that's the same thing.
+
+02:01.390 --> 02:02.030
+Felt right.
+
+02:02.030 --> 02:03.970
+It's the same thing anyways.
+
+02:04.130 --> 02:06.650
+Ok so we can do it either way.
+
+02:06.720 --> 02:13.640
+And there are two equivalent statements also need to know the relative file path where I need to set
+
+02:13.660 --> 02:20.740
+I should say the relative file path and so there is going to be the module file name.
+
+02:20.800 --> 02:23.890
+So I'm just going to take the not strings.
+
+02:23.890 --> 02:28.750
+I'm just going to take a module file name as the full or relative file path.
+
+02:28.750 --> 02:33.630
+So it's good to be in my current directory wherever the current Jupiter notebook is running.
+
+02:33.850 --> 02:43.270
+And then I'm going to make an absolute file path out of that and I'm going to use the OS dot path dot
+
+02:43.300 --> 02:55.080
+absolute path on the module relative arm module and just use a completion profile path.
+
+02:55.210 --> 03:00.110
+If you're in a notebook it can trigger auto completion by hitting the tab key.
+
+03:00.760 --> 03:01.270
+OK.
+
+03:01.630 --> 03:07.440
+So now we're finally to open the file so module module.
+
+03:07.930 --> 03:08.700
+Absolute power.
+
+03:08.710 --> 03:10.200
+Just use the absolute file path.
+
+03:10.210 --> 03:14.690
+We're going to write to those and we'll replace the file if it's there already.
+
+03:14.740 --> 03:19.900
+I would normally use something a little bit better than Earth but I'm going to run out of horizontal
+
+03:19.900 --> 03:22.980
+space so I'm going to do it this way now.
+
+03:23.010 --> 03:26.130
+F and F have nothing to do with each other.
+
+03:26.740 --> 03:32.890
+And so I'm going to put a comment at the top of the file that's going to be the module name dot P Y
+
+03:32.980 --> 03:37.000
+and I'll put to the old line feeds.
+
+03:37.090 --> 03:49.330
+Then I'll write out the first thing that we want when we're going to save print running the module file
+
+03:49.330 --> 03:50.380
+name.
+
+03:50.560 --> 03:51.340
+OK.
+
+03:52.030 --> 03:54.660
+So we'll just say hey we're running this.
+
+03:54.880 --> 04:01.870
+And so we need to close off the single code for the print statement that finishes off the print statement
+
+04:01.990 --> 04:10.180
+and I'll put two new lines then we'll write a function so we'll again use an F string.
+
+04:10.180 --> 04:13.950
+So we're going to def print values.
+
+04:13.970 --> 04:15.430
+Now the way I'm going to do.
+
+04:15.430 --> 04:18.270
+I'm not going to pass the KW args to print values.
+
+04:18.370 --> 04:25.120
+I'm essentially going to create a print value function that has a print statement for each keyword argument
+
+04:25.120 --> 04:27.760
+that gets passed into KW.
+
+04:28.330 --> 04:30.150
+So let's go ahead and do that.
+
+04:30.160 --> 04:38.290
+I'm going to put a new line there and then for the column of value in KW And the items then I pick out
+
+04:38.290 --> 04:39.520
+each one of those.
+
+04:39.640 --> 04:44.310
+We're going to write out a print statement that's going to print that key and the value.
+
+04:44.500 --> 04:48.660
+So I need to put a tab to the proper indentation in my code file.
+
+04:48.760 --> 04:50.650
+And what do we want to print out.
+
+04:50.650 --> 04:54.790
+Well we want to print out the string version of the key right.
+
+04:54.880 --> 04:56.860
+So it's going to print that out.
+
+04:57.040 --> 05:02.000
+That's going to be that and we'll do that.
+
+05:02.000 --> 05:10.100
+So that will be the first argument to print and then the second argument to print is going to be the
+
+05:10.820 --> 05:12.620
+again the string version.
+
+05:12.820 --> 05:14.700
+But of value this time.
+
+05:14.890 --> 05:15.500
+OK.
+
+05:15.890 --> 05:20.090
+And that ends off the print statement and I'll put a new line.
+
+05:20.150 --> 05:22.170
+So we have a new line every time.
+
+05:22.220 --> 05:24.200
+OK so that's that should do it.
+
+05:24.200 --> 05:28.490
+So now we should have a module that gets created when we call it.
+
+05:28.490 --> 05:34.360
+So let's try it let's create module file let's call it test.
+
+05:34.360 --> 05:41.760
+So we should get a test of p y file and we'll pass in K one equals 10 and then k 2 equal to Python K
+
+05:43.760 --> 05:45.580
+and go to type it right.
+
+05:45.710 --> 05:48.050
+So there we go so we should have a file created.
+
+05:48.050 --> 05:49.420
+Let's actually check.
+
+05:49.430 --> 05:53.090
+So I mean here and I just created this test.
+
+05:53.130 --> 06:00.770
+Doppie y as you can see print running test the P Y and then print values K 110 K to Python with the
+
+06:01.190 --> 06:02.920
+comment of the top test of p y.
+
+06:02.930 --> 06:05.520
+So it did exactly what we were hoping to do.
+
+06:05.750 --> 06:07.310
+OK so back to here.
+
+06:07.340 --> 06:11.780
+So now what I'm going to do is I have this module I can import it right.
+
+06:11.780 --> 06:12.420
+And there we go.
+
+06:12.440 --> 06:14.110
+It said running test.
+
+06:14.210 --> 06:19.570
+And if I look at the test itself we can see that it came from that same directory that I showed you
+
+06:19.580 --> 06:22.770
+from that file that was in that directory.
+
+06:22.930 --> 06:27.970
+And we can call test doffed print value for values.
+
+06:27.970 --> 06:28.390
+Sorry.
+
+06:28.600 --> 06:29.100
+That's right.
+
+06:29.230 --> 06:29.810
+OK.
+
+06:30.040 --> 06:32.580
+So there we go k 110 K to Python.
+
+06:32.920 --> 06:35.350
+Now let me go ahead and change this module.
+
+06:35.440 --> 06:43.180
+Let me just go ahead and say create module file and we're going to keep the same name.
+
+06:43.180 --> 06:45.740
+So now we're going to overwrite the module.
+
+06:45.750 --> 06:50.650
+Now my current module that I'm in the notebook is still running but I'm going to as I'm still running
+
+06:50.650 --> 06:55.110
+my code here modify the code in the test module.
+
+06:55.270 --> 07:01.520
+So it's going to be the same name but I'm going to pass on now the same arguments I had before.
+
+07:01.780 --> 07:06.780
+And a third one let's say she's as the third one.
+
+07:06.960 --> 07:07.920
+OK.
+
+07:08.650 --> 07:11.370
+And I need to put in an underscore.
+
+07:11.380 --> 07:12.050
+There we go.
+
+07:12.280 --> 07:15.220
+So now we have a new module.
+
+07:15.250 --> 07:16.680
+Let's take a look at it.
+
+07:16.720 --> 07:21.770
+And as you can see we now have three values being printed out from that print values function.
+
+07:21.820 --> 07:25.210
+So that's what the new version of the module looks like.
+
+07:25.210 --> 07:27.960
+So going back to the notebook.
+
+07:28.000 --> 07:34.210
+Let's go ahead and let's re-import it let's say import test.
+
+07:34.340 --> 07:35.900
+Now you'll notice nothing happened.
+
+07:35.920 --> 07:42.190
+We didn't get the running test of P Y that we've been used to and that's because well test was actually
+
+07:42.190 --> 07:42.680
+loaded.
+
+07:42.700 --> 07:44.820
+It was in the CIS modules dictionary.
+
+07:44.860 --> 07:46.740
+Python said well I don't need to reload it.
+
+07:46.780 --> 07:48.010
+I've already loaded.
+
+07:48.280 --> 07:52.750
+And in fact if we called past goft print values
+
+07:55.570 --> 07:58.590
+we'll see that we still only get the original two.
+
+07:58.750 --> 08:02.250
+And let's take a look at the memory address of test.
+
+08:02.290 --> 08:03.450
+That's what it is.
+
+08:03.450 --> 08:07.620
+OK and we'll need that to go back to it in a second.
+
+08:07.900 --> 08:16.690
+So let's take a look at what's in the CIS module and we know that test is in system modules.
+
+08:16.740 --> 08:17.260
+OK.
+
+08:17.530 --> 08:19.030
+Because we imported it.
+
+08:19.030 --> 08:23.920
+So here's one way that we can force Python to re-import the module.
+
+08:23.980 --> 08:27.310
+We can basically delete test from CIS modules.
+
+08:27.310 --> 08:29.990
+Now that object exists in memory.
+
+08:30.070 --> 08:35.220
+All we're doing here is removing the reference that insists module to that object in memory.
+
+08:36.380 --> 08:38.740
+I don't know if anything else is holding a reference to it.
+
+08:38.750 --> 08:43.430
+If nothing else is holding a reference to that object it will get cleaned up from memory counting through
+
+08:43.490 --> 08:44.800
+reference counting.
+
+08:44.810 --> 08:50.150
+So here were all I'm going to do is I'm going to delete it from sists modules.
+
+08:50.570 --> 08:52.320
+I'm going to delete the test.
+
+08:52.550 --> 08:53.020
+OK.
+
+08:53.120 --> 08:57.320
+So now look at the test in six modules that's gone.
+
+08:57.320 --> 08:58.810
+That's no longer there.
+
+08:58.850 --> 09:03.640
+Now let's say simple test and it says running test so it imported it.
+
+09:03.790 --> 09:08.660
+OK let's take a look at the ID of sists modules
+
+09:11.430 --> 09:12.910
+test.
+
+09:12.950 --> 09:14.120
+So this is a new object.
+
+09:14.120 --> 09:16.970
+You can see that the memory address is not the same.
+
+09:17.000 --> 09:19.560
+3 5 2 8 3 1 2 8.
+
+09:19.730 --> 09:26.840
+It recreated the object reloaded it put into a module object and then assigned it to the test key in
+
+09:26.840 --> 09:29.190
+the modules dictionary.
+
+09:29.250 --> 09:35.700
+But what about the test that's in our global namespace because we still have test in our global namespace
+
+09:35.880 --> 09:36.390
+right.
+
+09:36.550 --> 09:38.040
+Test is in
+
+09:41.160 --> 09:42.700
+Global's contract.
+
+09:43.010 --> 09:43.400
+OK.
+
+09:43.470 --> 09:44.420
+And that's true.
+
+09:44.580 --> 09:46.760
+What's the idea of test here.
+
+09:47.310 --> 09:52.970
+It's 3 3 1 2 8 which we expect because we just ran the import.
+
+09:53.070 --> 09:58.330
+OK so now if I say test dobbed print values that's great.
+
+09:58.440 --> 10:01.700
+We get what we expected but there's a problem.
+
+10:01.920 --> 10:06.720
+What happens if there's some other module in our code somewhere that did that import.
+
+10:06.780 --> 10:14.870
+Initially it still has a reference to the old memory address to the old object.
+
+10:14.890 --> 10:21.270
+The only reason we have a reference to the new object is because we ran import tests here so we reloaded
+
+10:21.280 --> 10:22.830
+in a way test.
+
+10:22.840 --> 10:29.080
+We forced that by removing it from CIS modules and then we reloaded it into our global namespace here.
+
+10:29.410 --> 10:34.360
+But if there was another module that was running somewhere that had already done the import of test
+
+10:34.630 --> 10:43.360
+it would still be running the old value the old version of test any module that from this point on import
+
+10:43.390 --> 10:43.870
+test.
+
+10:43.870 --> 10:45.760
+They'll get a new version of test.
+
+10:46.000 --> 10:48.240
+Anything that was already in place before.
+
+10:48.430 --> 10:50.080
+They haven't been updated.
+
+10:50.080 --> 10:51.320
+So that's the downside.
+
+10:51.340 --> 10:57.910
+And the reason why that's happening is because the memory address that's being referenced by test in
+
+10:57.910 --> 11:00.340
+the CIS modules changed.
+
+11:00.340 --> 11:03.400
+But once remember it gets copied to the global namespace.
+
+11:03.490 --> 11:05.880
+At that point things can be very different.
+
+11:06.740 --> 11:11.690
+So this is why you can certainly do it this way but that's not the good approach.
+
+11:11.690 --> 11:18.260
+Instead there's a much better approach so we can do using import lib So again let me just show you what
+
+11:18.270 --> 11:19.940
+import test is OK.
+
+11:19.980 --> 11:23.780
+This is the memory address for the imported test.
+
+11:23.790 --> 11:26.290
+And just to make absolutely sure.
+
+11:26.550 --> 11:35.890
+Well this is the one that we have in our local and this is the one that's in the CIS modules dictionary.
+
+11:36.020 --> 11:36.440
+OK.
+
+11:36.540 --> 11:39.690
+They both the same object both the same ID.
+
+11:39.690 --> 11:41.870
+Now let me create this module again.
+
+11:41.880 --> 11:44.250
+So I'm going to make one more change to x.
+
+11:44.760 --> 11:46.730
+So we'll call it test again.
+
+11:46.740 --> 11:54.970
+So we're going to override it and we'll pass K-1 equals 10 k to equals Python and then we'll have K3
+
+11:55.020 --> 11:56.720
+equals cheese.
+
+11:57.180 --> 11:59.850
+And then K4 equals Peritz.
+
+11:59.950 --> 12:05.920
+OK so now we've added a full value and K one equals 10.
+
+12:06.140 --> 12:08.960
+OK so now we've changed that module.
+
+12:09.000 --> 12:10.680
+Again let me just show you.
+
+12:11.040 --> 12:13.010
+This is the test p y.
+
+12:13.330 --> 12:15.840
+And this is what's in the module.
+
+12:15.840 --> 12:20.410
+Now as you can see we have that Prince K for parrots as well in addition.
+
+12:20.400 --> 12:30.360
+Now I'm going to say import import lib and then I'm going to use the import Loeb's to reload what reload
+
+12:30.360 --> 12:38.280
+does is it's going to keep the same memory address for the test module that's in the CIS modules file.
+
+12:38.280 --> 12:44.220
+It's not going to change the memory address so it's not like we're removing the object from that dictionary
+
+12:44.460 --> 12:50.220
+creating a new object and making a new reference to it where actually we are python here is actually
+
+12:50.220 --> 12:51.690
+going to reload that object.
+
+12:51.690 --> 12:56.180
+It's going to mutate the object but the memory address is not going to change.
+
+12:56.310 --> 12:57.390
+So let me show you.
+
+12:57.610 --> 12:58.040
+OK.
+
+12:58.140 --> 13:02.220
+We see running test of p why it ran OK.
+
+13:02.610 --> 13:06.970
+And it brought back basically had returned what the module was.
+
+13:07.020 --> 13:12.060
+So now if I look at the idea of test in my global namespace it's still the old one because I haven't
+
+13:12.060 --> 13:13.870
+changed the reference.
+
+13:13.890 --> 13:22.570
+Right I've just up you know I've changed the contents of the memory of that module and that memory address.
+
+13:22.680 --> 13:32.600
+But in fact the memory address of the module in the CIS modules is the same as well.
+
+13:32.670 --> 13:34.750
+It's it hasn't changed either.
+
+13:35.010 --> 13:41.400
+So now you can see I don't have to worry about my global namespace pointing to an old version or somebody
+
+13:41.490 --> 13:47.550
+else that may have imported test and then pointing to an old version of test because the memory address
+
+13:47.550 --> 13:48.420
+stayed the same.
+
+13:48.540 --> 13:52.650
+So whoever had a reference to test already still has the reference to test.
+
+13:52.750 --> 13:56.880
+The only thing is that the content of the test module has changed.
+
+13:56.910 --> 13:58.950
+It's been mutated in memory.
+
+13:59.280 --> 14:04.410
+So now if I call test that print values you'll see it's four words.
+
+14:04.500 --> 14:07.540
+And I get the new value as well.
+
+14:07.560 --> 14:11.380
+So this is the safer approach of reloading a module.
+
+14:12.280 --> 14:18.320
+But still this is not something you should do manually and or at least you shouldn't do in production.
+
+14:18.370 --> 14:23.590
+This is something that can be done when your me all manually working with stuff interactively and you
+
+14:23.590 --> 14:26.930
+don't want to necessarily restart your program and so on.
+
+14:27.370 --> 14:29.490
+So why am I saying that.
+
+14:29.680 --> 14:31.120
+Let's say that I do the following.
+
+14:31.120 --> 14:38.500
+Let's say that I'm going to say from test import actually let's let's do a new module.
+
+14:38.530 --> 14:42.150
+So let's go ahead and say create module file.
+
+14:42.190 --> 14:47.860
+Let's call it test to and in here I'm going to put K-1 equals Python.
+
+14:48.050 --> 14:51.630
+OK so I've created this module that now exists.
+
+14:51.650 --> 14:52.650
+That's just a file.
+
+14:52.900 --> 14:54.100
+And now I can import it.
+
+14:54.130 --> 14:59.260
+But what I'm going to do is I'm going to say from first to import print values I'm going to use this
+
+14:59.290 --> 15:01.870
+from version of the input.
+
+15:02.110 --> 15:06.910
+OK so now I don't have to test to write in my global namespace
+
+15:12.340 --> 15:19.170
+but test to is then is in the cist modules namespace in modules.
+
+15:19.250 --> 15:24.160
+Dictionaries are actually that.
+
+15:24.220 --> 15:28.160
+OK so test is in the system modules dictionary.
+
+15:28.400 --> 15:34.430
+But I do have a reference though to print Vern's print values is the function print values and test
+
+15:34.460 --> 15:34.750
+2.
+
+15:34.760 --> 15:37.280
+So I can call print values.
+
+15:37.430 --> 15:38.360
+OK.
+
+15:38.750 --> 15:42.770
+Now I'm going to make a change to the module file.
+
+15:42.970 --> 15:46.380
+I'm going to add a K-2 equals cheese.
+
+15:46.390 --> 15:47.220
+Let's see.
+
+15:47.630 --> 15:51.410
+OK so now I've modified the file on disk.
+
+15:51.470 --> 15:55.470
+Now I need to reload it now I can't do this.
+
+15:55.490 --> 16:01.330
+I can't say our import lib don't reload test 2.
+
+16:01.340 --> 16:07.040
+I need to pass that a module for reload an object a module object while I test to is not in my Global's
+
+16:07.070 --> 16:14.330
+because I never imported it I only imported print values from Test 2 so I can't use test 2 directly
+
+16:14.330 --> 16:16.390
+but that's easy enough to get a hold of.
+
+16:16.460 --> 16:19.110
+I can just grab it out of the source modules.
+
+16:19.130 --> 16:21.830
+So now I'm going to reload that module.
+
+16:21.850 --> 16:22.730
+Test.
+
+16:24.760 --> 16:28.660
+So as you see it ran running tests it executed the model.
+
+16:28.870 --> 16:35.290
+And what we got was you know from this was returned the test module it came from that file that we modified
+
+16:36.220 --> 16:42.010
+but what's print values it's still printing the old version.
+
+16:42.010 --> 16:42.940
+Why.
+
+16:42.940 --> 16:51.400
+Because we had a reference to print values from the original test to import here we reloaded important
+
+16:51.400 --> 16:51.780
+test.
+
+16:51.800 --> 16:57.950
+The new test 2 is a new object but the print values that we have in our global namespace still refers
+
+16:57.950 --> 16:58.930
+to the old one.
+
+16:59.090 --> 17:07.510
+To really get the new one I would have to say something like maybe you know from test to import arm
+
+17:08.270 --> 17:09.400
+print values.
+
+17:09.530 --> 17:18.050
+OK that's one way of doing it or I would have to go and say well you know print values is equal to 6
+
+17:18.060 --> 17:19.430
+dart modules
+
+17:21.790 --> 17:26.360
+to test to Dark's print values right.
+
+17:26.360 --> 17:30.090
+I could do it this way as well says d'arte modules.
+
+17:31.290 --> 17:31.810
+OK.
+
+17:32.020 --> 17:37.660
+So now I would have the new print values as you can see I have two entries.
+
+17:37.660 --> 17:41.530
+So again we run into the same problem after we've done the reload.
+
+17:41.530 --> 17:47.800
+Anybody else that had done something like this is going to be pointing to the old value of print values
+
+17:47.920 --> 17:49.200
+not the new one.
+
+17:49.600 --> 17:51.870
+Hence why you can reload.
+
+17:51.940 --> 17:53.100
+But it's not safe.
+
+17:53.110 --> 17:58.870
+The odds are that you're going to break something in code somewhere or if somebody is using your library
+
+17:58.870 --> 18:02.360
+and you do that you know somewhere you're going to break their code.
+
+18:02.410 --> 18:07.780
+If they do this kind of impled it will work as long as they do import tests too.
+
+18:07.990 --> 18:13.360
+Then every time they do Testudo print values it will reference the new version of the code because it's
+
+18:13.360 --> 18:19.120
+the same memory address of the module but the symbol that was exported print values here.
+
+18:19.150 --> 18:22.110
+If I do it this way it would still be the old one.
+
+18:22.120 --> 18:22.710
+All right.
+
+18:22.750 --> 18:24.520
+So reload can be done.
+
+18:24.550 --> 18:25.280
+Not safe.
+
+18:25.480 --> 18:26.290
+Don't do it.
+
+18:27.090 --> 18:28.900
+Thanks for watching and I'll see you in the next video.

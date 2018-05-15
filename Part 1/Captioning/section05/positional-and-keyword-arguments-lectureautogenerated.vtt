@@ -1,0 +1,595 @@
+WEBVTT
+
+00:00.700 --> 00:08.340
+High in this video we're going to look at positional and keyword arguments for functions.
+
+00:08.380 --> 00:14.110
+So the most common way of assigning arguments to parameters is via the order in which they are passed
+
+00:14.100 --> 00:14.950
+in.
+
+00:15.100 --> 00:18.730
+In other words they position just a quick example.
+
+00:18.730 --> 00:26.160
+Suppose we define a function my func with two parameters A and B if we call my func using 10 come at
+
+00:26.180 --> 00:30.110
+20 as the arguments while the first argument is 10.
+
+00:30.310 --> 00:33.680
+So it will correspond to the first parameter.
+
+00:33.790 --> 00:38.500
+The second argument 20 will be assigned to the second parameter b.
+
+00:38.500 --> 00:42.570
+Now the words will end up with equal to 10 and be equal to 20.
+
+00:42.760 --> 00:47.980
+On the other hand if we call my phunk 20 come at 10 the same thing happens except that in this case
+
+00:48.310 --> 00:49.950
+the first argument is 20.
+
+00:49.950 --> 00:55.220
+So it will get assigned to the first parameter and 10 will get assigned to the second parameter.
+
+00:55.300 --> 00:56.770
+Since that's the second argument.
+
+00:56.800 --> 01:00.720
+And so we end up with a will be equal to 20 and B will be equal to 10.
+
+01:01.120 --> 01:05.920
+So that's just positional arguments and it just basically looks at the position of the argument and
+
+01:05.920 --> 01:08.440
+assigns it to the corresponding parameter.
+
+01:08.440 --> 01:16.370
+At the same position now we can define default values and if we specify a default value on a parameter
+
+01:16.790 --> 01:22.810
+we are essentially creating an optional argument let's take a look at an example.
+
+01:22.860 --> 01:26.500
+Let's say we define my func with a comma B.
+
+01:26.520 --> 01:29.180
+But now we also write equal to 100.
+
+01:29.190 --> 01:33.900
+This is how we specify a default value for a parameter.
+
+01:33.900 --> 01:40.740
+So we're basically saying if the user doesn't specify B if the caller doesn't specify B then said be
+
+01:40.740 --> 01:42.490
+equal to 100.
+
+01:42.510 --> 01:44.210
+So how would we call this function.
+
+01:44.220 --> 01:50.250
+Well we can certainly call it the usual way 10 camarade 20 and so 10 will go into a 20 we'll go into
+
+01:50.250 --> 01:53.520
+B that works as well it's just positional arguments.
+
+01:53.580 --> 01:58.920
+The difference now is that we don't actually have to specify the second parameter.
+
+01:59.160 --> 02:02.260
+So we could write my phunk five.
+
+02:02.310 --> 02:05.530
+Now when that happens Python starts again positionally.
+
+02:05.710 --> 02:08.550
+OK first argument goes to the first parameter.
+
+02:08.580 --> 02:12.580
+So a will be equal to 5 but there is no second argument.
+
+02:12.780 --> 02:16.690
+So Python will look at the second parameter since it has a default value.
+
+02:16.710 --> 02:19.380
+It will use it if it didn't have a default value.
+
+02:19.380 --> 02:20.830
+This would of course fail.
+
+02:20.850 --> 02:23.910
+You need to pass in as many arguments as you have.
+
+02:24.070 --> 02:30.830
+The non-default parameters but in this case we'll end up with equal to 5 and be equal to the default
+
+02:30.830 --> 02:33.980
+value of one hundred.
+
+02:33.980 --> 02:39.010
+Now consider a case where we have three arguments and we want to make one of them optional.
+
+02:39.020 --> 02:42.910
+So suppose we have this we have a B and C are the three parameters.
+
+02:43.190 --> 02:49.570
+And we're going to specify a default value for B but we don't want one for C we just want to be.
+
+02:49.710 --> 02:51.500
+So let's say we do that.
+
+02:51.640 --> 02:53.610
+Then what happens when we call the function.
+
+02:53.730 --> 02:59.180
+Would we call this function without specifying a value for the second parameter.
+
+02:59.590 --> 03:07.630
+Maybe this my phunk five commet 25 Well you tell me how would you assign these parameters to this function
+
+03:07.630 --> 03:08.170
+here.
+
+03:09.300 --> 03:11.570
+Well it's pretty obvious five should go into a.
+
+03:11.610 --> 03:12.950
+Ok that makes sense.
+
+03:13.110 --> 03:21.190
+And 25 should go into or which one that I mean the 25 should be be what 25 should be c..
+
+03:21.600 --> 03:26.490
+Well it doesn't make sense Python doesn't know either Python can tell which one you meant to put it
+
+03:26.490 --> 03:27.240
+in.
+
+03:27.240 --> 03:29.580
+So in fact this doesn't work at all.
+
+03:29.580 --> 03:30.950
+It won't run right.
+
+03:30.960 --> 03:32.340
+You'll get an exception.
+
+03:32.460 --> 03:35.620
+And in fact you can't define a function this way either.
+
+03:35.640 --> 03:38.670
+That will also result in an exception.
+
+03:38.670 --> 03:39.660
+What you have to do.
+
+03:39.660 --> 03:46.950
+The rule is that if a positional parameter is defined with a default value then every positional parameter
+
+03:46.980 --> 03:50.690
+after it must also be given a default value.
+
+03:51.030 --> 03:55.140
+In other words you cannot if you start putting a default value on B.
+
+03:55.320 --> 04:00.400
+Then you also have to specify a default value for c.
+
+04:00.500 --> 04:02.720
+Now you can make the default value equal to none.
+
+04:02.720 --> 04:05.830
+That's what you want but you still have to specify
+
+04:08.520 --> 04:10.660
+first take a look at this example now.
+
+04:10.670 --> 04:14.530
+So my Phunk with a Beagle 2 5 and sequel to 10.
+
+04:14.640 --> 04:21.030
+So this is now valid because we have a default value for B and we also have a default value for c which
+
+04:21.030 --> 04:22.820
+is required.
+
+04:22.900 --> 04:25.640
+So now we can call my function what will happen.
+
+04:25.660 --> 04:30.850
+It's going to put one into a that's positional and then it will use the defaults for B and C.
+
+04:30.850 --> 04:34.240
+Since we didn't define a second or third argument.
+
+04:34.240 --> 04:38.290
+And so we'll end up of equals one equals 5 equals 10.
+
+04:38.300 --> 04:45.800
+Also we can say my phunk one common to what will happen while I will put one into a two into B and then
+
+04:45.800 --> 04:48.050
+C will be its default value.
+
+04:48.080 --> 04:51.790
+So we have a with one B is two and C will be 10.
+
+04:51.860 --> 04:55.360
+We can of course also specify all three values.
+
+04:55.580 --> 04:59.810
+And in this case we'll get one two and three in a B and C respectively.
+
+04:59.810 --> 05:05.230
+None of the defaults will be used since we specified three arguments and there were three parameters.
+
+05:06.750 --> 05:08.960
+But here's the thing now.
+
+05:09.150 --> 05:14.130
+What if you want to specify the first and the third arguments but omit the second argument.
+
+05:14.130 --> 05:15.780
+So we want to call my func.
+
+05:15.990 --> 05:18.470
+We want to specify a value for A.
+
+05:18.720 --> 05:25.200
+We want to specify a value for c what we want to be we want B to take on its default value.
+
+05:25.500 --> 05:26.640
+How might we do this.
+
+05:26.640 --> 05:30.700
+How do we specify a and c but let B be the default.
+
+05:31.080 --> 05:35.370
+Well obviously we cannot call it with just two peremptory arguments.
+
+05:35.370 --> 05:40.740
+If we do that we're going to end up with one in a to b and then C will be the default.
+
+05:40.770 --> 05:42.460
+That's not what we wanted.
+
+05:42.630 --> 05:43.360
+Right.
+
+05:43.380 --> 05:48.030
+We can just leave it blank or put you know just a comma in there that's going to be an exception that's
+
+05:48.030 --> 05:49.340
+not a valid syntax.
+
+05:49.440 --> 05:50.990
+So how do we go about doing this.
+
+05:51.000 --> 05:54.550
+Well we have to use something called keyword arguments.
+
+05:54.760 --> 05:57.160
+They're also called named arguments.
+
+05:57.160 --> 05:59.390
+And basically it works this way.
+
+05:59.620 --> 06:05.520
+We specify the name of the parameter when we specify the argument value.
+
+06:05.530 --> 06:12.230
+So in other words we might call my phunk equals one sequel's to Python We'll look at this and say Ah
+
+06:12.310 --> 06:14.990
+ok so you putting one into a.
+
+06:15.070 --> 06:17.430
+And as the parameter it's the name of the parameter.
+
+06:17.470 --> 06:23.380
+So these names here these are named arguments the names must correspond to the names of the parameters
+
+06:23.380 --> 06:24.990
+in the function definition.
+
+06:26.040 --> 06:28.160
+So I will take one put it into a.
+
+06:28.170 --> 06:35.130
+It will take to put it into C and since B has a default and wasn't specified here it will just take
+
+06:35.130 --> 06:36.630
+the default will be.
+
+06:36.630 --> 06:42.340
+And so we'll end up with a call to one be equal to 5 the default and see equal to two.
+
+06:42.360 --> 06:45.720
+So those are keyword arguments all named arguments.
+
+06:45.780 --> 06:49.170
+We can also do it this way where we can mix things up a little bit.
+
+06:49.260 --> 06:53.800
+We can put a positional argument and we can also put in a named argument.
+
+06:54.000 --> 06:55.130
+So what happens here.
+
+06:55.170 --> 07:01.950
+While one is going to go to a that's a positional argument b we're not specifying a value because we're
+
+07:01.950 --> 07:08.550
+specifying sequel to Python looks at this and say OK you want to put two and two C and that's it.
+
+07:08.550 --> 07:12.380
+So therefore it will again use the default for B which will be 5.
+
+07:12.540 --> 07:18.050
+So we end up again with the same thing will be equal to one B will be 5 and C will be equal to 2.
+
+07:18.300 --> 07:19.890
+So that works perfectly well.
+
+07:22.260 --> 07:26.640
+So positional arguments can optionally be specified by using the parameter name.
+
+07:26.640 --> 07:28.130
+That's what we just saw.
+
+07:28.710 --> 07:33.120
+And whether or not the parameters have default values this doesn't work.
+
+07:33.120 --> 07:35.310
+Only when parameters have default values.
+
+07:35.310 --> 07:37.450
+Let's take a look at a quick example of that.
+
+07:37.710 --> 07:43.290
+Let's say we have this function here with three parameters a b and c none of which have a default value.
+
+07:43.320 --> 07:47.150
+That means that we will have to provide three arguments to this function.
+
+07:48.010 --> 07:51.890
+None of the arguments will be optional since none of them have a default value.
+
+07:52.270 --> 07:55.840
+So we can call the function we're using the normal positional arguments.
+
+07:55.840 --> 08:01.360
+One comment to come in three and we'll get that a will be equal to one B will be equal to 2 and C will
+
+08:01.360 --> 08:03.040
+be equal to 3.
+
+08:03.040 --> 08:05.110
+Equivalently we could call it this way.
+
+08:05.170 --> 08:07.900
+One comma to comment sequel's three.
+
+08:07.900 --> 08:11.980
+Now that's kind of silly doing that since we've already specified one in two.
+
+08:11.980 --> 08:18.630
+So C is the third argument positionally doesn't make sense to give it you know a named keyword argument.
+
+08:18.640 --> 08:19.470
+But you can.
+
+08:19.510 --> 08:20.030
+It works.
+
+08:20.040 --> 08:25.930
+That's perfectly fine and sometimes you want to do that just for readability of your code but you might
+
+08:25.930 --> 08:30.610
+want to specify that specifically so that the person reading the function call can tell.
+
+08:30.730 --> 08:32.440
+OK that's what the third parameter is.
+
+08:32.440 --> 08:35.200
+May just want to highlight that.
+
+08:35.350 --> 08:37.980
+Now of course you can also call the function this way.
+
+08:38.050 --> 08:40.400
+Equals one equals two Segal's three.
+
+08:40.420 --> 08:44.610
+You can make all three named arguments or keyword arguments.
+
+08:44.740 --> 08:49.420
+So at this point you may be asking yourself what's you know what's the point of doing that if you don't
+
+08:49.420 --> 08:57.390
+have default values so you don't have optional arguments so why would you even want to use named arguments.
+
+08:57.520 --> 09:05.320
+If you just have non-default your parameters while the reason for that is because now the order in which
+
+09:05.320 --> 09:12.250
+you specify the arguments doesn't matter you can mix it up if you want to specify C first and then A
+
+09:12.250 --> 09:12.890
+and B.
+
+09:12.910 --> 09:18.640
+That's perfectly fine because Python will look at this and say OK you want to put 3 into C one into
+
+09:18.670 --> 09:22.320
+a two into B and you end up with the same result.
+
+09:22.390 --> 09:26.710
+So that's why we can use these keyword arguments even though we don't have default values.
+
+09:26.710 --> 09:33.660
+It's very useful for mixing things up but that's of course a little cache to this.
+
+09:33.660 --> 09:39.130
+Once you use a named argument all arguments thereafter must be named as well.
+
+09:40.230 --> 09:42.030
+It's a little bit like to have the defaults right.
+
+09:42.030 --> 09:45.600
+Once we had a default everything else after that had to be defaulted.
+
+09:45.600 --> 09:47.370
+Same thing with named arguments.
+
+09:47.370 --> 09:49.770
+So this has nothing to do with the definition of the function.
+
+09:49.770 --> 09:53.090
+This is how we call the function using arguments.
+
+09:53.160 --> 10:00.030
+If we stay out this way sequel's one comma to come free while Python looks at this and says OK I'm going
+
+10:00.030 --> 10:03.590
+to put one into C and then what.
+
+10:03.630 --> 10:07.410
+What is two and three is that a and b is that be an A.
+
+10:07.410 --> 10:10.410
+Was that B and C because it's second and third position.
+
+10:10.410 --> 10:15.900
+But I've already defined C Right so there's a lot of ambiguity there and therefore this doesn't work.
+
+10:15.900 --> 10:18.340
+The syntax is not valid.
+
+10:18.360 --> 10:19.600
+Same thing right.
+
+10:19.620 --> 10:26.120
+If you do one comma because two commas three for the same reason you've got the keyword argument here.
+
+10:26.190 --> 10:29.640
+You cannot specify a positional argument afterwards.
+
+10:29.730 --> 10:34.230
+Yeah you and I can probably look at this and say OK I understand what you meant.
+
+10:34.320 --> 10:36.800
+One was supposed to go to a two.
+
+10:36.810 --> 10:38.520
+It goes into B and then 3.
+
+10:38.520 --> 10:40.480
+Well that's the last parameter.
+
+10:40.560 --> 10:43.770
+You know we don't have any other parameters that will go into C.
+
+10:44.160 --> 10:50.130
+But what if you'd had a comma become a C and D right and then D had a default value for example and
+
+10:50.130 --> 10:54.990
+you specified three while was 3 for C or 3 for d or.
+
+10:55.260 --> 10:56.890
+You know again it's too ambiguous.
+
+10:56.910 --> 11:01.020
+That won't work and in fact you'll get an exception as well if you try that.
+
+11:01.080 --> 11:08.460
+The only thing that works is once you start using a keyword argument a named argument you must use keyword
+
+11:08.460 --> 11:10.710
+arguments thereafter for everything.
+
+11:10.790 --> 11:15.360
+Every other argument that comes so this is OK right.
+
+11:15.360 --> 11:21.570
+We can start with a positional argument one so that will go to a and then we have these named arguments.
+
+11:21.570 --> 11:25.290
+We have these keyword arguments because two Segal's 3.
+
+11:25.380 --> 11:26.640
+That works.
+
+11:26.640 --> 11:30.260
+And of course the order of the keyword arguments does not matter.
+
+11:30.450 --> 11:34.190
+Which means that those works equally well and does exactly the same thing.
+
+11:34.210 --> 11:40.310
+A will get one C will get 3 and B will get two and we end up with the same thing.
+
+11:40.320 --> 11:42.080
+And so that's correct as well.
+
+11:43.740 --> 11:50.360
+So as we just so all arguments after the first name for keyword argument must be named too.
+
+11:50.400 --> 11:53.160
+It must be a keyword argument as well.
+
+11:53.210 --> 11:58.740
+Of course default arguments may still be omitted Let's take a look at an example.
+
+11:58.740 --> 12:05.160
+Suppose we define this function my funk with three parameters and B and C both have the full value.
+
+12:06.360 --> 12:08.060
+Then we can call my func one.
+
+12:08.190 --> 12:12.800
+Just using the normal positional arguments so one will get into a.
+
+12:12.840 --> 12:18.780
+And then since we haven't specified B or C they will get their default values of 2 and 3 respectively.
+
+12:19.820 --> 12:24.950
+Alternatively we can just use keyword arguments so Avril's one and Beagle's five.
+
+12:24.980 --> 12:27.430
+Which means that a will get the value of 1.
+
+12:27.590 --> 12:33.650
+B will get the value of 5 and then C wasn't specified so it will just take on its default value of 3
+
+12:34.110 --> 12:37.700
+and so we end up with equals one equals five equals three.
+
+12:37.700 --> 12:41.440
+Now of course the order of keyword arguments doesn't matter.
+
+12:41.600 --> 12:43.240
+So we can also do it this way.
+
+12:43.310 --> 12:49.570
+We can call my form of sequel to zero and a call to one in which case the zero will go into C.
+
+12:49.820 --> 12:51.330
+One will go into a.
+
+12:51.410 --> 12:57.680
+And since we didn't specify B it will just take its default value of 2 and so this is what we end up
+
+12:57.680 --> 12:59.010
+with.
+
+12:59.070 --> 13:03.150
+All right so let's switch to some code and let's just see how all this works.
+
+13:03.150 --> 13:05.080
+Thanks for watching and I'll see you in a bit.

@@ -1,0 +1,676 @@
+WEBVTT
+
+00:00.330 --> 00:06.990
+High in this video we're going to look at how we can modify and extend named couples now named couples
+
+00:07.040 --> 00:07.980
+are immutable.
+
+00:08.100 --> 00:11.490
+So how can we possibly modify them and extend them.
+
+00:11.490 --> 00:15.250
+And the answer is we can't name couple is a couple.
+
+00:15.270 --> 00:16.380
+So it's immutable.
+
+00:16.380 --> 00:18.880
+So we can't do it it's just like a string.
+
+00:18.890 --> 00:25.230
+Now we can modify strings in the sense that we can take an existing String do some manipulations on
+
+00:25.230 --> 00:27.960
+it and essentially create a new string.
+
+00:28.140 --> 00:32.140
+And the same thing happens with apples and therefore name topples as well.
+
+00:33.940 --> 00:38.590
+Let's take a very simple example let's look at this point to the which is our you know our point to
+
+00:38.590 --> 00:41.970
+the name of that we have it has two fields x and y.
+
+00:42.040 --> 00:46.470
+These are the x and y coordinates and we create a point at the origin 0 0.
+
+00:46.960 --> 00:53.050
+And now that said that we want to change the value of the x coordinate what we cannot change the value
+
+00:53.050 --> 00:54.220
+of the X candidate.
+
+00:54.260 --> 01:00.970
+We cannot mutate point with we have to do is we have to create a new point and provide a new value for
+
+01:00.970 --> 01:03.690
+x and retain the old value for y.
+
+01:03.850 --> 01:05.710
+That's how we're going to create a new point.
+
+01:05.710 --> 01:08.340
+That's how we're going to change this point.
+
+01:08.350 --> 01:12.280
+So what we would do it this way it's very simple we say point equals.
+
+01:12.430 --> 01:17.800
+Now you'll notice what's happening here is I'm creating a new object point to D and assigning it to
+
+01:17.800 --> 01:18.970
+the same label.
+
+01:19.300 --> 01:25.210
+So the memory address of Petey's here and here has changed but what have I done.
+
+01:25.240 --> 01:27.370
+I've changed the value that I want for X.
+
+01:27.370 --> 01:28.900
+I've now made it a 100.
+
+01:29.140 --> 01:35.120
+And I went and looked up the old value of the Y or that it and used that in my new point.
+
+01:35.130 --> 01:42.550
+So now I have a new point that has the modified x value but the memory address of P-T has changed just
+
+01:42.580 --> 01:46.590
+as it is with strings if you say as equals plus a few concatenate.
+
+01:46.660 --> 01:52.310
+Let's say the character of your string you've created a new string.
+
+01:52.340 --> 01:55.020
+Now there is a drawback though and it's pretty major one.
+
+01:55.190 --> 01:58.500
+Let's take a look at a more complicated name.
+
+01:58.610 --> 02:02.360
+Let's let's go back to our stock name topple which has Simbel your month.
+
+02:02.360 --> 02:03.940
+They open high low close.
+
+02:03.950 --> 02:06.020
+That's quite a few fields.
+
+02:06.140 --> 02:13.380
+If we want to use the same technique to basically change something in here then let's say it's the close
+
+02:13.380 --> 02:13.850
+feel.
+
+02:13.850 --> 02:15.180
+Here's how we would have to write it.
+
+02:15.200 --> 02:20.270
+I would have to write stock and then we'd have to pull the old symbol your money they open high low
+
+02:20.600 --> 02:26.810
+from our existing variable DJIA and then just provide a new value for close.
+
+02:26.810 --> 02:28.690
+Well that's pretty painful to do.
+
+02:28.950 --> 02:29.260
+OK.
+
+02:29.270 --> 02:31.280
+This really isn't very clean code.
+
+02:31.340 --> 02:34.470
+It's difficult to read and it's a pain to type.
+
+02:34.790 --> 02:37.770
+So maybe we can use slicing or unpacking.
+
+02:37.870 --> 02:38.870
+Let's take a look.
+
+02:39.200 --> 02:44.770
+Let's say we have this stock again and again we want to modify the close.
+
+02:44.780 --> 02:45.100
+Right.
+
+02:45.140 --> 02:51.210
+So we could look at the slice this way we could go up to but not including the seventh element.
+
+02:51.230 --> 02:57.510
+So this would basically give us a top or containing all these values up to and including the low.
+
+02:57.550 --> 02:57.800
+Right.
+
+02:57.800 --> 02:59.520
+The 26:26.
+
+03:00.020 --> 03:05.420
+So we can also use Tatkal unpacking instead of using slicing and we can do it this way we can basically
+
+03:05.420 --> 03:11.800
+take everything and except the last item they will throw into this variable called underscore.
+
+03:11.870 --> 03:16.360
+So it's going to put close the last item into underscore and the rest.
+
+03:16.460 --> 03:21.620
+All these items here up to and including 26 to 60 will go into the variable current.
+
+03:21.620 --> 03:23.330
+So we can do it either way.
+
+03:23.330 --> 03:28.940
+The only difference is that when you use a slice you get a table back and when you use the unpacking
+
+03:28.940 --> 03:30.230
+you get a list back.
+
+03:30.230 --> 03:32.500
+So just be aware of that.
+
+03:32.560 --> 03:35.500
+Now how do we create a new stock based off of that.
+
+03:35.510 --> 03:39.960
+Well we have to pass stock eight parameters eight arguments.
+
+03:39.980 --> 03:41.400
+That's what it expects.
+
+03:41.420 --> 03:47.600
+So we can take the arguments that are in current and we unpack them into positional arguments.
+
+03:47.600 --> 03:50.540
+So this will work whether current is a tuple or a list.
+
+03:50.540 --> 03:51.440
+It doesn't matter.
+
+03:51.620 --> 03:58.850
+So we've got to unpack those seven values into seven positional arguments and then we provide the positional
+
+03:58.850 --> 04:00.320
+argument that we want.
+
+04:00.320 --> 04:06.970
+And essentially this will not create a new Dow Jones and a new stock that we're assigning to the DJI
+
+04:06.990 --> 04:10.230
+a variable that will contain all these values.
+
+04:10.310 --> 04:14.280
+But the last one now will be 26 394.
+
+04:14.420 --> 04:16.030
+There is another thing that we can do.
+
+04:16.040 --> 04:22.910
+There is an underscore make class method named tuples provide but in order to use that it basically
+
+04:22.910 --> 04:26.300
+expects a single argument which is an iterable.
+
+04:26.300 --> 04:32.870
+So in other words it expects a tuple or a list or any kind of iterable that will contain eight values
+
+04:33.380 --> 04:37.260
+and then it will use that for the eight values for the fields.
+
+04:37.490 --> 04:41.920
+So the only difference here is that we have to build that iterable first.
+
+04:41.930 --> 04:50.660
+So in the case of the current though where we get a couple bakso using the slice we would have to extend
+
+04:50.840 --> 04:56.920
+or I would have to create a new topple based off the current top all Plus we concatenate another topple
+
+04:56.960 --> 04:58.090
+onto the end of it.
+
+04:58.100 --> 05:03.770
+So this novel give us a new table that will contain those eight values if we were doing it using the
+
+05:03.830 --> 05:07.730
+unpacking then current would be a list and that's maybe a little simpler.
+
+05:07.820 --> 05:11.170
+We just append this value to the list.
+
+05:11.630 --> 05:17.180
+And now that we have that we have now that new values is going to be this sequence whether it's a top
+
+05:17.180 --> 05:22.420
+of her list will depend on whether we started off with current as a list or current as a topple.
+
+05:22.640 --> 05:28.940
+But at the end of the day we get an iterable that contains these eight values and now we can call this
+
+05:29.030 --> 05:35.190
+underscore make method on stock passing it the single argument which is the iterable.
+
+05:35.210 --> 05:40.580
+So that's the only difference is that this is a single argument but it must be an iterable and it must
+
+05:40.580 --> 05:42.500
+contain those eight values.
+
+05:42.590 --> 05:45.440
+But of course even that approach has some drawbacks.
+
+05:45.440 --> 05:46.650
+Let's take a look.
+
+05:47.060 --> 05:52.190
+Let's say that we have that example again and what we want to do here is we want to change the value
+
+05:52.190 --> 05:52.850
+of the day.
+
+05:52.850 --> 05:59.010
+So somewhere in the middle of this list well we can't use extended unpacking.
+
+05:59.030 --> 06:03.770
+I mean if you think about it here's the way we might try and approach this would have everything before
+
+06:03.770 --> 06:06.170
+the day the day and everything after the day.
+
+06:06.380 --> 06:12.460
+Well the problem is that this makes absolutely no sense because Python has no idea where this day is.
+
+06:12.460 --> 06:14.630
+Is it the first element is it the third element.
+
+06:14.630 --> 06:15.860
+It doesn't know that.
+
+06:16.040 --> 06:21.290
+So you know when we do extended unpacking we can only have one of these star operations we can have
+
+06:21.290 --> 06:22.260
+more than one.
+
+06:22.280 --> 06:24.090
+So this isn't even valid python.
+
+06:24.170 --> 06:25.940
+And it makes no sense.
+
+06:25.970 --> 06:32.840
+However we can use slicing so we can do it this way we can slice DJIA and take everything before the
+
+06:32.840 --> 06:39.140
+index 3 which is the day and then take everything after index 3 so starting at 4 all the way to the
+
+06:39.140 --> 06:41.870
+end of the tuple.
+
+06:41.900 --> 06:48.530
+So if we do that we can now create a new topical with prie concatenated with 26 which is the new value
+
+06:48.710 --> 06:52.010
+for the day concatenated with everything that came afterwards.
+
+06:52.010 --> 06:56.000
+So now this would give us a new topic that contains all the values that we want.
+
+06:56.150 --> 06:56.750
+So that's great.
+
+06:56.750 --> 07:02.450
+Now we can create a new stock using those new values again remembering to unpack new values if we're
+
+07:02.450 --> 07:07.790
+going to use the constructor of stock or we can just use the underscore make and just pass in the iterable
+
+07:07.790 --> 07:09.970
+directly which would be nouvelles.
+
+07:09.980 --> 07:12.140
+So either way you know that will work.
+
+07:12.470 --> 07:16.390
+But of course it still has some drawbacks.
+
+07:16.460 --> 07:18.050
+And here's what it is.
+
+07:18.230 --> 07:22.230
+Let's say we want to modify both the day and the high values.
+
+07:22.250 --> 07:29.020
+So now we want to modify the date which is at index 3 and the high which is index 5.
+
+07:29.090 --> 07:30.910
+How would we go about doing that.
+
+07:31.190 --> 07:33.400
+Well no it becomes more complicated.
+
+07:33.470 --> 07:37.050
+Now I have to take everything up to but not including three.
+
+07:37.130 --> 07:40.210
+I've got to put in the new value for the day.
+
+07:40.220 --> 07:43.270
+Then I have to take everything from here but not including five.
+
+07:43.280 --> 07:44.830
+I've done it as a slice.
+
+07:44.870 --> 07:47.040
+You could have done it as a parentheses.
+
+07:47.120 --> 07:51.270
+DJIA four square bracket comma to make a topple out of it.
+
+07:51.320 --> 07:56.720
+But if you do a slice this will just get a single element out of this and return it as a topple because
+
+07:56.720 --> 07:59.910
+slices of return the same original data type.
+
+08:00.380 --> 08:05.810
+And then I have to put in the new value for my high and then I have to put in the rest.
+
+08:05.810 --> 08:11.790
+So this is really you know and then you can create your own new stock instance this way.
+
+08:11.810 --> 08:13.770
+So that's really unreadable.
+
+08:13.770 --> 08:17.990
+I mean it's it's very difficult for someone else to come in understand what you know what's going on
+
+08:17.990 --> 08:23.010
+here and it's very error and you have the right indexes are you stopping where you need to and so on.
+
+08:23.030 --> 08:24.950
+It's really a pain.
+
+08:25.010 --> 08:26.690
+So there has to be a better way.
+
+08:26.810 --> 08:34.580
+And indeed there is there's a better way the name topples will actually also create an underscore replace
+
+08:34.580 --> 08:41.330
+method that is going to be an instance method and the way it works is that it will copy an existing
+
+08:41.330 --> 08:48.470
+name Top also an instance into a new one but it will replace any values based on the keyword arguments
+
+08:48.500 --> 08:51.220
+that are passed to the underscore replace.
+
+08:51.290 --> 08:54.910
+And the keyword arguments are simply the field names in the top.
+
+08:55.040 --> 08:58.440
+And the new value that we want to assign to that particular field.
+
+08:59.210 --> 09:04.940
+The only caveat is that the keyword name must match an existing field name in the top all that you're
+
+09:04.940 --> 09:07.010
+calling underscore replace on.
+
+09:07.250 --> 09:09.080
+So let's see a simple example.
+
+09:09.110 --> 09:14.950
+Let's go back again to our stock and we want to change now the day the high and the close.
+
+09:15.170 --> 09:16.330
+Well that's very simple.
+
+09:16.340 --> 09:23.600
+We take our existing instance DJIA and then we call the underscore replace method and we pass it as
+
+09:23.780 --> 09:26.400
+he would arguments the name of the field.
+
+09:26.450 --> 09:28.000
+And the new value that we want.
+
+09:28.130 --> 09:29.960
+So we want to change day to 26.
+
+09:29.960 --> 09:31.680
+High to those close to that.
+
+09:31.970 --> 09:38.040
+And now we have a new instance of the stock class right.
+
+09:38.060 --> 09:40.260
+The idea of DJI here.
+
+09:40.340 --> 09:46.280
+And the idea of DJIA over here is no longer the same after we've called the underscore replace it had
+
+09:46.280 --> 09:50.540
+to create a new total and we have the values that we wanted modified.
+
+09:51.850 --> 09:55.010
+So now let's talk about extending a name topic.
+
+09:55.300 --> 09:59.880
+So sometimes we want to create a name topple that just extends another name.
+
+09:59.920 --> 10:05.890
+And what I mean by extension extension here is appending one or more fields to the existing table.
+
+10:06.250 --> 10:11.830
+So for example let's say we have our stock named topple and now we want to create a new type of class
+
+10:12.250 --> 10:14.680
+a new name of a class called stock XTi.
+
+10:14.680 --> 10:19.160
+That just adds a single field to this list over here called previous calls.
+
+10:19.210 --> 10:24.650
+I want to track the previous code from the previous day or the previous trading day.
+
+10:24.790 --> 10:30.040
+So when dealing with subclasses you might do something using subclassing to add a field essentially
+
+10:30.040 --> 10:32.470
+to an existing class but you have named topples.
+
+10:32.500 --> 10:35.960
+It's more complicated than that because we have an underlying topple.
+
+10:36.070 --> 10:37.060
+These are immutable.
+
+10:37.060 --> 10:42.570
+We can just add something to it so it's more complicated and there's a much cleaner way of doing it.
+
+10:42.580 --> 10:44.420
+Anyways let's take a look.
+
+10:46.290 --> 10:47.800
+So let's just start simple.
+
+10:47.850 --> 10:52.440
+Let's take a point to the class that has two fields x and y.
+
+10:52.710 --> 10:57.330
+And now we want to create a point three-D named topple that has an extra parameter.
+
+10:57.480 --> 10:59.540
+So we want X Y and Z in it.
+
+11:00.320 --> 11:04.610
+Now obviously the simplest approach here is just to do it this way.
+
+11:04.610 --> 11:07.410
+Point 3D equals name nine point 3D x y z.
+
+11:07.520 --> 11:09.160
+But that's not what I'm trying to show.
+
+11:09.170 --> 11:16.970
+I want to show how we might want to use the existing point to D to generate point 3D because what happens
+
+11:17.000 --> 11:18.350
+if you have a lot of fields.
+
+11:18.410 --> 11:19.460
+Let's say the stuck.
+
+11:19.450 --> 11:19.750
+Right.
+
+11:19.760 --> 11:20.810
+We have a lot of them.
+
+11:20.840 --> 11:23.930
+How would we add previous close to this now.
+
+11:24.170 --> 11:29.030
+Well using that technique we would have to write something like this out which again is a pain it's
+
+11:29.030 --> 11:29.870
+error prone.
+
+11:29.870 --> 11:33.100
+I even had to make the font smaller in order to fit it on the slide.
+
+11:33.320 --> 11:35.680
+So that's not the best approach either.
+
+11:36.110 --> 11:42.580
+Instead why don't we just use the field the field names that we can recover from point to D.
+
+11:42.630 --> 11:45.220
+Remember the under Scofield's property.
+
+11:45.530 --> 11:47.310
+Let's go ahead and use that instead.
+
+11:48.610 --> 11:54.070
+So let's take a look at that example again and if we look at the under Field's property it's going to
+
+11:54.070 --> 11:57.520
+give us a tuple containing all the fields in a string.
+
+11:57.600 --> 11:57.810
+OK.
+
+11:57.820 --> 12:01.380
+The field names are strings and that will be a tuple of those strings.
+
+12:01.390 --> 12:05.890
+So now all we need to do is just extend this tuple here.
+
+12:05.920 --> 12:08.430
+We need to add an additional element to it.
+
+12:08.500 --> 12:15.790
+Previous codes in order to get a new tuple of field names so we can do it this way we can say new fields
+
+12:15.820 --> 12:22.580
+equals stock dot under Schofields Plus the string previous close now concatenating tuples.
+
+12:22.660 --> 12:26.440
+So I need to make this into a top so I can't just concatenate the string.
+
+12:26.650 --> 12:28.890
+So this is just a very common way of doing it.
+
+12:29.820 --> 12:35.970
+And now I can create my new extended stock using name topples Toqui XTi new fields.
+
+12:36.270 --> 12:36.660
+OK.
+
+12:36.750 --> 12:44.040
+So now I've essentially extended my my stock into stock XTi but it was pretty simple because all I had
+
+12:44.040 --> 12:48.640
+to do was reference the underscore Fields property of my original name top.
+
+12:48.870 --> 12:51.220
+So that's what I mean by extending a name topple.
+
+12:51.240 --> 12:57.450
+It's creating a new name of class but it's using the previous ones under Scofield's property in order
+
+12:57.450 --> 12:59.170
+to create the new one.
+
+12:59.190 --> 13:01.550
+So now how about extending the van.
+
+13:01.650 --> 13:07.560
+Let's say that we have an instance of a stock named topple and we want to create a stock Eckstine name
+
+13:07.590 --> 13:13.140
+topple But we want to try and grab all the values from stock and then just append the new value that
+
+13:13.140 --> 13:16.380
+we have with previous calls.
+
+13:16.380 --> 13:19.340
+So again let's take a look at this example we have that stock.
+
+13:19.400 --> 13:19.960
+OK.
+
+13:20.010 --> 13:25.710
+And then we have all stock XTi which is the extended one which has the previous close field.
+
+13:25.740 --> 13:32.850
+So now we have this instance of stock which has that but it's missing the close value that we want the
+
+13:32.850 --> 13:35.320
+close the previous quarter value that we want.
+
+13:35.550 --> 13:36.900
+Well it's very simple.
+
+13:36.900 --> 13:45.890
+We can just create an instance of stock X T we can unpack the values in the DJIA Toppo.
+
+13:45.900 --> 13:48.660
+So that's going to unpack this into positional arguments.
+
+13:48.660 --> 13:51.540
+DJIA 2018 125 and so on.
+
+13:51.750 --> 13:55.380
+And then we're just going to add one more positional argument 26000.
+
+13:55.590 --> 13:58.450
+So that's going to create our extended stock.
+
+13:58.500 --> 14:03.210
+Now of course we can also just use the underscore make if you want to remember the underscore make just
+
+14:03.210 --> 14:04.790
+requires an iterable.
+
+14:04.800 --> 14:11.460
+So what we need to do here is we need to take DJIA which is itself an iterable and then we need to concatenate
+
+14:11.490 --> 14:14.590
+onto it the new value that we want for previous close.
+
+14:14.600 --> 14:19.540
+And again we've got to do to pull concatenation so we can do it that way.
+
+14:19.540 --> 14:23.440
+All right let's switch to some code and let's just see all this in action.
+
+14:23.440 --> 14:25.120
+Thanks for watching and I'll see you in a bit.

@@ -1,0 +1,1204 @@
+WEBVTT
+
+00:00.360 --> 00:02.100
+Hi and welcome back.
+
+00:02.280 --> 00:05.230
+So let's continue looking at packages and impuls.
+
+00:05.310 --> 00:13.560
+So we saw in the last video how we could essentially specify exactly what we wanted exported from validators
+
+00:13.650 --> 00:21.030
+and we were able to using this technique which basically do the imports that we want inside the validators
+
+00:21.390 --> 00:25.330
+module code inside the Dundreary in it which means that in the main the p y.
+
+00:25.350 --> 00:29.000
+All I had to do was import common validators.
+
+00:29.160 --> 00:34.580
+And then I would have direct access to these methods to these functions that I wanted.
+
+00:34.800 --> 00:37.730
+So this made life easier for our users.
+
+00:37.740 --> 00:43.800
+Now let's go ahead and do something similar but now I'm going to use some nested packages as well.
+
+00:43.830 --> 00:49.440
+So let's go ahead and let's see if we're writing an application and it has data models so I'm going
+
+00:49.440 --> 00:55.720
+to call this package models and models maybe is going to have things like users.
+
+00:56.200 --> 00:56.680
+OK.
+
+00:56.730 --> 00:59.360
+So I've another package for users and other models.
+
+00:59.360 --> 01:04.680
+I'm going to have maybe another package for posts maybe this is a Web site and we have users and posts
+
+01:05.700 --> 01:08.520
+and the users may actually.
+
+01:08.520 --> 01:10.620
+I'm going to split that up into two different modules.
+
+01:10.620 --> 01:16.110
+I'm going to have a user module that's going to contain the object for user and all the help of functions
+
+01:16.110 --> 01:17.370
+that I might need.
+
+01:17.370 --> 01:25.500
+I might also need on the posts I'm going to need the same thing I might have a post ok module where
+
+01:25.500 --> 01:31.250
+I'm going to tell you where I'm going to define the class that I need for a post and maybe some help
+
+01:31.250 --> 01:38.220
+of functions and then maybe I also need something for posts because I have you know users can post multiple
+
+01:38.220 --> 01:42.870
+posts so I might have to accommodate that and have collections of posts and things like that.
+
+01:44.320 --> 01:47.290
+So now let's go ahead and fill out some of the code here.
+
+01:47.440 --> 01:55.040
+So let's start with the in it and I'm just going to say that this is the post package and I'll do the
+
+01:55.040 --> 01:56.200
+same thing for the users.
+
+01:56.270 --> 01:59.840
+So again I just want to write this out here and say what it is.
+
+01:59.840 --> 02:03.890
+And then the unit over here is the models package.
+
+02:03.950 --> 02:05.440
+OK.
+
+02:06.590 --> 02:06.850
+All right.
+
+02:06.860 --> 02:09.320
+So that's all in the end that's for now.
+
+02:09.320 --> 02:10.620
+Now let's go to post.
+
+02:10.700 --> 02:13.230
+So this is the postop P-wave file.
+
+02:13.490 --> 02:14.580
+And what do I want to get.
+
+02:14.600 --> 02:18.380
+Well I'll probably want a class called post so we'll define a class.
+
+02:18.370 --> 02:19.750
+It's not going to do anything.
+
+02:20.030 --> 02:22.790
+And maybe I'll try to help a function in here.
+
+02:22.820 --> 02:26.920
+So this will be post helper one.
+
+02:27.110 --> 02:29.980
+And it's just going to pass and we could have other ones as well.
+
+02:29.990 --> 02:33.370
+I'll stick to just using one for posts.
+
+02:33.380 --> 02:34.440
+Well very similar.
+
+02:34.520 --> 02:37.430
+So this is the Post's duppy why mondial.
+
+02:37.490 --> 02:47.220
+And we're going to define a class called post and then we may also have a helper posts.
+
+02:49.050 --> 02:49.760
+OK.
+
+02:50.360 --> 02:52.280
+And then users are going to be very similar.
+
+02:52.280 --> 02:55.650
+This is the user's user Doppie why.
+
+02:55.980 --> 03:02.040
+And we might have a classical musician and then we may have some fun or some help that functionals wealth
+
+03:02.080 --> 03:05.170
+are usually held to one for example.
+
+03:05.730 --> 03:06.400
+OK.
+
+03:06.770 --> 03:09.580
+So now that we have this we've got the structure right.
+
+03:09.590 --> 03:14.040
+We've got models posts posts and posts users that have a user.
+
+03:14.060 --> 03:16.030
+How do we use them in the main package.
+
+03:16.250 --> 03:17.670
+So let's go to Maine.
+
+03:17.780 --> 03:21.090
+Let me close everything just clean that up.
+
+03:21.250 --> 03:21.830
+OK.
+
+03:22.070 --> 03:23.400
+How would I do that.
+
+03:23.720 --> 03:28.820
+So here I'm importing common just because I want to list what's out you know so if I run this right
+
+03:28.820 --> 03:33.190
+now I can see what's in the various packages.
+
+03:33.200 --> 03:35.330
+So in my own name spaces.
+
+03:35.360 --> 03:41.200
+So in my namespace in my global namespace for the main program I have common and validators.
+
+03:41.240 --> 03:44.600
+Well yeah I imported validators This is the symbol right.
+
+03:44.600 --> 03:50.810
+I imported common validators as validators so my validator is symbol is in my global namespace and points
+
+03:50.810 --> 03:52.940
+to whatever this package is.
+
+03:53.150 --> 03:55.190
+And then common I imported commun as well.
+
+03:55.190 --> 04:01.030
+So I have here if I don't import Carmen it would not be in my namespace.
+
+04:01.070 --> 04:01.780
+OK.
+
+04:02.860 --> 04:04.610
+If I had done this.
+
+04:04.650 --> 04:08.420
+So I just want to show you that very quickly if I'd done something like this.
+
+04:08.440 --> 04:10.300
+OK.
+
+04:10.960 --> 04:15.390
+Then of course this code isn't going to waltz Salumi comment that out.
+
+04:15.760 --> 04:21.700
+But I just want to show you that we would have common right because we employ a common validators.
+
+04:21.760 --> 04:24.430
+But what it does it puts the top level in there.
+
+04:24.550 --> 04:31.270
+But if I say import common dock validators as validators it doesn't do that it just puts the validators
+
+04:31.270 --> 04:32.130
+in our namespace.
+
+04:32.170 --> 04:33.120
+So watch out for that.
+
+04:33.130 --> 04:35.400
+That's a little tricky sometimes.
+
+04:35.590 --> 04:42.160
+And this is why because I want to have the common reference because I'm listing out the namespace of
+
+04:42.160 --> 04:43.010
+common.
+
+04:43.140 --> 04:45.040
+I have to import it as well.
+
+04:45.180 --> 04:45.680
+OK.
+
+04:45.820 --> 04:47.330
+So that's that's the only reason.
+
+04:47.410 --> 04:50.470
+So the uncomment this again.
+
+04:50.740 --> 04:51.010
+All right.
+
+04:51.010 --> 04:51.880
+So this is what we have.
+
+04:51.880 --> 04:55.930
+So our main global namespace has validators and common in it.
+
+04:55.930 --> 04:57.220
+It doesn't have mobiles.
+
+04:57.220 --> 04:59.860
+I mean imported we would have to import it.
+
+05:00.070 --> 05:08.580
+So we have to say something like impled common dot models and I'll do it as as models.
+
+05:08.620 --> 05:08.990
+OK.
+
+05:09.030 --> 05:10.150
+So I'll do that.
+
+05:10.160 --> 05:18.190
+Let me go ahead and kind of I don't know I just prefer having it kind of that way having a more general
+
+05:18.190 --> 05:20.540
+one above and in the more specific one below.
+
+05:22.190 --> 05:24.190
+Let's make this perfect compliant.
+
+05:24.350 --> 05:24.890
+OK.
+
+05:25.070 --> 05:29.650
+So now I got that and we can take a look at what's inside the models name space.
+
+05:29.680 --> 05:32.380
+So let's go ahead and build that up.
+
+05:33.110 --> 05:38.900
+So now this is the models so we're going to look at common dot models or just models.
+
+05:39.000 --> 05:42.020
+Since I've got both in my name space I can use either.
+
+05:42.290 --> 05:45.450
+I'll just use the dotted path notation here.
+
+05:45.680 --> 05:50.580
+And let's run this and take a look at what's inside the models name space.
+
+05:50.870 --> 05:56.240
+Well it's got the standard kind of Dunder properties and nothing else.
+
+05:56.260 --> 06:02.780
+So this means that I cannot access let's say posts by saying something like this saying you know post
+
+06:03.400 --> 06:17.180
+let's say John's post equals common dot model's dot posts dot post doc post cake.
+
+06:17.190 --> 06:18.140
+There it is.
+
+06:18.460 --> 06:19.450
+That's not going to work.
+
+06:19.450 --> 06:21.710
+First of all Pi chimey even tells you right here.
+
+06:21.880 --> 06:28.020
+But when we write tells us that the common model's module has no attribute posts because we didn't import
+
+06:28.070 --> 06:29.600
+it doesn't know about.
+
+06:29.600 --> 06:34.330
+So what we would have to do here is the same thing that we had in the beginning with revalidate it would
+
+06:34.330 --> 06:35.160
+have to say something like.
+
+06:35.170 --> 06:39.730
+Import common got models.
+
+06:40.120 --> 06:42.560
+Doffed posts data close.
+
+06:42.700 --> 06:43.490
+OK.
+
+06:43.810 --> 06:45.580
+And now this would work.
+
+06:45.580 --> 06:48.750
+Now this is going to work just fine because that's been imported.
+
+06:48.880 --> 06:56.350
+OK but again what's happening here is I'm forcing the user of my models package to know where things
+
+06:56.350 --> 06:57.060
+live.
+
+06:57.190 --> 07:02.740
+OK in order to get the post they have to import that if they want to get posts or user they have to
+
+07:02.740 --> 07:09.710
+say important common darf models dot posts dot posts.
+
+07:09.820 --> 07:19.590
+Ok so now they can say you know John posts equals commande out models that post Clopton posts daft posts.
+
+07:19.670 --> 07:23.450
+Ok so it's modeled up posts top posts.
+
+07:23.800 --> 07:30.310
+And if they want to use are they going after say John equals common models.
+
+07:30.440 --> 07:34.130
+God uses dark to use a dot using K.
+
+07:34.300 --> 07:36.310
+Now all this will work just fine.
+
+07:36.320 --> 07:38.880
+Models users will I have to import it.
+
+07:38.890 --> 07:40.360
+I haven't done that.
+
+07:40.410 --> 07:48.610
+Import common data models that are users darte user.
+
+07:48.700 --> 07:52.580
+I have to import that now everything will run just fine.
+
+07:53.730 --> 07:58.810
+Go ahead and run it and you can see it run fine so it was able to find those objects and create the.
+
+07:59.020 --> 08:03.700
+But of course this is really tedious for our users and they also have to understand how we structured
+
+08:03.700 --> 08:08.600
+our code which really has nothing to do with how they want to be able to use the models.
+
+08:08.830 --> 08:15.240
+Ideally we'd just import common models and then we'd find posts and posts and user directly on the models.
+
+08:15.610 --> 08:18.010
+But we've seen how we can do that with validators.
+
+08:18.010 --> 08:20.030
+So let's go ahead and do the same thing.
+
+08:20.170 --> 08:23.540
+But now let's do this with our nested packages.
+
+08:24.590 --> 08:29.420
+So let's go ahead and clean this up and we're going to use the exact same approach that we did with
+
+08:29.510 --> 08:31.810
+validators write with validators.
+
+08:31.910 --> 08:38.960
+We use this in Pollstar technique and then we use this Dunder all property that we could specify both
+
+08:38.960 --> 08:44.460
+in the package itself that the init file as well as in the individual modules.
+
+08:44.630 --> 08:48.270
+We could specify what we want to actually export.
+
+08:48.500 --> 08:53.750
+So let me go ahead and just cause everything let's clean that up and let's start working our way through
+
+08:53.750 --> 08:54.530
+it.
+
+08:54.530 --> 08:56.070
+So let's start with posts.
+
+08:56.090 --> 09:01.060
+Well the first thing we want to do is specify what we want to actually export from here.
+
+09:01.370 --> 09:10.890
+So we only want to export post and post what you want to export is in the post class nothing else.
+
+09:10.910 --> 09:13.090
+That's the only symbol we want to export.
+
+09:13.400 --> 09:15.940
+We have to now clean up the init.
+
+09:16.010 --> 09:16.550
+So init.
+
+09:16.640 --> 09:22.320
+Now we want to pool those symbols from post and post into the post package.
+
+09:22.370 --> 09:33.930
+So we're going to say we can use relative imports from posts in Pollstar and from post import stuff.
+
+09:34.310 --> 09:40.160
+But of course we also want to make sure that we're not exporting posts and post itself because if we
+
+09:40.160 --> 09:46.370
+do this what's going to be in the namespace of posts while it's going to be all the symbols from the
+
+09:46.370 --> 09:54.100
+posts Mondial all the symbols from the post module as well as symbols for posts and post.
+
+09:54.110 --> 09:57.330
+Let's take a look we can see that in the main file.
+
+09:57.410 --> 10:00.410
+So now I don't have to import these anymore.
+
+10:00.470 --> 10:04.310
+I can remove that and of course I don't need this one at all.
+
+10:04.520 --> 10:12.770
+The way we would reference post now is just to go to posts to the post package inside the models package
+
+10:13.430 --> 10:19.750
+and we can now actually look at what's inside the Post's package.
+
+10:19.810 --> 10:23.290
+OK so we can look at common dot models.
+
+10:23.370 --> 10:28.820
+DOPs posts so we can see what's inside this package.
+
+10:28.820 --> 10:34.460
+Let's run this and we can see that in the Post's package we have the Post's object.
+
+10:34.490 --> 10:39.660
+The Post object but we also have these two modules posts and post.
+
+10:39.680 --> 10:46.820
+We can go to the posts to wherever we're loading this up is in here and here we need to specify what
+
+10:46.820 --> 10:48.000
+do we want to export.
+
+10:48.260 --> 10:49.840
+Well what do I want to export.
+
+10:49.880 --> 10:55.460
+I want an export everything that's in posts that's being exported from post and post so I'm just going
+
+10:55.460 --> 11:00.050
+to use the same technique as the floor to take posts under all.
+
+11:00.230 --> 11:09.070
+And we're going to concatenate that with post under all so that's all we need to do to export the specific
+
+11:09.070 --> 11:12.340
+symbols that we want out of posts and post.
+
+11:12.340 --> 11:21.370
+So now in our main program we can just import common models posed and then we have these.
+
+11:22.010 --> 11:30.760
+We can use models posts posts and everything works as expected.
+
+11:30.760 --> 11:32.590
+So now let's do the same thing to users.
+
+11:32.620 --> 11:35.380
+We need to basically do the same thing here.
+
+11:35.440 --> 11:40.700
+So we're going to say from a relative import to user import stuff.
+
+11:40.850 --> 11:48.210
+And I'm going to specify the all property as well to be just simply the users under old properties.
+
+11:48.490 --> 11:51.400
+I don't have to actually concatenate anything here.
+
+11:51.730 --> 11:54.250
+So now if we go back to main we can do the same thing here.
+
+11:54.280 --> 11:56.730
+We don't have to import users not users.
+
+11:57.070 --> 12:00.020
+We can just import users.
+
+12:00.580 --> 12:08.890
+And now we can reference the user class directly from the users package because it's been imported via
+
+12:08.940 --> 12:13.930
+the impled stuff and then specifying the donder all the bits.
+
+12:13.960 --> 12:17.660
+Which means that we're now limiting what symbols are being exported.
+
+12:19.560 --> 12:27.800
+So for example we won't see it use the help of one being exported Neither into this package here or
+
+12:27.920 --> 12:28.890
+in this one.
+
+12:28.890 --> 12:31.370
+Now this one doesn't do anything yet right.
+
+12:31.380 --> 12:33.300
+So we'll fix that in a second.
+
+12:33.510 --> 12:36.070
+Let's go ahead and make sure this works fine.
+
+12:36.240 --> 12:42.590
+And it tells us that common model uses user has no attribute done at all.
+
+12:42.660 --> 12:49.260
+So that's because we need to specify the Dondre all attribute in him to specify what we want to export.
+
+12:49.370 --> 12:50.050
+OK.
+
+12:51.790 --> 12:52.120
+All right.
+
+12:52.130 --> 12:56.100
+So now we have the Dunder in it done for the uses package.
+
+12:56.110 --> 13:03.190
+It's just you know basically only take the single module user that posts gets things from to submodules
+
+13:03.190 --> 13:05.960
+the posts and posts submodules.
+
+13:05.960 --> 13:13.270
+And now we should begin to go in our main Bakhit in our main program and as we can see it ran just fine.
+
+13:13.460 --> 13:13.900
+OK.
+
+13:14.030 --> 13:20.870
+And we can see posts post the two modules that were loaded inside the posts package but then we see
+
+13:20.870 --> 13:27.980
+that we have the posts and the post directly available under the posts package as opposed to having
+
+13:27.980 --> 13:34.600
+to dig down one more level to adult post adult posts to get to these two things here.
+
+13:34.610 --> 13:37.900
+Now obviously we want to pull them up one more level right.
+
+13:38.150 --> 13:43.490
+Ideally we want to be able to just say common dot models import that and then say commande up Mols dot
+
+13:43.700 --> 13:45.920
+post the class directive.
+
+13:46.190 --> 13:47.020
+How do we do that.
+
+13:47.030 --> 13:48.970
+Well it's just one more level.
+
+13:49.100 --> 13:52.740
+So all we need to do now is go to the models package.
+
+13:52.760 --> 14:00.140
+This is the models package and we're just going to say from our relative import from posts in coldstone
+
+14:00.710 --> 14:03.970
+and from users import stock.
+
+14:04.070 --> 14:05.810
+So now we have both those things.
+
+14:05.810 --> 14:09.580
+And again I'm going to specify the whole.
+
+14:10.190 --> 14:11.190
+I don't have to.
+
+14:11.270 --> 14:11.590
+OK.
+
+14:11.600 --> 14:13.610
+Let me show you what happens if I don't do that.
+
+14:13.630 --> 14:14.550
+It's OK.
+
+14:14.720 --> 14:17.490
+So we can run everything runs just fine.
+
+14:17.570 --> 14:20.030
+But let's go ahead now and change this.
+
+14:20.030 --> 14:23.210
+Let's remove that and Drogo of that case.
+
+14:23.270 --> 14:31.400
+Now we're just importing commandant models and now our users can access the models classes directly
+
+14:31.490 --> 14:37.510
+inside the models package that make sure everything runs just fine.
+
+14:37.680 --> 14:40.930
+Code 0.
+
+14:41.130 --> 14:45.420
+But let's say that they do something like this servicing import commandant models.
+
+14:45.420 --> 14:47.220
+They want to do something like this.
+
+14:47.220 --> 14:50.130
+They want to say from common models.
+
+14:50.160 --> 14:51.100
+Simple stuff.
+
+14:51.180 --> 14:56.990
+Now that's not something really that we should be doing and code it pollutes the namespace.
+
+14:56.990 --> 15:03.830
+You can run into you know conflicts where you have different packages that have the same names and so
+
+15:03.830 --> 15:06.650
+you run into those issues that we've discussed before.
+
+15:06.980 --> 15:11.630
+But if we do this we could then technically just use it this way.
+
+15:13.070 --> 15:21.050
+We can remove all that stuff and we can just import we can just use these imports directly and we'll
+
+15:21.050 --> 15:22.790
+want to see what's in these cells.
+
+15:22.820 --> 15:27.040
+So I'm not going to worry about this package anymore.
+
+15:27.200 --> 15:31.040
+Let's run this and let's see what we have in our global namespace.
+
+15:31.220 --> 15:37.370
+And you'll notice that we have in our global namespace as we have these objects posts post these classes
+
+15:37.370 --> 15:45.080
+that we define user but then we also have the package's posts and users and maybe we want to make it
+
+15:45.080 --> 15:50.150
+easy for our users so that if they do an important star at least those are not going to show up.
+
+15:50.360 --> 15:52.060
+Well again that's very simple.
+
+15:52.130 --> 15:57.920
+In the Dundreary init for models we're going to restrict what symbols would be exported if somebody
+
+15:57.920 --> 15:59.530
+used an import stuff.
+
+15:59.840 --> 16:07.310
+So we would say donder all equals posts under all plus.
+
+16:07.580 --> 16:10.930
+And I could put on one line but I'm just going to stick to this one.
+
+16:11.120 --> 16:14.790
+Plus users under all.
+
+16:15.040 --> 16:23.490
+OK so now if we do this and we rerun you'll notice what's inside our Global's ourself.
+
+16:23.810 --> 16:31.100
+We have posts and posts and user those classes those data models but we no longer have the posts and
+
+16:31.100 --> 16:33.290
+uses packages in there.
+
+16:33.620 --> 16:40.010
+But of course that only works if you are exporting or importing using an import stuff.
+
+16:40.010 --> 16:44.640
+Remember that this Dunkel only applies to import styles in our main.
+
+16:44.660 --> 16:46.660
+That's not what we should be doing anyways.
+
+16:46.670 --> 16:48.750
+That's not considered good practice.
+
+16:48.770 --> 16:50.900
+We shouldn't be importing things this way.
+
+16:50.900 --> 16:56.450
+We should be importing things this way and then we still have then to refer to common dock models.
+
+16:56.450 --> 17:02.840
+Now if you wanted to we could say you know import this commande up models as models we can alias it.
+
+17:02.960 --> 17:10.860
+And now we could say models that pose models of posts and models that use it.
+
+17:12.320 --> 17:20.430
+So if we look at that cross it runs fine and then we'll see that in our global namespace we just have
+
+17:20.730 --> 17:27.870
+models and under models we are then able to access post posts and users.
+
+17:27.870 --> 17:31.090
+We can take a look at what's inside the models for example.
+
+17:31.140 --> 17:36.010
+So for models we can see that those symbols are indeed in their
+
+17:39.720 --> 17:48.980
+i'll just have to look at the dictionary namespace dictionary for models and let's see where we get.
+
+17:48.980 --> 17:51.920
+So here's the namespace dictionary for models.
+
+17:51.920 --> 17:55.070
+We have posts posts and user.
+
+17:55.190 --> 17:59.360
+And obviously we have the two packages that we've been using where we're pulling things from which are
+
+17:59.360 --> 18:01.160
+posts and uses.
+
+18:01.160 --> 18:08.480
+So this is how you can use the Dunner init files an important import doubles and the donder all property
+
+18:08.780 --> 18:11.300
+to kind of flatten your things out.
+
+18:11.300 --> 18:17.840
+Right so now our users no longer have to understand how our code is structured and the models they just
+
+18:17.840 --> 18:23.570
+have to import models and then they can use the you know the data models directly the posts and the
+
+18:23.570 --> 18:24.750
+user and so on.
+
+18:25.070 --> 18:27.330
+So much simpler for the end users.
+
+18:27.380 --> 18:33.380
+And if you're consuming your own packages Well same thing it's going to make your life easier if you
+
+18:33.380 --> 18:35.360
+can write code like this as opposed.
+
+18:35.370 --> 18:41.060
+And this as opposed to having to nest yourself down based on how you structured the code which is really
+
+18:41.090 --> 18:46.680
+just an internal implementation detail that doesn't need to be surfaced.
+
+18:46.730 --> 18:52.940
+And so we can use that technique to flatten things out and make the all the entire data model a little
+
+18:52.940 --> 18:56.280
+simpler to understand.
+
+18:56.420 --> 19:01.130
+One thing that I'd like to mention is the Dundreary in net the dunderheaded.
+
+19:01.130 --> 19:05.270
+Remember as we discussed it is just the code for the module.
+
+19:05.330 --> 19:09.370
+And so you'll find that sometimes people will do things like this.
+
+19:09.370 --> 19:13.790
+Let me go ahead and write that say a another package.
+
+19:13.790 --> 19:16.720
+So let's go and let's call this.
+
+19:17.450 --> 19:19.740
+You know maybe help us out.
+
+19:20.420 --> 19:23.380
+Call helpers and in the dunderheaded.
+
+19:23.420 --> 19:25.580
+What I'm going to do for helper's
+
+19:28.430 --> 19:33.200
+is I might have let's say a subclass of submodule in here.
+
+19:33.350 --> 19:38.870
+Let's say I'm going to call a calculator.
+
+19:40.970 --> 19:46.320
+So this is going to be a module and this is the calculator darte.
+
+19:46.620 --> 19:47.710
+Why file.
+
+19:47.930 --> 19:55.780
+And here I'm going to make these do a dunder all as well and that's just going to be equal to that favor
+
+19:55.850 --> 19:59.720
+Kelk object which I'm going to define now.
+
+20:01.070 --> 20:01.600
+OK.
+
+20:01.960 --> 20:06.840
+And maybe it has some help as well.
+
+20:10.100 --> 20:16.610
+But only thing I want to export from there is the Kelk get object class.
+
+20:16.980 --> 20:22.160
+So here in the Dondre in that I might say something like from calculative.
+
+20:22.200 --> 20:23.710
+So I'm using a real import.
+
+20:23.730 --> 20:25.050
+I'm not going to use an import style.
+
+20:25.080 --> 20:27.880
+I know that I only want to let's say to import calc.
+
+20:27.960 --> 20:29.480
+So I'll do it this way.
+
+20:29.720 --> 20:30.190
+OK.
+
+20:31.600 --> 20:37.510
+But now what I can do is I can add some additional functionality in this thing I can add some code.
+
+20:37.510 --> 20:38.270
+I could say.
+
+20:38.280 --> 20:45.120
+Def say hello for example and I'd pass in the name and I'm going to return.
+
+20:45.220 --> 20:48.290
+You know just hello name.
+
+20:48.790 --> 20:50.280
+OK something like this.
+
+20:50.320 --> 20:52.280
+Or am I defined.
+
+20:52.750 --> 20:57.470
+Another function may be DAPH factorial.
+
+20:57.480 --> 21:04.440
+Let's do a factorial in here and we'll pass an n and we'll say if an is less than or equal to one return
+
+21:04.640 --> 21:12.080
+the one else return and times factorial of and minus one something like this for example.
+
+21:12.220 --> 21:20.950
+Ok so I can add other code inside this in it because this is what it is the code file associated with
+
+21:20.950 --> 21:23.450
+the helpers module because it is a module.
+
+21:23.480 --> 21:24.130
+It's a package.
+
+21:24.130 --> 21:26.510
+Sure but it's also a module.
+
+21:27.070 --> 21:33.640
+So no it's I don't mean I could do this I could say Imphal helpers and now that I've got helpers in
+
+21:33.670 --> 21:37.420
+hishe and actually let me I'll leave that code in.
+
+21:38.080 --> 21:40.950
+I could now say helper's dots.
+
+21:41.080 --> 21:48.090
+Now I can create a calc I can find CALKIN they can so I can say calc equals helper's calc.
+
+21:48.310 --> 21:49.740
+That should be in there.
+
+21:49.780 --> 21:50.140
+Right.
+
+21:50.140 --> 21:50.970
+We were on this.
+
+21:50.980 --> 21:51.780
+Everything.
+
+21:51.850 --> 21:58.200
+No module named helper's because I put helpers under common sorry's so import common helpers.
+
+21:58.320 --> 22:00.880
+OK so now let's run this.
+
+22:00.880 --> 22:02.110
+Everything runs just fine.
+
+22:02.110 --> 22:08.710
+We were able to create this calc but also now we also have under helper's we also have things like for
+
+22:08.710 --> 22:13.150
+example say hello Python.
+
+22:13.330 --> 22:14.110
+OK.
+
+22:14.170 --> 22:18.670
+Or we could also say I just is going to print this out.
+
+22:19.810 --> 22:32.730
+We could also print out helper's dot com actually import come and help as I have to say common right.
+
+22:33.110 --> 22:37.150
+That help is or I could just do import common helpers
+
+22:40.410 --> 22:42.820
+as helpers in this way.
+
+22:43.150 --> 22:45.230
+So now I can just use kalpas directly.
+
+22:45.310 --> 22:49.960
+OK so help us say hello and helper's let's say factorial
+
+22:53.290 --> 22:54.160
+of 5.
+
+22:54.280 --> 22:55.100
+OK.
+
+22:55.510 --> 23:00.460
+And so we can run this code and as you can see we get hello Python and we get the factorial of five
+
+23:00.460 --> 23:02.690
+which is a 120.
+
+23:02.870 --> 23:07.790
+And this is something that you'll find in various locations you'll find that even in the standard library
+
+23:07.820 --> 23:12.580
+this kind of technique is used personally I don't like it.
+
+23:12.640 --> 23:18.600
+I think of the Dunder in it and especially given the name that the file has in its initialization.
+
+23:18.880 --> 23:26.710
+I don't put code that's functional code inside my initialises I don't do that let's say inside a class
+
+23:27.240 --> 23:32.200
+and put you know things like that in a Dundreary net in a class it would be just for the initialization
+
+23:32.200 --> 23:33.470
+of the class.
+
+23:33.610 --> 23:36.160
+So the same deal happens here.
+
+23:36.220 --> 23:39.480
+The fact that we can do it doesn't mean that we should.
+
+23:39.490 --> 23:41.260
+So let me clean this up.
+
+23:41.260 --> 23:43.720
+Let's close all let's reopen this.
+
+23:43.840 --> 23:46.400
+So I don't like this technique here.
+
+23:46.510 --> 23:51.740
+I think that the Dundrum it should be used for import related things only.
+
+23:51.940 --> 23:56.460
+For example let's take a look at a good example of that and it can get complicated.
+
+23:56.470 --> 24:00.160
+Let's do an a sink IHO let's look at the async IO library.
+
+24:00.160 --> 24:03.240
+That's part of the standard library that a single package.
+
+24:03.760 --> 24:09.560
+And let's actually go and look at the code in that package as you can see it's got you know quite a
+
+24:09.760 --> 24:10.570
+bunch of code.
+
+24:10.570 --> 24:15.570
+It's it's not just simple stuff it has to you know it imports this module.
+
+24:15.640 --> 24:20.110
+It has to try except it's trying to import this the selectors.
+
+24:20.110 --> 24:23.970
+If not I'd go back and look you know it looks for it elsewhere.
+
+24:24.160 --> 24:29.830
+If the platform is a Windows platform then it does various things it tries this import otherwise that
+
+24:29.830 --> 24:30.700
+import.
+
+24:31.070 --> 24:38.320
+OK and then here's what skying Here's is where it's kind of packaging things together now and then doing
+
+24:38.320 --> 24:45.490
+the the Donder also that if somebody doesn't import stuff from async IO they'll just get these symbols
+
+24:45.550 --> 24:46.760
+being exported.
+
+24:46.930 --> 24:47.360
+OK.
+
+24:47.470 --> 24:55.090
+And then we have even more things over here with statements this is OK it's code but it has to do with
+
+24:55.090 --> 24:59.180
+building up this package called async IO.
+
+24:59.260 --> 25:03.190
+On the other hand you could look at something like for example the e-mail package.
+
+25:03.640 --> 25:09.280
+So email is a package as well in the standard library and we can go and look at the code in there.
+
+25:09.490 --> 25:10.900
+And so so far so good.
+
+25:10.900 --> 25:15.370
+Right it's importing those done all while importing it specifying what the exports are.
+
+25:15.520 --> 25:16.050
+OK.
+
+25:16.180 --> 25:22.050
+So it's you know doing them by hand one by one and then look at this.
+
+25:22.100 --> 25:29.270
+Then you have these things here a message from string message from bytes K message from string is right
+
+25:29.270 --> 25:30.670
+here a message from bytes.
+
+25:30.680 --> 25:37.300
+So the functions that are being exported are actually defined right inside this thing over here.
+
+25:37.670 --> 25:38.370
+OK.
+
+25:38.750 --> 25:42.640
+And so to me that's not where I would put it.
+
+25:42.840 --> 25:43.190
+OK.
+
+25:43.250 --> 25:46.040
+I wouldn't put those things in there.
+
+25:47.240 --> 25:49.850
+That's that's just me.
+
+25:49.980 --> 25:50.290
+OK.
+
+25:50.310 --> 25:52.820
+I don't like that approach that much.
+
+25:52.860 --> 25:56.270
+Maybe there was a reason for doing this maybe it was a backward compatibility reason.
+
+25:56.280 --> 26:04.350
+I'm not sure but if we look at the e-mail package itself you can see what it looks like.
+
+26:04.350 --> 26:04.620
+Right.
+
+26:04.620 --> 26:06.970
+This is just what we were looking at right now.
+
+26:07.260 --> 26:13.980
+And so here we have e-mailed a passer imports bite's bounces so it looks like it's the import is inside
+
+26:13.980 --> 26:14.600
+this function.
+
+26:14.610 --> 26:19.350
+But as you know once you do that that means that e-mail that Pansa got loaded.
+
+26:19.500 --> 26:21.920
+Right it because Python had to do this impled.
+
+26:21.960 --> 26:27.340
+So it had to load e-mail load pouncer and load bytes pouncer as well.
+
+26:27.750 --> 26:33.020
+So if we look now at the pouncer that's right here.
+
+26:33.120 --> 26:35.260
+Let's go ahead and see this.
+
+26:35.340 --> 26:41.820
+You'll see that it also has its imports and it's now importing submodules or sub package you know submodules
+
+26:41.820 --> 26:46.890
+in this case you know and exploiting those spouses symbol and so on.
+
+26:47.190 --> 26:51.400
+But that's only part of why that's a module I expect code to live in there.
+
+26:51.480 --> 26:57.440
+What I don't expect is that some of the functions are actually defined in the donder in it.
+
+26:57.690 --> 26:59.790
+So this is just personal preference.
+
+26:59.790 --> 27:02.150
+I wouldn't do it that way.
+
+27:02.280 --> 27:07.520
+But of course you know depending on your circumstance you may want to do it this way for some reason.
+
+27:07.530 --> 27:09.630
+Generally though we don't do that.
+
+27:09.630 --> 27:18.280
+We restrict our initializations to be things that are going to be just for the packaging of stuff.
+
+27:18.300 --> 27:21.590
+And of course it can get complicated as we saw with a single or.
+
+27:21.720 --> 27:22.050
+Right.
+
+27:22.050 --> 27:22.580
+It can.
+
+27:22.590 --> 27:24.710
+It can get pretty complicated.
+
+27:24.720 --> 27:25.320
+All right.
+
+27:25.350 --> 27:27.630
+Thanks for watching and I'll see you in the next video.

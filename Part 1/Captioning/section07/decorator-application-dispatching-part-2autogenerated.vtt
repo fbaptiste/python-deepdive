@@ -1,0 +1,1726 @@
+WEBVTT
+
+00:00.570 --> 00:05.690
+Hi and welcome back to part two of our single dispatch generic functions.
+
+00:06.030 --> 00:12.690
+So in the last video we ended with this function here H-2 Himalayas that takes in an argument and then
+
+00:12.690 --> 00:18.320
+based on the type of the argument it looks up in this hand-coded registry dictionary which function
+
+00:18.320 --> 00:22.850
+it should actually apply to that argument that got passed in.
+
+00:23.190 --> 00:24.960
+There was a couple of errors in there.
+
+00:24.990 --> 00:31.110
+I had h tim l ENT for float and decimal should have been really touched him all real but it doesn't
+
+00:31.110 --> 00:33.860
+really matter because we're going to get rid of all this.
+
+00:33.870 --> 00:39.960
+The problem is that of course we have this hard coded registry and we don't want to hand-coded we want
+
+00:39.960 --> 00:46.000
+to write this in a way that's more general so that we can apply the same principle to any kind of dispatch
+
+00:46.050 --> 00:47.790
+that we want a single argument.
+
+00:47.820 --> 00:52.040
+Dispatcher which is what this implies function does right now.
+
+00:52.080 --> 00:57.110
+So let's go ahead and kind of take this idea and let me copy paste it.
+
+00:57.120 --> 01:02.810
+Actually let's just delete this and this and let's just write below.
+
+01:03.170 --> 01:06.640
+So the way I want to do this is going to look a little silly at first.
+
+01:06.710 --> 01:10.710
+I'm going to create a decorator that does something a little odd.
+
+01:10.880 --> 01:14.660
+But bear with me and I'll explain why after we've done the code.
+
+01:14.690 --> 01:19.490
+I'll explain what it actually does and that will be the starting point for our dispatcher.
+
+01:19.670 --> 01:21.100
+So let's go ahead and write it.
+
+01:21.110 --> 01:22.870
+Now I'm writing a decorator so it's not.
+
+01:22.880 --> 01:27.980
+Tim allys this is now a more general kind of decorator so I'm going to call it single dispatch.
+
+01:28.070 --> 01:33.440
+That's what it is we're trying to create a single dispatch function essentially.
+
+01:33.440 --> 01:35.600
+And we're going to use that using a decorator.
+
+01:35.870 --> 01:37.040
+So it's a decorator.
+
+01:37.040 --> 01:42.980
+The argument the first argument is the the fourth and only argument is the function.
+
+01:42.980 --> 01:47.450
+So this is not a parameterized decorator's just a regular decorator.
+
+01:47.780 --> 01:53.970
+And we're going to create a registry dictionary inside the single dispatch function.
+
+01:54.170 --> 01:56.820
+And now this is kind of the weird part.
+
+01:56.990 --> 01:59.650
+What am I going to do when I write.
+
+01:59.690 --> 02:01.970
+What is the inner function that closure right.
+
+02:01.970 --> 02:03.900
+That we have when we write decorator's.
+
+02:04.040 --> 02:05.250
+What is that going to do.
+
+02:05.270 --> 02:06.940
+Well it's going to take in an argument.
+
+02:06.950 --> 02:10.800
+Remember we're writing a single dispatch so single argument.
+
+02:10.850 --> 02:16.880
+So I'm assuming here that whatever function we're decorating whatever this function is here only requires
+
+02:16.970 --> 02:18.470
+one argument.
+
+02:18.740 --> 02:19.030
+Right.
+
+02:19.040 --> 02:24.410
+We could write it so it can take multiple arguments but we would only do the dispatch on the first argument
+
+02:24.500 --> 02:25.710
+anyway.
+
+02:25.740 --> 02:31.660
+So to keep it simple I'm going to make the assumption that we're only using single argument functions.
+
+02:32.210 --> 02:34.480
+So let's go ahead and write that in a function.
+
+02:34.520 --> 02:39.770
+And of course it's a closure so it's a decorator so we're going to return in an hour after we're done
+
+02:39.770 --> 02:40.570
+with it.
+
+02:40.790 --> 02:42.970
+And in a normally what does it do.
+
+02:42.980 --> 02:49.730
+It does some work and then it executes the function and applies it to the argument and then returns
+
+02:49.730 --> 02:50.320
+the value.
+
+02:50.390 --> 02:56.270
+Right so then we can call this in a function as if we are called the decorated function.
+
+02:56.450 --> 03:06.920
+So we're going to do something very similar here except that I'm not going to call efen directly.
+
+03:06.920 --> 03:11.630
+OK this is what we would normally do in a decorated this wouldn't be there we'd have something in here
+
+03:11.630 --> 03:12.580
+like me at all.
+
+03:12.640 --> 03:19.720
+You print something out or do something or other and then evaluate the function with the argument.
+
+03:19.760 --> 03:26.180
+This function with this argument or argument if we have more than one and then return that value here.
+
+03:26.210 --> 03:32.660
+I'm not going to use effen directly and this is kind of the silly thing I'm going to add to the registry
+
+03:33.170 --> 03:36.920
+under the object key because this is not my generic thing.
+
+03:36.920 --> 03:44.810
+So if I pass in an object for this function it's going to take it and it's going to assign it to it's
+
+03:44.810 --> 03:49.910
+going to sign FLN the function to the object key in the registry dictionary.
+
+03:50.090 --> 03:55.700
+So you can think of this as the default function we were writing like HD MLS scape for example.
+
+03:56.080 --> 03:58.760
+OK so now I have that.
+
+03:59.060 --> 04:00.710
+And what do I want to do.
+
+04:00.830 --> 04:05.540
+Well I want to look up the function in the registry.
+
+04:05.540 --> 04:11.550
+So basically I'm going to say return registry object.
+
+04:11.620 --> 04:12.000
+Right.
+
+04:12.020 --> 04:17.030
+I'm going to look up the the function by using the object key in the registry and then I'm going to
+
+04:17.030 --> 04:18.600
+apply it to the argument.
+
+04:18.880 --> 04:19.650
+OK.
+
+04:19.910 --> 04:27.140
+So this is my decorator which is kind of weird right because all I'm doing is just running F-in on the
+
+04:27.140 --> 04:28.460
+argument.
+
+04:28.580 --> 04:32.300
+So if I go ahead and say single dispatch
+
+04:34.580 --> 04:42.420
+and I do def h t implies I'm going to call it a Himalayans takes some arguments single argument a.
+
+04:42.590 --> 04:46.230
+And what is it going to do it's going to return escape.
+
+04:46.260 --> 04:49.870
+Are you going to string a FI A and then escape.
+
+04:50.080 --> 04:50.680
+OK.
+
+04:50.930 --> 04:54.030
+So h tim allies is now this in a function.
+
+04:54.350 --> 04:57.540
+So I can call it I can say HFM allies let's say.
+
+04:57.710 --> 05:00.030
+One is less than 100.
+
+05:00.530 --> 05:04.840
+And of course we get the escaped version of that string.
+
+05:04.850 --> 05:05.430
+Why.
+
+05:05.480 --> 05:12.590
+Well when we called him allies we actually called in her it basically said hey go look up whatever the
+
+05:13.610 --> 05:15.580
+function is that's in the registry.
+
+05:15.630 --> 05:17.790
+We have a key of object look that up.
+
+05:17.940 --> 05:22.050
+Well that was the Tim allies our original team allies function right.
+
+05:22.050 --> 05:23.400
+They go past Fehn.
+
+05:23.540 --> 05:28.940
+So it looks up that function and applies it to the argument and then returns the value to exactly what
+
+05:28.940 --> 05:29.960
+it did there.
+
+05:30.350 --> 05:31.440
+So it's kind of weird.
+
+05:31.490 --> 05:32.980
+Why am I doing that.
+
+05:32.990 --> 05:36.950
+Well because now what I want to do is something a little bit different.
+
+05:37.040 --> 05:39.600
+Let's expand on this a little bit.
+
+05:39.620 --> 05:40.330
+Let's go ahead.
+
+05:40.340 --> 05:42.560
+I'll copy paste it and I'm going to.
+
+05:42.570 --> 05:45.810
+And let's say another entry here.
+
+05:45.860 --> 05:50.230
+I'm going to say registry Ent. is equal to.
+
+05:50.510 --> 05:52.250
+And here I'm going to use a lambda.
+
+05:52.640 --> 05:55.880
+So my I'm going to define the function right in kid.
+
+05:56.330 --> 05:58.020
+And I'm going to say lambda.
+
+05:58.190 --> 05:59.260
+And what do I want.
+
+05:59.270 --> 06:02.060
+I'm going to go back to what we had for the INT.
+
+06:02.070 --> 06:02.360
+Right.
+
+06:02.370 --> 06:04.220
+This is how we were decorating it.
+
+06:04.370 --> 06:05.300
+Ah decoration.
+
+06:05.430 --> 06:07.350
+That's how we're handling integers.
+
+06:07.470 --> 06:11.230
+So let me go ahead here and just paste this right in here.
+
+06:11.550 --> 06:18.120
+So Lamda a try it's going to take some parameter a and it's going to do this to basically do the string
+
+06:18.450 --> 06:21.710
+representation in the middle of our integers.
+
+06:22.170 --> 06:26.730
+And I could maybe even say registry.
+
+06:27.030 --> 06:28.970
+Maybe we'll do a string.
+
+06:29.130 --> 06:30.580
+What do we want to do with a string.
+
+06:30.600 --> 06:34.800
+Well we just want to escape the string but then we have some other stuff too.
+
+06:34.800 --> 06:38.490
+So let's go back and see what else we had for the string.
+
+06:38.490 --> 06:43.290
+We wanted to replace remember the carriage returns with B tags.
+
+06:43.290 --> 06:45.940
+So let's go ahead and put that in as well.
+
+06:45.960 --> 06:54.570
+So again I'm just going to use a lambda here to pass and it uses s h to Melas Scates it and then replaces
+
+06:54.570 --> 06:54.920
+it.
+
+06:55.020 --> 06:55.530
+OK.
+
+06:55.710 --> 06:56.930
+So we have that.
+
+06:56.940 --> 06:58.820
+I'm not even going to use h him escape.
+
+06:58.830 --> 07:00.810
+I'm going to use escape directly.
+
+07:00.810 --> 07:02.090
+We already have a string.
+
+07:02.250 --> 07:02.680
+OK.
+
+07:04.690 --> 07:06.660
+And what I'm going to do now.
+
+07:06.660 --> 07:13.030
+So got multiple objects in my registry with multiple I should say entries in my registry dictionary
+
+07:13.560 --> 07:14.280
+here.
+
+07:14.320 --> 07:17.370
+I'm always taking object instead of doing this.
+
+07:17.380 --> 07:21.880
+I'm now going to look at the type of the argument and go find it in the registry.
+
+07:21.880 --> 07:23.660
+So just like we had before.
+
+07:23.770 --> 07:24.430
+Right.
+
+07:24.430 --> 07:27.260
+So instead of the function that we want to execute.
+
+07:27.370 --> 07:33.740
+If I was to write it like this would be registry DOT gets amused.
+
+07:33.760 --> 07:38.950
+I'm going to use get and I'm going to look for the type of thing in the registry.
+
+07:38.950 --> 07:46.360
+So if I pass in let's say an integer when I call this H2 implies right by pass an integer it's going
+
+07:46.360 --> 07:51.940
+to get type of the integers in and it's good to find it and it's going to use this lambda expression
+
+07:51.940 --> 07:53.250
+over here.
+
+07:53.980 --> 07:56.020
+So now let me go ahead and do that.
+
+07:56.050 --> 07:58.610
+But if I don't find it what do I want to do.
+
+07:58.810 --> 08:02.710
+Well I want to look up the object right.
+
+08:02.710 --> 08:03.790
+That's my default.
+
+08:03.790 --> 08:06.550
+Now of course what do I get out of the registry.
+
+08:06.550 --> 08:09.640
+I get the value associated with this key.
+
+08:09.820 --> 08:15.070
+So I don't want to return the key if I can't find the key I want to return the function associated with
+
+08:15.070 --> 08:17.640
+the key which I know exists.
+
+08:17.680 --> 08:21.370
+So I can go and pull it out this way.
+
+08:21.370 --> 08:25.930
+And now that I have the function I can apply it to the argument.
+
+08:25.990 --> 08:27.250
+I can do this.
+
+08:27.630 --> 08:28.160
+OK.
+
+08:28.370 --> 08:34.950
+So let's go ahead and now really I don't even need this I can just return it directly.
+
+08:35.200 --> 08:36.050
+OK.
+
+08:37.150 --> 08:39.790
+So let's go ahead and see now what happens.
+
+08:39.790 --> 08:44.130
+So I can go ahead and say Single this patch.
+
+08:44.200 --> 08:51.750
+Now I still need to write this decorator because the one thing that this doesn't have right now.
+
+08:51.850 --> 08:56.290
+Well first of all we need to run the decorator in order to create the registry but we also need that
+
+08:56.290 --> 08:59.630
+default function that's associated with the object.
+
+08:59.620 --> 09:01.260
+So Tim Elyse.
+
+09:01.780 --> 09:06.310
+And our default will just be a return escape string a.
+
+09:06.450 --> 09:06.920
+OK.
+
+09:07.060 --> 09:09.650
+So we have that.
+
+09:09.730 --> 09:12.410
+So now we can say HFM allies of a string.
+
+09:12.410 --> 09:13.720
+One is less than 100.
+
+09:13.720 --> 09:14.920
+Just as before.
+
+09:15.120 --> 09:15.700
+OK.
+
+09:16.150 --> 09:19.640
+Except what's happening here is that I didn't call it an arm.
+
+09:19.720 --> 09:22.300
+So apologize let me fix that up.
+
+09:23.400 --> 09:23.860
+OK.
+
+09:23.920 --> 09:25.010
+I didn't call.
+
+09:25.030 --> 09:26.590
+Remember I didn't make the function call.
+
+09:26.590 --> 09:31.750
+I just got the function from the dictionary but I never actually called it which is what we typically
+
+09:31.750 --> 09:33.580
+expect on decorators to do.
+
+09:33.910 --> 09:35.830
+So I just fix that up.
+
+09:35.830 --> 09:44.330
+Now that thing though if I can call it with an integer then it should look up the integer and the registry.
+
+09:44.650 --> 09:45.920
+And indeed it does.
+
+09:45.940 --> 09:48.590
+It formats it using the integer.
+
+09:49.300 --> 09:52.420
+So we're getting closer to what we want.
+
+09:52.420 --> 09:59.500
+The only problem though is that we're still having this problem where we have to halt code these extra
+
+09:59.500 --> 10:01.300
+things in the registry.
+
+10:01.300 --> 10:06.840
+We need to be able to get to a point where we're injecting those functions from outside.
+
+10:07.000 --> 10:07.240
+Right.
+
+10:07.240 --> 10:12.790
+We don't want this to be in our single dispatch function which is supposed to be a generic kind of you
+
+10:12.790 --> 10:13.960
+know decorator.
+
+10:13.990 --> 10:15.210
+This is not generic.
+
+10:15.370 --> 10:16.110
+Right.
+
+10:16.120 --> 10:17.440
+This is not generic at all.
+
+10:17.560 --> 10:18.460
+What's not generic.
+
+10:18.460 --> 10:20.620
+Well the keys are not generic.
+
+10:20.620 --> 10:22.150
+Right.
+
+10:22.420 --> 10:28.480
+Intan string a been hardcoded inside here and the functions are absolutely not generic.
+
+10:28.490 --> 10:32.170
+They are specific to the problem and we're walking on right now which is this.
+
+10:32.170 --> 10:34.460
+Tim Elize function.
+
+10:34.720 --> 10:36.850
+So we can't take that approach.
+
+10:36.850 --> 10:39.050
+We're going to have to do something else.
+
+10:39.190 --> 10:42.380
+So let's copy paste and let's fix this up.
+
+10:42.400 --> 10:46.110
+First thing is I'm going to remove this whole registry thing.
+
+10:46.120 --> 10:48.660
+We don't want that in there.
+
+10:49.240 --> 10:56.660
+The next thing that we need to do is we're going to keep this as is this is fine and we're going to
+
+10:56.660 --> 11:02.760
+return it I'm going to change the name of in which to say OK this is the decorator.
+
+11:02.970 --> 11:03.430
+OK.
+
+11:03.470 --> 11:08.880
+This is our decorated function if you want to call it that you can also call it decorated.
+
+11:08.960 --> 11:09.380
+OK.
+
+11:09.410 --> 11:15.290
+If you want I just want to do that because we're not going to introduce another function in this single
+
+11:15.290 --> 11:16.470
+dispatch function.
+
+11:16.640 --> 11:23.630
+What we want is a function that allows us to add objects and entries into the registry dictionary.
+
+11:23.630 --> 11:28.310
+We need to be able to add a key and a function to the dictionary.
+
+11:28.430 --> 11:32.960
+So let's say that we were writing that as a function inside single dispatch.
+
+11:32.990 --> 11:39.650
+I'm going to call this function registers and the register function is going to take a type and it would
+
+11:39.650 --> 11:41.300
+normally also take a function.
+
+11:41.300 --> 11:42.920
+Right so we could write something like this.
+
+11:42.920 --> 11:45.010
+Register type function.
+
+11:45.160 --> 11:51.930
+I would just say registry Taieb underscore the quolls function.
+
+11:52.070 --> 11:53.870
+Ok this is how we would add it.
+
+11:53.960 --> 11:58.970
+But of course we can't do it this way because well we have no way of getting in there.
+
+12:00.190 --> 12:06.610
+This function exists inside single dispatch and we still can't access it because we only have the decorated
+
+12:06.610 --> 12:07.980
+function.
+
+12:08.180 --> 12:15.640
+So we're going to do something else that's a little kind of odd as well but we're going to write a decorator
+
+12:16.040 --> 12:18.260
+inside our single dispatch.
+
+12:18.260 --> 12:24.090
+So our single dispatch is a decorator they will return the decorated function.
+
+12:24.530 --> 12:30.950
+But we're also creating another function in there that is itself a decorator and it's going to be a
+
+12:30.980 --> 12:33.210
+parameterised decorator.
+
+12:33.470 --> 12:35.140
+So we're going to do this.
+
+12:35.150 --> 12:38.270
+We're going to say register type on the school.
+
+12:38.450 --> 12:43.590
+So when we called the decorator this is going to be a parameterised decorator.
+
+12:43.610 --> 12:51.140
+So this registered function is in fact a decorator factory just like we've seen with decorator functions.
+
+12:51.140 --> 12:52.620
+And what are we going to do with that.
+
+12:52.670 --> 12:57.530
+Well here we're going to need an in a function and that in a function remember is the one that takes
+
+12:57.530 --> 12:59.570
+the function that's going to be decorated.
+
+12:59.570 --> 13:02.040
+This is you know a parameterised decorator.
+
+13:02.360 --> 13:04.080
+And what is it going to do.
+
+13:04.130 --> 13:12.560
+It's going to assign it's to basically assign this function to the type in the registry because we are
+
+13:12.560 --> 13:14.330
+inside single dispatch.
+
+13:14.360 --> 13:16.400
+This registry is a non-local variable.
+
+13:16.400 --> 13:22.340
+This is all the closure registers a closure is a closure we have access to registry no registry is a
+
+13:22.340 --> 13:24.200
+free variable in that closure.
+
+13:24.590 --> 13:30.650
+And so we're going to assign it to that type and I'm using the underscore because type is a keyword
+
+13:30.650 --> 13:35.580
+in Python and we're going to assignats this.
+
+13:35.690 --> 13:36.210
+OK.
+
+13:36.250 --> 13:39.910
+So this is kind of what we're doing so far.
+
+13:39.990 --> 13:45.790
+Now the one difference normally then is that you would have another function in there right and another
+
+13:45.790 --> 13:51.760
+in a function that would then evaluate the function with an argument and then return the result.
+
+13:51.760 --> 13:54.720
+Here I'm going to stop at that point with this image.
+
+13:54.760 --> 13:58.410
+This one is going to repeat on the function.
+
+13:58.550 --> 14:03.120
+So that's all the in a function does hinge in this kind of decorator pattern.
+
+14:03.290 --> 14:06.720
+So this is going to be a decorated with a parameter.
+
+14:06.800 --> 14:15.860
+It is going to return a function called dinner and that function is actually going to take therefore
+
+14:16.340 --> 14:19.730
+as a parameter the function being decorated.
+
+14:19.730 --> 14:21.790
+Right but all it's going to do.
+
+14:21.830 --> 14:28.220
+It's going to use the fact that it has access to a registry to assign the function to the type in the
+
+14:28.220 --> 14:31.320
+registry dictionary.
+
+14:31.610 --> 14:33.780
+So let's go ahead and execute this.
+
+14:33.780 --> 14:35.600
+And now let's see what we have.
+
+14:36.000 --> 14:38.500
+And the the the problem.
+
+14:38.520 --> 14:46.350
+So let's see what we have let's just say single dispatch and we're going to do it again.
+
+14:46.360 --> 14:50.210
+H tim Elize ache and we're going to return.
+
+14:50.230 --> 14:52.470
+Escape of string of pay.
+
+14:52.630 --> 14:56.210
+OK so now we have our h tim Elis decorator.
+
+14:56.430 --> 14:57.460
+What is off.
+
+14:57.650 --> 14:59.330
+Oh I symbolized function.
+
+14:59.550 --> 15:01.470
+What is our HDMI function.
+
+15:01.470 --> 15:03.670
+It's this decorated function here.
+
+15:03.940 --> 15:07.440
+OK so we can call it let's say with a string.
+
+15:07.530 --> 15:09.470
+One is less than 100.
+
+15:09.720 --> 15:12.260
+Well it's going to default to using the object.
+
+15:12.300 --> 15:12.570
+Right.
+
+15:12.570 --> 15:17.640
+So that's why we get the encoding because that's what our default is that remember this function h tim
+
+15:17.640 --> 15:20.250
+Himalayans is assigned to object.
+
+15:20.370 --> 15:23.730
+But if we call it let's say with just the number 100.
+
+15:23.880 --> 15:29.670
+Well we just get a hundred back it didn't do any kind of formatting because yeah it's not 100 is not
+
+15:29.670 --> 15:30.720
+in the registry.
+
+15:30.720 --> 15:38.460
+So now we need to do is just call this register decorator somehow how we we don't have a handle to it.
+
+15:38.460 --> 15:42.120
+Right we still don't know how to get to this register function.
+
+15:42.240 --> 15:44.850
+So how are we going to do that.
+
+15:45.020 --> 15:47.720
+Well it's actually really really simple.
+
+15:47.760 --> 15:57.270
+We're going to add the register function the decorator factory essentially as an attribute of the decorated
+
+15:58.440 --> 16:00.150
+function there we're returning.
+
+16:00.480 --> 16:06.620
+So we're going to say decorated Dark's register Let's call the attribute register we could call it you
+
+16:06.630 --> 16:12.220
+know whatever we want what it's called register and that is the register function.
+
+16:12.270 --> 16:16.130
+So let's go ahead and see now I can still run this.
+
+16:16.290 --> 16:17.670
+Let me change it to a string.
+
+16:17.670 --> 16:19.660
+Just to show you with the awesome.
+
+16:19.850 --> 16:22.600
+I think it's M-L escaping.
+
+16:22.650 --> 16:23.310
+So there we go.
+
+16:23.310 --> 16:24.540
+That works fine.
+
+16:24.630 --> 16:30.050
+But now the thing is it's Tim Elvises What is this function decorated.
+
+16:30.180 --> 16:37.290
+It has this register attributes that check and indeed it has the register attribute.
+
+16:37.410 --> 16:43.380
+So now we have a handle to that register function with which we can call.
+
+16:43.410 --> 16:43.840
+Right.
+
+16:43.920 --> 16:45.610
+What is the register function.
+
+16:45.630 --> 16:46.760
+It is a decorator.
+
+16:47.040 --> 16:52.870
+So it is a decorator so we can say to them allies start the register.
+
+16:52.890 --> 16:56.670
+Now of course it's a decorator that's parameterize it needs a type.
+
+16:56.880 --> 17:02.670
+So I'm going to say OK here's the tight end and here's the function and decorating the function that's
+
+17:02.670 --> 17:04.670
+going to get passed in here.
+
+17:04.770 --> 17:05.660
+Right.
+
+17:05.760 --> 17:09.060
+So what function of my decorating let's I'm going to call it aged him.
+
+17:09.080 --> 17:11.030
+And that takes a.
+
+17:11.160 --> 17:13.560
+It's going to do the usual thing with integers.
+
+17:13.650 --> 17:19.340
+So let me go and grab this is.
+
+17:19.610 --> 17:20.450
+Come on.
+
+17:20.470 --> 17:22.800
+There we go.
+
+17:23.090 --> 17:25.320
+And paste that right over here.
+
+17:25.400 --> 17:28.410
+And that's what we're going to return.
+
+17:28.570 --> 17:31.150
+And of course it's a part decorated.
+
+17:31.250 --> 17:34.150
+So we use that decorator syntax.
+
+17:34.760 --> 17:40.190
+So the register function is a decorator decorator factory to be precise because it gets called with
+
+17:40.190 --> 17:42.620
+a parameter when he gets called of a parameter.
+
+17:42.620 --> 17:47.140
+It returns that inner function which is the decorator's.
+
+17:47.150 --> 17:52.130
+The decorator takes the function but it doesn't do anything other than just return the function back.
+
+17:52.130 --> 17:55.340
+So it's not actually modifying the function which sometimes remember we do.
+
+17:55.340 --> 18:00.870
+We kind of modifying the behavior and then we end up calling the thing here we're just returning h to
+
+18:00.860 --> 18:02.450
+melt into itself.
+
+18:02.950 --> 18:03.770
+OK.
+
+18:04.010 --> 18:05.860
+So let's go ahead and do that.
+
+18:06.200 --> 18:09.560
+So now we don't know what's inside the registry right.
+
+18:09.560 --> 18:12.660
+We don't have access to that because it is a variable.
+
+18:12.670 --> 18:19.010
+Inside that single dispatch inside this H.T. implies closure essentially it's bound to the closure of
+
+18:19.010 --> 18:19.940
+age to Meline.
+
+18:20.120 --> 18:26.670
+And it's also part of this closure game that gets created when we call that.
+
+18:26.900 --> 18:31.390
+So H-2 mail in is still H.T. melt it because that's what we're returning.
+
+18:31.460 --> 18:32.170
+OK.
+
+18:32.480 --> 18:36.680
+So we can look at the page T.M. And that's just himself him.
+
+18:36.830 --> 18:39.190
+It's not the inner function.
+
+18:39.380 --> 18:40.000
+OK.
+
+18:40.310 --> 18:45.890
+Because we just returned a phone we didn't return another in a function and no Remember when we have
+
+18:45.890 --> 18:53.040
+a parameterised decorator we have two levels of nested poses here when we have one.
+
+18:53.260 --> 19:00.670
+But we do have however we do know that that function has been added as the value corresponding to the
+
+19:00.670 --> 19:02.500
+key and in the registry dictionary.
+
+19:02.510 --> 19:12.960
+It's a knife we call right if we call him allies of 100 who indeed see that it ran the correct function
+
+19:12.960 --> 19:13.570
+at ran.
+
+19:13.590 --> 19:15.720
+H tim ELINT function.
+
+19:16.140 --> 19:22.140
+And of course what's really interesting now with this pattern is that we're not inside you know we're
+
+19:22.140 --> 19:24.120
+not modifying things inside here.
+
+19:24.120 --> 19:31.260
+This is a very general pattern and I can register things with the team Eleazer right at any point in
+
+19:31.260 --> 19:31.830
+my code.
+
+19:31.830 --> 19:34.840
+I could even be in a different module and doing that.
+
+19:34.860 --> 19:40.120
+So I want I can go ahead and register let's say something for a list.
+
+19:40.290 --> 19:41.020
+OK.
+
+19:41.310 --> 19:46.260
+And let's go ahead and grab the things for the list
+
+19:51.560 --> 19:52.180
+actions.
+
+19:52.270 --> 19:54.760
+GRAHAM Well I'm going to grab
+
+19:59.920 --> 20:04.680
+edged email list and paste that right here.
+
+20:05.100 --> 20:09.230
+So now we've just registered a list.
+
+20:09.280 --> 20:16.220
+Now what does this decorator return remember the long form syntax is this is the function being decorated.
+
+20:16.230 --> 20:23.250
+So h tim list equals page to mail eyes dart registered list.
+
+20:23.340 --> 20:26.040
+So this is the decorator factory being called.
+
+20:26.040 --> 20:32.620
+And then we apply it to him list we past fit the function that we actually want to decorate.
+
+20:32.640 --> 20:33.030
+OK.
+
+20:33.120 --> 20:34.020
+That's what we did here.
+
+20:34.020 --> 20:36.770
+This was the this is the long form of decoration.
+
+20:37.470 --> 20:46.130
+What is being written and when we call the decorator that was generated by the register or factory while
+
+20:46.540 --> 20:47.430
+in it.
+
+20:47.880 --> 20:52.020
+But what is in are actually written when we call enter right.
+
+20:52.020 --> 20:54.690
+Register returns enter.
+
+20:54.900 --> 20:57.370
+But then we called in with H to mail list.
+
+20:57.390 --> 21:02.210
+What it did return it return H.T. mail list because it just returns the function itself.
+
+21:02.340 --> 21:05.160
+That's why we're not modifying H.T. mail list.
+
+21:05.160 --> 21:10.860
+It's there and it's it's you know it's not being modified but it is being injected into the dictionary
+
+21:11.640 --> 21:12.680
+so we can do that.
+
+21:12.780 --> 21:14.060
+This is the long form.
+
+21:14.070 --> 21:20.010
+Now the advantage of returning the function that we have over here because technically we don't even
+
+21:20.010 --> 21:21.840
+have to return the function right.
+
+21:21.840 --> 21:27.300
+We could leave that blank but the only problem is if you do that then what is H.T. mail lists going
+
+21:27.300 --> 21:29.170
+to be it's going to be none.
+
+21:29.250 --> 21:34.020
+Because this function here when it's called returns nothing is going to return None.
+
+21:34.020 --> 21:38.390
+And so the mail list will become none here because we're returning.
+
+21:38.520 --> 21:43.380
+It is actually just returning the original function a nice side effect of this.
+
+21:43.470 --> 21:48.670
+We can call it a side effect is that we can stack the decorator's.
+
+21:48.780 --> 21:50.810
+We can also say hey you know what.
+
+21:51.000 --> 21:58.170
+You can also handle h tim allies that register but to pull in the same way we don't have to have a separate
+
+21:58.410 --> 22:00.520
+function full list and tuple.
+
+22:00.540 --> 22:02.570
+So maybe here I wouldn't call it a Jamail list.
+
+22:02.580 --> 22:08.340
+I'd call it a stimulus sequence because these are both sequence types and later on we'll see how we
+
+22:08.340 --> 22:14.490
+might be able to use something else like abstract base types or base classes to have something a bit
+
+22:14.490 --> 22:15.400
+more generic.
+
+22:15.510 --> 22:18.550
+But the way we've written our decorator it wouldn't actually work.
+
+22:18.570 --> 22:21.400
+And I'll I'll show you that in a few minutes.
+
+22:21.930 --> 22:25.570
+But if we do it this way remember what's going to happen fast.
+
+22:25.590 --> 22:30.450
+It's this is a function that's being called essentially with the argument.
+
+22:30.450 --> 22:30.910
+Right.
+
+22:30.930 --> 22:35.500
+A lot of the HDL sequence it returns HDL sequence.
+
+22:35.670 --> 22:40.540
+And now this one takes over and it gets called with an argument of HTL sequence.
+
+22:40.710 --> 22:47.070
+So what happens is that our dictionary our registry dictionary has both of these keys with the same
+
+22:47.070 --> 22:51.410
+function but it has both of these keys so we can do that.
+
+22:51.720 --> 22:59.880
+And now we can say to implies let's say a list 1 to 3 and it gets HCM him Eliza We can also implies
+
+23:00.230 --> 23:01.750
+a tuple.
+
+23:02.220 --> 23:06.140
+Now works to OK.
+
+23:07.490 --> 23:11.860
+So now let's add a few things in here because this is kind of opaque right now.
+
+23:11.870 --> 23:16.640
+I would like to be able to get an idea of what the registry looks like.
+
+23:16.670 --> 23:19.280
+So all I'm going to do here it's very very simple.
+
+23:19.340 --> 23:26.170
+I'm going to add another attribute called registry to the decorated function.
+
+23:26.240 --> 23:28.370
+So I'm going to run through all this again.
+
+23:28.810 --> 23:35.190
+So now I've created my age HTML either by using the single dispatch decorators.
+
+23:35.480 --> 23:38.880
+And you'll notice how that works right now.
+
+23:38.900 --> 23:43.220
+You'll notice that here what I'm going to do is I'm going to just print out the registry I have access
+
+23:43.220 --> 23:44.130
+to the dictionary.
+
+23:44.270 --> 23:45.150
+And fair enough.
+
+23:45.170 --> 23:50.840
+I have one item in the dictionary a key of object and the function is the h tim allys function.
+
+23:50.840 --> 23:52.190
+This one over here.
+
+23:52.670 --> 23:52.960
+OK.
+
+23:52.970 --> 23:55.270
+Now I can go ahead and register an integer.
+
+23:55.550 --> 23:57.790
+And again this works quite well.
+
+23:57.810 --> 23:58.330
+OK.
+
+23:58.610 --> 24:04.710
+But I can look at him either the registry again and you'll notice that we have now a second item.
+
+24:04.730 --> 24:10.940
+Right so calling this registered basically this h to melt in function.
+
+24:11.180 --> 24:14.410
+When we'd stack them let's go ahead and run that.
+
+24:14.570 --> 24:17.150
+And let's see now what the registry looks like.
+
+24:17.150 --> 24:19.980
+So h implies dobbed registry.
+
+24:20.300 --> 24:27.660
+And you can see that we have list which is using sequence and topple which is also using sequence so
+
+24:27.660 --> 24:30.600
+this is working quite well now.
+
+24:30.690 --> 24:36.390
+A few things I would not give access to users directly to the registry dictionary.
+
+24:36.390 --> 24:38.230
+Who knows what they might do.
+
+24:38.610 --> 24:41.060
+And we're better off not doing that.
+
+24:41.080 --> 24:42.830
+Kate we're better off keeping it opaque.
+
+24:42.840 --> 24:49.680
+So I would not put that in I just put that in when I wanted to debug something and I want to be able
+
+24:49.680 --> 24:51.430
+to peek into that dictionary.
+
+24:51.660 --> 24:54.910
+But that's typically not what you want to do.
+
+24:54.910 --> 25:02.070
+However one thing that might be useful for people is to allow them to extract the function that's associated
+
+25:02.070 --> 25:04.490
+with a key in the dictionary.
+
+25:04.500 --> 25:11.130
+So here what I might want to do is to actually write another function here let's call it def let's call
+
+25:11.130 --> 25:14.700
+it dispatch because I want to know what's the dispatch function.
+
+25:14.700 --> 25:20.210
+If I give you this argument so what's the dispatch function going to take it's going to take a type
+
+25:20.600 --> 25:27.080
+as an argument what should return it should return the function in the registry associated with that
+
+25:27.320 --> 25:28.450
+type.
+
+25:28.460 --> 25:30.230
+So let's go ahead and do that.
+
+25:30.260 --> 25:34.460
+Let's go ahead and I'm going to take basically what I have over here.
+
+25:34.720 --> 25:35.450
+OK.
+
+25:35.770 --> 25:37.550
+Almost what I have over here.
+
+25:37.790 --> 25:42.020
+I don't want to execute the function so I'm not going to do that.
+
+25:42.110 --> 25:44.730
+I don't have to get that type of Oh there is no arg.
+
+25:44.750 --> 25:47.540
+Given the type this is the type.
+
+25:47.870 --> 25:53.920
+And then if I don't find it go ahead and find the function that's associated with the default.
+
+25:54.310 --> 25:54.890
+OK.
+
+25:55.220 --> 25:57.810
+And then I just have to return that.
+
+25:58.340 --> 25:59.860
+So here we have this dispatch.
+
+25:59.870 --> 26:05.660
+And of course the only way I can get access to it externally is to add it as an attribute to the decorated
+
+26:06.910 --> 26:07.880
+closure.
+
+26:08.120 --> 26:14.420
+So it's called dispatch and we're going to return dispatch.
+
+26:14.510 --> 26:15.050
+OK.
+
+26:15.500 --> 26:21.720
+So now I've got this let me recreate now my decorated HD implies function.
+
+26:21.950 --> 26:27.560
+And you'll notice now that OK this for walks we're still sorry we don't have the registry anymore we
+
+26:27.560 --> 26:28.510
+took that out.
+
+26:28.670 --> 26:29.890
+But was what.
+
+26:30.110 --> 26:35.570
+Here is what we do have we can call dispatch on let's say Kent and we can say hey what are you going
+
+26:35.570 --> 26:36.430
+to use.
+
+26:36.680 --> 26:42.810
+If I send you an int and it says well I'm going to use HD analyze which is what the default because
+
+26:42.830 --> 26:43.980
+nothing's registered.
+
+26:44.030 --> 26:47.580
+And so Larramie go ahead and register the Int.
+
+26:47.780 --> 26:55.310
+And here is of calling registry and call dispatch for minutes and it tells us yep I'm going to use a
+
+26:55.310 --> 26:56.630
+stimulant.
+
+26:56.820 --> 26:58.650
+OK so that's the dispatch function.
+
+26:58.700 --> 27:00.780
+So that's saying that single dispatch.
+
+27:00.860 --> 27:05.850
+But of course there's still some issues with the implementation of calls.
+
+27:05.930 --> 27:08.290
+So let's take a look at what some of those issues are.
+
+27:08.390 --> 27:11.430
+And I mean it was it would work just fine.
+
+27:11.450 --> 27:15.710
+You know I have to register tuple and list I have integer.
+
+27:15.740 --> 27:20.310
+Now of course if I say you know I can I can run all these things.
+
+27:20.540 --> 27:21.710
+Yeah there's no registry.
+
+27:21.890 --> 27:24.980
+But now for example I could say HDMI implies a hundred.
+
+27:24.980 --> 27:25.780
+We get that.
+
+27:25.820 --> 27:29.620
+But if I say Animalize of trool I just get trow back.
+
+27:29.630 --> 27:31.950
+But true is also a number right.
+
+27:31.970 --> 27:32.800
+It's.
+
+27:32.960 --> 27:35.160
+So how do we want to handle that.
+
+27:35.240 --> 27:38.720
+And we may have other kind of integral numbers.
+
+27:38.720 --> 27:48.530
+So the problem is that we're using this idea of looking up the type by saying type ok where is our single
+
+27:48.530 --> 27:49.750
+dispatch over here.
+
+27:49.850 --> 27:50.290
+Right.
+
+27:50.350 --> 27:59.010
+We get the type of the argument and we look up the then the registry register based on the type but
+
+27:59.010 --> 28:02.900
+sometimes you want to have things a little more generic or more general.
+
+28:03.150 --> 28:12.270
+For example lists and topples off sequence types an integer and a boolean are integral number types.
+
+28:12.270 --> 28:13.250
+So what do I mean by that.
+
+28:13.260 --> 28:20.850
+Well from numbers we can import I'm going to start with very simple example we can import integral and
+
+28:20.850 --> 28:25.680
+we'll discuss abstract base classes and those kinds of things later on when we get to the object or
+
+28:25.680 --> 28:26.840
+that section.
+
+28:26.970 --> 28:33.360
+But I just want to give you a flavor of why what we have so far isn't really satisfactory.
+
+28:33.360 --> 28:39.690
+It does explain how to go about doing single dispatch but there's actually a little bit more work that
+
+28:39.690 --> 28:43.570
+needs to happen because of what I'm going to show you now.
+
+28:43.890 --> 28:45.340
+So I have a numbers.
+
+28:45.480 --> 28:47.970
+So I can say is instance right.
+
+28:47.970 --> 28:53.460
+We have this other method called Is instance the other function called Is instance the difference between
+
+28:53.540 --> 28:58.150
+instance is that is instance recognize a subclasses as well.
+
+28:58.450 --> 29:05.360
+So for example let me show you a very quick example let's say that I have a class person.
+
+29:05.470 --> 29:05.960
+OK.
+
+29:06.140 --> 29:10.590
+And I'm just going to pass on this one and then I'm going to create a class let's say a student that
+
+29:10.590 --> 29:14.610
+inherits from passing kind of get I'm just going to pass.
+
+29:14.610 --> 29:17.380
+So now let's say I create a student.
+
+29:17.990 --> 29:18.470
+OK.
+
+29:18.630 --> 29:25.650
+So I've just created a new student object and I can look at the type of p and it tells me it's a student.
+
+29:25.650 --> 29:26.540
+Now I can ask.
+
+29:26.540 --> 29:35.180
+I couldn't ask I can say you know if I type well type of student so obviously I can't say you know the
+
+29:35.190 --> 29:38.370
+type of student of P is a person.
+
+29:38.370 --> 29:40.680
+It's not the type is student.
+
+29:40.710 --> 29:48.240
+However if a student is also a person through inheritance and type doesn't capture that cap type is
+
+29:48.240 --> 29:50.910
+only going to tell me he's a student.
+
+29:50.910 --> 29:59.490
+So if I try and let's say register this student type in my single dispatcher and I pass it a person
+
+29:59.700 --> 30:02.640
+it's not going out or sorry for register person.
+
+30:02.690 --> 30:02.990
+OK.
+
+30:03.090 --> 30:10.770
+In my single dispatcher and I pass passed a argument that is a type student it is not going to recognize
+
+30:11.130 --> 30:17.030
+that the person actually allows it to handle students and the dispatcher.
+
+30:17.580 --> 30:17.990
+Right.
+
+30:18.030 --> 30:24.640
+Because type is going to give me the specific type but we have another function called Is instance now
+
+30:24.660 --> 30:26.980
+is instance works differently.
+
+30:27.060 --> 30:31.070
+We use it this way we can say is p an instance of stupid.
+
+30:31.080 --> 30:32.630
+And the answer is yes it is.
+
+30:32.940 --> 30:36.860
+What about this instance the person.
+
+30:37.200 --> 30:43.170
+And the answer is yes as well because a student is also a person through inheritance.
+
+30:43.200 --> 30:47.850
+So that's what I mean by the difference between using type and is instance.
+
+30:47.850 --> 30:51.010
+So now the problem becomes this one.
+
+30:51.990 --> 30:53.400
+Let's try again.
+
+30:53.400 --> 31:00.220
+Let's go ahead and start again with our single dispatch and I'll keep the same example of aged lies.
+
+31:00.300 --> 31:00.770
+OK.
+
+31:00.900 --> 31:01.830
+So we have that.
+
+31:02.010 --> 31:05.650
+And now I may want to age two male eyes register.
+
+31:05.680 --> 31:10.420
+Now I want to register a function but I want to register it for integral types.
+
+31:10.620 --> 31:11.080
+OK.
+
+31:11.130 --> 31:13.470
+I want to say hey you know four integral types.
+
+31:13.740 --> 31:18.400
+I want you to go ahead and run this function.
+
+31:18.570 --> 31:22.870
+Def h tim l integral numbers.
+
+31:23.040 --> 31:23.520
+OK.
+
+31:23.910 --> 31:25.480
+And it's going to take a parameter A.
+
+31:25.500 --> 31:26.510
+And what is it going to do.
+
+31:26.520 --> 31:30.570
+What it's going to do what you would we would have four ints.
+
+31:30.570 --> 31:31.910
+So we'll do this.
+
+31:32.010 --> 31:32.880
+OK.
+
+31:33.690 --> 31:35.190
+So that's registered.
+
+31:35.580 --> 31:41.210
+And if we look let's say at 10 we can say is instance ten commer integral
+
+31:45.980 --> 31:49.120
+I type it correctly and the answer is true.
+
+31:49.170 --> 31:51.530
+Ten is an integral number in fact.
+
+31:51.530 --> 31:54.890
+So as I type.
+
+31:54.890 --> 31:56.050
+So it's true.
+
+31:56.510 --> 32:01.930
+So OK so this means that I've registered an integral and you know 10 is an integral number.
+
+32:01.940 --> 32:08.650
+True is an integral number so if I call him Alais of let's say 10 then I should get that.
+
+32:08.690 --> 32:11.710
+And I don't we get 10 we get 10 back.
+
+32:11.720 --> 32:13.120
+It used the default.
+
+32:13.130 --> 32:16.780
+You can see it converted to a string and then that the escape.
+
+32:16.790 --> 32:21.380
+So what happens here is that it's because we're looking at type right.
+
+32:21.410 --> 32:23.700
+We're using type of the argument.
+
+32:23.930 --> 32:27.390
+So it's going to get more complicated to fix this up.
+
+32:27.440 --> 32:32.390
+Let me show you another example of also where this fails if we want to try and be a little bit more
+
+32:32.390 --> 32:38.460
+generic because we could certainly go about fixing this problem as we saw before we could just say.
+
+32:38.540 --> 32:48.920
+Tim Elmis got registered and then we could stackless with h tim Elvira's dark register ball and maybe
+
+32:48.920 --> 32:53.240
+any other integral number of types that we have you know made ones that we've created ourselves you
+
+32:53.250 --> 32:58.920
+know and then would say def h t m l are integral numbers.
+
+32:59.150 --> 33:05.810
+A Well actually I'm just going to take this and paste that right in quick so we could do that.
+
+33:05.810 --> 33:12.560
+So now that's fixed the problem because now we can h tim allies an integer and we can h tim allies the
+
+33:12.560 --> 33:14.500
+boolean and K this way.
+
+33:14.690 --> 33:21.770
+So it gives us the name as well as the string representation as well as the hexadecimal of the numeric
+
+33:21.770 --> 33:22.500
+value.
+
+33:22.880 --> 33:28.730
+So we could do it this way but it's kind of you know a pity that we can't just use integral in there
+
+33:29.120 --> 33:34.900
+and the same thing happens with let's say tuples and lists we would have to register a tuple and a list
+
+33:34.910 --> 33:38.320
+so we'd have to do essentially what we did over here.
+
+33:38.900 --> 33:42.890
+But there is something else in Python these abstract base classes.
+
+33:42.890 --> 33:50.690
+So for example let's go ahead and from this collections that ABC will abstract base classes and we'll
+
+33:50.690 --> 33:52.270
+cover those in detail later.
+
+33:52.280 --> 33:55.100
+I just want to show you the same problem here.
+
+33:55.160 --> 33:58.450
+We have a sequence abstract base class.
+
+33:58.490 --> 34:06.930
+So for example we can try is instance of some lists 1 two three comma sequence and the answer is true.
+
+34:06.980 --> 34:14.880
+Same thing if we use is instance of a toppled one two three let's say the answer is true as well.
+
+34:15.140 --> 34:19.570
+So ideally what we would want to do here is to register.
+
+34:19.580 --> 34:27.620
+So the sequence abstract base type and then go ahead and just do whatever we did when we were registering
+
+34:27.650 --> 34:33.930
+our list and I'll topple right with this one and we'd register sequence so we can do that.
+
+34:34.180 --> 34:34.680
+OK.
+
+34:34.850 --> 34:43.970
+But the problem now is that our registry contains something of a sequence and the type of our let's
+
+34:43.970 --> 34:45.910
+say a list 1 to 3.
+
+34:46.010 --> 34:48.280
+Is that a sequence.
+
+34:48.290 --> 34:49.180
+The answer is false.
+
+34:49.190 --> 34:51.050
+It's not right.
+
+34:51.050 --> 34:52.160
+It's not a sequence.
+
+34:52.160 --> 34:55.640
+The the type 1 to 3 is not a sequence.
+
+34:55.670 --> 35:01.250
+It is however if you think of it in terms of abstract base classes or in terms if you want to think
+
+35:01.250 --> 35:07.550
+of it in terms of interfaces the list 1 to 3 is an instance of a sequence but the type is not sequence
+
+35:07.700 --> 35:12.120
+the same difference that I showed you just now with porcelains.
+
+35:12.580 --> 35:17.140
+So you know that's the problem that our decorator has.
+
+35:17.140 --> 35:19.970
+It doesn't handle that well.
+
+35:20.320 --> 35:24.960
+There are other issues as well that can happen but we need to fix that.
+
+35:25.120 --> 35:27.780
+And that's not necessarily straightforward.
+
+35:27.780 --> 35:29.920
+It can be quite a bit of complicated code in there.
+
+35:30.190 --> 35:34.810
+And I'll show you why it gets more complicated in the next video because this is a good stopping point.
+
+35:34.810 --> 35:40.960
+This is a pretty long video already and so we'll finish up our single dispatch generic function in the
+
+35:40.960 --> 35:41.850
+next video.
+
+35:42.820 --> 35:44.990
+So thank you for watching and I'll see you in a bit.

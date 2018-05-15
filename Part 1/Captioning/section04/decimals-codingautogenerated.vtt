@@ -1,0 +1,400 @@
+WEBVTT
+
+00:00.480 --> 00:06.510
+High in this video we're going to continue our discussion on the decimals and then we're going to do
+
+00:06.510 --> 00:12.660
+is to actually import the decimal module and then from the decimal module I'm also going to specifically
+
+00:12.690 --> 00:14.700
+import the decimal class.
+
+00:14.940 --> 00:17.270
+So technically I don't have to do that.
+
+00:17.310 --> 00:24.450
+Right if I want to refer to the decimal class inside the decimal module I can say decimal dark decimal
+
+00:24.680 --> 00:30.060
+Brian and then provide the constructor or whatever we want but I don't want to have to write decimal
+
+00:30.070 --> 00:31.860
+dot decimal every time.
+
+00:31.860 --> 00:37.650
+So I am going to also do from decimal impled decimal.
+
+00:37.650 --> 00:39.520
+That way I don't have to worry about it.
+
+00:39.630 --> 00:40.760
+There's other ways you can do that.
+
+00:40.800 --> 00:42.830
+But that's the way I just choose to do it.
+
+00:43.750 --> 00:50.140
+OK so now we need to talk about the context now the context is simply something that specifies certain
+
+00:50.140 --> 00:54.430
+properties that will affect how the decimals work.
+
+00:54.550 --> 00:59.080
+And in particular the two that we looked at were the precision and the rounding.
+
+00:59.080 --> 01:02.740
+Now on this point I'm inside the module at the module level of the code.
+
+01:02.740 --> 01:04.940
+I'm not inside a function or anything else.
+
+01:05.140 --> 01:14.050
+So I can retrieve the current default context by simply saying decimal does get complex so this is a
+
+01:14.110 --> 01:16.900
+function that is in the decimal module.
+
+01:17.350 --> 01:21.600
+And this will tell me what my current context is which is my global context.
+
+01:21.610 --> 01:24.370
+In this case writes I've got a precision of 28.
+
+01:24.370 --> 01:25.890
+The rounding is half even.
+
+01:26.080 --> 01:28.170
+And we can change that.
+
+01:28.180 --> 01:36.800
+We can also get the precision specifically by saying get context Darb PR we see.
+
+01:37.030 --> 01:42.880
+So it just returns that value 28 and then we can do the same thing with rounding and return with the
+
+01:42.880 --> 01:43.500
+rounding error.
+
+01:43.510 --> 01:47.650
+And we can see it's just a string rounding is just a string.
+
+01:47.650 --> 01:50.580
+Now we can change those two values as well.
+
+01:50.590 --> 02:01.400
+We can do it by calling decimal dogs get context dot precision equals maybe 6 get.
+
+02:01.660 --> 02:08.800
+And now if I do there's an old duck to get context again then you can see our precision was changed.
+
+02:08.800 --> 02:12.090
+We could also change the rounding.
+
+02:12.940 --> 02:19.840
+So good context and one thing if you're going to work with the context a lot with this context a lot
+
+02:19.840 --> 02:25.040
+then what you might want to do is maybe give it a name a sign of the name once and for all remember.
+
+02:25.100 --> 02:28.050
+Get context it returns a context object.
+
+02:28.240 --> 02:28.520
+Right.
+
+02:28.540 --> 02:32.830
+And the type of that object is a context.
+
+02:32.890 --> 02:40.870
+OK so now I have that object I have that on global context or default context.
+
+02:40.870 --> 02:48.130
+At this point and now I can just say the underscore CTX instead of doing every time you know decimal
+
+02:48.140 --> 02:53.190
+double context I can just do it this way it's a little shorter and for the rounding.
+
+02:53.200 --> 02:58.490
+Well you could do this you could say half round.
+
+02:58.520 --> 03:01.860
+Sorry round half.
+
+03:02.440 --> 03:07.170
+And I can type and maybe you want to change it around half up.
+
+03:07.210 --> 03:09.220
+So that's one way of doing it.
+
+03:09.400 --> 03:14.330
+But of course you got to make sure that you don't misspell the string here.
+
+03:14.710 --> 03:24.400
+So the decimal module also includes some predefined pre-determined constants like this which will essentially
+
+03:24.400 --> 03:27.970
+be the same thing as the string but we can do it this way.
+
+03:27.970 --> 03:33.730
+So just to show you that it is nothing more than just the string itself.
+
+03:33.910 --> 03:41.170
+We can do this and look at the type of that which is just a string and the value of that is just the
+
+03:41.170 --> 03:42.760
+string round half up.
+
+03:43.030 --> 03:44.220
+So that's how we can do it.
+
+03:44.230 --> 03:52.060
+And if we look now at our context so we'll look again at our current context.
+
+03:52.120 --> 03:57.830
+We can see that the precision is still 6 and we've changed our rounding now to be round half up.
+
+03:58.540 --> 04:02.810
+So I'm going to go back and reset the rounding.
+
+04:03.070 --> 04:13.930
+So the CTX start precision set of back to 28 and I'll set the rounding back to round half even
+
+04:17.460 --> 04:18.130
+k.
+
+04:18.340 --> 04:27.220
+So now if we look again at our decimal that gets context you'll see that we're back to where we stand.
+
+04:27.220 --> 04:29.370
+All right so that's for the global context.
+
+04:29.380 --> 04:34.360
+That's actually for in this case it's the global context because we're at the module level.
+
+04:34.450 --> 04:39.280
+I want to point that out get context returns your current context.
+
+04:39.280 --> 04:44.170
+So depending on where you call it you might be getting a different context back.
+
+04:44.170 --> 04:46.710
+So let's take a look now at a local context.
+
+04:46.750 --> 04:54.600
+Now local context is done by just calling the local context function in the decimal module.
+
+04:54.600 --> 05:01.720
+What it does it will create a new context and return that it creates a new context either from a context
+
+05:01.720 --> 05:08.290
+that you can specify as the parameter to this call or if you don't specify it it will just take whatever
+
+05:08.290 --> 05:14.000
+the current default context is which in this case would be the global context.
+
+05:14.230 --> 05:15.980
+But it doesn't return a context.
+
+05:16.000 --> 05:22.230
+If we look at the type of local context it says decimal does context manager.
+
+05:22.300 --> 05:26.050
+If we look at the type of decimal that gets context
+
+05:29.320 --> 05:30.980
+it returns a context.
+
+05:31.090 --> 05:37.400
+So local context returns a context manager which means we have to deal with it just a little bit differently.
+
+05:37.930 --> 05:42.910
+So we'll use the with statement to work with the context manager and what it means is that once we're
+
+05:42.910 --> 05:48.130
+done with this with block that local context that was created will be disposed.
+
+05:48.130 --> 05:48.440
+Right.
+
+05:48.460 --> 05:49.750
+It will get rid of it.
+
+05:49.780 --> 05:53.120
+It will get cleaned up and it won't be around anymore.
+
+05:53.500 --> 05:56.740
+So with decimal that local
+
+05:58.990 --> 06:05.890
+context I can type a local context I'm not going to specify a context or it's just going to grab the
+
+06:05.890 --> 06:16.270
+default context as CTX and let's go ahead and print CTX Well let's print the type of CTX and let's print
+
+06:16.360 --> 06:22.820
+CTX and you'll see now that ctx is a context that's what we would want to work with.
+
+06:23.050 --> 06:30.230
+And it it has a precision of 28 and a rounding of round half even Which is exactly what we have in our
+
+06:30.230 --> 06:33.460
+default context.
+
+06:34.120 --> 06:39.120
+So let's go ahead now and change things up a little bit.
+
+06:40.180 --> 06:48.700
+Let's go ahead and say CTX that precision equals 6 and CTX start rounding equals.
+
+06:48.700 --> 06:55.690
+And right now our current is around half Even so I'm going to change it to be round half up and then
+
+06:55.690 --> 06:58.540
+we're going to print CTX again.
+
+06:59.260 --> 07:05.500
+So as you can see we now have a precision of six and a rounding of round half up case with change that
+
+07:06.370 --> 07:11.860
+and whatever we are when we do operations year we'll do operations using a precision of six and the
+
+07:11.860 --> 07:14.140
+rounding type will be around half up.
+
+07:14.210 --> 07:22.870
+Now I do want to point out though that if we do look at print decimal double get context now get context
+
+07:22.870 --> 07:24.900
+returns the current context.
+
+07:25.120 --> 07:27.360
+Well what's our current contracts right now.
+
+07:27.450 --> 07:29.900
+It's this local context that we created.
+
+07:29.980 --> 07:31.900
+It is not the global context.
+
+07:32.080 --> 07:32.370
+Right.
+
+07:32.380 --> 07:39.550
+So if we print that up we'll notice that our context that you know that we get from get context is the
+
+07:39.570 --> 07:43.410
+local context because we're inside this with Block.
+
+07:43.420 --> 07:48.980
+And so our current context is the local context it's the same as CTX right.
+
+07:49.000 --> 07:59.580
+We can look at the idea of CTX and see if it's the same as the id of decimal dobbed get context.
+
+07:59.810 --> 08:04.330
+Print that out and you'll see that it's true.
+
+08:04.610 --> 08:06.160
+All right so be careful with that.
+
+08:06.170 --> 08:12.020
+Get contact's doesn't return always the global context that we have at the module level it just returns
+
+08:12.020 --> 08:13.820
+the current context.
+
+08:13.820 --> 08:18.150
+If we're at the global level it's the global context then usually that's where we use it.
+
+08:18.320 --> 08:23.990
+So we usually get the global context back but if you're inside let's say something like this then you'll
+
+08:23.990 --> 08:25.790
+get context is going to be different.
+
+08:25.860 --> 08:26.020
+Right.
+
+08:26.060 --> 08:31.580
+Because you've switched which context you're using right now we're using the local context not the global
+
+08:31.580 --> 08:32.750
+context.
+
+08:33.270 --> 08:33.850
+OK.
+
+08:37.360 --> 08:40.640
+So let's talk about rounding a little bit more.
+
+08:40.930 --> 08:46.710
+And letters are used the round half up right now since we're in there.
+
+08:47.230 --> 08:59.050
+And let's go ahead and say X equals decimal 1.2 five and we'll say y equals decimal 1.3 5.
+
+08:59.220 --> 09:00.050
+OK.
+
+09:00.880 --> 09:09.160
+And matter of fact I'm going to define this above because I want that available globally as well at
+
+09:09.160 --> 09:10.810
+the module level.
+
+09:10.810 --> 09:13.540
+So we have those two values x and y.
+
+09:13.690 --> 09:25.550
+And let's go ahead and print round of X to 1 decimal point and let's print round of y to 1 decimal point.
+
+09:26.500 --> 09:33.190
+And so we get that 1.2 5 rounded to 1.3 and 1.3 5 rounded to 1.4.
+
+09:33.190 --> 09:38.320
+This was a case where we had a tie and we specified that our rounding mechanism should be round half
+
+09:38.320 --> 09:38.830
+off.
+
+09:39.070 --> 09:41.310
+And that's exactly what it did.
+
+09:41.320 --> 09:45.840
+Now if we are no longer inside the with statement right.
+
+09:45.850 --> 09:49.410
+Let's say we're out here and we print with print the same thing.
+
+09:49.420 --> 09:51.420
+I'm just going to copy paste that.
+
+09:52.570 --> 09:55.570
+But now I'm going to print it at the module level.
+
+09:55.780 --> 09:58.870
+Well what is out of context at the module level.
+
+09:58.870 --> 10:02.690
+Well the context of the module level is to round half even.
+
+10:03.040 --> 10:08.070
+And you'll notice that the 1.2 five actually got rounded down to 1.2.
+
+10:08.070 --> 10:14.780
+We had a tie so we rounded to the even you know choice that we had between the two.
+
+10:15.240 --> 10:15.610
+OK.
+
+10:15.640 --> 10:21.460
+So that's how when you walk of local context versus global context that's kind of the difference between
+
+10:21.460 --> 10:23.350
+the two.
+
+10:23.550 --> 10:24.180
+All right.
+
+10:24.180 --> 10:26.470
+Thanks for watching and I'll see you in the next video.

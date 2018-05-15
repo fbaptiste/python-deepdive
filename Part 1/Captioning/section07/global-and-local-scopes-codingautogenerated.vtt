@@ -1,0 +1,721 @@
+WEBVTT
+
+00:01.020 --> 00:05.850
+Hire and this module we're going to look at the code for the global and local scopes.
+
+00:06.040 --> 00:12.190
+First I want to point out that when you have a notebook like this then it is actually running inside
+
+00:12.190 --> 00:12.780
+a module.
+
+00:12.790 --> 00:14.470
+It is a module.
+
+00:14.470 --> 00:20.800
+So when I type this line of code equals 10 I've essentially created a global variable to the notebook
+
+00:20.890 --> 00:22.000
+or to the module.
+
+00:22.000 --> 00:29.350
+It's no different than if I had gone to maybe PI charm and I've got a module and I type A equals 10
+
+00:29.350 --> 00:31.530
+in here and then I can print.
+
+00:31.570 --> 00:31.840
+Right.
+
+00:31.840 --> 00:39.250
+It is a equals 10 is now a global variable it's scope globally which means it has a module scope so
+
+00:39.250 --> 00:40.280
+far on this.
+
+00:40.420 --> 00:41.760
+We get what we would expect.
+
+00:41.770 --> 00:43.840
+It prints out 10.
+
+00:43.870 --> 00:44.300
+All right.
+
+00:44.320 --> 00:46.030
+So this is really no different.
+
+00:46.060 --> 00:49.630
+So don't get confused by the fact that I'm running this inside a notebook.
+
+00:49.660 --> 00:51.000
+It doesn't make any difference.
+
+00:51.000 --> 00:54.330
+It's for a module.
+
+00:54.480 --> 01:00.260
+So let's switch back to the notebook.
+
+01:00.300 --> 01:04.150
+So now obviously we have this global variable and it's global.
+
+01:04.200 --> 01:06.790
+Let's say we define a function my function.
+
+01:06.800 --> 01:12.540
+And so it's a parameter N and then we say C equals and to the power of two.
+
+01:12.540 --> 01:17.920
+So we're squaring and then we're going to return that value c..
+
+01:18.150 --> 01:22.190
+Now what we have here my fonk has two local variables.
+
+01:22.260 --> 01:27.860
+C is obviously local because we're assigning a value to this label inside the function.
+
+01:27.930 --> 01:30.940
+So it's determined to be local to my phone.
+
+01:31.170 --> 01:38.850
+And then any parameter is also a local label so and lives in the local scope of my phunk.
+
+01:39.150 --> 01:43.290
+Now my phunk can access the global variables as well.
+
+01:43.290 --> 01:50.070
+So if we say def my funk and we'll keep it it's as before.
+
+01:50.100 --> 01:52.060
+But now I'm going to print.
+
+01:52.230 --> 01:56.540
+I'm going to say global A.
+
+01:57.120 --> 02:00.090
+And we're going to retrieve the value of A.
+
+02:00.090 --> 02:02.120
+You'll notice that this is not an assignment.
+
+02:02.130 --> 02:04.080
+I'm retrieving the value of A.
+
+02:04.140 --> 02:11.310
+I haven't assigned anything to a in my phone which means that Python will say OK it has to be somewhere
+
+02:11.400 --> 02:13.820
+in you know a scope above it.
+
+02:13.830 --> 02:17.220
+In this case my funk is in the global scope directly.
+
+02:17.220 --> 02:18.930
+So it's going to look in the global scope.
+
+02:18.990 --> 02:23.760
+And then the built in scope if it doesn't find it there and if it doesn't find it in the built in scope
+
+02:24.000 --> 02:25.340
+then we'll get an error.
+
+02:25.770 --> 02:32.400
+So now we can also say C equals 8 to the power of an arm.
+
+02:32.560 --> 02:34.290
+That's fine we can access it.
+
+02:34.300 --> 02:34.570
+Right.
+
+02:34.570 --> 02:36.650
+We're not assigning a value to h here.
+
+02:36.910 --> 02:38.520
+And then returns C..
+
+02:39.040 --> 02:48.360
+So now if we call my fonk let's say of two then we get global a tense or printed that out and it returns
+
+02:48.370 --> 02:53.700
+C which was turned to the power of two 100 k now.
+
+02:53.720 --> 03:00.400
+You gotta be careful if you want to assign a value inside the function because if we do this then my
+
+03:00.520 --> 03:02.820
+phunk do the same thing again.
+
+03:03.130 --> 03:09.850
+And here I'm going to say April 20 and then I'm going to say sequels to the car and and return seat.
+
+03:10.120 --> 03:15.110
+OK then what happens here is that I've assigned a value to pay.
+
+03:15.280 --> 03:17.940
+So if we look at the value of a currently.
+
+03:18.280 --> 03:21.980
+And remember now this line of code is being executed in the module.
+
+03:22.060 --> 03:26.940
+So it's going to look at the global variable 8 which has a value of 10.
+
+03:27.160 --> 03:35.050
+If I call my func with a value of 2 and it's 2 inside my phone it's going to set eight to 20 k and then
+
+03:35.050 --> 03:37.460
+we return that value.
+
+03:37.540 --> 03:39.840
+But let's look at the value of pay again.
+
+03:39.850 --> 03:47.620
+It is top 10 this line of code right here equals 20 did not modify the global variable because Python
+
+03:47.620 --> 03:51.670
+so on assignment and said aha this is an assignment.
+
+03:51.670 --> 03:53.950
+I didn't see a global keyword anywhere.
+
+03:54.070 --> 03:57.200
+So a is going to become a local variable.
+
+03:57.220 --> 04:03.430
+So essentially what happens here is that inside my phunk is a local variable which essentially masked
+
+04:03.460 --> 04:13.260
+or shadowed the outer scope variable A and you can no longer see that variable inside my phunk something
+
+04:13.260 --> 04:15.370
+to be careful.
+
+04:15.400 --> 04:24.370
+So if we want to access and modify the global variable we have to tell Python explicitly that this is
+
+04:24.370 --> 04:27.320
+going to refer to the global variable.
+
+04:27.520 --> 04:32.800
+So we would have to say def my funk and let's keep it exactly the same.
+
+04:32.800 --> 04:39.400
+The only difference is I'm going to now put this line in global A and then said equals 20.
+
+04:39.400 --> 04:44.000
+C equals age of the power and return C K.
+
+04:44.650 --> 04:50.200
+So now if I call or if I print out a my my phone hasn't run yet.
+
+04:50.200 --> 04:50.460
+Right.
+
+04:50.470 --> 04:51.770
+So nothing's changed.
+
+04:51.940 --> 04:57.780
+But if I call my phone value of two and it returns 400 just as before.
+
+04:57.940 --> 05:04.660
+But now look at what happens when I print out 8 is now indeed 20 which was what I changed it to from
+
+05:04.690 --> 05:09.560
+inside the my phone function.
+
+05:09.620 --> 05:15.680
+When you use the global P-word the global variable doesn't actually even have to exist.
+
+05:15.680 --> 05:21.340
+Let's see what I mean by that because if my phone I'm not going to put any parameters will simplify
+
+05:21.340 --> 05:21.410
+it.
+
+05:21.410 --> 05:27.220
+Now a little bit and I'm going to call this I'm going to say hey I've got a global variable called.
+
+05:27.740 --> 05:31.530
+And then I'm going to assign a value to it say hello world.
+
+05:31.620 --> 05:32.190
+OK.
+
+05:32.600 --> 05:35.100
+And I'm just going to return nothing.
+
+05:36.900 --> 05:41.830
+So now if I print out the value of the well that doesn't exist right.
+
+05:41.870 --> 05:42.220
+Yes.
+
+05:42.240 --> 05:47.850
+Because we never defined var in the module we never said var equals something or other.
+
+05:47.850 --> 05:54.400
+However if we now run my funk and nothing happens because we don't return anything.
+
+05:54.850 --> 05:57.730
+But look at what happens when I print out the value of.
+
+05:57.930 --> 05:59.780
+Now it exists.
+
+05:59.790 --> 06:05.340
+What happened is that Python saw this and said OK this is a global variable.
+
+06:05.340 --> 06:08.360
+Then we assigned a value to it very happily did it.
+
+06:08.370 --> 06:09.310
+Sure.
+
+06:09.330 --> 06:14.220
+So it created the variable in the global scope assigned a value to it and then we returned out of the
+
+06:14.220 --> 06:15.050
+function.
+
+06:15.050 --> 06:21.300
+And because it was global that variable label is still available and still points to whatever this was
+
+06:21.300 --> 06:22.490
+pointing to before.
+
+06:23.680 --> 06:30.160
+Now there is something you have to be careful of and that is the fact that you use the global keyword
+
+06:30.340 --> 06:36.240
+if you use it anywhere in the function Python we'll then say this functions.
+
+06:36.250 --> 06:39.320
+The variable is global.
+
+06:39.320 --> 06:43.460
+No matter where else you use it in the function itself.
+
+06:43.850 --> 06:45.200
+So what do I mean by that.
+
+06:45.260 --> 06:52.380
+Well let's say we have a global variable let's say equals 10 and let's go ahead and define my funk.
+
+06:52.730 --> 07:03.170
+And here what I'm going to do is I'm going to say print global pay OK.
+
+07:03.410 --> 07:07.670
+So now if we run my funk then it just prints equals 10.
+
+07:07.800 --> 07:08.210
+OK.
+
+07:08.280 --> 07:09.300
+Well and good.
+
+07:09.420 --> 07:11.950
+Now let's say I go ahead and say global A.
+
+07:12.120 --> 07:14.170
+And then a equals Hello.
+
+07:14.390 --> 07:15.060
+OK.
+
+07:15.570 --> 07:16.710
+Now if I call my phone.
+
+07:16.710 --> 07:17.360
+What's happening.
+
+07:17.360 --> 07:19.620
+Remember is going to be global.
+
+07:19.620 --> 07:20.260
+Right.
+
+07:20.310 --> 07:25.600
+So now we're assigning hello to the global variable A and then we're printing up the global variable.
+
+07:25.950 --> 07:32.050
+So we print out hello and if we now look at pay it's value is indeed hello.
+
+07:32.850 --> 07:35.900
+But let's say we had this let's say we have a equals 10.
+
+07:35.940 --> 07:43.680
+I'll do that again I'll reset it back to 10 and let's create this function and let's print out the global
+
+07:43.680 --> 07:44.490
+value of a
+
+07:47.740 --> 07:48.140
+cake.
+
+07:48.140 --> 07:52.090
+So now we're printing out a now eight isn't it.
+
+07:52.100 --> 07:54.870
+We don't have a global that you know that we defined for.
+
+07:54.980 --> 08:00.190
+So I'm going to look at a and say well you're using this variable without assigning to it first.
+
+08:00.350 --> 08:02.370
+Therefore it can't be local scope.
+
+08:02.420 --> 08:04.340
+It's going to be in the global scope.
+
+08:04.340 --> 08:05.960
+So it's going to look for it in the global scope.
+
+08:05.990 --> 08:14.630
+In this case and when we do this let's say we go ahead and say now eight equals Hello.
+
+08:15.190 --> 08:18.260
+And as we said before it's too Akos how in the world.
+
+08:18.260 --> 08:22.530
+And now let's print again and let's call my funk.
+
+08:22.550 --> 08:24.050
+So what do you think is going to happen.
+
+08:24.050 --> 08:28.190
+We're going to print out the value of the global value which is 10.
+
+08:28.340 --> 08:29.910
+Then we're going to change data.
+
+08:29.930 --> 08:31.030
+Hello world.
+
+08:31.370 --> 08:31.890
+Right.
+
+08:32.060 --> 08:39.160
+And of course this is going to become a local variable at that point and then we're going to print a
+
+08:39.190 --> 08:39.490
+lot.
+
+08:39.500 --> 08:41.890
+And so we shouldn't have affected the global variable.
+
+08:41.900 --> 08:49.170
+And let's see what happens and we get an error can we get this local variable.
+
+08:49.200 --> 08:52.080
+A It was referenced before the assignment.
+
+08:52.670 --> 08:59.000
+Well yes what happens remember is that Python determines at compile time compile time happens here when
+
+08:59.000 --> 09:02.580
+I get my shift enter on this function.
+
+09:02.680 --> 09:03.070
+OK.
+
+09:03.170 --> 09:06.430
+Now it's created the function my phunk not exists.
+
+09:06.440 --> 09:09.290
+It's been compiled it hasn't been executed yet.
+
+09:09.340 --> 09:09.670
+OK.
+
+09:09.710 --> 09:11.810
+That's why nothing happens here.
+
+09:11.960 --> 09:17.170
+After I run this ok after I essentially create the function.
+
+09:17.360 --> 09:18.350
+Nothing's happened yet.
+
+09:18.350 --> 09:20.170
+I have to call the function now.
+
+09:20.570 --> 09:27.430
+But at compile time python looked at this and said OK is going to be local because here I have an assignment
+
+09:27.500 --> 09:29.240
+and I didn't say it was global.
+
+09:29.240 --> 09:30.680
+So it's local.
+
+09:30.740 --> 09:39.020
+So now when the function runs it looks for a in the local scope and it doesn't find it and yet it was
+
+09:39.020 --> 09:40.890
+marked as a local variable.
+
+09:40.910 --> 09:45.620
+Hence why when you call it it says no you can't do that right.
+
+09:45.650 --> 09:49.180
+You get a local variable is referenced before assignment.
+
+09:49.190 --> 09:53.590
+It's just as if I'd been in my module and I said print B.
+
+09:53.660 --> 09:55.360
+Well I never defined B right.
+
+09:55.370 --> 09:58.370
+I get the same kind of Arutz as no right.
+
+09:58.400 --> 09:59.680
+B is not defined.
+
+09:59.900 --> 10:01.600
+It's the same kind of thing here.
+
+10:01.940 --> 10:05.330
+So watch out for that if you have a piece of code.
+
+10:05.510 --> 10:05.850
+Right.
+
+10:05.870 --> 10:12.050
+And you make an assignment to a variable even after you've used that supposedly in the global context.
+
+10:12.110 --> 10:15.860
+It won't work because they will then be marked as a local variable.
+
+10:15.860 --> 10:17.830
+So that's kind of an important thing to remember.
+
+10:19.260 --> 10:24.120
+The next thing I want to point out is that this works with lambdas as well lambdas are just functions
+
+10:24.390 --> 10:33.040
+so if you do something like maybe F equals Lambda Lambda takes some variable n Right.
+
+10:33.060 --> 10:39.220
+And it's going to say print a to the power of N K.
+
+10:39.390 --> 10:44.010
+Now I can print half of two and I get 10 to the power 2 which is 100.
+
+10:44.010 --> 10:46.370
+It was able to reference the global variable.
+
+10:46.650 --> 10:51.090
+Now of course we can do all this stuff with marking things as global and then assigning values to it
+
+10:51.090 --> 10:52.730
+because lammed is a little bit different right.
+
+10:52.770 --> 10:55.940
+You really only have a single thing that you can do right.
+
+10:56.010 --> 11:00.210
+A single statement but it works the same way a lambda is just another function.
+
+11:02.070 --> 11:06.220
+The other thing too is that functions are objects and functions have names.
+
+11:06.270 --> 11:09.040
+So they also reside in a scope somewhere.
+
+11:09.120 --> 11:17.100
+So when you look when you say that say print hello right or even Let's do one like this print true.
+
+11:17.250 --> 11:19.850
+It prints out this value here the string.
+
+11:19.850 --> 11:21.040
+True what happened.
+
+11:21.060 --> 11:23.280
+Well print was a function.
+
+11:23.280 --> 11:24.860
+It's got to be defined somewhere.
+
+11:25.110 --> 11:30.960
+So Python for us looks for it in the local scope in this case the module scope doesn't find it.
+
+11:31.140 --> 11:31.640
+OK.
+
+11:31.650 --> 11:33.260
+Well let's look one level up.
+
+11:33.270 --> 11:37.860
+So it looks in the built in scope and fortunately print is in the built in scope.
+
+11:37.980 --> 11:40.650
+So it sounds you know it found the function.
+
+11:40.650 --> 11:42.330
+Next was true.
+
+11:42.420 --> 11:46.150
+Well again it looked for true in the local scope.
+
+11:46.170 --> 11:50.030
+No current local scope which is our module scope on global scope.
+
+11:50.130 --> 11:51.370
+It doesn't find it there.
+
+11:51.390 --> 11:53.180
+So it looks in the built in scope.
+
+11:53.400 --> 11:59.000
+This means of course that you can do things that redefine for example functions.
+
+11:59.020 --> 12:05.010
+So for example let's say we do this let's say we say print equals and let's just use a lambda.
+
+12:05.590 --> 12:09.210
+When you don't have to use the lambda you could just say def print right.
+
+12:09.250 --> 12:13.490
+And that's going to take X and it's going to return.
+
+12:13.930 --> 12:16.110
+Hello X.
+
+12:16.150 --> 12:17.440
+Right whatever X was
+
+12:21.410 --> 12:22.230
+like so.
+
+12:22.430 --> 12:28.790
+So if I see print world k what does it do.
+
+12:28.790 --> 12:31.890
+It actually returns the string Hello world.
+
+12:31.910 --> 12:32.200
+Right.
+
+12:32.210 --> 12:36.200
+You'll notice that this wasn't actually the print function.
+
+12:36.200 --> 12:40.520
+Right the print function remember can take multiple parameters so if you put let's say hello world that
+
+12:40.820 --> 12:41.830
+get we get an error.
+
+12:41.850 --> 12:47.650
+Because print takes one positional document which of course that's all function print here.
+
+12:48.350 --> 12:53.780
+So be careful with reusing built in names because you're essentially going to replace the functionality
+
+12:53.780 --> 12:56.770
+or whatever that you know built in does.
+
+12:56.840 --> 13:03.200
+So right now we can't print anything out because we've lost the print function it's now using our own
+
+13:03.200 --> 13:04.640
+print function.
+
+13:04.640 --> 13:05.720
+So how do we get it back.
+
+13:05.750 --> 13:08.130
+Well we can delete the variable.
+
+13:08.510 --> 13:14.150
+And so we're going to delete those variable label called printf and now it's going to go out of scope
+
+13:14.420 --> 13:19.850
+and not if we say print world it's just going to print world right.
+
+13:19.850 --> 13:22.850
+It's gone back to the regular print function.
+
+13:22.850 --> 13:24.420
+One last thing I want to talk about.
+
+13:24.440 --> 13:29.510
+And that's really more applicable if you've worked in other programming languages like Java and.
+
+13:29.600 --> 13:37.400
+And you know maybe C-Sharp the these there's also there are additional scopes within your code that
+
+13:37.490 --> 13:41.390
+that occur and they occur within something called code blocks.
+
+13:41.390 --> 13:51.710
+So for example if you have a and let me switch now to kind of a code example obviously I can't execute
+
+13:51.830 --> 14:01.660
+Java here but let's say I write this for int i call 0 I's less than 10 I plus plus.
+
+14:02.360 --> 14:10.100
+And so we have the loop and inside the slope we define a variable called X and we make it let's say
+
+14:10.100 --> 14:12.750
+two to the two times I get.
+
+14:13.400 --> 14:20.930
+Now if we go out here and we say System outsprint l n x this would around.
+
+14:21.140 --> 14:29.570
+Because what happens here is that this variable x has been created inside this loop's code block and
+
+14:29.570 --> 14:32.520
+it is therefore local to the code block.
+
+14:32.690 --> 14:38.180
+It is not global that it doesn't live outside of the code block even though this is directly you'll
+
+14:38.180 --> 14:42.890
+notice in my module right or in my class if you're working in Java.
+
+14:43.340 --> 14:48.050
+And so you might be asking yourself why does the same thing happen in Python if I've got a full loop
+
+14:48.050 --> 14:50.750
+and I declare a variable inside the full loop.
+
+14:51.050 --> 14:55.910
+Does it then become available outside of the for loop and let's say I'm running this directly in the
+
+14:55.910 --> 14:56.830
+global module.
+
+14:56.960 --> 15:03.840
+Well the equivalent would be in Python to say for I think in range 10 right.
+
+15:04.430 --> 15:08.880
+And then here will say X equals two times I k.
+
+15:09.140 --> 15:13.430
+And so if we execute that that Ramm don't show any output but it ran.
+
+15:13.430 --> 15:20.580
+However what happens now is that X actually does exist outside and after the field is finished running.
+
+15:20.990 --> 15:22.720
+So it's not quite the same.
+
+15:22.730 --> 15:26.250
+It's not like you have variables that go in and out of scope.
+
+15:26.390 --> 15:32.600
+Inside the inside your code block that's inside the loop for example or an if statement even.
+
+15:32.710 --> 15:32.930
+Right.
+
+15:32.930 --> 15:37.740
+So if you're used to other programming languages be careful doesn't work the same way in Python.
+
+15:38.120 --> 15:40.520
+All right thanks for watching and I'll see you in the next video.

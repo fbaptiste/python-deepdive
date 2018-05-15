@@ -1,0 +1,442 @@
+WEBVTT
+
+00:00.420 --> 00:06.510
+High in this video we're going to look at how we can coerce a float to an integer.
+
+00:07.050 --> 00:11.160
+So in other words we want to take a float number of floating point numbers.
+
+00:11.430 --> 00:17.380
+Potentially with digits after the decimal point but we wanted to only take an integer of it then add
+
+00:17.390 --> 00:20.250
+the integer approximation essentially.
+
+00:20.250 --> 00:25.870
+So that means that we're going to have in general data loss it's inevitable if we have ten point two.
+
+00:26.160 --> 00:29.350
+Well what is the you know integer that represents ten point two.
+
+00:29.390 --> 00:33.780
+Well it's it's not going to be ten point two it's going to be 10 it's going to be 11.
+
+00:33.810 --> 00:37.770
+You know maybe something else but that's certainly not going to be ten point two because that's not
+
+00:37.770 --> 00:38.470
+an integer.
+
+00:38.610 --> 00:40.310
+So we have data loss.
+
+00:40.380 --> 00:46.200
+So there's different ways that we can go ahead in terms of you know how do we want this data loss to
+
+00:46.200 --> 00:47.040
+happen.
+
+00:47.040 --> 00:49.480
+And what I mean by this is let's take a look at some numbers.
+
+00:49.530 --> 00:51.040
+Let's look at ten point four.
+
+00:51.480 --> 00:53.520
+If we want to cross that to an integer.
+
+00:53.570 --> 00:54.560
+Well what should it be.
+
+00:54.570 --> 00:57.020
+Should it be 10 should be 11.
+
+00:57.150 --> 01:02.440
+Well this cases where you know you can make the argument that yeah I want it to be 11.
+
+01:02.580 --> 01:07.470
+Maybe that's what you want because maybe it's you know the number of times that you have to run a loop
+
+01:07.470 --> 01:09.530
+in order to make sure something gets completed.
+
+01:09.690 --> 01:12.550
+And then when you do a calculation and say that's ten point four.
+
+01:12.810 --> 01:15.460
+Well that means that 10 isn't quite enough.
+
+01:15.780 --> 01:16.850
+Eleven will be enough.
+
+01:16.950 --> 01:21.330
+So in other words you might actually want to take ten point four and make it into 11.
+
+01:21.330 --> 01:27.060
+When you look at it from an integer perspective in other cases maybe you doing computations or something
+
+01:27.450 --> 01:33.970
+and you know you say well no I want to take all the lower number I want to take 10 flip at ten point
+
+01:33.970 --> 01:34.670
+five.
+
+01:34.750 --> 01:39.260
+You know there again which you know where do we go is that 10 or is that 11.
+
+01:39.280 --> 01:45.220
+You know if we rounds using rounding up the kind of typical rounding we're used to we'd say well we're
+
+01:45.220 --> 01:50.430
+going to take 11 although tend to be an equally acceptable value.
+
+01:50.490 --> 01:51.790
+What about ten point six.
+
+01:51.790 --> 01:52.880
+Well that one maybe.
+
+01:52.920 --> 01:55.570
+Yeah we'll make that 11 that's closer to 11.
+
+01:55.600 --> 02:02.560
+You know we'll take the closest integer 0 and then also you have ten point or one or ten point nine
+
+02:02.560 --> 02:03.550
+nine nine nine.
+
+02:03.550 --> 02:05.200
+Where do you want to go you want to go to 10.
+
+02:05.190 --> 02:06.060
+You want to go to 11.
+
+02:06.070 --> 02:08.740
+Maybe something else but it has to be an integer.
+
+02:09.010 --> 02:14.230
+So there's different methods we can use to do all this stuff and we'll take a look at that in the next
+
+02:14.230 --> 02:15.210
+few videos.
+
+02:15.250 --> 02:21.800
+So we have truncation we have floor we have ceiling and we have rounding.
+
+02:21.970 --> 02:24.180
+So in this video we'll take a look at the first three.
+
+02:24.220 --> 02:30.610
+We'll keep rounding for a separate video because that can get into a pretty kind of detailed subject
+
+02:31.630 --> 02:34.230
+but in all cases you have data loss.
+
+02:34.240 --> 02:39.440
+So just pick your poison and you can have some data lost when you convert to an integer.
+
+02:39.630 --> 02:41.390
+So let's look at truncation first.
+
+02:41.400 --> 02:45.250
+So truncations simply returns the integer portion of the number.
+
+02:45.540 --> 02:50.640
+So basically it ignores everything after the decimal point and you just get the number that's to the
+
+02:50.640 --> 02:52.520
+left of the decimal point.
+
+02:52.530 --> 02:53.690
+Think of it that way.
+
+02:54.030 --> 02:58.670
+So the math module provides us with a truncation function called trunk.
+
+02:58.980 --> 03:00.210
+So we can use it this way.
+
+03:00.210 --> 03:04.040
+We have to import math first obviously then we can call math out of trunk.
+
+03:04.110 --> 03:05.070
+Ten point four.
+
+03:05.100 --> 03:09.770
+And that will return ten ten point five will return ten ten point six will also return 10.
+
+03:10.050 --> 03:10.260
+Right.
+
+03:10.260 --> 03:13.970
+We're just ditching what's after the decimal point.
+
+03:14.070 --> 03:18.420
+And it works the same way with negative numbers right which is digits after the decimal point.
+
+03:18.420 --> 03:24.060
+And we just retain the integer portion of that float.
+
+03:24.060 --> 03:30.210
+Now I want to talk about the int constructor very quickly here because the int constructor in Python
+
+03:30.420 --> 03:36.950
+accepts a float so it uses truncation when casting the float to an end.
+
+03:37.140 --> 03:43.140
+Now the words if you say into ten point four it's the same as saying trunk of ten point four.
+
+03:43.140 --> 03:43.430
+Right.
+
+03:43.440 --> 03:46.440
+And the same thing with these other numbers that we saw before.
+
+03:46.680 --> 03:50.490
+So if you don't want to you know if you want to use truncation and you don't want to import the math
+
+03:50.700 --> 03:57.310
+library or you don't want to import just the trunk from the math library you can also just use the constructor.
+
+03:57.360 --> 04:02.460
+And it will essentially return the same thing.
+
+04:02.460 --> 04:03.800
+So next we have a floor.
+
+04:04.050 --> 04:09.090
+So the floor of a number is the largest integer that is less than or equal to the number.
+
+04:09.090 --> 04:16.680
+So in mathematical notation the floor of X is the max of all than integers that are less than or equal
+
+04:16.680 --> 04:17.820
+to x.
+
+04:17.820 --> 04:22.110
+So let's take a look at an example of that it makes more sense if we use a number line.
+
+04:22.500 --> 04:29.880
+So here we have the number line 10 11 and then we have you know 12 13 14 and then 9 8 7 6 etc. on both
+
+04:29.880 --> 04:34.770
+sides and ten point four sits between 10 and 11.
+
+04:35.310 --> 04:40.600
+So the floor is the largest integer that is less than or equal to the number.
+
+04:40.620 --> 04:45.600
+So we're looking for the largest integer that is less than X or equal to x.
+
+04:45.630 --> 04:47.660
+But in this case less than X it's 10.
+
+04:47.850 --> 04:50.820
+So 10 is the floor.
+
+04:50.820 --> 04:53.090
+Now we also have to consider negative numbers.
+
+04:53.100 --> 04:55.590
+What's the law of negative ten point four.
+
+04:56.480 --> 05:01.370
+While you might be tempted to say it's negative 10 but it's not Y.
+
+05:01.400 --> 05:03.370
+Let's look at it on the number line again.
+
+05:03.620 --> 05:10.420
+So here's minus 11 minus 10 and he has minus ten point four right sitting right between those two.
+
+05:10.620 --> 05:12.080
+Again what's the floor.
+
+05:12.080 --> 05:16.480
+It is the largest integer less than or equal to x.
+
+05:16.690 --> 05:22.040
+But in this case the largest integer That's less than x is negative 11.
+
+05:22.250 --> 05:23.870
+And so that is the flaw.
+
+05:24.170 --> 05:32.440
+So the floor of ten point four is ten but the floor of negative ten point four is negative 11 so all
+
+05:32.480 --> 05:37.140
+positive numbers floor and truncation are actually equivalent right.
+
+05:37.160 --> 05:43.090
+If we took the trunk of X we would get 10 and the floor X would also be 10.
+
+05:43.100 --> 05:49.730
+And for any positive value that will be true but that is not the case for negative values.
+
+05:49.820 --> 05:50.090
+Right.
+
+05:50.090 --> 05:53.260
+The truncation of x in this case will be negative 10.
+
+05:53.420 --> 05:55.090
+But the floor is negative 11.
+
+05:55.160 --> 06:00.140
+So be careful Floren trunk are not the same thing when it comes to negative numbers.
+
+06:01.890 --> 06:09.100
+Not also want to talk very quickly again about flawed division we saw this div operated in a while back
+
+06:09.580 --> 06:11.470
+and remember how we defined it.
+
+06:11.500 --> 06:15.500
+We defined the flow division in combination with the MOD operators.
+
+06:16.030 --> 06:18.750
+And we said it satisfied this equality here.
+
+06:18.820 --> 06:28.340
+So this was integer division and this was the mod operator non-facts floor division and why.
+
+06:28.360 --> 06:35.230
+The reason why it's called floor division it's because it's defined this way a div B is precisely equal
+
+06:35.230 --> 06:38.980
+to the floor of a divided by being.
+
+06:39.070 --> 06:43.040
+So that's why we call that the float we call that a flawed division.
+
+06:43.240 --> 06:49.890
+And if we use this definition for floor division then it will drive the definition of the mud operator
+
+06:50.110 --> 06:54.550
+and it will always satisfy that equality OK.
+
+06:56.400 --> 06:58.080
+So let's look at the floor again.
+
+06:58.080 --> 07:03.590
+So the math module provides the floor function so we can get it from the math library.
+
+07:03.870 --> 07:07.670
+And if we get say math top floor of ten point four we get 10.
+
+07:07.710 --> 07:08.890
+We look at ten point five.
+
+07:08.910 --> 07:17.010
+Obviously any number within this interval here but not including 11 will floor to 10 if we have a number
+
+07:17.010 --> 07:18.020
+equal to 11.
+
+07:18.030 --> 07:19.990
+Its floor will be 11 right.
+
+07:20.040 --> 07:24.410
+Because the greatest the largest number less than or equal to x.
+
+07:24.420 --> 07:24.630
+Right.
+
+07:24.630 --> 07:30.950
+So in this case anything from 10 up to but not including 11 full floor to 10.
+
+07:30.990 --> 07:36.000
+And similarly with negative numbers we take any number in this interval here but excluding negative
+
+07:36.000 --> 07:39.860
+10 they will floor to negative 11.
+
+07:39.960 --> 07:43.830
+So all these will flow to negative 11.
+
+07:43.910 --> 07:45.740
+So the next one is ceiling.
+
+07:45.920 --> 07:49.150
+Seeing is kind of the opposite of floor floor.
+
+07:49.190 --> 07:53.420
+We took the largest integer less than or equal to the number for the ceiling.
+
+07:53.420 --> 07:57.250
+We're going to take the smallest integer greater than or equal to the number.
+
+07:57.320 --> 08:03.890
+So again in mathematical notation the ceiling of X is the minimum over every integer such that that
+
+08:03.920 --> 08:06.750
+integer is greater than or equal to x.
+
+08:06.860 --> 08:10.370
+Again let's look at a number line.
+
+08:10.410 --> 08:12.280
+So here's our number line 10 11.
+
+08:12.300 --> 08:13.650
+And obviously it continues on.
+
+08:13.680 --> 08:19.040
+You know both ends of the spectrum and X sits somewhere inside that interval.
+
+08:19.050 --> 08:20.010
+So what's the ceiling.
+
+08:20.070 --> 08:25.220
+Well the ceiling is the smallest integers that's greater than or equal to the number.
+
+08:25.680 --> 08:27.800
+Well that would be 11 in this case right.
+
+08:27.810 --> 08:34.170
+11 is greater than x 10 is not greater than x 12 is also greater than x but it's not the smallest integer
+
+08:34.320 --> 08:36.880
+greater than x the smallest one is 11.
+
+08:36.930 --> 08:39.450
+So that's our ceiling.
+
+08:39.590 --> 08:46.070
+And obviously any number that falls within this interval excluding 10 will are ceiling to 11.
+
+08:48.880 --> 08:53.800
+Now let's look at negative numbers some negative numbers again which look at that number line.
+
+08:53.860 --> 09:00.070
+Negative 11 negative 10 X sits right in between the ceiling therefore is going to be negative 10.
+
+09:00.370 --> 09:06.930
+So the ceiling is negative 10 for any number in that interval here excluding negative 11.
+
+09:06.940 --> 09:13.420
+Obviously if the number is negative 11 or the number is 10 then the ceiling in this case would be 10
+
+09:13.490 --> 09:13.740
+right.
+
+09:13.750 --> 09:18.980
+Because we're looking at every number greater than or equal to the number we're looking at.
+
+09:19.000 --> 09:26.380
+So if we're looking at 10 then I you know equal to 10 is equal to 10 and therefore the minimum will
+
+09:26.380 --> 09:27.070
+be 10.
+
+09:27.140 --> 09:31.920
+But anyway just be careful with your open close intervals on the floor and the ceiling.
+
+09:33.730 --> 09:35.580
+So we'll look at some code.
+
+09:35.580 --> 09:36.970
+Next the next video.
+
+09:36.970 --> 09:39.010
+Thanks for watching and I'll see you in a bit.

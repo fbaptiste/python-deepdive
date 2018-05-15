@@ -1,0 +1,1183 @@
+WEBVTT
+
+00:00.210 --> 00:07.050
+High in this video I want to take a look at the usage of the double underscore main double underscore
+
+00:07.800 --> 00:10.610
+kind of special string in Python.
+
+00:10.620 --> 00:13.150
+So let's go ahead and just create.
+
+00:13.170 --> 00:14.460
+I'm going to do this in Python.
+
+00:14.460 --> 00:16.770
+I can't do this in a notebook.
+
+00:17.130 --> 00:22.980
+So if you want to follow along you can do this either using your favorite Python editor or you can just
+
+00:23.040 --> 00:28.920
+basically use you know a text editor saved to file and then just run python from the command line to
+
+00:28.920 --> 00:29.790
+invoke.
+
+00:29.790 --> 00:32.050
+Which is actually what I'm going to do here.
+
+00:32.490 --> 00:36.830
+So let's go ahead and create a run up why file.
+
+00:36.840 --> 00:43.710
+So I'm going to create basically my program which is of course a module and let me just comment that
+
+00:43.710 --> 00:46.200
+the top the file name.
+
+00:46.320 --> 00:52.040
+So I'm going to use an F string and I'm going to say loading Rondout.
+
+00:52.050 --> 00:52.930
+P Y.
+
+00:53.250 --> 00:56.640
+But I also want to specify what the name means.
+
+00:56.910 --> 00:59.460
+Name equals.
+
+00:59.520 --> 01:04.990
+And we're going to look at the double underscore and name property of this module.
+
+01:07.140 --> 01:13.460
+So if I go ahead and run this and I can run this very easily basically by saying.
+
+01:13.560 --> 01:16.550
+So I'm in that directory I can call.
+
+01:16.650 --> 01:20.670
+Sorry Python and I can call run doc p y.
+
+01:20.760 --> 01:21.060
+OK.
+
+01:21.090 --> 01:26.820
+So I get my output the same thing as if I right click here and click on run and I get the same thing.
+
+01:28.940 --> 01:33.480
+So the thing that you should notice is that the module name was run p y.
+
+01:33.530 --> 01:40.100
+And yet the double underscore name property of the module came back as double underscore main not run
+
+01:40.140 --> 01:43.580
+of p y Let's go ahead and create another file.
+
+01:43.630 --> 01:47.370
+So I'm going to create this time pay module called module 1.
+
+01:47.380 --> 01:53.370
+So while this is a module also a module one copy why.
+
+01:53.680 --> 01:55.370
+And I'm going to do the same thing.
+
+01:55.390 --> 01:58.530
+I'm going to say print and I'm going to print that f string.
+
+01:58.530 --> 02:03.290
+I'm going to say loading module.
+
+02:03.310 --> 02:04.960
+Wonder why.
+
+02:05.410 --> 02:11.320
+And then we'll say the name equals and I'm going to contemplate the name of the module.
+
+02:11.510 --> 02:11.820
+OK.
+
+02:11.860 --> 02:19.000
+So we'll do the same thing here and then run all I'm going to do is I'm going to not import module 1
+
+02:20.080 --> 02:21.610
+and I want you to see what happens.
+
+02:21.610 --> 02:25.650
+Now when I run the program I'm looking to run run.
+
+02:26.050 --> 02:31.680
+And you'll notice that loading runs said that the name was double underscore main dumb domain.
+
+02:31.960 --> 02:35.410
+But then we got this print from the module one saying.
+
+02:35.440 --> 02:40.400
+Loading module one doesn't the name equals module one.
+
+02:40.780 --> 02:41.340
+Right.
+
+02:41.350 --> 02:46.600
+So in fact it picked up the name of the module.
+
+02:46.610 --> 02:49.540
+Now if I was to run module one instead.
+
+02:49.530 --> 02:52.420
+So instead of running and calling Rundell P Why.
+
+02:52.550 --> 02:56.840
+Let's say I call module wonder why then look what happens.
+
+02:56.870 --> 02:59.050
+The name now is done Dumaine.
+
+02:59.300 --> 03:07.040
+So basically whenever you invoke a module from the command line when you execute basically your program
+
+03:07.040 --> 03:10.310
+there's an entry point to the program and it's a module.
+
+03:10.580 --> 03:18.140
+And when you do that then the modules name is changed by Python to double underscore main which means
+
+03:18.140 --> 03:21.020
+that you can do certain things for example.
+
+03:21.020 --> 03:29.170
+And it's very common to do things like this to say if done the name equals equals done the main case
+
+03:29.180 --> 03:35.870
+for which the string done the main that means that module was executed.
+
+03:35.950 --> 03:36.930
+OK.
+
+03:37.970 --> 03:41.060
+So it was executed by invoking it directly.
+
+03:41.060 --> 03:44.270
+Basically as a script and then you might do certain things.
+
+03:44.270 --> 03:48.080
+So now if I call module one Doppie why.
+
+03:48.710 --> 03:57.400
+You'll notice that I get the print output module was executed but if I call runback why with just import
+
+03:57.920 --> 04:03.010
+module one then you'll see that it didn't print the statement over here.
+
+04:03.290 --> 04:07.010
+And that's because its name was not double underscore main.
+
+04:07.040 --> 04:08.900
+So why can that be useful.
+
+04:09.200 --> 04:13.720
+Well let's go ahead and do a small utility module.
+
+04:13.790 --> 04:15.480
+So let's create a new module.
+
+04:15.560 --> 04:23.910
+Let's call this timing that people right now are trying timing Doppie line.
+
+04:24.020 --> 04:28.410
+So now we have this module and let's go ahead and do a few things in there.
+
+04:28.580 --> 04:33.200
+So first of all let me comment the name over there and let me give it a docstring
+
+04:36.140 --> 04:39.320
+so times.
+
+04:39.530 --> 04:46.780
+This is what the small hole is going to be times how long this snippet of code it takes to run
+
+04:49.690 --> 04:53.660
+over multiple iterations.
+
+04:54.100 --> 04:59.800
+And so all we're going to do here we're basically going to create a function called timeout that's going
+
+04:59.800 --> 05:07.030
+to receive a string of valid Python code and it's going to time it it's going to execute it and time
+
+05:07.030 --> 05:07.780
+it.
+
+05:07.810 --> 05:10.070
+So let's go ahead and do our import.
+
+05:10.070 --> 05:19.690
+We're going to need it in need of calendar from time from collections ongoing to import named not name
+
+05:19.690 --> 05:25.560
+toppled because I want to return my results from my time function using named topple.
+
+05:25.570 --> 05:31.480
+That's a nice thing to do for all users and often am orthonormal going to import this one.
+
+05:31.480 --> 05:33.700
+Let's go ahead and just import this.
+
+05:33.820 --> 05:42.400
+I'm going to create a timing class named table called timing and it's going to have three things in
+
+05:42.400 --> 05:45.670
+there it's going to have the number of repeats that we did.
+
+05:45.670 --> 05:53.380
+The total elapsed time and the average elapsed time and you'll see what those mean.
+
+05:53.470 --> 05:55.230
+Let's go ahead and write the function.
+
+05:55.270 --> 05:59.870
+So here I want a function that's going to receive a chunk of code basically.
+
+06:00.100 --> 06:07.120
+And I want a repeats Our argument with a default of 10 that's going to be how many times we're going
+
+06:07.120 --> 06:13.750
+to run this code and then we're going to time it and we'll timed the entire amount of time it takes
+
+06:13.750 --> 06:19.900
+to run it you know X number of times the repeats number of times and then we'll also calculate the average
+
+06:20.230 --> 06:25.540
+hour per hour basically know per run of the code.
+
+06:25.540 --> 06:31.750
+So what I could do here we have an exec function you've seen this before we could execute the code like
+
+06:31.750 --> 06:32.590
+this.
+
+06:32.590 --> 06:37.010
+But of course what it does is that it has to compile the code and then execute it.
+
+06:37.030 --> 06:41.810
+So I don't want to incur the cost of recompiling the code every time.
+
+06:42.010 --> 06:47.110
+So instead what I'm going to do it's very similar to what we did when we wrote our own importer.
+
+06:47.350 --> 06:51.630
+I'm going to compile the code for some of the comput compiled code.
+
+06:51.730 --> 06:54.190
+Now we have to specify the file name but the file name.
+
+06:54.190 --> 06:55.320
+There is no file name.
+
+06:55.570 --> 06:59.460
+So a common thing to do is just to say it came from a string.
+
+06:59.610 --> 07:00.140
+OK.
+
+07:00.640 --> 07:04.710
+And then the mode is going to be a exec.
+
+07:05.320 --> 07:13.870
+Now I'm going to start I'm going to look at my stout valued for per counter and then I'm going to repeat.
+
+07:15.400 --> 07:20.650
+I'm going to execute that code that number of times and I'm going to execute the code.
+
+07:20.890 --> 07:23.060
+So that's all I have to do to execute the code.
+
+07:23.260 --> 07:24.760
+I'm not looking for an output value.
+
+07:24.790 --> 07:30.900
+I just want to execute the code and then will again take a look at our current value for both counters.
+
+07:31.030 --> 07:33.460
+So I left the pools and minus.
+
+07:33.730 --> 07:39.870
+The average equals the elapsed divided by the number of repeats.
+
+07:40.840 --> 07:43.550
+And then we're going to return a timing that's it.
+
+07:43.550 --> 07:44.430
+We've timed it.
+
+07:44.440 --> 07:45.870
+So now we're going to return.
+
+07:45.880 --> 07:47.710
+How many times we repeated it.
+
+07:47.800 --> 07:53.110
+What was the total amount of elapsed time and what was the average elapsed time.
+
+07:53.750 --> 07:56.850
+OK so now we have this module called timing.
+
+07:56.890 --> 08:01.460
+So no in run I can go ahead and invoke it.
+
+08:01.540 --> 08:05.530
+So I'm not going to do import module one any more and I'm going to take this out.
+
+08:05.530 --> 08:07.360
+We don't really need this anymore.
+
+08:07.720 --> 08:11.650
+And let's go ahead and time something.
+
+08:11.770 --> 08:23.260
+So my code is going to be something maybe like our calculate x squared for x in for doing a list comprehension
+
+08:23.260 --> 08:27.840
+for x in range let's say a thousand.
+
+08:28.030 --> 08:36.680
+OK so we're going to basically calculate the squares of the first thousand integers starting at zero.
+
+08:37.180 --> 08:39.190
+And this is the code that I want to execute.
+
+08:39.260 --> 08:42.220
+For now I have to of course import timing.
+
+08:42.430 --> 08:42.920
+OK.
+
+08:43.120 --> 08:47.580
+So I have to import my module and you'll see what happens.
+
+08:47.610 --> 08:49.210
+And let me put over here.
+
+08:49.350 --> 08:53.710
+Print loading timing.
+
+08:54.170 --> 08:56.040
+OK so we're loading that module
+
+09:01.290 --> 09:02.230
+now in run.
+
+09:02.400 --> 09:04.050
+That's the code that I want to do.
+
+09:04.050 --> 09:10.800
+And so I'm going to say result equals timing docked time at the code that we want.
+
+09:10.830 --> 09:17.390
+And then let's say I want to repeat this 100 times and then I'll print the results.
+
+09:17.550 --> 09:18.120
+OK.
+
+09:18.360 --> 09:19.890
+So very straightforward.
+
+09:19.890 --> 09:29.900
+So here I'm going to run run Doppie Y and we get loading timing and then timing repeats equals 100 elapsed
+
+09:29.910 --> 09:32.990
+was that amount of time the average was that amount of time.
+
+09:33.000 --> 09:34.260
+So that's how long it took.
+
+09:34.440 --> 09:41.680
+So if I want something that's going to be a little slower we'll say in range a thousand then we'll execute
+
+09:41.680 --> 09:43.460
+that.
+
+09:43.460 --> 09:45.310
+Of course it's going to take a little longer.
+
+09:45.330 --> 09:47.680
+I'm repeating it 100 times as well.
+
+09:50.230 --> 09:57.720
+OK so it came back took 34 seconds total to run an average of 0.3 seconds to basically create this list
+
+09:57.750 --> 09:59.960
+of a million numbers squared.
+
+10:00.030 --> 10:00.290
+Right.
+
+10:00.300 --> 10:04.150
+From based off the range so.
+
+10:04.340 --> 10:10.970
+OK so now what happens is that this timing module actually could be pretty useful if we were able to
+
+10:10.970 --> 10:12.650
+also call it from the command line.
+
+10:12.650 --> 10:20.180
+So not only do I want this time of the function to be available as a module essentially being imported
+
+10:20.180 --> 10:25.070
+from a module but I also would like to be able to call it from the command line.
+
+10:25.160 --> 10:27.590
+So let's go ahead and code that up.
+
+10:27.590 --> 10:29.390
+So let me hide this.
+
+10:29.480 --> 10:36.690
+And now what we're going to do is we're going to import good thanks.
+
+10:36.710 --> 10:43.430
+So this is going to allow this is a module that will allow us to basically pick up our arguments from
+
+10:43.430 --> 10:50.210
+the command line so I might be able to run it like this saying timing dot P Y and I'm might want to
+
+10:50.420 --> 10:54.740
+you know give it some arguments you must have seen this before and what I want to do is be able to give
+
+10:54.740 --> 10:55.780
+it an argument.
+
+10:55.910 --> 10:57.820
+Like for example the code.
+
+10:57.950 --> 10:58.430
+OK.
+
+10:58.580 --> 11:04.520
+So the code that I want to run in here and I'd like to say the number of repeats maybe I want 100 repeats.
+
+11:04.550 --> 11:08.820
+So that's kind of my goal right here is to be able to do something like that.
+
+11:11.130 --> 11:13.770
+So let's go ahead and code that up.
+
+11:13.920 --> 11:20.730
+Now the thing is I don't want this code what I'm invoking timing dopy why I don't want that code whatever
+
+11:20.730 --> 11:21.660
+I'm going to write.
+
+11:21.720 --> 11:22.000
+Right.
+
+11:22.020 --> 11:23.790
+I'm going to write something here.
+
+11:24.150 --> 11:30.150
+I don't want that to run if I'm importing the timing module only want this to run if I'm invoking it
+
+11:30.420 --> 11:34.330
+by calling it directly by calling this module basically directly.
+
+11:34.710 --> 11:35.890
+Well that's very easy.
+
+11:35.940 --> 11:41.920
+We'll just have to say if name is equal equals to dun domain k.
+
+11:42.080 --> 11:46.770
+So if the name is Main then we know that we've being called from here.
+
+11:46.920 --> 11:47.190
+Right.
+
+11:47.190 --> 11:49.060
+Let me just go ahead and just say here.
+
+11:49.080 --> 11:55.630
+Print running this command line code.
+
+11:55.730 --> 11:56.230
+OK.
+
+11:56.400 --> 11:58.780
+So it's not really doing anything right now.
+
+11:58.800 --> 12:00.780
+I can't pass that in.
+
+12:00.780 --> 12:07.380
+But if I do this we get loading time timing which we would get if we imported it anyways.
+
+12:07.650 --> 12:16.590
+But this running this command line code if we were to run run Doppie why we won't see that we'll just
+
+12:16.590 --> 12:17.680
+get loading timing.
+
+12:17.850 --> 12:26.680
+And I'm going to stop that because this is creating my arm my list comprehension 100 times.
+
+12:26.700 --> 12:29.930
+So I'm going to pause the video and cancel this thing out.
+
+12:31.850 --> 12:32.300
+OK.
+
+12:32.430 --> 12:34.800
+So I just closed the terminal window.
+
+12:34.980 --> 12:42.240
+So now let me change this to something that's a little more reasonable and we'll run it 10 times.
+
+12:42.240 --> 12:43.770
+I just want to show you that.
+
+12:43.920 --> 12:48.700
+Now if I call Python run dopy why I don't get right.
+
+12:48.750 --> 12:54.310
+The arm running this command line code.
+
+12:54.310 --> 13:01.000
+But if I was to call Python d'arte timing I do get this right so that's the difference.
+
+13:01.030 --> 13:03.040
+Now I can leverage that fact.
+
+13:03.040 --> 13:08.590
+So let's go ahead and set up our arguments for the command line.
+
+13:08.920 --> 13:15.760
+So we want to get code from arguments and we want to get repeat as well.
+
+13:15.790 --> 13:22.450
+We want to get code and repeats and we'll call it repeats to keep it consistent with how we've named
+
+13:22.450 --> 13:27.640
+our variables in the time it function we don't have to just want to be consistent that way it's easier
+
+13:27.640 --> 13:28.910
+to match things up.
+
+13:29.290 --> 13:36.060
+So we're going to basically get an argument parser.
+
+13:37.180 --> 13:44.270
+And again there's a really good tutorial on this.
+
+13:44.530 --> 13:46.370
+It's part of the standard library.
+
+13:46.630 --> 13:51.300
+And if you're interested just send me some messages if you want me to do a video on.
+
+13:51.300 --> 13:53.020
+Argument passing.
+
+13:53.280 --> 13:57.520
+And also only do one of those.
+
+13:57.660 --> 14:04.440
+OK so the argument that I can pass it a description and if I'm on my command line and I type a dot dash
+
+14:04.500 --> 14:10.080
+H for help it will actually return the description while I have a description kind of already I did
+
+14:10.080 --> 14:11.770
+a quick docstring over there.
+
+14:11.850 --> 14:16.950
+So I'm just going to grab the docstring of my module and return that as the description.
+
+14:16.950 --> 14:21.780
+The next thing I need to do is I need to tell this class that I have some arguments that I'm looking
+
+14:21.780 --> 14:22.550
+for.
+
+14:23.070 --> 14:29.160
+So the first one is going to be a positional arguments so it's just named basically with whatever it's
+
+14:29.160 --> 14:38.570
+going to come back as when I look at the results of passing the arguments I'm going to specify that
+
+14:38.570 --> 14:41.760
+the type should be a string.
+
+14:41.810 --> 14:52.350
+I'm going to specify a help and I'm going to say this is the Python code snippet to time to something
+
+14:52.370 --> 14:54.560
+like that.
+
+14:54.560 --> 14:58.060
+Then I'm going to do another argument.
+
+14:59.330 --> 15:01.730
+This one is going to be a dash.
+
+15:01.760 --> 15:05.380
+So this is going to be an argument that's going to be kind of a keyword argument.
+
+15:05.660 --> 15:12.590
+And I can either use Dasch are other long form repeats so that's how you specify those and the type
+
+15:12.590 --> 15:13.970
+here is going to be an end.
+
+15:14.000 --> 15:16.310
+I'm going to set the default should be 10.
+
+15:16.310 --> 15:23.130
+So the user doesn't pass the repeats and will default it to 10 and then the help.
+
+15:23.360 --> 15:28.720
+We're just going to say a number of times to repeat the test.
+
+15:28.900 --> 15:29.520
+OK.
+
+15:30.200 --> 15:38.270
+So this is our argument passage and then we can get the arguments by basically saying pass comes on
+
+15:38.270 --> 15:43.250
+the pass or once it's been set up we just call that just to show you what we get.
+
+15:43.250 --> 15:52.280
+Let me show you that we can get args dot code and we can then get dark repeats.
+
+15:52.400 --> 15:54.720
+So let's go ahead and run this code.
+
+15:55.530 --> 16:04.440
+So I'm going to run timing up the Y and I'm going to say code goes here and I'll type put right and
+
+16:04.440 --> 16:06.240
+then I can do either a minus.
+
+16:06.330 --> 16:08.350
+Well I can do a minus.
+
+16:08.760 --> 16:13.890
+Let's say 20 times and you'll see that we got loading timing.
+
+16:13.910 --> 16:16.370
+Yes because we ran that k.
+
+16:16.410 --> 16:21.070
+So we ran the module so it had to execute the module so we printed that out.
+
+16:21.210 --> 16:23.630
+So now I'm going to actually take this out.
+
+16:23.640 --> 16:25.510
+We don't really need it anymore.
+
+16:26.370 --> 16:31.710
+And you'll notice that it printed out my code goes here which is what I passed here as a positional
+
+16:31.710 --> 16:38.360
+argument and then twenty's what I passed here is essentially a keyword argument arm to arms.
+
+16:38.430 --> 16:38.930
+OK.
+
+16:40.460 --> 16:43.180
+So now that we have that it's pretty straightforward.
+
+16:43.190 --> 16:50.100
+Oh and by the way let me show you that if I do a timing of p y minus H for help it will tell me.
+
+16:50.180 --> 16:50.520
+OK.
+
+16:50.540 --> 16:57.050
+So I get the this is the times how long a snippet of code takes to run over multiple iterations.
+
+16:57.050 --> 17:03.070
+That's just my docstring the positional arguments of code the Python code snippet to time.
+
+17:03.230 --> 17:09.440
+And then I have my optional arguments that you all minus H and dash dash help comes for free.
+
+17:09.500 --> 17:14.520
+The dash R and dash dash repeats is the one that I specified here.
+
+17:14.670 --> 17:15.150
+OK.
+
+17:15.320 --> 17:20.010
+That I specified in this piece of code over there and the help file comes back.
+
+17:20.050 --> 17:26.180
+OK so now that we have the arguments that we can take arguments from the command line all we need to
+
+17:26.180 --> 17:28.890
+do is basically time it.
+
+17:29.120 --> 17:34.030
+So the first thing I'm going to do is I'm just going to print back the code so I'm going to say with
+
+17:34.030 --> 17:36.360
+timing.
+
+17:37.090 --> 17:38.410
+Dot code.
+
+17:38.520 --> 17:45.190
+Ok so I just want to print that we're timing this piece of code and then we're going to time it.
+
+17:45.200 --> 17:51.790
+So let's time it and then we'll set the code equal to Arne's dot code.
+
+17:51.800 --> 17:52.990
+It's a string already.
+
+17:53.060 --> 18:00.620
+But if you want to be absolutely sure I guess you could put a bill you could force it to a string and
+
+18:00.620 --> 18:03.220
+then repeats equals and start repeats.
+
+18:03.380 --> 18:04.880
+OK that's it.
+
+18:04.880 --> 18:09.440
+And then we just want to do what we want to print this up and because it's a name table it's going to
+
+18:09.440 --> 18:11.090
+print up pretty nicely.
+
+18:11.940 --> 18:15.030
+So let's go ahead now and run this.
+
+18:15.090 --> 18:17.770
+So we have to specify the code Wellfleet code.
+
+18:17.790 --> 18:21.910
+I'm going to say X squared for x in range.
+
+18:21.930 --> 18:27.750
+I'm not going to use that big number that I had last time just to keep this sane.
+
+18:27.750 --> 18:29.310
+So we were in that range.
+
+18:29.310 --> 18:34.130
+This is the code and I want to repeat this let's say 15 times OK.
+
+18:34.800 --> 18:35.480
+We run this.
+
+18:35.490 --> 18:37.140
+It tells us timing that.
+
+18:37.200 --> 18:43.250
+And here we go here's the result so wouldn't we achieve here.
+
+18:43.360 --> 18:50.260
+Well we were able to call essentially this module and have it do something for us when we called it
+
+18:50.260 --> 18:51.810
+directly on the command line.
+
+18:52.060 --> 18:55.510
+But if I'm running I can still run this.
+
+18:55.630 --> 18:57.140
+And let me just run it from kit.
+
+18:57.160 --> 18:59.250
+It doesn't matter it's the same thing.
+
+18:59.320 --> 19:01.710
+I can run up the Y.
+
+19:01.990 --> 19:03.300
+And let me change that.
+
+19:03.300 --> 19:08.390
+So you don't think it's the same code that we say are x cubed.
+
+19:08.490 --> 19:16.660
+OK so now if I run Doppie why it timed running x cubed and hit any maybe say print code I'll just do
+
+19:16.660 --> 19:17.540
+it this way.
+
+19:17.620 --> 19:18.110
+OK.
+
+19:18.340 --> 19:22.900
+So let's go ahead and run this so you can see it's running this way.
+
+19:23.290 --> 19:27.300
+But you'll notice that it didn't run all this code over there.
+
+19:27.730 --> 19:31.660
+And so this is something that's done that's fairly common.
+
+19:31.660 --> 19:37.210
+It allows programmers to give modules certain functionality when they're invoked from the command line
+
+19:37.660 --> 19:42.970
+but those things don't kind of muddy the waters when you're actually importing the module because you're
+
+19:42.970 --> 19:45.090
+using it somewhere else.
+
+19:45.310 --> 19:51.310
+And so Python actually has some modules and packages that behave that way.
+
+19:51.310 --> 19:54.240
+For example we have the zip file.
+
+19:54.460 --> 19:56.880
+So Python.
+
+19:57.100 --> 20:00.120
+Well let me go ahead and show you what's in our directory here.
+
+20:00.250 --> 20:06.920
+So I have module one Rundell p y timing P Y and I want to create an archive a zip archive of all that.
+
+20:06.930 --> 20:10.460
+Now Python has a library for that.
+
+20:10.660 --> 20:12.890
+It's called the zip file.
+
+20:13.210 --> 20:19.990
+So his zip file you can work with Zip archives and it has all these methods and objects and things in
+
+20:19.990 --> 20:20.680
+there.
+
+20:20.980 --> 20:21.480
+OK.
+
+20:21.610 --> 20:28.540
+So it's a regular you know package and it has a lot of functionality but it also has an ability for
+
+20:28.540 --> 20:30.770
+us to actually call it from the command line.
+
+20:30.790 --> 20:32.190
+So let's go ahead and do that.
+
+20:32.200 --> 20:38.710
+So we're going to say Python we're going to call up the zip file now zip file as a package so I have
+
+20:38.710 --> 20:45.310
+to use those inside a package so I need to use this man minus and then I'll get to that later when we
+
+20:45.310 --> 20:46.800
+discuss packages.
+
+20:46.870 --> 20:50.620
+For now just think that I'm calling this module called zip file.
+
+20:50.620 --> 20:52.560
+So I've got a zip file and what I want to do.
+
+20:52.570 --> 20:56.020
+Well I want to create So again I'm just passing these command line arguments.
+
+20:56.020 --> 20:56.260
+Right.
+
+20:56.260 --> 20:58.140
+So I want to create an archive.
+
+20:58.210 --> 21:03.290
+So I'm going to call it maybe app got zip and I'm going to add to it.
+
+21:03.400 --> 21:08.450
+Module one copy why run up the why and timing of P Why.
+
+21:08.560 --> 21:14.940
+So that's how I want to add all of these so now I've got a zip file that was created as you can see
+
+21:15.000 --> 21:18.170
+app dot zip and it definitely has content in it.
+
+21:18.180 --> 21:21.130
+In fact we can list the content.
+
+21:21.450 --> 21:28.770
+We can call zip file minus L on app dot zip and it will tell us what's inside.
+
+21:28.770 --> 21:33.570
+So inside the archive we have module one run up P Y and timing duppy y.
+
+21:33.840 --> 21:40.830
+So this kind of functionality was achieved you know by using this kind of technique where if you import
+
+21:40.980 --> 21:44.620
+zip file it's not going to have all this stuff.
+
+21:44.710 --> 21:51.250
+And if we actually called from the command line now we have some extra functionality that uses the contents
+
+21:51.250 --> 21:54.520
+of the file right to give us extra functionality.
+
+21:54.520 --> 21:58.770
+And at the command line and there are other libraries that do it as well.
+
+21:58.780 --> 21:59.550
+We'll see that.
+
+21:59.560 --> 22:07.330
+Actually I have a video in the extras section on using the time at module and that's why I kind of use
+
+22:07.330 --> 22:08.560
+timing over here.
+
+22:08.750 --> 22:13.600
+There's maybe a little bit more sophisticated because you could specify names faces and things like
+
+22:13.600 --> 22:20.440
+that but basically it's the same idea where you can either use Tynemouth inside your code you can import
+
+22:20.530 --> 22:24.200
+the time at Mordieu or you can use it from the command line.
+
+22:24.220 --> 22:27.510
+The way I showed you right here we could use it either way.
+
+22:27.950 --> 22:31.050
+OK so one more thing that I want to show you.
+
+22:31.240 --> 22:40.300
+Regality the double underscore main There is another usage for that and let me go ahead and I'm going
+
+22:40.300 --> 22:42.810
+to rename run.
+
+22:42.850 --> 22:44.560
+Well before I do that.
+
+22:44.770 --> 22:46.470
+So I'm in my directory here.
+
+22:46.470 --> 22:47.440
+Main usage right.
+
+22:47.440 --> 22:49.360
+That's my project directory.
+
+22:49.360 --> 22:57.720
+So let me go one level up and let me call Python on main usage and as you can see it complains it says
+
+22:57.790 --> 23:04.990
+I can't find the double underscore main module but done the module what Python does.
+
+23:05.000 --> 23:12.110
+If I try and execute this directory basically it actually goes inside and it looks for a module called
+
+23:12.110 --> 23:16.130
+double underscore main and it will then be the starting point.
+
+23:16.310 --> 23:24.170
+So it would be the same thing as you know going into main usage and calling main directly so let me
+
+23:24.170 --> 23:24.990
+show you that.
+
+23:25.010 --> 23:28.080
+Let me go ahead and rename this runner up.
+
+23:28.100 --> 23:32.150
+Why I'm going to call it double underscore main double underscore.
+
+23:32.150 --> 23:32.970
+So done Dumaine.
+
+23:33.050 --> 23:33.650
+OK.
+
+23:34.550 --> 23:37.180
+So now this is just a regular module.
+
+23:37.190 --> 23:39.310
+It's just has this special name.
+
+23:39.320 --> 23:41.600
+So if I go to my main usage
+
+23:46.000 --> 23:48.580
+k we can see that it's right here.
+
+23:48.760 --> 23:49.700
+It's right there.
+
+23:49.710 --> 23:58.220
+So now I can just call Python double underscore main dot p y k that will run just as if it was run up
+
+23:58.230 --> 24:02.390
+P Y except it's got this kind of you know funky name over here.
+
+24:02.470 --> 24:07.140
+But it does the same thing but because it was called double underscore main dhanda main.
+
+24:07.180 --> 24:13.490
+I can now go one level up and I can say Python and main usage.
+
+24:13.510 --> 24:18.710
+So now main usage isn't really a module it's a directory that contains my code.
+
+24:18.880 --> 24:20.210
+But look what happens.
+
+24:20.260 --> 24:22.680
+It ran it right.
+
+24:22.690 --> 24:28.930
+So that's kind of pretty handy and I'll show you something else that comes along with that.
+
+24:29.280 --> 24:32.540
+Um actually I'll I'll show you right now.
+
+24:32.680 --> 24:35.340
+Let me go ahead and what I want to do now.
+
+24:35.410 --> 24:38.930
+So let's back let's go back into Main usage.
+
+24:41.190 --> 24:45.630
+And I'm going to delete Abdulle zip code because that's in there.
+
+24:47.440 --> 24:53.390
+Then what I'm going to do is I'm going to use Python minus the zip file.
+
+24:53.580 --> 25:02.530
+I just showed you that I'm going to create let's say a zip file zip archive and let's call it my app
+
+25:02.710 --> 25:08.500
+and I'm not even going to give it an extension I'm just going to call it my app and I want to put in
+
+25:08.500 --> 25:08.760
+it.
+
+25:08.800 --> 25:09.480
+What's.
+
+25:09.550 --> 25:15.480
+Well I want to put in it every P Y file to all the C-y files.
+
+25:15.700 --> 25:16.040
+OK.
+
+25:16.060 --> 25:18.850
+So let's go ahead and let me check that that worked correctly.
+
+25:18.850 --> 25:20.830
+So we'll say right on line am.
+
+25:21.090 --> 25:23.670
+Zip file minus L.
+
+25:24.070 --> 25:28.220
+My app and no it didn't work correctly.
+
+25:28.680 --> 25:32.420
+So I'm going to have I think I have to put them.
+
+25:32.740 --> 25:35.400
+I don't remember if there was a way to do this.
+
+25:35.440 --> 25:37.570
+So let me remove the.
+
+25:37.780 --> 25:38.980
+With me delete.
+
+25:39.100 --> 25:40.410
+This is Windows.
+
+25:40.420 --> 25:43.680
+Delete my app OK.
+
+25:43.870 --> 25:47.980
+And I'm going to do this again except I'm going to actually name them.
+
+25:48.040 --> 25:49.280
+What do I want.
+
+25:49.390 --> 25:53.080
+I want module one.
+
+25:53.140 --> 25:56.020
+Actually no I want double underscore main.
+
+25:56.060 --> 25:56.470
+OK.
+
+25:56.530 --> 25:57.430
+Dopy why.
+
+25:57.520 --> 25:58.660
+That's the main point.
+
+25:58.840 --> 26:01.820
+I'm putting that double underscore main inside the zip archive.
+
+26:01.990 --> 26:03.960
+And of course I need the timing up.
+
+26:04.000 --> 26:04.240
+Why.
+
+26:04.240 --> 26:06.370
+Because it imports timing of P.
+
+26:06.820 --> 26:12.190
+And I don't think the done the main import anything else so we good we don't need to include module
+
+26:12.190 --> 26:12.650
+one.
+
+26:12.820 --> 26:13.560
+OK.
+
+26:14.140 --> 26:14.560
+All right.
+
+26:14.620 --> 26:16.400
+Now let's double check again.
+
+26:16.540 --> 26:21.730
+That I do have the files now and it was called my app.
+
+26:22.150 --> 26:24.210
+And yes they're in there now.
+
+26:24.220 --> 26:26.490
+Now you'll notice that this is a zip archive.
+
+26:26.500 --> 26:33.490
+My app is a zip file and it contains main you know done the mind of P Y and timing of p y.
+
+26:33.700 --> 26:39.820
+But look at this I can call my app which is a zip file and it executes.
+
+26:39.850 --> 26:47.710
+So Python is able to actually reach into zip files and get code out of them and in a upcoming video
+
+26:47.710 --> 26:55.160
+I'll show you how we can actually put modules in zip files and import modules from inside zip files.
+
+26:56.300 --> 26:56.950
+All right.
+
+26:56.990 --> 26:58.360
+I think it's a good point to stop.
+
+26:58.360 --> 27:00.850
+So thanks for watching and I'll see you in the next video.

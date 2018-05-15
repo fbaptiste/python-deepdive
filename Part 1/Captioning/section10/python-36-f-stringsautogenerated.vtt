@@ -1,0 +1,466 @@
+WEBVTT
+
+00:00.450 --> 00:00.910
+High.
+
+00:01.020 --> 00:03.580
+So in this video I just want to talk about strings.
+
+00:03.600 --> 00:09.060
+So that's the kind of the last highlight for now that I'm going to do on Python 3 6 and strings is just
+
+00:09.060 --> 00:14.220
+short for formatted string literals and it has to do with string interpolation and if you want more
+
+00:14.220 --> 00:20.580
+details really go and read Pepp 498 that kind of gives you all the detail that you'd want to know about
+
+00:20.580 --> 00:21.020
+this.
+
+00:21.150 --> 00:22.800
+But it's really cool.
+
+00:22.800 --> 00:29.430
+So just as a reminder we use the Format function we can also use the old style P.C. sign to do the string
+
+00:29.430 --> 00:32.760
+formatting but I don't use that I just use the format.
+
+00:32.760 --> 00:33.750
+So what do I mean.
+
+00:33.750 --> 00:39.170
+Well let's say I've got this let's say I want to write some numbers model some number.
+
+00:39.330 --> 00:43.590
+So here I'm just using these kind of positional things right.
+
+00:43.590 --> 00:48.760
+So I'm not providing a numerical value in here.
+
+00:49.040 --> 00:51.900
+It's just going to be kind of first come first served.
+
+00:52.680 --> 00:54.480
+And what am I going to pass in.
+
+00:54.510 --> 00:59.760
+Well now I have to make sure I have the sequence right so I'm going to say I'm going to take 10 maade
+
+01:00.030 --> 01:04.060
+3 is 10 Mode 3.
+
+01:04.170 --> 01:04.490
+OK.
+
+01:04.530 --> 01:08.830
+So what happens here is that we see 10 Mach 3 equals 1.
+
+01:09.180 --> 01:10.010
+So that's great.
+
+01:10.170 --> 01:12.380
+Now we can also use a slightly different style.
+
+01:12.390 --> 01:13.900
+We can say zero.
+
+01:14.220 --> 01:17.250
+And here what I'm going to do I'm going to mix it up actually.
+
+01:17.280 --> 01:20.060
+Let me start with one model.
+
+01:20.190 --> 01:22.970
+Two equals zero.
+
+01:23.110 --> 01:23.570
+OK.
+
+01:23.850 --> 01:29.120
+So it's going to use now the positional arguments that I put into format.
+
+01:29.120 --> 01:33.270
+So the first thing I want I want the 0 to correspond to 10 month 3.
+
+01:33.330 --> 01:40.380
+So I would put 10 montri here and then I want the the item at index 1 to be this number here.
+
+01:40.410 --> 01:42.590
+So it's going to be 10 and then three.
+
+01:42.690 --> 01:43.140
+OK.
+
+01:43.230 --> 01:44.500
+So we get the same thing.
+
+01:44.630 --> 01:49.740
+What we can do it this way if we use these positional numbers that corresponds to the positions of the
+
+01:49.740 --> 01:55.580
+arguments that we pass to format and then the other way to do it is to do using names.
+
+01:55.620 --> 02:02.820
+So we can say a model B equals mod K and then Q.
+
+02:02.910 --> 02:07.270
+Now we just have to pass keyword arguments so we'd say April 10.
+
+02:07.440 --> 02:12.310
+And again we don't have to keep the all the same it doesn't matter because not using keywords so we'd
+
+02:12.330 --> 02:17.940
+say 10 mod 3 and B are equals 3.
+
+02:17.940 --> 02:21.060
+And again we get exactly the same output.
+
+02:21.060 --> 02:25.650
+So that's great but you'll notice that there's a bit of typing to do right especially here with the
+
+02:25.650 --> 02:30.490
+names are go to put a an A and B and B in modern mode.
+
+02:30.720 --> 02:38.220
+So here's the idea behind estranges is that f strings look the same as these but we prefix them with
+
+02:38.220 --> 02:41.210
+an F and let's go ahead and create two variables.
+
+02:41.220 --> 02:42.460
+These are global variables.
+
+02:42.460 --> 02:46.380
+They're in my module and now I'm going to create an F string.
+
+02:46.380 --> 02:49.320
+So I just prefix it with F and you can use capital F as well.
+
+02:49.320 --> 02:50.730
+Doesn't matter.
+
+02:51.480 --> 02:56.690
+Both will work and I'm going to say a nod B.
+
+02:57.120 --> 02:58.880
+Now what is a and b here.
+
+02:59.070 --> 03:02.170
+A is going to actually be this a over here.
+
+03:02.340 --> 03:05.440
+It's good to find it in the global scope and same thing with B.
+
+03:05.610 --> 03:09.870
+So that's what I mean by string interpellation is that we get this we get 10 month threes so that's
+
+03:09.870 --> 03:10.930
+pretty cool.
+
+03:10.930 --> 03:14.710
+But furthermore we can also now embed expressions.
+
+03:14.730 --> 03:19.940
+So now I could actually write the expression a mob and we get that.
+
+03:19.950 --> 03:24.600
+So basically in F strings you can use expressions and you can reference variables inside your string
+
+03:24.630 --> 03:30.390
+which Python will then top elite K and it also uses all the existing string formatting options.
+
+03:30.390 --> 03:35.860
+So for example let's say I have 8 equals 10 divided by three.
+
+03:36.050 --> 03:41.720
+OK so what you can do here is you can say f a.
+
+03:41.730 --> 03:47.390
+I'm going to take a and I'm going to do five digits after the decimal point.
+
+03:47.400 --> 03:47.750
+OK.
+
+03:47.790 --> 03:48.840
+And so we get that.
+
+03:48.930 --> 03:51.290
+Now of course I didn't even have to do that.
+
+03:51.300 --> 03:53.360
+I could have written it this way.
+
+03:54.300 --> 04:03.350
+So we'll say 10 divided by three 0.5 f actually just yet.
+
+04:03.840 --> 04:04.880
+And we get that.
+
+04:05.100 --> 04:06.540
+So this is pretty cool.
+
+04:07.420 --> 04:08.620
+And it's more compact.
+
+04:08.630 --> 04:14.050
+I mean let's say that we have something like name equals Python.
+
+04:14.250 --> 04:15.110
+OK.
+
+04:15.610 --> 04:18.100
+And we want to print out Python rocks.
+
+04:18.130 --> 04:21.830
+Well all we need to do is just to say name rocks.
+
+04:21.870 --> 04:24.160
+Ok that's all we have to do.
+
+04:24.280 --> 04:30.310
+The old style using format you'd have to say something like this if you wanted to use a variable name
+
+04:31.420 --> 04:32.040
+rocks.
+
+04:32.110 --> 04:38.740
+Now of course with the format it's not going to see this as a variable in the outer scope in the enclosing
+
+04:38.740 --> 04:39.120
+scope.
+
+04:39.130 --> 04:42.210
+It's going to look for it as a keyword parameter in here.
+
+04:42.280 --> 04:48.300
+So I'd have to say name equals name OK because this name here refers to the name and my out of scope.
+
+04:48.310 --> 04:54.380
+This is the name of the argument and then that gets passed into the string here and gets interpretated.
+
+04:54.670 --> 05:02.000
+So you'll see in order to do this I had to use name really just you know one time in the you know in
+
+05:02.020 --> 05:05.760
+the string here I had to use it 1 2 3 times.
+
+05:05.920 --> 05:08.020
+So this is a lot more concise a lot more readable.
+
+05:08.020 --> 05:09.640
+So that's pretty cool.
+
+05:09.640 --> 05:11.840
+Now what about let's say closures.
+
+05:11.860 --> 05:14.080
+Let's see how this works with closures.
+
+05:14.440 --> 05:21.040
+So let's go ahead and define an outer function and let's say that name equals Python kept so we have
+
+05:21.040 --> 05:22.110
+this closure here.
+
+05:22.390 --> 05:23.870
+And I'm going to.
+
+05:23.960 --> 05:26.080
+And really what I want to see here is the scope.
+
+05:26.080 --> 05:26.660
+Right.
+
+05:26.680 --> 05:29.890
+What are the kind of the scope rules for this f string.
+
+05:29.890 --> 05:35.590
+Is it going to look in the outer containing scopes or is it just limited to maybe picking up Global's
+
+05:36.130 --> 05:38.890
+or just local's what's going to happen.
+
+05:39.140 --> 05:47.660
+So here I'm just going to say return F and I'm going to reference name rocks.
+
+05:47.680 --> 05:51.340
+Now you'll notice I did not say non-local
+
+05:53.740 --> 05:58.930
+name in order to force it and to basically get a reference to name from the outer scope
+
+06:01.980 --> 06:07.950
+I'm just reading the value and I'm hoping this is going to work that this is actually going to see it
+
+06:07.950 --> 06:13.640
+and say OK I need to look in the outer scope is going to look in the outer functions are variables.
+
+06:13.650 --> 06:17.120
+It's going to find name in there and in is now going to become a closure.
+
+06:17.430 --> 06:20.120
+And now I'm going to return dinner.
+
+06:20.330 --> 06:20.760
+OK.
+
+06:20.970 --> 06:22.800
+So pretty simple closure.
+
+06:22.980 --> 06:25.580
+And now let's go ahead and print.
+
+06:25.650 --> 06:30.360
+I'm going to call our outer is going to return what it's going to return that enclosure so I need to
+
+06:30.360 --> 06:36.870
+call the closer again because I want to see what it returns and if it actually works and yet it does.
+
+06:36.870 --> 06:42.030
+So this is actually pretty cool because the string interpellation here has this variable name and it's
+
+06:42.090 --> 06:48.630
+able to actually go back out and pick it up from the out of function and hence turning it into a closure.
+
+06:48.840 --> 06:53.980
+So that's the Python really rocks.
+
+06:54.080 --> 06:55.870
+I can see some abuses.
+
+06:56.030 --> 07:00.930
+And let let's let's see some some abuses on this.
+
+07:00.950 --> 07:07.460
+Let's say we have this Lamda let's create a lambda expression that just returns the square of a value
+
+07:07.610 --> 07:10.020
+and I go to spell it right.
+
+07:10.280 --> 07:11.100
+OK.
+
+07:11.510 --> 07:13.250
+And let's go ahead and make.
+
+07:13.250 --> 07:15.810
+Able to turn and be equal to 1.
+
+07:15.950 --> 07:17.240
+So I could do something like this.
+
+07:17.240 --> 07:18.560
+I could say.
+
+07:19.010 --> 07:21.520
+Let me separate this in print.
+
+07:21.620 --> 07:27.200
+I'm going to use an F string and I'm going to print what I'm going to print the square of PE and that's
+
+07:27.200 --> 07:27.820
+fine.
+
+07:27.860 --> 07:30.110
+That's OK it's OK to do that I think.
+
+07:30.110 --> 07:34.150
+But now I'm going to put up TONRY expression and to say if B is greater than five.
+
+07:34.160 --> 07:34.540
+Else.
+
+07:34.550 --> 07:42.580
+Print a K and then I can say be equals 10 and I'm going to just copy the same code again.
+
+07:42.710 --> 07:43.620
+And what do we get.
+
+07:43.640 --> 07:46.100
+Well we get 10 and 100.
+
+07:46.100 --> 07:48.250
+So this is kind of getting convoluted.
+
+07:48.260 --> 07:54.380
+I you know I can see where we're going to run into trouble with people trying to do things like this
+
+07:54.410 --> 07:58.110
+we really shouldn't be putting a you know expressions like this in the print.
+
+07:58.130 --> 08:03.380
+Maybe you know but I guess you could even make it worse.
+
+08:03.380 --> 08:07.280
+Let's try this let's say equals 10 B equals 1.
+
+08:07.370 --> 08:10.270
+Y to the lambda outside of the print function.
+
+08:10.460 --> 08:13.800
+I mean it's supposed to be able to evaluate expressions.
+
+08:13.820 --> 08:14.620
+Right.
+
+08:14.840 --> 08:16.800
+So let's let's give it a shot.
+
+08:16.850 --> 08:21.320
+Let's create a lambda X that returns x squared.
+
+08:21.410 --> 08:27.410
+Now I need to evaluate that expression for some going to put into parentheses once it's been evaluate
+
+08:27.410 --> 08:30.140
+it's going to be a function it's an anonymous function.
+
+08:30.140 --> 08:34.220
+I'm going to call it an A and I'm going to keep my.
+
+08:34.850 --> 08:38.980
+If B is greater than 5 else a.
+
+08:39.410 --> 08:41.640
+I wonder if that's going to work.
+
+08:41.970 --> 08:43.650
+OK so here's what we have.
+
+08:43.820 --> 08:45.610
+Now that's easy to understand right.
+
+08:45.620 --> 08:49.240
+When you run across this kind of code and yeah that was it.
+
+08:49.280 --> 08:54.460
+OK so now let's try it and let's just change the value of b to make it 10.
+
+08:54.470 --> 08:58.260
+And indeed we get the same thing yeah.
+
+08:58.460 --> 09:01.590
+Lord help us if people start doing this kind of stuff.
+
+09:01.610 --> 09:02.860
+It's going to get worse.
+
+09:02.860 --> 09:03.790
+All right.
+
+09:03.830 --> 09:09.970
+So anyways the F strings really really useful just don't abuse them OK.
+
+09:09.980 --> 09:11.480
+Like anything else in Python.
+
+09:11.480 --> 09:17.880
+Don't abuse it and make your code unreadable because it's going to look like they're junk.
+
+09:17.900 --> 09:18.200
+All right.
+
+09:18.200 --> 09:18.960
+Thanks for watching.

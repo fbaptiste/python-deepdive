@@ -1,0 +1,427 @@
+WEBVTT
+
+00:00.370 --> 00:04.850
+Hi and welcome to this video on shared references and mutability.
+
+00:04.860 --> 00:10.230
+Now this is something we've actually already seen before but I just want to formalize the definition
+
+00:10.260 --> 00:13.700
+and just re-emphasize a few points about this.
+
+00:13.770 --> 00:20.620
+So the term shed reference is the concept of two variables referencing the same object in memory.
+
+00:20.620 --> 00:26.020
+In other word pointing to the same object having the same memory address.
+
+00:26.040 --> 00:33.360
+So for example if we write a ten then we can create a shared reference to this object in memory.
+
+00:33.360 --> 00:37.540
+So we have this object in memory at some memory address and points to it.
+
+00:37.800 --> 00:44.440
+We can create another variable that points to the same memory address simply by writing B equals a.
+
+00:44.640 --> 00:48.340
+Just keep in mind Python variables are memory references.
+
+00:48.360 --> 00:50.450
+So when we say B equals a.
+
+00:50.640 --> 00:56.940
+What we're actually saying is set the memory reference of be equal to the memory reference of a.
+
+00:57.060 --> 00:58.780
+That's what that assignment is doing.
+
+00:58.780 --> 01:04.530
+It's not copying values it's copying memory address references.
+
+01:04.530 --> 01:08.740
+So B points to the same object in memory.
+
+01:08.780 --> 01:13.940
+Now the same thing really happens when we define let's say this code here that's a bigger function my
+
+01:13.940 --> 01:16.900
+func which takes a parameter of V.
+
+01:17.300 --> 01:18.230
+Now your main code.
+
+01:18.230 --> 01:20.180
+Suppose we write T equals 20.
+
+01:20.270 --> 01:24.950
+Then t is appointed to some object in memory when we call my func T.
+
+01:25.040 --> 01:30.220
+We're passing the reference of t in to this function.
+
+01:30.290 --> 01:36.540
+And so in its scope it's going to have a variable v that will point to the same reference.
+
+01:36.570 --> 01:38.060
+So then in the last video.
+
+01:38.270 --> 01:43.400
+But that is another way of creating shared references so shared references exist all the time in our
+
+01:43.400 --> 01:43.760
+code.
+
+01:43.760 --> 01:51.230
+We usually have functions and we pass arguments into them so we end up with shared references.
+
+01:51.240 --> 01:52.790
+Now the following may surprise you.
+
+01:52.800 --> 01:54.380
+And again we've seen that before.
+
+01:54.600 --> 01:58.090
+And we'll come back and take a look at exactly what's happening.
+
+01:58.140 --> 02:02.140
+But if we write a equals 10 and another line of code B will stand.
+
+02:02.140 --> 02:09.690
+We might expect B to point to a different object in memory it's should be a different object but in
+
+02:09.690 --> 02:14.580
+fact what ends up happening is that B references the same object in memory.
+
+02:14.580 --> 02:16.880
+Python did that automatically for us.
+
+02:17.070 --> 02:20.460
+And the same thing if you look at a string as one equals halo as two equals.
+
+02:20.460 --> 02:21.170
+Hello.
+
+02:21.390 --> 02:26.730
+Well we end up with both as one and as two pointing to the same string again.
+
+02:26.880 --> 02:32.440
+Python's memory manager decides to automatically reuse these memory references.
+
+02:32.880 --> 02:37.290
+Well we'll take a look at that very soon to see why that's happening.
+
+02:38.320 --> 02:41.560
+But the question here I want to answer is is it even safe and.
+
+02:41.590 --> 02:45.080
+Well the answer is yes because these objects are immutable.
+
+02:45.100 --> 02:50.590
+So even though a and b and as one and two are both shared references.
+
+02:50.770 --> 02:54.900
+If we modify s to or we modify B.
+
+02:54.970 --> 03:03.100
+The only way to modify the value that those variables are pointing to is by changing their memory address
+
+03:03.100 --> 03:04.240
+reference.
+
+03:04.240 --> 03:08.260
+And so by doing so we would leave a as one long.
+
+03:08.260 --> 03:10.770
+So yes it's actually quite safe to do that.
+
+03:10.960 --> 03:17.260
+And Python actually uses that in order to do a few optimizations and we'll talk about when we get to
+
+03:17.260 --> 03:18.520
+Python optimizations
+
+03:21.990 --> 03:23.870
+now when working with mutable objects.
+
+03:23.910 --> 03:25.920
+You have to be a little more careful.
+
+03:25.980 --> 03:26.280
+Right.
+
+03:26.280 --> 03:28.460
+So let's say we create a shared reference.
+
+03:28.500 --> 03:32.900
+So a is a pointer to this object in memory.
+
+03:32.910 --> 03:35.730
+One two three the list that some a memory address.
+
+03:35.730 --> 03:37.200
+And we said be equal to 8.
+
+03:37.200 --> 03:43.200
+Again remember this creates a shared reference so B points to the same object as a.
+
+03:43.200 --> 03:48.430
+Now we have to be careful because if we modify B let's say we append 100 to B.
+
+03:48.630 --> 03:52.220
+Well we're going to append 100 to this object here.
+
+03:52.380 --> 03:55.390
+That happens to be the same one that is pointing to.
+
+03:55.620 --> 03:59.290
+So once we've modified the state of that object.
+
+03:59.430 --> 04:05.400
+Well then a has essentially as a value as a developer we think of as just a list.
+
+04:05.400 --> 04:08.940
+Right then its value has changed as well.
+
+04:08.940 --> 04:09.360
+Why.
+
+04:09.360 --> 04:12.060
+Because it's pointing to the same object in memory.
+
+04:13.420 --> 04:19.510
+So with mutable objects the python memory manager will never create shared references because that would
+
+04:19.510 --> 04:26.890
+not be safe to do so if we write this equals 1 to 3 and B equals 1 to 3 then we are going to end up
+
+04:26.890 --> 04:29.650
+with two different objects in memory.
+
+04:29.650 --> 04:36.220
+So we'll have this list that some memory address and B will point to a different list of different memory
+
+04:36.220 --> 04:38.260
+address lists are equal.
+
+04:38.270 --> 04:43.540
+They both one two three but they're not the same objects.
+
+04:43.590 --> 04:47.290
+So let's look at some code and just see in practice how this works.
+
+04:49.130 --> 04:51.980
+So let's start with setting up our own shared reference.
+
+04:51.980 --> 04:59.780
+So let's say we have a quolls and we'll use a string let's say hello and then we'll set be equal to
+
+04:59.840 --> 05:00.450
+a.
+
+05:00.800 --> 05:03.330
+So now we can look at the ID of a.
+
+05:03.350 --> 05:05.370
+Maybe I'll use the hex version.
+
+05:05.420 --> 05:09.830
+I had of ID of a memory address.
+
+05:09.860 --> 05:16.100
+And if you look at the memory address of B we'll find that we're actually pointing to the same memory
+
+05:16.100 --> 05:16.660
+address.
+
+05:16.700 --> 05:16.940
+Right.
+
+05:16.940 --> 05:20.830
+So we set up a shared reference by setting be equal to a.
+
+05:21.170 --> 05:32.090
+Now we know that Python does that automatically for us if we say a quolls hello and B equals hello then
+
+05:32.090 --> 05:35.400
+we can look at the memory address of a.
+
+05:35.750 --> 05:38.390
+And we can look at the memory address of B.
+
+05:38.660 --> 05:41.090
+And again we see that they are the same.
+
+05:41.090 --> 05:45.000
+Now we didn't set up the shared reference the python memory manager did that.
+
+05:45.050 --> 05:49.120
+We'll revisit this in a few videos to see why it's doing that.
+
+05:49.370 --> 05:51.080
+And when does it actually do this.
+
+05:51.080 --> 05:53.100
+It doesn't do that all the time.
+
+05:53.990 --> 05:56.950
+But the question that we asked was is the safe to do.
+
+05:56.960 --> 06:03.600
+And yes of course because if we wanted to change B and let's say make be equal to the hello world.
+
+06:03.800 --> 06:07.760
+Right then if we look at the ID of B.
+
+06:07.760 --> 06:10.070
+Now it has changed.
+
+06:10.070 --> 06:10.370
+Right.
+
+06:10.370 --> 06:17.870
+It used to be this memory address right here and now it has this memory address it has changed but the
+
+06:17.930 --> 06:24.510
+memory address of a well when didn't touch that right that stayed the original memory address.
+
+06:24.510 --> 06:24.950
+OK.
+
+06:25.100 --> 06:27.030
+So a is still Hello.
+
+06:27.080 --> 06:27.950
+And B now is.
+
+06:27.950 --> 06:28.570
+Hello world.
+
+06:28.580 --> 06:34.660
+And that's because a string is immutable so the only way to change the value of b.
+
+06:34.700 --> 06:40.880
+Right the perceived value of b is by pointing B to a different string object.
+
+06:41.450 --> 06:45.770
+Now that's not quite the same when you're dealing with a mutable object.
+
+06:45.770 --> 06:51.980
+So let's use a list which is a mutable object and let's set a shared reference by set and be equal to
+
+06:51.980 --> 06:52.920
+play.
+
+06:52.940 --> 06:58.900
+Now again the memory address of a and the memory address of B.
+
+06:59.570 --> 07:05.360
+All the same right as you can see they're both the same memory address which means again we have a shared
+
+07:05.360 --> 07:06.230
+reference.
+
+07:06.230 --> 07:08.390
+So if we say B append
+
+07:11.180 --> 07:15.280
+100 then we're going to spend 100 to that list.
+
+07:15.350 --> 07:16.660
+But it's a.
+
+07:16.880 --> 07:22.160
+It's an it's a list that's shared between the variables A and B both A and B are pointing to the same
+
+07:22.160 --> 07:23.120
+list.
+
+07:23.120 --> 07:31.620
+So the memory addresses of A and B are still the same as before and still equal to each other.
+
+07:32.090 --> 07:38.180
+And if we look at the contents of B it's one two three one hundred and eight is going to be the same.
+
+07:38.180 --> 07:41.070
+So by modifying be modified a.
+
+07:41.450 --> 07:45.380
+And that of course also happens when you pass a list into a function.
+
+07:45.470 --> 07:52.780
+Right the function creates a shared reference to that list and can possibly modify your list outside.
+
+07:52.820 --> 07:56.150
+Right that you define outside of the function but you passed into it.
+
+07:56.150 --> 08:00.860
+So you have to be careful when you're dealing with mutable objects because everything in Python is passed
+
+08:00.860 --> 08:02.390
+by reference.
+
+08:02.390 --> 08:05.140
+And so you can get unintended side effects.
+
+08:05.180 --> 08:09.860
+You can also get intended side effects is that if that's what your function wants to do if you want
+
+08:09.860 --> 08:10.950
+to do it in place.
+
+08:11.000 --> 08:16.730
+So maybe of the list then this is great right because you can do it in place so you don't have to return
+
+08:16.730 --> 08:21.910
+it and reassign it but you can also have unintended consequences.
+
+08:23.210 --> 08:33.350
+So lastly one thing I want to look at very quickly is just this concept of the shared reference that
+
+08:33.350 --> 08:35.960
+Python does for us automatically right.
+
+08:35.960 --> 08:40.290
+We'll look at hecks of idea of a hex of idea of B had the same reference.
+
+08:40.400 --> 08:46.430
+Well I just want to show you that we do that with an integer Akos 10 the equals 10.
+
+08:46.460 --> 08:49.880
+Then we can look at the memory address of a.
+
+08:50.300 --> 08:53.270
+And we can look at the memory address of B.
+
+08:53.480 --> 08:56.220
+Ok you can see that they are the same.
+
+08:56.210 --> 09:01.630
+So Python this automatic shared reference for us will revisit this.
+
+09:01.630 --> 09:04.410
+But one thing I want to point out here is that don't count on it.
+
+09:04.430 --> 09:06.070
+It doesn't always happen.
+
+09:06.080 --> 09:12.380
+Let's say we say a equals 500 and B equals 500.
+
+09:12.380 --> 09:19.370
+Then we can look at the memory address of a again which is that and the memory address of B which is
+
+09:19.460 --> 09:24.800
+a different memory address 8 9 1 0 8 8 9 0.
+
+09:25.040 --> 09:29.630
+So it doesn't always do it right sometimes it does sometimes it doesn't.
+
+09:29.630 --> 09:33.470
+We'll find out very soon when it does and why it does so.
+
+09:33.470 --> 09:33.740
+All right.
+
+09:33.740 --> 09:35.780
+Thanks for watching and I'll see you in the next video.

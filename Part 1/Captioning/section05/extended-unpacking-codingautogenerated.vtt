@@ -1,0 +1,1354 @@
+WEBVTT
+
+00:00.390 --> 00:04.950
+High in this video we're going to continue looking at extended unpacking.
+
+00:04.980 --> 00:10.890
+So first let's find a list of six elements in it.
+
+00:11.520 --> 00:18.060
+And let's see how we might retrieve the first element and then the rest of the elements into two separate
+
+00:18.060 --> 00:19.020
+variables.
+
+00:19.020 --> 00:22.140
+And we're first going to do that using slicing.
+
+00:22.140 --> 00:24.780
+If you're a little rusty on slicing don't worry about it.
+
+00:25.020 --> 00:29.910
+We're all going to cover slicing and a lot more detail later on in the schools.
+
+00:29.910 --> 00:31.690
+So for now here's how we might do it.
+
+00:31.770 --> 00:33.920
+We might say A equals zero.
+
+00:33.920 --> 00:35.610
+That would be the first element.
+
+00:35.880 --> 00:39.370
+And B we want to be from the second element.
+
+00:39.390 --> 00:43.790
+So starting an index one all the way to the end and so we use the notation.
+
+00:43.800 --> 00:53.700
+So now we can go ahead and print A and B and B and indeed we get that is false the element and B is
+
+00:53.730 --> 00:57.360
+the rest as a list.
+
+00:57.360 --> 01:02.100
+Now you can also simplify this just slightly.
+
+01:02.120 --> 01:05.920
+We're going to use unpacking to with Cosway.
+
+01:05.930 --> 01:08.870
+So we really haven't changed how we did this.
+
+01:08.870 --> 01:14.120
+The only thing that we change is that we're now using this parallel assignment which is just unpacking
+
+01:14.150 --> 01:18.860
+this tuple into this one over here.
+
+01:19.220 --> 01:21.860
+And so we get that result the same result.
+
+01:21.860 --> 01:27.570
+So now let's go ahead and do it using unpacking extended unpacking.
+
+01:27.590 --> 01:34.600
+We're going to use the stound expressions here so we can say a comet still b equals L.
+
+01:34.940 --> 01:40.640
+And when we do that Python is going to look at this list and it's going to say OK I'm going to take
+
+01:40.640 --> 01:44.300
+the false elements of the list and assign it to the false element here.
+
+01:44.600 --> 01:47.600
+Then it looks at this and says all you want the rest of it.
+
+01:47.720 --> 01:50.120
+You want the rest of that list to go into B.
+
+01:50.450 --> 01:57.310
+And so a is 1 and B is that list 2 3 4 5 6 the remaining elements.
+
+01:57.320 --> 02:00.140
+So it's the same thing as doing here.
+
+02:00.740 --> 02:07.130
+There is one major difference though between using the slices that we have here and using the extended
+
+02:07.160 --> 02:10.210
+unpacking using standard expressions that we have here.
+
+02:10.520 --> 02:18.150
+This Remember we'll walk when L is any iterable this slicing his only works with eight roubles that
+
+02:18.210 --> 02:20.940
+are actually indexable.
+
+02:20.970 --> 02:27.490
+So for example you would not be able to say let's say that we have S is the set 1 2 3.
+
+02:27.750 --> 02:35.400
+You would not be able to say that a equals Eske 0 and then B equals s 1 up to the end.
+
+02:35.400 --> 02:40.880
+That's not going to walk because sets do not have a concept of Oldring.
+
+02:40.890 --> 02:43.300
+So there is no first element and second.
+
+02:43.390 --> 02:47.910
+So if you try and run that Python's obviously going to complain going to say or not you can't do that.
+
+02:48.170 --> 02:54.820
+And we see we saw that before in the last video when we were trying to unpack sets.
+
+02:54.860 --> 02:57.540
+OK so be careful with that.
+
+02:57.580 --> 03:02.060
+The other thing too that I want to point out is let's say we unpack again but let's say we have a good
+
+03:02.170 --> 03:03.460
+set of tuple is
+
+03:06.720 --> 03:09.250
+while it's thickest move it's like a string or tree.
+
+03:09.310 --> 03:11.760
+And I would be just as just as easy.
+
+03:11.880 --> 03:14.430
+So S is a string.
+
+03:14.430 --> 03:15.670
+Now of course it's an iterable.
+
+03:15.750 --> 03:20.510
+So we can unpack it and we can say a comma style b equals S..
+
+03:20.520 --> 03:23.900
+So what's going to happen is that remember iterating through the string.
+
+03:23.900 --> 03:25.830
+So in writing for each character.
+
+03:25.830 --> 03:32.160
+So it's going to sign P to a and then the rest is going to get assigned to the box.
+
+03:32.160 --> 03:35.060
+If we look at a that's p that's fine.
+
+03:35.280 --> 03:41.180
+But the whole notice is now a list and that's what happens when you use these start expressions that
+
+03:41.190 --> 03:45.610
+always result in a list irrespective of the type that you started with.
+
+03:45.610 --> 03:46.940
+So now look at the tuple.
+
+03:46.950 --> 03:48.130
+Let's say we have a tuple.
+
+03:48.330 --> 03:49.630
+That is a comma.
+
+03:49.650 --> 03:51.810
+The policy that say three strings
+
+03:55.730 --> 03:57.070
+Zeps.
+
+03:57.140 --> 04:02.790
+And now we say a comma Stobie equals t then a is indeed the string a.
+
+04:02.990 --> 04:05.290
+But B is not a tuple.
+
+04:05.290 --> 04:06.250
+It is a list.
+
+04:06.260 --> 04:11.640
+Right so even though this the right hand side here started slide as a tuple.
+
+04:11.840 --> 04:19.350
+When we on packed into B the rest it was actually on fact as a list is always going to be a list.
+
+04:19.420 --> 04:19.870
+OK.
+
+04:20.800 --> 04:24.210
+The thing I'd like to point out is that you can unpack.
+
+04:24.250 --> 04:28.470
+We've always been unpacking to tuples but you can actually unpack to a list as well.
+
+04:28.720 --> 04:31.200
+There's nothing that says you have to unpack to a tuple.
+
+04:31.240 --> 04:32.910
+It could be to a list as well.
+
+04:32.950 --> 04:34.120
+So let's try that.
+
+04:34.120 --> 04:34.990
+Could say a comma.
+
+04:35.000 --> 04:39.110
+The equals.
+
+04:39.210 --> 04:42.070
+Let's do a string that say Wah.
+
+04:42.080 --> 04:47.330
+In this case I need three if I'm going to use three characters in the string.
+
+04:47.690 --> 04:51.750
+And so a is x B is y and z z.
+
+04:51.910 --> 04:57.300
+Right so this is a side note you can unpack into a list as well but it really doesn't make that much
+
+04:57.300 --> 05:02.500
+of a difference because you're always going to be referencing the variables by the names right.
+
+05:02.570 --> 05:08.370
+So there's no real benefit here to unpacking into the left hand side.
+
+05:08.370 --> 05:11.150
+That is a list sort of a couple.
+
+05:11.140 --> 05:17.490
+OK so now let's continue and let's look at how we can further enhance the extent of unpacking these
+
+05:17.480 --> 05:19.070
+thought expressions.
+
+05:19.070 --> 05:20.950
+We don't have to have only the fourth element.
+
+05:21.020 --> 05:27.350
+We could have the first element then the second element and then the rest equal to let's say the string
+
+05:27.690 --> 05:28.890
+is the string.
+
+05:29.360 --> 05:35.870
+And so we get that A's P B is why the second element and C is the rest.
+
+05:35.870 --> 05:43.640
+So that's one way that we can extend this we can further extend this by doing this a comedy comma starring
+
+05:44.480 --> 05:46.630
+C and D.
+
+05:46.640 --> 05:49.000
+So in other words here's how we want to unpack.
+
+05:49.040 --> 05:55.490
+We want to unpack the last element of the string into D and then the first two elements of the string
+
+05:55.490 --> 05:57.580
+into a and b respectively.
+
+05:57.770 --> 06:00.720
+And then the rest into C.
+
+06:00.800 --> 06:10.960
+So if we do this we indeed get that a P B is y d s n the last element and C is the rest th and all now
+
+06:10.960 --> 06:12.700
+of course the string is indexable.
+
+06:12.700 --> 06:15.420
+So you could use slicing if you wanted to.
+
+06:15.670 --> 06:16.620
+A little more tricky.
+
+06:16.630 --> 06:22.130
+So let's see how we might do it using slicing and I just want to do this to show you how elegant the
+
+06:22.200 --> 06:27.190
+extent of unpacking can be and how it can make your code a lot easier to read.
+
+06:27.190 --> 06:29.190
+This is very self-evident right.
+
+06:29.350 --> 06:33.150
+Where unpacking the first and second elements the last element and then the rest.
+
+06:33.150 --> 06:39.430
+And to see that's you know when you read this line of code it's very understandable.
+
+06:39.430 --> 06:41.470
+Now let's see how we might do it using slicing.
+
+06:41.500 --> 06:46.060
+And again if you're a little rusty on slicing don't worry we'll cover it in a lot of detail later on
+
+06:46.060 --> 06:48.000
+in the scopes.
+
+06:48.130 --> 06:54.070
+So here we're going to unpack the first element the second element we're going to want the rest.
+
+06:54.100 --> 06:59.830
+And then the last elements so the rest is really everything except the first second and last element.
+
+07:00.220 --> 07:01.850
+And how are we going to do this.
+
+07:01.900 --> 07:04.130
+Well we're going to take s 0.
+
+07:04.150 --> 07:06.260
+That's the first element.
+
+07:06.550 --> 07:09.870
+Then we're going to take the second element.
+
+07:09.880 --> 07:14.140
+Now you'll notice I'm using unpacking I'm using parallel assignment here I could do this.
+
+07:14.200 --> 07:17.740
+You know each Wilens on separate line.
+
+07:17.740 --> 07:18.880
+Then what do I want.
+
+07:18.940 --> 07:22.890
+Well let me just go ahead and take the last element for.
+
+07:22.890 --> 07:25.770
+So I want negative one right.
+
+07:25.780 --> 07:29.290
+I want the last element of the string and then I want everything in between.
+
+07:29.290 --> 07:37.010
+So I want everything from and from and including t up to and including 0.
+
+07:37.090 --> 07:42.350
+So I want everything from t up to but not including And which is the last one.
+
+07:42.400 --> 07:47.050
+So I would do it this way who would start at the third element which is going to be T.
+
+07:47.170 --> 07:52.530
+And we're going to end at one short of the last elements so Latha and then being negative 1.
+
+07:52.600 --> 07:54.780
+Of course that won't be included in the slice.
+
+07:55.020 --> 08:06.660
+And so if we do this we can print a print B print C and print D and we get the same thing.
+
+08:06.670 --> 08:08.140
+P y th.
+
+08:08.500 --> 08:14.830
+And now notice though that because we use the slice a slice will return the string Franks with slicing
+
+08:14.830 --> 08:16.210
+a string so we get a string back.
+
+08:16.210 --> 08:18.040
+We don't get a list back.
+
+08:18.430 --> 08:20.530
+Now if you wanted to do that that's fine.
+
+08:20.530 --> 08:27.510
+You can always convert a string to a list we solve for example how to do it using assignments right.
+
+08:27.520 --> 08:33.550
+We can do something like this for example maybe I want to see style C comma equal C.
+
+08:33.550 --> 08:34.650
+So what am I doing here.
+
+08:34.640 --> 08:39.530
+I'm unpacking the string see into this stound element.
+
+08:39.700 --> 08:41.080
+So it's just going to give me a list.
+
+08:41.090 --> 08:42.980
+It's a very handy way of doing it.
+
+08:43.000 --> 08:46.540
+We get that then we get in that C is a list.
+
+08:46.570 --> 08:49.810
+Of course you can also do something different if you want.
+
+08:49.820 --> 08:51.780
+This meant more than one way of doing this.
+
+08:51.970 --> 08:58.420
+You can just convert C directly to a list and you get the same thing.
+
+08:58.420 --> 09:03.970
+So whichever way you want to do it you can use unpacking to transform that string into a list of characters.
+
+09:03.970 --> 09:09.160
+Or you can just use the list constructor that works equally well OK.
+
+09:09.160 --> 09:16.300
+So now we've looked at how to unpack using stop expressions on the left hand side of an assignment.
+
+09:16.300 --> 09:21.720
+We could actually also use those expressions on the right hand side of the assignment.
+
+09:21.760 --> 09:22.990
+So let's see how that might work.
+
+09:23.110 --> 09:29.820
+Let's go ahead and say L-1 equals 1 to 3 so we'll take the list one with three elements and we'll take
+
+09:29.820 --> 09:36.280
+lists to equal to four five and six to make the elements distinct from them.
+
+09:36.610 --> 09:40.910
+And let's go ahead and join these two lists together.
+
+09:41.290 --> 09:50.570
+L equals star l one promised to and I want to join them in a set somewhere and join them in a list.
+
+09:50.590 --> 09:54.010
+We'll see later that we can actually join them in two sets as well.
+
+09:54.010 --> 09:55.240
+That's not a problem.
+
+09:55.630 --> 10:02.320
+So if we go ahead and print l now we see that L is 1 2 3 4 5 6 cent. What happened is that it unpacked
+
+10:02.410 --> 10:10.360
+L-1 right here and it unpacked L2 right here and then we were able to then create a list that contained
+
+10:10.360 --> 10:15.040
+these two sets just a very handy way of joining two lists together.
+
+10:15.040 --> 10:21.160
+Now of course this works with any iterable so it doesn't have to be just lists.
+
+10:21.160 --> 10:27.060
+You could say l one equals one comments in common three and we can have a string let's say.
+
+10:27.180 --> 10:33.100
+And let's take ABC and now we can create another object that I'm not even going to assign to a variable
+
+10:33.100 --> 10:35.480
+and then printed we'll just do it directly.
+
+10:35.600 --> 10:41.650
+And for instance we'll two star and one star s and of course when we get back is one to three and a
+
+10:41.650 --> 10:42.910
+b c right.
+
+10:43.030 --> 10:45.640
+Unpacked l one and n back s.
+
+10:45.930 --> 10:46.990
+Of course you don't.
+
+10:46.990 --> 10:54.540
+You can also use let's say a list and let's say a set that's called ceps.
+
+10:54.720 --> 11:04.190
+Let's put it in X Y and Z just to keep it different from the last example and we can of course unpack
+
+11:04.790 --> 11:11.480
+into a list and we get the same thing 1 2 3 0 0 0 1 2 3.
+
+11:11.510 --> 11:12.800
+We'll retain the order.
+
+11:13.190 --> 11:16.290
+But the set for members doesn't have a guaranteed order.
+
+11:16.340 --> 11:19.010
+And so we don't get that right.
+
+11:19.010 --> 11:20.100
+We just get that.
+
+11:20.120 --> 11:26.200
+It could be in any order in this case Z happened to come back us and it works the same way with dictionary
+
+11:26.200 --> 11:32.380
+unpacking it will unpack the keys by default or you can use the values method to unpack the values and
+
+11:32.380 --> 11:33.490
+so on and so forth.
+
+11:34.430 --> 11:40.610
+Now you don't have to unpack you know into a list here I'm unpacking things into a list but you don't
+
+11:40.610 --> 11:41.220
+have to.
+
+11:41.330 --> 11:43.490
+So let's take a look again at an example.
+
+11:43.490 --> 11:49.820
+Let's say we have string one equals ABC and string two equals CD.
+
+11:49.880 --> 11:53.620
+Now you'll notice that I've got the same character see here and here.
+
+11:53.780 --> 11:56.410
+So we can certainly unpack that into a list.
+
+11:56.420 --> 11:56.690
+Right.
+
+11:56.700 --> 12:01.050
+We can say start al one star one star s2.
+
+12:01.430 --> 12:07.880
+And we get a b c c d e You'll notice that the C is repeated it's OK to have repeated elements and lists
+
+12:08.270 --> 12:09.270
+and we have them.
+
+12:09.470 --> 12:11.370
+Now what happens if you just want to create.
+
+12:11.390 --> 12:17.390
+Let's say a sequence that contains all the characters of S1 and S2 but without repeating the elements
+
+12:17.840 --> 12:19.220
+well that's pretty straightforward.
+
+12:19.220 --> 12:21.320
+We're going to unpack into a set.
+
+12:21.380 --> 12:26.200
+So we'll do we'll unpack into a set and will say S1 and S2.
+
+12:26.570 --> 12:27.260
+And here we go.
+
+12:27.270 --> 12:32.120
+So now we do not have the character C repeated because sets don't allow repeat characters.
+
+12:32.120 --> 12:36.940
+So it's basically ditch that and we'll circle back to that little bit later in this video.
+
+12:37.100 --> 12:45.360
+And of course also on the section onsets start talking about sets let's go ahead and see how this works
+
+12:45.370 --> 12:46.430
+with sets as well.
+
+12:46.450 --> 12:46.750
+Right.
+
+12:46.750 --> 12:51.910
+Remember this extended unpacking can walk and I'm going to now go back to unpacking on the left hand
+
+12:51.910 --> 12:54.980
+side of the expression can work with any iterable.
+
+12:55.090 --> 13:01.000
+So with a indexable iterable you can use slicing if you want to or you can use the extended unpacking
+
+13:01.660 --> 13:05.360
+with non indexable types like for example sets.
+
+13:05.470 --> 13:09.550
+You can't use slicing but you can still use the extended unpacking.
+
+13:09.550 --> 13:11.660
+Let's go ahead and take a look at an example.
+
+13:11.740 --> 13:15.970
+Let's say we have this set up here.
+
+13:16.130 --> 13:19.190
+Again the Edelmann types don't have to be homogeneous.
+
+13:19.990 --> 13:24.850
+And let's see first if we iterate through s what we get.
+
+13:25.230 --> 13:25.800
+OK.
+
+13:26.020 --> 13:28.640
+So again you can see the order is not guaranteed.
+
+13:28.630 --> 13:34.490
+So here the character came first and then 10 then three then negative ninety nine Fox.
+
+13:34.500 --> 13:38.470
+Of course since it's iterable we can unpack it and we've seen that before right.
+
+13:38.480 --> 13:42.290
+We could say AVC the people as we saw that in the last video.
+
+13:42.330 --> 13:48.340
+And now if we print a b c d we get you know the 3 negative ninety nine.
+
+13:48.540 --> 13:50.270
+So that works the same as before.
+
+13:50.340 --> 13:57.140
+But of course style expressions work here as well and we can say a comma the let's say second element
+
+13:57.150 --> 13:59.180
+so we're talking about the first element.
+
+13:59.190 --> 14:03.750
+The second element and the rest k equal to s.
+
+14:03.750 --> 14:09.020
+Now there's an issue here because the first element doesn't mean 10.
+
+14:09.150 --> 14:14.490
+The first element has no real meaning it's going to be whatever force element comes back in the iteration.
+
+14:14.730 --> 14:19.530
+So in fact it's going to turn out to be D in this case and the second element will be 10.
+
+14:19.670 --> 14:21.750
+But there is no ordering in sets.
+
+14:21.750 --> 14:25.500
+So you know doing this kind of unpacking here.
+
+14:25.900 --> 14:26.390
+Yeah.
+
+14:26.420 --> 14:28.340
+It's it's not that useful.
+
+14:28.440 --> 14:32.610
+It walks and there might be some use cases where you find that you want to do that because then maybe
+
+14:32.610 --> 14:38.160
+you've got a set of tools three values and some how you want to split them up into three variables because
+
+14:38.160 --> 14:40.740
+you want to work with them independently and that's perfectly fine.
+
+14:40.740 --> 14:41.620
+Then there was.
+
+14:41.790 --> 14:46.350
+But you're not guaranteed of course of the older of you know which element is going to be assigned to
+
+14:46.350 --> 14:48.750
+your first variable second variable and so on.
+
+14:48.900 --> 14:53.150
+So in fact if we take a look here for a full a is d.
+
+14:53.250 --> 14:53.550
+Right.
+
+14:53.550 --> 14:56.330
+Even though our set was initially defined in this order.
+
+14:56.730 --> 15:05.010
+And our second element quote unquote is 10 which was the second item in the Russian and then the rest.
+
+15:05.130 --> 15:05.580
+Well yeah.
+
+15:05.580 --> 15:06.540
+The rest will come back.
+
+15:06.540 --> 15:11.610
+And of course it comes back as a list even though we started with a set with whatever wasn't unpacked
+
+15:11.610 --> 15:12.920
+into a and b.
+
+15:13.200 --> 15:14.670
+So it was the same way.
+
+15:14.670 --> 15:19.550
+The only thing is because of the lack of Oldring it's a little bit or less useful.
+
+15:20.040 --> 15:27.270
+Now for example let's go back and look at something we saw here and it's that can be on the other hand
+
+15:27.450 --> 15:28.230
+quite handy.
+
+15:28.260 --> 15:31.170
+Let's say you want to transform a set into a list.
+
+15:31.260 --> 15:33.320
+So let's say we have this one.
+
+15:33.480 --> 15:35.000
+Well let's take the same set right.
+
+15:35.010 --> 15:36.500
+We have all set S already.
+
+15:36.720 --> 15:39.170
+Well there is one way of doing it which is to use the constructor.
+
+15:39.260 --> 15:40.670
+And now you just get a list.
+
+15:40.670 --> 15:42.290
+OK that's one way of doing it.
+
+15:42.510 --> 15:47.520
+But the other way of doing it is to say something like style C comma equals s.
+
+15:47.520 --> 15:50.510
+Now here we're going to unpack s into C.
+
+15:50.520 --> 15:51.650
+We're going to unpack.
+
+15:51.780 --> 15:53.490
+There's no for the last element.
+
+15:53.490 --> 15:58.160
+We're going to unpack that for everything into C and of course we have to make the left hand side the
+
+15:58.160 --> 15:59.720
+top or list.
+
+15:59.790 --> 16:04.580
+Let's just stick to tuples and so if we do that we get the same thing.
+
+16:04.590 --> 16:06.630
+We get that C is not all that list.
+
+16:06.630 --> 16:12.860
+So again it's a handy way to unpack something into a list when it may not have started off as of this.
+
+16:12.870 --> 16:15.900
+So let's also look now at septs.
+
+16:15.900 --> 16:23.390
+Again let's say we have two sets one common two common three and two equals four.
+
+16:23.390 --> 16:24.920
+Come a while let's repeat it.
+
+16:24.960 --> 16:27.080
+Let's say three four comma five.
+
+16:27.260 --> 16:27.770
+OK.
+
+16:27.960 --> 16:29.110
+We have these two sets.
+
+16:29.130 --> 16:32.230
+And let's say we want to merge those two sets.
+
+16:32.400 --> 16:34.270
+And we've kind of seen this before.
+
+16:34.690 --> 16:41.950
+Right so you shouldn't know how we're going to do that yet you cannot use one process to write flosses
+
+16:41.970 --> 16:43.640
+not define full sets.
+
+16:43.680 --> 16:48.000
+When we go and look at sets later on the scores we'll see there's other ways of doing this we can use
+
+16:48.000 --> 16:49.230
+something called the Union.
+
+16:49.290 --> 16:51.650
+But for now there's another way we can do this.
+
+16:51.660 --> 16:57.420
+So we want to combine as one and as two into a single item into a single set.
+
+16:57.630 --> 17:01.500
+Well we can just unpack it into a set right.
+
+17:02.340 --> 17:05.650
+We can just do this and we get one two three four five.
+
+17:05.940 --> 17:07.670
+So we just use the unpacking.
+
+17:07.680 --> 17:11.980
+So this is like unpacking on the right hand side right so it equals that right.
+
+17:12.020 --> 17:16.180
+And then see is equal to one two three four five.
+
+17:16.660 --> 17:19.260
+And you might think well the all OK.
+
+17:19.360 --> 17:20.450
+Why not use the union.
+
+17:20.500 --> 17:21.150
+Sure.
+
+17:21.160 --> 17:21.470
+Right.
+
+17:21.490 --> 17:22.550
+We can use the union.
+
+17:22.570 --> 17:27.760
+And if you need to look you can look at the help on set and if you scroll through that you'll see that
+
+17:27.780 --> 17:35.080
+there is a union operation as a union function essentially a method that we can use here we go.
+
+17:35.080 --> 17:41.640
+We turn the union so we could say S1 DOPs Union as to hours does fine.
+
+17:41.660 --> 17:42.730
+We get the same thing.
+
+17:42.890 --> 17:45.650
+So here you have three different ways of doing the same thing.
+
+17:45.770 --> 17:52.100
+We all choose whichever one is most appropriate in the context that you're walk in what happens if you
+
+17:52.100 --> 17:52.880
+want to do more.
+
+17:52.940 --> 17:55.910
+Let's say we have won equals one comfort to come three.
+
+17:56.240 --> 18:00.220
+And we have two equals three come a four coming five.
+
+18:00.230 --> 18:04.160
+We have three equal to five six seven.
+
+18:04.190 --> 18:08.000
+And as for being the set seven eight nine.
+
+18:08.280 --> 18:08.970
+OK.
+
+18:09.440 --> 18:11.420
+And you want to union everything together.
+
+18:11.630 --> 18:12.330
+Well sure.
+
+18:12.380 --> 18:13.850
+You can use union as well.
+
+18:13.850 --> 18:23.130
+You could say as one docked Union has two docked Union as three docs Union as full.
+
+18:23.210 --> 18:24.540
+That's one way of doing it.
+
+18:24.680 --> 18:27.260
+And you get that union of course.
+
+18:27.290 --> 18:29.780
+Union walks a little bit better than just that.
+
+18:29.790 --> 18:33.940
+So we can also do union s to come as frequently as full.
+
+18:34.220 --> 18:35.580
+We can do that as well.
+
+18:37.490 --> 18:42.650
+But there's also a cleaner way actually of doing it which was the same which is the unpacking.
+
+18:42.650 --> 18:42.890
+Right.
+
+18:42.890 --> 18:47.060
+So we're going to unpack as one unpack is to unpack S-3 unpack.
+
+18:47.060 --> 18:51.090
+As for how we're going to unpack it into a set.
+
+18:51.180 --> 18:55.400
+Now that's the advantage as well we don't have to unpack into a set.
+
+18:55.400 --> 19:00.680
+We can unpack into a list in which case we'll get the repeated elements and then you can do something
+
+19:00.680 --> 19:05.630
+with that that you will count the number of times the number of times each element appears in that list.
+
+19:05.630 --> 19:10.550
+So that way you know the number of times that each element appears in each set here or in the union
+
+19:10.550 --> 19:17.370
+of the sets while only the union of the sets because sets of course don't have repeated elements.
+
+19:17.480 --> 19:19.060
+But you understand what I'm getting at.
+
+19:19.370 --> 19:25.560
+So you can do it this way or you can just unpack directly into a set as well.
+
+19:26.980 --> 19:28.660
+OK this will work the same way.
+
+19:28.790 --> 19:31.160
+Except now we don't have the repeated elements.
+
+19:31.160 --> 19:35.140
+So this is just maybe a little cleaner than doing something like this.
+
+19:35.150 --> 19:39.520
+Kind of depends you know where you're walking where you're typing to say maybe you're doing this in
+
+19:39.530 --> 19:43.480
+a function call in which case this might look better than this.
+
+19:43.520 --> 19:44.500
+They're all equivalent.
+
+19:44.630 --> 19:46.280
+You can do whichever ones you want.
+
+19:48.430 --> 19:56.120
+The advantage though is that you can also do that with dictionaries so we can use the star operator
+
+19:56.150 --> 19:57.400
+for dictionaries.
+
+19:57.510 --> 19:58.950
+So let's go ahead a look an example.
+
+19:59.010 --> 20:08.410
+Let's say we have the one who value of one quality to have a value of two.
+
+20:08.430 --> 20:15.120
+And then we have another dictionary with the same keeps on repeating the key you'll notice to repeated
+
+20:15.570 --> 20:18.060
+but I'll give it a value of three.
+
+20:18.400 --> 20:22.260
+And the fourth will take a value of four.
+
+20:22.350 --> 20:27.750
+So now we have two dictionaries and we want to merge those two dictionaries together and there are other
+
+20:27.750 --> 20:28.760
+techniques of doing it.
+
+20:28.770 --> 20:35.910
+But a very very simple way is to create a new dictionary where you unpack the dictionary.
+
+20:36.210 --> 20:42.730
+Now we've got to be careful because if we use this what's going to happen.
+
+20:42.730 --> 20:45.280
+And in this case well I'll leave the curly braces.
+
+20:45.280 --> 20:46.610
+Where do you think's going to happen.
+
+20:46.870 --> 20:49.860
+What happens when we unpack a dictionary.
+
+20:49.960 --> 20:51.100
+We get the keys back.
+
+20:51.190 --> 20:51.910
+Right.
+
+20:51.910 --> 20:56.260
+So in this case we're unpacking the keys of D1 the keys of the two and then we're pumping that into
+
+20:56.260 --> 20:57.330
+a set.
+
+20:57.430 --> 21:01.890
+So we get one key to in key full.
+
+21:02.110 --> 21:03.230
+Right.
+
+21:03.290 --> 21:07.960
+So that's that's the thing here is that we're unpacking just the keys.
+
+21:08.120 --> 21:13.940
+We can however unpack both the key and the value as first into a dictionary.
+
+21:14.330 --> 21:19.580
+But instead of using the single star operator we use the double star operator and the double star only
+
+21:19.580 --> 21:21.950
+works with dictionaries so we can do it this way.
+
+21:21.950 --> 21:25.210
+Stan Stahl Do you want starstuff too.
+
+21:25.490 --> 21:26.440
+And we get what.
+
+21:26.450 --> 21:31.490
+Well we get the most dictionaries but notice the value of key too.
+
+21:31.520 --> 21:32.810
+He too has a value of three.
+
+21:32.810 --> 21:39.260
+That's because D2 was March last and therefore there's the value for key to overload.
+
+21:39.320 --> 21:43.710
+Basically overwrote the value that key to had when we unpack.
+
+21:43.710 --> 21:44.450
+D1.
+
+21:44.450 --> 21:46.450
+So the order in which you do it won't matter.
+
+21:46.610 --> 21:55.190
+So if we do two first and then unpack the one you'll notice that the value of key to is to.
+
+21:55.200 --> 21:57.700
+So just something to bear in mind.
+
+21:57.810 --> 22:03.580
+Now you can also unpack dictionaries as you're creating dictionary literals so maybe I'm creating a
+
+22:03.580 --> 22:04.740
+dictionary.
+
+22:04.980 --> 22:06.660
+A value of one.
+
+22:06.840 --> 22:11.970
+And then I'm going to be a value to and then on the two couldn't do you one while I'm at it and then
+
+22:11.970 --> 22:15.730
+I'm going to put C value free for x.
+
+22:15.960 --> 22:17.830
+So that works perfectly fine.
+
+22:17.850 --> 22:22.500
+We just get that D-1 will be most inside of the dictionary.
+
+22:22.500 --> 22:28.290
+Note here by the way the order in which this was displayed and which is being iterated is not the same
+
+22:28.290 --> 22:31.860
+as the order in which we actually specify the items in the dictionary.
+
+22:32.040 --> 22:38.190
+Again sets and dictionaries does not guarantee an order pocket.
+
+22:38.200 --> 22:40.960
+The next thing we need to look at is nested unpacking.
+
+22:41.020 --> 22:45.010
+So with nested unpacking we saw that in the lecture it's pretty straightforward.
+
+22:45.010 --> 22:46.940
+We can do something like this.
+
+22:46.960 --> 22:51.510
+OK we can say a B comma or C or D.
+
+22:51.970 --> 22:54.880
+Is equal to that say we're going on past this list.
+
+22:54.890 --> 22:56.670
+One two.
+
+22:56.980 --> 23:00.160
+And then we'll unpack the string x y.
+
+23:00.420 --> 23:00.930
+OK.
+
+23:01.240 --> 23:06.370
+So what's going to happen is that is going to be one B's going to be two and it's going to be the string
+
+23:06.430 --> 23:07.300
+x y.
+
+23:07.600 --> 23:13.990
+But of course a string is also iterable so you can unpack it so you could say See comedy equals.
+
+23:14.140 --> 23:14.620
+Right.
+
+23:14.620 --> 23:23.450
+And so now C is X and D is one so we can actually specify this directly over here instead of unpacking
+
+23:23.460 --> 23:30.530
+into the we're going to unpack into a sub couple essentially see comedy and we're going to make that
+
+23:30.530 --> 23:35.720
+equal to one promise to promise those same things before we're going to unpack the same right hand side.
+
+23:36.030 --> 23:42.660
+But now when we do this we have one of these to see is X and DS y.
+
+23:43.070 --> 23:45.940
+So that is nested unpacking.
+
+23:45.980 --> 23:48.370
+Now of course you can even do something like this.
+
+23:48.390 --> 23:55.110
+You can say a comma comment and I'm going to take C D and start V and I'm going to make this equal to
+
+23:55.140 --> 23:57.530
+1 2 and then we'll take the longest string.
+
+23:57.530 --> 23:58.830
+So it's a python.
+
+23:59.220 --> 24:00.600
+What's going to happen here.
+
+24:00.810 --> 24:06.480
+While one is going to get unpacked a two's going to get unpacked the and then Python is going to get
+
+24:06.540 --> 24:09.280
+unpacked this tuple.
+
+24:09.480 --> 24:12.440
+But this tuple is itself getting unpacked right.
+
+24:12.450 --> 24:16.120
+We're going to unpack Python into the individual elements.
+
+24:16.170 --> 24:20.940
+So he's going to go into see why it's going to go into D and then the rest of the string is going to
+
+24:20.940 --> 24:23.120
+go into areas of list.
+
+24:23.160 --> 24:33.270
+So in fact when we execute that we do get that is one that used to see is P D is y and z is the rest
+
+24:33.270 --> 24:34.530
+of the string as a list.
+
+24:34.530 --> 24:35.260
+So Th.
+
+24:35.290 --> 24:40.720
+OK so you remember the challenge that I posed to you in the last video.
+
+24:40.860 --> 24:46.790
+So this is basically how can we do the same thing here but using slicing instead.
+
+24:46.920 --> 24:47.970
+So let's take a look.
+
+24:48.300 --> 24:51.950
+Let's start with a list and we'll make it one two three.
+
+24:51.990 --> 24:55.940
+I'm going to just make a little bit longer because I want to show that I'm not going to hard code any
+
+24:55.950 --> 24:56.520
+values.
+
+24:56.520 --> 25:00.810
+And so I want something that can work with either you know any length of list.
+
+25:00.930 --> 25:02.890
+And then also any length of string.
+
+25:03.270 --> 25:04.870
+So let's go ahead and do that.
+
+25:04.920 --> 25:08.050
+And let's take our list.
+
+25:08.070 --> 25:14.670
+So remember if you were to use unpacking we would simply use whole copy paste that
+
+25:17.850 --> 25:23.990
+make that equal to L and then we can print a B C D and B.
+
+25:24.690 --> 25:29.700
+And so we get 1 2 3 4 p y and then th or N as a list.
+
+25:29.700 --> 25:32.970
+So let's do that now using slicing.
+
+25:32.970 --> 25:36.190
+So the first element we're going to want to look at is going to be the first.
+
+25:36.270 --> 25:38.550
+So that's the first element that's one.
+
+25:38.550 --> 25:42.620
+Then we want the rest except for the last element.
+
+25:42.630 --> 25:48.220
+So let me just take care of the last element which is going to be negative 1.
+
+25:48.270 --> 25:50.570
+Now we're not quite done then here.
+
+25:50.580 --> 25:52.400
+Now we want to take everything in between.
+
+25:52.410 --> 25:55.900
+So we're going to go from one negative one.
+
+25:56.180 --> 26:00.920
+Now for this last element I don't want to just bring it back you know as a string.
+
+26:00.930 --> 26:05.550
+I want to break it up into the first character's second character and then the rest.
+
+26:05.550 --> 26:08.230
+So we want to take the first character.
+
+26:08.340 --> 26:16.120
+Then we want to take the second character and we want to take the rest of the string.
+
+26:16.140 --> 26:20.330
+So we're going to start that character too and we're going to go all the way to the end.
+
+26:22.550 --> 26:24.920
+So when we do that we're almost there.
+
+26:24.920 --> 26:25.280
+Right.
+
+26:25.280 --> 26:27.890
+We have 1 2 3 4 p.
+
+26:28.110 --> 26:30.400
+Y and then th O-N but th.
+
+26:30.430 --> 26:34.700
+And you'll notice here is a string and we want that as a list.
+
+26:34.700 --> 26:36.370
+Well that's pretty straightforward.
+
+26:36.470 --> 26:42.950
+We can just use the constructor for example and we'll do that then we get back exactly what we had over
+
+26:42.950 --> 26:43.520
+there.
+
+26:43.700 --> 26:49.040
+So then if I wanted to get exactly this I would have to say a column of B commas C comedy.
+
+26:49.070 --> 26:50.630
+Comedy equals.
+
+26:50.870 --> 26:56.740
+And then we'll do the parallel assignment will unpack the twofold basically into the tuple over here
+
+26:57.170 --> 27:02.530
+and we can then print everything out and we'll get the identical result.
+
+27:02.540 --> 27:06.830
+So one two three four p y th o n as you can see it's identical.
+
+27:06.830 --> 27:15.160
+Now of course this will work for any list L and this will work actually and this will work for any string.
+
+27:15.170 --> 27:18.380
+But moreover it will work for any iterable type.
+
+27:18.560 --> 27:18.910
+Right.
+
+27:18.920 --> 27:25.250
+That is indexable and it will also work in the outer one for iterable type that is indexable.
+
+27:25.250 --> 27:28.100
+So for example we could do something like this.
+
+27:28.130 --> 27:29.930
+This will work equally well.
+
+27:29.930 --> 27:38.330
+We might take let's say a two pole and we're going to instead of using a string Kesh maybe we'll use
+
+27:38.330 --> 27:43.750
+a list that contains all three or four elements.
+
+27:43.780 --> 27:48.390
+So if we do that then unpacking using this.
+
+27:48.410 --> 27:50.720
+So let me just copy paste this code.
+
+27:50.870 --> 27:59.840
+If we do that we get one two three four a b and then CD and using this method which will work equally
+
+27:59.840 --> 28:04.200
+well we'll get one two three four a b and c d.
+
+28:04.400 --> 28:11.060
+Notice however that be here because we're slicing a tuple is returning a tuple.
+
+28:11.060 --> 28:16.160
+So again we would have to fix that in order to get a list if we wanted to match exactly what we have
+
+28:16.160 --> 28:16.740
+here.
+
+28:16.940 --> 28:21.880
+We would have to make this into a list game.
+
+28:22.160 --> 28:25.190
+And so this achieves the same thing.
+
+28:25.190 --> 28:29.080
+So you can see this is a very elegant way of unpacking.
+
+28:29.150 --> 28:33.240
+Certainly you can use it using slicing right.
+
+28:33.260 --> 28:36.360
+You can slice instead or you can use unpacking.
+
+28:36.440 --> 28:43.060
+The other advantage of unpacking is that it works for any iterable not just slice of all types.
+
+28:43.070 --> 28:49.650
+So for example and it's less useful maybe but instead of having that say a string or a list here maybe
+
+28:49.660 --> 28:51.090
+you've got a set right.
+
+28:51.110 --> 28:54.770
+Or maybe this is a dictionary and you want to unpack things.
+
+28:54.770 --> 29:02.270
+So again the unpacking is a little more general than slicing because you don't need indexable collections.
+
+29:02.300 --> 29:02.680
+All right.
+
+29:02.690 --> 29:04.800
+Thanks for watching and I'll see you in the next video.

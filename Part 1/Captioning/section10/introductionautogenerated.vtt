@@ -1,0 +1,184 @@
+WEBVTT
+
+00:00.390 --> 00:03.140
+Hi and welcome to the extras section.
+
+00:03.210 --> 00:07.020
+I wasn't sure what to call it so finally I just ended up calling get extras.
+
+00:07.020 --> 00:08.770
+It's kind of generic and bland.
+
+00:09.060 --> 00:10.870
+So what's in the section.
+
+00:11.130 --> 00:13.750
+Well it's really a mixed bag of a lot of different things.
+
+00:13.770 --> 00:19.230
+It's going to be things like tips and tricks you know as I find something that I think would be important
+
+00:19.230 --> 00:20.190
+to highlight.
+
+00:20.190 --> 00:21.770
+I'll throw it into here.
+
+00:22.140 --> 00:24.540
+It's going to be things about pythonic code.
+
+00:24.540 --> 00:26.780
+In other words idiomatic coding in Python.
+
+00:27.030 --> 00:32.220
+Well you know would you rather code something this way or do it some other way and maybe there's a more
+
+00:32.580 --> 00:34.300
+idiomatic way of doing it.
+
+00:34.440 --> 00:35.630
+That's more pythonic.
+
+00:35.640 --> 00:37.620
+So I'll point those out as necessary.
+
+00:37.620 --> 00:41.320
+We've already done some of those in the course already.
+
+00:41.460 --> 00:42.750
+It's going to be opinionated.
+
+00:42.780 --> 00:48.540
+I'm going to give you my opinions and my opinions aren't my opinions and you're free to form your own
+
+00:48.540 --> 00:51.510
+opinions but I am going to be opinionated in here.
+
+00:51.660 --> 00:57.840
+So I will have some very strong opinions about certain you know coding styles and because that's what
+
+00:57.840 --> 00:58.580
+I follow.
+
+00:58.740 --> 01:05.500
+And you know you can obviously make up your own it's going to be also things that I find interesting.
+
+01:05.500 --> 01:08.750
+Very often I run across something on the web or on Twitter.
+
+01:09.010 --> 01:13.300
+You know regality Python but I think hey that's that's kind of cool that's interesting.
+
+01:13.450 --> 01:20.110
+I'll throw all those in here as well and I will try and stay within the confines of what this particular
+
+01:20.110 --> 01:21.600
+part of the course covers.
+
+01:21.640 --> 01:27.010
+So I'll try and stick to you know functions and closures and things like that are not going to get into
+
+01:27.010 --> 01:28.880
+things like metaprogramming and so on.
+
+01:28.960 --> 01:32.140
+Those are for the subsequent sections of the calls.
+
+01:32.260 --> 01:39.010
+So I'll stick to things that you should know by the time you've finished doing the scores and it will
+
+01:39.010 --> 01:39.880
+grow over time.
+
+01:39.940 --> 01:46.000
+As I keep finding things I'm just going to keep adding you know these kind of video Shulz to the to
+
+01:46.000 --> 01:48.290
+this section.
+
+01:48.310 --> 01:52.690
+Now this is not going to be a discussion on third party libraries.
+
+01:52.690 --> 01:56.720
+You know it's not going to be hey you know let's take a look at library X Y Z.
+
+01:56.890 --> 02:00.150
+It might if it's a library that really used a lot.
+
+02:00.160 --> 02:02.810
+And that's simple enough to cover in a short video.
+
+02:03.100 --> 02:09.600
+But I am not going to do a discussion for example on pandas so on none pie or on you know.
+
+02:09.790 --> 02:13.740
+Well Type-I has a total right now as of today.
+
+02:13.750 --> 02:19.460
+I looked it up this morning 128 you know hundred twenty nine thousand packages.
+
+02:20.740 --> 02:22.090
+So that's a lot to cover.
+
+02:22.120 --> 02:26.620
+Which means that everybody is going to be using slightly different packages so I don't want to make
+
+02:26.620 --> 02:29.090
+this discussion on package X Y Z.
+
+02:29.350 --> 02:35.860
+I really want to focus like this whole Coles has on actual the Python language and the Python standard
+
+02:35.860 --> 02:38.920
+library because that's really where we need to start.
+
+02:38.920 --> 02:39.120
+Right.
+
+02:39.130 --> 02:42.160
+We need to understand how to use Python in the standard library.
+
+02:42.280 --> 02:47.290
+And then of course when we don't have something in our disposal in the standard library or in Python
+
+02:47.340 --> 02:53.140
+built ins then we start looking at third party libraries and then there's always a host of possible
+
+02:53.320 --> 03:00.060
+you know libraries to do that do the same thing and then also your suggestions.
+
+03:00.090 --> 03:05.300
+Send me your suggestions and I will make sure videos if it's you know if I can.
+
+03:05.310 --> 03:11.250
+First of all and secondly if it you know if I feel that it's a placable to more than just you know yourself
+
+03:11.310 --> 03:15.060
+or a few people so you get something that's general enough.
+
+03:15.270 --> 03:16.340
+Then I will do it.
+
+03:16.560 --> 03:22.150
+And obviously you know I'm not going to start doing extra videos here on async programming.
+
+03:22.170 --> 03:23.960
+That comes later on in the course.
+
+03:24.150 --> 03:25.950
+And so we'll do it there.
+
+03:26.020 --> 03:28.700
+So we all but short questions show topics.
+
+03:28.710 --> 03:33.510
+Please send me those suggestions and I'll be more than happy to make a video out of it.
+
+03:33.510 --> 03:36.510
+All right so thanks for watching and I hope you enjoy the show.
+
+03:36.540 --> 03:38.340
+Mixed bag in the section.
+
+03:38.340 --> 03:39.020
+See you in a bit.

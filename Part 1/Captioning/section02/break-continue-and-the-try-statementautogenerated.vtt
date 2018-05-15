@@ -1,0 +1,490 @@
+WEBVTT
+
+00:00.450 --> 00:00.840
+Hi.
+
+00:00.900 --> 00:01.790
+And welcome back.
+
+00:01.980 --> 00:06.780
+So here we're just going to continue our discussion on the while loop and in particular we're going
+
+00:06.780 --> 00:15.030
+to look at what happens with break and continue when we are inside a try statement inside a loop.
+
+00:15.090 --> 00:21.380
+And so the question is what happens now if you remember were the try we have try.
+
+00:21.540 --> 00:27.550
+Then we have an except clause that will run when there's an exception and we can trap specific exceptions.
+
+00:27.840 --> 00:33.560
+But there's also this finally clause that exists in the try.
+
+00:33.810 --> 00:38.700
+And this finally quells always runs even when there's an exception.
+
+00:38.700 --> 00:41.970
+So whether there is an exception or not finally always runs.
+
+00:42.000 --> 00:45.220
+So let's just check that out very quickly just as a refresher.
+
+00:45.540 --> 00:51.270
+Let's say it would take equals 10 equals 1 and we're going to try dividing A by B.
+
+00:51.390 --> 00:58.050
+Are we to say try a baby and then we're going to catch a zero division error.
+
+00:58.560 --> 01:04.140
+So we'll trap that error and we'll just print division by zero.
+
+01:06.090 --> 01:15.010
+And we're also going to put in a finally and finally under the unsaved print verse always executes OK.
+
+01:15.510 --> 01:20.970
+So when we run this code Well there was no exception because B was equal to 1 but we still ran the.
+
+01:21.030 --> 01:22.500
+This always executes.
+
+01:22.570 --> 01:24.870
+So we see that output right here.
+
+01:24.900 --> 01:30.200
+Now if we change B to zero then we get the division by zero.
+
+01:30.280 --> 01:31.760
+Trap that occurred here.
+
+01:31.800 --> 01:32.100
+Right.
+
+01:32.100 --> 01:35.930
+So we caught that error and we printed out division by zero.
+
+01:36.090 --> 01:38.400
+And then the finally also ran as well.
+
+01:38.550 --> 01:41.810
+So you could see finally always runs.
+
+01:42.020 --> 01:47.800
+But now we might get into the following situation and let's do a little example.
+
+01:47.810 --> 01:50.210
+So let's start again with a equal to zero.
+
+01:50.240 --> 01:55.820
+And let's to another variable be equal to what I'm going to do is I'm going to increment and decrement
+
+01:55.820 --> 01:59.060
+be at the same time and do an eight divided by B.
+
+01:59.150 --> 02:06.250
+So if I do this correctly at some point I'm going to hit that division by zero when it reaches to be
+
+02:06.250 --> 02:09.950
+is going to reach zero and we're going to get a division by zero error.
+
+02:09.950 --> 02:16.280
+So I'm going to do that inside a while loop so will want to run the while loop for too much just enough
+
+02:16.490 --> 02:17.560
+to get to the error.
+
+02:17.570 --> 02:21.770
+And one more so let's do a less than three in fact I'll do a less than four.
+
+02:21.770 --> 02:23.090
+Just to be sure.
+
+02:23.630 --> 02:25.080
+And then we'll print.
+
+02:25.100 --> 02:30.440
+First thing I'm going to do is just print some dashes out just to indicate the beginning of the loop
+
+02:30.470 --> 02:37.010
+so we can keep things kind of neatly separated as we're printing and we'll set equal to plus a plus
+
+02:37.010 --> 02:43.430
+one right away incrementing a by 1 and we're going to decrement a B by 1 as well.
+
+02:43.430 --> 02:49.570
+So basically at some point he's going to become 0 and then we're going to do I'll try.
+
+02:49.580 --> 02:54.130
+So let's go ahead and do a try and we're going to say results equals.
+
+02:54.230 --> 02:57.910
+Actually we don't even result would you just try a divided by B.
+
+02:58.100 --> 03:01.690
+Not going to stall that anyway and we'll do excerpts.
+
+03:01.750 --> 03:06.530
+All zero division error.
+
+03:07.640 --> 03:14.500
+And when we have a division error we're going to print out the two numbers that are causing the problem
+
+03:15.260 --> 03:18.880
+and we'll say that this is the division by zero.
+
+03:19.310 --> 03:21.940
+And then we'll just format a combi.
+
+03:21.950 --> 03:25.160
+So we'll see what's causing the problem there.
+
+03:25.640 --> 03:29.500
+And what we're going to do now is we're going to say continue.
+
+03:29.660 --> 03:34.850
+So if we get a division if we run the exception let's do it continue.
+
+03:34.850 --> 03:38.490
+Let's just go ahead and do that and let's see what happens.
+
+03:38.490 --> 03:40.050
+So in this case I'm quitting early.
+
+03:40.050 --> 03:44.770
+Finally the continue inside the accept call but you could put inside the trial.
+
+03:44.780 --> 03:46.130
+Well it doesn't matter.
+
+03:46.230 --> 03:47.990
+But finally will still run.
+
+03:48.650 --> 03:51.700
+And let's go ahead and print the finally.
+
+03:51.740 --> 04:03.670
+So we'll do print on let's print the values out again and let's just say this always executes OK.
+
+04:03.690 --> 04:05.160
+So this is in there.
+
+04:05.180 --> 04:10.140
+And we need to format it with a and b.
+
+04:10.800 --> 04:11.520
+OK.
+
+04:11.990 --> 04:14.370
+And then I'm going to put something in the main loop.
+
+04:14.390 --> 04:16.540
+I'm going to put in I'm just going to do the same thing.
+
+04:16.550 --> 04:19.140
+Basically I'm going to print out a comma beep
+
+04:23.190 --> 04:25.230
+and we'll say that this is the main loop.
+
+04:25.260 --> 04:30.180
+So now we should be able to identify every print statement where it's coming from and see what's going
+
+04:30.180 --> 04:33.480
+on as this thing Brunt's.
+
+04:34.320 --> 04:35.370
+And that's it.
+
+04:35.370 --> 04:41.700
+So basically we've got this wild loop where incrementing a decrementing B we try dividing a by B if
+
+04:41.700 --> 04:45.010
+we have a zero division error we trap it.
+
+04:45.030 --> 04:50.400
+We print out this thing and then we do continue which will basically go back remember after to the beginning
+
+04:50.400 --> 04:53.020
+of the loop and we execute the test.
+
+04:53.280 --> 04:59.220
+But it will not reach this point when we have continue it will not reach this point if we don't have
+
+04:59.220 --> 05:03.390
+an exception then it won't continue and we will reach this point here.
+
+05:03.390 --> 05:09.670
+So let's go ahead and see what happens when we run this and of course that's not what I expected.
+
+05:09.670 --> 05:13.980
+I've got an unexpected that OK so I typed in something incorrectly.
+
+05:14.130 --> 05:16.410
+I knew it was going to get an exception but I was in traffic.
+
+05:16.410 --> 05:17.760
+That one stop.
+
+05:17.880 --> 05:19.470
+Let's try it again.
+
+05:19.890 --> 05:22.620
+OK am I doing wrong.
+
+05:22.650 --> 05:24.010
+Oh I really can't type.
+
+05:24.010 --> 05:24.660
+Can I.
+
+05:24.960 --> 05:25.490
+All right.
+
+05:25.720 --> 05:28.150
+Let's make sure everything else looks fine.
+
+05:28.500 --> 05:29.110
+OK.
+
+05:29.220 --> 05:30.840
+Now we got it.
+
+05:30.840 --> 05:31.510
+All right.
+
+05:31.630 --> 05:33.330
+So let's see what happened.
+
+05:36.300 --> 05:39.670
+And here I still can't type.
+
+05:40.080 --> 05:44.880
+I'm going to leave this in the video so you can see kind of the arrows and you know maybe how to start
+
+05:44.880 --> 05:48.270
+debugging and understanding sometimes some of the stuff that comes back.
+
+05:48.270 --> 05:49.360
+So here's the error.
+
+05:49.620 --> 05:55.650
+I had my try my except 0 division error and it tells me that I wrote out on this line of code with zero
+
+05:55.740 --> 05:56.760
+division error.
+
+05:56.880 --> 06:00.030
+While that's what I'm trying to trap why didn't it trap it.
+
+06:00.240 --> 06:04.290
+Well the only reason would be if I'm not trapping the correct error.
+
+06:04.770 --> 06:06.530
+And let's see what I'm trying to trap.
+
+06:06.570 --> 06:13.630
+I'm trying to track 0 division error but I misspelled error it's two hours there and only one out there.
+
+06:13.920 --> 06:17.320
+So I wasn't trapping the python 0 division error.
+
+06:17.400 --> 06:20.980
+That's why I actually got a 0 division error in here.
+
+06:21.250 --> 06:21.710
+OK.
+
+06:21.930 --> 06:22.230
+All right.
+
+06:22.230 --> 06:23.640
+So let's try this again.
+
+06:25.290 --> 06:26.070
+Much better.
+
+06:26.090 --> 06:32.810
+Kate was supposed to execute without actually creating an exception at runtime so we'll see one come
+
+06:32.830 --> 06:35.580
+one so it executed one come one.
+
+06:35.640 --> 06:36.790
+It always executes.
+
+06:36.800 --> 06:41.470
+That was the final game and then it printed there from the main loop.
+
+06:41.550 --> 06:43.400
+Then we started the next loop.
+
+06:43.450 --> 06:44.790
+We have to come to zero.
+
+06:44.850 --> 06:46.080
+Look what happened.
+
+06:46.140 --> 06:53.010
+We printed out division by zero right here so we reached that line of code that line here reached but
+
+06:53.080 --> 06:56.770
+was reached by this group generated by this line of code.
+
+06:56.910 --> 07:04.870
+At this point we did a continue but look what happens to come 0 still gets printed with the always executes.
+
+07:04.890 --> 07:10.670
+So finally our code block actually executed even though we have to continue here.
+
+07:11.160 --> 07:12.510
+And that will always happen.
+
+07:12.510 --> 07:16.780
+So if you're inside a try statement and you have a continue.
+
+07:17.070 --> 07:20.430
+And if you have a Finally the finally will execute.
+
+07:20.430 --> 07:21.320
+So that's great.
+
+07:21.330 --> 07:25.530
+That means that you know if you need to make sure that you close a file or close a database connection
+
+07:25.530 --> 07:31.650
+for some reason you all maybe roll back a transaction or do something when the you know after you're
+
+07:31.650 --> 07:38.070
+done trying to deal with whatever it is in that particular loop iteration then you're sure that the
+
+07:38.070 --> 07:42.000
+finally will run whether you had an exception or not.
+
+07:42.000 --> 07:42.900
+We know that.
+
+07:43.080 --> 07:48.480
+But even if you ever continue in there let's say in your exception trap it will still run.
+
+07:48.480 --> 07:54.060
+Finally it's not going to bail out of the loop until it's executed the finally and then it will bail
+
+07:54.060 --> 07:55.070
+out.
+
+07:55.080 --> 07:56.940
+So that's really good to know.
+
+07:56.940 --> 07:59.910
+Now this works break as well not just continues.
+
+07:59.910 --> 08:06.180
+So if we take this and now I know at least it executes correctly all I need to do.
+
+08:06.180 --> 08:08.770
+Let's see if I can spell this break.
+
+08:08.950 --> 08:09.650
+OK.
+
+08:09.790 --> 08:15.210
+Then of course what's going to happen is that it's we're not going to get these iterations because we're
+
+08:15.210 --> 08:18.010
+going to break as soon as we hit the first error.
+
+08:18.060 --> 08:25.650
+So if we execute this as you can see we are again the finally executes right because there's division
+
+08:25.650 --> 08:33.100
+by zero error occurred and we still executed the finally and then we did the break on the statement.
+
+08:33.100 --> 08:37.540
+Now of course you can also combine this with the else clause if you want.
+
+08:37.540 --> 08:37.800
+Right.
+
+08:37.810 --> 08:43.090
+So now we could say else and of course when will the else execute.
+
+08:43.090 --> 08:46.080
+If the break was never encountered which means what.
+
+08:46.210 --> 08:48.870
+We never had a division error or 0 division error.
+
+08:48.910 --> 08:57.130
+So we can just say here print code executed without a zero division error.
+
+08:57.400 --> 09:01.900
+Right so we know that that's the case if we reach the else clause.
+
+09:01.960 --> 09:07.180
+So when we do that we don't get this prince state and we don't get the straight printed out.
+
+09:07.180 --> 09:07.600
+Why.
+
+09:07.630 --> 09:09.890
+Well we had a division by zero error.
+
+09:09.970 --> 09:13.920
+So let's tweak this so that we don't get division by zero error.
+
+09:14.110 --> 09:18.040
+All I need to do if he's going to run up to 4 I'm going to make B that's equal to 10.
+
+09:18.220 --> 09:19.960
+So it's big it's decremented.
+
+09:19.960 --> 09:23.840
+I know that you know 10 minus four isn't going to become zero.
+
+09:23.860 --> 09:31.510
+So who that then you'll notice we get all these loops and then we get code executed without a 0 division
+
+09:31.560 --> 09:32.100
+error.
+
+09:32.140 --> 09:36.840
+So it did in fact execute that else statement.
+
+09:36.970 --> 09:37.390
+All right.
+
+09:37.420 --> 09:40.700
+I think that kind of sums it up for the refresher on the while loop.
+
+09:40.930 --> 09:47.770
+So remember the while loop you start and you always evaluate the conditional expression first which
+
+09:47.770 --> 09:50.740
+doesn't guarantee that your loop will run at least once.
+
+09:50.870 --> 09:51.870
+You need to do that.
+
+09:51.880 --> 09:55.580
+You can use the wild true kind of approach.
+
+09:55.760 --> 10:02.050
+Want the while loop also has an else clause that can be attached to it which executes if and only if
+
+10:02.050 --> 10:04.070
+the while loop terminated normally.
+
+10:04.090 --> 10:11.830
+I eat without a break statement and then the continue and break statements can be used inside a try
+
+10:11.830 --> 10:19.180
+statement inside a loop and the finally will always still execute before either breaking or continuing
+
+10:19.420 --> 10:21.810
+from that point forward.
+
+10:21.820 --> 10:22.270
+All right.
+
+10:22.270 --> 10:24.550
+So thanks for watching and I'll see you in the next video.

@@ -1,0 +1,1279 @@
+WEBVTT
+
+00:00.300 --> 00:06.020
+High in this video we're going to continue talking about impuls and then we'll also look at the import
+
+00:06.050 --> 00:06.720
+live.
+
+00:06.990 --> 00:12.160
+Now we saw how we could write our own function in the last video to do a basic impuls.
+
+00:12.180 --> 00:20.640
+We were able to write a module out in a file and then we were able to read that file in just using open.
+
+00:20.760 --> 00:23.570
+Then we were able to compile it and execute it.
+
+00:23.700 --> 00:30.210
+And then we stored the object with a key inside the six modules dictionary.
+
+00:30.210 --> 00:39.210
+So let me go ahead and impulses because we'll need that but of course it's bare bones right.
+
+00:39.240 --> 00:43.580
+That importer that we wrote doesn't do a lot of stuff it does.
+
+00:43.580 --> 00:44.680
+It did the basics.
+
+00:44.700 --> 00:50.220
+It actually did the import correctly and found the file because we told it exactly where to look for
+
+00:50.220 --> 00:50.700
+the file.
+
+00:50.700 --> 00:55.800
+You'll remember that we had those four pounds that we had coded essentially to tell us where to go look
+
+00:55.800 --> 01:00.690
+for it and then we were able to load the code up you know compile and execute.
+
+01:01.110 --> 01:03.030
+So that's what the impled does.
+
+01:03.060 --> 01:07.540
+The impled does that those basic steps but it does a whole lot more.
+
+01:07.620 --> 01:12.220
+When I say import says Where did I get this from.
+
+01:12.300 --> 01:16.510
+You know if I look at the representation of CIS it's a builtin.
+
+01:16.770 --> 01:25.140
+If I was to do something like import for example collection's let's look at the representation for collections.
+
+01:25.350 --> 01:30.960
+What you see it came from somewhere it came from the lib collections Knot's a collection directory as
+
+01:30.960 --> 01:32.430
+opposed to a file.
+
+01:32.640 --> 01:35.290
+And that's because collections is a package.
+
+01:35.400 --> 01:36.790
+We'll get to that later.
+
+01:36.990 --> 01:39.450
+But it loaded it from disk.
+
+01:39.460 --> 01:41.730
+So I didn't have to tell it the path.
+
+01:41.730 --> 01:42.060
+Right.
+
+01:42.060 --> 01:43.700
+Where did it find the path.
+
+01:43.710 --> 01:44.840
+How did it get.
+
+01:45.150 --> 01:52.020
+Well there's a whole lot more going onto the import than just compiling and executing the module code
+
+01:52.230 --> 01:54.150
+and putting it into the CIS modules cache.
+
+01:54.150 --> 01:58.060
+And actually that's where a lot of the complexity comes in to the impled.
+
+01:58.140 --> 02:02.850
+It's basically finding Where's the stuff when I say import fractions.
+
+02:02.850 --> 02:04.400
+Where is it going to go find it.
+
+02:04.440 --> 02:10.680
+If I've installed a third party package let's say I've installed flask and I import flask where is it
+
+02:10.680 --> 02:11.830
+going to find it.
+
+02:11.890 --> 02:12.450
+Right.
+
+02:12.480 --> 02:17.190
+That piece is complicated and that's what we didn't do at all.
+
+02:17.190 --> 02:22.320
+So we just rely on the import method and we rely on Python being able to funneling stuff.
+
+02:22.380 --> 02:24.480
+And we'll get back to that in a second.
+
+02:25.030 --> 02:32.050
+But sometimes we do want to use code to import a package and not that this isn't code.
+
+02:32.050 --> 02:38.440
+What I mean by this is let's say that we have something called mob name and my name let's say is math
+
+02:38.740 --> 02:43.000
+and I want to import this module but I don't have the name.
+
+02:43.000 --> 02:49.230
+I can't say import my name because Python is going to look for a module called MMOG name for this.
+
+02:49.240 --> 02:54.430
+You'll notice it says well I couldn't find a module called maade under school name so that's not going
+
+02:54.430 --> 02:54.940
+to work.
+
+02:54.940 --> 02:55.980
+We can't do that.
+
+02:56.290 --> 03:02.080
+Instead you know if we had our own function that we wrote earlier we could say well import you know
+
+03:02.290 --> 03:04.900
+math and it would go and find it.
+
+03:04.960 --> 03:07.390
+But we didn't implement a find method.
+
+03:07.630 --> 03:14.320
+So we can't use Import not when we have the name of the module sitting that a variable but instead we
+
+03:14.320 --> 03:16.530
+can use the import lib.
+
+03:16.570 --> 03:22.750
+So let's go ahead and import import lib and import lib has all that functionality for us.
+
+03:22.750 --> 03:27.210
+In fact import lib if we look at the representation is a package.
+
+03:27.280 --> 03:33.040
+If we see that done during a Doppie Why then resides at this location on my system your system obviously
+
+03:33.040 --> 03:34.120
+will be different.
+
+03:34.120 --> 03:40.000
+You can actually go to that location and open up the code files and take a look at how it does it.
+
+03:40.000 --> 03:42.030
+Now warn you it's not for the faint of heart.
+
+03:42.040 --> 03:47.470
+It is quite complex and will understand why in a few minutes.
+
+03:48.070 --> 03:53.440
+But import lib has an import module function so we can say import lib doc import
+
+03:56.510 --> 04:01.750
+module and now we can give it the module name because it expects a variable.
+
+04:01.810 --> 04:05.650
+So we could hardcoded in here we could say import math.
+
+04:05.650 --> 04:06.830
+We could do it this way.
+
+04:06.910 --> 04:11.860
+Or if that string is in some variable just pass of the variable.
+
+04:12.190 --> 04:14.080
+And now it's important.
+
+04:14.410 --> 04:15.930
+So what does that mean.
+
+04:16.030 --> 04:17.850
+Well remember what the import does.
+
+04:17.890 --> 04:19.470
+It basically brings the code in.
+
+04:19.510 --> 04:22.550
+Compiles executes it and puts it in the cist modules.
+
+04:22.570 --> 04:29.010
+So for look at sist modules and I'm just going to check with a math.
+
+04:30.910 --> 04:35.520
+Is in six modules and you'll see that it is.
+
+04:35.560 --> 04:37.130
+It was imported to.
+
+04:37.300 --> 04:44.710
+If I look at let's say fractions in syste of modules we haven't imported that yet.
+
+04:44.710 --> 04:46.080
+It's not in there.
+
+04:46.230 --> 04:53.930
+OK so math is in six modules so good I can say math talks square root of 2 and I get an error.
+
+04:54.040 --> 04:56.440
+What happened that says math is not defined.
+
+04:57.290 --> 04:57.690
+Well.
+
+04:57.760 --> 05:03.940
+This is just like the function that we wrote this thing imported the module and put it in the stop module
+
+05:03.970 --> 05:04.870
+dictionary.
+
+05:04.920 --> 05:07.850
+Ed didn't do anything with it other than that.
+
+05:08.110 --> 05:11.810
+So basically it's created that object exists.
+
+05:11.830 --> 05:17.470
+It's no reference in the source modules but we don't have a handle to it in all namespace because if
+
+05:17.470 --> 05:22.880
+we look at math is it in our namespace now namespace remember is our Global's dictionary.
+
+05:23.080 --> 05:26.710
+It's not in our Goebels dictionary now and all in our namespace.
+
+05:26.710 --> 05:30.790
+We need to put it in there so this at this point there's two ways we could do this.
+
+05:30.790 --> 05:34.520
+We could say Maff So we're going to create the symbol called math.
+
+05:34.810 --> 05:36.830
+And math is equal to.
+
+05:37.030 --> 05:40.950
+While it's equal to 6 start module's math right.
+
+05:40.990 --> 05:44.270
+We could do it this way and I'm going to call it math.
+
+05:44.290 --> 05:51.180
+True I'm going to mimic basically this simple math as math to write.
+
+05:51.250 --> 05:53.680
+This is exactly what I'm doing here.
+
+05:54.310 --> 05:59.690
+I'm taking math too from the top modules because I know it exists already.
+
+05:59.770 --> 06:06.550
+If I didn't know it existed then what I would do is I would basically take my import and rewrite it
+
+06:06.700 --> 06:07.300
+this way.
+
+06:07.300 --> 06:13.250
+So instead of doing this I would say math equals import lib.
+
+06:13.270 --> 06:14.470
+Import module.
+
+06:14.540 --> 06:17.100
+Right now what is this importer going to do.
+
+06:17.170 --> 06:22.640
+It is going to check to see if math is in the CIS modules for us and if it is just returns it.
+
+06:22.690 --> 06:25.040
+So it's not going to re-import.
+
+06:25.090 --> 06:28.140
+Just like our regular Python import.
+
+06:28.330 --> 06:29.470
+This works the same way.
+
+06:29.470 --> 06:32.200
+This is a python equivalent right.
+
+06:32.230 --> 06:37.120
+That's just written in pure Python but it's an equivalent to the importer that we have in C..
+
+06:37.330 --> 06:45.570
+That's in the C Python so now I'm going to have a local symbol called Math too that is going to be pointing
+
+06:45.570 --> 06:47.170
+to the math module.
+
+06:47.400 --> 06:47.670
+Right.
+
+06:47.670 --> 06:51.330
+So in fact I can take a look now and say is math true.
+
+06:51.510 --> 06:52.660
+In Global's.
+
+06:53.040 --> 06:54.170
+And the answer is yes.
+
+06:54.180 --> 06:57.260
+Now what's the idea of math too.
+
+06:58.430 --> 06:59.600
+It's this idea here.
+
+06:59.640 --> 07:07.650
+What's the ID of thought modules and the math module that's referenced in the magos dictionary.
+
+07:07.920 --> 07:09.570
+It's exactly the same.
+
+07:09.600 --> 07:12.480
+You can see that the same idea it's just the same object.
+
+07:12.480 --> 07:16.810
+OK so now I have that so I can say math to x square root of 2.
+
+07:16.980 --> 07:18.450
+And that was just fine.
+
+07:18.690 --> 07:24.290
+So let's take a look at the representation of math while math is not defined.
+
+07:24.290 --> 07:26.660
+Math is not defined math 2 is OK.
+
+07:26.900 --> 07:27.870
+So the Maggio.
+
+07:27.920 --> 07:29.030
+It's a module.
+
+07:29.120 --> 07:31.100
+It's math but it's built in.
+
+07:31.160 --> 07:35.180
+And depending on whether you're on Windows on Linux you'll get slightly different information here but
+
+07:35.180 --> 07:37.070
+at the end of the day it's a built in.
+
+07:37.070 --> 07:40.760
+It's part of the built in Python it's it's written in C..
+
+07:40.780 --> 07:43.670
+We'll see Python in the right and it's built in.
+
+07:43.670 --> 07:49.700
+Now if I do something like arm import live we look at the representation for full import live.
+
+07:49.720 --> 07:51.500
+You'll notice I don't get quite the same thing.
+
+07:51.500 --> 07:52.870
+It's still a module.
+
+07:53.120 --> 07:59.360
+Its name is import lib but it came from somewhere and the from is a file.
+
+07:59.510 --> 08:06.530
+And if I look for example at import fractional slips out impled fractions and again I could do it this
+
+08:06.530 --> 08:10.190
+way or I could say fractions equals import lib.
+
+08:10.250 --> 08:12.260
+Import module.
+
+08:12.470 --> 08:14.470
+Fractions can.
+
+08:14.600 --> 08:16.700
+I could go and do it this way.
+
+08:16.700 --> 08:19.570
+And now I can look at the representation of the fractions module.
+
+08:19.610 --> 08:23.040
+Again I get it from some location.
+
+08:23.180 --> 08:28.550
+This is in the package the Fraction's is in a single module and there's other things that you might
+
+08:28.550 --> 08:31.350
+see depending on what you import.
+
+08:31.580 --> 08:33.070
+You'll see different kinds of files.
+
+08:33.090 --> 08:33.770
+P Why.
+
+08:33.800 --> 08:36.440
+Well we know those are standard python files.
+
+08:36.440 --> 08:38.760
+Sometimes you'll see why c files.
+
+08:38.900 --> 08:45.770
+C files are compiled python files and in fact when you run a program it actually compiles the python
+
+08:46.120 --> 08:52.070
+you know you might also run across a lot of other types of files you might run across as old files or
+
+08:52.130 --> 08:56.210
+PVD files which I'll think DL else they basically like DL else.
+
+08:56.390 --> 09:03.420
+But for in the Linux world as I saw in the Windows world the IDs and many other types.
+
+09:03.500 --> 09:09.620
+The other thing too is that you can actually have your modules or your code sitting inside a zip file
+
+09:09.800 --> 09:12.430
+or an exe file or a wheel.
+
+09:12.440 --> 09:14.930
+So let's just talk about the zip.
+
+09:15.000 --> 09:22.010
+You can put a module inside a zip file and Python can still reach in to that zip file to that zip archive
+
+09:22.250 --> 09:27.890
+and find the module in there and get it from there and then import.
+
+09:28.000 --> 09:29.550
+So how does it do all this.
+
+09:29.630 --> 09:35.860
+Well that's why I'm saying that the importer is actually quite complex but it works on a basic principle
+
+09:37.040 --> 09:40.820
+where you have finders and you have loaders.
+
+09:41.080 --> 09:47.380
+And then if you have a finder Plus a Lowder's That's also called an import.
+
+09:48.680 --> 09:50.230
+So what is the finding.
+
+09:50.330 --> 09:55.840
+Well the finder is something that's responsible for finding the module that you want to improve.
+
+09:55.850 --> 10:03.410
+So if I say import math and if I do import fractions so that the location where it came from wasn't
+
+10:03.410 --> 10:07.740
+the same math came from the built ins fractions came from this.
+
+10:07.760 --> 10:13.430
+If I had my own module that I'd written like you know module one it would look and find it in a different
+
+10:13.520 --> 10:20.150
+place and potentially that module could be in a zip file that's in our directory or that's inside the
+
+10:20.480 --> 10:24.020
+base Python installation.
+
+10:24.050 --> 10:31.820
+So that's what the finder is the finder is basically you think of it as a function that goes and soldiers
+
+10:32.090 --> 10:35.520
+and is you know looks for a module.
+
+10:35.840 --> 10:42.530
+So the first thing when we do an import that Python does it looks and asks basically at each finder
+
+10:42.590 --> 10:45.680
+saying hey do you know anything about this module.
+
+10:46.130 --> 10:51.620
+And if that find says I don't know anything about this then Python goes to the next finder and says
+
+10:51.620 --> 10:55.750
+Do you know anything about math or fractions or module one.
+
+10:55.970 --> 10:58.670
+And if that one comes back and says Yup I know what it is.
+
+10:58.820 --> 10:59.950
+I know what this module is.
+
+10:59.960 --> 11:07.100
+And by the way I also know what loader you should be using and then Python tells the loader OK here's
+
+11:07.100 --> 11:09.540
+the module here's where I found it.
+
+11:09.560 --> 11:10.740
+Go ahead and load it.
+
+11:11.690 --> 11:17.180
+And that then does finishes the whole thing of compiling it executing it while loading the code first
+
+11:17.210 --> 11:23.690
+from the resource and then it goes onto the final step once it's loaded that thing of compiling executing
+
+11:23.690 --> 11:29.630
+and putting into the cache and potentially putting the arm symbol in our namespace then we do import
+
+11:29.630 --> 11:35.430
+math it actually puts a math symbol in our global namespace that points to the compiled object in memory.
+
+11:36.960 --> 11:39.230
+So that's what finders and Lowder's are.
+
+11:39.630 --> 11:42.380
+And that's how the kind of basic system works.
+
+11:42.510 --> 11:46.920
+So this means that you can actually write your own finders and Lowder's.
+
+11:46.950 --> 11:49.100
+So what does the finder return.
+
+11:49.170 --> 11:52.380
+While the finder returns a module spec essentially.
+
+11:52.380 --> 11:59.850
+So if we look at fractions we have the special property on its dhanda spec and this is called a module
+
+11:59.850 --> 12:05.000
+spec module specification the module specification says here's the name of the module.
+
+12:05.250 --> 12:10.220
+Here's the loader that you should run you should run this sowles file loaders.
+
+12:10.560 --> 12:13.910
+And here's the you know where that module is sitting.
+
+12:14.030 --> 12:17.140
+It's at this you know this location here.
+
+12:17.190 --> 12:24.720
+So this module spec came back from a finder the finder so yeah I know what Fraction's is and here's
+
+12:24.720 --> 12:26.120
+what I know about it.
+
+12:26.190 --> 12:27.640
+This is the name of the module.
+
+12:27.660 --> 12:30.240
+This is the loader that should be used to load it.
+
+12:30.480 --> 12:39.600
+And this is the location of the module so Python comes with a variety of finders and loaders and remember
+
+12:39.600 --> 12:45.150
+that finders and loaders that are kind of combined objects are called importer's or they can do both.
+
+12:45.320 --> 12:46.890
+Then they're called importers.
+
+12:47.280 --> 12:56.050
+So we can look at the CIS dark matter path and sister Metapad contains basically the finder objects.
+
+12:56.100 --> 13:03.390
+So these are the finders that Python has right now and depending on what packages you install it might
+
+13:03.390 --> 13:04.310
+be different.
+
+13:04.530 --> 13:11.340
+But I have this built in importer frozen importer Pathfinder so built and imported is both a finder
+
+13:11.370 --> 13:16.530
+and a loader and it's for the built ins frozen Emporium not going to discuss that Pathfinder.
+
+13:16.530 --> 13:19.810
+That's the one that will actually find your modules in your path.
+
+13:19.830 --> 13:21.990
+We'll come back to paths in a bit.
+
+13:22.440 --> 13:27.730
+So for example I can look at math Web site import map and get the module here.
+
+13:28.500 --> 13:35.070
+And we can look at the spec and the spec of math while the name is math and the loader as you can see
+
+13:35.070 --> 13:44.090
+it's this built in importer's right in the origin was built in so every module basically goes through
+
+13:44.090 --> 13:44.320
+this.
+
+13:44.330 --> 13:46.530
+When you drill simple it has to find a force.
+
+13:46.580 --> 13:53.360
+So Python goes through these importer's one by one and it asks the most important Hey do you know what
+
+13:53.360 --> 13:54.310
+math is.
+
+13:54.500 --> 13:57.150
+And in this case the built in importer's says Sure I do.
+
+13:57.170 --> 14:05.300
+Here's what it is and it returns the module spec and now in turn the loader can go and load up this
+
+14:05.300 --> 14:05.810
+module.
+
+14:05.810 --> 14:12.800
+It knows how to load you know built ins and then it you know then the regular step that we've seen before
+
+14:12.810 --> 14:19.120
+of the can you know compile execute and put into the SAS modules happens.
+
+14:19.130 --> 14:26.330
+So let's say for example that we did an import you know let's say we had a module in our project called
+
+14:26.330 --> 14:32.480
+module 1 and we say impled module one python is going to go through these finders basically and say
+
+14:32.510 --> 14:36.620
+hey built an imported You know with module one is no I don't.
+
+14:36.800 --> 14:37.690
+Frozen in.
+
+14:37.730 --> 14:39.110
+You know what module one is.
+
+14:39.140 --> 14:39.880
+No I don't.
+
+14:39.950 --> 14:45.320
+OK Pathfinder's do you know anything about module 1 and Pathfinder's going to look through the path
+
+14:45.320 --> 14:48.700
+and your project and in any other location it needs to look at.
+
+14:48.950 --> 14:52.170
+And it's going to say yeah I know what module one is here.
+
+14:52.180 --> 14:59.490
+You know here's information about what information just a module spec but maybe you can define module
+
+14:59.490 --> 15:00.350
+one right.
+
+15:00.370 --> 15:03.900
+Because if I run this model one no module No module one.
+
+15:04.110 --> 15:09.300
+Then what happens is that Python went through all these importer's one by one and each one of them came
+
+15:09.300 --> 15:11.100
+back and said No I don't know.
+
+15:11.100 --> 15:12.460
+Basically there were are none.
+
+15:12.480 --> 15:14.740
+So I got I don't know anything about this.
+
+15:15.000 --> 15:21.380
+Then at that point Python comes back and raises an exception and says hey I can't find the module anywhere.
+
+15:21.510 --> 15:25.560
+Now what's interesting about finders and Lowder's is that you can make your own and you just need to
+
+15:25.680 --> 15:26.470
+add them.
+
+15:26.550 --> 15:29.670
+Right you can add your findings to this Metapad.
+
+15:30.120 --> 15:31.400
+There's other things that you need to do.
+
+15:31.400 --> 15:36.360
+I'm not going to get into those details but you could technically right find as an Lowder's that could
+
+15:36.540 --> 15:43.590
+go ahead and find and load your modules from a database or from maybe a rest API call maybe you build
+
+15:43.590 --> 15:44.530
+an API.
+
+15:44.670 --> 15:52.110
+Its job is to basically solve up you know Amadeo and you know that gets requested of your code and you
+
+15:52.110 --> 15:53.300
+know things like that.
+
+15:53.310 --> 15:55.800
+So you can you can certainly do that.
+
+15:56.190 --> 16:00.560
+You don't have to write your modules in files and that's what I was saying earlier when you say import
+
+16:00.570 --> 16:03.360
+module is not necessarily a file.
+
+16:03.630 --> 16:11.530
+You can write your own fine doesn't load to basically extend that functionality so the module spec arm.
+
+16:11.650 --> 16:16.390
+So far what I've been doing is I've been importing the module in order to then look at the representation
+
+16:16.390 --> 16:21.330
+to see the modules spec or at least look at the Dondre spec to see the module spec.
+
+16:21.430 --> 16:26.240
+You can actually use also the import lib if you want to know that have time you could say you build
+
+16:26.260 --> 16:30.280
+docs find spec so this doesn't load the module right.
+
+16:30.280 --> 16:36.220
+So I could for example look at a module that we haven't loaded yet let's say decimal and I could ask
+
+16:36.220 --> 16:36.770
+it.
+
+16:36.820 --> 16:39.420
+Give me your on the arm.
+
+16:39.850 --> 16:43.210
+The module information for decimal is not a module.
+
+16:43.360 --> 16:43.570
+Right.
+
+16:43.570 --> 16:50.110
+Decimal is a class that's in the decimal module so the decimal module is fun.
+
+16:50.170 --> 16:57.090
+So basically the find is one of the find has found it and it came back and said Yeah it's called decimal.
+
+16:57.100 --> 17:02.330
+This is the loader that you have to use you're going to use the source file loader and this is the location.
+
+17:02.590 --> 17:09.400
+So what I want to do is I want to Century create a small module in the same directory as my Jupiter
+
+17:09.430 --> 17:15.580
+notebook and instead of you are swapping on and you can certainly do this by going to your a notebook
+
+17:15.580 --> 17:18.410
+directory and just creating a new file.
+
+17:18.460 --> 17:20.480
+Just use any standard text.
+
+17:20.860 --> 17:25.050
+And we just want to put a module that's going to contain two lines of code.
+
+17:25.090 --> 17:29.260
+Print running module one copy white and then equals 100.
+
+17:29.260 --> 17:30.070
+That's all I'm going to do.
+
+17:30.070 --> 17:34.190
+So here what I'm going to do so I don't have to come out of Jupiter.
+
+17:35.020 --> 17:36.930
+So it's just self-contained.
+
+17:37.090 --> 17:42.440
+I'm going to do this again to write it out directly from here.
+
+17:42.620 --> 17:45.140
+So I'm going to say code filed out right.
+
+17:45.460 --> 17:55.610
+And whether we want to write well I want to write print running module wonder why.
+
+17:57.410 --> 18:05.530
+And then I put a new line and then I'm going to write out another line that the right arm equals 100
+
+18:05.830 --> 18:08.830
+K and put a new line on it.
+
+18:09.160 --> 18:17.830
+So that created a file module wonder why in my current directory where I'm running this notebook you
+
+18:17.830 --> 18:22.350
+can certainly just go and write it yourself and let me show you what it looks like.
+
+18:22.480 --> 18:24.820
+So that's that's module one over here.
+
+18:24.820 --> 18:33.410
+Let me just show you that I could remove module one Darcie y and it will no longer be there.
+
+18:33.580 --> 18:34.610
+OK it's gone.
+
+18:34.660 --> 18:39.570
+And I can now go ahead and rerun this.
+
+18:39.820 --> 18:48.490
+And if we go back and take a look you'll see that module one is back and we can look at it.
+
+18:49.370 --> 18:50.120
+So the
+
+18:54.290 --> 18:55.220
+camp there we go.
+
+18:55.220 --> 18:59.700
+It just had two lines of code print running module wonder why equals 100.
+
+18:59.700 --> 19:02.470
+So you can just create that directly if you want.
+
+19:02.490 --> 19:06.350
+I'm just showing you this in more detail because I'm going to use that trick.
+
+19:06.390 --> 19:08.700
+A few other times as well.
+
+19:08.700 --> 19:11.490
+So I don't have to go because I'm in Jupiter right.
+
+19:11.490 --> 19:18.120
+It's not a project like in PI charm or if you're just dealing with you know the the file system directly
+
+19:18.120 --> 19:19.830
+and doing command line stuff.
+
+19:20.070 --> 19:22.670
+So just to keep it self-contained.
+
+19:23.160 --> 19:25.740
+So now I just have to distribute the notebook.
+
+19:25.740 --> 19:30.500
+I don't have to distribute the module wonder why file as well since I'm dynamically creating.
+
+19:30.630 --> 19:35.510
+So now we have this module one that's been written out to disk so we can import it.
+
+19:35.550 --> 19:40.890
+But before we import it let's go ahead and say fine spec Let's see if
+
+19:46.290 --> 19:49.230
+it finds it and it does so that's great right.
+
+19:49.230 --> 19:55.570
+So the find is which one the source file loader is right is the one that's going to load it.
+
+19:55.590 --> 19:57.350
+And this is where it's going to load from.
+
+19:57.450 --> 19:58.860
+That's exactly where we're looking.
+
+19:58.860 --> 20:05.470
+We're looking in my you know Dropbox Python deep dive folder and this is where the model is model one
+
+20:05.480 --> 20:06.510
+of the why.
+
+20:06.900 --> 20:07.290
+OK.
+
+20:07.290 --> 20:09.730
+So let's import So now remember.
+
+20:09.840 --> 20:12.580
+What does it do.
+
+20:12.930 --> 20:13.530
+It prints.
+
+20:13.560 --> 20:19.470
+Running module 1 and it sets up a variable equal to 100.
+
+20:19.470 --> 20:21.750
+So there we got it printed running model 1.
+
+20:21.810 --> 20:29.590
+As you saw it executed the module so module 1 is in our namespace right.
+
+20:29.640 --> 20:33.550
+We have a key basically in our namespace code module 1.
+
+20:33.660 --> 20:34.200
+Right.
+
+20:34.200 --> 20:36.440
+So now we can call module 1.
+
+20:36.440 --> 20:39.490
+It would give that a regular import weekenders code module 1. 8.
+
+20:39.690 --> 20:41.570
+And we see it's got a value of 100.
+
+20:41.820 --> 20:47.760
+OK so now what I want to do though is I want to go ahead and create this module one but somewhere else.
+
+20:47.790 --> 20:54.210
+Because as you saw fine spec right Python was able to locate our module because it's inside the same
+
+20:54.210 --> 20:56.380
+directory where our main program is running.
+
+20:56.400 --> 21:00.070
+And so it knows about that directory and it's going to find it in there.
+
+21:00.450 --> 21:05.340
+So instead what I want to do is I want to do the same thing but I'm going to go put it in some other
+
+21:05.340 --> 21:06.060
+directory.
+
+21:06.060 --> 21:08.030
+And so you should do the same thing as well.
+
+21:08.160 --> 21:13.350
+You didn't just copy that file and put it in some other directory that's not related to your Python
+
+21:13.620 --> 21:18.540
+not with your Python installation and not related to your environment not related to a project just
+
+21:18.540 --> 21:20.060
+put it somewhere else.
+
+21:20.070 --> 21:25.530
+What I'm going to do is I'm going to use it because I'm I'm sitting in windows right now so I'm going
+
+21:25.530 --> 21:27.900
+to use from Pos.
+
+21:27.930 --> 21:33.840
+I'm going to use the environment variable are called Home path.
+
+21:33.900 --> 21:34.890
+This is for Windows.
+
+21:34.920 --> 21:35.190
+Right.
+
+21:35.190 --> 21:39.610
+If you are running in Linux you'd probably look at your environment for example home.
+
+21:39.620 --> 21:42.500
+I'm just going to take my home directory basically.
+
+21:42.670 --> 21:43.330
+OK.
+
+21:43.380 --> 21:45.350
+Or you can hardcoded to whatever you want.
+
+21:45.360 --> 21:47.240
+You know you could you could make it you know.
+
+21:47.420 --> 21:50.740
+You'll see our backs last backlashed time.
+
+21:50.750 --> 21:54.030
+For example if you're on Windows or whatever you want.
+
+21:54.390 --> 21:57.920
+I just need to find a particular path that's outside.
+
+21:58.020 --> 21:59.640
+So I'm going to use this one.
+
+21:59.670 --> 22:05.660
+And if we take a look at what it is can't that's just my root directory.
+
+22:05.670 --> 22:06.260
+OK.
+
+22:07.350 --> 22:08.300
+As a user.
+
+22:08.700 --> 22:13.650
+So now what I'm going to do is I'm going to do the same thing that I did before.
+
+22:13.830 --> 22:14.470
+Right.
+
+22:14.490 --> 22:18.030
+The only difference is I'm going to write it to that path.
+
+22:18.270 --> 22:20.640
+So let me go ahead and do this.
+
+22:20.670 --> 22:31.320
+So absolute Our paths equals or a stop path dark join external module paths and we're going to join
+
+22:31.320 --> 22:33.750
+it with that code module to the IPY.
+
+22:33.820 --> 22:34.170
+OK.
+
+22:34.260 --> 22:40.530
+So here I'm just building up a path from taking my that whatever that path was which I just happened
+
+22:40.530 --> 22:41.880
+to grab from my environment.
+
+22:41.880 --> 22:43.660
+You can hand-coded if you want.
+
+22:44.010 --> 22:47.310
+So I've got that and now I'm just going to repeat what I did before.
+
+22:47.670 --> 22:57.350
+So file absolute path and we want to make it right a ball and it will override it if it exists already.
+
+22:58.020 --> 23:00.630
+So pass code file and code file.
+
+23:00.630 --> 23:06.960
+Actually you know what I'm going to copy and paste this over here and we'll just go and paste it down
+
+23:06.960 --> 23:07.540
+here.
+
+23:07.620 --> 23:14.940
+I'll just change this to running module to and then maybe Pinson sort of thing equals a hundred changes
+
+23:14.940 --> 23:21.950
+to double quotes so I can say X equals Python.
+
+23:22.080 --> 23:23.150
+Right.
+
+23:23.220 --> 23:27.990
+So that's why change the string to double quotes so I could use single quotes and psych's Ramban writing
+
+23:27.990 --> 23:30.020
+the side on creating a code file.
+
+23:30.990 --> 23:37.890
+Ok so now we have module to written out to a file in that extern module path directory.
+
+23:38.070 --> 23:47.970
+So let's go ahead and let's see if import live can find the spec for module 2 and it returns nothing
+
+23:48.090 --> 23:49.670
+in return None saying not.
+
+23:49.710 --> 23:50.870
+I couldn't find it.
+
+23:51.420 --> 23:53.810
+But if you think about it that's hardly surprising.
+
+23:53.820 --> 23:57.740
+How would Python know look for module to in this directory here.
+
+23:58.050 --> 23:58.920
+It doesn't.
+
+23:59.190 --> 23:59.570
+Hello.
+
+23:59.580 --> 24:00.870
+No way to look.
+
+24:00.900 --> 24:04.220
+Well this is the sist path.
+
+24:04.230 --> 24:10.470
+Look at this path it's a sense just a list that contains various paths that it knows about and it's
+
+24:10.470 --> 24:11.640
+going to look in there.
+
+24:11.880 --> 24:15.850
+Very often when you install packages they'll add things to this.
+
+24:16.050 --> 24:18.320
+And Python has its own as well.
+
+24:18.360 --> 24:22.920
+So by default we get our current path which is where we're sitting right now the notebook so that's
+
+24:22.920 --> 24:26.390
+why I found module one because module one was in this path.
+
+24:26.880 --> 24:27.150
+Right.
+
+24:27.150 --> 24:33.660
+It wasn't and the other ones on the other hand module 2 is in none of those paths so it can't find it.
+
+24:34.080 --> 24:35.610
+But that's very simple to fix.
+
+24:35.610 --> 24:41.410
+We're just going to say system of path got a append external module path.
+
+24:42.080 --> 24:43.200
+OK.
+
+24:43.980 --> 24:45.030
+Type it right.
+
+24:45.060 --> 24:45.780
+So there we go.
+
+24:45.780 --> 24:50.790
+Now if I look at this path again you'll notice that now that path is here.
+
+24:51.120 --> 24:56.320
+So now that I have that done can I go ahead and find the spec for module 2.
+
+24:56.340 --> 24:57.770
+And the answer is yes.
+
+24:57.800 --> 24:58.190
+OK.
+
+24:58.260 --> 25:01.230
+Now it knows about that path it knows where to look and it's a.
+
+25:01.320 --> 25:05.070
+I found it it's at this location and this is the loader that you should use.
+
+25:05.070 --> 25:10.580
+It's a source file loader instance and that's what you should use to load.
+
+25:10.810 --> 25:11.280
+OK.
+
+25:12.920 --> 25:18.050
+So now basically it means that we can import module to that was just fine.
+
+25:18.050 --> 25:24.230
+And as you saw it printed running module 2 and then module 2 that X is python.
+
+25:24.660 --> 25:25.460
+OK.
+
+25:25.790 --> 25:28.460
+So that's how the importer works.
+
+25:28.460 --> 25:28.750
+Right.
+
+25:28.760 --> 25:32.000
+And that's how it kind of mixes in with the finders.
+
+25:32.030 --> 25:37.570
+The Lowder's we saw the module spec we saw what the cist path is.
+
+25:37.580 --> 25:41.500
+So whenever you do an import and it fails it tells you I can't find it.
+
+25:41.680 --> 25:47.230
+OK maybe you have your file that you wrote somewhere or maybe you installed the package check system
+
+25:47.240 --> 25:48.050
+of path.
+
+25:48.230 --> 25:55.570
+If it's not if this is a file based resume's if the path is not in stop path it's not going to load
+
+25:55.580 --> 25:56.010
+loaded.
+
+25:56.210 --> 25:57.020
+And the story.
+
+25:57.020 --> 25:57.680
+Period.
+
+25:59.490 --> 26:03.780
+If it's code that you're writing yourself and you need to basically make Python aware that there's another
+
+26:03.780 --> 26:05.890
+location where you can go and grab stuff.
+
+26:06.090 --> 26:07.420
+You can certainly do that.
+
+26:07.680 --> 26:11.320
+And you just add it to the system path.
+
+26:11.400 --> 26:17.180
+Of course there's problems with that because that means now that you need to somehow to add it to Psystar
+
+26:17.200 --> 26:23.170
+pass that means that I have to hard code essentially this location inside my program.
+
+26:23.520 --> 26:26.270
+So you'll probably want to do something else to find it.
+
+26:26.310 --> 26:30.260
+You need to add additional locations that you can then add to the suspense.
+
+26:30.360 --> 26:33.430
+You could have configuration files maybe that have that.
+
+26:33.540 --> 26:42.460
+But there's also another thing that you can do which is called arm paths path files and for that you
+
+26:42.460 --> 26:43.290
+can go and look.
+
+26:43.300 --> 26:44.480
+Here let me show you.
+
+26:44.530 --> 26:46.550
+You can go and look in the Python documentation.
+
+26:46.570 --> 26:52.780
+I'm not going to talk about this on the site specific configuration hopes what you're going to be looking
+
+26:52.780 --> 26:56.250
+for is something called Pathfinder's de-th funds.
+
+26:56.260 --> 26:56.840
+OK.
+
+26:57.040 --> 26:58.230
+So this talks about it.
+
+26:58.270 --> 27:03.240
+And basically these are files where you just add to that.
+
+27:03.610 --> 27:08.690
+You know the new directories that you want to add in to your suspect.
+
+27:08.890 --> 27:14.620
+So basically it's just a way of specifying additional directories for syste path but you can put that
+
+27:14.620 --> 27:16.340
+in a file you only.
+
+27:16.360 --> 27:19.510
+But the problem is it needs to be in specific locations.
+
+27:19.690 --> 27:23.580
+So if you're interested in that you can go ahead and read about it.
+
+27:23.940 --> 27:27.230
+But that's how fast works and that's how the importing work.
+
+27:27.250 --> 27:33.550
+And if we do want to use importing using code as opposed to using you know the import statement then
+
+27:33.550 --> 27:36.370
+we should use the import lib.
+
+27:36.420 --> 27:36.880
+All right.
+
+27:36.930 --> 27:39.110
+So thanks for watching and I'll see you in the next video.

@@ -1,0 +1,52 @@
+WEBVTT
+
+00:00.300 --> 00:03.730
+Hi and welcome to the section on function parameters.
+
+00:04.020 --> 00:09.990
+So in this section we're going to cover arguments and parameters for functions and we'll look at the
+
+00:10.170 --> 00:13.520
+formal difference between arguments and parameters.
+
+00:13.530 --> 00:17.550
+There's actually a slight difference between how we use these terms.
+
+00:17.550 --> 00:23.210
+Now I'll admit I'm the first one to kind of you know mix them up and use them interchangeably.
+
+00:23.310 --> 00:24.390
+And many people do.
+
+00:24.420 --> 00:27.000
+But technically there's a difference between the two.
+
+00:27.000 --> 00:32.850
+So we'll talk about that then we'll look at positional versus keyword only arguments that are available
+
+00:32.850 --> 00:36.720
+to us when we create functions in Python.
+
+00:36.720 --> 00:42.540
+Also we'll look at optional arguments by using default values and we'll look at some of the pitfalls
+
+00:42.600 --> 00:46.390
+of using default values with mutable types in particular.
+
+00:46.620 --> 00:52.390
+Then we'll look at unpacking iterable in general and then how it works and function arguments.
+
+00:52.470 --> 00:54.940
+Also look at extended unpacking.
+
+00:55.170 --> 01:00.330
+And then once we've done that we'll be able to start looking at variable number of positional and keyword
+
+01:00.360 --> 01:01.820
+only arguments.
+
+01:01.830 --> 01:02.350
+All right.
+
+01:02.460 --> 01:05.460
+So let's dive into the section and I'll see you in a bit.

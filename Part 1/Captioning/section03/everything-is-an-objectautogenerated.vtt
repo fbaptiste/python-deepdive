@@ -1,0 +1,658 @@
+WEBVTT
+
+00:02.900 --> 00:08.630
+High in this video we're going to look at objects and Python and we're going to look at the statement
+
+00:08.630 --> 00:12.280
+that a lot of people make that everything is an object in Python.
+
+00:12.500 --> 00:15.350
+And that's really basically true.
+
+00:15.350 --> 00:18.030
+So in this cause we're going to encounter many data types.
+
+00:18.050 --> 00:27.920
+We're going to look at integers booleans floats strings lists all very typical objects topples on sets.
+
+00:27.950 --> 00:35.430
+We'll look at dictionaries and the non-Thai that we've seen before but we'll see other things as well.
+
+00:35.450 --> 00:35.870
+Right.
+
+00:35.870 --> 00:41.160
+We're going to deal with operators like plus minus that equals equals equality operator.
+
+00:41.180 --> 00:44.060
+The is the identity operator and so on.
+
+00:44.060 --> 00:48.490
+Even this operator here which is an operator it's an ellipsis.
+
+00:48.520 --> 00:55.030
+We're also going to look at functions obviously and classes and types write all things and we've actually
+
+00:55.030 --> 00:58.570
+seen before and things that you've seen before in Python.
+
+00:58.570 --> 01:01.890
+And we're going to see many many more throughout the schools.
+
+01:01.900 --> 01:03.800
+So they're all different things.
+
+01:03.840 --> 01:08.650
+Brian do you have data types that operators classes functions.
+
+01:08.650 --> 01:13.680
+But there's one thing in common to all of those things that they are all objects.
+
+01:13.720 --> 01:17.830
+In other words they are all instances of classes.
+
+01:17.840 --> 01:23.000
+So for example the functions are instances of the function class.
+
+01:23.030 --> 01:26.310
+Right there is a class in python that's named function.
+
+01:26.510 --> 01:30.470
+And when you create a function it is an instance of that class.
+
+01:30.650 --> 01:32.380
+Same thing with classes.
+
+01:32.510 --> 01:32.820
+Right.
+
+01:32.840 --> 01:35.260
+And I'm not talking about the instances of a class.
+
+01:35.270 --> 01:40.910
+Obviously these are objects they are instances of a class but the class that you define yourself when
+
+01:40.910 --> 01:44.660
+you let's say do a user defined class that is an object.
+
+01:44.780 --> 01:44.990
+Right.
+
+01:44.990 --> 01:50.810
+The class itself is an instance of the class type and they were types.
+
+01:50.810 --> 01:57.870
+The type itself would type type of int your idol type of a variable that was an int and it told us int.
+
+01:58.050 --> 01:59.530
+Well that is a class.
+
+01:59.550 --> 01:59.820
+Right.
+
+01:59.820 --> 02:06.280
+There is a class called in so this means that all of these things have memory addresses.
+
+02:06.460 --> 02:07.140
+Right.
+
+02:07.400 --> 02:13.020
+In particular functions have a memory address and that's going to be really important throughout the
+
+02:13.030 --> 02:14.170
+course.
+
+02:14.210 --> 02:16.250
+So it's like a side bar and look at that.
+
+02:16.280 --> 02:17.900
+Let's say we create this function.
+
+02:17.900 --> 02:19.130
+Def my funk.
+
+02:19.250 --> 02:19.760
+OK.
+
+02:19.910 --> 02:25.510
+So this is the name of the function my funk and then maybe here we have some parameters.
+
+02:26.030 --> 02:34.130
+Well what happens is that my funk is basically our variable name but our variable points to a function
+
+02:34.250 --> 02:35.130
+object.
+
+02:35.420 --> 02:35.710
+Right.
+
+02:35.720 --> 02:41.680
+That exists at some memory address and has some state that the state of the function includes many things
+
+02:41.680 --> 02:46.440
+it includes Well obviously the code right that's typed in my phone.
+
+02:46.640 --> 02:50.700
+But also what's happening to variables is they get created within that scope and so on.
+
+02:50.840 --> 02:55.220
+So all of that is down to the function state.
+
+02:55.460 --> 03:01.700
+So we can look at the ID of my funk just like we can call ID on any other variable or my phone is just
+
+03:01.760 --> 03:06.970
+another variable just happens to be a function object instead of an integer object.
+
+03:07.020 --> 03:07.300
+Right.
+
+03:07.310 --> 03:08.880
+So we call it can call that.
+
+03:08.930 --> 03:12.500
+And we will get back that memory address whatever that is.
+
+03:12.500 --> 03:17.390
+Now we are not going to be using the memory addresses of functions in our code right.
+
+03:17.390 --> 03:18.840
+I just want to point this out.
+
+03:18.980 --> 03:21.460
+So we understand what's happening.
+
+03:21.830 --> 03:28.850
+Now what this means is that as a consequence well remember any object can be assigned to a variable
+
+03:30.040 --> 03:35.230
+well including functions you can you can assign a function to a variable.
+
+03:35.400 --> 03:38.270
+I will see some examples of that in a minute.
+
+03:38.390 --> 03:44.540
+Any object can be passed to a function right past into the arguments of the function into the parameters
+
+03:44.600 --> 03:45.770
+as an argument.
+
+03:45.770 --> 03:51.590
+Well that means that functions can also be passed to functions something that will make a lot of use
+
+03:51.590 --> 03:56.470
+of when we are looking at things like decorator's for example.
+
+03:56.510 --> 03:59.390
+Now any object can also be written from a function.
+
+03:59.440 --> 03:59.990
+Right.
+
+04:00.030 --> 04:04.420
+And the return statement including your guessed it functions right.
+
+04:04.430 --> 04:11.500
+So functions are first class citizens just like any other variable like integer or float would be right.
+
+04:11.510 --> 04:16.250
+You can reference them you can assign them to a variable you can reference them however you want which
+
+04:16.250 --> 04:17.930
+means you can pass them into functions.
+
+04:17.930 --> 04:20.710
+You can get them as a return from a function.
+
+04:20.780 --> 04:21.250
+Right.
+
+04:21.320 --> 04:25.370
+And this really makes Python very powerful.
+
+04:25.460 --> 04:31.330
+OK so one little side note that I want to make and that's in terms of my phunk here.
+
+04:31.610 --> 04:33.110
+It's very important.
+
+04:33.110 --> 04:38.520
+My phunk without the parentheses is the name of the function.
+
+04:38.650 --> 04:44.140
+If you use my func with the parentheses that will invoke the function.
+
+04:44.320 --> 04:44.530
+Right.
+
+04:44.530 --> 04:46.200
+So be very careful here.
+
+04:46.480 --> 04:50.740
+When we're going to pass around my funk we're not going to use the parentheses.
+
+04:50.740 --> 04:54.250
+We don't want to call the function we don't want to invoke the function.
+
+04:54.460 --> 05:01.740
+We just want to pass the function name while the function name is this name over here without the parentheses.
+
+05:01.760 --> 05:07.420
+OK when you have the parentheses and possibly even arguments there you're actually calling or invoking
+
+05:07.420 --> 05:08.640
+the function.
+
+05:08.650 --> 05:12.820
+All right so it's I a look at some code examples and see how this works.
+
+05:12.820 --> 05:18.540
+So let's start by let's say creating a variable a setting at equal to 10.
+
+05:18.710 --> 05:21.270
+Then we can print up the type of a.
+
+05:21.550 --> 05:25.210
+And it tells us that it's a class of type int.
+
+05:25.250 --> 05:25.560
+Right.
+
+05:25.570 --> 05:28.570
+So in other words is an int instance.
+
+05:28.660 --> 05:37.210
+So if a is an instance if it is a class we should be able to create new instances of that class using
+
+05:37.210 --> 05:43.750
+our standard instantiation notation in Python for creating new objects given a class so we could do
+
+05:43.810 --> 05:51.160
+this we could say a equals int and then pass in the initial value footprint and you'll see that B while
+
+05:51.160 --> 05:52.160
+B is 10.
+
+05:52.360 --> 05:56.800
+And if we print the type of B we get that it's an integer.
+
+05:56.980 --> 05:57.280
+Right.
+
+05:57.280 --> 05:58.900
+So no difference.
+
+05:58.900 --> 06:00.520
+It's just creating a new class.
+
+06:00.670 --> 06:04.870
+But you know this syntax allows us to not have to write this one.
+
+06:04.870 --> 06:09.530
+Now sometimes we want to use this and we'll see that when we start looking at integers in more detail.
+
+06:10.920 --> 06:15.800
+The other thing too is that classes in Python can have built in documentation.
+
+06:16.050 --> 06:21.480
+And when we get to the object oriented portion of the course we'll see how to include documentation
+
+06:21.480 --> 06:23.390
+for our classes as we write them.
+
+06:23.550 --> 06:28.920
+But the builtin classes also have documentation and you can bring them up by typing help.
+
+06:29.130 --> 06:32.740
+And then the class name that you're interested in.
+
+06:32.790 --> 06:39.600
+So help and for example will return a few things that will tell us OK you know you have this kind of
+
+06:40.710 --> 06:48.920
+constructor right for end where you can just pass in the value that you want to create as an integer.
+
+06:49.140 --> 06:51.330
+And by default it will be equal to zero.
+
+06:51.330 --> 06:55.830
+So if you don't pass in a value it will just create an integer with a value of zero.
+
+06:55.830 --> 06:58.330
+You can also create integers with different bases.
+
+06:58.350 --> 06:58.880
+Right.
+
+06:59.070 --> 07:00.270
+So you can pass in.
+
+07:00.270 --> 07:05.700
+Usually this will be a string and you tell it what base you want to be in and it will convert from that
+
+07:05.700 --> 07:06.380
+base.
+
+07:06.570 --> 07:07.880
+So let's take a look at that.
+
+07:07.920 --> 07:13.100
+Let's say we have C equals and k then C is zero.
+
+07:13.110 --> 07:19.720
+We can also say C equals int and let's say I'm going to take in this string here.
+
+07:19.770 --> 07:24.360
+1 0 1 and we'll do a base of two.
+
+07:24.420 --> 07:31.650
+So base is a keyword argument and we'll study what those are in an upcoming section with keyword arguments
+
+07:32.460 --> 07:34.430
+and parameters.
+
+07:34.440 --> 07:36.970
+So now we'll look at the value of c it's 5.
+
+07:37.020 --> 07:37.280
+Right.
+
+07:37.290 --> 07:41.240
+Because this is the position to do that too which is four.
+
+07:41.250 --> 07:45.960
+So we have one for we have zero to do the ones that we have 1 2 0.
+
+07:45.960 --> 07:49.810
+So this is 5 in binary notation which is base 2.
+
+07:49.890 --> 07:56.730
+So this is another way of creating integers and so therefore integers are objects right and the instance
+
+07:56.790 --> 08:01.290
+of the class OK.
+
+08:01.780 --> 08:08.220
+So I really want to take a quick look now at the fact that functions are objects too.
+
+08:08.470 --> 08:11.720
+So let's go ahead and write this function here.
+
+08:11.840 --> 08:17.710
+I will write a function called Square which is just going to return a square.
+
+08:18.010 --> 08:18.310
+Right.
+
+08:18.310 --> 08:23.520
+So a very simple function you probably wouldn't want to write something like that in practice.
+
+08:24.460 --> 08:27.320
+Now let's look at the type of square.
+
+08:27.520 --> 08:30.390
+Right square is the name of the function.
+
+08:30.400 --> 08:35.500
+So it's it's like a variable name and it tells us that it is a function.
+
+08:35.660 --> 08:43.530
+Ok in fact you can print the type of squares and that will tell you it's a class of type function.
+
+08:44.110 --> 08:53.710
+So it is a function so we can say F is well sorry f equals square right.
+
+08:53.750 --> 09:01.120
+If if square is a memory address reference if it's a pointer we can assign it to another variable so
+
+09:01.210 --> 09:03.470
+we can do that F equals Square.
+
+09:03.640 --> 09:09.000
+And if we look at the ID of square it has a memory address.
+
+09:09.010 --> 09:13.050
+And if we look at the idea of f it has the same memory address.
+
+09:13.120 --> 09:13.620
+Right.
+
+09:13.720 --> 09:16.860
+So f is square.
+
+09:17.080 --> 09:17.930
+That is true.
+
+09:18.190 --> 09:19.170
+Right.
+
+09:19.240 --> 09:22.320
+So you can call square passing into.
+
+09:22.450 --> 09:22.780
+Right.
+
+09:22.810 --> 09:28.700
+And it should return four but you can also call it by not calling invoking F..
+
+09:28.780 --> 09:29.020
+Right.
+
+09:29.020 --> 09:32.330
+By using this parentheses.
+
+09:32.650 --> 09:35.530
+So if we do that we get four as well.
+
+09:35.570 --> 09:36.090
+Right.
+
+09:38.420 --> 09:41.990
+Now a function can also return a function.
+
+09:42.020 --> 09:47.960
+So let's create another function here let's call it Kubik of a.
+
+09:47.970 --> 09:51.480
+Now let's have a return a cubed k.
+
+09:52.130 --> 09:59.810
+And now I'm going to write another function that's going to say death select function and let's say
+
+09:59.810 --> 10:04.180
+we're going to pass in a function ID.
+
+10:04.910 --> 10:14.360
+For now I'm going to say if function ID equals 1 we'll get a return Square.
+
+10:15.110 --> 10:18.370
+Else return cube.
+
+10:18.680 --> 10:19.280
+Right.
+
+10:19.310 --> 10:20.510
+So what are we returning.
+
+10:20.510 --> 10:26.510
+Well if we're going to pass in a value if that value is 1 we're going to return the name we're going
+
+10:26.510 --> 10:28.500
+to return the reference.
+
+10:28.520 --> 10:29.330
+Right.
+
+10:29.360 --> 10:31.710
+That is referenced by this name squarer.
+
+10:31.730 --> 10:35.230
+Otherwise we're going to return this reference cube.
+
+10:35.800 --> 10:36.840
+OK.
+
+10:36.880 --> 10:43.990
+Now we can say F equals select function and let's say we're going to select the square function.
+
+10:44.000 --> 10:45.440
+So we're going to do that.
+
+10:45.440 --> 10:55.490
+So now look at what the ID well of f and square is f is square that is true.
+
+10:55.550 --> 10:56.440
+Right because why.
+
+10:56.450 --> 11:03.440
+Well when we call select function with one as the argument it received that here in function ID and
+
+11:03.440 --> 11:04.890
+it said oh it's equal to 1.
+
+11:04.940 --> 11:07.520
+Then we turn this function Square.
+
+11:07.520 --> 11:11.870
+So we're passing functions around just like we would pass variables around.
+
+11:11.900 --> 11:14.740
+The only difference is that functions are in vocable.
+
+11:14.750 --> 11:19.230
+So now we can say F 2 which returns 4.
+
+11:19.490 --> 11:28.480
+If on the other hand we had said F equals select function to k then we'd see that f is actually cube.
+
+11:28.610 --> 11:28.910
+Right.
+
+11:28.910 --> 11:29.870
+That is true.
+
+11:29.990 --> 11:32.740
+And f of two would return eight.
+
+11:33.020 --> 11:33.590
+Right.
+
+11:33.620 --> 11:39.680
+So we can return functions from other functions which is something that we going to make really good
+
+11:39.680 --> 11:42.150
+use of.
+
+11:42.970 --> 11:47.290
+Now you can also if you want if you don't want to have to assign that to a variable first.
+
+11:47.290 --> 11:48.300
+You can certainly do that.
+
+11:48.300 --> 11:56.470
+You can say select function Feigin type select function.
+
+11:56.650 --> 12:01.570
+Let's say we'll select the cube function and we'll pass it the value of three.
+
+12:01.690 --> 12:02.210
+OK.
+
+12:02.350 --> 12:04.160
+That returns 27.
+
+12:04.180 --> 12:10.740
+What happened is that it first evaluated this said OK I'm going to return right cube.
+
+12:10.960 --> 12:18.010
+And now I've applied cube it invoked cube with three as the parameters and we'll see that again in lot
+
+12:18.010 --> 12:22.310
+of detail throughout the scores we'll be using that all the time.
+
+12:22.480 --> 12:25.870
+Now a function can be passed to a function as well.
+
+12:25.900 --> 12:26.500
+Right.
+
+12:26.500 --> 12:30.260
+So let's go ahead and write this method here.
+
+12:30.460 --> 12:32.220
+Exec function again.
+
+12:32.260 --> 12:37.790
+Probably not something you would write as is like this but it does illustrate the point.
+
+12:37.810 --> 12:40.660
+So this function is going to take two parameters.
+
+12:40.720 --> 12:48.730
+The first parameter is going to be a function and then we are going to apply this function to this variable
+
+12:48.730 --> 12:49.430
+here.
+
+12:50.350 --> 12:51.510
+And return the value.
+
+12:51.580 --> 12:58.210
+So we're going to return we're going to invoke F-in and it's argument is going to be this parameter
+
+12:58.300 --> 13:00.550
+n k.
+
+13:01.030 --> 13:04.400
+So now we could say exec function.
+
+13:04.420 --> 13:05.390
+Well what do we want.
+
+13:05.410 --> 13:12.810
+Well let's say we want to execute the cube function on the value 3 and we get 27 right.
+
+13:12.970 --> 13:15.870
+So as you can see we passed the reference to cube.
+
+13:16.090 --> 13:17.320
+It was assigned here.
+
+13:17.320 --> 13:21.110
+So now by the way remember there was a shared reference to that function.
+
+13:21.320 --> 13:21.880
+OK.
+
+13:22.180 --> 13:28.660
+We also passed the value 3 and it received the function and the value and it invoked the function f
+
+13:28.660 --> 13:31.810
+and whatever it may be right with the value.
+
+13:31.870 --> 13:34.750
+So if we had done exec function
+
+13:37.090 --> 13:41.620
+square three we would get nine.
+
+13:41.650 --> 13:41.980
+All right.
+
+13:42.000 --> 13:46.710
+So functions are first class citizens they're objects just like everything else in Python.
+
+13:46.930 --> 13:54.340
+So most everything is an object in Python including operators including types including classes functions
+
+13:54.430 --> 13:55.660
+and what have you.
+
+13:55.660 --> 13:55.950
+All right.
+
+13:55.960 --> 13:56.730
+Thanks for watching.
+
+13:56.770 --> 13:58.050
+I'll see you in the next video.

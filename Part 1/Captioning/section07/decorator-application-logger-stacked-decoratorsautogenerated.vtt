@@ -1,0 +1,1075 @@
+WEBVTT
+
+00:00.780 --> 00:06.240
+High in this video we're going to look at another application of decorator's And in this case we're
+
+00:06.240 --> 00:09.140
+going to write a simple logging decorator's.
+
+00:09.180 --> 00:14.190
+Now this is something that you might actually find useful in your own code if you want to log every
+
+00:14.190 --> 00:16.080
+time a function is called.
+
+00:16.110 --> 00:22.140
+Now here I'm just going to log by printing to the console but in reality you're probably going to log
+
+00:22.200 --> 00:23.220
+to either a file.
+
+00:23.240 --> 00:26.790
+Maybe you're going to use the python logger that built into Python.
+
+00:26.940 --> 00:32.040
+Or maybe you're going to log to a database and you're going to store a log of the function calls and
+
+00:32.040 --> 00:38.430
+the database and you don't want to have to rewrite this logging code inside each function that you want
+
+00:38.430 --> 00:39.130
+to log.
+
+00:39.300 --> 00:42.520
+So instead we can use a decorator to do that for us.
+
+00:42.570 --> 00:48.360
+And then if we want a function to be log all we need to do is to decorate the function using our logging
+
+00:48.360 --> 00:49.130
+decorators.
+
+00:49.350 --> 00:51.720
+So let's get started with that.
+
+00:51.720 --> 00:57.110
+So the first thing we're going to do is create our log function.
+
+00:57.180 --> 01:03.930
+So let's call it logged and we're going to need the wraps but we don't need it.
+
+01:03.930 --> 01:11.310
+But I like using it so I'm going to import wraps from phunk tools and then also want date time functionality.
+
+01:11.320 --> 01:17.610
+So I'm going to import date time from day time and also want to make sure that the time zone information
+
+01:17.610 --> 01:21.520
+is included with the date time and I'm going to use UTC time zones.
+
+01:21.510 --> 01:26.330
+So in this case I'm also going to include in the Import time zone.
+
+01:26.600 --> 01:30.130
+OK so now let's go ahead and write up in a function.
+
+01:30.360 --> 01:36.090
+So in a function to be as generic as possible is going to use the star Arne's and style Starcade of
+
+01:36.090 --> 01:36.820
+value.
+
+01:37.080 --> 01:43.170
+And I'm going to decorate it using wraps and of course I have to tell wraps which function I'm decorating
+
+01:43.530 --> 01:47.500
+in this case it's the function f and then I'm passing in.
+
+01:47.550 --> 01:53.530
+So let's go ahead and get the current date time sort of date time goft now.
+
+01:53.670 --> 01:59.040
+So now is going to give me the current time but I want to specify which time zone I want.
+
+01:59.190 --> 02:00.790
+And the fact that I want to time zone.
+
+02:00.840 --> 02:04.050
+So I'm going to say times are not UTC.
+
+02:04.390 --> 02:07.200
+OK then I'm going to run the function.
+
+02:07.290 --> 02:15.600
+So take a note here of what's happening when the decorator closer is going to get called it's going
+
+02:15.600 --> 02:20.300
+to run the function for us and then it's going to print to the console.
+
+02:20.340 --> 02:25.920
+And I'm just making a note of that right now because it's going to become important for a little bit
+
+02:25.920 --> 02:26.800
+later.
+
+02:27.210 --> 02:32.160
+As to the order in which we're doing this I'm not printing and then calling the function I'm calling
+
+02:32.160 --> 02:38.700
+the function that was passed in when the decorator was created and then I'm printing out the fact that
+
+02:38.730 --> 02:40.020
+this function was called.
+
+02:40.020 --> 02:47.220
+So here you would probably write to solve to either a database or to a logging arm application of some
+
+02:47.220 --> 02:48.070
+kind.
+
+02:50.360 --> 02:50.940
+OK.
+
+02:51.180 --> 02:54.480
+So we're just going to print out the name.
+
+02:54.480 --> 02:58.040
+Actually no I'm going to print out the runtime first sorry.
+
+02:58.350 --> 03:02.130
+So run DTV and then followed by the name.
+
+03:02.640 --> 03:09.970
+So at this time the 0 called function whatever the name was with the function.
+
+03:10.230 --> 03:15.210
+And then we're going to return the result of the functions we do want to still get the result of that
+
+03:15.210 --> 03:19.990
+function and then we return closures.
+
+03:20.170 --> 03:20.590
+OK.
+
+03:20.680 --> 03:22.290
+So very straightforward.
+
+03:22.480 --> 03:23.330
+That's it.
+
+03:23.560 --> 03:30.970
+And now we can decorate any function we want with this log decorator and it will log that function call
+
+03:31.160 --> 03:35.920
+and we will give us the time as well and of course you can expand on this and add additional information
+
+03:35.920 --> 03:38.100
+that you may want in this case.
+
+03:38.110 --> 03:40.500
+I only am interested in locking the function name.
+
+03:40.510 --> 03:45.460
+You may want to also log the parameters that were used to call the function as well.
+
+03:45.960 --> 03:46.420
+OK.
+
+03:46.510 --> 03:50.710
+So now let's go ahead and create a function.
+
+03:50.710 --> 03:52.540
+So that's a function one.
+
+03:52.690 --> 03:55.090
+I'm not going to have it actually have any parameters.
+
+03:55.090 --> 03:58.710
+I'm not going to do anything with the function other than just define it.
+
+03:58.900 --> 04:00.110
+And then I can call it.
+
+04:00.190 --> 04:05.560
+But before I do that I'm going to create another one so maybe I've got you know multiple functions in
+
+04:05.560 --> 04:11.140
+my application and I want to log each of them and the ones that I want to log all I have to do is to
+
+04:11.140 --> 04:12.380
+decorate them.
+
+04:12.400 --> 04:17.530
+So now if I call func 1 you'll see that I get the log right.
+
+04:17.530 --> 04:22.930
+So I get the date and time with the time zone and the times on of course as zero offsets and so I'm
+
+04:22.930 --> 04:30.460
+using UTC and it's called fun one for call phunk two we get the same thing except the time and date
+
+04:30.460 --> 04:32.560
+is different well the time is different.
+
+04:32.560 --> 04:34.640
+And it says that it called function 2.
+
+04:34.810 --> 04:36.260
+So you get the idea.
+
+04:36.340 --> 04:39.940
+Now you can decorate any function in your code using that.
+
+04:39.940 --> 04:45.340
+Now of course the way you might want to do this is to put that into some module and then import the
+
+04:45.340 --> 04:47.000
+decorator from the module.
+
+04:47.140 --> 04:49.590
+And that's why again I'm just bringing that up again.
+
+04:49.600 --> 04:52.960
+This is why I'm doing the import inside the function here.
+
+04:53.200 --> 04:59.920
+Just so that I don't have to rely on external import when this function runs OK.
+
+05:00.190 --> 05:07.930
+So let's go ahead now and go back and I want to copy and paste the code that we did in the previous
+
+05:07.930 --> 05:09.830
+example which was the.
+
+05:10.180 --> 05:12.110
+So that timing decorator.
+
+05:12.250 --> 05:17.770
+So if you don't have it opened you can also just download the code directly from the previous lecture
+
+05:17.830 --> 05:19.960
+and the resources downloaded from there.
+
+05:19.960 --> 05:26.150
+I'm just going to go to my file here to my previous notebook and I'm going to copy paste the function.
+
+05:26.260 --> 05:28.920
+So it's exactly what we had before.
+
+05:29.290 --> 05:31.050
+So here's our time function.
+
+05:31.390 --> 05:40.300
+And as you can see what it does is it starts the timing calls the function stalls the result then sets
+
+05:40.300 --> 05:46.890
+the end time and then it just prints out the elapsed time and then returns the result.
+
+05:46.930 --> 05:53.770
+So again note the order in which this is happening the inner function calls the function first and then
+
+05:53.770 --> 05:55.470
+prints out the record.
+
+05:55.820 --> 05:56.220
+OK.
+
+05:57.410 --> 05:58.040
+All right.
+
+05:58.340 --> 06:04.760
+So that's now our time decorator so that we have two decorators that we have that we can play with.
+
+06:04.760 --> 06:09.990
+So let's go ahead now and write another function I'm just going to write the factorial function.
+
+06:10.130 --> 06:17.370
+So we're going to calculate the factorial of an and I'm going to do this using a reduction.
+
+06:17.390 --> 06:20.070
+So just for the fun of it let's go ahead.
+
+06:20.090 --> 06:27.380
+So I need the because remember the factorial of and is just one times two times three times etc. times
+
+06:27.500 --> 06:28.570
+and right.
+
+06:28.580 --> 06:35.420
+So basically it's taking a sequence of integers from one up to and including N and just multiplying
+
+06:35.450 --> 06:36.640
+each one right.
+
+06:36.650 --> 06:38.730
+Each of them by the previous one.
+
+06:38.750 --> 06:43.900
+So that's what you reduce does and the reduction function is going to be the multiplication.
+
+06:44.120 --> 06:50.300
+So I could use a lambda but I'm going to use the multiplication operator or function that basically
+
+06:50.300 --> 06:54.550
+mimics the multiplication operator from the operator model.
+
+06:54.560 --> 06:58.260
+So from an operator I'm going to impose.
+
+06:58.900 --> 07:01.400
+No that's the multiplication function.
+
+07:01.700 --> 07:06.350
+And that takes two parameters and returns the multiplication of the two parameters.
+
+07:06.440 --> 07:07.980
+And we've seen them before.
+
+07:08.330 --> 07:11.090
+So from fun tools I'm going to need to reduce.
+
+07:11.090 --> 07:16.790
+So let's go ahead and impose a bet and then I'm going to return what I'm going to reduce.
+
+07:16.790 --> 07:22.760
+I'm going to reduce what what I'm going to use multiplication and then I just want to get all the integers
+
+07:22.760 --> 07:24.630
+from one up to and including.
+
+07:24.680 --> 07:28.220
+And so I need to do a range from 1 to plus 1.
+
+07:28.460 --> 07:30.330
+And that will calculate the factorial.
+
+07:30.470 --> 07:37.950
+So now we have all factor we can call factorial of 3 K we get 6 factorial of 5 should be 120.
+
+07:38.000 --> 07:40.000
+OK so that seems to be working fine.
+
+07:40.310 --> 07:45.830
+But now we can go ahead and decorate this and we have to decorate so which one do we want to use.
+
+07:45.860 --> 07:48.860
+Well maybe we want to use the time as we've done before.
+
+07:48.860 --> 07:55.430
+So now that it's time when we run this we can see that we have the time right of how long it took for
+
+07:55.490 --> 07:57.830
+the factorial function to run.
+
+07:57.830 --> 08:04.400
+Of course we could have done logged instead and if we did log then you see we get the log happening.
+
+08:05.660 --> 08:08.780
+But we can actually specify both.
+
+08:08.780 --> 08:14.420
+Because if you think about this let's go ahead and say logged and then time.
+
+08:14.810 --> 08:17.820
+So now if I run this look at the output.
+
+08:17.840 --> 08:18.120
+OK.
+
+08:18.140 --> 08:26.050
+Let me delete this so we have the timing for the function and then we have the fact that it was called
+
+08:26.080 --> 08:27.550
+the logging piece.
+
+08:27.550 --> 08:27.790
+Right.
+
+08:27.790 --> 08:34.280
+So you can see that both decorators ran and what happens is that this code over here.
+
+08:34.450 --> 08:34.750
+Right.
+
+08:34.750 --> 08:39.270
+The way we've decorated it is no different than doing the following.
+
+08:39.280 --> 08:44.590
+And let me just copy paste this to get my original factorial function back and then I'm going to say
+
+08:44.590 --> 08:55.170
+factorial equals log of timed of factorial and will remove them minus sign.
+
+08:55.970 --> 08:58.840
+And oh it's because it's called Fact free.
+
+08:59.230 --> 08:59.930
+OK.
+
+09:00.190 --> 09:07.690
+So what we did here for the factorial the way we decorated this is exactly what this did it just basically
+
+09:07.690 --> 09:09.070
+stacked the decorators.
+
+09:09.070 --> 09:13.540
+So it said that factorial was logged of some function right.
+
+09:13.570 --> 09:17.370
+What does Lord decorator expect a function.
+
+09:17.620 --> 09:19.030
+And what is the function.
+
+09:19.180 --> 09:24.100
+It is the factorial function but that's already been decorated by time.
+
+09:24.460 --> 09:31.630
+So when we call factorial of n what's going to happen while it's going to call the in a function that
+
+09:31.630 --> 09:33.180
+comes back from logged.
+
+09:33.340 --> 09:40.270
+So let's see what happens when we call lob what function do we pass in the timed function right.
+
+09:40.300 --> 09:48.220
+Because we passed in time of fact we didn't pass in factorial we passed in time to affect time the fact
+
+09:48.220 --> 09:54.350
+returns that closure that goes ahead runs the function and then prints out the time.
+
+09:54.640 --> 09:59.650
+So this is why it's important to know when is the printing happening because this kind of looks weird
+
+09:59.710 --> 10:05.650
+because if we print if we run this and factorials not defined and we go ahead and run that and of course
+
+10:05.740 --> 10:07.430
+N is not defined I should say.
+
+10:07.570 --> 10:10.980
+So let's go ahead and run vectorial 3.
+
+10:11.710 --> 10:12.640
+Oh sorry.
+
+10:12.670 --> 10:14.570
+I decorated it twice.
+
+10:14.570 --> 10:16.630
+So let's go ahead and rerun that.
+
+10:16.630 --> 10:17.630
+There we go.
+
+10:17.650 --> 10:20.110
+You'll notice that the timing ran first.
+
+10:20.170 --> 10:20.930
+OK.
+
+10:21.160 --> 10:24.690
+At least that's what it looks like because the print came first.
+
+10:24.730 --> 10:25.860
+But let's see what happened.
+
+10:25.870 --> 10:30.340
+So we called logged on timed factor when we call logged.
+
+10:30.340 --> 10:31.890
+It ran this function.
+
+10:32.020 --> 10:34.690
+But F-in was the timed function.
+
+10:34.780 --> 10:41.230
+And you'll notice the first thing it does before it prints out the log is to actually call the function.
+
+10:41.230 --> 10:47.350
+So the first thing it does log is called the decorated function f and that's been decorated with the
+
+10:47.440 --> 10:48.960
+timing decorator.
+
+10:49.210 --> 10:57.400
+So in other words this runs first this inner function is called before the first print of the log happens.
+
+10:57.400 --> 11:06.160
+So here it executes the function and prints out the timing which is why the timing comes first.
+
+11:06.160 --> 11:13.040
+But in fact loved got executed first and then once so logged then called this in a function.
+
+11:13.060 --> 11:16.610
+And once that finished running then logged continued running.
+
+11:16.810 --> 11:19.610
+Which means that it finished calling fan.
+
+11:19.750 --> 11:25.330
+So now it goes on and prints the log line that we see.
+
+11:25.330 --> 11:27.410
+So don't get confused by that.
+
+11:27.460 --> 11:34.510
+The order in which the decorators are stacked means that you have this order of your functions.
+
+11:34.630 --> 11:40.380
+And so log the which is the top decorator gets called first.
+
+11:40.540 --> 11:45.480
+But what is passed into it is this function over here.
+
+11:45.500 --> 11:47.890
+Factorial decorated with timed.
+
+11:47.980 --> 11:52.560
+So depending on where the printing happens you may get something that looks reversed.
+
+11:52.570 --> 11:55.150
+So just to make sure we understand this.
+
+11:55.150 --> 11:58.500
+Let's go ahead and write a couple of very very simple decorators.
+
+11:58.660 --> 12:01.670
+And let's just make sure that there's no confusion here.
+
+12:02.170 --> 12:09.130
+So let's go ahead and write decorator one and decorator one needs a function and it's not going to do
+
+12:09.130 --> 12:09.730
+anything.
+
+12:09.730 --> 12:15.530
+Instead it's just going to define it's in a function which you know if you want or you can put the staff's
+
+12:15.830 --> 12:25.690
+style and starstuff things in and all it's going to do it's going to say print running decorator 1.
+
+12:25.810 --> 12:27.900
+So it's not even going to call in a function.
+
+12:27.910 --> 12:29.530
+I'm not interested in that.
+
+12:29.530 --> 12:40.210
+Actually we could we could say return in a Tom returns sorry FM of star angst and starstuff.
+
+12:40.300 --> 12:44.480
+KW as I want to keep it simple.
+
+12:44.510 --> 12:46.050
+I'm just going to remove these.
+
+12:46.130 --> 12:46.600
+OK.
+
+12:46.700 --> 12:52.350
+So basically this decorator will only work for functions that do not require arguments.
+
+12:52.430 --> 12:53.300
+OK.
+
+12:53.750 --> 12:56.110
+So let's go ahead and do that.
+
+12:56.180 --> 13:00.230
+And of course we have to return the you know function right.
+
+13:00.230 --> 13:01.880
+We have to return the closure.
+
+13:02.300 --> 13:02.990
+So there we go.
+
+13:02.990 --> 13:06.380
+Very very simple decorator.
+
+13:06.500 --> 13:10.010
+Let me go ahead here and copy paste this.
+
+13:10.070 --> 13:16.160
+And now let's call this decorator to running decorator to get.
+
+13:16.560 --> 13:22.380
+So now we have these two decorators and let's write a function called my funk and it's not going to
+
+13:22.380 --> 13:26.000
+take any parameters because this is what I'm going to decorate.
+
+13:26.160 --> 13:32.370
+So of course my function f furn is being called without any parameters in both these cases so it cannot
+
+13:32.370 --> 13:33.480
+take any parameter.
+
+13:33.480 --> 13:38.670
+So if I required one I wouldn't be able to decorate it with these two decorators.
+
+13:39.210 --> 13:45.230
+So let's go ahead and here we're just going to save print running my phunk.
+
+13:45.410 --> 13:47.320
+That's all that function does.
+
+13:47.520 --> 13:53.690
+And what I'm going to do is I'm going to decorate it with first decorator one and then decorate it.
+
+13:53.710 --> 13:55.540
+But what does that mean.
+
+13:55.560 --> 14:03.430
+It means that functionally This is the same as saying My func equals decorator or one of decorator.
+
+14:03.540 --> 14:06.870
+Two of my phunk right.
+
+14:06.960 --> 14:15.960
+So this is why you know decorator one is going to run fast because this and the and this line is equivalent
+
+14:15.990 --> 14:17.360
+totally equivalent.
+
+14:17.370 --> 14:19.260
+So let me go ahead and raise this.
+
+14:19.290 --> 14:20.900
+And now let's execute this.
+
+14:20.910 --> 14:28.260
+Now my Funk's been decorated and if I call my phunk here's where we get running decorator one running
+
+14:28.260 --> 14:31.360
+decorator to and then running by phunk.
+
+14:31.590 --> 14:32.670
+Because what happened.
+
+14:32.760 --> 14:40.830
+Well we have decorated one gets called frost but what gets passed into decorator which function this
+
+14:40.830 --> 14:46.890
+function over here that I'm highlighting which is the decorated my phunk function that's been decorated
+
+14:46.890 --> 14:48.510
+with deck 2.
+
+14:48.570 --> 14:54.910
+So in honor of deck 1 Prince running deck 1 and then calls the function.
+
+14:55.110 --> 15:02.640
+And so this is why it forced Prince running decorator one then it calls the in a function but the function
+
+15:02.670 --> 15:04.840
+is the decorated function.
+
+15:04.860 --> 15:07.450
+So it then prints running decorated too.
+
+15:07.560 --> 15:09.110
+And then this one called.
+
+15:09.120 --> 15:11.970
+Now that's our original function my phunk.
+
+15:11.970 --> 15:15.500
+Now I called my funk and we see running my funk.
+
+15:15.820 --> 15:20.960
+Now if we had done this in reverse which is what we had with the previous example.
+
+15:21.110 --> 15:23.430
+So here of course I can't return.
+
+15:23.520 --> 15:32.040
+I have to store the results then print and then return the result and then I'm going to do the same
+
+15:32.040 --> 15:32.960
+thing here.
+
+15:33.030 --> 15:35.720
+So I'm just going copy paste again.
+
+15:35.820 --> 15:38.010
+The only thing is this changed to deck too.
+
+15:38.010 --> 15:45.070
+OK so now we have these two but I've reversed as you can see when I print and when I return the result.
+
+15:45.090 --> 15:48.360
+Now I'm printing and then returning.
+
+15:48.390 --> 15:51.530
+I'm calling the function first then printing.
+
+15:51.740 --> 15:52.190
+OK.
+
+15:52.260 --> 15:54.800
+Calling the function first then printing.
+
+15:54.840 --> 15:57.900
+So we execute that and redecorate my funk.
+
+15:57.930 --> 16:03.170
+Now when I call my funk you'll see that this is like totally reversed.
+
+16:03.210 --> 16:04.640
+We get running my funk.
+
+16:04.650 --> 16:07.170
+OK why did that happen first.
+
+16:07.170 --> 16:09.670
+Well let's go through this stack again.
+
+16:09.690 --> 16:12.390
+We have decorator one is running first.
+
+16:12.420 --> 16:13.160
+OK.
+
+16:13.290 --> 16:17.410
+So it's running this the first thing it does is called the function.
+
+16:17.610 --> 16:24.110
+What is the function calling what function is being called I should say the decorated my phunk.
+
+16:24.120 --> 16:27.430
+So it's calling this in a function here.
+
+16:27.810 --> 16:31.600
+The first thing it does is run F-in what is F1.
+
+16:31.620 --> 16:33.900
+Well F1 is my phunk in this case.
+
+16:33.900 --> 16:35.150
+We've decorated two.
+
+16:35.310 --> 16:38.530
+So the first thing it does is print running my phunk.
+
+16:38.580 --> 16:42.820
+Then it prints running decorated too and then it returns.
+
+16:42.840 --> 16:48.690
+So not finished running which means now we have the result whatever the result was which is now in this
+
+16:48.690 --> 16:49.350
+result.
+
+16:49.500 --> 16:53.840
+And now we print running decorator 1 and then we return the result.
+
+16:53.910 --> 16:57.770
+And of course nothing prints out because we are actually returning anything anyway.
+
+16:57.960 --> 17:00.930
+So it's just a numb right that gets returned.
+
+17:01.410 --> 17:07.140
+So you can see that the order in which you apply your decorator's they can be stacked and you can stack
+
+17:07.140 --> 17:08.430
+them as much as you want.
+
+17:08.500 --> 17:12.360
+If we wanted to we could say log and timed right.
+
+17:12.360 --> 17:15.170
+We can certainly do that.
+
+17:15.210 --> 17:20.790
+So now when we run this you can see that we have running my fonk my phone ran for so many seconds we've
+
+17:20.790 --> 17:25.290
+got the log that happened and then we have running deck 2 and running deck 1.
+
+17:25.460 --> 17:27.290
+And of course if you want.
+
+17:27.590 --> 17:33.500
+I'm not sure why you would want to do that but you can certainly repeat the decorator's multiple times.
+
+17:33.500 --> 17:39.530
+We saw that earlier when I made a mistake but I could do something like this.
+
+17:40.010 --> 17:40.670
+Right.
+
+17:40.670 --> 17:48.020
+Nothing stops me from repeating the same decorator because all we're doing in this case is just saying
+
+17:48.410 --> 17:58.460
+my funk equals decorate one of decorated to decorate a one of decorated two of my phunk.
+
+17:58.520 --> 17:58.900
+Right.
+
+17:58.910 --> 18:00.800
+This is what I've done over here.
+
+18:00.950 --> 18:02.310
+It's pretty pointless.
+
+18:02.480 --> 18:03.590
+But you get the idea.
+
+18:03.590 --> 18:05.460
+You can stack them as much as you want.
+
+18:05.480 --> 18:12.880
+It's just basically doing this kind of sequence of operations or function calls on each other.
+
+18:12.920 --> 18:17.310
+It's a function composition if you want to get of it in mathematical terms.
+
+18:18.060 --> 18:18.570
+OK.
+
+18:18.770 --> 18:20.480
+So why is that important.
+
+18:20.480 --> 18:21.440
+Is that even important.
+
+18:21.440 --> 18:22.230
+Does it matter.
+
+18:22.370 --> 18:25.710
+And the answer is yes actually can matters.
+
+18:25.790 --> 18:33.080
+Let's say for example that you're writing an API and you have some endpoints in there and you want to
+
+18:33.080 --> 18:34.460
+do two things on them.
+
+18:34.460 --> 18:37.060
+You want to authorize the call.
+
+18:37.070 --> 18:43.580
+In other words for each endpoint you want to authorize and say does the caller have rights to run this
+
+18:43.580 --> 18:44.720
+particular endpoint.
+
+18:44.720 --> 18:49.490
+That's something that's fairly common when you write API is depending on who's logged in what authority
+
+18:49.490 --> 18:54.620
+you know what authorizations they have what permissions they have that may or may not be able to call
+
+18:54.650 --> 18:55.720
+certain endpoints.
+
+18:55.760 --> 19:01.280
+For example they may only be able to do reads but no rights and no updates and deletes.
+
+19:01.340 --> 19:03.710
+So you want to do some authorization.
+
+19:03.920 --> 19:10.670
+So typically you will write a decorated that will then check to see does this user have access to this
+
+19:10.670 --> 19:16.910
+particular endpoint if they don't you want to return an error right away and it's disappear saying hey
+
+19:16.940 --> 19:23.720
+no you're not allowed to do this but you may also want to log calls and you may say well I want to log
+
+19:23.720 --> 19:28.510
+in a call to any endpoint but only if the endpoint gets executed.
+
+19:28.550 --> 19:34.830
+So if the authorization fails there's no point in logging a call to this endpoint because it never ran.
+
+19:35.090 --> 19:35.520
+Right.
+
+19:35.600 --> 19:39.350
+Or you may say well no I want to log the point no matter what.
+
+19:39.380 --> 19:42.970
+Even if it fails the authentication or the authorization.
+
+19:43.070 --> 19:44.790
+I still want to lock this.
+
+19:44.870 --> 19:50.240
+So suppose that you have two different decorator's you've got an off decorator and this isn't code I'm
+
+19:50.240 --> 19:54.600
+just writing pseudo code here I'm just so let me write it this way.
+
+19:54.950 --> 19:57.140
+OK let's say you've got an off decorator's.
+
+19:57.350 --> 20:00.690
+And you also have a logged decorator's.
+
+20:00.790 --> 20:01.390
+OK.
+
+20:01.970 --> 20:09.620
+And now you have your endpoint you might say def saved resume's and maybe some parameters and or whatever
+
+20:09.620 --> 20:10.810
+it's supposed to do.
+
+20:11.150 --> 20:15.110
+And you say OK I'm going to do the authentication then logged.
+
+20:15.380 --> 20:15.850
+OK.
+
+20:15.860 --> 20:21.140
+So I'm decorating with both these things typically here will have parameters we haven't seen parameterised
+
+20:21.140 --> 20:25.970
+decorators yet but you might have something saying you know what permissions are needed.
+
+20:25.970 --> 20:27.520
+What roles are needed.
+
+20:27.550 --> 20:33.400
+You know also for example you may have roles equals and then a list of possible roles like maybe a route
+
+20:33.400 --> 20:34.060
+role.
+
+20:34.190 --> 20:38.020
+And you've got maybe objects that you use whatever.
+
+20:38.150 --> 20:45.050
+That's kind of just some detail but let's say that this authentication decorator or authorization I
+
+20:45.050 --> 20:51.620
+should say decorator will check to see if the currently logged in user or whatever the credentials are
+
+20:51.620 --> 20:57.430
+were passed in when making the call has access to save resource.
+
+20:57.740 --> 20:58.760
+If it doesn't.
+
+20:58.760 --> 21:05.120
+So the first thing that happens is off is called right because off of log of save resource.
+
+21:05.120 --> 21:09.210
+Let's not forget what you are can't execute that sorry.
+
+21:10.360 --> 21:15.460
+You change this to code a while to text I should say.
+
+21:18.920 --> 21:19.810
+Like that.
+
+21:20.120 --> 21:30.440
+So what happens here is that we really have that save resource is equal to off of Long of save resource
+
+21:30.750 --> 21:31.320
+game.
+
+21:31.550 --> 21:33.790
+So that's what's got what's going on here.
+
+21:34.130 --> 21:41.400
+So of course if the authentication or the authorization fails then this isn't even going to get caught.
+
+21:41.420 --> 21:45.670
+We're going to return right away from the API and say you can't do this.
+
+21:45.800 --> 21:48.170
+And so the logging won't happen.
+
+21:48.170 --> 21:51.250
+But if we wrote it the other way around.
+
+21:51.260 --> 21:51.530
+Right.
+
+21:51.530 --> 21:54.730
+So and if you're authorized then it passes the authorization.
+
+21:54.740 --> 21:57.340
+And then of course it's in a function right.
+
+21:57.350 --> 22:03.560
+So in your oath you would have something like If this is allowed then call the in a function.
+
+22:03.590 --> 22:05.310
+Otherwise return an error.
+
+22:05.490 --> 22:10.100
+That's how your authorization decorator might be written and then you'll log just logs.
+
+22:10.100 --> 22:16.340
+So now if the authorization doesn't fail then it's going to call the in a function it's going to call
+
+22:16.370 --> 22:17.070
+logged.
+
+22:17.090 --> 22:21.450
+Therefore because the function is the decorated save resource we have logged.
+
+22:21.530 --> 22:22.690
+So then it calls log.
+
+22:22.850 --> 22:29.480
+So if you were authorized you can get lost and you make the call if you're not authorized.
+
+22:29.480 --> 22:31.990
+It bails out and doesn't log before.
+
+22:32.420 --> 22:39.050
+If you'd written it the other way around if you'd taken longer and written that before off.
+
+22:39.100 --> 22:39.510
+OK.
+
+22:39.560 --> 22:47.930
+So like this then what would happen is it's you would have to logged and your authorization next.
+
+22:47.930 --> 22:52.670
+So the first thing it would do is actually log the call to us.
+
+22:52.820 --> 22:53.220
+OK.
+
+22:53.270 --> 22:58.330
+Well the call to save resource but decorated with the authorization declaration.
+
+22:58.760 --> 23:04.260
+And if you use wraps of course you'll have the proper save rissoles method in the name.
+
+23:05.040 --> 23:11.800
+So everything gets logged whether the call actually happens or not because then the authorization decorator
+
+23:11.810 --> 23:17.450
+gets called and then it decides whether it can actually perform the function or not run the save resource
+
+23:17.450 --> 23:18.570
+function or not.
+
+23:18.770 --> 23:24.980
+So depending on what functionality you want the order in which you specify your stack decorator's does
+
+23:24.980 --> 23:25.680
+matter.
+
+23:26.150 --> 23:30.620
+And it can matter in the previous example we had with the time in the log.
+
+23:30.620 --> 23:32.090
+It really didn't matter much.
+
+23:32.090 --> 23:32.530
+Right.
+
+23:32.780 --> 23:39.560
+But in cases like this it could sew up to you how you want to do it and just be aware that when you
+
+23:39.560 --> 23:44.420
+stack that decorator's one of them will run before the other and therefore it makes a difference.
+
+23:44.420 --> 23:44.850
+All right.
+
+23:44.870 --> 23:47.020
+Thanks for watching and I'll see you the next video.

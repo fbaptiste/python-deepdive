@@ -1,0 +1,835 @@
+WEBVTT
+
+00:00.150 --> 00:00.590
+Hi.
+
+00:00.720 --> 00:02.270
+And welcome back.
+
+00:02.280 --> 00:05.080
+This is video we're going to start looking at packages.
+
+00:05.160 --> 00:07.180
+So what are packages.
+
+00:07.520 --> 00:14.930
+Well packages first of all are modules but modules are not necessarily packages so you can think of
+
+00:14.930 --> 00:21.680
+a package as kind of a more specialized module and they specialized in the sense that they can contain
+
+00:21.770 --> 00:22.550
+modules.
+
+00:22.550 --> 00:25.640
+So these are modules that can contain modules.
+
+00:25.820 --> 00:30.700
+And of course since packages are modules packages can also contain packages.
+
+00:30.710 --> 00:34.340
+And those are sometimes called sub packages.
+
+00:34.340 --> 00:41.760
+So if a module is a package then it must have a value set for that Dunder path property modules that
+
+00:41.770 --> 00:46.110
+are not packages do not have that value set.
+
+00:46.160 --> 00:51.770
+So after you've imported a module you can easily see if that module is a package by inspecting that
+
+00:51.770 --> 00:52.710
+Baff attribute.
+
+00:52.790 --> 00:54.980
+If it's empty it's a module.
+
+00:55.070 --> 00:57.880
+It could be empty or not present either of the two.
+
+00:58.400 --> 01:04.040
+And if it's nonempty So it's present and it's not empty then it's a package.
+
+01:04.460 --> 01:08.780
+So let's look at the relationship between packages and file systems.
+
+01:08.780 --> 01:12.980
+Now remember that non-fuel technically don't have to be entities in a file system.
+
+01:12.980 --> 01:15.550
+That's what we have loaders and finders for.
+
+01:16.070 --> 01:22.130
+But by the same token there are four packages also do not have to be entities in the file system.
+
+01:22.130 --> 01:26.660
+Typically they are just as typically modules or file system entities as well.
+
+01:26.660 --> 01:32.180
+When we write a python application we write files in the file system they located in directories the
+
+01:32.310 --> 01:35.840
+file names the file names correspond to the module names.
+
+01:35.990 --> 01:41.150
+So you know most of the time that's how we write python applications.
+
+01:41.330 --> 01:49.850
+But technically modules and packages don't have to be files however packages still represent a hierarchy
+
+01:49.880 --> 01:52.750
+of modules and packages even if they're not written to file.
+
+01:52.760 --> 01:58.580
+There's still a hierarchy of these packages and modules modules are inside packages packages can be
+
+01:58.580 --> 02:00.960
+inside other packages.
+
+02:00.980 --> 02:03.730
+So for example we could have this kind of path.
+
+02:03.950 --> 02:10.400
+We could have a package called package one that contains a model called mod 1 or we could have a package
+
+02:10.400 --> 02:16.370
+one that contains another package package one underscore one that contains a module mod one underscore
+
+02:16.370 --> 02:17.660
+one.
+
+02:17.740 --> 02:20.950
+This is not necessarily a file path.
+
+02:20.980 --> 02:28.210
+So you know in the file system this is just a dot notation to indicate the hierarchy of packages and
+
+02:28.210 --> 02:30.490
+modules.
+
+02:30.620 --> 02:35.050
+So that's all that dotted notation indicates.
+
+02:35.170 --> 02:40.090
+And usually you'll find this in the Dundalk path that's usually where you'll find it.
+
+02:40.150 --> 02:47.380
+You'll also find that sometimes in the underscore the double underscore the Dunder package property.
+
+02:47.580 --> 02:50.010
+So let's look at importing nested packages.
+
+02:50.100 --> 02:56.620
+So if you've got a statement in your toplevel program such as PAC one dot PAC one underscore one dot
+
+02:56.710 --> 02:58.400
+module one.
+
+02:58.450 --> 03:00.780
+Now this may not be file based.
+
+03:00.820 --> 03:02.810
+For now I'm talking very generically.
+
+03:02.890 --> 03:10.240
+So we have this kind of hierarchy in our packages and we want to import this module that's nested inside
+
+03:10.300 --> 03:14.260
+this package that is itself nested inside this package.
+
+03:14.350 --> 03:17.710
+The import system will perform the following steps.
+
+03:17.710 --> 03:19.260
+The first thing it's going to do.
+
+03:19.300 --> 03:26.010
+It's going to import pack one because it can't import the rest until pack one has been imported.
+
+03:26.200 --> 03:27.960
+Because this is nested underneath.
+
+03:27.970 --> 03:35.260
+So the first thing it does is it imports Pack 1 then it imports pack one underscore one that's inside
+
+03:35.260 --> 03:36.040
+PAC 1.
+
+03:36.460 --> 03:41.020
+And then finally it imports that module that we want it to.
+
+03:41.210 --> 03:47.870
+And then the system modules cache will therefore contain entries for Pack 1 pack 1 that pack 1 underscore
+
+03:47.870 --> 03:52.700
+1 the sub package as well as the module in the sub package.
+
+03:52.700 --> 03:59.810
+So when you import this over here then you'll find that each bounce basically of that path has to get
+
+03:59.840 --> 04:03.550
+imported and it will get cached insists modules.
+
+04:03.560 --> 04:07.880
+Now the name space with the import was run will just contain Pack 1.
+
+04:07.880 --> 04:13.370
+It doesn't contain Module 1 because we're importing the whole thing and it's going to put that top level
+
+04:13.370 --> 04:18.590
+name inside if we want in our namespace if we want module one in our namespace we would have to say
+
+04:18.590 --> 04:19.330
+something like.
+
+04:19.460 --> 04:26.690
+From Pack 1 Depak 1 underscore one import module one will still end up with all the stuff in the system
+
+04:26.690 --> 04:31.890
+modules cache but aren't local namespace will contain module one.
+
+04:32.030 --> 04:35.330
+Pack 1 just as we so have regular module impuls
+
+04:38.380 --> 04:43.780
+So although modules and packages can be far more generic than file system based and that is it actually
+
+04:43.780 --> 04:45.820
+gets really complicated.
+
+04:45.820 --> 04:49.660
+And if you're interested in this and you want to write your own fine doesn't load.
+
+04:49.840 --> 04:52.900
+Then you really need to go and read Pepp three or two.
+
+04:53.140 --> 04:57.120
+But I'm not going to do that in this cause it's really complicated.
+
+04:57.130 --> 05:02.530
+And so I'm going to stick to the traditional file based modules and packages since that's what you know
+
+05:02.590 --> 05:07.680
+99 percent of the work done when programming Python uses it's file based stuff.
+
+05:07.690 --> 05:09.090
+So I'm going to stick to that.
+
+05:09.280 --> 05:11.280
+It's difficult enough as it is.
+
+05:12.810 --> 05:18.800
+So let's now stick to file based packages so everything I'm going to talk about from now on is full
+
+05:18.810 --> 05:21.350
+file based packages.
+
+05:21.470 --> 05:26.730
+First of all the package paths are created by using the file system directories and files.
+
+05:26.750 --> 05:34.580
+Since we're now a file system based kind of set up so I remember a package is simply a module that can
+
+05:34.580 --> 05:37.400
+contain other modules and packages.
+
+05:37.400 --> 05:40.280
+So how do we represent that in the file system.
+
+05:40.340 --> 05:41.840
+It's a directory right.
+
+05:41.840 --> 05:45.920
+A directory is something that contains other directories and files.
+
+05:45.920 --> 05:47.180
+Same thing with packages.
+
+05:47.180 --> 05:53.570
+Packages can contain other packages and modules so we represent packages in our file system using a
+
+05:53.570 --> 05:58.020
+directory and the modules are the files.
+
+05:58.520 --> 06:05.780
+So the directory name becomes the package name just as the module file name became the module name the
+
+06:05.780 --> 06:08.780
+directory name becomes the package name.
+
+06:08.780 --> 06:11.130
+So where does the code go for the package.
+
+06:11.180 --> 06:14.750
+Because it is a module after all and modules have code.
+
+06:14.900 --> 06:22.370
+So if the package is the directory a directory can't contain code right the directory can contain files
+
+06:22.640 --> 06:28.220
+but it can't be itself you know a file it's either a directory or a file on the file system.
+
+06:28.220 --> 06:34.820
+So where does the code go for the package while it goes inside the directory in a special file that's
+
+06:34.820 --> 06:37.360
+called Dunder init that p y.
+
+06:37.700 --> 06:45.350
+So when we have a package we actually have a directory and this file and together that becomes the module
+
+06:45.620 --> 06:54.240
+the module code is in in the init file and the package name is the directory.
+
+06:54.250 --> 06:55.880
+So let's look at that in more detail.
+
+06:56.110 --> 07:02.920
+So to define a package in our file system because we're file based Now we must create a directory whose
+
+07:02.920 --> 07:10.030
+name will be the package name and we must create a file called dunderheaded duppy y inside that directory
+
+07:11.140 --> 07:17.950
+that init the file is what tells Python that the Directory is a package as opposed to a standard directory.
+
+07:17.980 --> 07:21.560
+So when Python looks at our code it sees a directory.
+
+07:21.640 --> 07:22.970
+It's just a directory.
+
+07:23.140 --> 07:29.740
+But if it now finds a dunder init file inside that directory it changes the behavior.
+
+07:29.770 --> 07:34.490
+It now considers that directory as a package.
+
+07:34.600 --> 07:41.410
+Now if we don't have an init file then Python creates what's called an implicit namespace package and
+
+07:41.410 --> 07:42.840
+we'll discuss that later.
+
+07:42.850 --> 07:48.730
+It's related to packages but it's created implicitly and this is why we're able to import modules that
+
+07:48.730 --> 07:53.920
+are nested inside directories that aren't necessarily packages but well we'll discuss that in a little
+
+07:53.920 --> 07:55.350
+bit.
+
+07:55.360 --> 07:58.230
+So what happens when a file based package is imported.
+
+07:58.300 --> 08:00.570
+So let's say we have the following structure all out.
+
+08:00.580 --> 08:02.000
+This is our app root.
+
+08:02.170 --> 08:09.050
+And inside we created a directory called Pack 1 in the directory we created this Dunder init file.
+
+08:09.070 --> 08:16.070
+So now pack 1 will be identified as a package and then this package will contain 2 modules Module 1
+
+08:16.070 --> 08:19.840
+and module 2 which are straight you know simple modules.
+
+08:20.170 --> 08:23.180
+Let's say we write import Pack 1.
+
+08:23.200 --> 08:25.520
+So now we're importing a package.
+
+08:25.540 --> 08:27.610
+It's a module but it's also a package.
+
+08:27.610 --> 08:29.530
+So there's a bit more going on.
+
+08:29.980 --> 08:34.760
+Well the code for Pack 1 is in the Dundreary file.
+
+08:35.350 --> 08:42.130
+So that code is loaded executed and cached insists modules where the key of Pack 1 and the object will
+
+08:42.130 --> 08:43.820
+be a module object.
+
+08:44.010 --> 08:51.760
+OK but the code for Pack 1 for that module came from this file over here.
+
+08:51.870 --> 08:54.750
+But again it's just a module.
+
+08:54.750 --> 08:59.430
+Now the symbol Pack 1 is added to our namespace referencing the same object.
+
+08:59.550 --> 09:01.280
+Again it's just a module.
+
+09:01.290 --> 09:07.170
+If we had said import you know module one that let's say was at the root of app what would have done
+
+09:07.400 --> 09:12.960
+it would have loaded executed and cached it in six modules and it would have added a reference to that
+
+09:12.960 --> 09:17.930
+module in all namespace while one is told just a module.
+
+09:18.090 --> 09:19.190
+Yes it's a package.
+
+09:19.200 --> 09:22.350
+So it has additional functionality but it's just a module.
+
+09:22.410 --> 09:25.020
+The things you know the import works the same way.
+
+09:25.290 --> 09:28.330
+The only difference now is that it has a path property.
+
+09:28.410 --> 09:31.200
+It has this done the path property that gets set.
+
+09:31.200 --> 09:37.100
+Remember we discussed that with modules that they don't have that packages have the path properties
+
+09:37.100 --> 09:44.100
+set and it will be what it will be the file system directory path the absolute path to pack 1.
+
+09:44.100 --> 09:48.680
+So wherever APIs sitting let's say it's sitting on your drive if you're on you know on Windows or your
+
+09:48.720 --> 09:55.260
+C-drive or if you're if you're in Linux maybe it's sitting in your user directory you'll have the fully
+
+09:55.260 --> 09:59.910
+qualified path to whatever the directory is.
+
+10:00.060 --> 10:06.350
+That that is represented or that represents the package.
+
+10:06.680 --> 10:12.470
+And it also has a done to file property modules also have it done the file property remember what the
+
+10:12.470 --> 10:14.420
+done to file properties for modules.
+
+10:14.720 --> 10:17.550
+It's the file that contains the code for the module.
+
+10:17.570 --> 10:21.630
+So what do you think is going to be the file property for a package.
+
+10:23.050 --> 10:28.990
+It's going to be the path to the Dunder init file because that's the file that contains the code for
+
+10:28.990 --> 10:30.550
+the package.
+
+10:30.550 --> 10:39.150
+And again it will be an absolute path so what about nested packages what packages can contain modules
+
+10:39.360 --> 10:40.640
+as well as packages.
+
+10:40.770 --> 10:43.350
+So both can be nested inside packages.
+
+10:43.350 --> 10:45.380
+So let's say we have this kind of structure.
+
+10:45.460 --> 10:46.950
+Here's our application.
+
+10:46.950 --> 10:50.050
+We have a package in the root of the application.
+
+10:50.250 --> 10:52.740
+So it's a directory with the Dondre in it.
+
+10:52.770 --> 10:53.760
+That's a package.
+
+10:54.000 --> 10:56.040
+And it also contains two modules.
+
+10:56.040 --> 10:58.240
+Module one module one B.
+
+10:58.620 --> 11:04.820
+It also contains another directory pack one underscore one that itself contains a Dundreary in it.
+
+11:04.830 --> 11:12.690
+So now pack one underscore one is also a package and that package also contains two modules as well
+
+11:12.750 --> 11:16.160
+module 1 1 and one 1 be.
+
+11:16.280 --> 11:17.980
+So that's the directory structure.
+
+11:18.350 --> 11:21.910
+So module one is inside a package one.
+
+11:22.090 --> 11:27.380
+And so we can think of this module as being pack one dot Module 1 8.
+
+11:27.400 --> 11:37.090
+That's the path the dotted path notation for Module 1 8 it's inside that one this package is inside
+
+11:37.090 --> 11:40.610
+Pack 1 pack 1 underscore one is inside Pack 1.
+
+11:40.630 --> 11:47.860
+So in terms of dotted path notation we can think of it as Pack 1 dot Pack 1 underscore one again.
+
+11:48.010 --> 11:50.050
+That's just the dotted path notation.
+
+11:50.050 --> 11:52.590
+Now this module 1 1 B is inside.
+
+11:52.600 --> 12:00.490
+Pack 1 pack 1 1 and so in terms of dotted notation we would reference it as Pack 1 dot back 1 1 dot
+
+12:00.580 --> 12:04.860
+Module 1 1 be.
+
+12:05.180 --> 12:09.260
+So now let's look at the file path and package properties for all this.
+
+12:09.260 --> 12:13.830
+So as we've seen before modules have a file and package properties.
+
+12:14.860 --> 12:22.440
+The file is the location of the module code in the file system package is the package that the module
+
+12:22.440 --> 12:25.590
+code is located in.
+
+12:25.590 --> 12:32.250
+Now if the module is located in the root of our application then it's just an empty string.
+
+12:32.280 --> 12:36.480
+The package is just an empty string because that's kind of the root package.
+
+12:38.760 --> 12:46.080
+Now if the module is also a package then it also has a path property modules don't but packages modules
+
+12:46.080 --> 12:46.900
+in general don't.
+
+12:46.920 --> 12:50.120
+But packages specialized modules do.
+
+12:50.970 --> 12:57.560
+And it will be the location of the package the directory in the file system.
+
+12:57.600 --> 12:58.830
+So let's look at an example.
+
+12:58.830 --> 13:07.010
+Let's go back to this again specific set up so if we look at module which is in the root I added a module
+
+13:07.010 --> 13:09.390
+in the root of our application.
+
+13:09.710 --> 13:14.020
+Well the module file is going to be the absolute path to this module.
+
+13:14.030 --> 13:20.820
+So it's going to be wherever your app is located slash app slash module duppy y.
+
+13:20.980 --> 13:26.230
+If we look at the path that's not set it's a regular standard model not a package therefore it doesn't
+
+13:26.230 --> 13:31.600
+have a path property set and the package while it's sitting in the root of our application.
+
+13:31.600 --> 13:36.750
+So the package exists but it's an empty string.
+
+13:36.750 --> 13:39.340
+Ok so what about package one.
+
+13:39.400 --> 13:43.120
+So package one is a package a directory with an in it.
+
+13:43.120 --> 13:44.630
+So what is its final property.
+
+13:44.740 --> 13:49.010
+Well the file property just points to the in that inside that directory.
+
+13:49.090 --> 13:52.500
+So pack 1 Dungarvan it again fully qualified path.
+
+13:53.110 --> 13:54.150
+What about the path.
+
+13:54.190 --> 14:02.060
+Well this time it's set because it is a package and the path is simply the fully qualified system file
+
+14:02.100 --> 14:04.770
+that writes the file system path.
+
+14:04.960 --> 14:07.580
+So it's wherever the app is sitting slash pack 1.
+
+14:07.720 --> 14:11.940
+That is the directory after all in the file system.
+
+14:11.980 --> 14:13.390
+What about the package.
+
+14:13.550 --> 14:18.540
+Well you're the package is just now this data notation that we've been talking about.
+
+14:18.550 --> 14:22.500
+So the package is Pack 1 because Pack 1 is a package.
+
+14:22.600 --> 14:26.480
+So that's itself a package.
+
+14:26.900 --> 14:31.460
+Now what about the modules under the pack one that are contained in Pack 1.
+
+14:31.460 --> 14:35.780
+So let's take a look at multihull one a while in terms of its file property.
+
+14:35.780 --> 14:44.320
+Again it just isn't absolute path to module one AOP wired to the file in the file system the path property
+
+14:44.320 --> 14:47.470
+of module one is not set because it is not a package.
+
+14:47.470 --> 14:48.500
+It's just a file.
+
+14:48.520 --> 14:52.470
+It's just a simple module and then package.
+
+14:52.660 --> 14:58.240
+Well this tells us which package module one is in while it's in fact one.
+
+14:58.250 --> 15:03.650
+So just as package we all pack one package was pack one because it is itself.
+
+15:03.770 --> 15:08.650
+Anything that's underneath will be inside package one.
+
+15:08.650 --> 15:10.920
+Let's take a look at the sub package one one.
+
+15:10.930 --> 15:17.320
+Now it's file while it's file property is simply the location of the Dunder ranit file in the file system.
+
+15:17.350 --> 15:18.970
+The fully qualified path.
+
+15:19.390 --> 15:23.130
+What about the underscore the Dunder path property.
+
+15:23.140 --> 15:31.800
+Well that is going to be basically the fully qualified path to the directory that is the package and
+
+15:31.800 --> 15:33.990
+then the done the package property is set.
+
+15:33.990 --> 15:39.850
+Since this is a package and it's worked well it's back 1 1 but inside Pack 1.
+
+15:39.870 --> 15:45.600
+So we get this dotted path notation of PAC 1 dot PAC 1 underscore 1.
+
+15:45.720 --> 15:48.580
+What about the modules inside of Pack 1 1.
+
+15:48.870 --> 15:53.280
+Well again we can go and find and specify the modular we're interested in.
+
+15:53.280 --> 15:56.910
+It's the you know the parents package the sub package and then the module.
+
+15:56.910 --> 16:02.700
+If we look at the Dunder file property it's going to give us the fully qualified path to the module
+
+16:02.700 --> 16:05.940
+file the path property of course is not set.
+
+16:05.940 --> 16:07.680
+This is not a package it's a module.
+
+16:07.680 --> 16:13.120
+So that isn't set and the package Well that tells us which package this module is in.
+
+16:13.320 --> 16:21.430
+It's inside another package and which one pack one dot PAC 1 underscore one.
+
+16:21.460 --> 16:24.550
+So what actually gets loaded during the Imphal phase.
+
+16:24.640 --> 16:27.490
+Let's again take the same example that we have.
+
+16:27.940 --> 16:33.630
+And let's say that we write this statement in our main app lets say you know we have this module the
+
+16:33.640 --> 16:39.980
+P Y and let's say we write in the import pack one 1. pack one under US Code one dot module one on this
+
+16:40.000 --> 16:40.890
+code one a.
+
+16:40.990 --> 16:44.510
+So we're trying to import this file over here.
+
+16:45.250 --> 16:47.780
+So at the very least the following will happen.
+
+16:47.830 --> 16:55.030
+Pack 1 will be important because Python basically can't reach module 1 underscore 1 8 on less.
+
+16:55.030 --> 16:58.560
+It has loaded things in that's in its path.
+
+16:58.750 --> 17:07.750
+So pack 1 is going to be imported and added to the CIS modules cache next pack one on this cold one
+
+17:07.870 --> 17:11.380
+is also going to get imported and add it to the sists Mongols cache.
+
+17:11.500 --> 17:16.650
+And then finally module one underscore one is imported and added to the CIS modules.
+
+17:17.350 --> 17:22.060
+And then what will happen is that you'll end up with pack one in your namespace of wherever you did
+
+17:22.060 --> 17:22.260
+that.
+
+17:22.270 --> 17:28.410
+Impled find did it from module then the module Goebels would contain Pack 1.
+
+17:28.590 --> 17:31.240
+But the thing is modules can import other modules.
+
+17:31.290 --> 17:31.590
+Right.
+
+17:31.590 --> 17:35.510
+A module can have an import statement in it.
+
+17:35.550 --> 17:40.920
+So in particular the package module could import other modules and packages as well.
+
+17:40.920 --> 17:45.100
+We could put code inside that Dunder init duppy why file that itself.
+
+17:45.120 --> 17:49.600
+Import other stuff and same thing with pack one underscore one.
+
+17:49.620 --> 17:56.160
+It could import other modules and packages and also Marjoe itself could import other modules and packages
+
+17:56.250 --> 17:57.380
+as well.
+
+17:57.840 --> 18:02.560
+So at the very least when you do this import these three things are going to get imported.
+
+18:02.700 --> 18:08.490
+But depending on what these actually do individually you may have other things that get imported and
+
+18:08.490 --> 18:11.910
+put into the system modules cache.
+
+18:11.920 --> 18:13.870
+So let's take a look at an example.
+
+18:14.170 --> 18:21.830
+Let's say that the Dunder file full package one contains this code it says import Pack 1 module 1 a.
+
+18:21.910 --> 18:29.680
+So basically when packet one is run is executed when this module is executed it does to impuls it imports
+
+18:29.980 --> 18:32.090
+these two modules over here.
+
+18:32.560 --> 18:34.800
+So I fully qualified the location.
+
+18:34.810 --> 18:40.950
+It's Pack 1 doctor module one and unpack one module one be.
+
+18:40.970 --> 18:46.900
+So now let's say that we write this impled in our module to the wire in our root module over here.
+
+18:47.230 --> 18:47.640
+OK.
+
+18:47.660 --> 18:49.720
+So we're importing this just as before.
+
+18:49.820 --> 18:51.060
+So just as before.
+
+18:51.080 --> 18:57.170
+Pack 1 is imported back 1 1 is imported Module 1 1 is imported as well and they're all added to the
+
+18:57.170 --> 19:05.300
+system modules cache but now also module one is imported because we have this import statement that
+
+19:05.300 --> 19:10.460
+got executed when did it get imported when packet 1 got executed.
+
+19:10.460 --> 19:18.040
+So in fact one was imported it executed the code for that module which itself did those to import.
+
+19:18.050 --> 19:23.510
+So now module one is in this modules and module one b.s also been imported and has been added to CIS
+
+19:23.510 --> 19:24.830
+modules as well.
+
+19:27.990 --> 19:30.430
+Let's say that we just did import Pack 1.
+
+19:30.570 --> 19:32.610
+So the same set up everything's the same.
+
+19:32.610 --> 19:39.220
+We still have that code inside and under init file for the back one module or package.
+
+19:39.300 --> 19:45.870
+So import pack one will pack one is important and added ptosis modules module one is imported and added
+
+19:45.870 --> 19:50.670
+to CIS modules and module one be as important added to sists modules and that's it.
+
+19:50.670 --> 19:56.790
+It's not going to import pack 1:01 or import these because while we haven't actually asked it to import
+
+19:56.790 --> 19:57.140
+it.
+
+19:57.330 --> 20:03.360
+So if that code file Dunder and it is empty then nothing else will happen.
+
+20:04.110 --> 20:10.890
+And actually even if this is not empty since we're not actually loading package one underscore one that
+
+20:10.890 --> 20:17.750
+package module will not actually get executed because it's not being imported.
+
+20:17.950 --> 20:21.980
+All right let's switch to some code and let's actually see all this in action.
+
+20:22.210 --> 20:24.280
+Thanks for watching and I'll see you in the next video.

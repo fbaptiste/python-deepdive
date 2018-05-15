@@ -1,0 +1,544 @@
+WEBVTT
+
+00:01.300 --> 00:05.980
+High in this video we're going to look at something called lambda expressions.
+
+00:05.980 --> 00:13.230
+So what all lambda expressions what we already know how to find and create functions in Python using
+
+00:13.230 --> 00:15.220
+the def statement right.
+
+00:15.240 --> 00:20.240
+We have def my phunk some parameters may be none or few.
+
+00:20.490 --> 00:27.240
+And then a colon followed by the body of the function underneath of that very return statement optional
+
+00:27.300 --> 00:29.650
+that returns something goes.
+
+00:29.670 --> 00:31.970
+If we don't apply a return statement.
+
+00:31.970 --> 00:38.310
+Python puts one in for us and essentially returns the none object but a function is something that has
+
+00:38.310 --> 00:45.330
+a name that has parameters and that has some code that allows you to return something from the function
+
+00:46.620 --> 00:51.660
+lambda expressions are simply another way of creating functions.
+
+00:51.660 --> 00:55.750
+They're also called anonymous functions and we'll see why in a bit.
+
+00:55.770 --> 00:58.770
+So let's look at the syntax for creating a lambda expression.
+
+00:58.800 --> 01:03.150
+The first thing is we have this keyword called lambda that's a required key word.
+
+01:03.150 --> 01:10.230
+It basically says hey I'm creating a function just like the def keyword says hey I'm creating a function.
+
+01:10.770 --> 01:16.080
+It's followed by the parameter list the parameter list is not enclosed in parentheses.
+
+01:16.080 --> 01:20.460
+It's just a parameter list which is optional.
+
+01:20.460 --> 01:25.710
+In other words it may not contain any parameters in which case you wouldn't have anything after this
+
+01:25.710 --> 01:27.060
+lambda here.
+
+01:27.090 --> 01:29.620
+It must however be followed by the colon.
+
+01:29.640 --> 01:34.100
+That's basically what says this is the end of my parameter list.
+
+01:34.780 --> 01:39.040
+And then that is followed by the expression.
+
+01:39.040 --> 01:41.740
+Now when the lambda function is called.
+
+01:41.920 --> 01:47.470
+Right so when the function is called This expression is evaluated and returned.
+
+01:47.680 --> 01:51.700
+So you can think of those as the body of the function.
+
+01:51.910 --> 01:57.820
+But the expression itself returns a function object when you run this piece of code lambda.
+
+01:57.830 --> 02:03.420
+Your parameter list call on the expression it's not actually evaluating the expression at that point.
+
+02:03.520 --> 02:07.730
+Just like when you call def when you run the def statement right.
+
+02:07.840 --> 02:11.360
+It's actually creating the function it's not running the function.
+
+02:11.590 --> 02:17.110
+Well the same thing here except that this will actually return a function object.
+
+02:17.140 --> 02:22.990
+So this expression here creates and returns a function with these parameters.
+
+02:22.990 --> 02:28.940
+And this as the body is the return value basically of the function.
+
+02:28.990 --> 02:35.740
+So when you run the lambda when you call the lambda function the function object that gets returned
+
+02:35.740 --> 02:36.550
+here.
+
+02:36.850 --> 02:42.850
+Then what happens is that it will actually evaluate and return that expression but only when it is called
+
+02:43.210 --> 02:45.220
+not what is being created.
+
+02:45.250 --> 02:47.730
+Just like the def the functions used.
+
+02:47.740 --> 02:51.400
+You know that we create we aren't getting called when we run.
+
+02:51.400 --> 02:57.220
+Def getting called later when we call the function with the parentheses.
+
+02:57.290 --> 03:01.520
+So this expression can be assigned to a variable.
+
+03:01.670 --> 03:06.030
+It can be even passed to an argument or as an argument to another function.
+
+03:06.260 --> 03:08.740
+But you'll notice that it doesn't have a name right.
+
+03:08.750 --> 03:09.720
+And def.
+
+03:09.830 --> 03:12.540
+We provide a name for the function here.
+
+03:12.590 --> 03:18.260
+We don't provide a name for the function it's just a function object that exists in memory but it hasn't
+
+03:18.260 --> 03:20.010
+been assigned to a variable.
+
+03:20.120 --> 03:22.520
+So it's basically anonymous right.
+
+03:22.520 --> 03:27.160
+We don't have a name that we can attach to it.
+
+03:27.170 --> 03:30.410
+That's why they're also called anonymous functions.
+
+03:30.410 --> 03:38.790
+But it is a function just as if we had created it using def except def also assigns a name to the function.
+
+03:39.140 --> 03:40.810
+So let's see some examples.
+
+03:41.060 --> 03:44.280
+Lambda X call on X to the power of two.
+
+03:44.300 --> 03:51.640
+This is basically a function with a single parameter x that will return x squared the next example here
+
+03:51.640 --> 03:53.340
+we have Lamda X-Com a y.
+
+03:53.350 --> 04:01.090
+So this is a function that takes two parameters X and Y and we'll return x plus why we can of course
+
+04:01.090 --> 04:04.510
+also have a lambda expression that has no parameters.
+
+04:04.660 --> 04:07.700
+So we call this function it will just return the string.
+
+04:07.720 --> 04:13.030
+Hello we can also get more complicated of course.
+
+04:13.230 --> 04:21.940
+We can say lambda Escola and we have a parameter s and we take as we revulsive and then we take it to
+
+04:21.940 --> 04:22.920
+an uppercase.
+
+04:22.920 --> 04:26.540
+Right so if you don't know about slicing if you don't know what does.
+
+04:26.550 --> 04:27.220
+Don't worry about it.
+
+04:27.220 --> 04:31.160
+We'll cover that in an upcoming video.
+
+04:31.290 --> 04:37.470
+But if we take a look at this if we do look at the type of this expression change that will actually
+
+04:37.500 --> 04:38.880
+return a function.
+
+04:38.940 --> 04:44.240
+It is a true You know it's it's an honest to goodness function in Python.
+
+04:45.040 --> 04:51.150
+Now again note that these expressions all these expressions are here are function objects that they
+
+04:51.180 --> 04:53.810
+return a function object but they are not named.
+
+04:53.920 --> 04:56.010
+And that's why we call them anonymous functions.
+
+04:58.010 --> 05:03.800
+Now I want to point out something right now that and you may have run across this maybe in we were studying
+
+05:03.800 --> 05:05.850
+other languages are reading this.
+
+05:05.960 --> 05:07.750
+But there's sometimes confusion.
+
+05:07.760 --> 05:11.820
+People think that lambdas or anonymous functions are closures.
+
+05:12.080 --> 05:13.400
+No they're not.
+
+05:13.490 --> 05:15.060
+They are not the same thing.
+
+05:15.050 --> 05:16.530
+They're not equivalent.
+
+05:16.580 --> 05:22.570
+Lambdas are anonymous functions can be closures but they don't have to be they just regular functions.
+
+05:22.580 --> 05:29.120
+So you know if you're thinking that lambda is a closer no and you will look at closures later on in
+
+05:29.120 --> 05:33.210
+the section so what can we do over lambda.
+
+05:33.270 --> 05:36.930
+Well we can assign it to a variable name so we could do something like this.
+
+05:36.930 --> 05:40.590
+We could say my func equals and then this lambda expression.
+
+05:40.620 --> 05:44.140
+Remember this is an expression that returns a function.
+
+05:44.280 --> 05:47.530
+We can assign it to a variable name.
+
+05:47.590 --> 05:51.300
+So now we have my function my func is a type function.
+
+05:51.300 --> 05:59.120
+So if we call Type of my func will get function we can now call it we can say my phone call it passing
+
+05:59.120 --> 06:04.420
+it 3 while it's going to call this function and X is going to take on the value of three.
+
+06:04.460 --> 06:06.720
+So we'll get 9 out of that.
+
+06:06.740 --> 06:09.590
+So as you can see it just behaves like a regular function.
+
+06:09.590 --> 06:13.770
+You can do my finger for that will return 16.
+
+06:13.850 --> 06:17.580
+This would be identical to doing this line of code.
+
+06:17.630 --> 06:20.430
+Def my phunk X return x squared.
+
+06:20.480 --> 06:24.980
+But actually two lines of code right but that's exactly the same thing.
+
+06:24.980 --> 06:30.260
+If you look at Type of my phone you'll also get that it's a function you'll get that my phunk of three
+
+06:30.260 --> 06:32.830
+is nine in my phone for 16.
+
+06:32.840 --> 06:39.510
+So this line of code here and this line of code here is exactly the same thing.
+
+06:39.950 --> 06:40.370
+Right.
+
+06:40.550 --> 06:41.760
+It's not different.
+
+06:41.840 --> 06:48.620
+It's not that this is a special type of function versus this one not the same thing.
+
+06:48.630 --> 06:52.170
+Now you could also pass it as an argument to another function.
+
+06:53.020 --> 06:59.940
+So let's say we have this function here in our code called Def apply underscore phunk which takes in
+
+06:59.940 --> 07:05.740
+two variables it takes in a variable x and it takes in another variable that I've named as and for function
+
+07:06.220 --> 07:09.590
+so unexpecting a function in the second argument.
+
+07:09.790 --> 07:10.930
+And all this thing does.
+
+07:10.960 --> 07:15.690
+It's just going to call this function with the initial value that we pass.
+
+07:15.840 --> 07:23.850
+OK so basically it's just going to call a fan of X writes going to return that now what we can do with
+
+07:23.850 --> 07:30.420
+Lander's we can call it this way we can say apply Fung three so three is going to go into x and then
+
+07:30.420 --> 07:33.430
+the function is going to be this thing right here right.
+
+07:33.450 --> 07:35.100
+This is a function.
+
+07:35.100 --> 07:39.480
+So when I call that what does it going to do while it's going to call a friend of X it's going to call
+
+07:39.510 --> 07:42.020
+this function passing in three.
+
+07:42.180 --> 07:45.100
+So we're going to get 9 for that result.
+
+07:46.270 --> 07:48.130
+Similarly we could say something like this.
+
+07:48.130 --> 07:51.500
+Apply Funk's I'm still using the same apply phunk.
+
+07:51.820 --> 07:55.450
+Now got a variable value of two but my lambda expression is changed.
+
+07:55.510 --> 07:58.870
+So I'm using a different function saying it's going to be X plus 5.
+
+07:58.870 --> 08:00.530
+So in this case two plus five.
+
+08:00.610 --> 08:01.940
+So we'll get seven.
+
+08:02.380 --> 08:07.630
+So you can see it's pretty handy to kind of do these inline functions right these very short little
+
+08:07.630 --> 08:12.450
+functions and we'll see where it comes in handy in other places as well.
+
+08:12.580 --> 08:18.280
+Of course you can get a little bit more complex if you want you can call apply phunk of ABC and the
+
+08:18.280 --> 08:26.700
+function is going to take some variable x that is indexable so we can do some slicing.
+
+08:26.760 --> 08:34.130
+It's going to take the second character or the one index character all the way to the end and then multiply
+
+08:34.170 --> 08:35.280
+by three.
+
+08:35.280 --> 08:41.010
+So for example when we pass ABC it's going to take B and C and times 3.
+
+08:41.030 --> 08:46.970
+So we'll get busy busy busy right so equivalently we could have done it this way.
+
+08:47.040 --> 08:47.310
+Right.
+
+08:47.310 --> 08:54.980
+We could have said death f and 1 of X return x sliced that one forward times three.
+
+08:55.350 --> 08:56.420
+So we could have done that.
+
+08:56.430 --> 09:02.460
+And then we can just call apply phunk ABC with an underscore one we've seen that before product pass
+
+09:02.490 --> 09:05.110
+functions as parameters to other functions.
+
+09:05.250 --> 09:12.040
+Well this is no different in fact this function here that returns this is the same really as this function
+
+09:12.040 --> 09:13.490
+here does the same thing.
+
+09:13.680 --> 09:18.060
+Now obviously this function and this function are not the same objects right.
+
+09:18.060 --> 09:21.230
+This was created here at some memory address.
+
+09:21.300 --> 09:25.540
+This was now another function created at some other memory address.
+
+09:25.620 --> 09:30.860
+But in terms of functionality they do the same thing.
+
+09:31.130 --> 09:37.920
+So now there are some limitations though to Lander's the body of a is limited to a single expression.
+
+09:38.030 --> 09:44.450
+So it has to be a single expression which means you cannot do assignments inside a lambda function.
+
+09:44.540 --> 09:47.670
+You can do assignments create variables in all kinds of stuff right.
+
+09:47.690 --> 09:49.050
+In a regular function.
+
+09:49.430 --> 09:55.160
+Well in a land though you're limited to a single expression so you can't do this for example.
+
+09:55.160 --> 10:00.020
+Right you can't say lambda X and then said X equal to 5 that's not going to work.
+
+10:00.020 --> 10:01.100
+Same thing with this.
+
+10:01.130 --> 10:01.400
+Right.
+
+10:01.400 --> 10:03.140
+This is also just an assignment.
+
+10:03.170 --> 10:08.390
+I'm just saying X plus 5 and then assigning a back to experts the same as this really it won't work
+
+10:08.450 --> 10:08.900
+either.
+
+10:08.990 --> 10:10.080
+You can't do that.
+
+10:10.460 --> 10:12.520
+You can't do annotations either.
+
+10:12.680 --> 10:18.170
+So for example when you write a regular function you can annotate your arguments your parameters to
+
+10:18.170 --> 10:24.410
+say well you know I really would like this to be of type and that's what I expect of course Python ignores
+
+10:24.410 --> 10:29.360
+this when it runs and if you want to pass in a string they will be happy to do that for you of course
+
+10:29.360 --> 10:30.400
+with this code.
+
+10:30.550 --> 10:31.640
+That's good for you.
+
+10:31.910 --> 10:36.490
+But you know if you pass in a float that's then a walk you know and so on.
+
+10:36.580 --> 10:42.840
+But for example you cannot do this with a lambda right you can't put a type of notation in line and
+
+10:42.850 --> 10:43.940
+lambda expressions.
+
+10:43.960 --> 10:45.810
+How does it know what's going on here.
+
+10:45.940 --> 10:46.380
+Right.
+
+10:46.390 --> 10:47.290
+With this.
+
+10:47.320 --> 10:51.820
+So I suppose you could have something where you know maybe the definition could be changed so that you
+
+10:51.820 --> 10:57.430
+could put a parentheses around your arguments in which case you might be able to annotate them but that's
+
+10:57.430 --> 10:58.270
+not going to work.
+
+10:58.330 --> 11:01.330
+Now you can still give them default values and we'll see that.
+
+11:01.410 --> 11:07.000
+We look at the code but it's perfectly fine to say lambda X equals 5 and then x times 2.
+
+11:07.000 --> 11:12.400
+So if you don't specify X when you call the function I will put in the default value so that that's
+
+11:12.400 --> 11:12.920
+false.
+
+11:12.960 --> 11:15.640
+Ok but no notations.
+
+11:15.640 --> 11:22.210
+Basically your the body that expression right has to be a single logical line of code.
+
+11:22.210 --> 11:26.220
+Now you can use a line continuation that's OK because that's a physical.
+
+11:26.320 --> 11:29.030
+Right separation no logical separation.
+
+11:29.110 --> 11:32.200
+As we discussed earlier on in the schools.
+
+11:32.260 --> 11:35.260
+So for example it's perfectly fine to write it like this.
+
+11:35.290 --> 11:41.710
+I mean it's not perfectly fine from a readability standpoint but from Python's perspective it's OK with
+
+11:41.710 --> 11:42.830
+that.
+
+11:42.990 --> 11:49.590
+But in general you shouldn't have to split your lambdas over multiple lines if you are then you might
+
+11:49.590 --> 11:54.420
+want to rethink what you're doing and maybe use a def def is something that allows you to have more
+
+11:54.420 --> 11:55.830
+complex functions.
+
+11:55.830 --> 12:01.650
+Lambdas are meant to be used for simple you know simple expressions that you want to do something with.
+
+12:01.770 --> 12:03.330
+And we'll see some examples of that.
+
+12:04.300 --> 12:07.990
+So let's switch to some code and see how that works.
+
+12:07.990 --> 12:09.720
+Thanks for watching and I'll see you in a bit.

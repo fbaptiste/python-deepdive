@@ -1,0 +1,124 @@
+WEBVTT
+
+00:00.450 --> 00:06.250
+High in the next few videos we're going to look at the numeric types in Python.
+
+00:06.360 --> 00:09.830
+So basically how we can represent numbers in Python.
+
+00:10.050 --> 00:13.620
+So very quickly we have four main types of numbers.
+
+00:13.740 --> 00:19.260
+We have the integers which are basically zero plus or minus one plus or minus two plus or minus three
+
+00:19.260 --> 00:24.080
+etc. So basically all the integral numbers from minus infinity to plus infinity.
+
+00:24.090 --> 00:30.840
+Although obviously we can go to infinity in the computer there has to be a finite limit and that's represented
+
+00:30.840 --> 00:38.370
+by the Python type and then we have rational numbers which is represented in mathematical terms by this
+
+00:38.460 --> 00:47.490
+fancy little Q and that is basically fractions of the form p q where p and q are integer numbers and
+
+00:47.490 --> 00:49.330
+Q is not equal to zero.
+
+00:49.500 --> 00:54.960
+I want to make sure that you understand that these are fractions but fractions of integers not fractions
+
+00:54.960 --> 00:56.890
+of let's say pi over 3.
+
+00:56.910 --> 00:58.480
+That is not a rational number.
+
+00:58.590 --> 01:02.510
+OK that's not a regular fraction because pi is not an integer.
+
+01:03.870 --> 01:09.370
+And that's represented by the fraction object that's in the fractions module.
+
+01:10.560 --> 01:12.960
+Then we have real numbers real numbers of the numbers.
+
+01:13.020 --> 01:14.820
+We're used to working with every day.
+
+01:14.870 --> 01:16.340
+You know 0 is a real number.
+
+01:16.350 --> 01:20.100
+Minus One is a real number 0.1 to divide one third.
+
+01:20.100 --> 01:21.280
+Pi e.
+
+01:21.330 --> 01:29.550
+All those are regular real numbers represented by the symbol R and those can be represented in two different
+
+01:29.550 --> 01:30.990
+ways in Python.
+
+01:30.990 --> 01:33.220
+Usually the most common one is to use a float.
+
+01:33.270 --> 01:36.470
+That's kind of the default that we have in Python.
+
+01:36.810 --> 01:43.770
+But we can also use the decimal class in the decimal module when we want to have more control over the
+
+01:43.770 --> 01:47.710
+precision of those numbers and we'll look at that in detail as well.
+
+01:48.030 --> 01:54.000
+Lastly we have complex numbers which are of the form A plus B Iowa a and b are real numbers.
+
+01:54.000 --> 01:57.870
+They're basically numbers that have a real power and an imaginary pounce.
+
+01:58.140 --> 02:06.220
+And in python we can use the complex data type and we would write it as let's say three plus for J.
+
+02:06.630 --> 02:14.400
+So we'll get to that as well in a upcoming video so you'll notice that the integers are a subset of
+
+02:14.400 --> 02:15.350
+the rationals.
+
+02:15.390 --> 02:19.860
+The rationals are a subset of the reals and the reals are a subset of the complex numbers.
+
+02:19.860 --> 02:23.310
+So it goes from the smallest set to the biggest set.
+
+02:23.310 --> 02:29.490
+Now the one thing that's different about Python is that it introduces actually a fifth data type that
+
+02:29.490 --> 02:34.920
+is also considered a numeric type and those are the Boolean truth values and it does that basically
+
+02:34.920 --> 02:38.900
+by saying that 0 is considered false and one is considered true.
+
+02:39.000 --> 02:43.550
+So the boolean data type exists and we can use these names.
+
+02:43.560 --> 02:48.800
+True and False but in fact behind the scenes there are just two numbers 0 and 1.
+
+02:48.810 --> 02:55.770
+So really in Python We have five main times of numbers and we will look at each one of those in some
+
+02:55.770 --> 02:56.310
+detail.
+
+02:56.340 --> 02:57.720
+In the upcoming videos.
+
+02:57.750 --> 02:58.460
+Thanks for watching.

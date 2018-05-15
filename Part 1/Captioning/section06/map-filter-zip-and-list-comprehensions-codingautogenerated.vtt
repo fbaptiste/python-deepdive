@@ -1,0 +1,988 @@
+WEBVTT
+
+00:00.360 --> 00:07.880
+Hi and welcome back and let's jump right into the map filter and zip functions as well as the list comprehensions.
+
+00:08.190 --> 00:11.360
+So we'll start by defining a small function.
+
+00:11.370 --> 00:15.410
+Let's do a factorial function that's going to calculate the factorial of its argument.
+
+00:15.450 --> 00:20.190
+And so we're going to return the one if and is less than 2.
+
+00:20.200 --> 00:24.900
+Else we're going to return 10 times factorial of an minus one.
+
+00:25.110 --> 00:28.150
+So that's a simple recursive definition for the factorial.
+
+00:28.410 --> 00:34.570
+So we can call factorial of 3 which should be 6 factorial of thought which would be 24 and so on.
+
+00:35.040 --> 00:39.720
+And let's suppose that now we want to calculate the factor all of a bunch of numbers and we want to
+
+00:39.720 --> 00:41.520
+put that into a list.
+
+00:41.550 --> 00:46.640
+What we can do that using the map so map is going to apply our function.
+
+00:46.650 --> 00:48.290
+So here's our function fact.
+
+00:48.330 --> 00:51.510
+You'll notice I do not have parentheses right.
+
+00:51.510 --> 00:57.360
+We're not calling the function which is specifying the function map is a higher order function its first
+
+00:57.360 --> 00:59.610
+argument is a function.
+
+00:59.730 --> 01:01.420
+And what we want to apply this to.
+
+01:01.430 --> 01:06.410
+Well maybe I want to apply it one two three four five or even simpler.
+
+01:06.630 --> 01:09.650
+I'm going to see a range of 6 right.
+
+01:09.660 --> 01:16.980
+That's going to go 0 1 2 3 4 5 and if we do this we get our map back again in Reier.
+
+01:17.020 --> 01:19.560
+This is not a list.
+
+01:19.570 --> 01:23.440
+Now we can iterate through it or we can convert it to a list whatever.
+
+01:23.440 --> 01:26.890
+So let me go ahead and assign this two results.
+
+01:27.170 --> 01:27.670
+OK.
+
+01:27.760 --> 01:31.060
+So if we print the results this is what we have right.
+
+01:31.060 --> 01:39.610
+We have our map so we can iterate for x in results we can say print x then we get this back 1 1 2 6
+
+01:39.610 --> 01:41.300
+24 120 right.
+
+01:41.320 --> 01:43.240
+Factor all of 0 is 1.
+
+01:43.720 --> 01:46.690
+So we can do this as many times as we want.
+
+01:46.690 --> 01:47.160
+Right.
+
+01:47.170 --> 01:49.920
+We have our results for X and results.
+
+01:50.080 --> 01:55.140
+Let's just run the same piece of code again and we get nothing.
+
+01:55.450 --> 02:01.520
+What happened well here's what happens especially and this really isn't Python 3.
+
+02:01.520 --> 02:10.940
+This wasn't the case in Python to but Python 3 map and filter and zip don't return lists or tuples or
+
+02:10.940 --> 02:11.950
+anything like that.
+
+02:11.960 --> 02:19.640
+They return generators they return something that basically doesn't pre-calculate So when we've actually
+
+02:20.000 --> 02:29.030
+created this this map object we actually haven't calculated the factorial yet but when we request the
+
+02:29.030 --> 02:35.960
+items by iterating through this object then Python goes ahead and calculates and makes the calculations
+
+02:36.230 --> 02:37.550
+as we request it.
+
+02:37.580 --> 02:44.390
+If we had only requested the first three elements of this results here then it would only have calculated
+
+02:44.390 --> 02:45.490
+the first three.
+
+02:45.590 --> 02:48.050
+It wouldn't have calculated the remaining ones.
+
+02:48.050 --> 02:52.880
+So that's pretty handy because it means that you are deferring your calculations to the time when you
+
+02:52.880 --> 02:58.090
+actually need them and not doing them ahead of time and potentially not even using them.
+
+02:58.490 --> 03:03.830
+So of course this could be a problem because if you want if you want to reuse that same results multiple
+
+03:03.830 --> 03:05.570
+times where you can't.
+
+03:05.660 --> 03:06.130
+Right.
+
+03:06.290 --> 03:13.010
+So in fact what we would need to do in this case is turn into a list that will actually put it into
+
+03:13.010 --> 03:16.970
+a list that will now calculate everything and make a list out of it.
+
+03:16.970 --> 03:20.990
+So now when we print the results we actually have a list.
+
+03:20.990 --> 03:25.190
+So just something to keep in mind and we'll get back to that a little bit later as well.
+
+03:26.820 --> 03:33.430
+So let's go ahead and let's see how we might use now the map to add elements from two different lists.
+
+03:33.450 --> 03:43.030
+So it's a we have one equals one comet to Comet 3 come of full color 5 and L2 equals 10 20 30.
+
+03:43.030 --> 03:47.010
+All right so we have three elements in the second list five elements in the first list and we want to
+
+03:47.010 --> 03:49.030
+add up the elements from the list.
+
+03:49.110 --> 03:53.940
+Obviously we can only add up for as long you know for the shortest list of the two.
+
+03:53.940 --> 04:01.380
+So it's going to be 10 20 and 30 now we can go ahead and do it this way for results call list Saddam
+
+04:01.380 --> 04:05.090
+just to put my list right away and then map.
+
+04:05.100 --> 04:07.500
+Now what do I want what I'm going to use the LAMDA.
+
+04:07.500 --> 04:12.660
+So here I'm going to take a Alamdar that takes in two values because I'm going to get right values from
+
+04:12.690 --> 04:19.290
+L 1 and L 2 and it's going to return the sum and it's going to do this using 0 1 and 2.
+
+04:19.860 --> 04:26.490
+So if we print our results we get 11 22 33 which is what we expected.
+
+04:26.490 --> 04:35.620
+Now we can expand this further we can say L-3 equals that say 100 200 300 400 k.
+
+04:35.730 --> 04:37.100
+So again an even lent.
+
+04:37.260 --> 04:43.430
+But it's only going to run as long as one of them you know for as long as one of them has not been exhausted.
+
+04:43.500 --> 04:48.140
+So as soon as one of these lists is exhausted the whole thing will stop.
+
+04:48.270 --> 04:52.430
+So in this case will just deal with the first three elements of each list.
+
+04:52.440 --> 04:53.720
+Now it doesn't have to be a list.
+
+04:53.730 --> 04:56.790
+This could just be a tuple that's fine too.
+
+04:57.210 --> 04:59.490
+So let's go ahead and do and change that.
+
+04:59.490 --> 05:06.470
+So now our function needs to take in three arguments and it's going to an X plus Y plus Z.
+
+05:06.660 --> 05:14.470
+And we have to give it three sequences I guess I have to run this first.
+
+05:14.630 --> 05:15.280
+OK.
+
+05:15.610 --> 05:22.480
+And now if we print our results we get 111 222 333.
+
+05:22.520 --> 05:28.680
+Now I want to show you something going back to the fact that map doesn't actually return a list.
+
+05:28.700 --> 05:29.870
+Let's do this let's see.
+
+05:29.870 --> 05:32.190
+Results equals map.
+
+05:32.770 --> 05:40.420
+And let's map lambda and x y is x plus y with L1 L2 in l. 3.
+
+05:40.710 --> 05:47.460
+Robert I said that this function here needs to take in as many arguments as you specify iterable here.
+
+05:47.720 --> 05:54.020
+While in this case we've supplied three lists or three intervals and this function only takes two.
+
+05:54.020 --> 05:55.520
+So that should give us an error.
+
+05:56.000 --> 06:03.360
+But it doesn't even print results out what does it tell us to cause us to map object OK.
+
+06:03.420 --> 06:04.460
+Let's iterate through it.
+
+06:04.500 --> 06:05.780
+Let's see what we get.
+
+06:09.480 --> 06:15.090
+And now we get an error it says lambda takes two positional arguments but three were given.
+
+06:15.190 --> 06:16.180
+Yeah right.
+
+06:16.200 --> 06:19.530
+We're passing in three we're passing in a tuple basically.
+
+06:19.530 --> 06:27.060
+That's arm three it's not a tuple but it's three values from these three intervals.
+
+06:27.480 --> 06:31.300
+But you'll notice we didn't get the error until we actually started the iteration.
+
+06:31.350 --> 06:32.030
+Why.
+
+06:32.220 --> 06:35.840
+Because again it doesn't actually make the calculation right away.
+
+06:35.970 --> 06:41.270
+It defers that until you actually request items from that new iterable.
+
+06:41.460 --> 06:45.760
+And this is why the error doesn't show up until this point here.
+
+06:46.170 --> 06:49.330
+So next let's look at the filter function.
+
+06:49.440 --> 06:52.860
+So the filter function is just a way for us to filter a list.
+
+06:52.950 --> 06:59.130
+So let's say we have the following We have actually called range of let's say 25.
+
+06:59.340 --> 07:01.460
+And if I print x where do I get.
+
+07:01.500 --> 07:04.860
+While I get this range object again it's not a list.
+
+07:04.860 --> 07:08.610
+In fact that range hasn't even been calculated yet.
+
+07:08.670 --> 07:13.950
+It's only once I I request the items that it calculates it.
+
+07:13.950 --> 07:14.990
+So let's take a look at that.
+
+07:15.000 --> 07:21.940
+Let's say for x in range 25 for any x.
+
+07:21.980 --> 07:24.630
+Well four Actually I made call to range.
+
+07:24.640 --> 07:24.950
+OK.
+
+07:24.970 --> 07:31.680
+So let me say for an X because this is what I want to show you first we're going to print.
+
+07:32.320 --> 07:34.120
+And so we get what we expect right.
+
+07:34.120 --> 07:35.970
+We get zero for 24.
+
+07:36.340 --> 07:40.770
+Let's go ahead and copy this and let's do that again.
+
+07:41.560 --> 07:44.780
+And we get the again 0 through 24.
+
+07:45.010 --> 07:50.710
+So the range unlike the map and the filter we can reuse this which just something to keep in mind.
+
+07:52.810 --> 07:54.690
+You can use it as often as we want.
+
+07:54.780 --> 07:55.280
+OK.
+
+07:57.030 --> 08:01.380
+So now let's go ahead and filter those range out.
+
+08:01.380 --> 08:07.380
+Now we only want to keep let's say values that are divisible by three.
+
+08:07.590 --> 08:07.870
+Right.
+
+08:07.890 --> 08:08.420
+I know we did.
+
+08:08.430 --> 08:12.210
+Even in the lecture that's the divisible by three in this case.
+
+08:12.360 --> 08:14.440
+So we're going to want to do a filter.
+
+08:14.460 --> 08:19.470
+We're going to use a lambda expression we're going to take a single argument and we're going to test
+
+08:19.560 --> 08:22.530
+to see if X not three is equal to zero.
+
+08:22.920 --> 08:25.850
+If it is then we want to retain the element.
+
+08:25.920 --> 08:29.870
+And so now we just pass in our range range 25.
+
+08:29.940 --> 08:33.810
+And of course I'm going to throw this into a list right away because filter behaves the same way as
+
+08:33.810 --> 08:38.280
+map it doesn't actually do the evaluations until you actually request the elements.
+
+08:38.490 --> 08:41.260
+So I'm going to do that by putting him into a list.
+
+08:41.610 --> 08:46.650
+And so you can see that we only get items that are divisible by three zeros divisible by three because
+
+08:46.650 --> 08:48.150
+the remainder is 0.
+
+08:48.210 --> 08:48.470
+Right.
+
+08:48.470 --> 08:52.830
+3 6 9 12 etc. They're all divisible by three.
+
+08:52.850 --> 08:54.540
+So that's the filter function.
+
+08:54.560 --> 09:01.670
+Now you can also use the filter function using no function at all as the argument right for.
+
+09:02.030 --> 09:02.800
+And what it will do.
+
+09:02.810 --> 09:08.450
+Will just look at the truthiness of each element in that list or sequence that you pass in the interval
+
+09:08.450 --> 09:11.300
+that you pass in and only retain those ones.
+
+09:11.300 --> 09:12.710
+So let's take a look at that.
+
+09:12.740 --> 09:16.330
+So we're going to pass and none for our function right.
+
+09:16.550 --> 09:22.170
+So not isn't a function but it's acting as a as the function here was specifying none.
+
+09:22.200 --> 09:22.880
+Right.
+
+09:23.180 --> 09:26.010
+And then we have some iterable that we have to pass in here.
+
+09:26.180 --> 09:34.700
+So let's go ahead and create some lists and let's say one and zero and four and a and the empty string
+
+09:34.740 --> 09:37.280
+and maybe the non-object and maybe.
+
+09:37.280 --> 09:39.910
+True and false that say.
+
+09:40.040 --> 09:40.740
+OK.
+
+09:41.120 --> 09:42.220
+And what do we get.
+
+09:42.230 --> 09:43.520
+Well we get this filter.
+
+09:43.640 --> 09:48.340
+So again we need to put it in a list if we want to see quickly what's going on.
+
+09:49.330 --> 09:50.440
+So one was retained.
+
+09:50.440 --> 09:52.810
+One is truthy zero is falsie.
+
+09:52.810 --> 10:00.020
+So it was thrown out for just truthy it stayed the string a state Struth the the empty string is faulty.
+
+10:00.030 --> 10:01.040
+So it's gone.
+
+10:01.060 --> 10:04.130
+True is obviously truthy and false is false.
+
+10:04.150 --> 10:06.110
+So it got tossed up right.
+
+10:06.160 --> 10:07.890
+So that's how you can use filters.
+
+10:10.280 --> 10:16.430
+So next thing that I want to look at a list comprehensions and before we do that I'm going to look at
+
+10:16.430 --> 10:18.650
+the zip function pretty quickly.
+
+10:18.650 --> 10:24.090
+So there's a function remember from the lecture allows you to zip together one or two or more sequence
+
+10:24.090 --> 10:25.850
+types write two or more intervals.
+
+10:25.850 --> 10:30.230
+So let's say we have our first iterable is one two three four.
+
+10:30.920 --> 10:41.840
+Maybe our second iterable is arm 10 20 30 14 and let's say our third iterable is a string Python.
+
+10:42.360 --> 10:42.950
+OK.
+
+10:43.460 --> 10:46.810
+So here we have these three and we can zip them together.
+
+10:47.330 --> 10:48.900
+And what do we get.
+
+10:49.040 --> 10:51.340
+What we get this zip object back.
+
+10:51.350 --> 10:53.410
+So once again we have to be careful.
+
+10:53.420 --> 10:54.910
+This is not a list.
+
+10:54.950 --> 10:59.030
+So if I make this results equal to zip.
+
+10:59.090 --> 11:04.960
+Now we can iterate through that x in results print x.
+
+11:05.070 --> 11:05.800
+What do we get.
+
+11:05.810 --> 11:12.510
+Well we get two apples back we get 110 P 220 y three authority T and so on.
+
+11:12.770 --> 11:15.560
+And it stops at the shortest one which is with four.
+
+11:15.710 --> 11:19.910
+So the remaining characters in Python are left out.
+
+11:19.910 --> 11:23.280
+Now what happens if I try and do this again.
+
+11:24.620 --> 11:26.310
+I get nothing back.
+
+11:26.660 --> 11:27.240
+Why.
+
+11:27.290 --> 11:31.960
+Well again zoop defers the calculation until you request it.
+
+11:32.120 --> 11:33.230
+But it's a generator.
+
+11:33.230 --> 11:38.630
+It's not a list which means that once you've exhausted this generator you're done.
+
+11:38.630 --> 11:44.330
+You can't go back if you want to be able to go back then you should put it into a list.
+
+11:44.740 --> 11:49.310
+Right now you can do it as many times as you want.
+
+11:49.350 --> 11:51.410
+So that's the Zipp function.
+
+11:52.480 --> 11:55.330
+And that's really useful for doing a variety of things.
+
+11:55.420 --> 11:59.680
+You may want to for example zip up.
+
+12:00.130 --> 12:06.030
+Let's say that we want a zip code range and I'll make a range of ten thousand.
+
+12:06.070 --> 12:11.180
+It doesn't matter I'm making a real big and I'm going to take the string Python Lexa.
+
+12:11.460 --> 12:12.070
+OK.
+
+12:12.130 --> 12:13.700
+So fight zip that up.
+
+12:14.610 --> 12:15.690
+What's going to happen.
+
+12:15.720 --> 12:20.330
+While Range is going to be 0 2 9 9 well whatever number of nines.
+
+12:20.550 --> 12:28.020
+And then the second iterable is python which is a string of characters sequence of characters and it's
+
+12:28.020 --> 12:30.150
+going to stop at the shortest one.
+
+12:30.180 --> 12:34.800
+Right so I know that's why it doesn't matter what I specify for the range as long as it's large enough
+
+12:34.800 --> 12:37.970
+to cover the number of characters in my string.
+
+12:38.160 --> 12:40.290
+I'll be able to index them.
+
+12:40.320 --> 12:42.620
+So again I get my zip object back.
+
+12:42.610 --> 12:47.220
+So I'm just going to put a list and get it back.
+
+12:47.260 --> 12:51.130
+And so here we have 0 p 1 y 280 and so on.
+
+12:51.130 --> 12:57.590
+So that allowed us to get both the index and the character in the string.
+
+12:58.030 --> 13:00.780
+So it's a very handy way for doing things like that.
+
+13:00.810 --> 13:08.230
+So now let Now that we have Zipp Let's go ahead and see how we might use list comprehensions to emulate
+
+13:08.260 --> 13:11.510
+map and filter as we saw in the lecture.
+
+13:11.770 --> 13:13.830
+So let's go back to our factorial function.
+
+13:13.830 --> 13:17.530
+So let's say l equals the range of 10 right.
+
+13:17.530 --> 13:21.820
+So this is going to be 0 for 9 print help.
+
+13:22.700 --> 13:24.420
+Well we get a range right.
+
+13:24.430 --> 13:30.520
+So where do we need to do we need to print a list of people who want to see what it is 0 3 9.
+
+13:30.600 --> 13:32.590
+Again we can do this multiple times.
+
+13:32.590 --> 13:37.410
+Range behaves a little differently than the other generators that we've seen.
+
+13:38.050 --> 13:41.890
+So let's go ahead and now calculate the factorial of each of those things.
+
+13:41.890 --> 13:49.210
+Well remember before we would have had to do map fact L and would throw that into a list and we get
+
+13:49.210 --> 13:50.610
+our factorials here.
+
+13:51.050 --> 13:53.840
+But we can use a list comprehension to do the same thing.
+
+13:53.920 --> 13:59.230
+We can say results equals and then we'll do square brackets for a list.
+
+13:59.230 --> 13:59.460
+Right.
+
+13:59.470 --> 14:02.410
+We're generating with creating a list.
+
+14:02.410 --> 14:03.220
+And what do we want.
+
+14:03.220 --> 14:11.700
+Well we want the factorial of n for n in range to 10.
+
+14:12.430 --> 14:17.740
+And if we print the results out we get that same list.
+
+14:17.740 --> 14:24.430
+Now the difference is that this actually created a list not something that was you know whose calculation
+
+14:24.430 --> 14:25.640
+was deferred.
+
+14:25.660 --> 14:32.020
+So in that sense map is better than the list comprehension because it doesn't work better in some cases
+
+14:32.320 --> 14:35.730
+because it doesn't actually do the calculations until they're requested.
+
+14:35.890 --> 14:40.840
+Which means that if you don't request all of them it won't do all the calculations whereas this one
+
+14:40.840 --> 14:47.280
+will perform all the factoring calculations whether you iterate through this or not so of course there
+
+14:47.280 --> 14:49.220
+is a way to do that in Python as well.
+
+14:49.230 --> 14:51.200
+Those are called generator expressions.
+
+14:51.360 --> 14:58.920
+And basically we're going to take the same thing here the same content but we're going to use round
+
+14:59.010 --> 15:04.450
+parentheses and we print results.
+
+15:04.470 --> 15:06.770
+It tells us it's a generator object.
+
+15:06.960 --> 15:10.380
+So this is similar to map and filter and zip.
+
+15:10.380 --> 15:12.970
+It doesn't actually calculate everything.
+
+15:12.990 --> 15:18.560
+Nothing has been calculated at that point and we'll see that in much more detail later on in the schools.
+
+15:18.720 --> 15:20.440
+But I just want to show you right now.
+
+15:20.520 --> 15:27.120
+So if I iterate the results right we can do this and we get this back right.
+
+15:27.120 --> 15:27.810
+We get 1 1.
+
+15:27.810 --> 15:31.470
+So here we have the same items that we had in this list.
+
+15:31.650 --> 15:39.390
+But if I try and run this again then I get the same problem or the same thing which is that my results
+
+15:39.720 --> 15:41.430
+iteration has been exhausted.
+
+15:41.430 --> 15:43.470
+It's an iterator it's been exhausted.
+
+15:43.470 --> 15:45.810
+I can't go back.
+
+15:45.810 --> 15:47.790
+So what do I need to do in that case.
+
+15:47.790 --> 15:50.290
+Well I need to make it into a list right.
+
+15:50.310 --> 15:58.590
+So we'd have to put it into a list to say results equals and then we could put the list around that.
+
+15:58.890 --> 16:00.160
+Right.
+
+16:00.630 --> 16:03.480
+Now of course when the generator inside.
+
+16:03.480 --> 16:06.490
+So we need to put another set of parentheses.
+
+16:06.840 --> 16:10.580
+And now if we print I can just print results this way.
+
+16:10.980 --> 16:12.230
+We get that back.
+
+16:12.420 --> 16:16.950
+But of course there's no point if you're going to do this when you transform that into a list when you're
+
+16:16.950 --> 16:19.090
+making a list out of the generator.
+
+16:19.170 --> 16:25.390
+It is now iterating through every element every result of that generator and putting it into a list.
+
+16:25.440 --> 16:29.700
+So you might as well just use the list comprehension syntax.
+
+16:29.850 --> 16:30.230
+OK.
+
+16:30.330 --> 16:32.280
+This way.
+
+16:32.280 --> 16:37.110
+So Harvey you want to do it and we'll get back to generators and list comprehensions and dictionary
+
+16:37.110 --> 16:39.150
+comprehensions later on in the schools.
+
+16:39.390 --> 16:45.960
+But do note that we do have a similar way of doing things as map and filter in terms of deferred calculations
+
+16:46.590 --> 16:47.800
+for the next example.
+
+16:47.850 --> 16:51.410
+Let's take a look at how we might do a list comprehension.
+
+16:51.420 --> 16:56.700
+When we're dealing with two sequence types two intervals just like we had in the beginning when we were
+
+16:56.760 --> 16:59.510
+adding elements of two sequences.
+
+16:59.520 --> 17:03.540
+So let's take two lists and say One two three four five six.
+
+17:03.750 --> 17:10.820
+Let's take L2 equal to 10 20 30 40 and we want to add elements from L 1 and 2.
+
+17:10.830 --> 17:12.710
+So let's go ahead and do that.
+
+17:12.710 --> 17:20.460
+So how to do this using our map right before we just had to do something like this just to call.
+
+17:20.480 --> 17:23.350
+And actually I'm going to put a list over there right away.
+
+17:23.760 --> 17:30.330
+So map we're going to take a lambda expression it's going to take two arguments it's going to add those
+
+17:30.330 --> 17:37.200
+arguments are and we're going to apply this to everyone else too and put in my extra parentheses and
+
+17:37.200 --> 17:38.550
+there we go.
+
+17:38.610 --> 17:44.290
+Now we can do this using a list comprehension or a generator expression however you want to do it and
+
+17:44.320 --> 17:44.790
+here.
+
+17:44.820 --> 17:45.840
+What are we going to want to do.
+
+17:45.840 --> 17:49.200
+Well we're going to want to add X plus why.
+
+17:49.620 --> 17:55.750
+And this is for for x y in Zipp of L-1 and held to right.
+
+17:55.770 --> 18:00.510
+So we're going to zip L1 L2 up which means now we're going to end up with an interval that contains
+
+18:00.750 --> 18:06.540
+tuples the tuples two elements in the tuples because we have two lists here.
+
+18:06.870 --> 18:11.540
+So we can unpack them into x and y as we do the iteration.
+
+18:11.700 --> 18:16.350
+And then we're going to walk over x and y add them together and that will form the elements for the
+
+18:16.350 --> 18:17.820
+new list.
+
+18:17.850 --> 18:23.550
+So if we do that we get the same thing with 20 to 30 3:44.
+
+18:23.600 --> 18:26.450
+Now we can also add filtering in there.
+
+18:26.630 --> 18:33.840
+Let's say that we want to filter this list and we only want to keep elements in here that are even like
+
+18:33.860 --> 18:35.000
+we want to do that.
+
+18:35.240 --> 18:40.100
+Well what we'd have to do is would have to write a filter we'd have to say filter.
+
+18:40.210 --> 18:45.650
+Now will have to have a lambda that calculates where the something is even or not which misses a divisible
+
+18:45.650 --> 18:46.520
+by 2.
+
+18:46.760 --> 18:51.940
+So I would say X div 2 month 2 Sorry equals zero.
+
+18:52.070 --> 18:55.880
+That's how we're going to define or determine if something is even or not.
+
+18:56.120 --> 18:57.450
+What are we going to pass in there.
+
+18:57.470 --> 19:03.130
+Well we want to pass whatever generated this list here which was this map over here.
+
+19:03.380 --> 19:05.230
+So let's go ahead and put that in.
+
+19:05.480 --> 19:05.990
+Okay.
+
+19:06.170 --> 19:09.520
+And then lastly we want to make this into a list.
+
+19:09.620 --> 19:11.600
+So we have to put a list.
+
+19:11.810 --> 19:16.340
+So now if we do this we only get 20 to 40 foldback which is indeed correct.
+
+19:16.340 --> 19:19.100
+Right 11 and 33 odd they got tossed out.
+
+19:19.430 --> 19:23.150
+So this is one way of doing it using the map and the filter.
+
+19:23.210 --> 19:24.340
+It's kind of reverse right.
+
+19:24.350 --> 19:30.930
+You have to do your map inside you've got to calculate your map first and then you have to do your filter.
+
+19:31.520 --> 19:35.480
+So instead you could use a list comprehension to do the following.
+
+19:35.680 --> 19:36.770
+What do we want to return.
+
+19:36.770 --> 19:37.610
+We want to return.
+
+19:37.610 --> 19:40.050
+Well first of all let's start with the iteration.
+
+19:40.250 --> 19:43.260
+We're going to iterate for X Y and Z.
+
+19:43.410 --> 19:44.850
+Well one common L two.
+
+19:45.050 --> 19:45.580
+OK.
+
+19:45.860 --> 19:48.400
+So we're going to iterate through those tuples.
+
+19:48.950 --> 19:51.610
+But and what are we going to return.
+
+19:51.610 --> 19:53.170
+We're going to return x.
+
+19:53.180 --> 19:54.370
+Plus Y.
+
+19:54.520 --> 19:57.340
+Right but what do we want.
+
+19:57.340 --> 20:00.070
+We only want to keep it if X plus Y's even.
+
+20:00.130 --> 20:08.360
+So we can say if x plus y mom to pick these people to zero.
+
+20:08.710 --> 20:09.270
+OK.
+
+20:09.520 --> 20:12.510
+So here's a list comprehension and we get the same thing back.
+
+20:12.660 --> 20:13.210
+OK.
+
+20:13.360 --> 20:20.590
+You'll notice that we have this statement here that's going to perform the filtering for us.
+
+20:20.590 --> 20:27.310
+So if X-post why not is zero then we're going to keep this iteration and we're going to return x plus
+
+20:27.310 --> 20:33.970
+y given that X and Y are being iterated through this Zipp which is basically a collection of tuples
+
+20:34.360 --> 20:37.140
+made up of a one and two.
+
+20:37.140 --> 20:37.560
+All right.
+
+20:37.560 --> 20:42.180
+So as you can see you can use either the map and the filter functions.
+
+20:42.180 --> 20:46.740
+Now again this is resulting in a list if you want.
+
+20:46.730 --> 20:52.560
+You can make a generator which means it doesn't actually calculate everything until you request it.
+
+20:52.560 --> 20:52.880
+Right.
+
+20:52.890 --> 20:56.070
+So if I print results it's just going to be a generator.
+
+20:56.460 --> 21:02.040
+And we don't have actually any calculations done that's been deferred until we actually iterate through
+
+21:02.040 --> 21:04.670
+it solved by doing something like this.
+
+21:04.710 --> 21:08.170
+Iterate through it and generates the actual list out of it.
+
+21:08.240 --> 21:11.320
+Again we just get twenty two and forty four out.
+
+21:11.430 --> 21:11.960
+All right.
+
+21:12.000 --> 21:14.370
+So thanks for watching and I'll see you in the next video.

@@ -1,0 +1,760 @@
+WEBVTT
+
+00:00.330 --> 00:06.720
+Hi and welcome to parent one of the Python deep dive lecture series I'm really glad that you're joining
+
+00:06.720 --> 00:13.360
+me in this journey to understanding Python at a much deeper and more fundamental level.
+
+00:13.380 --> 00:15.230
+So what is this course about.
+
+00:15.270 --> 00:20.360
+Well it's about the Python language and the built in types and the standard library.
+
+00:20.370 --> 00:22.860
+This is not about third party libraries.
+
+00:22.860 --> 00:26.370
+There are tons of great third party libraries.
+
+00:26.580 --> 00:32.400
+But I think before we start diving into third party libraries as Python developers we need to really
+
+00:32.400 --> 00:39.870
+understand what's already built in Python is called a batteries included type of language and it really
+
+00:39.870 --> 00:43.010
+goes beyond the language because it's the standard library.
+
+00:43.050 --> 00:47.850
+So there's a ton of functionality built into Python and we should really understand and know you know
+
+00:48.180 --> 00:50.170
+what that functionality is.
+
+00:51.730 --> 00:57.600
+So this is hopefully a course that's going to help you become an expert Python developer.
+
+00:58.180 --> 01:04.490
+It took me a long time to really truly understand Python and I'm still learning things every day.
+
+01:04.600 --> 01:09.620
+And I hope that this course will make that journey for you a little bit easier.
+
+01:10.330 --> 01:13.260
+It's also going to be about idiomatic Python.
+
+01:13.720 --> 01:15.720
+So what do I mean by idiomatic Python.
+
+01:15.730 --> 01:18.150
+Well the thing that you really should look at.
+
+01:18.160 --> 01:22.790
+It's called the Zen of Python if you haven't seen this before it was written by Tim Peters.
+
+01:23.080 --> 01:27.550
+And if you're in a python shell you can just type import this.
+
+01:27.580 --> 01:32.710
+And when you import this and you can also get it from Pepp 20 which are Pep's.
+
+01:32.720 --> 01:40.060
+But by the way are very important documents that talk about the functionality of Python as it gets implemented.
+
+01:40.390 --> 01:45.310
+Sometimes Pep's get implemented into the language sometimes they're not.
+
+01:45.310 --> 01:49.080
+And even the ones that aren't implemented are really useful to read.
+
+01:49.120 --> 01:54.400
+So I strongly suggest that you start looking at the Peppe documents and we'll talk more about perhaps
+
+01:54.400 --> 01:55.900
+later on.
+
+01:55.930 --> 01:59.380
+So here's the Zen of Python I'm not going to spend any time discussing that.
+
+01:59.380 --> 02:04.820
+I just wanted to mention it so that you keep this at the back of your mind and keep going back to this.
+
+02:04.900 --> 02:11.890
+You don't think about it because that I think helps people you know that helps us write good pythonic
+
+02:11.890 --> 02:12.690
+code.
+
+02:13.180 --> 02:15.160
+So beautiful is better than ugly.
+
+02:15.220 --> 02:20.640
+Explicit is better than implicit simple is better than complex.
+
+02:20.750 --> 02:22.220
+Keep it simple right.
+
+02:22.790 --> 02:28.860
+But complex is better than complicated things can be complex but they don't have to be complicated.
+
+02:28.880 --> 02:36.920
+Flat is better than nested spouse is better than dense readability counts and you'll hear me mention
+
+02:36.920 --> 02:43.040
+that again and again that you all throughout the scores that readability is really important not to
+
+02:43.040 --> 02:45.720
+the Python compiler and interpreter.
+
+02:45.770 --> 02:50.870
+It couldn't care less if it if the code is readable and dense and nested.
+
+02:50.870 --> 02:54.680
+And you know and complicated it doesn't care.
+
+02:54.680 --> 02:56.140
+Why do we care about it.
+
+02:56.150 --> 02:58.430
+Because human beings are writing the code.
+
+02:58.430 --> 03:00.630
+Human beings are reading the code.
+
+03:00.650 --> 03:06.950
+We need to be able to understand as human beings what that code does because that's the only way that
+
+03:06.950 --> 03:08.590
+first of all we're able to write it.
+
+03:08.630 --> 03:16.150
+And the only way that we're able to the budget and understand what something does special cases and
+
+03:16.240 --> 03:21.060
+special enough to break the rules but practicality beats purity.
+
+03:21.060 --> 03:24.300
+Sometimes you do break the rules sometimes you don't.
+
+03:24.300 --> 03:28.300
+We have conventions and I'll talk about conventions like naming conventions.
+
+03:28.410 --> 03:30.290
+Sometimes you break those conventions.
+
+03:30.300 --> 03:37.530
+It's OK to do that but it should be you know an explicit thought process on your rant about I I'm going
+
+03:37.530 --> 03:44.610
+to break this rule I'm going to break this convention for some specific reason Arabs should never pass
+
+03:44.610 --> 03:48.110
+silently unless explicitly silenced.
+
+03:48.170 --> 03:50.810
+And we'll get to that in a later.
+
+03:50.840 --> 03:58.350
+Our series actually when we look at error handling and error trapping in the face of ambiguity refuse
+
+03:58.350 --> 04:00.100
+the temptation to guess.
+
+04:00.210 --> 04:05.060
+There should be one and preferably only one obvious way to do it.
+
+04:05.070 --> 04:09.750
+There's always more than one way to do something but this should really only be one obvious way to do
+
+04:09.750 --> 04:10.040
+it.
+
+04:10.260 --> 04:17.490
+And it's this all goes back to this pythonic or idiomatic way of programming although that way may not
+
+04:17.490 --> 04:19.830
+be obvious at first unless you're Dutch.
+
+04:19.830 --> 04:24.330
+If you're wondering what that means you need to look at who created Python.
+
+04:24.380 --> 04:26.630
+It was Guido and rasam who is Dutch.
+
+04:26.730 --> 04:34.230
+So that's obviously a reference to him now is better than never but never is often better than right
+
+04:34.230 --> 04:34.890
+now.
+
+04:34.890 --> 04:36.030
+Don't rush into things.
+
+04:36.030 --> 04:41.270
+Think about it if the implementation is hard to explain it's a bad idea.
+
+04:41.430 --> 04:45.820
+If the implementation is easy to explain it may be a good idea.
+
+04:45.970 --> 04:48.420
+A name spaces are one honking great idea.
+
+04:48.480 --> 04:54.690
+Let's do more of those and we'll talk about name spaces in this part of the series in the section on
+
+04:54.690 --> 04:58.790
+modules and packages All right.
+
+04:58.790 --> 05:00.790
+So what's the cost going to cover.
+
+05:00.830 --> 05:02.670
+Well first we'll do a quick refresher.
+
+05:02.720 --> 05:06.200
+You should already know Python coming in but only at a beginner level.
+
+05:06.230 --> 05:11.460
+You don't have to know a whole lot but you know you should be aware of Python's type hierarchy.
+
+05:11.540 --> 05:17.480
+You know some of the least some of the basic data types like ints and floats and tables and lists and
+
+05:17.480 --> 05:22.960
+dictionaries kind of the simple stuff anything you get in introductory Python calls.
+
+05:23.120 --> 05:25.040
+We'll talk about variables.
+
+05:25.040 --> 05:27.180
+We'll talk about conditionals if else.
+
+05:27.200 --> 05:32.780
+Elif We'll talk about functions using the def statement.
+
+05:32.850 --> 05:33.860
+We'll talk about loops.
+
+05:33.860 --> 05:36.320
+The full loop in the while loop.
+
+05:36.590 --> 05:41.750
+Then we'll talk about break and continue which is how we can break and continue out of loops but in
+
+05:41.750 --> 05:47.010
+the context of tri statements and then we'll cover classes as well.
+
+05:47.020 --> 05:49.060
+So this is really just a quick refresher.
+
+05:49.060 --> 05:50.800
+It's going to be a very basic Python.
+
+05:50.800 --> 05:56.380
+I'm not going to get into a lot of details on this just to make sure that we have the basics covered.
+
+05:58.690 --> 06:01.230
+The first main topic is going to be variables and memory.
+
+06:01.240 --> 06:03.780
+What are those things really what are variables.
+
+06:04.060 --> 06:08.640
+And we'll see that they're mainly just symbols and symbols for memory addresses.
+
+06:08.800 --> 06:10.480
+So we'll see what that is.
+
+06:10.480 --> 06:12.130
+So we'll talk about memory.
+
+06:12.310 --> 06:17.740
+We'll talk about Python memory management and particularly We'll talk about reference counting and garbage
+
+06:17.740 --> 06:18.280
+collection.
+
+06:18.280 --> 06:21.340
+Those two are related but they're not exactly the same.
+
+06:21.400 --> 06:27.520
+We'll talk about mutability and immutability What is that in reality and in particular will also focus
+
+06:27.520 --> 06:31.270
+on mutability with function arguments and shared references.
+
+06:31.270 --> 06:38.320
+Because there are some caveats there and then we'll talk about equality what is the quality of two objects
+
+06:38.350 --> 06:44.920
+What does it mean to try and compare two objects then we'll talk about Python memory optimizations.
+
+06:44.920 --> 06:49.490
+Python does some things that once you start understanding what variables are in memory and equality
+
+06:49.660 --> 06:53.970
+of objects you may be surprised at some of the things that are happening.
+
+06:54.280 --> 06:59.920
+And that's because Python is trying to optimize memory usage and optimize the office speed.
+
+06:59.950 --> 07:01.630
+So it's trying to do some optimization.
+
+07:01.630 --> 07:07.480
+So we'll talk about those We'll talk about interning string interning peephole optimizations and we'll
+
+07:07.480 --> 07:09.190
+see what Python does.
+
+07:09.190 --> 07:12.040
+Next we'll cover numeric types in a lot of detail.
+
+07:12.250 --> 07:16.090
+So obviously we'll talk about integers but we'll talk about rationals as well.
+
+07:16.130 --> 07:20.060
+Fraction's basically we'll talk about floats in depth.
+
+07:20.200 --> 07:26.890
+So we'll first look at the binary representations of Flo's how our floats actually represented in computers.
+
+07:26.890 --> 07:31.740
+Computers really only understand zeros and ones bind Riveras.
+
+07:31.870 --> 07:37.180
+So we'll talk about the exactness of floats or the lack thereof and we'll talk about the standards the
+
+07:37.360 --> 07:42.570
+Tripolis standards for representing floats and computers which is what Python implements.
+
+07:42.910 --> 07:44.790
+So we'll talk about rounding as well.
+
+07:44.800 --> 07:51.520
+And if you haven't spent any time with rounding in Python and many other languages you might be surprised
+
+07:51.520 --> 07:54.490
+at what happens when you're around so numbers.
+
+07:54.760 --> 08:01.210
+Then we'll talk about equality of floats and why in general we don't use equality in terms of values
+
+08:01.210 --> 08:02.030
+with floats.
+
+08:02.050 --> 08:06.130
+It doesn't work and it has to do with the exactness.
+
+08:06.130 --> 08:11.050
+And so we'll talk about something that's related to that which is approximate equality or measures of
+
+08:11.050 --> 08:12.250
+closeness.
+
+08:12.400 --> 08:16.850
+If we can compare floats directly through equality how can we compare them.
+
+08:18.350 --> 08:19.860
+Then we'll talk about decimals.
+
+08:20.030 --> 08:22.360
+And that's an alternative to floats.
+
+08:22.370 --> 08:28.340
+We'll talk about the exactness and the precision that we have in decimals and then we'll also talk about
+
+08:28.340 --> 08:30.240
+rounding and decimals too.
+
+08:30.830 --> 08:33.620
+And then finally we'll top that off with complex numbers.
+
+08:33.620 --> 08:36.790
+We're not going to explain what complex numbers are.
+
+08:37.010 --> 08:41.770
+We're just going to basically talk about the fact that you know we have complex numbers built in to
+
+08:41.780 --> 08:48.710
+Python and then I also show you very quickly the math standard library which is for complex numbers
+
+08:48.710 --> 08:53.080
+like math is the standard library for floats.
+
+08:53.450 --> 08:59.730
+The last numeric type that will look at other booleans they're actually integers booleans are integers
+
+09:00.200 --> 09:02.420
+and we'll see them in the lectures.
+
+09:02.420 --> 09:08.900
+But we'll see that every object in Python has an associated truth value and everything in Python is
+
+09:08.900 --> 09:10.800
+an object including functions.
+
+09:10.820 --> 09:13.550
+So functions actually have truth values to them.
+
+09:15.260 --> 09:19.320
+They will talk about precedence and short circuiting with booleans.
+
+09:19.320 --> 09:25.520
+We'll talk about the boolean operators the and and the oils and the NOTs and what they really do because
+
+09:25.520 --> 09:31.190
+very often we come in thinking you are all well the boolean operators and in all they just you know
+
+09:31.190 --> 09:36.510
+take for example to boolean values and they return a boolean value not so in Python.
+
+09:36.530 --> 09:43.770
+It actually does something else so we'll see then are those boolean operators how we can leverage their
+
+09:43.860 --> 09:49.940
+actual functionality in the context of the associated truth values that every object has.
+
+09:50.070 --> 09:52.800
+Then we'll also talk about the comparison operators.
+
+09:52.800 --> 09:55.700
+So we have things like identity and value equalities.
+
+09:55.710 --> 09:57.560
+What are those what do they mean.
+
+09:58.020 --> 10:00.960
+And we'll talk about the ordering comparisons as well.
+
+10:00.960 --> 10:06.840
+And very briefly we'll mention the membership comparison operators as well like in and not in.
+
+10:06.930 --> 10:09.630
+But those actually will be in part two of the series.
+
+10:09.720 --> 10:17.570
+When we look at our intervals so functions will start off with higher order functions functions are
+
+10:17.570 --> 10:23.030
+first class objects in Python and so we can have what are called higher order functions which are functions
+
+10:23.030 --> 10:26.910
+that can take in off return functions.
+
+10:27.110 --> 10:29.090
+We'll look at docstring and annotations.
+
+10:29.120 --> 10:34.100
+We look at lambda expressions or lambda functions that just plain ordinary functions.
+
+10:34.100 --> 10:36.810
+There's nothing particularly special about them.
+
+10:36.890 --> 10:38.900
+They will look at introspection and functions.
+
+10:38.900 --> 10:44.390
+How can we introspect a function to get a hold of the variables and the default values and things like
+
+10:44.390 --> 10:45.130
+that.
+
+10:45.350 --> 10:49.400
+And even the code then we'll dig into functional programming.
+
+10:49.460 --> 10:52.880
+So we'll look at things like Map filter and zip.
+
+10:52.940 --> 10:59.090
+We'll also look at reducing functions and we'll look at partial functions as well and then we'll see
+
+10:59.120 --> 11:05.870
+how a lot of this can actually be replaced by using lambdas and other techniques that we have in python
+
+11:06.500 --> 11:14.860
+like for example comprehensions so functions and arguments so we'll talk about arguments in depth as
+
+11:14.860 --> 11:15.220
+well.
+
+11:15.250 --> 11:20.310
+The way that we can specify arguments to functions in Python is actually quite complex.
+
+11:20.350 --> 11:22.610
+It's very flexible.
+
+11:22.730 --> 11:25.890
+So we have positional arguments and keyword only arguments.
+
+11:25.910 --> 11:30.830
+We'll talk about those We'll talk about default values and we'll talk about caveats with default values
+
+11:30.830 --> 11:36.520
+because we have to be careful with default values and then we'll talk about packing and unpacking of
+
+11:36.530 --> 11:42.170
+iterable in general and then we'll talk about packing and unpacking of arguments for functions.
+
+11:42.320 --> 11:47.690
+We'll also talk about variable positional arguments we can have a variable number of positional arguments
+
+11:47.750 --> 11:50.410
+as well as variable keyword arguments.
+
+11:52.080 --> 11:56.800
+That we'll talk about scopes and then closures closures is very important.
+
+11:56.840 --> 12:01.940
+So we'll cover a global and local scopes will explain what those are we'll look at nested scopes and
+
+12:01.940 --> 12:04.790
+then we'll look at closures and what are closures.
+
+12:04.820 --> 12:06.980
+And that's really important.
+
+12:06.980 --> 12:09.200
+And then we'll look at nested closures as well.
+
+12:09.200 --> 12:10.910
+That's also really important.
+
+12:10.910 --> 12:17.490
+We can nest closures with inclosures and that will then lead us to decorator's.
+
+12:17.490 --> 12:21.370
+So we'll look at what decorator's are how we can create decorator's.
+
+12:21.690 --> 12:28.700
+We'll look at how we can create nested decorator's since decorators are basically closures and then
+
+12:28.700 --> 12:35.150
+we'll see once we have this concept of nested closures and decorators how we can have parameterised
+
+12:35.240 --> 12:39.510
+decorators will look at how decorators can be stacked.
+
+12:39.530 --> 12:42.450
+We'll look at how we can decorate classes.
+
+12:44.170 --> 12:50.060
+And we'll look at how we can use classes to decorate functions or classes.
+
+12:50.200 --> 12:53.210
+So class decorators and decorator classes.
+
+12:53.440 --> 12:58.870
+And then we'll look at applications of decorators so we'll look at things like memoization single dispatch
+
+12:58.870 --> 13:01.460
+generic functions logging timing.
+
+13:01.660 --> 13:07.390
+Some of these are actually part of the standard library but I will show you how we actually build those
+
+13:07.390 --> 13:12.180
+things and we'll do it ourselves and then we can use the ones that are built into the standard library.
+
+13:12.310 --> 13:17.110
+But at least we'll have a foundation of understanding how it works and I'll show you a different memorization
+
+13:17.110 --> 13:20.510
+techniques as well as well as other types of decorators.
+
+13:23.130 --> 13:29.070
+Then we'll look at topples toppled very often are presented as read only lists and I do the same thing
+
+13:29.100 --> 13:34.570
+you know when somebody asked me what's a top all the easy answer is it's a read only list and it is
+
+13:34.590 --> 13:38.380
+it is a read only list there's nothing wrong with thinking of it that way.
+
+13:38.670 --> 13:42.390
+But a tadpole is really not just a read only list.
+
+13:42.390 --> 13:43.740
+There's actually a lot more to it.
+
+13:43.740 --> 13:50.900
+It's actually a data structure and we can use it as a read only list but it's really a data structure.
+
+13:50.900 --> 13:53.020
+So we'll look at that in some detail.
+
+13:53.070 --> 13:56.170
+We'll look at packing and unpacking of topples.
+
+13:56.290 --> 14:02.370
+We'll look at something called named topples and why we really should leverage these far more often
+
+14:02.370 --> 14:03.210
+than we do.
+
+14:04.060 --> 14:09.010
+And then we'll look at how we can augment name topples We'll look at name type of manipulations extending
+
+14:09.010 --> 14:11.270
+them topples not through class extensions.
+
+14:11.290 --> 14:15.680
+This is just going to be extending it creating one name top or from another.
+
+14:15.850 --> 14:22.000
+We'll look at also adding doc strings to name topples We'll look at setting default values for name
+
+14:22.010 --> 14:24.410
+topples We'll look at two different methods of doing that.
+
+14:26.200 --> 14:30.300
+And then lastly we'll look at models packages and name spaces.
+
+14:30.340 --> 14:36.520
+I think that module's packages is probably one of the more complex parts of Python.
+
+14:36.610 --> 14:40.460
+We kind of write Python code we write them in files and those are modules.
+
+14:40.480 --> 14:42.450
+But what our modules really.
+
+14:42.580 --> 14:46.660
+And what happens when do they get executed when you know what happens when.
+
+14:46.660 --> 14:47.680
+When do they get loaded.
+
+14:47.680 --> 14:49.320
+How do they get loaded.
+
+14:49.600 --> 14:54.860
+Well look at all that then we'll look at what packages are and how they relate to modules.
+
+14:54.970 --> 14:57.790
+We'll see how the various imports work.
+
+14:57.790 --> 14:59.260
+If you've worked with Python.
+
+14:59.290 --> 15:02.740
+Import statements before you know that there's different variants.
+
+15:02.740 --> 15:09.330
+You can say from you know this import that or import this or from this import stuff.
+
+15:09.460 --> 15:11.830
+There's different variants of that import statement.
+
+15:11.830 --> 15:15.810
+We'll see what each one of them does and how they relate to each other.
+
+15:16.390 --> 15:20.020
+We'll see how we can manipulate name spaces using packages.
+
+15:20.080 --> 15:25.810
+So packaging is something that allows us to split our code in different ways.
+
+15:25.810 --> 15:30.940
+And yet we can still present it in a different form to whoever's using our code.
+
+15:30.970 --> 15:34.400
+So it will take a look at that and quite a bit of detail as well.
+
+15:34.420 --> 15:41.260
+We'll look at Zip archives and some of the fun stuff we can do and we can actually run python applications
+
+15:41.260 --> 15:45.730
+directly from a zip file and we can also import directly from is a file.
+
+15:45.760 --> 15:50.730
+So we'll see how to do that and then we'll talk about down the main as well in that context.
+
+15:50.950 --> 15:53.090
+And we'll see what done Dumaine does.
+
+15:53.290 --> 15:57.010
+And there's actually two flavors of dumb domain and we'll look at both of them.
+
+15:59.400 --> 16:01.860
+And then finally there's the extra section.
+
+16:01.860 --> 16:06.780
+So this is really you know something that's going to keep growing over time it's kind of a miscellaneous
+
+16:07.160 --> 16:08.880
+know bag.
+
+16:08.880 --> 16:15.510
+I'll talk about important new features of Python 3.6 and later as they come out.
+
+16:15.600 --> 16:22.470
+Anything that I find interesting or important I'll add to that I'll talk about best practices sometimes
+
+16:22.470 --> 16:27.750
+are you know the do's and don'ts of sovern things I'll pick examples and show you.
+
+16:27.840 --> 16:31.370
+It's going to be a random collection of interesting stuff we own.
+
+16:31.380 --> 16:38.460
+For example I will cover random collections and also will give you additional resources.
+
+16:38.490 --> 16:41.780
+I have already some videos on that on additional resources.
+
+16:41.770 --> 16:47.240
+And as I find new ones I will keep updating that as well and then send me your suggestions.
+
+16:47.250 --> 16:51.480
+Really I think you know anything that you want to see in here let me know.
+
+16:51.480 --> 16:55.920
+Send me your suggestions and I'll see if I can come up with something.
+
+16:55.920 --> 16:59.640
+All right so I hope that you're going to enjoy this course.
+
+16:59.760 --> 17:03.970
+It's going to go into Python into quite a bit of detail.
+
+17:04.080 --> 17:08.400
+So this is not an introductory course you should have a background in Python already.
+
+17:08.460 --> 17:15.560
+And the next two articles in this section will explain you know what you should know already.
+
+17:15.600 --> 17:20.790
+What are the prerequisites for this cause and kind of what you're going to need in order to follow along
+
+17:20.790 --> 17:22.780
+with me which is not a whole lot.
+
+17:22.830 --> 17:29.160
+You need to be able to run Python and you should be running Python 3 6 or above and you need to be able
+
+17:29.160 --> 17:36.000
+to either you know create python files using command line and you know something like vi editor or you
+
+17:36.000 --> 17:37.030
+can use pi charm.
+
+17:37.050 --> 17:42.570
+I'm going to use Jupiter notebooks quite a bit because it allows me to intersperse comments with code
+
+17:42.780 --> 17:47.490
+so you'll find that a lot of the code that I have in the schools is going to be in Jupiter notebooks
+
+17:47.670 --> 17:50.320
+but you don't have to use a Jupiter notebook to follow along.
+
+17:50.490 --> 17:58.470
+You can just type it directly into a console Python console or you can use you know files and type of
+
+17:58.470 --> 18:04.500
+code and files and then compile it and run it from a command line however you want to do it that's fine.
+
+18:04.500 --> 18:08.080
+So thanks for watching and I'll look forward to seeing you in the next video.

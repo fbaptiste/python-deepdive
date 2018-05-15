@@ -1,0 +1,583 @@
+WEBVTT
+
+00:00.180 --> 00:07.550
+High in this video we're going to consider some import variants as well as some common misconceptions.
+
+00:07.740 --> 00:12.170
+So let's take a look at the various ways that we do important in Python.
+
+00:12.240 --> 00:17.850
+Suppose we have some module that code module one and let's say we do import math.
+
+00:17.880 --> 00:24.640
+That's kind of plain vanilla simplest import we can do import math what does that actually do.
+
+00:25.110 --> 00:31.260
+Well the first thing it does is it checks to see is math in six modules so it looks at this dictionary
+
+00:31.550 --> 00:31.910
+called.
+
+00:31.950 --> 00:37.800
+Let's say we can see and modify insist manual's if it's not.
+
+00:37.810 --> 00:42.510
+It loads the math model and inserts a reference to it insists modules.
+
+00:42.520 --> 00:46.200
+So it creates this module from math in memory.
+
+00:46.270 --> 00:47.260
+It's an object.
+
+00:47.530 --> 00:55.000
+And it sets a reference to the math module with the key math insists modules.
+
+00:55.110 --> 01:02.250
+Then the next step that it does is it adds the math symbol to model 1's global namespace referencing
+
+01:02.250 --> 01:03.670
+the same object.
+
+01:03.720 --> 01:10.200
+In other words if we look at the global namespace of module one we now will have the key math and will
+
+01:10.200 --> 01:17.370
+have this module object and you'll notice that the math symbol is now in our namespace.
+
+01:17.380 --> 01:23.960
+Now if the math symbol already exists in here then all it does it replaces the reference to be this
+
+01:23.960 --> 01:25.220
+reference over here.
+
+01:25.490 --> 01:33.010
+So in both cases what happens at the end of the day is that the math key the math symbol in Module 1
+
+01:33.010 --> 01:42.580
+dog Global's is referencing the same object as the math symbol in the CIS modules not just look at the
+
+01:42.580 --> 01:44.100
+second variant we can say.
+
+01:44.110 --> 01:47.790
+Simple math as let's say underscore math.
+
+01:48.100 --> 01:51.460
+All we're doing here is we aliasing the molecule map.
+
+01:51.700 --> 01:54.030
+But let's see exactly how that happens.
+
+01:54.070 --> 01:57.550
+First thing it does is it checks is math insist on modules.
+
+01:57.550 --> 01:58.580
+Same as before.
+
+01:58.630 --> 02:05.140
+It checks if it's not loads it and insults the reference but it is so the reference again just to math
+
+02:05.350 --> 02:07.180
+not all math math.
+
+02:07.180 --> 02:09.680
+That's the actual module.
+
+02:09.760 --> 02:16.830
+Now it as the underscore math symbol to the module one is global namespace referencing the same object.
+
+02:16.840 --> 02:22.360
+In other words if we look at our global namespace for module one we now have a symbol or a variable
+
+02:22.360 --> 02:25.360
+name if you want called our underscore math.
+
+02:25.690 --> 02:30.770
+And that will be the same object as the one that's in here on the map.
+
+02:31.030 --> 02:35.320
+And you'll notice that our underscore map is a symbol in our namespace.
+
+02:35.320 --> 02:38.360
+But math is not in our namespace.
+
+02:38.500 --> 02:42.930
+All math is in all namespace math already exists as does the same thing.
+
+02:42.930 --> 02:48.570
+It just replaces this reference to be the same as this reference over here that say we had our end of
+
+02:48.590 --> 02:54.430
+school math equals 10 before and then we do import math as aren't as cool math it will just change this
+
+02:54.430 --> 02:56.440
+reference to this one over here.
+
+02:56.500 --> 03:03.070
+So at the end of the day we end up with these two references being the same OK.
+
+03:03.080 --> 03:04.830
+How about from math.
+
+03:04.880 --> 03:06.490
+Simple as Q a..
+
+03:06.500 --> 03:10.840
+So here we're going to pick just a single function out of the math module.
+
+03:10.880 --> 03:18.000
+What happens well it goes back again and checks his math and science modules the same as before.
+
+03:18.260 --> 03:19.980
+So it checks the six modules.
+
+03:20.030 --> 03:25.650
+If it's not load the math module and insert the reference.
+
+03:25.840 --> 03:33.490
+And now what really changes is that it adds the symbol s q r t the square root symbol to our module.
+
+03:33.640 --> 03:38.870
+Global namespace referencing the function math up as Courante.
+
+03:39.220 --> 03:43.340
+So in our global namespace we now have the symbol s q r t.
+
+03:43.480 --> 03:45.440
+And this object over here.
+
+03:45.640 --> 03:51.010
+You'll notice that the math symbol is not in our namespace.
+
+03:51.140 --> 03:58.630
+So the math module gets loaded up anyway and the only difference really is what happens in our namespace.
+
+03:58.820 --> 04:05.050
+We have the s q r t symbol in our namespace but we don't have the math symbol in our namespace.
+
+04:05.060 --> 04:10.280
+Now if the security symbol already exists it just replaces the reference.
+
+04:10.280 --> 04:17.660
+Right so if we had let's say kyats equals 10 before and now we do from map import as q r t s q r t will
+
+04:17.860 --> 04:24.080
+your reference will now change to be whatever the square root function is inside the model it's an object.
+
+04:24.080 --> 04:30.120
+It's got a memory address that's going to be the memory address of the master as courante function or
+
+04:30.140 --> 04:33.580
+this object.
+
+04:33.800 --> 04:39.820
+How about this one from math import Eskew OTTI as our underscore as Q Arties.
+
+04:39.830 --> 04:47.460
+So here with aliasing the symbol that we're importing from the math module while Guess what is math
+
+04:47.460 --> 04:50.130
+insists modules is the forcing that it checks.
+
+04:50.130 --> 04:51.110
+So it looks at that.
+
+04:51.180 --> 04:52.310
+If it's not in there.
+
+04:52.380 --> 04:55.780
+Load the module and insert the reference again.
+
+04:55.800 --> 04:57.920
+It loaded the module.
+
+04:58.170 --> 05:05.880
+And now what's different is that it adds a symbol to our global namespace the symbol name will be our
+
+05:05.880 --> 05:10.230
+underscore square root and all reference the math dot square root function.
+
+05:10.230 --> 05:14.200
+So now our global namespace will have our underscore square root.
+
+05:14.250 --> 05:19.620
+You'll notice once more the math symbol itself is not in the namespace.
+
+05:19.830 --> 05:24.480
+And if the underscore Square would simple already exist it just replaces the reference.
+
+05:24.930 --> 05:31.050
+So you'll notice in all these cases the math module was loaded and was added to the CIS Bardwell's.
+
+05:31.050 --> 05:37.860
+What changed in every variant of the temple is what was actually put inside our global namespace.
+
+05:37.860 --> 05:43.630
+What symbol was Peeno were added to the namespace in our module.
+
+05:45.210 --> 05:52.410
+What about this one from Maff impulse stuff Well guess what his math and science models.
+
+05:52.740 --> 06:00.780
+If it is fine if it's not loaded and insert the reference and then what it does is it adds all and I'm
+
+06:00.780 --> 06:08.130
+putting that in quotes because it doesn't necessarily import everything that's in that you know that's
+
+06:08.130 --> 06:10.100
+in the math model.
+
+06:10.140 --> 06:12.520
+We'll see how we can actually control that.
+
+06:12.540 --> 06:17.610
+So the module being important can actually control what gets exported.
+
+06:17.640 --> 06:21.200
+It can control its exports and we'll take a look at that in more detail.
+
+06:21.690 --> 06:27.600
+So what happens here is that it's you know everything it finds that's that's being exported from the
+
+06:27.600 --> 06:33.300
+Maff module goes inside our Goebels directly so pie for example will be there for the sine function
+
+06:33.300 --> 06:38.490
+will be there the square wrote the exponential and everything that's in the math module so many many
+
+06:38.490 --> 06:42.510
+more will get imported into our global namespace.
+
+06:42.510 --> 06:49.450
+But once more the math symbol itself is not in the namespace and if any of these symbols already exist
+
+06:50.050 --> 06:55.330
+they'll be overwritten essentially the reference will be overwritten to be the new reference.
+
+06:55.330 --> 07:03.190
+So if we had Piko 3.1 forth before we called from math in Pollstar pi will now be pointing to the same
+
+07:03.190 --> 07:06.440
+PI object that was defined in the math module.
+
+07:08.470 --> 07:14.590
+So the commonality is that in every case the math module was loaded into memory and it was referenced
+
+07:14.590 --> 07:16.330
+in six modules.
+
+07:16.330 --> 07:21.170
+And then the you know the next time we do import math it's going to go unchecked in the CIS modules.
+
+07:21.190 --> 07:22.940
+If math is already there great.
+
+07:22.960 --> 07:24.330
+It doesn't have to reload it.
+
+07:25.370 --> 07:29.280
+So when we run from math import Eskew.
+
+07:29.720 --> 07:31.960
+There was no partial loading of math.
+
+07:31.970 --> 07:34.120
+This wasn't more efficient to load.
+
+07:34.130 --> 07:40.580
+It had to load the math module first anyways so there is a common misconception that if we say from
+
+07:40.580 --> 07:45.940
+math import Eskew Arti that's more efficient because we're not loading the entire math module.
+
+07:45.980 --> 07:48.070
+Well that's not true at all.
+
+07:48.140 --> 07:50.400
+It is loading the entire module.
+
+07:50.420 --> 07:57.260
+All we're doing is we're telling Python what do we want to be added to our namespace to our modules
+
+07:57.260 --> 07:57.950
+namespace.
+
+07:57.950 --> 08:04.430
+In this case I'm saying just add the Eskew Otty function to my namespace so it only affected what symbols
+
+08:04.430 --> 08:06.890
+were placed in module ones namespace.
+
+08:06.890 --> 08:11.010
+Now things are different with packages but for simple models this is the behavior.
+
+08:11.060 --> 08:17.480
+And that's because we can actually control what gets exported and we'll see with packages where you
+
+08:17.480 --> 08:21.020
+have basically modules and submodules you can think of it that way.
+
+08:21.110 --> 08:27.490
+Then you can control what gets imported when you import let's say a top level the whole module.
+
+08:27.500 --> 08:30.100
+But that's a little bit different when it comes to a module.
+
+08:30.110 --> 08:31.730
+The whole thing is imported.
+
+08:31.730 --> 08:40.590
+So for a module like math this isn't more efficient than just saying MBO man not why do some people
+
+08:40.650 --> 08:42.650
+not like this impulse stuff.
+
+08:42.690 --> 08:45.860
+While it can lead to bugs but it has its place.
+
+08:45.900 --> 08:49.810
+It has some usefulness and we'll see that when we look at packages.
+
+08:50.040 --> 08:51.860
+But let's say I wrote this kind of code.
+
+08:52.110 --> 08:53.980
+I say I say from CMF.
+
+08:54.000 --> 08:56.740
+That's the complex math library imports done.
+
+08:57.030 --> 09:03.320
+Then what happens is that in my Global's for module one in my namespace I have now this symbol.
+
+09:03.330 --> 09:07.460
+S q r t s q r t is a function in that C math module.
+
+09:07.710 --> 09:14.660
+So it gets imported and while the CMF module gets imported and then the reference to the Q and t function
+
+09:14.740 --> 09:19.770
+encima is set as a symbol in our global namespace.
+
+09:19.770 --> 09:23.550
+And now let's say that the next line of code runs this from math.
+
+09:23.550 --> 09:24.880
+Simple stuff.
+
+09:25.170 --> 09:27.530
+Well what happened now.
+
+09:27.660 --> 09:34.440
+Math also has an s courante function and a security symbol and ruined what I said about if the security
+
+09:34.440 --> 09:35.780
+symbol already exists.
+
+09:35.790 --> 09:39.790
+When I run this import here it will just update the reference.
+
+09:39.900 --> 09:46.680
+So no Eskew t is actually the math as Q R T function and so you can see where this could lead to bugs
+
+09:46.710 --> 09:50.530
+because essentially these two import stepped on each other.
+
+09:50.550 --> 09:54.180
+Math basically replaced anything that had a common name.
+
+09:54.540 --> 10:00.860
+So that's why we usually don't do any import stuff because you run the risk of overwriting you know
+
+10:00.990 --> 10:06.130
+a symbol from a previous import in your module so it's not always very safe.
+
+10:06.360 --> 10:11.970
+But if you're looking at something that's you know you know exactly what you are importing and you know
+
+10:11.970 --> 10:17.520
+that you've got you know a pretty unique name like you have from time import perf counter what are the
+
+10:17.520 --> 10:19.500
+library has per counter in it.
+
+10:19.560 --> 10:20.390
+Right so.
+
+10:20.490 --> 10:22.550
+And especially ones that you're going to import.
+
+10:22.920 --> 10:29.820
+But when it comes to these large modules that have a long list of symbols you don't always know exactly
+
+10:29.820 --> 10:36.190
+what's in that package and so you run the risk of overriding stuff so that's why the you know import
+
+10:36.190 --> 10:41.970
+star is usually frowned upon because it's very easy to introduce bugs into your code.
+
+10:41.970 --> 10:44.540
+Now what about efficiency what's more efficient.
+
+10:44.550 --> 10:48.250
+Simple math or from math imports to import.
+
+10:48.300 --> 10:49.410
+Square root.
+
+10:49.410 --> 10:54.710
+That's another common misconception from an importing standpoint.
+
+10:54.750 --> 10:57.850
+It's the same amount of work it has to import the math module.
+
+10:57.960 --> 11:03.450
+The only difference is which symbol does it add to all global namespace does it add math or does it
+
+11:03.470 --> 11:05.010
+add Eskew rescue T.
+
+11:05.070 --> 11:09.570
+There's really no overhead you know in the impulse statement.
+
+11:09.570 --> 11:11.160
+So what about calling.
+
+11:11.520 --> 11:12.930
+Well there's two ways we can call.
+
+11:12.950 --> 11:20.400
+If we did the simple math using this syntax over here then we have to reference the math symbol in our
+
+11:20.400 --> 11:24.180
+models namespace and then call square root right.
+
+11:24.180 --> 11:29.700
+Look at the square root function inside that math namespace and then call it with the value 2.
+
+11:29.790 --> 11:32.130
+If we did the second approach from Mt..
+
+11:32.190 --> 11:35.860
+Import square root then we just have to call square root of 2.
+
+11:35.880 --> 11:41.340
+All it has to do here is just find what is the function and call it.
+
+11:41.460 --> 11:47.370
+So in the first instance it needs to find the square root symbol in math namespace.
+
+11:47.610 --> 11:49.500
+And how does it get the math namespace.
+
+11:49.500 --> 11:52.080
+It has to look it up in our namespace.
+
+11:52.140 --> 11:54.490
+It has to look up the math object.
+
+11:54.510 --> 12:00.960
+Essentially in namespace and then it has to look up the square root function inside that namespace.
+
+12:01.050 --> 12:05.530
+If we the from math import s q on t the s q r t.
+
+12:05.550 --> 12:10.120
+Symbol is in our namespace and it directly points to the function being called.
+
+12:10.230 --> 12:15.090
+So there is one less look up in this second syntax.
+
+12:15.090 --> 12:20.730
+But if you think about what the lookups are the just dictionary lookups and in Python dictionary lookups
+
+12:20.790 --> 12:22.270
+are super fast.
+
+12:22.300 --> 12:28.530
+So is there really a lot of efficiency doing the second versus the first.
+
+12:28.530 --> 12:29.390
+Not really.
+
+12:29.400 --> 12:35.010
+We'll take a look at that will actually look at the code and timestamp and see how much of a difference
+
+12:35.010 --> 12:35.660
+it is.
+
+12:35.880 --> 12:41.370
+Now if you're running you know something if you're calling the square roots of function you know billions
+
+12:41.370 --> 12:43.820
+of times sure it's going to make a difference.
+
+12:43.950 --> 12:48.570
+But if you're calling it you know 10 times in your program it makes zero difference.
+
+12:48.570 --> 12:52.120
+If you call it a million times it makes zero difference.
+
+12:52.130 --> 12:53.660
+You call it 10 million times.
+
+12:53.820 --> 12:55.980
+It makes almost zero difference.
+
+12:56.050 --> 12:59.000
+So you know you have to think about this.
+
+12:59.010 --> 13:05.310
+And as usual when you try to optimize code don't write this kind of syntax simply because you're trying
+
+13:05.310 --> 13:07.940
+to optimize your code because our list runs faster.
+
+13:07.940 --> 13:12.360
+I should do that do things for readability at least initially.
+
+13:12.360 --> 13:13.830
+This is far more readable.
+
+13:13.830 --> 13:18.400
+I understand that this is the square root function that came from math because maybe I've got the quote
+
+13:18.420 --> 13:19.780
+function in C math.
+
+13:19.800 --> 13:21.680
+How do I know which one it's using.
+
+13:21.690 --> 13:26.220
+Then I've got to go and look up at you know look at the imports and then you know maybe I can put all
+
+13:26.220 --> 13:27.390
+your imports at the top.
+
+13:27.390 --> 13:32.000
+Maybe they're kind of scattered throughout and I've got to try and figure out what was the latest import
+
+13:32.400 --> 13:35.200
+and did it modify the square root function here.
+
+13:35.220 --> 13:37.250
+Where did the square root function come from.
+
+13:37.260 --> 13:39.270
+Right so it's less readable.
+
+13:39.270 --> 13:44.360
+I'm not going to start writing code to optimize unless I know that that is a bottleneck.
+
+13:44.370 --> 13:51.240
+So until you've determined that this is causing a bottleneck in your code don't go ahead and write this
+
+13:51.240 --> 13:53.600
+for optimization reasons.
+
+13:53.610 --> 13:57.890
+So with that said let's just switch to some code and see all this in action.
+
+13:58.020 --> 14:00.020
+Thanks for watching and I'll see you in a bit.

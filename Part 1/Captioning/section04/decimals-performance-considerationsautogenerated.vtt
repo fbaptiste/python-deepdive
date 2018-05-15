@@ -1,0 +1,433 @@
+WEBVTT
+
+00:01.080 --> 00:07.610
+High in this video we're going to look at some performance considerations when we use the decimal class.
+
+00:07.680 --> 00:11.490
+So there are some drawbacks to using the decimal class versus the floor class.
+
+00:11.490 --> 00:18.270
+Now we saw in previous videos why we might want to use the decimal class but we saw that constructing
+
+00:18.270 --> 00:20.110
+decimals are not that straightforward.
+
+00:20.120 --> 00:22.530
+You have to use strings or topples.
+
+00:22.530 --> 00:27.580
+So it's not as straightforward as constructing floats using just you know a numeric literals.
+
+00:27.720 --> 00:29.650
+So you have to be a little bit more careful there.
+
+00:29.810 --> 00:33.570
+And it's a little more tedious to create decimals.
+
+00:33.570 --> 00:39.060
+The other thing too is that not all the mathematical functions that exist in the math Mondial have a
+
+00:39.060 --> 00:46.080
+counterpart in the decimal class as we saw some operations like for example square root log exponents
+
+00:46.080 --> 00:48.940
+and so on do have a counterpart in decimal.
+
+00:49.200 --> 00:56.820
+But trigonometry functions Denot We also saw that the modern div operators don't walk the same way in
+
+00:56.820 --> 00:59.920
+decimals as they do with integers and floats.
+
+00:59.940 --> 01:04.940
+So again just things that you have to be aware of and sometimes be careful with.
+
+01:05.130 --> 01:11.850
+Thirdly there's more memory overhead creating decimal objects takes a lot more memory than floats relatively
+
+01:11.850 --> 01:12.750
+speaking.
+
+01:12.750 --> 01:18.360
+So if you have a lot of decimals that there have to be in memory at the same time you're going to use
+
+01:18.360 --> 01:23.970
+up more memory your memory footprint of your programs can be larger and maybe you know you'll run into
+
+01:23.970 --> 01:24.520
+trouble.
+
+01:24.520 --> 01:25.110
+That depends.
+
+01:25.110 --> 01:29.060
+I mean usually these days you have so much memory and systems that it doesn't really matter.
+
+01:29.310 --> 01:35.190
+But if you're doing a lot of numbers at the same time then you could run two issues.
+
+01:35.280 --> 01:40.240
+And then lastly performance the performance of decimals and what I'm talking about performance.
+
+01:40.250 --> 01:47.340
+I mean like arithmetic operators the math operators and so on is you know quite a lot slower than floats
+
+01:47.520 --> 01:48.720
+relatively speaking.
+
+01:48.720 --> 01:53.510
+Again we usually have high NCBI use that can run calculations very fast.
+
+01:53.520 --> 01:59.910
+But if you have to do a lot of calculations then you'll start seeing that performance is really degraded
+
+02:00.060 --> 02:01.430
+when it comes to decimals.
+
+02:01.530 --> 02:05.280
+So again just things that you have to be aware of the drawbacks.
+
+02:05.310 --> 02:09.290
+You can certainly use decibels and they can be really useful in certain situations.
+
+02:09.510 --> 02:15.300
+But if you're not worried about the precision then you really want to opt to use floats.
+
+02:15.300 --> 02:19.280
+So let's take a look at that in some code and see how all that actually works.
+
+02:20.140 --> 02:23.390
+So the first thing we're going to look at is the memory footprint.
+
+02:23.440 --> 02:24.530
+So for that.
+
+02:24.700 --> 02:32.980
+Well first let's import our decimal class from the decimal module will need that.
+
+02:33.100 --> 02:36.860
+And then we're also going to need the syste modules so we'll import that.
+
+02:37.210 --> 02:44.920
+And let's go ahead and create two values to variables one pointing to a float three point 1 4 1 5 let's
+
+02:44.920 --> 02:51.450
+say and the other one pointing to a decimal object with the same value in it.
+
+02:51.460 --> 02:56.310
+So here we have a and b and we can look at the size in bytes.
+
+02:56.680 --> 02:58.610
+So get size of a.
+
+02:58.990 --> 03:01.800
+And that takes up 24 bytes.
+
+03:02.050 --> 03:10.620
+But let's look at the size of the decimal object.
+
+03:15.150 --> 03:16.790
+Get size 0.
+
+03:17.530 --> 03:19.600
+And that is a whopping 104 bytes.
+
+03:19.720 --> 03:28.620
+So every decimal object you create requies 104 bytes as opposed to the floats that required 24.
+
+03:28.710 --> 03:34.230
+So that's almost five times as much so as you can see there's quite a larger memory footprint required
+
+03:34.410 --> 03:35.730
+for decimal objects.
+
+03:37.070 --> 03:40.570
+The next thing we want to look at is the computational performance.
+
+03:40.700 --> 03:46.760
+And when you're dealing with floats use are pretty good at you know doing arithmetic calculations and
+
+03:46.760 --> 03:48.540
+GPS use even more so.
+
+03:48.860 --> 03:53.350
+And you'll notice that there's definitely a degradation when we use decimals.
+
+03:53.390 --> 03:56.630
+So for that we're just going to do some rough timing again.
+
+03:56.630 --> 04:00.100
+We're going to use the time module.
+
+04:00.830 --> 04:02.440
+So we'll import time.
+
+04:02.690 --> 04:04.610
+And we already have all decimal.
+
+04:04.640 --> 04:06.650
+So that's fine.
+
+04:06.650 --> 04:12.390
+And we're going to define two functions and we're going to basically loop through doing something.
+
+04:12.410 --> 04:18.200
+The first thing we're going to look at is how long does it take to create a float versus creating a
+
+04:18.200 --> 04:19.130
+decimal.
+
+04:19.490 --> 04:22.130
+So let's go ahead and call this function.
+
+04:22.130 --> 04:29.300
+Def run float will pass in a parameter and for the number of times we want to loop the same code and
+
+04:29.300 --> 04:38.560
+we're just going to say for I in the range of end and all we're going to do here is just create a float.
+
+04:38.570 --> 04:38.940
+OK.
+
+04:38.990 --> 04:44.130
+So that's our run float and we're going to do the same thing.
+
+04:44.480 --> 04:46.040
+But we're going to use decimals.
+
+04:46.040 --> 04:53.590
+So death run death and hope and it goes once again just the default value for an eye and the range.
+
+04:53.630 --> 05:01.480
+And so we'll loop end times a equals decimal of three point 1 4 1 5.
+
+05:01.480 --> 05:04.890
+Again making sure we're passing a string when we do that.
+
+05:04.970 --> 05:05.540
+OK.
+
+05:05.750 --> 05:16.350
+So now we have those two methods that we are going to time and we're going to use a loop of 10 million.
+
+05:16.880 --> 05:21.300
+So we're going to loop 10 million times just so we can see a little bit more with the differences.
+
+05:22.130 --> 05:28.530
+And now we have to start so we do as a standard time of counter.
+
+05:28.780 --> 05:37.100
+OK then we're going to run float with and iterations and then we're going to set all time and we're
+
+05:37.100 --> 05:40.950
+going to read our full counter again.
+
+05:41.380 --> 05:54.240
+That up kick and then we're going to print and say that the float operation took off and minus the downs
+
+05:55.160 --> 05:57.600
+and minus kickstarts seconds.
+
+05:57.600 --> 05:58.050
+OK.
+
+05:58.460 --> 06:00.310
+And then we're going to do the same thing again.
+
+06:00.360 --> 06:07.170
+I'm just going to copy and paste this but it's a run float we're going to run decimal.
+
+06:07.340 --> 06:08.060
+OK.
+
+06:08.510 --> 06:15.200
+So that should give us an indication of the fact that creating decimal objects takes quite a bit longer
+
+06:15.200 --> 06:19.940
+than creating floats.
+
+06:19.960 --> 06:20.490
+All right.
+
+06:20.590 --> 06:25.820
+So it took 0.3 3 seconds to run this method here.
+
+06:25.960 --> 06:32.410
+And it took two point eight two point nine seconds three seconds almost 10 times slower basically to
+
+06:32.410 --> 06:35.230
+run the decimal version of that same method.
+
+06:36.150 --> 06:37.840
+So now we can do the same thing again.
+
+06:37.860 --> 06:44.100
+Let's copy paste this code and I'm going to copy paste this code as well since we're going to want to
+
+06:44.100 --> 06:46.610
+rerun it.
+
+06:49.700 --> 06:55.890
+But now instead of creating the float inside what we're going to do is we're going to create a big ones
+
+06:56.340 --> 06:57.830
+outside of the loop.
+
+06:57.840 --> 07:01.890
+So we're going to create at once and now we're going to look at an arithmetic operator we're just going
+
+07:01.890 --> 07:04.500
+to add a book with a.
+
+07:04.770 --> 07:07.250
+And then we're going to do the same thing here.
+
+07:07.340 --> 07:12.870
+We're going to create the decimal here and then we're going to calculate a plus a we're not going to
+
+07:12.870 --> 07:15.600
+assign it to a variable or anything like that.
+
+07:15.630 --> 07:20.190
+We're not going to incur that overhead that's not what we're trying to measure.
+
+07:20.190 --> 07:25.770
+We just want to see the time difference between additions with floats and additions with decimals.
+
+07:25.980 --> 07:27.870
+Let's go ahead and run that.
+
+07:28.700 --> 07:34.300
+And again as you can see zero point five seconds for the floats one second for the decimals.
+
+07:34.350 --> 07:36.020
+So you know substantially slower.
+
+07:36.030 --> 07:42.820
+Basically if you look at that it's a 100 percent slower to run the decimal OK.
+
+07:43.090 --> 07:48.370
+So that's a simple arithmetic operator and it kind of behaves the same way if you put in a multiplication
+
+07:48.370 --> 07:53.210
+sign you get approximately the same kind of difference between the two.
+
+07:53.290 --> 07:55.540
+Right 0.4 9 1 second.
+
+07:55.630 --> 07:57.040
+So that's fine.
+
+07:57.040 --> 08:04.700
+You know you can also look at Division for example if you want and it's going to be a very similar result.
+
+08:04.750 --> 08:10.960
+0.5 1.6 little slower there on the division which we probably would expect.
+
+08:11.410 --> 08:16.960
+Now though other thing we want to look at now is the square root some of the mathematical functions
+
+08:17.080 --> 08:20.010
+that are available in the decimal class.
+
+08:20.020 --> 08:21.850
+So let's go ahead and do that.
+
+08:21.850 --> 08:25.540
+So in order to do that we're going to make a couple of changes here.
+
+08:26.110 --> 08:31.600
+I'm going to first call the math library because we're going to need the square root function from the
+
+08:31.600 --> 08:32.540
+math module.
+
+08:32.830 --> 08:41.090
+And now I'm going to change the timing the loop counter I should say to 5 million instead of 10 million.
+
+08:41.110 --> 08:44.890
+I don't want to sit here waiting for too long for that that Sivells to finish.
+
+08:44.920 --> 08:46.670
+So we're going to do the same thing here.
+
+08:46.700 --> 08:49.360
+We're going to replace that with a square root.
+
+08:49.660 --> 08:54.970
+And here we want to use the built in square root of the decimal class so we have to use the instance
+
+08:54.970 --> 08:55.630
+method.
+
+08:55.690 --> 08:58.130
+So a dot square root.
+
+08:58.270 --> 08:58.860
+OK.
+
+08:59.320 --> 09:06.930
+And those will be the two the two methods of two functions we're going to time.
+
+09:07.010 --> 09:09.600
+So let's go ahead and run that.
+
+09:10.160 --> 09:17.740
+And then we go the flow took almost 1 second to run 0.9 and I can keep talking for a little while and
+
+09:17.750 --> 09:22.480
+that's why change that loop counter to 5 million instead of 10 million.
+
+09:22.560 --> 09:25.920
+I'm running out of things to say let's just wait patiently
+
+09:28.620 --> 09:29.310
+where we go.
+
+09:29.460 --> 09:31.130
+Eighteen point eight seconds.
+
+09:31.140 --> 09:33.710
+So as you can see substantially slower.
+
+09:33.900 --> 09:38.760
+When we did the square root function and you'll find similar results when you look at logs and things
+
+09:38.760 --> 09:40.200
+like that as well.
+
+09:40.200 --> 09:44.150
+So these are some of the performance considerations when using decimals.
+
+09:44.190 --> 09:50.390
+Obviously you don't want to use decimals just because you feel that you know you want extra precision.
+
+09:50.640 --> 09:55.260
+You only want to use decimals if you know that you really have to have that extra level of precision
+
+09:55.570 --> 10:02.550
+and that you don't want these problems that we get with binary floats having an exact we are infinite
+
+10:02.580 --> 10:10.470
+basically representations of the our regular decimal representation that are finite like 0.1 is finite
+
+10:10.470 --> 10:12.060
+as a decimal representation.
+
+10:12.270 --> 10:15.000
+But it's an infinite binary representation.
+
+10:15.060 --> 10:21.780
+So if those are things that you need to code around then decimals can work for you but otherwise stick
+
+10:21.780 --> 10:22.640
+to floats.
+
+10:22.650 --> 10:26.390
+They're more efficient they're run faster they're easier to work with.
+
+10:26.400 --> 10:26.840
+All right.
+
+10:27.000 --> 10:29.440
+Thanks for watching and I'll see you in the next video.

@@ -1,0 +1,67 @@
+WEBVTT
+
+00:00.550 --> 00:07.780
+High and the section of the course we're going to look at two really important things closures and decorator's.
+
+00:07.900 --> 00:10.350
+But first we'll start with scope's.
+
+00:10.600 --> 00:14.550
+So we'll look at variable scopes and we'll look at things called the local scope.
+
+00:14.590 --> 00:16.360
+We'll look at the global scope.
+
+00:16.390 --> 00:21.520
+We'll also look at something called the non local scope and then we'll consider the fact that scopes
+
+00:21.520 --> 00:22.540
+can be nested.
+
+00:22.660 --> 00:27.340
+And so we'll discuss what scopes are and how they work in Python.
+
+00:27.340 --> 00:33.580
+Then we'll look at closures and what they are and as a hint they're not equivalent to lambda expressions
+
+00:34.030 --> 00:37.690
+very often closures and lambda expressions are studied together.
+
+00:37.690 --> 00:41.260
+And so you may think that well they're the same thing.
+
+00:41.440 --> 00:43.560
+They're not they're actually totally different.
+
+00:43.570 --> 00:50.380
+And this is why we actually studied lambdas fast and now only are we going to look at closures.
+
+00:50.380 --> 00:55.240
+Then we'll also look at closer scopes which is something that's really important and is an integral
+
+00:55.240 --> 01:02.100
+part of Clover's then we'll look at decorator's We'll look at what our decorator's We'll see how they
+
+01:02.100 --> 01:08.850
+related to closures and then we'll also look at the convenience as a sign that you can use the at symbol
+
+01:08.880 --> 01:12.720
+in Python for applying decorators and how all that's used.
+
+01:12.870 --> 01:15.800
+But you actually don't have to use that symbol.
+
+01:15.810 --> 01:22.050
+It's just a convenience feature that Python provides and we'll see how to do it without and then we'll
+
+01:22.050 --> 01:25.840
+look at quite a few applications of closures and decorators.
+
+01:26.070 --> 01:26.590
+All right.
+
+01:26.640 --> 01:28.620
+So this should be an interesting section.
+
+01:28.620 --> 01:31.040
+Thanks for watching and I'll see you in the next video.

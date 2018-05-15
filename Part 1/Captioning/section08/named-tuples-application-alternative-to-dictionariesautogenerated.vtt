@@ -1,0 +1,1372 @@
+WEBVTT
+
+00:00.860 --> 00:08.120
+High in this video we're going to look at using named topples as possible alternatives to dictionaries.
+
+00:08.120 --> 00:09.320
+And let me show you what I mean.
+
+00:09.320 --> 00:14.780
+Let's say that we have a data structure that we want to keep around in our program and we might write
+
+00:14.780 --> 00:17.150
+it this way we might write it as a dictionary.
+
+00:17.330 --> 00:20.440
+So I'm going to use this way of creating the dictionary.
+
+00:20.690 --> 00:24.390
+It's not the most actually efficient way using the literal is better.
+
+00:24.680 --> 00:26.930
+But in this case it's only getting run once.
+
+00:26.960 --> 00:30.470
+So that's absolutely fine.
+
+00:32.000 --> 00:33.960
+OK so here's what I have.
+
+00:33.980 --> 00:40.250
+Basically I want to you know carry around the structure where I have keys and I have values associated
+
+00:40.250 --> 00:44.260
+with those keys so that then later at some point I can say they did it.
+
+00:44.390 --> 00:51.940
+Hey give me back key one tech and I get my value back and that's all I'm using it for.
+
+00:52.190 --> 00:55.660
+Well in that case we're better off actually using a name.
+
+00:55.790 --> 01:00.930
+Assuming of course that we don't want to modify the Keys throughout the program.
+
+01:01.280 --> 01:06.620
+The second assumption also that we have to make here is that those key names are valid field names will
+
+01:06.620 --> 01:07.470
+name topples.
+
+01:07.600 --> 01:09.200
+They start with an underscore.
+
+01:09.410 --> 01:15.470
+Or if they're not a string because you know our keys for us for dictionaries can be things other than
+
+01:15.620 --> 01:21.590
+just strings they can be integers they can be you know other objects that can even be tuples as long
+
+01:21.620 --> 01:25.740
+as the key is a hash table type and we'll discuss that later in the course.
+
+01:25.820 --> 01:31.670
+But as long as hash table you can use that as a dictionary key here of course the caveat is that the
+
+01:31.670 --> 01:37.340
+key names those key names have to be strings and they have to be valid named top of fields in order
+
+01:37.340 --> 01:40.640
+to get an exact match in our name top.
+
+01:41.030 --> 01:42.750
+So let's go ahead and do it.
+
+01:42.920 --> 01:49.910
+So from collections import named toppled from collections import named table.
+
+01:50.050 --> 01:52.310
+OK.
+
+01:52.490 --> 01:59.660
+Now we can create a named couple this way we can say data that's called Data is data that's going to
+
+01:59.660 --> 02:04.710
+be the class name and it's going to have key 1 2 and 3.
+
+02:05.050 --> 02:05.770
+OK.
+
+02:06.230 --> 02:10.810
+So we could certainly do it this way but I don't want to do it this way.
+
+02:10.820 --> 02:16.420
+What I want to do and there's a reason for this we'll get to an later on in the video.
+
+02:16.670 --> 02:19.280
+I don't want to create the keys by just specifying them.
+
+02:19.310 --> 02:21.580
+If I was writing this from scratch in my code.
+
+02:21.620 --> 02:23.650
+Sure that's exactly how I would do it.
+
+02:23.750 --> 02:29.090
+But in this case I want to take an existing dictionary and I want to make that particular dictionary
+
+02:29.120 --> 02:32.480
+with the same keys and the same values into a name.
+
+02:32.630 --> 02:34.870
+So that's the goal of this exercise here.
+
+02:35.090 --> 02:41.480
+So I don't want to grab the I don't want to write the names out of those fields by hand.
+
+02:41.480 --> 02:44.920
+I actually want to grab the keys from the dictionary itself.
+
+02:44.940 --> 02:46.760
+Fuck that's very simple.
+
+02:46.760 --> 02:48.910
+We can just it Keys.
+
+02:49.160 --> 02:58.150
+So the dark keys method of a dictionary returns and iterable which contains all the keys what all her
+
+02:58.150 --> 03:00.310
+other keys in what how.
+
+03:00.550 --> 03:05.920
+That's the thing with Python 3:6 an implementation the way that dictionaries were implement are implemented
+
+03:05.920 --> 03:11.710
+in Python 3:6 the keyholder is precisely the order in which we actually created the dictionary and which
+
+03:11.710 --> 03:13.250
+we inserted the keys.
+
+03:13.270 --> 03:15.640
+So if we look at Keys here
+
+03:19.870 --> 03:21.630
+we actually get them in that same order.
+
+03:21.640 --> 03:24.920
+Q One key to these three.
+
+03:24.920 --> 03:32.330
+Now what's interesting is that prior to 3:6 that was not necessarily the case in 3.6 it became an implementation
+
+03:32.330 --> 03:32.900
+detail.
+
+03:32.900 --> 03:38.720
+What I mean by that is that the particular way in which dictionaries were implemented in Python 3.6
+
+03:39.080 --> 03:42.350
+meant that we have preservation of the key order.
+
+03:42.380 --> 03:48.280
+However it was still not guaranteed and in fact in Python 3:6 it's not guaranteed.
+
+03:48.530 --> 03:53.560
+However in December last year it came out that the older.
+
+03:53.560 --> 03:59.710
+Now now that this thing works this way the older of dictionary keys will be guaranteed.
+
+03:59.750 --> 04:03.020
+In other words if I put in keys one after the other.
+
+04:03.140 --> 04:07.850
+When I read the keys back they'll come out in that particular order if I iterate the dictionary it will
+
+04:07.850 --> 04:09.970
+come out in the same order as well.
+
+04:10.070 --> 04:14.080
+So now actually starting in 3.7 it's officially guaranteed.
+
+04:14.240 --> 04:17.300
+And in 3:6 it's an implementation guarantee essentially.
+
+04:17.300 --> 04:21.920
+So as long as you're using 3:6 and above this would work just fine.
+
+04:22.730 --> 04:30.570
+So now we have our data and we can look at the what I wanted to do here is look at the field.
+
+04:31.010 --> 04:33.350
+And so we have key one key to key three.
+
+04:33.380 --> 04:39.800
+Now again what's interesting because of the preservation of order is that if we look at data dict docket
+
+04:39.820 --> 04:45.980
+values which is not extracting and containing all the values in the dictionary we get them in the same
+
+04:45.980 --> 04:48.510
+order and that's going to be guaranteed as well.
+
+04:48.770 --> 04:55.970
+So now in order to create an instance of this data named topple using the values over here and having
+
+04:55.970 --> 05:00.870
+the values correspond to the right key or to the right field name and then topple.
+
+05:00.980 --> 05:02.210
+All we have to do is this.
+
+05:02.210 --> 05:04.540
+We just have to say D-1 equals.
+
+05:04.700 --> 05:09.620
+We're going to create a new instance of the named table and we're going to take our data dictionary
+
+05:09.910 --> 05:11.320
+doglegs.
+
+05:11.360 --> 05:13.110
+Now we have to be careful.
+
+05:13.160 --> 05:15.800
+Data does not take an iterable.
+
+05:15.800 --> 05:19.520
+It requires arguments so we have to unpack this.
+
+05:19.520 --> 05:26.300
+Essentially it Wrubel of values and so we use the stack to unpack lists and sequences and basically
+
+05:26.300 --> 05:30.180
+General intervals and this will make into individual arguments.
+
+05:30.260 --> 05:32.780
+So now we have D-1 correctly.
+
+05:32.780 --> 05:37.370
+He wanted the 100 to 200 keys 300.
+
+05:37.440 --> 05:39.850
+Now one little side note.
+
+05:39.910 --> 05:45.050
+One kind of important caveat is that doing it this way walks.
+
+05:45.180 --> 05:50.520
+And because of the guarantee of the keys and the values as long as you're creating your keys this way
+
+05:50.880 --> 05:53.660
+and getting your values this way that will work.
+
+05:53.670 --> 06:02.320
+It's OK but this is not a very robust mechanism let me remind you when we create a name topple we can
+
+06:02.320 --> 06:08.410
+either pass in you know positional arguments but we can also pass in keyword arguments so we can say
+
+06:08.410 --> 06:17.190
+key one equals we could say key three equals thoroughly and two equals 20.
+
+06:17.250 --> 06:24.490
+OK so if we do that and we look at D2 then we have 10 1 to 2 key one 20:22 key to instruct 30 wounded
+
+06:24.490 --> 06:26.600
+to keep three.
+
+06:26.620 --> 06:31.990
+So when we create a name top all this is a much safer way of doing it when we're going to get our values
+
+06:31.990 --> 06:33.000
+from the dictionary.
+
+06:33.010 --> 06:34.350
+Why am I saying that.
+
+06:34.510 --> 06:39.910
+Well suppose I had created my name a couple for some reason or other and I'll show you an actual legitimate
+
+06:39.910 --> 06:41.810
+reason in a few minutes.
+
+06:41.980 --> 06:46.510
+But let's say that instead of getting the keys from the dictionary I got them from somewhere else and
+
+06:46.960 --> 06:48.150
+they're mixed up older.
+
+06:48.250 --> 06:53.210
+So maybe I've got key three key two and key one sided reverse the order here.
+
+06:53.370 --> 06:53.950
+OK.
+
+06:54.160 --> 07:02.490
+So now I've got my data on name table that contains these keys and now they're in that order.
+
+07:02.650 --> 07:05.260
+If I run this piece of code here.
+
+07:05.510 --> 07:14.170
+OK if I say actually not this way if I take the code I wanted I wanted data DIC doc values which would
+
+07:14.170 --> 07:15.580
+then have to unpack.
+
+07:15.640 --> 07:19.310
+OK so now if I take my values from the dictionary this way.
+
+07:19.390 --> 07:20.190
+Look what happened.
+
+07:20.320 --> 07:22.230
+I have the wrong values in the wrong keys.
+
+07:22.340 --> 07:24.090
+OK in the wrong field names.
+
+07:24.220 --> 07:25.020
+That's what I'm saying.
+
+07:25.030 --> 07:26.370
+This is not robust.
+
+07:26.380 --> 07:32.500
+What we want to do instead is achieve something like this over here because that is going to put the
+
+07:32.500 --> 07:35.180
+value into the correct key no matter what.
+
+07:35.230 --> 07:37.650
+And there's is a very very simple way to do it.
+
+07:37.750 --> 07:42.480
+We can say we can look at the Davidek itself.
+
+07:43.210 --> 07:45.370
+And now we're going to unpack the dictionary.
+
+07:45.370 --> 07:47.560
+We've seen how to do that before.
+
+07:48.190 --> 07:50.550
+But we're going to unpack this dictionary.
+
+07:50.620 --> 07:54.000
+So that's going to unpack it as keyword arguments.
+
+07:54.010 --> 07:59.900
+So now if we do this and we look at D2 you can see that 300 went correctly in two key three 202 key
+
+07:59.920 --> 08:01.940
+to 100 key one.
+
+08:02.380 --> 08:07.100
+So this is a much safer alternative to doing this.
+
+08:07.560 --> 08:14.340
+So now why am I mentioning all this because if you just have a dictionary in your code and you need
+
+08:14.340 --> 08:17.600
+to transform it into a named topple then you just do it right.
+
+08:17.610 --> 08:21.950
+You create a name top all with a field names you put in your values and then you delete this code and
+
+08:21.960 --> 08:28.080
+now you left with a name topple of course you've got to live with the fact that now you have an immutable
+
+08:28.080 --> 08:29.390
+data type.
+
+08:29.460 --> 08:31.970
+Other things as well that you may think are missing.
+
+08:32.070 --> 08:38.160
+For example if we have the data dictionary very often we have code like this where maybe the key name
+
+08:38.430 --> 08:45.820
+is key to let's say and then later on you have data dict keep to k.
+
+08:46.560 --> 08:50.530
+And it's not key to its key name.
+
+08:50.790 --> 08:54.210
+There we go and retrieves correctly the value two hundred.
+
+08:54.240 --> 08:57.970
+So you might be thinking well we don't have that in a name.
+
+08:58.020 --> 09:04.950
+If I have a name top or I can you know say key name that doesn't work because the name is not an attribute
+
+09:04.950 --> 09:06.090
+of that class.
+
+09:06.150 --> 09:07.790
+That's not going to work.
+
+09:08.490 --> 09:09.610
+But we can still do it.
+
+09:09.630 --> 09:15.030
+We have to use the get attribute method that is built into Python so we can say get attributes from
+
+09:15.040 --> 09:22.380
+D2 and get key name whatever that was correct so the name was key to and it retrieved 200 francs for
+
+09:22.380 --> 09:22.920
+us.
+
+09:22.980 --> 09:25.460
+So we got that as well.
+
+09:25.500 --> 09:30.750
+The other thing that you would think might be missing is you also have a get method that's available
+
+09:30.750 --> 09:31.550
+with dictionaries.
+
+09:31.560 --> 09:38.730
+So I can say data underscore dict docs get and then the key name that I want.
+
+09:38.730 --> 09:39.670
+Key one.
+
+09:39.810 --> 09:43.370
+And then I can actually specify a default and maybe I'll say none.
+
+09:43.380 --> 09:47.670
+So if you can find key one return None if you can find it return it.
+
+09:47.670 --> 09:49.290
+So now if I say 10.
+
+09:49.560 --> 09:51.320
+Well I just get none.
+
+09:51.630 --> 09:59.040
+Now the get attribute method if I do this with that and I say give me key 10 while I get this.
+
+09:59.250 --> 10:05.820
+The fact that my D2 does not have this attribute key 10 ranked and doesn't has key 1 2 and 3 but the
+
+10:05.820 --> 10:08.630
+get attribute also supports a default.
+
+10:08.640 --> 10:11.220
+So if we do that then it actually doesn't error.
+
+10:11.250 --> 10:12.760
+It just returns the default.
+
+10:12.780 --> 10:14.260
+None.
+
+10:14.380 --> 10:20.770
+So we're not giving up a lot by changing from a dictionary to a named topple But we are getting advantages
+
+10:20.770 --> 10:24.040
+where we don't have to write this anymore.
+
+10:24.130 --> 10:26.520
+Frankly we don't have to say key one like that.
+
+10:26.530 --> 10:27.480
+We don't have to do that.
+
+10:27.490 --> 10:30.480
+We can just say d to dot.
+
+10:30.690 --> 10:36.080
+We want much simpler much more expressive simpler to read.
+
+10:36.170 --> 10:41.620
+Ok but why am I mentioning this in the first place and why did I go to the trouble of converting an
+
+10:41.620 --> 10:48.060
+existing dictionary into a tuple using code instead of just writing it out the way I might do it.
+
+10:48.060 --> 10:49.200
+Inside a program.
+
+10:49.600 --> 10:55.390
+Well sometimes we have lists of dictionaries and we want to transform that list of dictionary into a
+
+10:55.390 --> 10:57.410
+list of name topics.
+
+10:57.430 --> 10:59.730
+So let's here are how we might do that.
+
+10:59.830 --> 11:01.410
+And why do we want to do that.
+
+11:01.570 --> 11:08.560
+Well I've seen cases where code sometimes will query a database and it returns a dictionary essentially
+
+11:08.830 --> 11:15.250
+a list of dictionaries with dictionaries each row and the dictionary keys of the column names and the
+
+11:15.250 --> 11:19.890
+dictionary values are the value inside that column for that particular row.
+
+11:19.990 --> 11:22.550
+And then you have multiple of these rules.
+
+11:22.720 --> 11:27.250
+So that list is basically homogeneous but it contains dictionaries.
+
+11:27.250 --> 11:30.060
+Personally I prefer at that point having a named couple.
+
+11:30.070 --> 11:34.030
+I would rather access fields in my list of rows.
+
+11:34.030 --> 11:39.730
+Let's say my data rows you know some kind of dictionary and or some kind of list.
+
+11:39.730 --> 11:43.990
+So I want to access let's say the false row and then I have to put in.
+
+11:44.000 --> 11:47.610
+You know I want let's say the you know dates improved.
+
+11:47.650 --> 11:49.320
+Maybe there's an import date somewhere in there.
+
+11:49.330 --> 11:50.700
+So I get it that way.
+
+11:50.980 --> 11:54.610
+I would much rather write it like this.
+
+11:54.610 --> 12:00.130
+Plus I also like the fact that I will have the auto completion which will help me what I'm in my Python
+
+12:00.130 --> 12:02.650
+editor to figure out which field I'm looking for.
+
+12:02.650 --> 12:05.510
+I don't have to go in Remember the field names every time.
+
+12:05.560 --> 12:09.560
+So a lot of it is you know when I'm coding it just makes life easier.
+
+12:10.800 --> 12:19.050
+Also this way I know that my data is immutable and also know that now you know couples are more lightweight
+
+12:19.080 --> 12:20.520
+than dictionaries.
+
+12:20.520 --> 12:24.080
+The other thing too is it kind of depends how you're going to access the data.
+
+12:24.090 --> 12:28.710
+Sometimes the dictionary is better and sometimes a couple is better.
+
+12:28.710 --> 12:31.790
+Kind of depends on your use case but in this case that's what I want to do.
+
+12:31.800 --> 12:35.920
+I want to convert a list of dictionaries to a list of named topples.
+
+12:36.180 --> 12:37.380
+So let's go ahead and do that.
+
+12:37.400 --> 12:39.540
+And let me copy paste an example.
+
+12:39.570 --> 12:43.920
+So there's the example I copied from my notes and it's in the Jupiter note book that's available for
+
+12:43.920 --> 12:44.570
+download.
+
+12:45.740 --> 12:51.170
+So here what I've done is you know I kind of made these up again I kept to the key one key to and so
+
+12:51.170 --> 12:51.690
+on.
+
+12:52.100 --> 12:57.080
+But what I've done I've made it so that the dictionaries are not the same.
+
+12:57.080 --> 13:02.840
+You'll notice that this first one has key one in key too and so is the second one but the third one
+
+13:02.840 --> 13:06.500
+has an extra key three that the first two don't have.
+
+13:06.500 --> 13:13.160
+And the last one only has key to it doesn't have key one key 3 and I still want to somehow generate
+
+13:13.160 --> 13:15.800
+this as a list of named topples.
+
+13:15.810 --> 13:19.870
+Well I'm not going to hand-code the name top all I need to do this using code.
+
+13:19.940 --> 13:21.730
+I'm running my Python program.
+
+13:21.800 --> 13:27.840
+It needs to be able to take this data list of dictionaries and convert it to a data list of named topples.
+
+13:27.860 --> 13:32.960
+So the first thing I need to do is basically figure out what all the possible keys that are in use in
+
+13:32.960 --> 13:35.980
+the data list for all the dictionaries in the de-list.
+
+13:35.990 --> 13:37.180
+So let's start with that.
+
+13:38.020 --> 13:45.250
+I'm going to create a set I'm going to use a set a set is basically a loop you can think of it as a
+
+13:45.630 --> 13:47.160
+it's a it's a hash map.
+
+13:47.160 --> 13:51.330
+So it's like a dictionary it's a valueless dictionary just contains keys.
+
+13:51.420 --> 13:55.720
+What's important about sets one of the things that's important about set is that you can't have duplicate
+
+13:55.720 --> 13:56.800
+verbs.
+
+13:56.860 --> 14:03.600
+So the Whenever you add something to a set if the item is already there it doesn't add it it just ignores
+
+14:03.610 --> 14:04.060
+it.
+
+14:04.090 --> 14:04.330
+Right.
+
+14:04.330 --> 14:05.510
+So we could do something like.
+
+14:05.530 --> 14:08.040
+I'll show you what I mean we could say keys
+
+14:11.420 --> 14:12.270
+add one.
+
+14:12.270 --> 14:14.810
+So now let's look at what causes Ki's is.
+
+14:14.980 --> 14:19.840
+A key is got and to then we have keys we have one in two.
+
+14:19.860 --> 14:24.360
+But if I say keys top and one again I spell it right.
+
+14:24.580 --> 14:25.710
+Add one again.
+
+14:25.830 --> 14:30.860
+You'll notice that my keys is full just one and two.
+
+14:30.960 --> 14:38.490
+So keys a set is very useful to basically keep putting things in that set but without having duplicates.
+
+14:38.490 --> 14:40.520
+So that's exactly what I wanted to hear.
+
+14:40.530 --> 14:46.680
+I want to use this set and I'm basically going to take all the keys and every single dictionary and
+
+14:46.680 --> 14:52.410
+add them to the set and the set will take care of handling duplicate values and ignoring it or duplicate
+
+14:52.440 --> 14:54.890
+adds essentially into the set.
+
+14:54.900 --> 14:56.430
+So let's go ahead and do that.
+
+14:56.430 --> 15:00.930
+We can do this very simply and I'll start with doing it this way.
+
+15:01.440 --> 15:07.500
+So for D in data list so we're going to iterate through the de-list which is going to give us a dictionary
+
+15:07.500 --> 15:08.080
+back.
+
+15:08.240 --> 15:15.300
+I'm going to put that in D and I'm going to look for the the all the keys for key in d docked keys right.
+
+15:15.300 --> 15:22.880
+Every dictionary has this keys and I'm going to say keys and keep k.
+
+15:22.920 --> 15:25.160
+So to the set is over here.
+
+15:25.200 --> 15:28.750
+Let me actually put it together with this code because it kind of belongs together.
+
+15:30.680 --> 15:38.580
+And then finally I will just print the sets so print he's correct.
+
+15:38.620 --> 15:41.050
+So let's run that and you can see it picks up correctly.
+
+15:41.050 --> 15:43.110
+Keith Reekie two key one.
+
+15:43.270 --> 15:45.400
+Now you'll notice what happened here.
+
+15:45.880 --> 15:52.130
+The order of the keys is not exactly the order in which they were in the dictionaries.
+
+15:52.320 --> 15:52.870
+OK.
+
+15:53.140 --> 15:58.640
+So this is why I wanted to show you when we're going to extract values from these dictionaries.
+
+15:58.690 --> 16:04.830
+They're not going to be in the same order as the key that we generated in the set.
+
+16:05.130 --> 16:05.450
+OK.
+
+16:05.500 --> 16:08.100
+So that's why we have to be careful about that.
+
+16:10.110 --> 16:12.090
+There's actually a better way to generate the keys.
+
+16:12.090 --> 16:15.210
+Let me show you we can use a set comprehension.
+
+16:15.210 --> 16:18.440
+So we're going to create a set and the set is going to be.
+
+16:18.460 --> 16:29.590
+Well we're going to iterate for key in on data foci for dictionary and call it dict underscore in the
+
+16:29.590 --> 16:30.830
+data list.
+
+16:31.010 --> 16:31.610
+OK.
+
+16:31.800 --> 16:41.470
+And then within that for every dictionary we're going to say for key in dict underscore dark keys.
+
+16:41.730 --> 16:42.900
+So this is going to be all loop.
+
+16:42.960 --> 16:44.360
+And what are we going to extract.
+
+16:44.520 --> 16:47.640
+We're going to extract just the key.
+
+16:48.420 --> 16:50.640
+So now if we do this we have the same thing.
+
+16:50.730 --> 16:51.910
+We have the keys.
+
+16:51.930 --> 16:56.220
+So this is using our comprehension which is a better way than doing this.
+
+16:56.220 --> 17:01.140
+It's a little cleaner and is also quite expressive and once you get used to comprehension expressions
+
+17:01.590 --> 17:03.380
+you know nesting more than two.
+
+17:03.420 --> 17:05.710
+I am not sure that I would actually do that.
+
+17:05.730 --> 17:11.190
+I would probably you know go back to maybe a regular loop or figure some other way of doing it.
+
+17:11.310 --> 17:17.390
+Once you start putting in too many nested loops in your comprehensions it becomes incomprehensible.
+
+17:17.490 --> 17:21.090
+So it's not you know it's no longer comprehension.
+
+17:21.600 --> 17:24.190
+And now we want to create all named topple.
+
+17:24.240 --> 17:27.180
+So I'm going to call it a struct.
+
+17:28.350 --> 17:31.450
+So that's going to be a name top hole that's going to contain.
+
+17:31.470 --> 17:34.570
+That's going to be called struct and what is it going to contain.
+
+17:34.620 --> 17:36.340
+It's going to contain the keys.
+
+17:36.360 --> 17:40.110
+Now I don't like the fact that the keys are ordered this way.
+
+17:40.110 --> 17:42.040
+I would like them to be alphabetically ordered.
+
+17:42.120 --> 17:42.960
+So very simple.
+
+17:42.990 --> 17:45.840
+I'm going to call solid on my keys.
+
+17:46.110 --> 17:52.050
+So again if we do that again there's no guarantee that the keys are going to be in the same order as
+
+17:52.110 --> 17:53.530
+what they are in the dictionary.
+
+17:53.610 --> 17:57.630
+In this case it will be but it doesn't have to be the case.
+
+17:57.750 --> 17:58.270
+Right.
+
+17:58.290 --> 18:01.280
+It could be that this is key to and this is key one.
+
+18:01.290 --> 18:02.500
+Matter of fact what's changed.
+
+18:02.550 --> 18:06.300
+So this is key to which is two and key one which is one.
+
+18:06.380 --> 18:09.760
+OK maybe the day Lewis came back this way for some reason.
+
+18:10.200 --> 18:15.450
+So again I'm just pointing out you don't want to unpack the values of the dictionary when we create
+
+18:15.450 --> 18:16.140
+the name toppled.
+
+18:16.140 --> 18:22.420
+You want to unpack the dictionary itself so that we get key value arguments.
+
+18:22.980 --> 18:23.460
+OK.
+
+18:23.610 --> 18:25.330
+So now we have all structure.
+
+18:25.380 --> 18:26.880
+Let's see what we have in it.
+
+18:26.940 --> 18:32.010
+So if you look at the under field we have key one key two key three in the correct order.
+
+18:32.160 --> 18:34.500
+You know alphabetical in this case.
+
+18:34.530 --> 18:35.990
+So now what are we going to do.
+
+18:36.150 --> 18:43.580
+Well I'm going to want to take each of those dictionaries and make a struct named topple out of.
+
+18:43.690 --> 18:45.180
+But look at what's happening here.
+
+18:45.430 --> 18:46.780
+We have three keys.
+
+18:46.780 --> 18:48.670
+This dictionary only has two.
+
+18:48.730 --> 18:50.430
+This one only has one.
+
+18:50.590 --> 18:52.550
+Only this one has all three.
+
+18:52.600 --> 18:58.360
+If we try and create a name topple and we only pass in two of the values what's going to happen it's
+
+18:58.360 --> 19:00.490
+going to complain right it needs values for all three.
+
+19:00.490 --> 19:02.050
+So what do we have to do.
+
+19:02.350 --> 19:03.490
+Default values.
+
+19:03.490 --> 19:04.800
+And we saw how to do that.
+
+19:04.810 --> 19:09.620
+So let's go ahead and set up the defaults for these fields in the struct.
+
+19:09.700 --> 19:15.250
+And what I want to do here is I want to set up the default just to be nung So it's everything's going
+
+19:15.250 --> 19:18.940
+to have a none default so very easily.
+
+19:19.090 --> 19:19.840
+We can do this.
+
+19:19.840 --> 19:28.720
+We have to basically look at the dumdum new methods done the defaults properly and we have to rebind
+
+19:28.720 --> 19:30.600
+it and we're going to rewind a what.
+
+19:30.610 --> 19:33.170
+Well we're going to take none.
+
+19:33.440 --> 19:33.960
+Right.
+
+19:33.970 --> 19:35.040
+The top of none.
+
+19:35.140 --> 19:38.500
+But we're going to extend that topple Assad a number of times how many times.
+
+19:38.530 --> 19:43.990
+Well the length of struct dart feels highborn in many fields.
+
+19:43.990 --> 19:49.420
+We have in the structure we're going to create a top of that length with containing You know each one
+
+19:49.420 --> 19:51.150
+containing none.
+
+19:51.160 --> 19:57.810
+Now we have our default free look at creating let's say an instance of a struct where we just pass in
+
+19:58.030 --> 20:00.200
+key three equals.
+
+20:00.200 --> 20:04.040
+Can we get key one is non-key to his.
+
+20:04.050 --> 20:05.920
+Keith we use 10.
+
+20:05.920 --> 20:06.250
+All right.
+
+20:06.250 --> 20:07.500
+So so far so good.
+
+20:07.540 --> 20:09.420
+We're getting we're almost there.
+
+20:09.580 --> 20:10.710
+Now do we have to do.
+
+20:10.750 --> 20:16.010
+Well we have to basically iterate through this list and convert each of those dictionaries into a name
+
+20:16.020 --> 20:18.580
+toppled into that struct named top.
+
+20:18.790 --> 20:22.040
+Again I'm going to do it using a regular loop initially.
+
+20:22.090 --> 20:33.160
+So let's go ahead and call it our top all list K and top of list is going to be a big empty list and
+
+20:33.160 --> 20:34.340
+then we're going to iterate.
+
+20:34.390 --> 20:40.140
+So for dict underscore in data lists right.
+
+20:40.150 --> 20:41.400
+Our Data List is this.
+
+20:41.410 --> 20:46.690
+Over here let me copy and paste it so we have it right next to us.
+
+20:46.740 --> 20:47.700
+OK.
+
+20:48.520 --> 20:54.610
+So we're going to iterate through the dictionaries in that list and we'll go what are we going to do
+
+20:54.610 --> 20:55.780
+with a dictionary.
+
+20:55.780 --> 21:01.720
+We're going to unpack it into a structure and then we're going to add that structure to our table list.
+
+21:01.780 --> 21:04.210
+And what by structure is that struct topple.
+
+21:04.480 --> 21:10.090
+So we're going to say our top will underscore Lisp dot append which is going to append.
+
+21:10.090 --> 21:19.090
+We're going to append a new instance of our name top up and we are going to take the dictionary but
+
+21:19.090 --> 21:25.300
+we have to of course unpack the dictionary into keyword arguments and that should be it.
+
+21:25.300 --> 21:30.270
+So now we can go ahead and print toppled list and let's see what we get.
+
+21:31.270 --> 21:36.570
+As you can see we get our structure with key one is one key to two key three is none.
+
+21:36.790 --> 21:41.470
+Because right so one went into one correctly and three was done that was the default.
+
+21:41.470 --> 21:45.420
+And this one we had one was three two was four and Keithley was none.
+
+21:45.520 --> 21:49.650
+The next one key one was five key two was six keys three with seven.
+
+21:49.810 --> 21:53.500
+And the last one only key two was populated the other ones were none.
+
+21:53.980 --> 21:54.360
+All right.
+
+21:54.370 --> 21:55.780
+So that's great.
+
+21:55.840 --> 21:57.910
+Let's go ahead and change this up.
+
+21:58.090 --> 22:03.160
+And we're also going to write it as a function and it's going to be a very general function because
+
+22:03.160 --> 22:10.000
+if you think one of the steps that we did to achieve converting the list of dictionaries into a list
+
+22:10.030 --> 22:20.200
+of named topples Well we have to basically take the fields that were well we had to combine the keys
+
+22:20.200 --> 22:23.990
+from the dictionary and from that generate the fields.
+
+22:23.990 --> 22:25.200
+OK how did we do that.
+
+22:25.210 --> 22:32.470
+Well we generated keys this way and then we went ahead and created the structure using this.
+
+22:32.470 --> 22:35.340
+Now this works for any list of dictionaries.
+
+22:35.350 --> 22:35.920
+OK.
+
+22:36.310 --> 22:40.590
+Well it's generic enough it's just going to find all the possible keys and all the parts you know and
+
+22:40.630 --> 22:44.760
+all the dictionaries and generate a set that contains all the possible keys.
+
+22:44.920 --> 22:47.970
+Then it creates this structure and the structure.
+
+22:47.980 --> 22:50.800
+Well we can just call it struct to be generic.
+
+22:50.800 --> 22:53.030
+Then what do we do we need to set the defaults.
+
+22:53.070 --> 22:54.640
+OK so now we set the defaults.
+
+22:54.640 --> 23:00.230
+Again this is generic It doesn't require knowledge precise knowledge of what's inside de-list.
+
+23:00.250 --> 23:01.650
+This is very generic.
+
+23:01.900 --> 23:07.600
+And then how did we add and how do we convert the individual dictionaries into structures.
+
+23:07.600 --> 23:13.540
+We use this approach here which again didn't require us to know anything about the particular structure
+
+23:13.540 --> 23:18.880
+of the dictionaries or the particular structure of the name tuple that we created based off of those
+
+23:18.880 --> 23:19.750
+dictionaries.
+
+23:19.810 --> 23:21.630
+So everything was very generic.
+
+23:21.700 --> 23:27.400
+So let's go ahead and write this as a generic function that can take a list of dictionaries and then
+
+23:27.400 --> 23:29.930
+return a list of named tuples instead.
+
+23:33.210 --> 23:36.510
+So let's go ahead and call it couple of phi.
+
+23:36.570 --> 23:43.610
+I'm sure that's not a word let's just assume it is correct and it's going to take a list of dictionaries
+
+23:43.620 --> 23:45.320
+and in fact it doesn't have to be a list.
+
+23:45.320 --> 23:49.140
+It can be any sequence or any iterable really of dictionaries.
+
+23:49.140 --> 23:50.850
+Not even a sequence.
+
+23:51.080 --> 23:51.800
+What are we going to do.
+
+23:51.790 --> 23:53.910
+Well the first thing we need to do is create Akis.
+
+23:53.910 --> 24:04.620
+So we saw how to do that we say keep foredeck underscored in this case for keys for P Sorry n dict underscore
+
+24:04.620 --> 24:06.050
+docked keys.
+
+24:06.110 --> 24:06.720
+OK.
+
+24:06.930 --> 24:10.070
+So this generates the keys for us.
+
+24:10.170 --> 24:13.350
+The next thing we have to do is to create the named Popple.
+
+24:13.410 --> 24:20.820
+So we're going to call it generically struct equals named top all struct.
+
+24:21.030 --> 24:23.200
+And what are we going to pass in the Keys.
+
+24:23.210 --> 24:23.760
+OK.
+
+24:24.120 --> 24:27.120
+To specify the fields for that structure.
+
+24:27.270 --> 24:30.570
+The next thing we have to do we shouldn't forget all the defaults.
+
+24:30.570 --> 24:41.070
+So struct done the new Dondre defaults equals we're going to use none.
+
+24:43.560 --> 24:50.540
+Times the length of the struct underscore fields.
+
+24:52.020 --> 24:53.400
+So that's that one.
+
+24:53.400 --> 24:54.720
+So far so good.
+
+24:55.200 --> 24:59.620
+And I think the cell somehow changed to a.
+
+24:59.820 --> 25:01.530
+Yeah that would go to marked down.
+
+25:01.530 --> 25:04.400
+Let me turn it back to code so we can actually see the color coding.
+
+25:04.890 --> 25:07.680
+All right so now we have the defaults what's the next thing we need to do.
+
+25:07.680 --> 25:14.910
+Well we just need to go ahead and basically create a list I'm going to use a list under to create a
+
+25:14.910 --> 25:20.160
+list that contains the name total equivalence of every item in the dictionary.
+
+25:20.160 --> 25:22.460
+So we did it this way.
+
+25:22.620 --> 25:27.590
+What I'm going to do is I'm going to change this and make that into a list comprehension.
+
+25:27.630 --> 25:28.920
+So it's very very simple.
+
+25:28.950 --> 25:31.290
+We just basically do what we have over here.
+
+25:31.320 --> 25:37.140
+We're going to iterate through what what we're going to iterate for deith index k we're going to take
+
+25:37.140 --> 25:42.900
+the dictionaries index and let me call it the underscore to keep it consistent with what I had over
+
+25:42.900 --> 25:43.500
+here.
+
+25:45.440 --> 25:47.930
+So what do we want to do for each dict.
+
+25:47.930 --> 25:55.610
+Well we want to create a structure and we want to unpack the dict k that's a miscomprehension that's
+
+25:55.700 --> 25:56.720
+what we return.
+
+25:56.840 --> 25:58.230
+That will be the list.
+
+25:58.250 --> 26:05.090
+OK we've done exactly what we did here but we use comprehension expression instead to do that much more
+
+26:05.090 --> 26:06.130
+expressive.
+
+26:06.490 --> 26:12.020
+OK so now we have a couple of five dicks which can take any dictionary you'll notice there is nothing
+
+26:12.020 --> 26:17.390
+in here that requires us to know something about the contents of the list.
+
+26:17.420 --> 26:25.180
+This device here can be any arbitrary list of dictionaries as long as what as long as the key names
+
+26:25.360 --> 26:28.990
+are valid field names for name topples.
+
+26:28.990 --> 26:31.350
+Now if it's not the case what should we do.
+
+26:32.720 --> 26:37.390
+We should say rename equals true cake we say rename equals.
+
+26:37.400 --> 26:40.670
+True at least we won't get an error but maybe that's not what we want.
+
+26:40.670 --> 26:42.550
+Maybe we do want to have an error.
+
+26:42.590 --> 26:43.140
+I don't know.
+
+26:43.160 --> 26:44.450
+For some reason or other.
+
+26:44.690 --> 26:45.160
+OK.
+
+26:45.470 --> 26:48.210
+But I'll keep the rename equal stroke.
+
+26:48.750 --> 26:55.670
+OK so now let's go ahead and let's say let's call it Tom.
+
+26:55.700 --> 27:04.990
+So we call it let's call it top all list equals couple of phi dicts and let's pass of the day lisc.
+
+27:05.060 --> 27:08.330
+Let's see if this works don't crash.
+
+27:08.330 --> 27:09.920
+That's a good sign right.
+
+27:10.370 --> 27:12.700
+And top of list is exactly what we expect.
+
+27:12.740 --> 27:14.030
+It's a structure.
+
+27:14.030 --> 27:15.350
+We've got the keys.
+
+27:15.530 --> 27:16.090
+Right.
+
+27:16.160 --> 27:19.520
+And now you'll notice one thing here the keys are not in the same order.
+
+27:19.530 --> 27:20.980
+Keith Reekie want to.
+
+27:21.020 --> 27:23.280
+I don't like that I want them to be ordered.
+
+27:23.300 --> 27:27.660
+One thing that I forgot to do here is to say sorted on the keys.
+
+27:27.710 --> 27:28.050
+OK.
+
+27:28.100 --> 27:30.440
+So let's sort the keys alphabetically.
+
+27:33.360 --> 27:36.670
+Depending on your use case you may or may not want to do that.
+
+27:36.870 --> 27:37.580
+That's better.
+
+27:37.770 --> 27:41.610
+I prefer this five key one key two key three.
+
+27:41.610 --> 27:42.240
+All right.
+
+27:42.240 --> 27:47.460
+So that's how we can essentially use named topples instead of dictionaries.
+
+27:47.460 --> 27:54.720
+Firstly when you're using it in your code if you find yourself doing something like this OK and all
+
+27:54.720 --> 27:59.760
+you're doing is just reading those keys you know again and again and again in your code and you don't
+
+27:59.760 --> 28:03.500
+modify the dictionary and there's nothing else going on.
+
+28:03.510 --> 28:04.710
+Use a name topple.
+
+28:04.980 --> 28:06.750
+That's got to be more effective.
+
+28:06.750 --> 28:09.750
+And then lastly to finish off on the name topples.
+
+28:09.750 --> 28:18.270
+If you find yourself writing classes that basically only have you know and end in init and values and
+
+28:18.270 --> 28:20.900
+that's it it's a name.
+
+28:21.210 --> 28:23.570
+Unless you need the mutability.
+
+28:23.640 --> 28:28.320
+But if you don't need the mutability and you're writing classes just to basically put together all your
+
+28:28.320 --> 28:34.560
+attributes or all your all your properties together you probably should be using a name topple all that's
+
+28:34.560 --> 28:36.610
+going to be more efficient than your class.
+
+28:36.750 --> 28:38.540
+Plus you get a lot of extra stuff for free.
+
+28:38.550 --> 28:40.680
+As we saw in the video.
+
+28:41.220 --> 28:41.760
+All right.
+
+28:41.760 --> 28:43.020
+That's it for tentacles.
+
+28:43.020 --> 28:45.260
+Thanks for watching and I'll see you in the next video.

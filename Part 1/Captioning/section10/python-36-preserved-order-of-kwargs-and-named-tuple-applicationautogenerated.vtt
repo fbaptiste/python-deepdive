@@ -1,0 +1,247 @@
+WEBVTT
+
+00:00.130 --> 00:07.170
+High I want to talk quickly about the fact now that in Python 3 6 The older in which you pass keyword
+
+00:07.320 --> 00:12.870
+arguments that variable number of keyword arguments to a function is actually preserved.
+
+00:13.110 --> 00:18.950
+And this is kind of incidental it has nothing to do with the ordering now dictionaries and 3.6.
+
+00:18.950 --> 00:20.750
+This is actually a separate path.
+
+00:21.150 --> 00:24.810
+So Peppe 468 which was accepted into 3.6.
+
+00:24.810 --> 00:28.970
+So again just make sure you're running 3.6 as your Python version.
+
+00:29.070 --> 00:32.370
+And let's see what I mean by its being preserved.
+
+00:32.370 --> 00:37.920
+And let's go ahead and write a function let's call it func and let's say that we're just going to take
+
+00:37.920 --> 00:39.210
+some keyword arguments.
+
+00:39.210 --> 00:42.280
+So let's call it KW.
+
+00:42.780 --> 00:50.800
+Obviously you can call it whatever you want an on going to say is just for item in KW.
+
+00:51.030 --> 00:51.750
+Items
+
+00:54.480 --> 00:55.460
+print either.
+
+00:55.530 --> 00:57.400
+So let's go ahead and do that.
+
+00:57.480 --> 01:05.030
+So now let's call the function and let's say that we're going to have are the equals one hundred eighty
+
+01:05.030 --> 01:14.030
+equals 200 y equals hello and p equals Python.
+
+01:14.240 --> 01:18.960
+OK so we're going to call a function and you'll notice that we're calling with arguments that are in
+
+01:18.960 --> 01:23.480
+a specific order right became false then a then Y and so forth.
+
+01:24.000 --> 01:30.600
+And when we print it out you'll notice that that order is maintained prior to 3.6 that actually wasn't
+
+01:30.750 --> 01:32.520
+guaranteed.
+
+01:32.530 --> 01:34.230
+So you may think so what.
+
+01:34.270 --> 01:39.760
+Well actually we can now leverage this with the name topples if you think back to what we did with named
+
+01:39.760 --> 01:42.440
+topples when we wanted to set default values.
+
+01:42.440 --> 01:48.610
+And here what I want to show you is that we can simplify this we can write our own name toppled generators.
+
+01:48.670 --> 01:54.130
+It was still going to use name topple But we're going to use our own kind of generator function where
+
+01:54.130 --> 01:59.430
+we'll be able to pass in the Keys and the default values as keyword arguments.
+
+01:59.470 --> 02:05.060
+So let's go ahead and from collection's we're getting importante named topple.
+
+02:05.590 --> 02:13.640
+And now let's go ahead and define our own function let's call it defaulted named Toppo.
+
+02:14.290 --> 02:15.600
+And we're going to pass it.
+
+02:15.670 --> 02:16.650
+The class name.
+
+02:16.690 --> 02:16.960
+Right.
+
+02:16.960 --> 02:18.010
+That's what we need.
+
+02:18.070 --> 02:25.650
+And then for the fields we're going to take this as basically a variable number of keyword only arguments.
+
+02:25.660 --> 02:31.000
+And the fact is now when we call this function we know that we'll be able to retrieve the fields in
+
+02:31.000 --> 02:36.870
+the same order in which it was defined or in which it was passed in.
+
+02:36.880 --> 02:42.330
+So let's go ahead and create our name table.
+
+02:42.340 --> 02:46.660
+So struct Bacall's named Toppo struct.
+
+02:46.660 --> 02:47.430
+And what do we want.
+
+02:47.440 --> 02:52.410
+Well we want the fields that we passed in and what we want we want the keys.
+
+02:52.660 --> 02:57.160
+And we know the keys are going to come back ordered in the same order as which they were passed in when
+
+02:57.160 --> 03:01.200
+we call named topple when we called default to the name table.
+
+03:01.210 --> 03:03.340
+To be specific.
+
+03:03.670 --> 03:04.840
+What else do we want to do.
+
+03:04.840 --> 03:06.790
+Well now we want to set the defaults.
+
+03:07.000 --> 03:11.870
+Well we're going to get the defaults from the keyword only arguments that were passed into fields.
+
+03:12.010 --> 03:13.150
+So let's go ahead and do that.
+
+03:13.150 --> 03:19.440
+So struct Dundon you're done the defaults sequel's.
+
+03:19.450 --> 03:20.230
+Now what do we want.
+
+03:20.230 --> 03:22.350
+We want the field values right.
+
+03:22.360 --> 03:28.110
+We want to sign those and we don't have to worry about the Oldring because we know that the older of
+
+03:28.110 --> 03:31.390
+values is going to be the same as the order of keys.
+
+03:31.390 --> 03:38.170
+The only thing is values of values is not to topple the defaults the Dondre default requires a top also.
+
+03:38.200 --> 03:42.760
+Let's just convert to topple and then we'll return the struct.
+
+03:43.990 --> 03:44.640
+And that's it.
+
+03:44.680 --> 03:50.250
+That's how we can create our own factory for name topples with defaults.
+
+03:50.260 --> 03:51.490
+So how would we use it now.
+
+03:51.550 --> 03:52.560
+Well pretty simple.
+
+03:52.570 --> 03:55.950
+Let's go back to that old standby vector to D.
+
+03:56.110 --> 03:57.710
+So now I'm not going to call names.
+
+03:57.700 --> 03:58.110
+Tough call.
+
+03:58.120 --> 04:02.260
+I'm going to call my function K and we'll pass in the class name.
+
+04:02.290 --> 04:09.300
+Let's call it vector D and I'll go to a different line because we're going to run out of space.
+
+04:09.620 --> 04:19.390
+So 1 is going to be defaulted to none x 2 should be defaulted to none are not not x 2 sorry y 1 and
+
+04:19.390 --> 04:21.670
+then x 2 should be defaulted to none.
+
+04:21.670 --> 04:23.810
+Y2 should be defaulted to none.
+
+04:24.040 --> 04:33.140
+And then I want my origin next to be defaulted to 0 and my origin why it defaulted to 0 K so what am
+
+04:33.140 --> 04:33.790
+I going to get.
+
+04:33.800 --> 04:39.090
+I'm going to get that structure that name topple back from default and name topple.
+
+04:39.110 --> 04:42.690
+So I'm just going to assign that to revise that to 2D.
+
+04:42.890 --> 04:45.720
+Of course she called it defaulted name topple.
+
+04:46.200 --> 04:48.060
+OK so now we have this.
+
+04:48.080 --> 04:56.990
+And if we look at Vector to d at the underscore Field's property you'll notice that we have x y y y
+
+04:56.990 --> 05:02.810
+and x to y to Origin X origin Y in the order in which we basically provided the keyword on the arguments
+
+05:03.370 --> 05:07.520
+for the more I can create a vector to D.
+
+05:07.670 --> 05:09.610
+Let's say it starts of 0 0.
+
+05:09.650 --> 05:15.980
+Well it's I started 10 10 ends up 20 20 and I'm not going to specify the origins.
+
+05:16.250 --> 05:21.660
+Well that works just as we have because well we have the default just as we had before and now follow
+
+05:21.720 --> 05:23.690
+that the one the contents of the one.
+
+05:23.690 --> 05:29.150
+You'll notice that origin X defaulted to 0 in origin y defaulted to 0.
+
+05:29.150 --> 05:29.780
+All right.
+
+05:29.810 --> 05:31.880
+So pretty cool stuff.
+
+05:32.030 --> 05:32.730
+Thanks for watching.

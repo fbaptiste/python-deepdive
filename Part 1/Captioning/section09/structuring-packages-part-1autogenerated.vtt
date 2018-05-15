@@ -1,0 +1,1681 @@
+WEBVTT
+
+00:00.240 --> 00:06.630
+High in this video we're going to start looking at how to do package impuls And when we nest packages
+
+00:06.630 --> 00:13.980
+under packages and modules on the packages how we can roll things up into kind of a nicer namespace
+
+00:14.430 --> 00:20.490
+infrastructure for the users of our package even if it's ourselves if we're using that say a bunch of
+
+00:20.490 --> 00:23.540
+packages that we're writing in our application.
+
+00:23.730 --> 00:25.840
+We'd like an easy way to get two things.
+
+00:25.920 --> 00:33.720
+So let's start by creating a package and I'm going to create a package using the Python package in Python
+
+00:33.720 --> 00:38.570
+which remember just creates the directory and the Dundreary net and call this common.
+
+00:38.670 --> 00:41.180
+Because this is where my common stuff is going to go.
+
+00:41.220 --> 00:44.210
+So as you can see above the directory and I've got the in it.
+
+00:44.460 --> 00:49.130
+Next I'm going to create a validators package under here.
+
+00:49.550 --> 00:53.900
+So let's go ahead and call it validators and not get this validated package.
+
+00:53.910 --> 00:57.810
+And this is just going to be you know sample code.
+
+00:57.840 --> 01:02.130
+But it's going to be things like for testing if something is an integer or maybe converting something
+
+01:02.130 --> 01:02.700
+to an integer.
+
+01:02.700 --> 01:07.530
+So it is going to be voters there's going to be you know testers to see if things are so in a certain
+
+01:07.530 --> 01:11.930
+format maybe I want to validate e-mails validate you Oreilles things like that.
+
+01:12.150 --> 01:17.760
+So I'm going to keep it simple let's say that we have a module now so I'm just going to create a python
+
+01:17.760 --> 01:20.650
+file and I'm going to call it Bhuiyan.
+
+01:20.670 --> 01:24.420
+I'm not going to call it boolean validators It's already under validators.
+
+01:24.450 --> 01:30.950
+So I keep the names as short as possible and in context I know what it means it's validators dot boolean.
+
+01:31.200 --> 01:33.200
+So let's go ahead and write with file.
+
+01:33.210 --> 01:39.360
+I will just write the file name up here and maybe will do is boolean.
+
+01:39.360 --> 01:42.980
+That takes an argument and it's going to pass.
+
+01:43.200 --> 01:44.910
+So this is not about writing code.
+
+01:44.930 --> 01:46.550
+I'm not going to be writing code.
+
+01:47.310 --> 01:53.940
+But what I want to do is show you is that I might actually have other functions in here that go beyond
+
+01:54.060 --> 01:54.410
+the.
+
+01:54.410 --> 01:56.780
+Is Boolean that I'm going to be using in the end.
+
+01:56.790 --> 02:02.700
+And so maybe I've got some boolean you know help a function that I need to use and it's just going to
+
+02:02.700 --> 02:03.630
+pass as well.
+
+02:03.630 --> 02:05.050
+And maybe I've got another one.
+
+02:05.160 --> 02:12.350
+OK so maybe I've got a couple of functions that I really want to use for the implementation of is boolean
+
+02:12.450 --> 02:14.480
+and maybe there's a few other functions too.
+
+02:14.490 --> 02:15.800
+But let's say I've got this.
+
+02:15.840 --> 02:18.360
+OK let's go ahead and do the same thing.
+
+02:18.360 --> 02:20.030
+Let's say we have something for dates.
+
+02:20.100 --> 02:24.650
+So let's go ahead and create a date model.
+
+02:26.280 --> 02:32.000
+And here's where I'm going to have death is date take some argument and it's just going to pass.
+
+02:32.010 --> 02:32.320
+OK.
+
+02:32.340 --> 02:37.630
+And then maybe I've got some help of functions that I need in here as well.
+
+02:37.740 --> 02:40.600
+I'll do that.
+
+02:42.550 --> 02:43.140
+OK.
+
+02:43.560 --> 02:46.290
+So we've got that and maybe I'll get better data is full.
+
+02:46.300 --> 02:49.280
+Jason So let's go ahead and write a song.
+
+02:50.020 --> 02:52.390
+All Sunday.
+
+02:52.420 --> 02:56.120
+P Y and then maybe it's is.
+
+02:56.120 --> 03:07.650
+Jason takes an argument passes and as usual we'll maybe have some help of function helper won and maybe
+
+03:07.650 --> 03:11.090
+we'll have another one as well.
+
+03:12.860 --> 03:14.060
+Okay.
+
+03:14.670 --> 03:17.810
+And lastly let's do one more let's do it is numeric.
+
+03:17.820 --> 03:28.380
+So let's write a python file system Madill not is numeric just numeric K and a numeric.
+
+03:28.410 --> 03:33.120
+Let's say that we have a few things like maybe def is integer
+
+03:36.300 --> 03:44.910
+then maybe we'll def is numeric gays who want to be able to distinguish if something is numerical or
+
+03:44.910 --> 03:50.240
+integer actually petrify this on.
+
+03:50.430 --> 03:53.120
+Well as we want maybe I've got some helper functions now.
+
+03:53.170 --> 03:57.430
+OK so here I've got like two functions that I'm interested in.
+
+03:57.720 --> 04:03.310
+And here we have the help of functions that are going to be used inside this module.
+
+04:03.330 --> 04:06.240
+But that's not really for use outside of the module.
+
+04:10.900 --> 04:11.820
+OK.
+
+04:13.250 --> 04:19.220
+So now we have this package called validators inside the package called common K and validate as has
+
+04:19.280 --> 04:19.810
+in it.
+
+04:19.820 --> 04:22.720
+This is the code for the validator module and this in.
+
+04:22.760 --> 04:25.080
+Here is the code for the common module.
+
+04:25.080 --> 04:33.060
+So let me go ahead and just say that this is the validators I'm going to call that validators.
+
+04:33.080 --> 04:35.110
+And this one is the common.
+
+04:35.180 --> 04:35.870
+OK.
+
+04:36.670 --> 04:37.070
+All right.
+
+04:40.100 --> 04:43.070
+Now let's go ahead and write a main file.
+
+04:43.070 --> 04:48.340
+So we'll do this and I'll just call it main duppy why I'm not going to Dunder it.
+
+04:48.410 --> 04:54.620
+I'm not going to be running this directly from outside the application directory as we saw that done
+
+04:54.620 --> 04:55.640
+the main can do.
+
+04:56.820 --> 05:00.840
+So in this one if I want to use those validators How am I going to have to do that.
+
+05:00.840 --> 05:02.720
+Well I'm going to have to implement them.
+
+05:02.730 --> 05:06.060
+So let's go ahead and import all these different melodies.
+
+05:06.070 --> 05:07.610
+So I'm going to say import.
+
+05:07.770 --> 05:12.240
+So I need to give the full path import common modeled models.
+
+05:12.470 --> 05:15.600
+Will not get to malls yet validators.
+
+05:15.780 --> 05:16.410
+OK.
+
+05:16.410 --> 05:18.780
+And then I need to import boolean.
+
+05:18.870 --> 05:25.010
+Ok then I need to import common dark validators duct taped.
+
+05:25.050 --> 05:35.020
+And then I need to import common validators dot Jaisalmer and then I need to import common Darton validators
+
+05:35.420 --> 05:37.150
+dot numeric.
+
+05:37.170 --> 05:37.740
+OK.
+
+05:37.980 --> 05:45.510
+And if I had more things inside this common package I would have to import each one of those Fano we
+
+05:45.510 --> 05:51.390
+can actually use them now we can say commande are validated is datt let's say we want to do if it's
+
+05:51.390 --> 05:56.020
+a Jason Teso Jason dot and you'll notice here what's happening.
+
+05:56.020 --> 06:02.130
+First thing is that Jason helper shows up and so does Jason help but to for one and to show up and then
+
+06:02.320 --> 06:04.940
+Jason is really the only thing I'm interested in.
+
+06:04.990 --> 06:10.040
+So that's what I'm going to use I'm going to pass it you know just maybe an empty string an empty Yup.
+
+06:10.160 --> 06:12.840
+Jason dictionary.
+
+06:12.840 --> 06:18.460
+So this is how you would go about doing it if you wanted to you know test for something to be a valid
+
+06:18.460 --> 06:19.040
+date.
+
+06:19.050 --> 06:26.310
+You'd say validated is d'arte date dot and again you'll notice that we have these two helper functions
+
+06:26.310 --> 06:27.780
+that show up.
+
+06:27.780 --> 06:29.460
+They are available.
+
+06:29.500 --> 06:37.920
+All right but I only really want is data and maybe I'll pass at a date like 20:18 0 1 0 1 or something
+
+06:37.920 --> 06:38.740
+like that.
+
+06:39.040 --> 06:39.320
+OK.
+
+06:39.330 --> 06:41.590
+So this will run just fine.
+
+06:41.610 --> 06:43.320
+We can go ahead and run it.
+
+06:43.680 --> 06:46.150
+And you'll notice it ran just fine.
+
+06:46.410 --> 06:50.290
+But it's not that easy to write all this stuff.
+
+06:50.500 --> 06:51.040
+OK.
+
+06:53.000 --> 06:56.920
+You have to write a lot of import import or quite a bit nested and so on.
+
+06:56.930 --> 07:00.530
+Now let's just take a look at what we have in the name spaces though.
+
+07:00.530 --> 07:05.060
+Let's take a look as well I mean we kind of see that because when we did the import when we said you
+
+07:05.060 --> 07:12.110
+know common dot revalidate TAWS dot you can see that Sunday Boullier numeric while they were available
+
+07:12.110 --> 07:12.720
+because.
+
+07:13.010 --> 07:17.080
+Well first of all I imported them but that we can continue.
+
+07:17.080 --> 07:23.270
+And we saw like if I take for example Gnumeric then you can see that I have all these four functions
+
+07:23.270 --> 07:28.700
+that were defined in that module is integer is numeric which are the ones of interest to me as a user
+
+07:28.850 --> 07:31.910
+of the validators but numeric help of one numeric help.
+
+07:32.060 --> 07:34.630
+I'm not really interested in and yet they show up.
+
+07:34.820 --> 07:37.700
+Well that's because they're in the namespace which namespace.
+
+07:37.790 --> 07:39.790
+Let's just go figure that out very quick.
+
+07:40.100 --> 07:47.010
+Let's do this let's right let's just look at ourself.
+
+07:47.030 --> 07:48.470
+So this module here.
+
+07:48.680 --> 07:52.380
+And let's see what we have in our Global's.
+
+07:52.490 --> 07:54.590
+Now I could try and do this.
+
+07:54.590 --> 07:55.700
+I want to show you this actually.
+
+07:55.730 --> 08:00.340
+This is kind of interesting and you'll see that this is going to generate an error.
+
+08:00.410 --> 08:06.790
+I just want to print all the keys in my Global's OK but I want to print them on you know one line each.
+
+08:07.080 --> 08:11.270
+Well the problem if I do this you'll see.
+
+08:11.270 --> 08:12.130
+Let's run it.
+
+08:13.950 --> 08:15.840
+And I get this runtime error.
+
+08:15.870 --> 08:18.930
+The dictionary changed size during iteration.
+
+08:19.020 --> 08:23.120
+Well what's happening is that I'm iterating through the Global's dictionary right.
+
+08:23.130 --> 08:29.160
+I'm iterating using the keys but you'll notice what happens is that I have four case.
+
+08:29.160 --> 08:34.700
+So K is a a symbol in my global namespace.
+
+08:34.730 --> 08:42.590
+As soon as I do this for K in the first thing it does it sets up the iterator for Global's then it goes
+
+08:42.590 --> 08:48.700
+ahead and loops through it and assigns each key as it comes out of the iterator into this symbol this
+
+08:48.710 --> 08:50.210
+variable k.
+
+08:50.600 --> 08:53.210
+But where does live in the global namespace.
+
+08:53.210 --> 08:59.130
+In other words I've modified this iterable this Global's dictionary I should say.
+
+08:59.300 --> 09:02.300
+While I'm iterating through it we can't do that.
+
+09:02.300 --> 09:08.130
+So instead what I'm going to do is I'm going to make a copy of it by creating a new dictionary.
+
+09:08.720 --> 09:10.480
+So we'll do it this way.
+
+09:10.640 --> 09:21.890
+And actually all that extra space and then came in Dick Global again or let it pick the way you go to
+
+09:21.890 --> 09:23.890
+get my parentheses straight.
+
+09:23.900 --> 09:26.050
+All right so now let's go ahead and run this.
+
+09:26.150 --> 09:28.030
+And now you'll see that runs just fine.
+
+09:28.040 --> 09:36.020
+So what's in our global namespace in our main you know main Doppie why maned a PI namespace.
+
+09:36.200 --> 09:40.630
+Well we've got the usual the name the doc the loader the spec and so on but we also have this one here.
+
+09:41.060 --> 09:42.720
+Why do we have common.
+
+09:42.770 --> 09:45.790
+Because we imported common from over here right in here.
+
+09:45.800 --> 09:52.390
+So we imported commande up validators the boolean Romanova what Python had to do it had to first import
+
+09:52.400 --> 09:59.000
+common then it had to import validators commande of validators and then imported come into validators
+
+09:59.030 --> 10:03.860
+the Boulia and one gets put into our namespace is common right.
+
+10:03.950 --> 10:07.100
+Not validate is a Boolean that's going to be available through the dot.
+
+10:07.120 --> 10:11.280
+You know the dotted path notation but common is what goes into a namespace.
+
+10:11.300 --> 10:11.980
+OK.
+
+10:12.470 --> 10:20.160
+So next let's take a look at what's in our common namespace right in common here.
+
+10:20.300 --> 10:20.870
+So
+
+10:24.170 --> 10:26.210
+let's go ahead and loop now here.
+
+10:26.270 --> 10:29.250
+I'm going to look for k in common dots.
+
+10:29.270 --> 10:34.760
+The way to get the name space is just to look at the dict at the Dondre dict property and we'll just
+
+10:34.760 --> 10:36.090
+look at the keys again.
+
+10:36.180 --> 10:37.470
+And by default it will be the keys.
+
+10:37.490 --> 10:39.700
+But I like to be explicit.
+
+10:40.220 --> 10:44.810
+Now here I don't have to make a copy of the dictionary because this case over here is living in my global
+
+10:44.810 --> 10:50.710
+namespace not in the Commons namespace so it's not we're not going to have that problem.
+
+10:54.120 --> 10:56.690
+Only to underscore on the end.
+
+10:56.780 --> 10:58.730
+So let's go ahead and run this NOW.
+
+11:00.220 --> 11:06.620
+And so here's what we have so in common You'll notice that we have the validators package.
+
+11:06.730 --> 11:11.870
+So now let's go ahead and dig into that one and see what's in there.
+
+11:12.460 --> 11:20.620
+So I'm going to copy paste this fairly day to Oza and here I'm going to look at common duffed validators
+
+11:20.960 --> 11:22.550
+dot dot dot.
+
+11:22.750 --> 11:23.180
+OK.
+
+11:23.380 --> 11:26.730
+So we're going to do the same thing here but just for the validators.
+
+11:26.770 --> 11:30.150
+So now let's see what we have inside the validators package.
+
+11:30.230 --> 11:35.830
+We've got the usual down the properties but we also have a boolean date Jason and numeric which were
+
+11:35.830 --> 11:37.210
+what they were.
+
+11:37.210 --> 11:39.070
+These models that we created.
+
+11:39.160 --> 11:43.620
+So it has all these in that name space.
+
+11:43.630 --> 11:45.060
+So let's go ahead now.
+
+11:45.100 --> 11:47.120
+And finally just run it for one.
+
+11:47.140 --> 11:56.140
+Let's say we'll take the validators or we'll take the numeric K and we'll do validate as Dot numeric
+
+11:56.380 --> 11:58.690
+dot dot dot dot.
+
+11:58.690 --> 12:02.020
+And now let's run this and see what we get.
+
+12:02.020 --> 12:08.050
+And so you can see that in numeric namespace we have is integer is numeric numeric help of 1 numeric
+
+12:08.050 --> 12:08.830
+help too.
+
+12:09.010 --> 12:09.280
+All right.
+
+12:09.280 --> 12:12.610
+So that kind of helps establish where everything is located.
+
+12:12.670 --> 12:16.350
+And so things are nested within each other because that's what packages are for.
+
+12:18.030 --> 12:22.800
+So now let's go back to the original problem which is you know this certainly works.
+
+12:22.800 --> 12:27.560
+We can do this but it's kind of tedious it's also tedious having to write it out every time come that
+
+12:27.560 --> 12:29.190
+it is based on is based on.
+
+12:29.190 --> 12:32.210
+If you wanted to you could change this.
+
+12:32.340 --> 12:36.770
+And for example for numeric instead of doing this I might say something like.
+
+12:36.840 --> 12:47.150
+From common dot validators dot numeric dots import up data input.
+
+12:47.160 --> 12:48.330
+And what do I want to import.
+
+12:48.330 --> 12:50.110
+I want to import that is integer.
+
+12:50.340 --> 12:53.240
+And I want to import is numeric and that's all I want to do.
+
+12:53.430 --> 12:53.950
+OK.
+
+12:54.390 --> 12:55.970
+So I could do it this way.
+
+12:56.010 --> 12:58.110
+Again this is kind of tedious.
+
+12:58.140 --> 13:00.510
+So now I want to use Integer always numeric.
+
+13:00.510 --> 13:06.080
+I could just say is you know is numeric let's say 10 things something like that or is you know integer
+
+13:06.910 --> 13:11.020
+100 for the you or whatever the function does.
+
+13:11.020 --> 13:13.470
+So this is fine but this is even more tedious.
+
+13:13.480 --> 13:13.800
+Right.
+
+13:13.840 --> 13:16.230
+I have to now do this from this import.
+
+13:16.230 --> 13:25.110
+This what would be nice if I could just maybe say simple common dot validators and you know maybe I
+
+13:25.120 --> 13:26.800
+even do this as validators.
+
+13:26.830 --> 13:33.760
+And then I want to be able to just access directly all these validators directly in the validator.
+
+13:34.030 --> 13:35.980
+OK I might want to do something like this.
+
+13:35.980 --> 13:41.010
+Now obviously this isn't going to work that's try it but that's not going to work.
+
+13:41.020 --> 13:45.760
+It's going to complain and tell me that common validated has no attribute is numeric.
+
+13:45.760 --> 13:46.810
+This worked just fine.
+
+13:46.810 --> 13:47.470
+That's fine.
+
+13:47.470 --> 13:55.050
+I can import the validators right but I'm still going to have to load up the things inside boolean and
+
+13:55.050 --> 13:55.260
+data.
+
+13:55.360 --> 14:01.900
+So here I would have to say validators dot all we're looking at numeric so numeric dot is numeric.
+
+14:01.900 --> 14:06.160
+And here validators is numeric Da'ath is integer.
+
+14:06.160 --> 14:07.590
+Now that will work just fine.
+
+14:07.760 --> 14:14.640
+OK that's going to reach into the numeric namespace and grab the numeric function that symbol but it's
+
+14:14.660 --> 14:16.520
+full you know tedious.
+
+14:16.630 --> 14:18.650
+So there's got to be a better way.
+
+14:18.700 --> 14:25.330
+So let's go ahead and removalists Let's go back to what we had before which was this basically.
+
+14:25.540 --> 14:32.980
+OK and let's go ahead and fix this up using the package.
+
+14:32.980 --> 14:34.340
+We have a package.
+
+14:34.600 --> 14:37.090
+So what we might want to do is the following.
+
+14:37.090 --> 14:41.350
+So inside the validators module we're going to import.
+
+14:41.410 --> 14:42.990
+So we're going to say in-call.
+
+14:43.030 --> 14:44.300
+Now what do we want to improve.
+
+14:44.320 --> 14:54.610
+We want to import common Dogget validators dot Pulliam OK and then we want to import common darf validators
+
+14:55.000 --> 15:04.110
+dot data and then we want to import common doffed validators dot J song and then we want to import common
+
+15:04.780 --> 15:09.290
+people common Dopp validators numeric.
+
+15:09.410 --> 15:15.600
+OK for now we have these imports being done by the validators module right.
+
+15:15.610 --> 15:17.660
+This is the model package but it's a module.
+
+15:17.680 --> 15:19.150
+It's running these impuls.
+
+15:19.150 --> 15:22.350
+This is the package code that's done do it.
+
+15:22.510 --> 15:29.300
+For now if we go back to main instead of doing all this what we can now do is to say import common validators.
+
+15:29.580 --> 15:33.330
+And if we want we can even say as validators.
+
+15:33.620 --> 15:35.350
+OK but I'm not going to do that.
+
+15:35.380 --> 15:39.630
+I'm just going to impled common validators and we'll spell it right.
+
+15:40.120 --> 15:42.860
+OK so now I can do the following.
+
+15:42.940 --> 15:54.800
+I can go ahead and say common validators dot and I can access let's say boolean dot and then I can access
+
+15:55.030 --> 15:55.790
+is boolean.
+
+15:55.850 --> 15:57.910
+OK and maybe I'll give it a value.
+
+15:58.030 --> 15:59.220
+True for example.
+
+15:59.890 --> 16:01.280
+So this now is going to work.
+
+16:01.300 --> 16:04.200
+You'll notice I didn't have to import common.
+
+16:04.240 --> 16:08.800
+Validate is not Boolean because the validator package did it for me.
+
+16:08.800 --> 16:12.060
+It imported boolean.
+
+16:12.060 --> 16:16.520
+So now if I run this everything works just fine.
+
+16:18.420 --> 16:22.460
+So that's great but I'm still putting this boolean in front of as boolean.
+
+16:22.500 --> 16:24.840
+And maybe that's how I want this package to be.
+
+16:24.840 --> 16:26.230
+In this case I don't.
+
+16:26.250 --> 16:32.340
+These are all simple functions you know is Boolean is integer is numeric date is Jason.
+
+16:32.370 --> 16:35.670
+I just wanted them all bundled up under the validators namespace.
+
+16:35.670 --> 16:41.070
+I don't want to have to reach into the sub name spaces to grab what I want.
+
+16:41.220 --> 16:44.610
+The user of validators doesn't need to know that is boolean.
+
+16:44.610 --> 16:46.620
+Lives is and is boolean.
+
+16:46.620 --> 16:48.190
+They don't need to know.
+
+16:48.240 --> 16:52.710
+We'll have to worry about the fact that you know if they won't It is Jason function.
+
+16:52.710 --> 16:59.130
+They first have to reach in to the J song module onto the adjacent namespace and then called is Jaisalmer
+
+16:59.490 --> 17:01.190
+right.
+
+17:02.400 --> 17:05.460
+So that works but I don't want.
+
+17:05.460 --> 17:08.510
+In this case I don't want my users to have to do that.
+
+17:08.850 --> 17:15.240
+So instead what I want to do and this is I actually want to import the symbols that are in boolean and
+
+17:15.240 --> 17:18.140
+in date and in on and in numeric.
+
+17:18.240 --> 17:25.540
+So this actually is a great reason for using import star right.
+
+17:25.590 --> 17:32.140
+Typically not something we want to do but in this case this is a great use case for the import stuff.
+
+17:32.310 --> 17:40.710
+So what I'm going to say is from common that validators dupped.
+
+17:41.040 --> 17:44.990
+Let's start with Boolean simple stuff.
+
+17:45.180 --> 17:48.310
+OK let's say that I have this and I'll keep those three.
+
+17:48.700 --> 17:54.230
+I'm still there as well and I'll just have to fix with it right there.
+
+17:54.330 --> 18:00.630
+OK so now let's go back to Main and this will work just fine.
+
+18:00.680 --> 18:01.130
+OK.
+
+18:01.210 --> 18:03.050
+This is going to work just fine.
+
+18:03.310 --> 18:09.700
+But what happens now is that for the booleans I don't actually have to reach in to the Boullion because
+
+18:09.700 --> 18:16.330
+what happens if I rerun this and let's take a look at the namespace that we have for self.
+
+18:16.630 --> 18:22.210
+So self we have Carmen K common and under common we have validators.
+
+18:22.270 --> 18:24.310
+Let's see what's inside validators.
+
+18:24.460 --> 18:31.000
+Well you'll notice that we have a date we have Jason we have Gnumeric we have Boullion.
+
+18:31.000 --> 18:36.490
+So we have all these but we also have is Boullion which is the one that we're interested in this is
+
+18:36.490 --> 18:39.100
+why this runs this works just fine.
+
+18:39.100 --> 18:41.600
+Now we also have however these two over here.
+
+18:41.640 --> 18:44.850
+Boullion helper one Boullion help with two.
+
+18:44.980 --> 18:48.550
+I actually really don't want those in there only want is boolean.
+
+18:48.580 --> 18:51.010
+Because now if I go back here.
+
+18:51.170 --> 18:56.640
+In this one and I change all this now I'm going to remove all of these.
+
+18:56.920 --> 19:05.040
+And I need to stop using my Mac shortcut keys and use Windows sort of keys instead.
+
+19:05.090 --> 19:05.690
+OK.
+
+19:06.050 --> 19:07.880
+So I'm going to do the same thing for all of those.
+
+19:07.880 --> 19:14.560
+I'm going to say from common data validators dots dates important stuff.
+
+19:14.580 --> 19:28.310
+I'm going to say from common dot validators dark Jaison imposter and from Carmen got validators dot
+
+19:28.400 --> 19:30.630
+Gnumeric important stuff.
+
+19:30.650 --> 19:31.080
+Cape's.
+
+19:31.100 --> 19:37.790
+Now I've got this kind of import structure so if I run my program again and by the way now I can say
+
+19:37.790 --> 19:50.840
+common Doggett's validators dot is numeric for example and I can call commande up the validators dot
+
+19:51.080 --> 19:52.150
+is data.
+
+19:52.160 --> 19:53.980
+I have access to all of these.
+
+19:54.040 --> 19:54.450
+OK.
+
+19:54.460 --> 19:58.170
+Is data and so on.
+
+19:59.780 --> 20:10.540
+Of course I can still use if I want common dot validators dot boolean right dot is Boolean that that
+
+20:10.550 --> 20:12.010
+will still work just fine.
+
+20:12.140 --> 20:12.890
+OK.
+
+20:13.170 --> 20:15.850
+Now if I run this everything runs just fine.
+
+20:15.850 --> 20:23.020
+And let's see what's inside of validators namespace while we've got boolean OK that's the model we've
+
+20:23.020 --> 20:23.590
+got date.
+
+20:23.590 --> 20:28.210
+That's the model Jason that's the module Gnumeric that's the model we've got is Boullion.
+
+20:28.240 --> 20:32.740
+That's great you've got is date is Jaison is integer is numeric.
+
+20:32.740 --> 20:35.650
+But then we have all these helper functions as well.
+
+20:35.650 --> 20:37.120
+So I don't like that.
+
+20:37.240 --> 20:37.790
+OK.
+
+20:40.170 --> 20:42.280
+So we want to fix this up.
+
+20:42.390 --> 20:43.590
+That's one thing.
+
+20:43.590 --> 20:49.790
+The other thing too is that I'm looking at all this and I decide you know what I want to change this
+
+20:49.800 --> 20:53.500
+package name I wanted to make this something else I don't want to call it common.
+
+20:53.520 --> 20:55.640
+I want it to be called shared.
+
+20:55.800 --> 21:01.290
+So I'm going to going to go in here and I'm going to refactor this and I'm going to call this shared.
+
+21:01.410 --> 21:07.160
+Now I'm not going to do a safe refactor I'm just going to change the name Azeez right here.
+
+21:07.260 --> 21:07.740
+OK.
+
+21:07.830 --> 21:14.220
+So now I've changed it to changed and now the problem is that in side the main Well it's not called
+
+21:14.310 --> 21:18.790
+commande of validators anymore it's going to be called Shared validators.
+
+21:18.830 --> 21:24.480
+OK so I'm going to impled should the validators and I'm going to change this.
+
+21:24.600 --> 21:25.810
+All these things to.
+
+21:25.820 --> 21:27.330
+And that's what I have to do.
+
+21:27.360 --> 21:28.140
+Same thing in here.
+
+21:28.140 --> 21:29.690
+This has to be called shared.
+
+21:29.810 --> 21:32.740
+This should be shared and this should be shared.
+
+21:32.840 --> 21:36.470
+OK so I've changed the top level namespace.
+
+21:36.530 --> 21:36.930
+All right.
+
+21:36.930 --> 21:41.820
+The top level name I should say of that common package.
+
+21:41.850 --> 21:43.860
+It's not the shared package.
+
+21:43.920 --> 21:49.700
+So if I go ahead and run this you'll notice that we get errors and it comes from where.
+
+21:49.740 --> 21:53.370
+Well it actually comes from the Dunder init of validators.
+
+21:53.500 --> 21:55.960
+OK which is this file over here.
+
+21:56.190 --> 21:56.970
+Why.
+
+21:57.300 --> 22:02.840
+Well I would have to go in here now and change this to shed validators and shared the validators in
+
+22:02.860 --> 22:03.500
+shirt.
+
+22:03.540 --> 22:10.650
+That's a you know a pain if I rename my parents package I'm going to have to wherever I reference that
+
+22:10.920 --> 22:12.230
+package name.
+
+22:12.240 --> 22:13.710
+I'm going have to change it.
+
+22:14.100 --> 22:19.630
+So instead a better way to do this here is to call is to use what's called a relative import.
+
+22:19.980 --> 22:27.870
+So in my validators package my validate package lives where it lives inside the package above it.
+
+22:27.870 --> 22:31.230
+Now where do I want to import Billiam from.
+
+22:31.230 --> 22:35.760
+I want to import Boullion from where I am with this and it is right.
+
+22:35.750 --> 22:39.440
+These files are basically siblings to the Donder init.
+
+22:39.630 --> 22:45.100
+So I want to import it from the same current location where I'm running right now.
+
+22:45.150 --> 22:51.720
+So right now this code is running inside the Dunder init this file over here and I just want to run
+
+22:51.990 --> 22:52.650
+an import.
+
+22:52.650 --> 22:55.560
+I should say Boullion and Dave and Jason.
+
+22:55.560 --> 23:01.750
+So instead of specifying this entire path I'm going to make what's called a relative import.
+
+23:01.770 --> 23:06.420
+I'm going to say look at the current directory and find the boolean module in there.
+
+23:07.770 --> 23:09.690
+And I'm going to do the same thing over here.
+
+23:09.910 --> 23:14.850
+Now I'm going to do this and I'm going to change this one and this one.
+
+23:15.040 --> 23:22.780
+So now I have a relative import and you can use more dots if you had let's say a package that was sitting
+
+23:23.050 --> 23:28.480
+you know parallel to validators as a sibling to validators you could use a double dot to go outside
+
+23:28.480 --> 23:33.310
+to go up one level to now you'd be inside the shared package and you could then reference the module
+
+23:33.490 --> 23:36.560
+or the package that's in the shed package.
+
+23:36.690 --> 23:41.000
+If you were three levels deep you could put three dots and walk your way up three levels and so on.
+
+23:41.050 --> 23:46.610
+So just count the number of dots that's the number of paths you're going to go up in the hierarchy.
+
+23:46.720 --> 23:48.670
+I only need to be in my current path.
+
+23:48.910 --> 23:50.630
+Now let's go ahead and run this again.
+
+23:50.800 --> 23:52.780
+And everything ran just fine.
+
+23:52.780 --> 24:02.470
+So all I had to do was really change the main impulse here shed validated if I had done this.
+
+24:03.000 --> 24:07.790
+K then I would have had to change the validators over here.
+
+24:08.020 --> 24:08.380
+Right.
+
+24:08.380 --> 24:10.230
+I wouldn't have had to do this.
+
+24:10.240 --> 24:11.850
+I would have to change sched.
+
+24:12.040 --> 24:13.750
+But here I wouldn't have had to do it.
+
+24:13.810 --> 24:17.070
+They would have just of used validators cake.
+
+24:17.310 --> 24:23.620
+Now in this case over here I can still just do this right and do this.
+
+24:23.950 --> 24:28.330
+So now I'm kind of independent of the name of the shared module.
+
+24:28.410 --> 24:31.680
+So far run everything runs just fine.
+
+24:31.950 --> 24:33.160
+Shared is not defined.
+
+24:33.160 --> 24:34.450
+Where are we.
+
+24:34.570 --> 24:37.140
+Where in Maine AP wire line 17.
+
+24:37.150 --> 24:41.260
+Oh yes that's not shared because this is the shared package.
+
+24:41.260 --> 24:48.220
+So I've imported shared the validators as validators but I don't actually have shared itself in order
+
+24:48.220 --> 24:49.780
+to list out what's in shirred.
+
+24:49.810 --> 24:51.580
+So let's do that.
+
+24:51.580 --> 24:54.200
+And now that works just fine.
+
+24:54.390 --> 24:58.140
+OK so now let me rename this back to common.
+
+24:58.390 --> 25:02.440
+OK so I'm going to rename this back to comments on we're going to refactor it.
+
+25:02.470 --> 25:05.300
+I prefer calling it common than Zenn but it doesn't matter.
+
+25:05.560 --> 25:12.550
+So now of course here I have to do this I have to change these two references because those were the
+
+25:12.550 --> 25:15.090
+ones that were affected.
+
+25:15.820 --> 25:18.540
+And then after that everything should run just fine.
+
+25:18.950 --> 25:20.500
+So let's test that.
+
+25:20.560 --> 25:22.740
+And as you can see everything ran just fine.
+
+25:22.750 --> 25:26.080
+I didn't have to worry about these impled.
+
+25:26.760 --> 25:31.780
+OK so that's one problem that we fix by using relative importance that we don't really worry about the
+
+25:31.780 --> 25:34.250
+name of the package that we're in.
+
+25:34.330 --> 25:34.710
+Right.
+
+25:34.720 --> 25:38.640
+If even you validate as if that name changes doesn't matter.
+
+25:38.680 --> 25:38.960
+Right.
+
+25:38.980 --> 25:40.670
+I can refactor this now.
+
+25:40.810 --> 25:44.660
+And let's say I rename this to validators too.
+
+25:44.820 --> 25:45.430
+OK.
+
+25:45.670 --> 25:46.890
+And let me refactor that.
+
+25:46.890 --> 25:49.260
+Now things are going to break but what's going to break.
+
+25:49.450 --> 25:54.540
+Well this important here is going to break because it's not called validators anymore it's called validators
+
+25:54.550 --> 25:55.510
+to.
+
+25:55.900 --> 25:56.260
+Right.
+
+25:56.260 --> 25:59.350
+And now if we run it everything ran just fine.
+
+25:59.350 --> 26:05.030
+You'll notice that this didn't break because we just used a relative import.
+
+26:05.340 --> 26:15.330
+So I'm going to change this back to validate this and in the main we'll change back as well.
+
+26:15.830 --> 26:22.400
+So now the next thing that I want to look at is this whole thing where we saw when we're in Maine that
+
+26:22.400 --> 26:29.900
+if we wrote validators note now we had all is Boolean is numeric but we also had that boolean helper
+
+26:29.960 --> 26:31.400
+Jason helper and so on.
+
+26:31.400 --> 26:31.630
+Right.
+
+26:31.640 --> 26:39.170
+We had all the stuff that I really didn't want and the way that I can avoid that is because I'm using
+
+26:39.170 --> 26:41.090
+the import stuff.
+
+26:41.090 --> 26:47.380
+So when I do import stuff it imports everything in the module every symbol that's in the module.
+
+26:47.630 --> 26:54.550
+So let's take a look at for example boolean So it's importing is Boolean Boullion help a 1000000000
+
+26:54.700 --> 26:55.150
+help.
+
+26:55.240 --> 26:59.360
+It's taking those symbols and adding them to wherever they're getting imported.
+
+26:59.380 --> 27:06.000
+So here all those symbols came from the Boullion module are now in this validators namespace right there
+
+27:06.010 --> 27:09.460
+in the validators dictionary the addict.
+
+27:09.520 --> 27:15.850
+One way that you can avoid that is by prefixing your methods with underscores and so underscores is
+
+27:15.880 --> 27:22.090
+really only applicable to the import stuff and everything actually I'm going to talk about now with
+
+27:22.090 --> 27:24.780
+these imports is applicable to the imports stuff.
+
+27:24.790 --> 27:28.630
+How does imports decide what symbols to import.
+
+27:28.630 --> 27:34.560
+We can actually control that so we can control what gets exported from our module.
+
+27:34.600 --> 27:40.720
+So here by putting the key all this underscores just a basically a python convention that it follows
+
+27:41.290 --> 27:46.990
+if it sees an underscore in front of a function it is not going to put it into the namespace with the
+
+27:47.040 --> 27:49.660
+importer is being called from.
+
+27:49.660 --> 27:51.340
+So let's go ahead and try that.
+
+27:51.490 --> 27:52.570
+Let's run this.
+
+27:52.750 --> 27:57.370
+And let's take a look now at the namespace for validators.
+
+27:57.400 --> 28:02.830
+You'll notice that we still have boolean and is boolean but all those two those boolean helper functions
+
+28:03.250 --> 28:04.590
+are no longer there.
+
+28:04.640 --> 28:05.440
+They're gone.
+
+28:05.680 --> 28:09.280
+So that's one way of controlling what gets exported.
+
+28:09.370 --> 28:12.460
+When we do an import stuff there is another way.
+
+28:13.940 --> 28:17.580
+And that's by using a special property called Gunda all.
+
+28:18.140 --> 28:25.760
+So in this property we basically specify a list of the symbols that we want to export from our package.
+
+28:25.760 --> 28:29.290
+So here I want to export is date and nothing else.
+
+28:29.300 --> 28:29.800
+OK.
+
+28:30.770 --> 28:35.130
+So if we look at the Right now what got exported.
+
+28:35.180 --> 28:35.470
+Right.
+
+28:35.480 --> 28:43.390
+When we looked at our validators package our validators namespace we saw that we had Boullion is Boullion
+
+28:43.390 --> 28:45.330
+those to help functions were gone.
+
+28:45.460 --> 28:51.170
+And then for date we only have date and date but we also have date help of one date help with 2.
+
+28:51.390 --> 28:53.320
+So now let's go ahead and run this.
+
+28:53.320 --> 29:01.240
+Now that we've done this done to roll and see what happens so let's take a look at the validators again.
+
+29:01.400 --> 29:06.820
+For now we have dates and is dates but those two helper functions for date are gone.
+
+29:06.860 --> 29:07.180
+Right.
+
+29:07.190 --> 29:09.670
+These two dates helpers one and two are gone.
+
+29:09.680 --> 29:15.470
+They're no longer showing up in that name space so we can do the same thing with Jason.
+
+29:15.510 --> 29:18.980
+We can just go here and find a Under all.
+
+29:18.990 --> 29:20.460
+And here what do we want to export.
+
+29:20.460 --> 29:22.250
+We just want to export is Jaisalmer.
+
+29:22.470 --> 29:24.520
+So that's what we have to do.
+
+29:24.570 --> 29:25.540
+What about gnumeric.
+
+29:25.590 --> 29:30.750
+Well Gnumeric all equals what we want to export here we have to of them.
+
+29:30.830 --> 29:32.630
+We want to export is integer.
+
+29:32.870 --> 29:34.530
+A comma is numeric
+
+29:38.550 --> 29:39.070
+OK.
+
+29:39.120 --> 29:40.750
+So now we've done that export.
+
+29:40.890 --> 29:47.250
+Let's go ahead and run this and the numeric store has that right.
+
+29:47.250 --> 29:51.570
+These these functions here are still part of the numeric namespace.
+
+29:51.570 --> 29:57.150
+What I'm interested in is in the containing namespace to validate as namespace is that in them.
+
+29:57.570 --> 29:59.640
+And their answer is no they gone right.
+
+29:59.640 --> 30:05.430
+Boolean is Boolean is there is date is Jaison is integer is numeric but all the help of functions are
+
+30:05.430 --> 30:07.300
+no longer in that namespace.
+
+30:07.320 --> 30:09.990
+So I was able to clean that up.
+
+30:10.020 --> 30:16.910
+So now if we go back to the main module nothing is change everything still works as is the difference
+
+30:16.910 --> 30:21.080
+now is that I you know I can access all these functions directly.
+
+30:21.080 --> 30:27.890
+I don't need to put de-funded is Jason because his Jaison is in my validators namespace so his date.
+
+30:27.890 --> 30:28.150
+Right.
+
+30:28.160 --> 30:29.100
+So is boolean.
+
+30:29.120 --> 30:31.250
+So the one we have there right.
+
+30:31.310 --> 30:32.810
+All these things all day.
+
+30:33.020 --> 30:37.210
+So if we run this everything runs just fine.
+
+30:37.220 --> 30:43.510
+Now you'll notice that in the validators namespace we also have the module Boullion boolean right.
+
+30:43.730 --> 30:50.150
+And we have the module date and J-Zone and numeric and so I may not want those to be in there I just
+
+30:50.150 --> 30:51.100
+want to keep it clean.
+
+30:51.110 --> 30:54.570
+I just want to have these is you know validated methods.
+
+30:54.830 --> 30:59.730
+Well again we can control is through the validators model code.
+
+30:59.840 --> 31:02.390
+So in here what did we do what we've done all these impuls.
+
+31:02.390 --> 31:06.560
+So now all these things over here are sitting in our namespace.
+
+31:06.620 --> 31:07.240
+OK.
+
+31:07.490 --> 31:14.760
+And so if somebody does let's say and imports from we all from the common validate is impled stuff.
+
+31:14.870 --> 31:25.140
+So what if they do something like this from common Dalt validators does import stuff.
+
+31:25.190 --> 31:33.250
+So this isn't something that's recommended rights this is going to basically take all these symbols
+
+31:33.310 --> 31:37.950
+that are in the validators namespace and add them to our namespace.
+
+31:38.140 --> 31:42.640
+So you'll notice what namespace looks like right now on namespace is pretty clean.
+
+31:42.640 --> 31:44.530
+It's got validators in common.
+
+31:44.600 --> 31:44.800
+Right.
+
+31:44.820 --> 31:46.970
+And then the other standard stuff.
+
+31:46.990 --> 31:48.040
+Now if we run this.
+
+31:48.040 --> 31:53.900
+However look at what happens to a namespace we have validators in common just like before.
+
+31:53.920 --> 31:59.450
+But now we have boolean and boolean and date and date and Jaison it is based on a numeric and so on
+
+31:59.710 --> 32:04.140
+at least we don't have all the help or methods but we still have you know all these things.
+
+32:04.150 --> 32:09.080
+And this is kind of redundant having numeric and is integer and numeric we really would only like is
+
+32:09.080 --> 32:10.570
+integer is numeric.
+
+32:10.570 --> 32:14.450
+Now we probably shouldn't be doing any stuff anyways.
+
+32:14.680 --> 32:21.010
+But if you want to be kind of nice and allow somebody to still do an import and not pollute this stuff
+
+32:21.010 --> 32:26.080
+with let's say the module names that are you know that these other methods actually coming from these
+
+32:26.080 --> 32:28.880
+functions are coming from we can control it.
+
+32:28.960 --> 32:30.310
+We could say dhanda.
+
+32:30.310 --> 32:36.970
+All right equals and now you would have to list out every single thing that we want we want is Boolean
+
+32:37.030 --> 32:46.500
+is date is J-Zone so we could say you know what is Boolean for example and then we'd have to list is
+
+32:47.090 --> 32:48.390
+Jason and so on.
+
+32:48.430 --> 32:50.980
+So let's try this just as it is right now.
+
+32:50.980 --> 32:54.570
+And let's see what we get in our namespace.
+
+32:54.880 --> 33:00.610
+So if we go back to our self namespace you'll notice that we now we only have this boolean is Jason.
+
+33:00.640 --> 33:02.980
+And that came from the imports stuff.
+
+33:03.100 --> 33:03.360
+OK.
+
+33:03.370 --> 33:05.050
+That came from this one over here.
+
+33:05.290 --> 33:12.670
+We only got is Boullion is Jasen because we all hear the under all method only properties sorry he set
+
+33:12.670 --> 33:16.940
+to only export these two symbols.
+
+33:17.380 --> 33:18.640
+Now this is going to get tedious.
+
+33:18.640 --> 33:25.430
+If there's a lot of packages or modules to import from and somehow I've got to you know no inheres.
+
+33:25.460 --> 33:28.100
+Now I have to boolean you know.
+
+33:28.120 --> 33:32.350
+Well here I'm using the donder let me actually change that list be consistent.
+
+33:32.400 --> 33:37.700
+That's all equals is boolean.
+
+33:38.170 --> 33:43.050
+OK so now I've got that I don't need to call these with an underscore.
+
+33:43.330 --> 33:45.030
+So we'll do it that way.
+
+33:45.580 --> 33:50.980
+But inside here so I have to keep this donder or if I add a method here that I want to be exported I
+
+33:50.980 --> 33:56.680
+have to remember that added to the Donder all but now I also have to remember added to this Donder all
+
+33:56.740 --> 33:59.640
+the Nagata two places I have to go and grab this.
+
+33:59.680 --> 34:06.670
+So instead a much simpler way is to basically make the done Dural hear everything that is done Dural
+
+34:06.670 --> 34:08.400
+in each of these individually.
+
+34:08.410 --> 34:13.360
+Right because those already maintaining what we want exported and so we want that export to trickle
+
+34:13.360 --> 34:14.520
+back up to the top.
+
+34:14.530 --> 34:15.820
+In this case.
+
+34:15.820 --> 34:21.240
+So here what I'm actually going to do is I'm going to take Boullion done the dict.
+
+34:21.340 --> 34:25.580
+So I'm going to take this and I'm going to add on to it.
+
+34:25.950 --> 34:27.810
+I'm not done the.
+
+34:27.850 --> 34:29.850
+Sorry put under all.
+
+34:30.110 --> 34:30.550
+OK.
+
+34:30.610 --> 34:35.230
+I'm going to grab these properties and I'm just going to string them together.
+
+34:36.040 --> 34:42.740
+I'm going to basically concatenate those lists into a single list and do that.
+
+34:42.790 --> 34:48.430
+Now if you've got many of those you're going to start getting a lot you know a long line so we can break
+
+34:48.430 --> 34:51.210
+it up by essentially making an expression out of this.
+
+34:51.430 --> 34:53.510
+And by doing it this way.
+
+34:53.590 --> 34:53.970
+OK.
+
+34:54.070 --> 34:59.940
+So we're just going to do that so this just allows us to break it over multiple lines.
+
+35:00.680 --> 35:01.230
+OK.
+
+35:01.270 --> 35:05.460
+So now let's go ahead and run main and let's see what happens.
+
+35:05.470 --> 35:07.240
+So everything again ran just fine.
+
+35:07.240 --> 35:08.140
+Nothing changed.
+
+35:08.140 --> 35:15.670
+We only change what we exported and if we now look at our self which is our global namespace for Main
+
+35:16.150 --> 35:24.120
+then you can see that we have is Boolean is data is Jaison is integer is numeric directly in our namespace.
+
+35:24.310 --> 35:32.090
+So we did that by basically specifying the donder all for the validators package but typically that
+
+35:32.090 --> 35:33.940
+is not what I would use.
+
+35:33.940 --> 35:37.030
+I would never say from come validators import stuff.
+
+35:37.250 --> 35:38.740
+I would just do it this way.
+
+35:38.780 --> 35:44.820
+I would import commande validators as validators maybe and then leave it at that.
+
+35:45.440 --> 35:46.830
+So we run this.
+
+35:46.970 --> 35:48.770
+Everything runs just fine again.
+
+35:49.040 --> 35:50.920
+So this is a good place to break.
+
+35:50.960 --> 35:57.220
+And the next video will take a look now at packages and some packages and a slightly different approach
+
+35:57.680 --> 36:02.710
+and how we can you know start rolling things up.
+
+36:02.810 --> 36:10.190
+Now just now if these modules but when we have sub packages underneath the packages Well the best thing
+
+36:10.190 --> 36:11.390
+that you need to do with this.
+
+36:11.420 --> 36:17.090
+The best approach for you is to just play with this just write packages and molecules and test them
+
+36:17.090 --> 36:22.280
+and try different inputs try to see how it works and what happens then you'll get a good feel for what
+
+36:22.280 --> 36:24.000
+you can and can't do.
+
+36:24.260 --> 36:29.720
+The import system in Python I think is one of the most complex parts of Python.
+
+36:30.230 --> 36:36.440
+So the only way to really learn it and to know it well is through practice and just trying stuff out
+
+36:36.470 --> 36:38.450
+and see what works.
+
+36:38.450 --> 36:38.770
+All right.
+
+36:38.780 --> 36:41.110
+Thanks for watching and I'll see you in the next video.

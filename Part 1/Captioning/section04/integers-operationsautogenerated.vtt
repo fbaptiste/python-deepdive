@@ -1,0 +1,1075 @@
+WEBVTT
+
+00:00.480 --> 00:05.400
+High in this video we're going to continue our discussion on integers and in this case we're going to
+
+00:05.400 --> 00:08.650
+look at the different operations that we can do with integers.
+
+00:09.960 --> 00:15.540
+So vintages support all the standard arithmetic operations that we used to like addition subtraction
+
+00:15.540 --> 00:21.800
+multiplication division and even exponents using this double standard notation.
+
+00:22.650 --> 00:28.420
+But what is the resulting type of each operation is something that we should ask ourselves.
+
+00:28.440 --> 00:32.160
+In other words if we add two integers What do we get back.
+
+00:32.160 --> 00:36.270
+Well we get an integer back that kind of makes sense three plus four is seven.
+
+00:36.270 --> 00:38.330
+They're both integers 7 as integer.
+
+00:38.340 --> 00:41.670
+That's fine and subtraction will work the same way.
+
+00:41.730 --> 00:47.080
+Multiplication will work the same way if you multiply two ints you get an int back and if you might
+
+00:47.130 --> 00:52.500
+you know if you take the exponent of one into another again you'll get an integer back 2 to the power
+
+00:52.500 --> 00:55.330
+of two is for which you know they're all integers.
+
+00:55.350 --> 00:59.620
+So that kind of makes sense but division is a little bit different.
+
+00:59.640 --> 01:03.300
+Division will always return a float.
+
+01:03.300 --> 01:06.740
+Now it's pretty obvious when we do something like three divided by four right.
+
+01:06.750 --> 01:08.130
+That 0.75.
+
+01:08.130 --> 01:14.220
+So we can't expect 0.75 to be an integer data type and it's going to have to be a float which is what
+
+01:14.220 --> 01:19.580
+Python will return but maybe not so obvious is that if you do 10 divided by two.
+
+01:19.860 --> 01:21.840
+Well yes the answer is five.
+
+01:21.840 --> 01:27.230
+Technically it's an integral number but it will still get returned as a float type.
+
+01:27.240 --> 01:32.870
+I will see that in the code section so Division will always return a float.
+
+01:33.870 --> 01:40.150
+So that gets us to two more operators that we have when we're dealing with integers.
+
+01:40.540 --> 01:44.160
+So first let's take a look back to long division.
+
+01:44.250 --> 01:50.320
+And remember that from our grade school and that's when you wanted to divide you know you had a fraction
+
+01:50.320 --> 01:54.680
+like 155 over four and you did long division on that.
+
+01:54.690 --> 02:01.360
+We at that time you didn't have a concept of a decimal point and numbers after the decimal point everything
+
+02:01.360 --> 02:02.660
+was working of integers.
+
+02:02.740 --> 02:04.580
+So let's take a look at that.
+
+02:05.020 --> 02:05.320
+Right.
+
+02:05.320 --> 02:10.320
+So first just some terminology the top number here is called the numerator.
+
+02:10.330 --> 02:13.530
+The bottom here is called the denominator.
+
+02:14.320 --> 02:17.360
+So we're going to take a 155 divided by four.
+
+02:17.380 --> 02:19.660
+We're going to take that long division approach.
+
+02:19.900 --> 02:24.700
+So 4 goes into 15 three times so that's 12.
+
+02:24.850 --> 02:26.890
+So that leaves us with three.
+
+02:26.890 --> 02:29.230
+Bring down the five we have 35.
+
+02:29.290 --> 02:35.910
+Once more four goes into thirty five at most eight times which is a value of 32.
+
+02:35.920 --> 02:39.300
+We're left with three and four doesn't go into three.
+
+02:39.400 --> 02:39.960
+That's it.
+
+02:39.970 --> 02:41.680
+We're done with a long division.
+
+02:41.830 --> 02:50.690
+And so we would write down our answer and say well 155 divided by four is 38 with remainder three.
+
+02:50.770 --> 02:52.890
+So we can also put it another way.
+
+02:53.110 --> 03:00.850
+And this is going to be the more important way of rephrasing this statement here which is that 155 is
+
+03:01.120 --> 03:04.540
+four times thirty eight plus three.
+
+03:04.540 --> 03:06.040
+So 155.
+
+03:06.460 --> 03:06.830
+Right.
+
+03:06.850 --> 03:12.600
+Is four times the number 38 Plus the remainder.
+
+03:12.630 --> 03:15.360
+So we're going to give this name.
+
+03:15.360 --> 03:21.010
+Essentially we're going to say we're going to define some operator that we denote by a double slash
+
+03:21.010 --> 03:25.380
+or double division 155 slash slash.
+
+03:25.380 --> 03:31.540
+For that we'll return that number 38 and we're going to define another operator.
+
+03:31.650 --> 03:33.120
+This percent sign here.
+
+03:33.170 --> 03:37.920
+So one 55 percent for will return that remained a turn.
+
+03:38.180 --> 03:47.510
+So if we use that notation then we get that 155 is four times this expression here plus this expression.
+
+03:47.810 --> 03:50.210
+This expression will evaluate to 38.
+
+03:50.330 --> 03:54.970
+And this one will evaluate to three.
+
+03:55.280 --> 03:57.930
+So four times thirty eight plus three.
+
+03:57.990 --> 04:00.300
+We get 155 back.
+
+04:00.590 --> 04:07.730
+So this operator here is called the floor division which I'm just going to say Divx for short but it's
+
+04:07.730 --> 04:09.870
+a you know it's an integer division.
+
+04:09.950 --> 04:14.460
+But more specifically it's a flow of division right.
+
+04:14.480 --> 04:20.410
+That's the name of that operation and this operation hit this operator here is called the Martillo operator
+
+04:20.600 --> 04:23.300
+which I'll just show usually as maade.
+
+04:23.360 --> 04:28.920
+So we'll have div and maade as these two operators slash slash and that percent sign.
+
+04:30.370 --> 04:34.430
+And the thing is about these two operators that they always satisfy.
+
+04:34.600 --> 04:37.050
+Exactly that equation that we saw here.
+
+04:37.210 --> 04:41.200
+So in general they always satisfy this equation.
+
+04:41.410 --> 04:46.550
+Where n means the numerator and D means the denominator.
+
+04:46.570 --> 04:51.580
+So we have the numerator like 155 is equal to d the denominator.
+
+04:51.580 --> 05:01.720
+Like for in this case times n Dev D 155 the full plus and mod d 155 mod 4.
+
+05:02.080 --> 05:07.400
+So this is an important equation because that will come back again and again as we discussed the div
+
+05:07.440 --> 05:11.110
+in the mud operators so forth.
+
+05:11.140 --> 05:12.730
+What is flawed division.
+
+05:12.760 --> 05:15.360
+Exactly what do we mean by floor division right.
+
+05:15.370 --> 05:17.370
+We gave it a name we gave it a symbol.
+
+05:17.500 --> 05:18.700
+But what is it exactly.
+
+05:18.850 --> 05:24.720
+Well first we have to define what the floor of a number is and we can take the floor of any real number.
+
+05:24.940 --> 05:25.370
+Right.
+
+05:25.510 --> 05:28.360
+It's not necessarily of an integer.
+
+05:29.050 --> 05:37.140
+So the floor of a real number is the largest integer less than or equal to a.
+
+05:37.480 --> 05:40.330
+And that's really important to understand that.
+
+05:40.630 --> 05:42.130
+And you'll see why in a bit.
+
+05:42.460 --> 05:45.370
+But it is the largest in the standard number order rights.
+
+05:45.400 --> 05:52.660
+If you draw out on a number line then you look at the number on the number line and you find the largest
+
+05:52.680 --> 05:59.350
+which means to the left of it the largest number less than the largest integer number less than or equal
+
+05:59.350 --> 06:01.030
+to the number you're looking at.
+
+06:01.050 --> 06:01.520
+OK.
+
+06:03.130 --> 06:10.830
+So for example the floor of 3.1 for well the largest integer less than 3.1 for is 3.
+
+06:10.840 --> 06:13.110
+Same thing with one point nine nine nine nine.
+
+06:13.150 --> 06:21.470
+The largest integer less than 1 point nine nine nine nine is one k the floor of two.
+
+06:21.500 --> 06:22.860
+Well it's two right.
+
+06:22.870 --> 06:31.190
+Because the largest integer less than or equal to two is to itself but watch out for negative numbers.
+
+06:31.190 --> 06:33.860
+This is where the definition is important.
+
+06:34.340 --> 06:36.980
+What's the floor of minus three point one.
+
+06:37.280 --> 06:41.030
+Well you might be tempted to say what was minus three right with truncating.
+
+06:41.030 --> 06:45.170
+Here we're just taking the integer portion of the number and throwing away the decimal points.
+
+06:45.360 --> 06:47.660
+But what comes after the decimal point.
+
+06:47.660 --> 06:49.120
+That's not quite how it works.
+
+06:49.130 --> 06:54.980
+Let's look at the number line right here's another line he negative 4 and is negative 3 and the number
+
+06:54.980 --> 06:58.280
+the within that we're interested in is minus 3.1.
+
+06:58.310 --> 07:00.530
+That's between those two values.
+
+07:00.530 --> 07:06.450
+Now if we look at the definition again a floor it is the largest integer less than or equal to eight.
+
+07:06.680 --> 07:15.130
+Well what's the largest integer less than minus 3.1 minus for it's not minus three minus three is greater
+
+07:15.130 --> 07:22.190
+than minus 3.1 so minus 4 is in fact the floor of minus 3.1.
+
+07:22.480 --> 07:24.360
+So that's an important distinction.
+
+07:24.400 --> 07:27.600
+Floor is not the same thing as truncation.
+
+07:27.690 --> 07:32.440
+It is the same when you're dealing with positive numbers but not have negative numbers.
+
+07:32.560 --> 07:42.290
+And that has an impact on the not operators that we saw so we get to our definition of flawed division
+
+07:42.530 --> 07:46.560
+a div B is the floor of a divided by B.
+
+07:46.580 --> 07:53.180
+Right so if you get some they divided by B that gives zero minus 3.1 as a result then you take the floor
+
+07:53.180 --> 08:00.480
+which will be negative 4 and you will get minus 4 as your floor.
+
+08:00.520 --> 08:03.360
+Now let's look back at that formula again.
+
+08:03.400 --> 08:03.730
+Right.
+
+08:03.730 --> 08:08.710
+Remember that 40 that we that we wrote down that we said are not using any of these anymore it doesn't
+
+08:08.710 --> 08:09.860
+really matter.
+
+08:10.360 --> 08:15.460
+Let's look at an example that's like eight to 135 and be equal to four.
+
+08:15.940 --> 08:21.640
+So 135 divided by four is thirty three point seven five or thirty three and three quarters.
+
+08:21.670 --> 08:21.940
+Right.
+
+08:21.940 --> 08:28.600
+So now if we did long division we would say only 35 divided by four is thirty three with a remainder
+
+08:28.600 --> 08:34.470
+of three so 135 four is thirty three.
+
+08:34.530 --> 08:34.810
+Right.
+
+08:34.810 --> 08:42.090
+Because so 3.7 5 floor is 33 135 not four.
+
+08:42.390 --> 08:47.160
+Turns out to be three that remainder that we have.
+
+08:47.440 --> 08:54.280
+And in fact if we look at this equation again and I'll bring up that equation many times then we have
+
+08:54.370 --> 09:00.690
+four times 135 four plus 135 mug full.
+
+09:00.880 --> 09:01.180
+Right.
+
+09:01.180 --> 09:04.870
+For being that denominator over here.
+
+09:06.230 --> 09:12.320
+So we get it four times thirty three plus three which is 132 plus three which is 135 which is indeed
+
+09:12.470 --> 09:13.790
+equal to a.
+
+09:13.950 --> 09:16.850
+So now let's deal with negative numbers.
+
+09:16.850 --> 09:20.170
+This is where things get a little crazy.
+
+09:20.190 --> 09:27.030
+So again I want to reiterate a div B is not the integer portion of a divided by B it is not the truncation
+
+09:27.120 --> 09:28.310
+of a divided by B.
+
+09:28.320 --> 09:32.280
+It is the floor of a divided by B.
+
+09:32.280 --> 09:38.250
+Now if a and b are both greater than zero then yeah it is the same thing but not when we are dealing
+
+09:38.250 --> 09:39.590
+with negative numbers.
+
+09:40.590 --> 09:48.280
+So let's look at an example let's say a is minus 135 negative 1 3 5 and B is 4.
+
+09:48.300 --> 09:51.270
+So same as before except we've made a negative.
+
+09:51.270 --> 09:55.290
+So now if we do the division Well that's minus thirty three point seventy five.
+
+09:55.290 --> 10:06.030
+So you know we might say it's minus 33 in three quarters so minus 135 divided by four in div..
+
+10:06.190 --> 10:06.760
+Right.
+
+10:06.760 --> 10:10.660
+One might wonder if I divided by four is minus thirty three point seventy five.
+
+10:10.810 --> 10:16.210
+But the div is the floor of that the floor of this number is negative 34.
+
+10:16.210 --> 10:23.680
+Compare that to when we had 135 of four which was 33 case already we see there's a difference in the
+
+10:23.680 --> 10:25.400
+div value.
+
+10:25.840 --> 10:27.070
+What about the mud.
+
+10:27.250 --> 10:30.380
+We say minus 135 not four.
+
+10:30.640 --> 10:34.750
+We get a 1 whereas before we got a three.
+
+10:34.750 --> 10:38.880
+Now remember that the model is not the remainders.
+
+10:38.950 --> 10:41.400
+Right in the sense that it's not 3.
+
+10:41.680 --> 10:45.880
+It's just something that has to satisfy that equation.
+
+10:46.000 --> 10:53.560
+But we've talked about it and I'll keep bringing up again and again the divin model operators are defined
+
+10:53.560 --> 11:01.510
+and calculated in such a way that this equation here always holds so let's check let's make sure it
+
+11:01.540 --> 11:02.800
+holds in this case.
+
+11:03.070 --> 11:04.660
+Well we have four right.
+
+11:04.660 --> 11:12.090
+The B was four times minus 135 div 4 plus minus 135 mudflow.
+
+11:12.300 --> 11:18.300
+So if we do that calculation here we have four times minus 34 plus one.
+
+11:18.490 --> 11:26.050
+And so we get minus 136 plus 1 which is minus 135 and that matches the minus 135.
+
+11:26.080 --> 11:33.190
+So as you can see thats how the divin mud operators work and they work in such a way that that equation
+
+11:33.190 --> 11:35.860
+is always satisfied.
+
+11:36.130 --> 11:38.290
+So let's expand this a little further.
+
+11:38.680 --> 11:47.050
+Let's take equal to 14 and be equal to 4 of 13 divided by 4 is 3.2 vine.
+
+11:47.260 --> 11:51.840
+Now let's take equal to negative 13 and be equal to still four.
+
+11:51.850 --> 11:53.530
+Now we've just made a negative.
+
+11:53.980 --> 11:58.290
+Well minus 13 divided by 4 is minus 3.5.
+
+11:58.840 --> 12:04.050
+Let's take a look at when we stick the negative sign not with a bid with B.
+
+12:04.060 --> 12:10.870
+So we leave at 13 and we may be equal to negative 4 then 13 divided by negative four is still minus
+
+12:10.940 --> 12:11.940
+3.5.
+
+12:11.970 --> 12:12.210
+Right.
+
+12:12.210 --> 12:16.780
+When would the regular division it doesn't matter if you put the negative sign you know in the numerator
+
+12:16.890 --> 12:23.210
+and denominator and lastly let's look at when both of them have a negative sign.
+
+12:23.210 --> 12:25.760
+Now we know that we do regular division.
+
+12:25.790 --> 12:27.400
+The negative signs cancel out.
+
+12:27.560 --> 12:29.680
+And in fact it's still a positive.
+
+12:29.720 --> 12:30.900
+3.2 Vire.
+
+12:30.920 --> 12:32.290
+Just like we had here.
+
+12:33.340 --> 12:33.930
+OK.
+
+12:34.300 --> 12:36.160
+Now let's look at the Duve right.
+
+12:36.160 --> 12:40.190
+Well the deal for 13 and 4 is 3 right 4 goes into 13.
+
+12:40.190 --> 12:48.490
+Three times this year also it's going to be 3.2 fives floor which is three here the div is going to
+
+12:48.490 --> 12:52.610
+be the floor of minus three point to five which is going to be minus 4.
+
+12:52.990 --> 12:54.300
+What about the div here.
+
+12:54.370 --> 12:59.240
+Well same thing it's going to be the floor of minus 3.5 which is negative 4.
+
+12:59.680 --> 13:05.420
+And here the the div is going to be the floor of 3.2 5 which gets us back to 3.
+
+13:05.560 --> 13:10.960
+So as you can see this looks you know this kind of follows the signs that we had with just regular division
+
+13:10.960 --> 13:12.730
+as well.
+
+13:12.730 --> 13:16.050
+Now let's look however the mud's are affected.
+
+13:16.330 --> 13:22.510
+Well 13 March 4 is 1 minus 13 month 4 is actually 3.
+
+13:22.750 --> 13:29.600
+And we'll see that when we check the equation 13 MMOG negative 4 is negative 3.
+
+13:29.620 --> 13:36.420
+So you'll notice how this mod is basically carrying the sign of the second portion here.
+
+13:36.640 --> 13:42.760
+Right of the denominator if you want to think of it as a fraction for 13 Mont. negative 4 is negative
+
+13:42.760 --> 13:43.750
+3.
+
+13:43.880 --> 13:50.260
+And here's another interesting one minus 13 month negative four is negative 1 it's carrying the sign
+
+13:50.290 --> 13:52.400
+of this second one here.
+
+13:53.320 --> 13:57.270
+And in each of these cases it satisfies that equation.
+
+13:58.760 --> 13:59.750
+Let's check.
+
+14:00.110 --> 14:09.110
+So in the first one we have four times 13 the full plus 13 model which is 12 plus 1 which is 13 so we're
+
+14:09.110 --> 14:12.240
+good matched for about the next one.
+
+14:12.320 --> 14:18.990
+Well four times minus 13 the full plus minus 13 month for is minus 13.
+
+14:19.100 --> 14:22.150
+It matches minus 13 we're good.
+
+14:22.580 --> 14:25.710
+And the same thing here that matches as well.
+
+14:25.940 --> 14:27.780
+And lastly this one here.
+
+14:27.860 --> 14:28.210
+Right.
+
+14:28.220 --> 14:31.610
+We have minus four times minus 13.
+
+14:31.880 --> 14:39.500
+Minus four plus minus 13 Mada month for a negative 4 gives us minus 12 minus 1 which is minus the teen.
+
+14:39.500 --> 14:42.070
+And again that matches.
+
+14:42.120 --> 14:42.900
+All right.
+
+14:42.960 --> 14:48.900
+So when you get when you start dealing with negative numbers it's a lot more complicated you have to
+
+14:48.900 --> 14:50.580
+be a little careful with that.
+
+14:50.760 --> 14:51.410
+OK.
+
+14:51.690 --> 14:54.750
+So now let's look at some code and check this out.
+
+14:55.050 --> 15:00.930
+So the first thing we're going to look at is the types when we do these arithmetic operations so we
+
+15:00.930 --> 15:03.850
+can look at the type of one plus one.
+
+15:04.010 --> 15:05.200
+And that gives us an hint.
+
+15:05.280 --> 15:05.600
+Right.
+
+15:05.610 --> 15:12.250
+We expect that that we do one times while it's two maybe two times three type of that is.
+
+15:12.290 --> 15:18.890
+And look at the type of let's say subtraction let's say full minus 10 that's a negative number but it's
+
+15:19.070 --> 15:23.260
+an integer and same thing with exponents of integer numbers.
+
+15:23.280 --> 15:31.080
+If we do three to the power of six while that type is still in and now division is different we do type
+
+15:31.080 --> 15:33.700
+of two divided by three.
+
+15:33.780 --> 15:40.990
+While we would expect that to be a float right because the two divided by three is you know 0.6 6:06
+
+15:41.070 --> 15:43.630
+recurring and it is indeed a float.
+
+15:43.800 --> 15:49.440
+Now what's more interesting is if we do 10 divided by two right then divided by two is five.
+
+15:49.470 --> 15:51.300
+But the type is the float.
+
+15:51.300 --> 15:56.030
+Now we can print 10 divided by two it will print 5 1 0 right.
+
+15:56.220 --> 15:59.480
+If we do the actual print you got to be careful with that.
+
+15:59.640 --> 16:02.770
+It's going to format it as 5.0.
+
+16:02.970 --> 16:07.980
+So if you wanted to print out as an end you're going to have to do some formatting.
+
+16:08.040 --> 16:09.050
+OK.
+
+16:09.600 --> 16:13.130
+Now next thing we should look at is the floor method.
+
+16:13.140 --> 16:15.470
+Now the floor method is in the math manual.
+
+16:15.470 --> 16:18.420
+It's not part of the standard syntax.
+
+16:18.420 --> 16:20.160
+So we're going to import math.
+
+16:20.490 --> 16:21.900
+And now we can use the floor.
+
+16:21.900 --> 16:23.850
+So let's take a look at the floor.
+
+16:24.620 --> 16:26.090
+Three point one five.
+
+16:26.450 --> 16:27.090
+OK.
+
+16:27.210 --> 16:29.800
+And as we expect it's three right.
+
+16:29.830 --> 16:36.810
+We do math that flow of three point nine nine nine nine nine nine.
+
+16:36.960 --> 16:38.350
+It's all three right.
+
+16:38.370 --> 16:39.500
+This is not a rounding.
+
+16:39.510 --> 16:41.940
+It's basically taking the integer portion.
+
+16:42.030 --> 16:46.630
+When we're dealing with positive integers or positive numbers.
+
+16:47.130 --> 16:47.740
+OK.
+
+16:47.820 --> 16:55.210
+Now not so if we're looking at negative numbers you can look at three minus three point one four.
+
+16:55.530 --> 16:57.560
+And what do we get minus four.
+
+16:57.600 --> 16:58.680
+That's the flow.
+
+16:58.800 --> 17:03.540
+Right now we can even look at the math top floor of minus three point.
+
+17:03.540 --> 17:07.350
+Let's say six zeros one two three four five six and one right.
+
+17:07.350 --> 17:08.430
+The floor of that.
+
+17:08.460 --> 17:08.970
+Yes.
+
+17:08.970 --> 17:19.600
+Very close to negative three and I go type of correctly it's still negative for k.
+
+17:19.940 --> 17:24.340
+So we are not rounding we're not truncating We are taking the floor.
+
+17:24.350 --> 17:29.710
+The largest integer less than or equal to this value here.
+
+17:29.950 --> 17:33.950
+Now I want to sidetrack very quickly into something else.
+
+17:33.950 --> 17:37.970
+So I want to show you that just so you're aware of it and we'll come back and discuss this later.
+
+17:38.030 --> 17:40.460
+Let's go ahead and add I'm going to add 12 zeros.
+
+17:40.460 --> 17:44.410
+1 2 3 4 5 6 7 8 9 10 11 12.
+
+17:44.570 --> 17:45.780
+And then a 1.
+
+17:45.860 --> 17:49.910
+Now we would expect that the floor of that should still be negative 4.
+
+17:50.060 --> 17:51.190
+Right.
+
+17:51.860 --> 17:52.820
+That's fine.
+
+17:52.820 --> 17:54.180
+Now let's try this again
+
+17:57.440 --> 18:00.600
+and I'm going to put in three more zeros.
+
+18:01.490 --> 18:03.680
+And now the floor is negative 3.
+
+18:03.740 --> 18:04.950
+What's going on.
+
+18:05.300 --> 18:10.430
+Well it has to do with the fact that floats have a limit of precision in Python.
+
+18:10.670 --> 18:12.080
+So minus three point.
+
+18:12.080 --> 18:18.830
+And then here we had 15 zeros and one is actually being represented as minus three zeros and the one
+
+18:18.830 --> 18:19.810
+gets dropped.
+
+18:19.970 --> 18:20.330
+OK.
+
+18:20.420 --> 18:25.340
+So it has to do with the limited precision that we have with floating point numbers and we'll get to
+
+18:25.340 --> 18:28.420
+that in the video on floating points.
+
+18:28.430 --> 18:30.250
+So just be aware of that.
+
+18:30.640 --> 18:31.190
+OK.
+
+18:32.670 --> 18:35.960
+So now let's look at the floor division operators.
+
+18:36.180 --> 18:40.380
+So let's take a look at an example let's take equal to 33.
+
+18:40.380 --> 18:41.810
+Be equal to 16.
+
+18:41.940 --> 18:47.500
+And we're going to print a divided by the K.
+
+18:47.760 --> 18:51.100
+We're going to print a div B.
+
+18:51.600 --> 18:59.870
+And we're going to print the floor of a divided by B right which should be equal to a div B.
+
+18:59.880 --> 19:01.300
+That's the definition.
+
+19:01.680 --> 19:03.150
+So let's see what results we get.
+
+19:03.150 --> 19:13.100
+So 33 divided by 16 is two point zero six to five a div B as 2 which is the floor of 2.0 six to five
+
+19:13.620 --> 19:18.490
+the largest integer less than or equal to this number here.
+
+19:18.720 --> 19:21.890
+So in both cases that was.
+
+19:21.950 --> 19:27.730
+Now let's just do an example now using a negative number equals 16.
+
+19:27.730 --> 19:29.080
+So we'll keep everything else the same.
+
+19:29.080 --> 19:30.750
+But just a becomes negative.
+
+19:31.030 --> 19:33.350
+And we're going to print out the same things.
+
+19:33.370 --> 19:38.600
+I'm going to copy paste and here's where we get right.
+
+19:38.680 --> 19:44.620
+Divided by B is minus 2.0 six to five a div B is negative 3.
+
+19:44.740 --> 19:45.070
+Right.
+
+19:45.070 --> 19:50.070
+It is the largest integer less than this number here.
+
+19:50.170 --> 19:57.800
+While the largest integer less than the number is actually negative 3 and of course the floor matches
+
+19:58.010 --> 20:00.840
+because that's the definition of flawed division.
+
+20:00.860 --> 20:03.370
+Now I want to compare and contrast.
+
+20:03.460 --> 20:04.850
+Our truncation.
+
+20:04.850 --> 20:05.410
+Right.
+
+20:05.630 --> 20:07.120
+So let's look at this one again.
+
+20:07.120 --> 20:09.840
+So I'm just going to copy and paste this code in here.
+
+20:10.250 --> 20:15.950
+And we'll look at truncation and for truncation will print math.
+
+20:16.030 --> 20:20.700
+The DOT trunk a divided by B.
+
+20:21.020 --> 20:26.040
+And as you can see the truncation is just giving us the integer portion of this number here.
+
+20:26.150 --> 20:32.300
+It's basically dropping everything after the decimal point and returning to us just the integer portion
+
+20:32.360 --> 20:35.750
+of this floating point numbers which is negative 2.
+
+20:36.050 --> 20:41.240
+So as you can see here when we're dealing with negative numbers the floor and the trunk are not the
+
+20:41.240 --> 20:42.170
+same thing.
+
+20:42.260 --> 20:48.680
+And so in general Floren truncation is not the same thing it is with positive numbers but in general
+
+20:48.680 --> 20:50.200
+you have to include negative numbers.
+
+20:50.210 --> 20:53.080
+It is not so just a little caveat.
+
+20:53.660 --> 20:57.230
+OK so let's look at the not operator an artist.
+
+20:57.240 --> 21:08.280
+Again I want to remind you of the equation equals B times a div B plus a moderate B.
+
+21:08.480 --> 21:11.330
+So let's look at some examples of this.
+
+21:11.360 --> 21:15.520
+Let's say eight equals 13 and B equals 4.
+
+21:15.950 --> 21:18.560
+And we're going to print out the division.
+
+21:18.590 --> 21:23.960
+So now we've got a few more things I'm going to actually try and format it a little bit.
+
+21:24.170 --> 21:26.590
+So 0 divided by 1.
+
+21:26.780 --> 21:30.140
+The positional arguments equals two.
+
+21:30.380 --> 21:35.330
+And we're going to throw in a b and divided by B.
+
+21:35.550 --> 21:42.180
+Ok then we're going to print out the div of those two things.
+
+21:42.200 --> 21:54.650
+So let's go ahead and say that the one equals to start format's a b a div B.
+
+21:54.650 --> 21:58.090
+Right so we're going to print out the results of the div.
+
+21:58.880 --> 22:03.100
+Lastly we're going to do the a mod B.
+
+22:03.260 --> 22:03.890
+So
+
+22:08.250 --> 22:11.220
+this way.
+
+22:12.570 --> 22:13.530
+Okay.
+
+22:14.150 --> 22:20.550
+And lastly one thing I want to do is check and make sure that this equation is indeed being satisfied.
+
+22:20.810 --> 22:32.180
+So I'm going to print out is a equal to watch should be equal to B times a div B plus a mod B.
+
+22:32.210 --> 22:34.700
+I don't have to put parentheses around this.
+
+22:34.700 --> 22:38.480
+This has higher precedence than the plus.
+
+22:38.720 --> 22:42.420
+But if you prefer There's no harm in putting extra parentheses.
+
+22:42.530 --> 22:43.630
+So we can put it in.
+
+22:44.090 --> 22:49.170
+OK so let's take a look at our results and of course I have to close off the print statements.
+
+22:49.400 --> 22:50.590
+So there we go.
+
+22:50.840 --> 22:54.160
+All right so 13 divided by four is 3.2 fire.
+
+22:54.170 --> 22:58.100
+That was a float 13 div 4 was 3.
+
+22:58.100 --> 23:01.140
+The floor of that 13 not 4 is 1.
+
+23:01.250 --> 23:04.940
+And that equation is satisfied you can see that it returns true.
+
+23:04.940 --> 23:08.630
+So A's indeed equal to this whole expression.
+
+23:09.490 --> 23:11.690
+I'd go ahead and do this as well.
+
+23:11.810 --> 23:13.570
+For negative numbers.
+
+23:13.580 --> 23:17.830
+So let's take a call to negative 13 and be equal to four.
+
+23:17.960 --> 23:22.680
+So we're going to run through the same examples that we had in the slides.
+
+23:23.060 --> 23:28.640
+And as you can see we get minus three point five for the division minus four for the floor Division
+
+23:28.990 --> 23:32.420
+3 for the MOD and that equation is satisfied.
+
+23:32.420 --> 23:37.310
+So I just want to basically go through and make sure that the equation is satisfied in every instance.
+
+23:37.310 --> 23:43.650
+So again will copy paste that that's and will stick the negative on the full.
+
+23:43.660 --> 23:51.460
+This time we'll leave the positive thought in the long run that and as you can see our equation evaluated
+
+23:51.460 --> 23:52.520
+to true.
+
+23:52.840 --> 24:01.880
+So again that works and let's do one more where we're going to set both a and b to negative.
+
+24:02.230 --> 24:09.490
+And when we run that well again we get that the equation evaluated to true right.
+
+24:09.490 --> 24:11.400
+So in other words that equation was valid.
+
+24:11.410 --> 24:16.080
+So that expression evaluated true which means that the equation.
+
+24:16.180 --> 24:18.730
+And this is the last time I'll mention it in this video.
+
+24:18.820 --> 24:22.990
+This equation here was indeed valid.
+
+24:22.990 --> 24:23.290
+All right.
+
+24:23.290 --> 24:25.310
+Thanks for watching and I'll see you in the next video.

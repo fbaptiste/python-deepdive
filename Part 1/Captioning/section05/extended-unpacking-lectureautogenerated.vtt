@@ -1,0 +1,868 @@
+WEBVTT
+
+00:00.180 --> 00:07.190
+High in this video we're going to look at extended unpacking so we can look at the first operator of
+
+00:07.200 --> 00:08.620
+these star operators.
+
+00:09.030 --> 00:13.040
+And much of the section applies to Python greater than or equal to 3.5.
+
+00:13.050 --> 00:18.600
+A lot of these functions of this functionality that we're going to talk about was introduced in Python
+
+00:18.630 --> 00:19.800
+3.5.
+
+00:19.950 --> 00:22.830
+So you should be running at least Python 3.5.
+
+00:22.830 --> 00:28.570
+For this video you should probably be running Python 3.6 which is current as of the recording.
+
+00:29.160 --> 00:35.070
+So we don't always want to unpack every single item that's in and iterable may for example want to unpack
+
+00:35.130 --> 00:39.580
+the first value and then unpack the remaining values into another variable.
+
+00:39.660 --> 00:39.920
+Right.
+
+00:39.930 --> 00:43.980
+We want to just stuff everything else into another single variable.
+
+00:43.980 --> 00:46.520
+So let's take a look at an example of what I mean by this.
+
+00:46.590 --> 00:49.150
+So let's say we take this list one two three four five six.
+
+00:49.170 --> 00:51.780
+Now we can do this by using slicing.
+
+00:51.900 --> 00:59.360
+So we could say eight is equal to zero and then B is equal to l starting at 1 up to the end of the list.
+
+00:59.370 --> 01:04.860
+And so we end up with a will be one and B will be 2 3 4 5 6.
+
+01:05.010 --> 01:10.860
+Or we can just use simple unpacking and combine these two lines of code into a single line using this.
+
+01:10.860 --> 01:12.410
+We're just doing unpacking right.
+
+01:12.410 --> 01:14.930
+We're unpacking L 0 into a.
+
+01:15.030 --> 01:18.610
+And we're unpacking L-1 colon into B.
+
+01:18.690 --> 01:23.390
+This by the way is also sometimes called parallel assignment but it's just unpacking.
+
+01:24.300 --> 01:29.610
+So we can certainly write it this way but we could also reuse the star operator in the following way.
+
+01:29.640 --> 01:35.220
+We can say a comma Stobie B equals L and it does exactly the same thing.
+
+01:35.430 --> 01:41.430
+It's basically saying when you look at l at this list here or whatever iterable it is take the first
+
+01:41.430 --> 01:48.170
+element of that iterable stuff it into a and then everything else make it into a list and put it into
+
+01:48.300 --> 01:52.490
+the so it's clean the syntax.
+
+01:52.490 --> 01:55.700
+First of all it's a little simpler writing this than writing that.
+
+01:56.030 --> 02:01.370
+But the other main difference is that it applies to any iterable not just sequence types write sequence
+
+02:01.370 --> 02:04.610
+types we need sequence types in order to be able to slice right.
+
+02:04.610 --> 02:07.750
+We need an indexable type in order to be able to slice.
+
+02:07.760 --> 02:15.350
+We need the concept of an index or you know element zero element one element to but not all intervals
+
+02:15.560 --> 02:16.610
+have that property.
+
+02:16.640 --> 02:18.660
+For example sets and dictionaries.
+
+02:18.680 --> 02:20.440
+You can't slice them right.
+
+02:20.450 --> 02:23.600
+There is and there is no ordering and sets and dictionaries.
+
+02:23.600 --> 02:28.040
+So this Hiho will walk of any iterable type.
+
+02:28.070 --> 02:31.970
+So let's take a look at the usage with all the types forced.
+
+02:32.000 --> 02:35.540
+So let's say we write this eight commas Tambi equals this list.
+
+02:35.540 --> 02:42.020
+Now we've already seen what it does and we know that we end up with minus 10 in a and then B is a list
+
+02:42.020 --> 02:45.340
+that contains the remaining elements.
+
+02:45.340 --> 02:47.430
+Now of course we can also unpack a tuple.
+
+02:47.470 --> 02:48.880
+It doesn't have to be a list.
+
+02:48.880 --> 02:53.310
+If we take a tuple or a topple then the same thing's going to happen.
+
+02:53.410 --> 03:00.400
+Negative 10 is going to go into 8 and then 5 2 and 100 are going to go into B and here's where we get.
+
+03:00.400 --> 03:04.050
+So you'll notice that B is still a list.
+
+03:04.090 --> 03:07.180
+So we always unpack into a list.
+
+03:07.180 --> 03:07.470
+Right.
+
+03:07.510 --> 03:10.240
+Even though we started off of a table that doesn't matter.
+
+03:10.360 --> 03:16.570
+B The B that gets created by unpacking will get unpacked into a list type.
+
+03:16.580 --> 03:17.840
+Now we can look at a string.
+
+03:17.840 --> 03:19.940
+A string is an iterable as well.
+
+03:19.940 --> 03:26.800
+And so when we write this well we end up with a being the first character and B will b y and z.
+
+03:26.900 --> 03:29.810
+But of course it's also a list right.
+
+03:29.840 --> 03:36.350
+It's going to get unpacked into a list so the following also want you don't have to just have to you
+
+03:36.420 --> 03:37.270
+know one element.
+
+03:37.300 --> 03:44.050
+You can have two so you can say unpack the first element then the second element and then the rest right.
+
+03:44.050 --> 03:45.910
+So you can just read this stuff.
+
+03:46.030 --> 03:47.880
+See as the rest.
+
+03:47.890 --> 03:53.500
+So we're going to unpack this which is a tuple as well into this tuple here.
+
+03:53.770 --> 03:58.840
+So we'll get equal to one because two and then C will be the rest as a list.
+
+03:58.840 --> 04:01.130
+So 3 4 5 is a list.
+
+04:01.450 --> 04:05.340
+We can also add elements after the Stasi.
+
+04:05.350 --> 04:10.000
+So in this case we're saying make a the first element B.
+
+04:10.030 --> 04:16.420
+So that should be the second element then D should be the last element which is 5 and then C will be
+
+04:16.420 --> 04:18.780
+the rest which is 3 and 4.
+
+04:19.060 --> 04:21.750
+And so we end up with that style of unpacking.
+
+04:23.360 --> 04:26.720
+Of course it works with strings as well and strings are iterable.
+
+04:26.830 --> 04:29.130
+So again we're going to get A's p.
+
+04:29.290 --> 04:39.010
+We'll get that B is y t h and then C is Oh and D is an write C and D are the last two elements of the
+
+04:39.010 --> 04:46.000
+string is the first and then be there for the rest which is these three characters again as in.
+
+04:47.970 --> 04:49.710
+Now that should be pretty obvious.
+
+04:49.710 --> 04:55.680
+But since that star operator means the rest it can only be used once in the left hand side of an unpacking
+
+04:55.680 --> 04:56.610
+assignment.
+
+04:56.730 --> 04:59.090
+So you can't write a comic.
+
+04:59.130 --> 05:00.430
+Tom becomes Stassi.
+
+05:00.480 --> 05:02.430
+I mean what does that mean.
+
+05:02.520 --> 05:02.990
+Right.
+
+05:03.030 --> 05:06.960
+B is supposed to take everything else is supposed to take the rest.
+
+05:06.960 --> 05:12.810
+But Stassi is also saying take the rests so obviously that's not going to work.
+
+05:12.870 --> 05:13.510
+All right.
+
+05:13.530 --> 05:18.450
+So we've seen how we can use the star operator on the left hand side of an assignment to unpack the
+
+05:18.450 --> 05:20.000
+right hand side as a reminder.
+
+05:20.040 --> 05:20.340
+Right.
+
+05:20.340 --> 05:27.210
+We saw that syntax but we can also use it this way we can use it in the right hand side of an assignment.
+
+05:27.210 --> 05:28.470
+So let's take a look at that.
+
+05:28.470 --> 05:32.970
+Let's take two lists L1 L2 and we can write this.
+
+05:32.970 --> 05:40.890
+We can create a new list by using these square brackets and then we're going to unpack L-1 and unpack
+
+05:40.890 --> 05:41.630
+L2.
+
+05:41.700 --> 05:47.820
+So unpacking L-1 means what it means that we're essentially going to create all these individual elements
+
+05:47.820 --> 05:50.180
+1 2 and 3 and incenting L2.
+
+05:50.190 --> 05:57.180
+We're going to unpack 4 5 and 6 into individual elements and we essentially will end up with the combined
+
+05:57.240 --> 05:58.170
+list.
+
+05:58.170 --> 05:58.380
+Right.
+
+05:58.380 --> 06:03.730
+So essentially we're able to merge two lists in this way by using the Star operators.
+
+06:04.170 --> 06:06.700
+Of course it works with strings as well.
+
+06:06.750 --> 06:07.060
+Right.
+
+06:07.080 --> 06:08.840
+It works with any iterable.
+
+06:08.880 --> 06:16.200
+So if we do this then we'll end up you know and we do against Thara wants to we'll end up with 1 2 3
+
+06:16.260 --> 06:17.500
+x y and z.
+
+06:18.790 --> 06:18.950
+Right.
+
+06:18.980 --> 06:25.510
+So this is how you can use the star operator on the right hand side of an expression Now let's take
+
+06:25.510 --> 06:27.770
+a look at the usage of order types.
+
+06:27.880 --> 06:30.730
+So types such as sets and dictionaries have no ordering.
+
+06:30.730 --> 06:37.000
+So for example let's say you create a set this way and we print s we just simply do this type this in
+
+06:37.000 --> 06:40.470
+pure python console and then print s and see what you get.
+
+06:41.370 --> 06:42.570
+I got this.
+
+06:42.570 --> 06:43.950
+Your mileage may vary.
+
+06:43.950 --> 06:46.050
+You may get something else.
+
+06:46.050 --> 06:50.130
+Most likely you'll get the same but you could depending on the version of Python you are using or the
+
+06:50.130 --> 06:52.330
+implementation you could get something very different.
+
+06:52.410 --> 06:56.600
+But at least notice that the older was not preserved right.
+
+06:56.640 --> 06:58.290
+So there is no ordering inserts.
+
+06:58.290 --> 07:00.950
+There's no guarantee order of any kind.
+
+07:00.990 --> 07:05.940
+It doesn't matter how you created the set or whether you know or how you appended values to the set
+
+07:05.940 --> 07:06.880
+if you did that.
+
+07:06.900 --> 07:09.180
+It's not going to maintain any of that order.
+
+07:09.870 --> 07:14.690
+So be careful put the star operettas tool works right.
+
+07:14.690 --> 07:19.520
+We said it works for any interval so you can certainly do something like this.
+
+07:19.790 --> 07:20.070
+Right.
+
+07:20.100 --> 07:22.200
+We can take a stand because of sequels.
+
+07:22.250 --> 07:24.700
+But the problem is what's the first element.
+
+07:24.710 --> 07:28.180
+What's the last element that really doesn't have much meaning.
+
+07:28.190 --> 07:30.410
+So you'll get something right.
+
+07:30.410 --> 07:32.200
+In this case we get a 10.
+
+07:32.330 --> 07:39.840
+B is 3 in D and C is negative 99 which by the way corresponds to how we interacted through the set.
+
+07:39.890 --> 07:46.010
+So you know the results that you get when you're iterating the set using let's say a for loop or printing
+
+07:46.010 --> 07:51.310
+it out while printing and maybe not but you'll get the same thing there.
+
+07:51.620 --> 07:54.720
+But the bottom line is you can't count on any kind of order.
+
+07:54.740 --> 08:01.910
+So using unpacking this way is rarely used because it doesn't you know there's not a whole lot you can
+
+08:01.910 --> 08:03.420
+do with it.
+
+08:03.500 --> 08:09.230
+However it is useful when used on the right hand side of an expression.
+
+08:09.230 --> 08:15.140
+So for example let's say we have this dictionary here and I'll use dictionaries now and we have another
+
+08:15.140 --> 08:19.130
+dictionary D2 and we have a third dictionary D-3.
+
+08:19.130 --> 08:24.180
+So you'll notice that H is in both D2 and D-3.
+
+08:24.200 --> 08:28.530
+Now if we iterate a dictionary what do we get or we get the keys right.
+
+08:28.530 --> 08:34.670
+So entering a dictionary is actually iterating the keys of the dictionary so we can actually unpack
+
+08:34.760 --> 08:41.660
+the dictionaries inside a list and what's going to happen is that it's essentially going to unpack the
+
+08:41.660 --> 08:43.970
+keys into this list.
+
+08:43.970 --> 08:46.250
+And so we'll end up with this list here.
+
+08:46.430 --> 08:49.740
+And you'll notice by the way that H is repeated twice.
+
+08:49.970 --> 08:54.770
+Now maybe you want to get a list of all the keys that are in those three dictionaries but without any
+
+08:54.770 --> 08:55.720
+repetition.
+
+08:56.000 --> 09:00.680
+Right if you keep the repetition that might be useful to count the number of times a key is used for
+
+09:00.680 --> 09:06.670
+example because then you could go ahead and write some code to count each individual key value in here.
+
+09:06.680 --> 09:08.080
+How many times it occurs.
+
+09:08.330 --> 09:13.160
+But if you just want to know what the individual keys are then instead of unpacking into a list well
+
+09:13.160 --> 09:15.020
+you could unpack into a set.
+
+09:15.140 --> 09:15.490
+Right.
+
+09:15.500 --> 09:16.840
+And so we'd end up with a set.
+
+09:16.840 --> 09:23.840
+And of course sets don't have repetitions so it would only show up once again the order is not guaranteed.
+
+09:23.840 --> 09:25.480
+I'm just riding it out this way.
+
+09:25.550 --> 09:30.650
+So it's easy to read but you know it's not going to come back in that order necessarily.
+
+09:31.510 --> 09:32.190
+OK.
+
+09:32.330 --> 09:37.110
+So when we worked with dictionaries we saw that star essentially iterated the keys.
+
+09:37.220 --> 09:37.520
+Right.
+
+09:37.520 --> 09:44.090
+So this is a reminder if we did that we just got the keys of the dictionary not the values we lost the
+
+09:44.090 --> 09:46.860
+values an order is not guaranteed.
+
+09:46.860 --> 09:50.160
+I keep repeating that and harping on that because it's important.
+
+09:50.780 --> 09:55.860
+So we might ask the question can we unpack the key value pairs of the dictionary.
+
+09:56.030 --> 09:58.610
+Can we retain the values as well as the Keys.
+
+09:58.820 --> 10:03.930
+And of course the answer is yes and for that we have to use this double star operator.
+
+10:03.950 --> 10:05.710
+So let's take a look at how that works.
+
+10:05.780 --> 10:12.080
+Let's do again those same three dictionaries that we had again note that H is in both D2 D3 and they
+
+10:12.080 --> 10:13.350
+have different values.
+
+10:13.400 --> 10:17.330
+H has a value of four in the two and a value of five in D-3.
+
+10:17.720 --> 10:24.020
+So now we can unpack and we're going to unpack these dictionaries into another dictionary.
+
+10:24.020 --> 10:29.660
+Now you have to note that the star store operator cannot be used in the left hand side of an assignment.
+
+10:29.660 --> 10:31.120
+That's a restriction on that operator.
+
+10:31.130 --> 10:33.250
+You can only use it on the right hand side.
+
+10:33.260 --> 10:36.020
+So you can't use it to unpack things into.
+
+10:36.090 --> 10:36.510
+Right.
+
+10:36.770 --> 10:39.680
+But you can unpack the dictionary itself.
+
+10:40.470 --> 10:42.890
+So here we're going to stuff it inside a dictionary.
+
+10:43.160 --> 10:48.830
+And as you might expect but we get back is basically that those three dictionaries have been merged
+
+10:48.920 --> 10:49.620
+together.
+
+10:49.790 --> 10:53.500
+So this is a quick and easy way to merge dictionaries.
+
+10:53.510 --> 10:58.190
+There's a little added caveat though if you look at the value of age it's five.
+
+10:58.490 --> 11:04.220
+Well remember we had eight show up twice so we can only have one value the keys and dictionaries have
+
+11:04.220 --> 11:05.060
+to be unique.
+
+11:05.200 --> 11:13.370
+But because D-3 was merged last that means that the value for age of 5 basically overwrote the value
+
+11:13.370 --> 11:19.790
+of h that at this point you don't merge the two had a value of four that got overwritten essentially
+
+11:20.120 --> 11:21.180
+by five.
+
+11:21.620 --> 11:23.020
+So that's actually pretty handy.
+
+11:23.030 --> 11:28.310
+You can use that in different scenarios where maybe you have configuration settings where you might
+
+11:28.310 --> 11:32.040
+have a config setting that's like your default.
+
+11:32.210 --> 11:37.880
+And then you have you know maybe user specific settings and it might use the same keys because the users
+
+11:37.910 --> 11:38.950
+overriding.
+
+11:39.050 --> 11:42.480
+You can merge the two dictionaries this way by merging your defaults.
+
+11:42.500 --> 11:49.460
+And then your user can Figgs and they will essentially override any existing keys from the default with
+
+11:49.460 --> 11:54.500
+the user's settings and it will then fill in the gaps when things are missing from either dictionary
+
+11:54.500 --> 11:58.110
+because you just get a merge essentially.
+
+11:58.350 --> 12:00.070
+Again the order is not guaranteed.
+
+12:01.690 --> 12:09.260
+So you could also use it to add key value pairs from one or more dictionaries into a dictionary literal.
+
+12:09.370 --> 12:11.040
+So what do I mean by dictionary literal.
+
+12:11.040 --> 12:19.450
+Well just this right D1 here was defined using a dictionary literal and we just typed in the key value.
+
+12:19.510 --> 12:20.710
+Now of course you can do this.
+
+12:20.710 --> 12:26.800
+You can start writing a dictionary using literal key value pairs and then you can decide to merge in
+
+12:28.210 --> 12:29.290
+another dictionary.
+
+12:29.560 --> 12:31.850
+So that works perfectly fine.
+
+12:31.990 --> 12:34.390
+And if you do that we end up with A's one.
+
+12:34.410 --> 12:36.530
+Why is a one ace was ten.
+
+12:36.700 --> 12:40.500
+Well we merged in D-1 after we had defined h to be 10.
+
+12:40.510 --> 12:45.570
+So it's going to get replaced with one and then B is two and sees three.
+
+12:45.570 --> 12:46.810
+Of course if you want.
+
+12:46.810 --> 12:52.600
+You can also start by unpacking your dictionary first and then tagging on.
+
+12:52.690 --> 12:59.410
+You know whatever you want as our key value Luttrell's in which case you will get A's 10 because even
+
+12:59.410 --> 13:05.190
+though ace started its life off as one in D-1 we redefined it to be ten later on.
+
+13:05.230 --> 13:08.320
+And so that takes effect again.
+
+13:08.440 --> 13:12.020
+The orders that guarantee you I'm going to keep harping on that.
+
+13:12.160 --> 13:12.700
+All right.
+
+13:12.700 --> 13:15.200
+The next thing to look at is nested unpacking.
+
+13:15.250 --> 13:17.740
+So Python will support nested unpacking as well.
+
+13:17.740 --> 13:19.240
+What do I mean by that.
+
+13:19.240 --> 13:20.590
+Well let's look at this list.
+
+13:20.590 --> 13:30.070
+This list has a nested list inside the third element of this list is itself a list is itself an adorable.
+
+13:30.240 --> 13:31.590
+So we can unpack it this way.
+
+13:31.590 --> 13:31.830
+Right.
+
+13:31.830 --> 13:34.500
+We're going to say come a be Kamisese equal to else.
+
+13:34.500 --> 13:39.510
+So what's going to happen is that we're going to take the first element of L and put it into a well
+
+13:39.510 --> 13:43.220
+first element and what we're going to take the second element stuff it into B.
+
+13:43.410 --> 13:45.210
+And the third element is what.
+
+13:45.240 --> 13:47.550
+Well it's the list three come before.
+
+13:47.670 --> 13:49.320
+And we're going to assign that to see.
+
+13:49.320 --> 13:52.290
+So C will actually be a list.
+
+13:52.290 --> 13:58.510
+Now once we have that we can also Furthermore unpack C into two variables by just writing the comic
+
+13:58.570 --> 14:00.190
+equal C.
+
+14:00.210 --> 14:06.570
+Right so now we've unpacked this whole list into its individual elements even the nested ones into individual
+
+14:06.570 --> 14:07.910
+variables.
+
+14:08.070 --> 14:10.080
+But we have two steps here right.
+
+14:10.080 --> 14:15.610
+We have to first unpack the last element and then unpack that element itself.
+
+14:15.990 --> 14:17.900
+Well you can just write that.
+
+14:17.940 --> 14:19.640
+So we get D.S. really is for.
+
+14:19.650 --> 14:26.690
+But you can just write that in this way you can just say a comma a B comma and this element here is
+
+14:26.690 --> 14:29.180
+a tuple and that's equal to that.
+
+14:29.190 --> 14:31.620
+So it's going to do the one into the a.
+
+14:32.190 --> 14:36.910
+The two into the B and then to unpack 3:04 into CD.
+
+14:37.230 --> 14:41.070
+So it's going to unpack 3 into C and 4 into D.
+
+14:41.070 --> 14:42.160
+So that's pretty neat.
+
+14:42.180 --> 14:46.490
+And it works with any levels of nesting.
+
+14:46.510 --> 14:50.390
+Now since strings are intervals too you can also write something like this.
+
+14:50.400 --> 14:51.840
+This will work just as well.
+
+14:51.880 --> 14:53.170
+And what are we doing here.
+
+14:53.440 --> 15:00.800
+Well we're assigning the first element to eight 8 to one goes into a c d and e he is going to be assigned
+
+15:00.800 --> 15:01.630
+X Y Z.
+
+15:01.640 --> 15:03.080
+Right that's the last element.
+
+15:03.100 --> 15:04.790
+And this is the last element.
+
+15:05.090 --> 15:12.680
+So B will be the rest which is two and three and then C D either top or C D E will be x y z.
+
+15:12.890 --> 15:14.320
+But what does that mean.
+
+15:14.510 --> 15:20.970
+Well it's going to unpack X into see why into D and Z into it.
+
+15:21.140 --> 15:33.920
+So we end up with is 1 B as 2 3 and then C is X D is y z so again that's just nested unpacking Okay.
+
+15:33.940 --> 15:38.440
+So lastly I want to come back to a state that we made earlier that we can only use the operate the star
+
+15:38.440 --> 15:42.730
+operator once in the left hand side of an unpacking assignment.
+
+15:42.730 --> 15:44.700
+So how about something like this then.
+
+15:45.040 --> 15:45.500
+Right.
+
+15:45.520 --> 15:47.170
+A common Stobie.
+
+15:47.350 --> 15:53.260
+See commerce daddy and the top Well looks like we have two different star operators on the left hand
+
+15:53.260 --> 16:01.310
+side well that's OK because even though it looks like we're using the stuff twice this star is nested
+
+16:01.310 --> 16:03.090
+inside another expression.
+
+16:03.320 --> 16:08.760
+So it actually doesn't belong to the initial top or it belongs to a nested table.
+
+16:08.870 --> 16:10.190
+So that works just fine.
+
+16:10.190 --> 16:17.640
+Let's see how well one will go into a C and study is the last element right.
+
+16:17.680 --> 16:20.120
+That's a that's essentially a variable.
+
+16:20.120 --> 16:21.660
+You could have said X.
+
+16:21.770 --> 16:22.060
+Right.
+
+16:22.070 --> 16:24.100
+So X would be Python.
+
+16:24.380 --> 16:26.510
+So the rest is two and three.
+
+16:26.510 --> 16:28.320
+So B will be two in three.
+
+16:28.490 --> 16:30.710
+And this top will here.
+
+16:30.800 --> 16:33.070
+X will be equal to Python.
+
+16:33.230 --> 16:36.940
+So now Python is going to get unpacked into C and D.
+
+16:37.070 --> 16:42.770
+So you can see the Saudi has nothing to do with what's going on as we're unpacking the outer topple
+
+16:43.750 --> 16:48.710
+and so see what BP and D will be the rest.
+
+16:48.730 --> 16:53.260
+So we talked about slicing earlier and how you could you know do a lot of this using slicing and we
+
+16:53.260 --> 16:58.540
+saw that it didn't look that much simpler by using the Star operator compared to slicing.
+
+16:58.600 --> 17:05.140
+Yeah the star operator applies to iterable and the slicing you know is more restricted in this case
+
+17:05.140 --> 17:05.960
+though you can slice.
+
+17:05.960 --> 17:07.670
+We're dealing with lists and strings.
+
+17:07.740 --> 17:10.410
+You know you can index them so you can slice them.
+
+17:10.430 --> 17:14.130
+So I challenge you to try writing this.
+
+17:14.140 --> 17:15.330
+What we have right here.
+
+17:15.430 --> 17:22.030
+But using slicing instead of using this unpacking and this nested unpacking try using slicing and don't
+
+17:22.090 --> 17:27.550
+you know how code your value is so right in such a way that it will work for any number of elements
+
+17:27.900 --> 17:33.700
+where the last one is a string or is any iterable for that matter and write it in such a way also that
+
+17:33.700 --> 17:38.780
+you're not restricting yourself to a hardcoded length of that string or whatever.
+
+17:38.800 --> 17:40.740
+Iterable that is that's going to be in there.
+
+17:40.990 --> 17:44.650
+So try that before move on to the code in the next video.
+
+17:44.650 --> 17:47.420
+Well we'll actually look at the solution for that.
+
+17:47.440 --> 17:48.310
+All right.
+
+17:48.460 --> 17:50.500
+Thanks for watching and I'll see you in a bit.

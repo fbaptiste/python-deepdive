@@ -1,0 +1,109 @@
+WEBVTT
+
+00:00.980 --> 00:01.530
+Hi.
+
+00:01.880 --> 00:05.260
+And welcome to the section on variables.
+
+00:05.260 --> 00:09.510
+So in this section we're going to look at memory references.
+
+00:09.950 --> 00:14.940
+And in that context we'll take a look at what variables really are.
+
+00:15.440 --> 00:23.150
+We tend to think of variables as names that we can assign values to that we can read values back from.
+
+00:23.150 --> 00:26.210
+But there's a little more to it than just that.
+
+00:26.390 --> 00:31.700
+And so we'll look at variables in the context of memory references.
+
+00:31.850 --> 00:37.910
+We'll also look at memory management and in particular we'll take a look at something called reference
+
+00:37.910 --> 00:41.930
+counting and we'll also look at something called garbage collection.
+
+00:41.930 --> 00:45.630
+Now these two things are not quite the same thing.
+
+00:45.830 --> 00:48.400
+And we'll look at the differences between those two.
+
+00:48.590 --> 00:56.660
+And we'll also take a look at why it's important for us to understand that.
+
+00:57.000 --> 01:00.710
+Next we'll look at Dynamic versus static typing.
+
+01:00.720 --> 01:09.390
+Now Python is a dynamically typed language as opposed to other languages like Java or swift or C++ which
+
+01:09.390 --> 01:13.300
+are statically typed languages.
+
+01:13.460 --> 01:17.720
+After that we'll look at mutability and immutability.
+
+01:17.720 --> 01:25.190
+Now you probably already are aware of these concepts but immutability has some little wrinkles to it
+
+01:25.280 --> 01:32.700
+that will examine the section then we'll look at something called shared references.
+
+01:32.720 --> 01:39.830
+This is where variables share the same area in memory they share the same object and so we'll take a
+
+01:39.830 --> 01:45.740
+look at what that means in terms of variables and also in terms of functions when we call functions
+
+01:45.740 --> 01:49.540
+and pass variables to them what's going on behind the scenes.
+
+01:51.050 --> 01:53.180
+Then we'll look at variable equality.
+
+01:53.180 --> 01:59.040
+Now we tend to think of variable equality as well if they have the both the same value they're equal.
+
+01:59.450 --> 02:06.990
+But they can also be other instances where maybe we're not talking about the values but something else.
+
+02:07.080 --> 02:12.510
+So we'll take a look at variable equality again in the context of memory references.
+
+02:13.850 --> 02:19.090
+And then lastly will look at the fact that in Python everything is an object.
+
+02:19.170 --> 02:26.180
+So you know the variables that we're used to like integers and strings and lists are all objects but
+
+02:26.480 --> 02:28.310
+everything else is an object to.
+
+02:28.310 --> 02:30.530
+Functions are objects right.
+
+02:30.530 --> 02:37.670
+Classes obviously are going to be objects when you instantiate them but classes themselves are actually
+
+02:37.670 --> 02:39.500
+objects as well.
+
+02:39.500 --> 02:45.260
+So we'll take a look at that concept in Python and this actually will follow through in all the remaining
+
+02:45.260 --> 02:47.090
+sections of this course as well.
+
+02:47.120 --> 02:50.550
+So this is kind of a foundational step that we need to take.
+
+02:50.600 --> 02:50.970
+All right.
+
+02:50.980 --> 02:53.460
+Thanks I'll see you in the next lecture.

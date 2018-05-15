@@ -1,0 +1,496 @@
+WEBVTT
+
+00:00.150 --> 00:05.620
+High in this video I'd like to do a quick recap of modules and what we've seen so far.
+
+00:07.030 --> 00:11.560
+So modules can be imported and they can be imported using one of two ways.
+
+00:11.560 --> 00:18.550
+The most common ways is to use the import statement but we can also use the import Madill function that's
+
+00:18.550 --> 00:21.310
+in the import lib module.
+
+00:21.430 --> 00:29.160
+Now when a module is imported a certain number of things happen fast the system cache is checked.
+
+00:29.170 --> 00:31.270
+That's the system modules.
+
+00:31.270 --> 00:37.570
+And if the object if the module that we're looking for is in the cache then that reference is return
+
+00:37.630 --> 00:40.970
+immediately and know for the processing needs to happen.
+
+00:41.500 --> 00:46.840
+Otherwise if it's not in the system modules then of course the module has to be located.
+
+00:46.840 --> 00:48.840
+It has to be found somewhere.
+
+00:49.090 --> 00:51.890
+And that's the role of the finders in Python.
+
+00:52.210 --> 01:00.220
+And you can see some of the findings in this document a path once the module has been located.
+
+01:00.220 --> 01:01.560
+It has to be retrieved.
+
+01:01.570 --> 01:02.770
+It has to be loaded.
+
+01:02.800 --> 01:06.370
+The code essentially has to be loaded up for that module.
+
+01:06.550 --> 01:13.120
+And that's the role of the Lauder's and the Lowder's which loaded to be used is actually returned by
+
+01:13.120 --> 01:13.910
+the finder.
+
+01:13.930 --> 01:21.580
+So the finder returns an object model spec that basically tells Python Here's where you know here's
+
+01:21.580 --> 01:30.190
+the loader that you need to use to load up the module the code for the module next step is that an empty
+
+01:30.190 --> 01:31.960
+module type is created.
+
+01:32.780 --> 01:37.390
+And then the reference to the module is added to the system cache.
+
+01:37.460 --> 01:44.930
+So it's important to understand that the module that is created is added to the cache right away before
+
+01:45.230 --> 01:47.970
+the code is actually compiled and executed.
+
+01:48.200 --> 01:53.870
+And that's because of circular references because you could have for example module one load module
+
+01:53.900 --> 01:58.950
+two inside that say maybe its first statement is import module.
+
+01:59.210 --> 02:03.110
+And maybe the full statement inside module to his import module one.
+
+02:03.230 --> 02:05.990
+So you have this kind of circular reference.
+
+02:05.990 --> 02:13.820
+And by putting the empty module in the cache right away before you actually run any code it means that
+
+02:13.910 --> 02:20.510
+the next time the import is hit if module one hasn't finished loading but somebody else something else
+
+02:20.600 --> 02:23.620
+references it it's going to grab it out of cash.
+
+02:23.720 --> 02:29.000
+Now sure will grab an empty object currently but it's still going to grab the correct model.
+
+02:29.030 --> 02:34.610
+So that's just to avoid basically having an infinite kind of loop.
+
+02:34.820 --> 02:42.400
+So the reference is added to the system cash Nessus modules and then the module is compiled operationally
+
+02:42.920 --> 02:45.250
+and then the module is executed.
+
+02:47.270 --> 02:52.970
+And this sets up the module's namespace when we execute the module the module's namespace is set up
+
+02:52.970 --> 02:58.940
+with whatever you know is in the dictionary of the module that's the namespace and it's the same thing
+
+02:58.940 --> 03:01.130
+as just calling module dot Global's.
+
+03:01.190 --> 03:08.240
+So that function just returns the dictionary the reason why I say the module is compiled optional is
+
+03:08.240 --> 03:14.090
+that some modules are already compiled when they get loaded up so they don't need to be recompiled that
+
+03:14.090 --> 03:15.840
+phase of the load.
+
+03:15.980 --> 03:17.290
+Doesn't have to be done.
+
+03:19.910 --> 03:26.600
+So for module finders you'll find module finders inside the CIS that menopause for example will see
+
+03:26.600 --> 03:28.220
+the built in importer's.
+
+03:28.490 --> 03:30.200
+Now remember what we had said before.
+
+03:30.230 --> 03:36.500
+An importer is basically an object that can both be a finder and a loader.
+
+03:36.710 --> 03:38.070
+So it does both.
+
+03:38.330 --> 03:42.400
+But in terms of the Metapad it's the finders.
+
+03:42.410 --> 03:46.310
+So the importer is also a finder and therefore that's why it's in the Metapad.
+
+03:46.520 --> 03:49.110
+And this one is done for built ins.
+
+03:49.160 --> 03:55.940
+For example when we import Maff which is a built in it actually gets found by the built in importer.
+
+03:56.660 --> 04:00.630
+We also have the frozen importer which finds frozen modules.
+
+04:00.680 --> 04:06.590
+I'm not going to cover frozen modules in this course but basically you can think of a frozen module
+
+04:06.620 --> 04:13.430
+as a self-contained application Python application that contains everything it needs to run including
+
+04:13.760 --> 04:21.190
+the python runtime and the environment and the standard library and all that stuff on your own modules.
+
+04:21.380 --> 04:24.980
+And it basically becomes this frozen module.
+
+04:25.070 --> 04:30.410
+And so it's not really files which means that it's a different kind of Finder and important that needs
+
+04:30.410 --> 04:34.350
+to be able to get things out of the frozen application.
+
+04:34.430 --> 04:39.620
+And then the next one is called Pathfinder and that's by far probably the most common one after built
+
+04:39.620 --> 04:43.700
+in importer because that's what we use to import our own modules.
+
+04:43.700 --> 04:49.650
+For example as well as any modules in the standard library that are not built ins.
+
+04:50.240 --> 04:53.400
+And so these are file based modules.
+
+04:53.500 --> 04:59.990
+So for Pathfinder The question is when you're dealing with a file based model of where to find the modules
+
+04:59.990 --> 05:01.570
+what to look for the modules.
+
+05:01.580 --> 05:07.750
+It's not going to start you know looking at the root of all your drives and search there.
+
+05:07.880 --> 05:10.620
+It's going to be limited in its search paths.
+
+05:10.700 --> 05:15.950
+And so the search paths are basically defined inside sister path.
+
+05:16.070 --> 05:19.920
+So it will start searching for modules insist that path.
+
+05:20.240 --> 05:26.140
+But if you're importing a module from a package and will get to packages later than a package also has
+
+05:26.140 --> 05:31.670
+this done the PAF property which basically sets up the root of that package.
+
+05:31.670 --> 05:33.350
+Where is that package located.
+
+05:33.350 --> 05:36.490
+It will also search inside that directory there.
+
+05:38.350 --> 05:44.900
+So says the path for example I wrote a small application on my system and it was located here in my
+
+05:44.900 --> 05:46.940
+home FMB my app.
+
+05:47.240 --> 05:52.250
+And then you can see that there are other paths that get added there as well and depending on what libraries
+
+05:52.250 --> 05:58.930
+you install in you know what modules and packages you've created you may have some extra stuff in here
+
+05:59.240 --> 06:03.540
+but you'll always have your root directory of your actual program.
+
+06:03.890 --> 06:08.030
+And then we see like for example this one user lib Python 3.6.
+
+06:08.120 --> 06:09.670
+That's kind of an important one.
+
+06:09.800 --> 06:13.310
+That's where the standard library stuff lives.
+
+06:13.310 --> 06:15.720
+So remember those two because we'll see them again.
+
+06:15.740 --> 06:20.000
+Home FMB my app and use a live Python 3.6.
+
+06:20.000 --> 06:24.720
+So that's for example one set of paths where they import the file based import.
+
+06:24.740 --> 06:32.780
+The Pathfinder will look if you're for example importing a module from collections the collections is
+
+06:32.780 --> 06:34.700
+a mod as a package.
+
+06:34.700 --> 06:39.070
+I should say and if you let's say right.
+
+06:39.140 --> 06:42.280
+From collections import named topple.
+
+06:42.450 --> 06:48.880
+It's going to find names topple in the path of this collections package because collections is a package.
+
+06:48.910 --> 06:52.500
+So this is the donder paff property of collections.
+
+06:52.510 --> 06:54.640
+It's inside 3.6.
+
+06:54.640 --> 06:58.880
+But it's a directory inside 3.6 called collection's.
+
+06:58.900 --> 07:05.020
+So when we do an import of named top or from collections it's going to look inside this directory and
+
+07:05.020 --> 07:07.350
+we'll get two packages in a little while.
+
+07:09.230 --> 07:15.900
+So let's take a look at some of the properties of modules and we'll start by importing a built in modules
+
+07:15.910 --> 07:17.800
+so let's look at the built ins first.
+
+07:18.010 --> 07:19.800
+And let's just import math.
+
+07:20.120 --> 07:21.430
+So the type of math.
+
+07:21.470 --> 07:28.630
+Well it's a module so math done the spec returns the module spec so it tells us the name of the module
+
+07:28.630 --> 07:33.810
+which loads should be used to load up the module and the origin where that come from.
+
+07:33.820 --> 07:39.870
+In this case it's a built in so it says built in the name of the module is half the package.
+
+07:39.880 --> 07:45.040
+I'm showing you this because it will become important when we look at packages but it's an empty string
+
+07:45.550 --> 07:52.930
+and a module is not a package unless it has done the package with some value in it.
+
+07:54.380 --> 07:59.600
+And the other thing too that's different about the built ins and this is something that you know for
+
+07:59.660 --> 08:05.180
+all the built ins and is reserved basically for the built ins.
+
+08:05.180 --> 08:11.150
+Is this done the file property which tells us where the thing came from where the module came from.
+
+08:11.180 --> 08:15.530
+Now done the file doesn't actually have to be a you know this based file.
+
+08:15.530 --> 08:22.250
+It could be something else we saw when we wrote some modules ourselves and we were building the model
+
+08:22.250 --> 08:24.530
+by actually generating code in a string.
+
+08:24.740 --> 08:28.110
+We saw that we set our file to you know a string.
+
+08:28.210 --> 08:32.550
+We said as Tiano string you know with some angle brackets.
+
+08:32.570 --> 08:38.520
+But if it comes from disk usually you'll find in the location that origin inside the file built ins
+
+08:38.540 --> 08:41.900
+however don't have that and that's reserved for their use.
+
+08:41.900 --> 08:44.680
+We should always specify a dunder file.
+
+08:44.750 --> 08:50.690
+If we write our own Lowder's next let's look at the standard library if we import let's say fractions
+
+08:50.690 --> 08:53.810
+which is a module from the standard library.
+
+08:54.210 --> 08:56.830
+Well the type of fractions is a module.
+
+08:57.080 --> 09:06.700
+The module spec is again the loader here is source file loader the origin now has a specific location.
+
+09:06.710 --> 09:09.940
+You'll notice that this US ad lib Python 3.6.
+
+09:09.940 --> 09:18.520
+Remember what I said remember the paths from the CIS says path that path U.S.-South look Python 3:6
+
+09:18.530 --> 09:19.480
+was in there.
+
+09:19.580 --> 09:22.690
+And so it found fractions of p y in there.
+
+09:22.730 --> 09:31.490
+It found this standard library implementation and it will use the source file loader to load it.
+
+09:31.550 --> 09:36.830
+The name is Fraction's the package again is empty because Fraction's is not a package it's a module
+
+09:37.400 --> 09:42.770
+and the file in this case is populated because this is coming from a file and it's telling us where
+
+09:43.010 --> 09:52.170
+the code for that module is actually located on file and note that the file was actually found by Pathfinder's
+
+09:52.340 --> 10:00.710
+so Pathfinder is the finder that that finally found the fractions in one of the paths listed insist
+
+10:00.710 --> 10:02.270
+up path.
+
+10:02.290 --> 10:08.080
+So it looks through those paths until it finds what it's looking for or it returns you know a module
+
+10:08.080 --> 10:15.620
+not found exception so that path here was in says Dompierre.
+
+10:15.630 --> 10:17.310
+Now what about a custom module.
+
+10:17.310 --> 10:24.290
+I wrote a module module one and we import that for example while the type of that is also a module no
+
+10:24.400 --> 10:30.380
+no change then no difference model spec you'll see it's also the source file loaded.
+
+10:30.510 --> 10:34.800
+So the path finder found that model where did it find it.
+
+10:34.800 --> 10:42.990
+Here in this location here Home FMB my app module one copy why the name is module one the package again
+
+10:42.990 --> 10:46.170
+is MTA was a regular module not a package.
+
+10:46.320 --> 10:52.460
+The file property is the location so that that origin that we have over here that's the file.
+
+10:52.470 --> 10:54.950
+This is where the code is located.
+
+10:54.960 --> 11:02.730
+So again the file was actually found by Pathfinder's in one of the paths listed insist that path.
+
+11:02.730 --> 11:06.650
+Remember that home FMB my app was insist on path.
+
+11:06.810 --> 11:15.590
+And so it found module one in that path so few notes python modules may reside in the built ins for
+
+11:15.590 --> 11:18.600
+example they may be files on disk.
+
+11:18.740 --> 11:23.480
+They can even be pre-compiled like Peewee's c files that can be frozen.
+
+11:23.480 --> 11:24.890
+They can even be inside.
+
+11:24.950 --> 11:27.040
+Our guys will take a look at that later.
+
+11:27.940 --> 11:33.260
+And really they can be anywhere else that can be accessed by a finder and a loaded.
+
+11:33.490 --> 11:38.980
+The only thing is that the Finder has to be able to find the module and the loader has to be able to
+
+11:39.070 --> 11:40.870
+load the module.
+
+11:41.620 --> 11:48.070
+So technically you can write custom finders and loaders and so you could find and load code from a database
+
+11:48.130 --> 11:51.930
+over HTP and whatever else you want to write.
+
+11:51.960 --> 11:58.090
+So for file based modules which is very kind of the most common one that we're going to use when we're
+
+11:58.090 --> 12:01.800
+writing modules in python we just store them as files on the disk.
+
+12:01.930 --> 12:05.920
+So Pathfinder is the one that's actually going to be used.
+
+12:06.010 --> 12:13.480
+So the path must exist through the module muxed must exist in a path that is specified in one of two
+
+12:13.480 --> 12:21.550
+locations either insist that path or if we're importing a module from inside a package then the packages
+
+12:21.700 --> 12:27.150
+path will also be searched and we'll see packages in an upcoming video.
+
+12:27.610 --> 12:30.830
+So if you want more information you can look at the Python docs.
+
+12:30.850 --> 12:33.240
+There's two references here.
+
+12:33.310 --> 12:35.210
+There are other ones out there as well.
+
+12:35.500 --> 12:42.220
+And also look at Pepp 3 0 2 3 0 2 kind of goes through a lot of what I've talked about in more detail
+
+12:42.640 --> 12:48.070
+and even talks about you know the finders and the loaders and the interfaces that have to be implemented
+
+12:48.070 --> 12:48.860
+and so on.
+
+12:49.060 --> 12:51.070
+It's not something you're going to use very often.
+
+12:51.070 --> 12:54.850
+I mean do you really want to be loading your code from a database.
+
+12:54.850 --> 12:59.140
+Probably not you're going to be writing a code on file and distributing it this way.
+
+12:59.140 --> 12:59.690
+All right.
+
+12:59.860 --> 13:02.210
+So thanks for watching and I'll see you in the next video.

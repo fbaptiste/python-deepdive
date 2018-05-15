@@ -1,0 +1,814 @@
+WEBVTT
+
+00:00.240 --> 00:03.950
+High in this video we're going to look at integers in Python.
+
+00:05.500 --> 00:08.440
+So that integer obviously is the end data type.
+
+00:08.440 --> 00:09.430
+We've seen that before.
+
+00:09.430 --> 00:16.560
+It's an object you know like everything else in Python and intuitively we know what integers are the
+
+00:16.680 --> 00:17.350
+numbers right.
+
+00:17.380 --> 00:24.370
+It's the integral numbers like 0 10 the negative ones like minus 10 maybe big ones 100 million two billion
+
+00:24.390 --> 00:26.610
+two trillion and so on.
+
+00:26.890 --> 00:31.900
+So the question that comes to mind is well how big can they become either positive or negative.
+
+00:31.930 --> 00:37.360
+So in other words we're really thinking about what's the largest magnitude right the magnitude being
+
+00:37.360 --> 00:38.230
+the absolute value.
+
+00:38.230 --> 00:40.910
+So let's not worry about the sign.
+
+00:40.960 --> 00:44.320
+How big can that become.
+
+00:44.320 --> 00:49.210
+So first in order to understand that we have to look at how integers are stored in our computers.
+
+00:49.360 --> 00:55.750
+While computers only use binary they use bits zeros and ones and everything is represented using zeros
+
+00:55.750 --> 00:58.060
+and ones including numbers.
+
+00:58.060 --> 01:04.590
+So our integers are represented using binary base to not decimal.
+
+01:04.620 --> 01:08.790
+So it's like a look at a number OK when we're working in base 2.
+
+01:08.820 --> 01:13.360
+These are the numerical values of each digits that we have in our number.
+
+01:13.710 --> 01:18.090
+And here's our number 1 0 0 1 1 that's a base to numbers.
+
+01:18.300 --> 01:24.560
+And these are the individual bits of that number right the bits being 0 or 1.
+
+01:24.600 --> 01:32.010
+So we find out what the decimal representation is of the binary number we just add up one time 16 0
+
+01:32.010 --> 01:37.510
+times 8 0 times 4 one times two and one times one.
+
+01:37.770 --> 01:38.860
+That's what we have.
+
+01:39.060 --> 01:41.930
+And when we add all that up we get 19.
+
+01:41.940 --> 01:48.070
+In other words 1 0 0 1 1 base 2 is equal to 19 base 10.
+
+01:50.150 --> 01:58.130
+So representing that decimal number 19 required 5 bits and we needed 5 bits in order to store and represent
+
+01:58.160 --> 02:02.200
+19 in binary in base 2.
+
+02:02.420 --> 02:08.780
+So we might ask the other question what is the largest integer number that can be represented using
+
+02:08.990 --> 02:09.810
+8 bits.
+
+02:09.920 --> 02:10.320
+Right.
+
+02:10.430 --> 02:11.700
+How far can we go.
+
+02:11.960 --> 02:16.820
+Well let's assume first that we only care about non-negative integers that 0.
+
+02:16.850 --> 02:19.350
+And up we don't care about the negative integers.
+
+02:19.400 --> 02:20.950
+We'll bring that back in a bit.
+
+02:21.720 --> 02:24.120
+Well that means that we have 8 bits to work with.
+
+02:24.150 --> 02:24.390
+Right.
+
+02:24.390 --> 02:26.560
+So these are big bits.
+
+02:26.580 --> 02:35.010
+1 1 1 8 8 times so that a number that we can work with is 128 plus 64 plus 32 plus 16 etc..
+
+02:35.240 --> 02:35.550
+Right.
+
+02:35.550 --> 02:37.670
+And that's equal to 255.
+
+02:37.920 --> 02:45.020
+So the largest number we can use is 255 which is 2 to the power of 8 minus one.
+
+02:45.030 --> 02:51.310
+Notice the relationship between 8 bits over here and 8 over here in this expression.
+
+02:52.720 --> 02:53.570
+OK.
+
+02:53.910 --> 02:58.390
+Now if we care about handling negative integers Let's bring that back into the mix.
+
+02:58.410 --> 03:03.780
+Well we're going to need to use one of those bits if we want to stick to 8 bits we'll need to use one
+
+03:03.780 --> 03:05.800
+of those bits to store the sign.
+
+03:05.940 --> 03:08.100
+A positive or is it negative.
+
+03:08.820 --> 03:12.690
+So we'll only have 7 bits that we can work with.
+
+03:12.690 --> 03:18.930
+So using 7 bits well to the seven minus one following the same path and here is the maximum magnitude
+
+03:18.930 --> 03:27.430
+is going to be 127 so theoretically we are able to represent all the numbers in the range minus 127
+
+03:27.700 --> 03:29.910
+to 127 here.
+
+03:30.120 --> 03:33.160
+We were if we only cared about positive numbers.
+
+03:33.160 --> 03:37.980
+We were able to represent numbers in the range 0 to 255.
+
+03:38.620 --> 03:43.820
+Now zero itself doesn't have a sign it's neither really positive not negative.
+
+03:43.820 --> 03:48.130
+Right it's not considered negative and it's not considered positive either.
+
+03:49.280 --> 03:55.010
+So we can actually squeeze out an extra number in this range because while we don't need to you know
+
+03:55.100 --> 03:57.850
+slots in this range to represent zero.
+
+03:58.100 --> 04:01.820
+And usually the way the numbers are encoded is that it gets added to the bottom.
+
+04:01.820 --> 04:06.380
+So now we can reach from minus 128 to 127.
+
+04:06.800 --> 04:07.910
+So here's the formula.
+
+04:07.910 --> 04:14.750
+If we look looking at using 8 bits of storage for a signed integer our range will be from minus 2 to
+
+04:14.750 --> 04:20.780
+the 8 minus one up to 2 to the 8 minus 1 minus 1.
+
+04:20.940 --> 04:26.420
+That's the general formula you can put you know and minus one where n is the number of bits that you
+
+04:26.420 --> 04:28.010
+want to use for storage.
+
+04:29.720 --> 04:33.280
+So what about 16 bits of 16 bits.
+
+04:33.440 --> 04:39.900
+2 to the power of 15 is this number here thirty two thousand seven hundred sixty eight and our range
+
+04:39.900 --> 04:45.700
+therefore will be from minus 32000 768 up to thirty two thousand 767.
+
+04:45.810 --> 04:48.930
+That's when we use 16 bits but about 32 bits.
+
+04:48.930 --> 04:54.480
+Well we do the same calculation and we end up of this range you know minus 2 billion something to 2
+
+04:54.480 --> 04:58.340
+billion something.
+
+04:58.520 --> 05:03.320
+Now we are an unsigned integer type are thoroughly to put range would be a lot larger.
+
+05:03.410 --> 05:03.680
+Right.
+
+05:03.680 --> 05:08.000
+It would basically double up because we're not dealing with the negative numbers would start at zero
+
+05:08.000 --> 05:10.300
+and so therefore we expand to the right.
+
+05:10.300 --> 05:13.410
+Here's we'd seen in the beginning of the video.
+
+05:13.490 --> 05:16.770
+So as a quick side note which is kind of interesting.
+
+05:16.880 --> 05:19.310
+Let's say you're working on a 32 bit operating system.
+
+05:19.310 --> 05:24.500
+And if you have done that in the past you know that there is a limitation to the amount of memory that
+
+05:24.500 --> 05:27.710
+the 32 bit operating system can use.
+
+05:27.710 --> 05:28.150
+Right.
+
+05:28.280 --> 05:34.100
+You may have as you know a PC and you went ahead and bought maybe you know 32 gigs of RAM and you put
+
+05:34.100 --> 05:36.720
+that in and you fire up windows 30 to boot.
+
+05:36.770 --> 05:42.560
+And it tells you that you know you have way less something under 4 gigs like what's going on.
+
+05:42.560 --> 05:45.500
+I've got 64 gigs of memory in my computer.
+
+05:45.500 --> 05:54.230
+Why am I only able to access you know four gigabytes well memory space right is limited by the address
+
+05:54.230 --> 05:54.580
+number.
+
+05:54.580 --> 05:56.990
+If you think back to what we've done in the past.
+
+05:57.170 --> 06:03.830
+Well every variable is just you know a pointer to something in memory that pointer is an integer number
+
+06:03.830 --> 06:09.610
+that represents the memory address right of where that variable data is stored.
+
+06:09.950 --> 06:14.130
+Well those addresses are integers and so they need to.
+
+06:14.150 --> 06:18.170
+You don't have a certain number of bits that they can use to store that address.
+
+06:18.170 --> 06:24.160
+And so in a 32 bit architecture our addresses are limited to 32 bits.
+
+06:24.260 --> 06:24.520
+Right.
+
+06:24.530 --> 06:29.020
+So the address itself is limited to a 32 bit integer.
+
+06:29.330 --> 06:30.800
+So let's take a look at what that means.
+
+06:30.810 --> 06:33.240
+Well every address is a byte.
+
+06:33.470 --> 06:38.000
+So we're looking at the maximum number of addresses.
+
+06:38.120 --> 06:38.320
+Right.
+
+06:38.330 --> 06:39.780
+Which is this number here.
+
+06:40.130 --> 06:46.400
+But as bytes That's how many bytes we can you know use up essentially because that's the total number
+
+06:46.400 --> 06:50.120
+of addresses that we can use and each address is one byte.
+
+06:50.120 --> 06:56.420
+So when we do the multiplication we can convert you know this is the number of bytes and now we can
+
+06:56.420 --> 07:01.110
+divide by this to get kilobytes or we're looking at 4000000 something kilobytes.
+
+07:01.130 --> 07:02.290
+Convert that to megabytes.
+
+07:02.290 --> 07:04.230
+We get four thousand ninety six megs.
+
+07:04.250 --> 07:05.050
+Convert that to gigs.
+
+07:05.060 --> 07:06.540
+We get four gigs.
+
+07:06.590 --> 07:08.250
+That's the theoretical limit.
+
+07:08.250 --> 07:12.400
+Right so that's why if you know you can throw in more memory into your motherboard.
+
+07:12.440 --> 07:17.780
+But if you're using a 32 bit architecture you're not going to be able to address all of that memory.
+
+07:17.780 --> 07:21.330
+Now there are always operating systems and get around that and do other things.
+
+07:21.350 --> 07:24.130
+But that's beside the point.
+
+07:24.140 --> 07:24.650
+All right.
+
+07:24.650 --> 07:27.160
+So that was just a quick side note.
+
+07:27.270 --> 07:33.650
+So but basically the thing is how large an integer can be depends on how many bits you want to use to
+
+07:33.650 --> 07:35.120
+store up the images.
+
+07:35.960 --> 07:42.920
+So some languages like Java and C actually have different data types for different lengths of integers
+
+07:43.310 --> 07:49.910
+and so they have a fixed number of bits and you have to decide as you're writing your code thinking
+
+07:49.910 --> 07:51.870
+wow I'm going to use an integer here.
+
+07:52.050 --> 07:53.240
+But how big is it going to be.
+
+07:53.240 --> 07:56.440
+What it's what is it you know throughout the lifetime of this program.
+
+07:56.450 --> 07:58.670
+How big is the integer going to become.
+
+07:58.670 --> 08:06.140
+And you have to up front kind of design and define Well you know I'm going to make it a you know pretty
+
+08:06.140 --> 08:12.810
+short integer because I know my values are going to be you know from maybe from minus 10 to 10 right.
+
+08:12.810 --> 08:14.170
+That's never going to go beyond that.
+
+08:14.180 --> 08:19.400
+For some reason other times you may see something that's larger.
+
+08:19.610 --> 08:24.680
+So these languages and I'll use Java as an example because it's consistent across platforms.
+
+08:26.150 --> 08:28.040
+Provide you these different data types.
+
+08:28.040 --> 08:34.490
+So for example they have the byte data type and the byte data type as you may imagine uses 8 bits and
+
+08:34.490 --> 08:41.650
+it's a sine 8 bit number which means it's range from minus 128 to 127.
+
+08:41.660 --> 08:48.290
+Similarly they have a short which is a 16 bit number side so minus thirty two thousand something to
+
+08:48.290 --> 08:51.210
+thirty two thousand seven hundred sixty seven.
+
+08:51.320 --> 08:54.750
+You have an int right now an end is a 32 bit number.
+
+08:54.770 --> 09:00.090
+It's a sine 32 bit numbers so its range is bigger than its all using its potential notation here.
+
+09:00.230 --> 09:06.020
+You also have a long which is a 64 bit number which is going to be in that range and so on.
+
+09:06.140 --> 09:06.380
+Right.
+
+09:06.380 --> 09:12.680
+There are other things too there are more and some languages will also provide you signed and unsigned
+
+09:12.680 --> 09:17.840
+variants so you may decide that this is only going to be an and you know a positive integer.
+
+09:17.840 --> 09:22.240
+So I can use an unsigned variable type so you may have an unsigned int.
+
+09:22.250 --> 09:28.800
+Some languages allow you to do that now Python doesn't work that way in Python.
+
+09:28.810 --> 09:35.480
+The object is to remember an object uses a variable number of bits and as your number gets bigger it
+
+09:35.480 --> 09:40.010
+will just increase the number of bits that it needs to use to store that integer.
+
+09:40.370 --> 09:45.090
+So it may use 32 bits 64 bits 96 bits and so on.
+
+09:45.350 --> 09:47.340
+And that's completely seamless to us.
+
+09:47.360 --> 09:52.550
+So it's in it's kind of important and interesting to know what's going on behind the scenes.
+
+09:52.580 --> 09:52.840
+Right.
+
+09:52.850 --> 09:59.630
+It's doing that division of the number up into multiple you know bits and it keeps increasing the number
+
+09:59.630 --> 10:01.090
+of bits as it needs to.
+
+10:01.340 --> 10:07.730
+But we don't have to actually think about it as we're writing our code right now since integers actually
+
+10:07.790 --> 10:08.760
+objects.
+
+10:08.840 --> 10:13.780
+There's also an overhead associated with each of those we'll see that in the code section.
+
+10:14.810 --> 10:19.970
+But theoretically you know how big can the integer become in Python while it's limited by the amount
+
+10:19.970 --> 10:23.160
+of memory that you have available for the program.
+
+10:24.610 --> 10:26.580
+Now one thing to watch out for.
+
+10:26.620 --> 10:29.180
+I mean of course larger numbers will use more memory right.
+
+10:29.200 --> 10:36.940
+You got a huge integer number it may require 128 bits so maybe 256 bits of memory to store that number
+
+10:37.300 --> 10:43.690
+but that's not the only thing that happens as you get larger and larger numbers especially once you
+
+10:43.690 --> 10:47.740
+get past the 32 bit if you're working in a 32 bit OS or 64 bit.
+
+10:47.770 --> 10:53.950
+If you're walking you know in a 64 bit architecture as you get beyond that point to do operations the
+
+10:54.040 --> 10:59.980
+just the sample you know the standard arithmetic operations like addition subtraction multiplication
+
+10:59.980 --> 11:02.860
+and so on it will get slower and slower.
+
+11:02.900 --> 11:09.100
+The CPQ is going have to do more and more work to let's say add two integers right in a 32 bit operating
+
+11:09.100 --> 11:14.540
+system it might be able to add to 32 bit integers in one operation on the zebu.
+
+11:14.650 --> 11:20.470
+But if you grow beyond that well it's going to take now more than one operation to add you know to integers
+
+11:20.470 --> 11:24.820
+that are larger than 32 bits as we're going to have to do them in chunks.
+
+11:25.270 --> 11:31.690
+So again this is seamless to us but do be aware that as your integer numbers in Python get bigger and
+
+11:31.690 --> 11:35.470
+bigger your computational speeds are going to decrease
+
+11:37.960 --> 11:39.370
+looking at some code.
+
+11:39.730 --> 11:42.900
+Let's just see again the type of integers.
+
+11:42.940 --> 11:46.430
+So we can say print type of some integer.
+
+11:46.480 --> 11:47.490
+A 100.
+
+11:47.740 --> 11:52.690
+And as you can see it's a class of type and so integers are objects.
+
+11:52.900 --> 12:00.940
+So we can take a look at how much storage space how much memory is being used when we create integers.
+
+12:00.940 --> 12:08.860
+So it get it first import the cist module and we're going to use the get size of method that's in the
+
+12:08.860 --> 12:15.520
+system that allows us to you know find out how much memory is being used to store a particular variable
+
+12:15.590 --> 12:17.400
+for a particular value.
+
+12:18.250 --> 12:22.170
+So we're going to say this get size of.
+
+12:22.300 --> 12:24.680
+And let's start with the integers 0.
+
+12:25.150 --> 12:32.470
+And as you can see it takes up 24 bytes and we can think of that is the overhead that we get when we
+
+12:32.470 --> 12:38.920
+create an integer object because it you know the object itself requires some memory to get created and
+
+12:38.920 --> 12:40.260
+stored.
+
+12:40.570 --> 12:46.690
+So we can think of 24 bytes as the overhead every time you create an you know an integer object you're
+
+12:46.690 --> 12:53.230
+going to use up at least 24 bytes and then you're also on top of that going to need bytes to store the
+
+12:53.230 --> 12:54.050
+number itself.
+
+12:54.160 --> 13:00.080
+Zero doesn't require anything more than you know nothing or one bit.
+
+13:00.340 --> 13:01.680
+So we can think of it that way.
+
+13:01.690 --> 13:08.830
+So we can look at Psystar to get the size of one right which is the smallest non-zero integer we can
+
+13:08.830 --> 13:09.660
+think of.
+
+13:09.880 --> 13:12.100
+That requires twenty eight bytes.
+
+13:12.100 --> 13:19.930
+So you can see it's used for bytes to store that number for bytes being 32 bits right.
+
+13:19.990 --> 13:21.050
+8 bits per byte.
+
+13:21.070 --> 13:23.710
+So 32 bits used to store one.
+
+13:24.160 --> 13:33.420
+Now we can look at get the size of the hall look at some big number let's say 1000 k.
+
+13:33.730 --> 13:38.290
+And as you can see now we are using 160 bytes right which is much bigger.
+
+13:38.290 --> 13:40.680
+How many bits that we use for the actual number.
+
+13:40.870 --> 13:47.380
+Well we can look at you know if you want to do that calculation 160 minus the overhead of 24 that's
+
+13:47.380 --> 13:52.230
+the number of bytes K and times 8 to get the number of bits.
+
+13:52.270 --> 13:54.700
+So we use a thousand eighty eight bits.
+
+13:54.730 --> 14:01.020
+So that's how many bits we use to store this large integer value here which you want to see it printed
+
+14:01.030 --> 14:02.710
+out to.
+
+14:03.000 --> 14:08.590
+I have the they're not going to try and read it out but that's the integer number.
+
+14:08.650 --> 14:12.090
+So you can see you can work with large integer numbers in Python.
+
+14:12.190 --> 14:13.840
+It's completely seamless.
+
+14:13.900 --> 14:14.410
+Right.
+
+14:14.500 --> 14:15.770
+We write what we write.
+
+14:15.790 --> 14:23.260
+We don't have to worry about you know trying to fit it inside a fixed width data type fix with meaning
+
+14:23.290 --> 14:27.350
+you know a fixed number of bytes that it can use to store the value.
+
+14:28.080 --> 14:29.330
+OK.
+
+14:29.550 --> 14:38.390
+Now I did mention that you know over and above requiring more memory to store large integers it also
+
+14:38.390 --> 14:40.430
+slows down the calculations.
+
+14:40.430 --> 14:42.710
+So let's take a look at an example of that.
+
+14:42.950 --> 14:45.170
+So we're going to import the time library.
+
+14:45.290 --> 14:50.210
+Again we're going to do this cause I benchmark the benchmarks that just you know kind of quick and dirty
+
+14:50.210 --> 14:57.100
+timings and first thing we're going to do is we're going to create a method let's call it Kelk.
+
+14:57.230 --> 14:59.770
+We're going to pass at some value in integers.
+
+14:59.810 --> 15:05.640
+In this case will pass in and we're going to repeat an operation.
+
+15:06.320 --> 15:09.700
+Let's do it 10 million times 10.
+
+15:09.710 --> 15:11.490
+One two three four five six.
+
+15:11.510 --> 15:11.990
+OK.
+
+15:12.230 --> 15:19.310
+So we'll do 10 million times and all we're going to do here is we're going to multiply that integer
+
+15:19.310 --> 15:20.160
+by two.
+
+15:20.180 --> 15:23.600
+So we're just going to double it up and we're not going to.
+
+15:23.800 --> 15:25.340
+We don't store it in a variable.
+
+15:25.340 --> 15:26.750
+We're not going to print it out.
+
+15:26.780 --> 15:32.110
+We just want to do the calculation not just want to try and limit it all what we're going to time to
+
+15:32.110 --> 15:34.790
+just the calculation itself.
+
+15:34.790 --> 15:36.250
+So that's our method.
+
+15:36.480 --> 15:38.890
+And now we're going to time it.
+
+15:38.960 --> 15:42.970
+So let's do time perf counters.
+
+15:43.110 --> 15:43.370
+Right.
+
+15:43.370 --> 15:44.890
+That's our start time.
+
+15:44.930 --> 15:50.660
+We're going to do that calculation we're going to pass in let's say a small integer 10 and then and
+
+15:50.750 --> 15:53.820
+we'll be timed out of count.
+
+15:54.170 --> 15:57.820
+And we're going to print the and mine minus stuff.
+
+15:57.890 --> 16:01.840
+Ok so very similar to what we've done in the past.
+
+16:01.950 --> 16:05.110
+So if we run this well took half a second to run.
+
+16:05.330 --> 16:08.060
+And depending on the CPI you're running on on.
+
+16:08.090 --> 16:11.450
+And they are in the system you're running on and what else is happening in the background you'll get
+
+16:11.450 --> 16:13.790
+different values obviously.
+
+16:14.300 --> 16:16.430
+So now let's do the same thing.
+
+16:16.460 --> 16:25.040
+So I'm going to copy and paste this code but this time instead of doing 10 we're going to do that big
+
+16:25.040 --> 16:31.880
+number we saw before and actually I won't get that big that fast Let's do you know two to the power
+
+16:31.880 --> 16:32.720
+of 100.
+
+16:32.760 --> 16:33.540
+OK.
+
+16:33.770 --> 16:35.620
+Two to the power of 100.
+
+16:35.900 --> 16:41.660
+If you want to see what that looks like that's you know a fairly large number.
+
+16:41.750 --> 16:47.730
+So let's do that and let's Tynemouth and it took 0.9 seconds.
+
+16:47.830 --> 16:48.080
+Right.
+
+16:48.080 --> 16:51.000
+So as you can see it started slowing down.
+
+16:51.330 --> 16:53.350
+We can do this one more time.
+
+16:53.600 --> 17:00.560
+And in this case I'm going to do that big number we saw before that two to the power of 1000.
+
+17:00.620 --> 17:01.940
+Actually I'll go even bigger.
+
+17:01.940 --> 17:02.960
+How about that.
+
+17:02.960 --> 17:07.330
+How about two to the power of ten thousand.
+
+17:07.400 --> 17:08.970
+How big is that number.
+
+17:09.280 --> 17:12.380
+Oh that's that's pretty hefty right.
+
+17:12.400 --> 17:14.010
+That's a large integer.
+
+17:15.120 --> 17:17.690
+So let's go ahead and do that.
+
+17:17.700 --> 17:26.260
+So instead of 100 we're going to do ten thousand K that's what we had here.
+
+17:26.730 --> 17:27.040
+OK.
+
+17:27.080 --> 17:29.090
+This big number has 10000.
+
+17:29.250 --> 17:29.670
+All right.
+
+17:29.850 --> 17:33.090
+So let's run that and we'll have to have a little bit of patience.
+
+17:38.890 --> 17:39.730
+There we go.
+
+17:39.730 --> 17:41.550
+Six point six nine seconds.
+
+17:41.560 --> 17:47.130
+So you can see the performance difference here was little more noticeable than before.
+
+17:48.350 --> 17:53.200
+So bottom line you can use arbitrary large integer numbers in Python.
+
+17:53.210 --> 17:58.800
+It will handle it seamlessly for us but we just have to understand that as the numbers get bigger.
+
+17:58.850 --> 18:04.040
+Not only do they require more memory for storage but the operations will get slower as well.
+
+18:04.040 --> 18:04.330
+All right.
+
+18:04.340 --> 18:06.430
+Thanks for watching and I'll see you in the next video.

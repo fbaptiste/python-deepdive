@@ -1,0 +1,2335 @@
+WEBVTT
+
+00:00.300 --> 00:00.740
+High.
+
+00:00.840 --> 00:08.190
+So in this video I want to start taking a look at how Python actually impuls modules and it's actually
+
+00:08.700 --> 00:10.620
+relatively simple conceptually.
+
+00:10.620 --> 00:14.580
+And then there's some details that are actually quite a bit more complicated.
+
+00:15.620 --> 00:19.910
+But what happens when we run a statement like important fractions.
+
+00:19.910 --> 00:22.020
+What is Python actually doing.
+
+00:22.550 --> 00:27.140
+Well the first thing that we should note is that Python is doing the import at runtime while your code
+
+00:27.140 --> 00:28.180
+is actually running right.
+
+00:28.190 --> 00:33.850
+We're inside this notebook which is really a running Python environment.
+
+00:33.950 --> 00:35.250
+It's a running program.
+
+00:36.070 --> 00:42.080
+And so when we write let's say import something then it's doing something dynamically.
+
+00:42.100 --> 00:48.250
+Unlike other languages like C for example where modules are compiled and linked ahead of time before
+
+00:48.250 --> 00:52.400
+they run those things happen before execution of your actual program.
+
+00:52.610 --> 00:54.630
+Here your program is executing.
+
+00:54.640 --> 01:02.930
+So it's very dynamic so Python uses a relatively complex system of how to find the modules because that's
+
+01:02.930 --> 01:08.990
+actually the more complex part loading the module is actually quite straightforward and we'll actually
+
+01:08.990 --> 01:10.490
+see how to do that manually.
+
+01:10.490 --> 01:18.770
+Will will basically mimic what Python is doing but we're not going to look into how it finds the files
+
+01:18.890 --> 01:20.740
+because that's kind of complicated.
+
+01:20.870 --> 01:24.260
+And I will talk about it but we're not going to try and replicate that piece.
+
+01:24.500 --> 01:29.330
+So the first thing is we're going to use make heavy use of the CIS module so forth and we're going to
+
+01:29.330 --> 01:35.060
+do is import the CIS module and the module has a bunch of things available for example.
+
+01:35.060 --> 01:36.690
+Where is python installed.
+
+01:36.890 --> 01:42.500
+And so if we look at the prefix This is where we are because we're in this virtual environment that
+
+01:42.500 --> 01:43.560
+I've created.
+
+01:43.590 --> 01:48.430
+So this is what Python has installed now we're all the C Minories located.
+
+01:48.430 --> 01:50.890
+They're going to be located in the same path.
+
+01:50.900 --> 01:52.610
+So in this case it's in the same path.
+
+01:52.610 --> 01:55.490
+Now we can change prefix and exact prefix.
+
+01:55.490 --> 01:58.220
+And in fact that's how virtual environments work.
+
+01:58.220 --> 02:00.760
+They essentially change where prefix is.
+
+02:00.770 --> 02:06.530
+This is why my prefix is not where my standard Python 3 instillation is.
+
+02:06.530 --> 02:08.040
+This is a virtual environment.
+
+02:08.150 --> 02:15.110
+So the python binary is the standard library and all that stuff was copied basically to this directory
+
+02:15.110 --> 02:20.170
+here and not Python runs from there it's kind of routed at that location.
+
+02:23.130 --> 02:25.430
+Now where does Python look for imports.
+
+02:25.470 --> 02:31.980
+And this is the piece where it gets complicated because when you import a file Let's say you import
+
+02:32.130 --> 02:35.940
+this or you import fractions or you import your own module.
+
+02:36.240 --> 02:37.820
+Well it has to know where to find it.
+
+02:37.830 --> 02:39.610
+Where does it find it.
+
+02:39.720 --> 02:46.920
+It's going to look in the past and the path is just a list of all the directories that are registered
+
+02:47.250 --> 02:47.670
+with.
+
+02:47.670 --> 02:55.080
+Basically this program as it's running and we can see all these other paths like Python 6 10 a zip file.
+
+02:55.080 --> 03:00.720
+The interesting thing with Python is that it can actually reach in the zip archives to grab stuff it
+
+03:00.720 --> 03:05.220
+can even run an entire application that's inside a zip archive.
+
+03:05.220 --> 03:07.220
+I'll show you how to do that later.
+
+03:07.760 --> 03:14.220
+You know we have the deep dive deal as the lib which is where our wrong extended library lives.
+
+03:14.220 --> 03:15.600
+We've seen that before.
+
+03:15.660 --> 03:16.530
+Ok deep dive.
+
+03:16.530 --> 03:20.150
+That's my current directory that's where I'm located right now.
+
+03:20.380 --> 03:20.830
+OK.
+
+03:20.970 --> 03:28.370
+And so on and there's a bunch of you know other stuff so typically when Python tries to load a module
+
+03:28.370 --> 03:33.860
+from a file it will go and look in this path and if you ever run into a problem where you're trying
+
+03:33.860 --> 03:40.700
+to import a module and it doesn't find it you should really go and check your source path and see if
+
+03:40.970 --> 03:43.770
+the modules path is in that list.
+
+03:43.790 --> 03:48.580
+If it's not then you have a problem maybe your installation if it was a third party package fail.
+
+03:48.920 --> 03:54.300
+Or maybe you could even and I don't suggest you do that but you can actually hack the system path.
+
+03:54.320 --> 03:55.890
+You can append things.
+
+03:55.970 --> 04:01.880
+So if you really want to you could write a module in a totally different location and in as long as
+
+04:01.880 --> 04:07.020
+you append this path over here it will find that location when you try to import it.
+
+04:07.040 --> 04:07.790
+So that's a hack.
+
+04:07.820 --> 04:09.140
+I wouldn't recommend doing that.
+
+04:09.320 --> 04:16.300
+And there's other ways that we really should handle custom loaders for our modules.
+
+04:16.310 --> 04:24.550
+So what does Python do when it tries to import a module Well the first thing it does it checks the CIS
+
+04:24.570 --> 04:27.510
+modules cache to see if the modules are already been imported.
+
+04:27.510 --> 04:31.080
+If so it just uses the reference that's sitting in that dictionary.
+
+04:31.200 --> 04:36.870
+So it doesn't reload which is why if you have the same module imported multiple times because maybe
+
+04:36.870 --> 04:39.890
+you have modules that all need to import.
+
+04:40.090 --> 04:41.750
+You know math for example.
+
+04:41.750 --> 04:50.030
+While math is only going to get you know imported and put into that modules dictionary once.
+
+04:50.250 --> 04:52.290
+It's not going to get reimported.
+
+04:52.290 --> 04:56.770
+Now there's ways that we can reload the thoughts and I'll show you you know how to do that later.
+
+04:56.850 --> 04:59.680
+But I also show you why it's a bad idea to try and do that.
+
+04:59.820 --> 05:04.530
+Typically if you're going to do things like that where you're changing a module you know dynamically
+
+05:04.530 --> 05:07.420
+the code for a module dynamically you need to reload it.
+
+05:07.530 --> 05:14.390
+You're better off restarting the application so if it doesn't find it though in the cache What does
+
+05:14.390 --> 05:14.890
+it do.
+
+05:15.020 --> 05:17.940
+Well the first thing it does it creates a new module type.
+
+05:17.950 --> 05:20.380
+So we've seen this module type before.
+
+05:20.390 --> 05:27.440
+So it creates a new instance of a module and it loads the source code from file potentially and we'll
+
+05:27.440 --> 05:30.060
+see that it doesn't actually have to come from a file.
+
+05:30.080 --> 05:32.850
+I can come from other locations as well.
+
+05:33.350 --> 05:37.220
+Then it adds the entry to the cache.
+
+05:37.230 --> 05:37.600
+OK.
+
+05:37.630 --> 05:43.250
+So as the entry to the cache and then it compiles and executes the source code for the module that it
+
+05:43.310 --> 05:46.490
+you know that it loaded from somewhere.
+
+05:46.490 --> 05:51.710
+Now one thing that's really important to note is that when a module is imported for the first time anyways
+
+05:52.130 --> 05:57.620
+the module code is executed it actually runs that code.
+
+05:57.790 --> 06:02.920
+So I'm going to switch over to apply Chelm because it's really difficult to work with multiple modules
+
+06:03.040 --> 06:04.910
+inside Jupiter.
+
+06:05.020 --> 06:09.940
+So I'm going to switch over to a pie chart but you can switch over to whatever favorite editor you like
+
+06:09.970 --> 06:15.130
+or you can also just you know basically use like you know a text editor like vim eMac.
+
+06:15.130 --> 06:20.560
+So if you want subline text and you know just compile things from the command line that works perfectly
+
+06:20.650 --> 06:21.920
+well as well.
+
+06:22.090 --> 06:24.100
+But I'm just going to use pi John.
+
+06:24.100 --> 06:24.370
+All right.
+
+06:24.370 --> 06:31.970
+So the first thing I'm going into is on created directory.
+
+06:32.110 --> 06:34.630
+So we're going to call this example one.
+
+06:34.830 --> 06:40.960
+So I'm going to have a few examples in this source file and I'm going to create two files.
+
+06:40.960 --> 06:43.840
+I'm going to create a module file so this code module.
+
+06:43.840 --> 06:45.510
+Wonder why.
+
+06:45.790 --> 06:52.380
+And I'm also going to create a main Doppie way it's going to kind of be my main file.
+
+06:52.630 --> 06:56.120
+So what do I want to do in module P1.
+
+06:56.590 --> 07:02.370
+So let me just type in the name at the top just so we always have it there it's also in the tab.
+
+07:02.380 --> 07:07.180
+But if you're not using an editor like this you may want to just you know put in the name of the file
+
+07:07.390 --> 07:08.690
+that you're working on.
+
+07:09.130 --> 07:09.370
+All right.
+
+07:09.370 --> 07:15.580
+So the first thing I'm going to do is I'm going to basically say print it or something like running
+
+07:21.650 --> 07:28.650
+well I like that and will format it with this special property Dundon name that's going to be the name
+
+07:29.190 --> 07:32.280
+of the module that's running.
+
+07:32.490 --> 07:41.670
+So if I run module one we would see Yossef I basically you know invoke it and I render this we would
+
+07:41.670 --> 07:45.690
+get running you know whatever the module name is OK.
+
+07:45.720 --> 07:51.750
+So I have this module and now I'm going to do what I usually do in a module is I you know I basically
+
+07:51.750 --> 07:55.700
+create classes and functions and variables and things like this.
+
+07:55.710 --> 08:04.560
+So if I'm going to create a function to pretty print a dictionary because I actually need that to show
+
+08:04.560 --> 08:13.740
+you the scopes so I may go ahead and do this so we'll print a few blank lines then we'll print something
+
+08:13.740 --> 08:17.220
+like the header that we pass in.
+
+08:17.490 --> 08:19.660
+So those it just formatting stuff.
+
+08:19.980 --> 08:25.270
+It's really not that complicated.
+
+08:25.660 --> 08:32.640
+All I want to do is I want to print a dictionary with one line per entry in the dictionary.
+
+08:32.640 --> 08:39.330
+So I'm going to say for the of value in whatever dictionary was passed in and the items then we're just
+
+08:39.330 --> 08:44.730
+going to print the key comma the value and I just want some kind of you know separation.
+
+08:44.880 --> 08:47.440
+So we'll do that.
+
+08:49.310 --> 08:51.950
+And I'll put in a couple of extra spaces here.
+
+08:52.100 --> 08:52.930
+OK.
+
+08:53.390 --> 08:54.520
+So now we have that.
+
+08:54.680 --> 09:01.060
+And what I'm going to do in module one is I'm going to pretty print the Dick
+
+09:04.100 --> 09:08.840
+and I want to print the Global's the module one Globex.
+
+09:08.870 --> 09:09.470
+OK.
+
+09:09.710 --> 09:16.520
+So we're going to do that and then I'm going to finally put something that shows that I've reached the
+
+09:16.580 --> 09:21.970
+end you know of the module.
+
+09:22.530 --> 09:23.270
+I like that's
+
+09:26.710 --> 09:27.760
+OK.
+
+09:29.530 --> 09:31.860
+Let's fix that.
+
+09:32.050 --> 09:34.950
+So that's my module.
+
+09:35.320 --> 09:36.040
+OK.
+
+09:36.400 --> 09:37.580
+Quite simple module.
+
+09:37.600 --> 09:39.710
+It doesn't do much or defines one function.
+
+09:39.730 --> 09:42.610
+And then it has the code in here.
+
+09:42.880 --> 09:47.010
+And so if we're to run this it may let me run it.
+
+09:47.050 --> 09:52.750
+So if we were to run this you'll notice that we have a bunch of stuff in it ran right it printed out
+
+09:52.760 --> 09:54.450
+it said running main.
+
+09:54.760 --> 09:58.580
+I'll get to that later why it's not called module one here.
+
+10:00.440 --> 10:06.470
+But you can see it there that pretty print on the dictionary and which dictionary my global scope my
+
+10:06.470 --> 10:07.550
+global namespace.
+
+10:07.580 --> 10:07.840
+Right.
+
+10:07.850 --> 10:09.960
+So I have a name which is the main.
+
+10:09.970 --> 10:12.100
+I had no docstring package.
+
+10:12.110 --> 10:13.560
+I'll get to that later.
+
+10:13.610 --> 10:14.970
+Lowder I'll get to that later.
+
+10:14.990 --> 10:18.940
+But you can see that it's a source file loader.
+
+10:19.160 --> 10:24.080
+And so hopefully you start seeing that this different kinds of load is what could have we could load
+
+10:24.080 --> 10:25.090
+from somewhere else.
+
+10:25.430 --> 10:28.120
+Built ins for example is a different type of loader.
+
+10:28.850 --> 10:30.840
+And then we have our pretty print.
+
+10:31.020 --> 10:33.140
+So our pretty print is right here.
+
+10:34.390 --> 10:39.580
+And the other thing you'll notice is that there's a dandified property and it tells me which file the
+
+10:39.580 --> 10:44.340
+code came from but it came from wherever I am and module wonder why.
+
+10:44.590 --> 10:46.660
+OK inside example one folder.
+
+10:46.930 --> 10:47.830
+So this runs.
+
+10:47.840 --> 10:54.960
+It's a regular module but modules have an execution space they execute.
+
+10:54.990 --> 11:02.810
+OK so now let's go over to Main and here.
+
+11:03.840 --> 11:11.910
+I'm going to print just like some double lines to show where the main module is going to run.
+
+11:12.650 --> 11:16.020
+And I'm going to say print running.
+
+11:16.100 --> 11:20.720
+I'm going to call it may end up you are not going to look at and done the double underscore name.
+
+11:24.270 --> 11:25.090
+This I will.
+
+11:25.110 --> 11:30.170
+But let's say that I'm going to do this.
+
+11:30.390 --> 11:35.750
+And you saw why just now when I ran Module 1 What was the module name.
+
+11:35.790 --> 11:40.330
+It was that double underscore main and the same thing is going to happen here.
+
+11:40.350 --> 11:47.490
+If I run main Now you'll notice that I'm running made up P Y but the module name is double underscore
+
+11:47.490 --> 11:53.650
+main and we'll come back and revisit Maine in some detail because there's some actually kind of interesting
+
+11:53.650 --> 11:54.640
+things about it.
+
+11:54.940 --> 12:02.620
+But basically whenever you run a file whatever that folly is that's the starting point the name gets
+
+12:02.620 --> 12:09.720
+renamed to double underscore main to the main and so there's things that we can leverage with that.
+
+12:09.730 --> 12:10.290
+All right.
+
+12:10.360 --> 12:13.010
+So I have that multi-mode.
+
+12:13.840 --> 12:16.830
+And what I want to do here is I'm going to import module one right.
+
+12:16.840 --> 12:19.630
+I have my module one now I'm going to print.
+
+12:19.690 --> 12:21.770
+Well let me run the import first.
+
+12:21.870 --> 12:24.880
+OK so now let's go ahead and run this.
+
+12:24.910 --> 12:27.490
+So remember what module one is doing.
+
+12:27.780 --> 12:28.180
+OK.
+
+12:28.240 --> 12:30.530
+It is going to print running.
+
+12:30.640 --> 12:34.860
+OK we saw that when we ran module 1 we saw what we got right.
+
+12:35.020 --> 12:35.500
+We got.
+
+12:35.500 --> 12:36.930
+Let me show you again.
+
+12:37.110 --> 12:38.470
+OK we got that.
+
+12:38.470 --> 12:45.030
+It was running main and then it printed out this dictionary module Global's and then a printed end of
+
+12:45.020 --> 12:45.750
+the main.
+
+12:46.060 --> 12:46.340
+All right.
+
+12:46.340 --> 12:50.740
+Now let me show you what happens when I run main instead which is this thing here and it only thing
+
+12:50.740 --> 12:53.230
+it does it has three print statements and one impled
+
+12:56.000 --> 12:56.600
+K..
+
+12:56.730 --> 13:00.510
+Let's take a look while you'll notice that it said running.
+
+13:00.510 --> 13:03.090
+Main module name Dondre main.
+
+13:03.300 --> 13:06.390
+So that's the thing because I started running main.
+
+13:06.440 --> 13:08.520
+I basically ran main.
+
+13:08.730 --> 13:12.280
+It's module name became dhanda mean not.
+
+13:12.330 --> 13:14.320
+It didn't stay as made up.
+
+13:14.400 --> 13:17.430
+Why then look at what happened.
+
+13:17.430 --> 13:21.960
+We had import module one so important ORGILL one ran.
+
+13:21.960 --> 13:23.350
+It was executed.
+
+13:23.550 --> 13:29.430
+And so what happened with it was executed is that it printed this thing forced and it printed the module
+
+13:29.430 --> 13:29.870
+name.
+
+13:29.880 --> 13:37.260
+Now in this case because module one wasn't actually the the module that was run initially its name remains.
+
+13:37.260 --> 13:38.100
+Module 1.
+
+13:38.220 --> 13:40.230
+So now we're running Module 1.
+
+13:40.300 --> 13:42.030
+Then what do I do.
+
+13:42.060 --> 13:45.860
+I define this function that's going to go into that Global's.
+
+13:45.990 --> 13:46.700
+Right.
+
+13:47.340 --> 13:49.840
+And then I'm going to print the Global's out.
+
+13:49.860 --> 13:54.850
+So again remember this code is just running just as if we had run it directly.
+
+13:54.900 --> 13:57.130
+But now it's running via an import.
+
+13:57.150 --> 13:58.200
+So here we go.
+
+13:58.200 --> 13:59.740
+It prints out the Global's.
+
+13:59.990 --> 14:00.490
+OK.
+
+14:00.690 --> 14:03.260
+And we've got all the stuff we've got the file.
+
+14:03.280 --> 14:06.790
+All right it tells us again where this module came from.
+
+14:06.840 --> 14:09.400
+There was no documents you know docstring.
+
+14:10.230 --> 14:13.970
+And here's our pretty print function that's in that dictionary.
+
+14:13.980 --> 14:14.460
+OK.
+
+14:16.130 --> 14:20.750
+So that's what happens when you import a module that runs the module.
+
+14:21.140 --> 14:26.420
+Now let's see what happens if I print module one because now I have this label right.
+
+14:26.420 --> 14:32.150
+Module one we've seen that before but I've got this label module one in my global scope so I can print
+
+14:32.150 --> 14:33.400
+it out and see what is python.
+
+14:33.400 --> 14:40.460
+Tell me about it and it tells me that this module its name is module one and it came from this file.
+
+14:40.460 --> 14:47.570
+Now we can also look at the Global's So let me go ahead and say module 1 dot p print.
+
+14:47.660 --> 14:47.890
+Right.
+
+14:47.900 --> 14:53.390
+Because I've imported module once and I can copy print from module one it knows what module one is and
+
+14:53.390 --> 15:01.250
+module one has this pre-print dict in its global dictionary so I can call it this way and I'm going
+
+15:01.250 --> 15:08.270
+to say main Global's so I'm going to print out the main Global's.
+
+15:09.590 --> 15:12.200
+And let's see what's in the main Global's.
+
+15:12.200 --> 15:13.890
+So in the mango obols right.
+
+15:13.910 --> 15:18.180
+We don't have a whole lot it's not like the Jupiter notebook but loads a ton of extra stuff in there.
+
+15:18.470 --> 15:24.600
+But we do have the name and as you can see the name was renamed to double underscore Maine not Maine.
+
+15:25.220 --> 15:27.680
+And then we have our module one.
+
+15:27.760 --> 15:28.070
+OK.
+
+15:28.100 --> 15:35.800
+That's put into the global cache into the global namespace so module module one again same thing.
+
+15:36.120 --> 15:44.040
+But I do want to show you that we if we import this now by the way this is kind of considered bad style
+
+15:44.070 --> 15:46.490
+putting imports you know at various places.
+
+15:46.530 --> 15:50.180
+So it really should go to the top of the file and that's what I'm going to do.
+
+15:50.190 --> 15:56.730
+I didn't put this at the top of the file because I wanted to show you that the code for module one doesn't
+
+15:56.730 --> 16:01.620
+actually run until I hit this point here this impled.
+
+16:01.620 --> 16:07.970
+So that's why when we ran this we first got our print statements right.
+
+16:08.070 --> 16:12.720
+These these two print statements we printed that double you know those those equal signs and then we
+
+16:12.720 --> 16:15.640
+printed the you know running maned up the Y.
+
+16:15.870 --> 16:19.280
+So I just wanted to point that out and that's why I put the model over here.
+
+16:19.290 --> 16:27.110
+If I were to put the import up here then the module would get executed before we get these print statements.
+
+16:27.150 --> 16:31.920
+So that's why I'm putting it down here and here I'm just being Peppi defined by pie and that's telling
+
+16:31.920 --> 16:34.670
+me on the import should be at the top of the file.
+
+16:34.860 --> 16:39.660
+And generally it's considered better style to do so because it's easy for someone to go in and see all
+
+16:39.660 --> 16:41.940
+the imports that you're doing but you don't have to.
+
+16:41.940 --> 16:49.410
+You can import wherever you want and all it's doing is just basically executing that code and putting
+
+16:49.410 --> 16:51.330
+it into cash somewhere.
+
+16:52.050 --> 16:57.760
+So speaking of that we've got this let me print this dark path for us.
+
+16:57.780 --> 17:03.440
+So let's run this and you'll see what the system pathways.
+
+17:03.530 --> 17:08.430
+It contains all these different paths where it's going to look for the impulse.
+
+17:08.450 --> 17:14.270
+And in this case it's going to find my module one in this path right here.
+
+17:14.450 --> 17:16.100
+And so it's going to loaded from there.
+
+17:16.100 --> 17:21.020
+That's how it knew where to find it because it's not in this location here right.
+
+17:21.020 --> 17:23.500
+It's not in this location over here.
+
+17:23.640 --> 17:23.870
+Right.
+
+17:23.870 --> 17:25.990
+It's a none of these other locations.
+
+17:26.180 --> 17:29.190
+So it has to find it somewhere and found it over here.
+
+17:29.480 --> 17:31.310
+And we'll come back to this bath later.
+
+17:31.760 --> 17:39.020
+And then the last thing I want to show you is that we can Prince's thoughts modules and we can ask to
+
+17:39.020 --> 17:40.750
+see well what's module one.
+
+17:40.760 --> 17:43.590
+That's that system cache that we have.
+
+17:43.670 --> 17:45.300
+And let's go ahead and see.
+
+17:45.710 --> 17:51.650
+And as you can see it printed this out over here which was the same thing as when we printed the model
+
+17:51.650 --> 17:54.670
+one from our global namespace.
+
+17:54.680 --> 18:03.050
+So now if I was to import module one again and we put that in the import module once again and let's
+
+18:03.050 --> 18:08.810
+take all this out and I'll take all that out and I'll take that out.
+
+18:08.840 --> 18:11.160
+I'm just going to import module twice.
+
+18:11.240 --> 18:11.990
+OK.
+
+18:12.680 --> 18:18.860
+And here I'm just going to say print importing module one again.
+
+18:19.370 --> 18:20.510
+Right.
+
+18:21.770 --> 18:27.170
+So now if we run this you'll see that OK we get our regular thing that ran right.
+
+18:27.170 --> 18:32.000
+We imported module one it ran all this code and did all the prints right.
+
+18:32.030 --> 18:33.260
+And of module one.
+
+18:33.350 --> 18:39.150
+And then we printed importing module one again which is this line of code and then we did the impled.
+
+18:39.320 --> 18:40.280
+And what happened.
+
+18:40.410 --> 18:42.630
+Nothing right.
+
+18:42.700 --> 18:49.210
+All that happened is that it looked in the cache and it said oh it's already there.
+
+18:49.210 --> 18:50.980
+I don't have to re execute this.
+
+18:50.980 --> 18:51.910
+It's already there.
+
+18:51.910 --> 18:52.990
+Here it is.
+
+18:52.990 --> 18:59.590
+In fact what you could do is I could even remove module one because module one is in my global namespace
+
+18:59.830 --> 19:04.890
+so I could say delete Global's module one.
+
+19:05.170 --> 19:05.720
+OK.
+
+19:05.920 --> 19:19.420
+Now if I try and say module one odd dot print that say main dog Global's main dot Global's and will
+
+19:19.420 --> 19:27.430
+print the globose dictionary and let me comment that out for a second you'll notice that pide Chelm
+
+19:28.300 --> 19:29.280
+isn't complaining.
+
+19:29.440 --> 19:36.490
+It's saying OK fine but if you think about this what's module one now it doesn't.
+
+19:36.490 --> 19:39.230
+No this is no longer in my namespace.
+
+19:39.230 --> 19:43.220
+So if I try and run this I'm going to get this runtime exception.
+
+19:43.220 --> 19:48.950
+It's going to tell me no I don't know what module one is for sure because I didn't import it while I
+
+19:48.950 --> 19:49.860
+did import it.
+
+19:49.880 --> 19:53.130
+So it's in that cache but it's not in my global namespace.
+
+19:53.330 --> 20:00.170
+So now to fix this once I've deleted it which doesn't do anything other than delete the symbol and the
+
+20:00.170 --> 20:05.930
+reference to the object from the namespace it doesn't remove the object from memory or anything like
+
+20:05.930 --> 20:06.320
+that.
+
+20:06.350 --> 20:13.540
+That object that module still exists in memory and it's full reference by the system modules cache.
+
+20:13.550 --> 20:21.050
+So now if I re-imported here all it's going to do is it's going to go and look for it in the sist modules.
+
+20:21.050 --> 20:22.190
+It's already there.
+
+20:22.250 --> 20:23.070
+It's going to bring in.
+
+20:23.090 --> 20:26.950
+It's just going to bring that reference back into my global namespace.
+
+20:26.960 --> 20:29.870
+In this module and now I can reference that again.
+
+20:30.020 --> 20:35.160
+So let's try that and has no peepin because it's Copi predict.
+
+20:35.540 --> 20:37.320
+So that was OK.
+
+20:37.430 --> 20:38.090
+And there you go.
+
+20:38.090 --> 20:39.750
+It worked just fine.
+
+20:40.860 --> 20:41.630
+So be careful.
+
+20:41.640 --> 20:49.140
+The import is something that does some stuff and basically it puts that module they create into that
+
+20:49.140 --> 20:55.060
+system modules it creates the object in memory and then it sets that reference you know inside tracks
+
+20:55.080 --> 20:57.110
+that reference inside the system modules.
+
+20:57.180 --> 21:03.810
+When we then import it later from anywhere all it does is it takes that symbol name and adds to our
+
+21:03.930 --> 21:10.010
+global namespace and then puts the same reference the same you know object reference for that.
+
+21:10.310 --> 21:16.080
+OK an example number two we're going to see that when we import a module Python force looks for it in
+
+21:16.080 --> 21:17.300
+the system modules.
+
+21:17.400 --> 21:19.300
+I think I kind of showed you that already.
+
+21:19.300 --> 21:25.020
+An example number one but I'm going to make this even more explicit and to make that point I'm going
+
+21:25.020 --> 21:31.020
+to hack sists modules and I'm going to put a key value in there myself and then I'm going to import
+
+21:31.020 --> 21:33.190
+it and I'm going to show you that that's going to work.
+
+21:33.210 --> 21:34.710
+Now please don't do this.
+
+21:34.740 --> 21:40.410
+I'm just trying to make the point that when you import it false looks in the cache and then immediately
+
+21:40.410 --> 21:44.030
+returns that object if the name is found doesn't care what that object is.
+
+21:44.040 --> 21:45.320
+It just returns it.
+
+21:45.540 --> 21:50.000
+So what I'm going to do essentially is I'm going to.
+
+21:50.290 --> 21:51.230
+You don't set.
+
+21:51.240 --> 21:56.690
+Go to my sis modules and set a key test and I'm going to put a function into it.
+
+21:56.990 --> 21:57.670
+OK.
+
+21:58.170 --> 22:00.020
+So we can do it right here.
+
+22:00.600 --> 22:02.210
+So I can say cist modules test.
+
+22:02.220 --> 22:03.750
+Is that OK.
+
+22:03.990 --> 22:05.390
+Now I can import test.
+
+22:05.400 --> 22:06.510
+What is it going to do.
+
+22:06.540 --> 22:13.440
+It's going to go and look for test in the modules and it found it.
+
+22:13.620 --> 22:14.780
+What did it get.
+
+22:14.790 --> 22:16.130
+It got my lander.
+
+22:16.380 --> 22:19.150
+And in fact I can call it right.
+
+22:19.200 --> 22:23.690
+So this is kind of very hacky don't do that.
+
+22:23.730 --> 22:29.070
+This just shows you that when you import all it's doing if it already exists in the modules it just
+
+22:29.070 --> 22:35.910
+returns whatever object is in the value of that item at that key test.
+
+22:35.910 --> 22:41.130
+So now in the third example we're going to split that into two and we're going to look at a simplified
+
+22:41.130 --> 22:47.190
+view of how Python actually imports a module and we're going to make use of two built in functions called
+
+22:47.190 --> 22:51.480
+compile and exec and you can find information on that on line in the documentation.
+
+22:51.480 --> 22:57.810
+But basically there's two steps that we have to do in order to run a piece of Python code.
+
+22:57.810 --> 23:01.760
+We have to compile it and then we have to execute it.
+
+23:01.830 --> 23:07.590
+So the compilation is done by the compiled function and it basically takes souls for example a string
+
+23:07.920 --> 23:10.160
+write or text from a file.
+
+23:10.290 --> 23:16.830
+It takes some source code and it compiles that into Python bytecode into a code object that contains
+
+23:16.830 --> 23:19.400
+the python bytecode.
+
+23:19.410 --> 23:23.570
+Now we can use the exec function to execute that code object.
+
+23:23.580 --> 23:28.250
+We could actually also use exec directly on a string but it's going to have to do the compilation phase.
+
+23:28.260 --> 23:31.640
+Anyway here we're going to separate them into two different steps.
+
+23:31.860 --> 23:36.170
+So we're going to execute that code basically.
+
+23:36.420 --> 23:42.390
+But we're also going to specify whether it should store the global symbols because as the code is running
+
+23:42.690 --> 23:48.540
+if I set a variable equals 10 it's got to put a in some dictionary somewhere in a namespace so we can
+
+23:48.540 --> 23:52.560
+actually tell the exec function which namespace to use.
+
+23:52.560 --> 23:56.490
+So in this case we're going to use our modules Dunder ditt property.
+
+23:56.490 --> 24:00.780
+So we're going to use that as our namespace because that's where the namespace should be.
+
+24:00.780 --> 24:04.520
+So let's go ahead and write a new directory.
+
+24:04.560 --> 24:07.210
+Let's call this example 3:8.
+
+24:07.350 --> 24:10.100
+And in this directory we're going to create two Python files.
+
+24:10.110 --> 24:12.520
+I'm going to say maned up p y.
+
+24:12.810 --> 24:19.230
+And we're also going to create a I'm going to call this I don't want to call the module one because
+
+24:19.260 --> 24:24.910
+I don't want you to think that there's something magical going about you know about the name thing.
+
+24:25.250 --> 24:30.590
+Cause I'm not going to use the python impled so I'm going to call it module one source.
+
+24:30.820 --> 24:31.410
+OK.
+
+24:31.560 --> 24:33.490
+So these are my two files.
+
+24:33.540 --> 24:35.970
+And let's close everything else.
+
+24:35.970 --> 24:37.190
+Action is just cause everything.
+
+24:37.200 --> 24:39.890
+And let's talk with Module 1 souls.
+
+24:39.930 --> 24:46.120
+So module one source and let's call this module wonder why it's just going to say this.
+
+24:46.140 --> 24:49.350
+It's going to say running module one p y.
+
+24:49.350 --> 24:54.390
+So we're going to actually execute code in that module print and then it's going to define one function
+
+24:54.870 --> 24:59.690
+and the function is basically going to do something very simple.
+
+24:59.790 --> 25:03.700
+It's going to say module one says hello.
+
+25:03.910 --> 25:04.460
+OK.
+
+25:04.740 --> 25:06.460
+We could say module one yeah.
+
+25:06.570 --> 25:07.530
+Module one says hello.
+
+25:07.530 --> 25:08.430
+That's it.
+
+25:08.430 --> 25:13.530
+That is our module One source code.
+
+25:13.530 --> 25:19.210
+Now let's switch over to Main and let's see what we're going to do there.
+
+25:19.830 --> 25:26.560
+Well the first thing is I'm going to need a few libraries so I'm going to import overstuff path.
+
+25:26.940 --> 25:29.010
+I'm going to import types.
+
+25:29.010 --> 25:33.750
+I'm going to need type school I'm going to create a module and I also need this because I need to load
+
+25:33.750 --> 25:39.560
+the module up into the CIS modules and I need the path simply because I want to be able to you know
+
+25:39.570 --> 25:46.800
+find the OR is build a path up to locate module one source on the disk.
+
+25:46.810 --> 25:54.610
+And again that's you know typically Actually the more complex step of trying to find where that source
+
+25:54.610 --> 25:56.020
+code file is located.
+
+25:56.020 --> 26:02.080
+So we're going to basically import module one manually we're going to do this by hand.
+
+26:02.110 --> 26:07.200
+So first thing you need is a module name what's the name of the module going to be.
+
+26:07.360 --> 26:12.590
+Now doesn't have to match the file name in this case because I'm going to do this manually.
+
+26:12.640 --> 26:15.660
+Typically the file name is the module name.
+
+26:15.670 --> 26:16.310
+OK.
+
+26:16.870 --> 26:23.030
+So here I'm going to set my module name to what I want I need to specify Now the file.
+
+26:23.030 --> 26:32.720
+Where can we find this far because we going need to load the source code up so it's so close that right
+
+26:32.880 --> 26:40.030
+could be anything in this case it was module one underscore songs to the p y and my module path.
+
+26:40.450 --> 26:43.700
+It's going to be just the current path.
+
+26:43.750 --> 26:49.910
+OK so I'm running Impey why I'm going to look for module one source in the same path.
+
+26:50.170 --> 26:56.840
+So that's that the next thing that I need to do is I want to build up the paths.
+
+26:56.950 --> 26:59.040
+And I just want to do it here.
+
+26:59.110 --> 27:03.230
+LOL easier to then read.
+
+27:03.410 --> 27:05.480
+So we're going to use always path dobbed join
+
+27:08.780 --> 27:10.840
+and module path.
+
+27:10.880 --> 27:16.240
+We're going to join the module path with the module file.
+
+27:16.970 --> 27:18.880
+Now that's a relative path though.
+
+27:19.040 --> 27:23.010
+But I also want to get an absolute file paths.
+
+27:23.720 --> 27:31.550
+So I'm going to create my absolute file path by using OS path that Abz path method where I pass in the
+
+27:31.640 --> 27:33.220
+relative quiet back.
+
+27:33.430 --> 27:34.130
+OK.
+
+27:35.530 --> 27:36.310
+So that's it.
+
+27:36.310 --> 27:42.290
+So now what I need to do is I need to read the cells code from file.
+
+27:42.970 --> 27:44.630
+I can type this morning.
+
+27:45.190 --> 27:48.200
+OK so I need to read the source code from file.
+
+27:48.370 --> 27:49.580
+So very simple.
+
+27:49.580 --> 27:52.460
+We're going to open the file so we're going to say we're going to look at.
+
+27:52.470 --> 27:56.020
+I don't I can just use the relative file path I could use the absolute file path.
+
+27:56.080 --> 28:02.080
+I want to do I'll just use the relative one that will work fine and I'm going to open that up as code
+
+28:02.080 --> 28:12.240
+file and I'm basically just going to read the entire file into a variable called sourcecode.
+
+28:12.630 --> 28:13.770
+So that's my source code.
+
+28:15.090 --> 28:16.430
+Now what do I want to do.
+
+28:16.680 --> 28:21.800
+Well now I want to create a module object while we've seen how to do that before.
+
+28:21.810 --> 28:27.120
+So I'm going to call this module maade let's say equals types docked module type
+
+28:30.120 --> 28:34.500
+and what module type expects is the name and optional docstring.
+
+28:34.500 --> 28:39.290
+I'm just going to specify the name while the name was module name.
+
+28:40.080 --> 28:47.010
+So now we have a module created and the only other thing that I want to do is actually want to set the
+
+28:47.010 --> 28:47.640
+location.
+
+28:47.640 --> 28:49.370
+Where did this thing come from.
+
+28:49.470 --> 28:50.430
+What is the file.
+
+28:50.430 --> 28:57.270
+And this is why I wanted the absolute path because I want to specify the absolute file path for where
+
+28:57.270 --> 28:59.380
+the code for this module came from.
+
+29:01.010 --> 29:01.830
+OK.
+
+29:02.350 --> 29:02.980
+All right.
+
+29:03.100 --> 29:12.390
+So now we've got that the next thing we need to do is to set a reference insist modules What is this
+
+29:12.400 --> 29:12.960
+modules.
+
+29:12.970 --> 29:13.960
+It's a dictionary.
+
+29:14.080 --> 29:16.230
+So it's very simple to set the reference.
+
+29:16.240 --> 29:18.280
+I'm just going to say six modules.
+
+29:18.400 --> 29:20.660
+Now what do I want the key to be.
+
+29:20.660 --> 29:24.740
+I want the key to be the module name so module underscore name.
+
+29:24.790 --> 29:25.730
+That's the key.
+
+29:25.960 --> 29:27.110
+Equals what.
+
+29:27.160 --> 29:32.650
+Well the module I just created now it's an empty module it doesn't have anything right now but I'm going
+
+29:32.650 --> 29:35.180
+to put it in the modules dictionary.
+
+29:35.380 --> 29:38.850
+And now we're going to complete the modules set up.
+
+29:39.070 --> 29:43.890
+So we have to compile the source code and that's pretty simple.
+
+29:43.900 --> 29:51.250
+We're going to basically create a code object by saying compile we're going to tell it what we want
+
+29:51.250 --> 29:51.880
+to compile.
+
+29:51.910 --> 29:56.020
+This is the you know this is the source code we want to compile.
+
+29:56.020 --> 29:58.050
+We're going to tell it the file name as well.
+
+29:58.050 --> 30:01.120
+Again it's not the it's not going to go back and read this.
+
+30:01.120 --> 30:03.780
+This is just method data information.
+
+30:03.820 --> 30:10.690
+So you're saying the code came from this location and then the last thing is that I need to set the
+
+30:10.690 --> 30:17.620
+mode to exec and basically the mode here is just saying I'm compiling code that actually you know has
+
+30:17.620 --> 30:21.050
+multiple lines of code basically because there's other things you can do.
+
+30:21.050 --> 30:24.220
+It's as if it's a single line of code things like that you can change that.
+
+30:24.220 --> 30:26.460
+In this case just Molik calls exec.
+
+30:26.710 --> 30:28.550
+You can read the documentation on that.
+
+30:28.570 --> 30:30.910
+It's not terribly important.
+
+30:30.970 --> 30:33.180
+We're always going to use modals exec.
+
+30:33.490 --> 30:37.540
+OK so now with compile the source code the source code is being compiled.
+
+30:37.780 --> 30:40.750
+That's how simple it was to compiled code compiled.
+
+30:41.170 --> 30:44.150
+The next thing though is we need to execute.
+
+30:44.260 --> 30:44.850
+Right.
+
+30:45.070 --> 30:51.720
+The module not the compiled source code because at this point it's just compiled but it hasn't run yet.
+
+30:51.850 --> 30:56.770
+And we need the module to run so that it's going to create that you know pretty print dict function
+
+30:56.800 --> 30:59.320
+it's going to have its name space and all that stuff.
+
+30:59.390 --> 31:07.420
+Now the name space already exists because name maade has a double underscore dict has a dandy dict property
+
+31:07.690 --> 31:08.040
+right.
+
+31:08.050 --> 31:12.940
+Because that's what happens when we have this when we create a module it creates that for us.
+
+31:12.940 --> 31:15.860
+So now though we need to execute the code how do we do that.
+
+31:15.970 --> 31:19.830
+Well would just say exact code.
+
+31:19.910 --> 31:21.950
+Now we do need to tell.
+
+31:21.950 --> 31:27.460
+And we can't tell it where we want the global stuff to go.
+
+31:27.500 --> 31:31.920
+So when it executes the code it's going to need to create a namespace.
+
+31:31.970 --> 31:39.200
+Right because it's executing code the code may contain something like Def print or a equals 10.
+
+31:39.350 --> 31:42.860
+Well those need to be stored somewhere in some namespace in some dictionary.
+
+31:42.890 --> 31:46.240
+So we need to tell it but which dictionary do we want to use.
+
+31:46.370 --> 31:51.220
+Because we want it to go to the standard dict property of mind of the module.
+
+31:51.320 --> 31:57.350
+We're building our model up and that's going to be it for the module we do we need to do any kind of
+
+31:57.350 --> 32:01.170
+thing of installing some compiled code into the module.
+
+32:01.400 --> 32:05.990
+Well that's exactly what we're doing here because remember what is the module.
+
+32:05.990 --> 32:13.470
+It's nothing more than a namespace It's a dictionary that contains symbols like for example a.
+
+32:13.610 --> 32:19.970
+And then whatever it corresponds to 10 or maybe the symbol is pre-print dict and then the value will
+
+32:19.970 --> 32:22.730
+be the memory address of pre-print dict.
+
+32:22.990 --> 32:23.380
+OK.
+
+32:23.480 --> 32:27.500
+And this is exactly what this is going to do it's going to run the code it's going to create all that
+
+32:27.860 --> 32:30.730
+and it's going to put into the dictionary.
+
+32:30.860 --> 32:33.350
+All those things that were created in Module 1.
+
+32:33.350 --> 32:34.210
+So in this case.
+
+32:34.280 --> 32:34.800
+Hello.
+
+32:34.820 --> 32:40.790
+Right hello is going to go into the global dictionary that we specify here which is this global dictionary.
+
+32:40.790 --> 32:44.260
+So at this point that's it we're done.
+
+32:44.270 --> 32:46.990
+Bryant we're done.
+
+32:47.120 --> 32:48.800
+It's important it's been created.
+
+32:48.800 --> 32:55.800
+We have a module that's been created and it's been put into the system cache into the system modules.
+
+32:55.880 --> 32:59.100
+So now we can you know we can call it we can say not hello.
+
+32:59.120 --> 33:01.110
+Well we have a regular module right.
+
+33:01.130 --> 33:04.690
+Maade was this one so we can call it now.
+
+33:05.570 --> 33:10.760
+This just go ahead and run that and make sure it worked.
+
+33:10.880 --> 33:12.870
+And let's see.
+
+33:13.280 --> 33:15.770
+Well I've got to run this one.
+
+33:17.210 --> 33:17.950
+I'll write.
+
+33:18.190 --> 33:19.230
+So here's what happened.
+
+33:19.240 --> 33:20.590
+Running Module 1.
+
+33:20.620 --> 33:21.990
+When did that occur.
+
+33:22.180 --> 33:24.220
+That occurred when we did the exec.
+
+33:24.220 --> 33:24.780
+Right.
+
+33:24.850 --> 33:33.570
+If I take this out and with you I take that out and take that out and rerun this.
+
+33:33.580 --> 33:38.680
+You'll notice that it doesn't do anything doesn't print anything up because we didn't execute the module.
+
+33:38.680 --> 33:42.760
+So once we execute the module then we get that.
+
+33:42.940 --> 33:43.570
+All right.
+
+33:43.660 --> 33:47.000
+So we executed the module it said running module one up.
+
+33:47.020 --> 33:47.510
+Why.
+
+33:47.580 --> 33:48.150
+OK.
+
+33:48.170 --> 33:56.340
+Running module wonder why it executed Module 1 part of its execution was running this piece of code.
+
+33:56.380 --> 33:57.420
+Def hello.
+
+33:57.540 --> 34:03.930
+Hello was created and the hello symbol was put into the global namespace and to that dictionary and
+
+34:03.960 --> 34:11.450
+the value was just the memory address of the function that was created when this code ran and which
+
+34:11.450 --> 34:12.240
+dictionary.
+
+34:12.260 --> 34:16.610
+It actually went into this when we specifically said go into this dictionary.
+
+34:16.820 --> 34:25.250
+Which means now that we can call more of hello it's going to look for it in there but we can also do
+
+34:25.250 --> 34:31.520
+the following not because remember we added the module to CIS modules.
+
+34:31.520 --> 34:35.470
+So now we could actually do this we could say ampoules module one.
+
+34:35.750 --> 34:38.100
+And then I could say module one dot.
+
+34:38.180 --> 34:39.080
+Hello.
+
+34:39.740 --> 34:40.910
+I don't have to do that.
+
+34:40.940 --> 34:42.440
+I don't have to do it this way.
+
+34:42.650 --> 34:43.840
+I can do it this way.
+
+34:44.120 --> 34:49.500
+So what's what's PI Chong complaining about it saying there's no module named Munjal one wall.
+
+34:49.530 --> 34:49.870
+Yeah.
+
+34:49.880 --> 34:51.620
+Do you see a module one in here.
+
+34:51.890 --> 34:52.560
+Nope.
+
+34:52.850 --> 34:54.800
+So it's basically trying to look for it.
+
+34:54.800 --> 34:59.900
+It's trying to do what Python does and look for the module and it's saying well I can find it.
+
+35:00.230 --> 35:00.980
+Fair enough.
+
+35:01.100 --> 35:05.870
+It's not around because it's in this file name called module one underscores souls.
+
+35:05.870 --> 35:11.570
+So that's what I want to show you is that if I didn't have all this code over here let me comment all
+
+35:11.570 --> 35:15.880
+that out and now let me run main.
+
+35:15.950 --> 35:21.820
+OK which is really just import module one but it's going to say No module one named module one.
+
+35:21.830 --> 35:22.070
+Right.
+
+35:22.070 --> 35:23.250
+Couldn't find it.
+
+35:23.270 --> 35:27.090
+All right so now let's just uncommented that stuff.
+
+35:27.230 --> 35:30.010
+And now let's run it again and see what happens.
+
+35:30.780 --> 35:32.250
+Rende just fine.
+
+35:32.250 --> 35:32.580
+Why.
+
+35:32.580 --> 35:39.210
+Because now when I said import module one python doesn't know that I plug module one into the system
+
+35:39.210 --> 35:39.950
+modules.
+
+35:40.050 --> 35:45.210
+But when Python is running it knows it looks in the syste modules and it finds module one.
+
+35:45.210 --> 35:46.990
+So it just returns the reference to that.
+
+35:47.100 --> 35:53.280
+So now I have my module just as if I had maade like you know like I had the full model Hello.
+
+35:53.310 --> 35:58.930
+It's the same object model and module one of the same objects.
+
+35:59.100 --> 36:04.020
+The only difference is that when I said import module one it went and looked for it in the CIS modules
+
+36:04.020 --> 36:04.940
+cache.
+
+36:04.990 --> 36:10.810
+OK so now what we're going to do with the next example is we're essentially going to take example 3:8
+
+36:11.220 --> 36:16.050
+but we're going to make an importer into a function and we're going to use it to show how we could you
+
+36:16.050 --> 36:20.580
+know technically we should look for a cached volume version of the module thost.
+
+36:20.590 --> 36:26.400
+Right so I just want to show you that the extra step that we don't have so far is the look up in the
+
+36:26.400 --> 36:32.190
+cache first before we go ahead and do this you know compile and execute and then put it into the cache.
+
+36:32.190 --> 36:37.300
+So I'm going to make a new directory let's call it for example 3 B.
+
+36:37.980 --> 36:39.220
+And again here.
+
+36:39.330 --> 36:42.800
+I'm going to make a new file called named upby why.
+
+36:42.850 --> 36:44.630
+But actually yeah we'll make maned up.
+
+36:44.700 --> 36:45.280
+Why.
+
+36:45.570 --> 36:50.750
+I'm actually also now going to make another file called imported ish.
+
+36:51.130 --> 36:53.110
+So I got my imported IPY.
+
+36:53.280 --> 36:57.380
+I'm also going to create a module one
+
+37:01.150 --> 37:04.420
+souls top winds or just like we had before.
+
+37:04.680 --> 37:07.100
+And I'm also going to create a module too.
+
+37:07.200 --> 37:13.830
+And I'm going to show you that because what I want to do is in module 2 I want to use impled module
+
+37:13.870 --> 37:15.410
+one all right.
+
+37:15.420 --> 37:17.810
+Just like we had in our main example here.
+
+37:17.820 --> 37:18.800
+Import module what.
+
+37:18.810 --> 37:23.760
+I just want to show you that it has nothing to do with the fact that it was inside the main file module
+
+37:23.760 --> 37:24.130
+too.
+
+37:24.150 --> 37:27.060
+I'm going to say import module one.
+
+37:27.140 --> 37:27.680
+OK.
+
+37:28.020 --> 37:31.350
+But of course module one doesn't exist as a file.
+
+37:31.350 --> 37:37.410
+So it's not going to go through the regular process but we're going to import module one inside our
+
+37:37.410 --> 37:43.860
+main by calling the function our own function to import module one that's going to base itself off of
+
+37:43.860 --> 37:45.520
+module one source.
+
+37:45.540 --> 37:51.390
+So sounds complicated but it's not the first thing we need to do is to write our importers.
+
+37:51.840 --> 37:57.840
+So I'm just going to go back to the main file that we had over here or just copy the whole thing and
+
+37:57.840 --> 37:59.140
+pasted right into here.
+
+37:59.160 --> 38:01.350
+Now let's start changing things.
+
+38:01.350 --> 38:03.500
+First of all this is called imports.
+
+38:03.600 --> 38:05.140
+We're still going to need all these things.
+
+38:05.160 --> 38:10.800
+We're not going to need all this because that's going to come we're going to define a function now basically.
+
+38:10.950 --> 38:12.500
+So let's go ahead and just say it.
+
+38:12.570 --> 38:16.800
+So let's write a function called impled underscore.
+
+38:16.890 --> 38:20.890
+So I differentiate that from the regular built in impled.
+
+38:21.090 --> 38:22.660
+So import underscore.
+
+38:22.890 --> 38:24.890
+And what do I want in my import.
+
+38:24.900 --> 38:26.890
+Underscore Well all these things over here.
+
+38:26.970 --> 38:27.240
+Right.
+
+38:27.240 --> 38:37.470
+So I want the module name I want the module file and I want the module path and let's fix that up.
+
+38:37.580 --> 38:37.900
+OK.
+
+38:37.950 --> 38:39.160
+So this is my function.
+
+38:39.180 --> 38:41.110
+So I don't need this anymore.
+
+38:41.700 --> 38:44.380
+That's going to come as parameters.
+
+38:44.910 --> 38:49.600
+I still need though to build my relative and absolute file paths.
+
+38:49.680 --> 38:49.980
+OK.
+
+38:50.040 --> 38:51.450
+So I still need to do that.
+
+38:51.690 --> 38:55.520
+I still need to read the source code from a file that doesn't change.
+
+38:55.530 --> 38:58.260
+I still need to create a module that doesn't change.
+
+38:58.380 --> 39:01.370
+I still need to set the reference in modules.
+
+39:01.530 --> 39:03.290
+I still need to compile it.
+
+39:03.510 --> 39:05.600
+I still need to execute it.
+
+39:05.610 --> 39:11.850
+The only difference now is that I'm going to return and I'm going to return it by basically just looking
+
+39:11.850 --> 39:15.020
+for the module in cist modules.
+
+39:15.060 --> 39:16.680
+So what module am I looking for.
+
+39:16.680 --> 39:20.500
+I'm looking for module name because that was the name of the module.
+
+39:21.000 --> 39:24.240
+OK so we're almost done.
+
+39:24.400 --> 39:25.810
+Well we're almost there.
+
+39:26.070 --> 39:32.310
+But one thing that we're missing is really checking in the cist modules for us before we do this whole
+
+39:32.310 --> 39:33.490
+thing over here.
+
+39:33.810 --> 39:35.680
+So that's going to be very simple.
+
+39:36.640 --> 39:37.600
+So that's all I want to do.
+
+39:37.600 --> 39:41.770
+I just want to say if module name in this module so it fits.
+
+39:41.770 --> 39:48.490
+If it is in that dictionary just return that the return s'est modules module name.
+
+39:48.640 --> 39:50.110
+So we bail out right away.
+
+39:50.110 --> 39:55.150
+We don't try and recompile and you'll reload the source file compile it execute it.
+
+39:55.150 --> 39:56.430
+We don't need to do all that stuff.
+
+39:56.470 --> 39:58.370
+It's already been created right.
+
+39:58.540 --> 40:03.420
+So you can think of this imposter almost like a lazy load.
+
+40:03.430 --> 40:10.290
+It's saying OK well if it's not in the SR modules go ahead and create it and then return it.
+
+40:10.300 --> 40:15.430
+That's why I'm saying this looks very much like a lazy kind of loading but that's something else and
+
+40:15.970 --> 40:20.600
+that has more to do with packages and we'll talk about that later as well.
+
+40:21.540 --> 40:23.480
+OK that's all report written.
+
+40:23.590 --> 40:25.020
+We've got that done.
+
+40:25.330 --> 40:29.720
+Now let's go ahead and write our main file.
+
+40:29.800 --> 40:33.410
+So his main P Why would I want to do.
+
+40:33.410 --> 40:40.820
+Well I'm going to import this and I'm also not going to import importer's.
+
+40:41.820 --> 40:47.170
+So now if we run that we get nothing right.
+
+40:47.170 --> 40:54.250
+So let me go ahead and put a print statement print running and pull it up.
+
+40:54.280 --> 40:54.890
+Why.
+
+40:55.230 --> 40:56.030
+All right.
+
+40:56.620 --> 41:01.530
+And we close all that stuff and just bring up the ones that we're interested in.
+
+41:01.660 --> 41:02.270
+OK.
+
+41:02.620 --> 41:07.270
+So now let me run this again and you can see running importer's right.
+
+41:07.290 --> 41:08.090
+It ran.
+
+41:08.100 --> 41:08.560
+Why.
+
+41:08.560 --> 41:14.330
+Because we did impled importer which means it you know ran this.
+
+41:14.340 --> 41:19.170
+So now the next step that I want to do is I want to import module one.
+
+41:19.170 --> 41:21.320
+But using our own importer's.
+
+41:21.360 --> 41:22.640
+So I would do it this way.
+
+41:22.650 --> 41:24.620
+I need a reference to that modules.
+
+41:24.630 --> 41:30.220
+I'm going to call it module 1 because that's what I want to call it and I'm going to make it simple.
+
+41:30.240 --> 41:34.310
+I'm going to call importer's docs import underscore.
+
+41:34.320 --> 41:36.480
+Now I'm using our function.
+
+41:36.730 --> 41:37.280
+OK.
+
+41:37.590 --> 41:41.970
+I'm using the one that we just created in the import of multihull that we wrote.
+
+41:41.970 --> 41:48.780
+So what I want to do here is well I wanted to create a module module one remember the module name was
+
+41:48.780 --> 41:58.330
+that the module file is a module one underscore and so I'll start.
+
+41:58.330 --> 41:59.040
+P Why.
+
+41:59.060 --> 42:01.620
+Right it's going to come from this file over here.
+
+42:01.740 --> 42:05.220
+This module one souls and which directory.
+
+42:05.360 --> 42:07.130
+It's just the current directory.
+
+42:07.610 --> 42:16.770
+So that should now load up our module one source create a module call it module one input into the cache.
+
+42:16.790 --> 42:22.120
+Let's see what happens if we just run this and everything seems to work.
+
+42:22.160 --> 42:26.200
+What I can do in Module 1 souls which is empty right now.
+
+42:26.220 --> 42:29.040
+Let's go ahead and actually put some stuff in it.
+
+42:29.270 --> 42:30.950
+So we're going to keep it very simple.
+
+42:30.950 --> 42:38.030
+We're going to say print running module wonder why it's actually the same as if we've just had in the
+
+42:38.030 --> 42:39.330
+previous example.
+
+42:39.830 --> 42:44.430
+And one is going to print here say module one says hello.
+
+42:44.590 --> 42:45.640
+OK.
+
+42:46.460 --> 42:47.930
+So this is our module one.
+
+42:48.290 --> 42:49.700
+So let's run this again now.
+
+42:49.730 --> 42:53.200
+So we're going to run our main again which is going to do our custom importer.
+
+42:53.770 --> 42:56.330
+And now you can see running module 1.
+
+42:56.360 --> 42:57.380
+Will that happen.
+
+42:57.380 --> 42:58.000
+Why.
+
+42:58.010 --> 43:01.120
+Because importer executed that code.
+
+43:01.310 --> 43:01.660
+All right.
+
+43:01.670 --> 43:02.820
+So far so good.
+
+43:04.260 --> 43:06.390
+What's next.
+
+43:06.690 --> 43:09.750
+Well the thing that we should look out is probably in the system modules.
+
+43:09.780 --> 43:13.940
+And let's just see if it's in the modules it should be.
+
+43:14.100 --> 43:19.950
+Let's go ahead and say that Sprint system has more to say.
+
+43:20.200 --> 43:24.800
+So this is going to say Big Sis docs modules doffed get.
+
+43:25.020 --> 43:26.070
+What are we going to look for.
+
+43:26.070 --> 43:29.270
+We're going to look for module 1 which is our module name.
+
+43:29.420 --> 43:29.960
+Okay.
+
+43:30.180 --> 43:33.690
+And if it doesn't find it it should just say module 1 not from.
+
+43:34.180 --> 43:39.300
+So that's why I'm using a get a dictionary look up but I'm using the Get approach so I can give it a
+
+43:39.300 --> 43:41.420
+default if it doesn't find it.
+
+43:41.670 --> 43:43.730
+So let's go ahead and see what happens.
+
+43:43.740 --> 43:49.510
+There we go it found it says says module module one from this.
+
+43:49.500 --> 43:49.800
+OK.
+
+43:49.830 --> 43:56.230
+So it knows it came from the source because we told it right in the importer we set this whole thing.
+
+43:56.230 --> 43:57.820
+The mob the file.
+
+43:57.860 --> 44:00.910
+Ok we set that up so it knows where it came from.
+
+44:04.450 --> 44:12.650
+So now of course we can go ahead and that module one exists in six modules so we can go ahead now in
+
+44:12.650 --> 44:15.650
+module 2 and we can say import module 1.
+
+44:15.700 --> 44:20.330
+Now why jam doesn't know about Module 1 it's still complaining saying well I don't know what that is.
+
+44:20.380 --> 44:20.990
+Sure.
+
+44:21.070 --> 44:25.120
+Because all that was done in our code so it doesn't know what happened.
+
+44:25.510 --> 44:29.400
+But Python when it runs will find module one in the CIS models.
+
+44:29.410 --> 44:33.180
+So let's go ahead and add some code to module 2.
+
+44:34.540 --> 44:39.310
+And before I do the impulse again I'm going to get people to fight on this one.
+
+44:39.500 --> 44:40.920
+Say running module to it.
+
+44:40.930 --> 44:41.450
+Why.
+
+44:41.720 --> 44:44.540
+Because I want to show you the older in which things happen.
+
+44:44.780 --> 44:48.840
+So running module to tell you why I'm going to import module one.
+
+44:49.100 --> 44:50.460
+OK.
+
+44:51.730 --> 44:58.960
+And then I'm just going to define another Hello functioning and I'm going to say print module to says
+
+44:59.050 --> 45:12.750
+hello and wondering and we're going to call module one hello function
+
+45:16.760 --> 45:17.990
+so what are we doing here.
+
+45:18.200 --> 45:20.190
+We're going to import module one.
+
+45:20.420 --> 45:25.770
+Now we're going to see if you remember when module one gets imploded the first time what does it do.
+
+45:25.910 --> 45:28.010
+It's going to print on running module 1.
+
+45:28.310 --> 45:34.940
+We're going to see if running this import again is going to rerun module one or not.
+
+45:34.940 --> 45:40.760
+It shouldn't because it's in the cache but we did our own import here we're using Python's import our
+
+45:40.830 --> 45:41.940
+Are the two compatible.
+
+45:42.020 --> 45:43.770
+You know did we do things correctly.
+
+45:43.940 --> 45:46.250
+So let's go ahead now and run this.
+
+45:46.370 --> 45:53.240
+And of course in main Doppie why I need to import module 2.
+
+45:53.600 --> 45:55.510
+And then I'm going to call module 2.
+
+45:55.800 --> 45:56.640
+Hello.
+
+45:56.990 --> 45:57.530
+OK.
+
+45:58.810 --> 46:02.360
+So again it's complaining that hey it's not at the top level on the thing.
+
+46:02.360 --> 46:03.890
+All right.
+
+46:03.900 --> 46:06.810
+So let's go ahead and run this let's see what happens.
+
+46:07.910 --> 46:08.900
+All right.
+
+46:09.060 --> 46:12.280
+So what do we get running.
+
+46:12.320 --> 46:19.120
+Importer's Well that's because the importer ran bright because we imported imported right here.
+
+46:19.210 --> 46:19.670
+So that.
+
+46:19.720 --> 46:21.550
+So nothing has changed so far.
+
+46:21.580 --> 46:24.010
+Right we still have sists says OK.
+
+46:24.340 --> 46:26.700
+Now we do our import module too.
+
+46:26.710 --> 46:29.430
+And as you can see our output here is running module 2.
+
+46:29.440 --> 46:32.650
+That's because in module 2 we had this print statement.
+
+46:32.650 --> 46:34.960
+So we get that output in the console.
+
+46:34.990 --> 46:38.690
+The next thing is we called Muldrew module 2. hello.
+
+46:38.740 --> 46:43.720
+But before that happened this happened the import module one.
+
+46:44.020 --> 46:47.910
+And you'll notice that there is nothing printed between those two lines.
+
+46:47.920 --> 46:51.210
+It didn't print running module 1 the way it did the first time.
+
+46:51.340 --> 46:52.390
+So that's good.
+
+46:52.420 --> 46:57.460
+That means that Python actually went and grabbed module one from the cist modules and just returned
+
+46:57.460 --> 46:57.790
+it.
+
+46:57.940 --> 47:04.890
+And now it's like any other module that you know would have been imported via Python's import statement.
+
+47:05.410 --> 47:08.040
+So now we can access it as normal module.
+
+47:08.290 --> 47:13.670
+Hello submodule 2. Hello calls this function which says module 2 says hello.
+
+47:13.750 --> 47:14.480
+There we go.
+
+47:14.550 --> 47:21.460
+And and then it calls the hello in Module 1 because we just imported it and module one says hello.
+
+47:22.390 --> 47:29.470
+So that's the basics of how module importing works in Python it's actually really really straightforward
+
+47:29.980 --> 47:37.540
+conceptual where it gets more difficult is where the code comes from because Python is pretty flexible
+
+47:37.540 --> 47:38.640
+in that respect.
+
+47:38.770 --> 47:44.450
+The code could actually be in a source file the way that we usually do when we write our Python projects
+
+47:45.040 --> 47:51.630
+but that source file could be put to for example located in the zip file and Python can reach into a
+
+47:51.630 --> 47:55.550
+zip file and grab the source code from there.
+
+47:55.570 --> 48:04.350
+In fact if I show you this let me go ahead and bring up a python console and here I'm going to install
+
+48:04.570 --> 48:13.420
+this and I'm going to look at this path and you'll notice right here that we have Python 3:6 dot zip.
+
+48:13.420 --> 48:17.560
+It's actually a zip file but it can look inside that zip file.
+
+48:17.560 --> 48:23.260
+So what you'll find is that the way the importer works is that it first looks to see OK what's going
+
+48:23.260 --> 48:26.980
+to handle the import file getting the code.
+
+48:27.010 --> 48:28.280
+It's going to get it from somewhere.
+
+48:28.450 --> 48:30.860
+So either sales could be from a zip file.
+
+48:30.880 --> 48:37.870
+You can also create really you know write your own importer's you can write let's say a handler a hook
+
+48:37.870 --> 48:42.630
+essentially where you can go and retrieve code from a database and imported from there.
+
+48:42.850 --> 48:45.160
+So you can do all kinds of weird things like that.
+
+48:45.160 --> 48:47.110
+I'm not going to get into that.
+
+48:47.110 --> 48:51.580
+It's really not common and it's useful to know that you can do that.
+
+48:51.610 --> 48:56.420
+But if you really want to know how to do that then just go look up at the documentation.
+
+48:56.440 --> 49:00.080
+There's a lot of good explanations on that YouTube ton of videos.
+
+49:00.280 --> 49:02.620
+You know the perps also have all that.
+
+49:02.620 --> 49:04.840
+So I'm not going to get into that.
+
+49:05.530 --> 49:13.380
+So the most difficult pounde is where it's going to get the source code from could be built in.
+
+49:13.490 --> 49:15.960
+Well that's another location that it can get things from.
+
+49:15.960 --> 49:18.430
+So but after that it's the same process.
+
+49:18.440 --> 49:24.210
+It's you know put the module create the module object put it into the system modules you know compile
+
+49:24.210 --> 49:27.520
+it execute it done and that's it.
+
+49:27.540 --> 49:27.950
+All right.
+
+49:27.960 --> 49:31.740
+So thanks for watching and we'll continue this conversation in the next video.

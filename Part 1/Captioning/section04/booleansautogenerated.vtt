@@ -1,0 +1,958 @@
+WEBVTT
+
+00:01.020 --> 00:06.870
+Hi and welcome to this video on booleans where we start our deep dive looking at the boolean data type
+
+00:06.960 --> 00:08.380
+in Python.
+
+00:08.510 --> 00:13.320
+Now booleans are an integer subclass and so we'll cover that in detail in this video.
+
+00:14.350 --> 00:19.510
+The bool class and the class is described in Pepp 285.
+
+00:19.540 --> 00:25.330
+So if you're interested in that you can do a search on the web for Pepp 285 and it will show you kind
+
+00:25.330 --> 00:33.010
+of the thinking and the thought process and the rationale behind the Boolean type in Python.
+
+00:33.250 --> 00:34.780
+And it's really an interesting read.
+
+00:34.780 --> 00:37.000
+I suggest you take a look at that if you're interested.
+
+00:38.120 --> 00:40.270
+But will cover most of that in this video.
+
+00:40.270 --> 00:46.080
+So Python has a concrete bulled class that is used to represent boolean values.
+
+00:46.090 --> 00:52.180
+Now the bool class is a subclass of the in class so the rule class inherits from integers which means
+
+00:52.180 --> 00:58.450
+that it possesses all the properties and the methods of integers such as addition subtraction that do
+
+00:58.510 --> 01:00.410
+the math operators and so on.
+
+01:00.670 --> 01:04.990
+And then also adds a few of its own like and or or.
+
+01:05.250 --> 01:11.610
+So you can actually test this and there is a built in method to Python called a subclass that will check
+
+01:11.610 --> 01:17.260
+to see whether a boolean where it will check to see whether a class is a subclass of another class.
+
+01:17.250 --> 01:19.850
+So you just pass in the two types that you're interested in.
+
+01:19.950 --> 01:28.110
+And in this case while it returns true since boolean is a subclass of int write it in Herods from now
+
+01:28.110 --> 01:34.750
+two constants are defined in Python they're called true and false and they are instances of bool.
+
+01:34.770 --> 01:40.290
+So you can use the built in method in Python called instance to check if a variable is an instance of
+
+01:40.290 --> 01:41.310
+some type.
+
+01:41.310 --> 01:44.020
+So in this case true is an instance of bool.
+
+01:44.100 --> 01:46.000
+So this will return true.
+
+01:46.080 --> 01:49.300
+Right so it will actually return itself.
+
+01:49.390 --> 01:54.720
+But if we also look at this code here is instance true comma int.
+
+01:54.940 --> 02:02.670
+Well since booleans are integers the subclass of integers while that will also return true now they
+
+02:02.670 --> 02:07.140
+all singleton objects so what a singleton objects we've covered that before.
+
+02:07.430 --> 02:08.950
+But just a quick reminder.
+
+02:08.960 --> 02:16.100
+So true is nothing more than a label that points to some object in memory that is of bool type that
+
+02:16.100 --> 02:23.310
+lives at some memory address and then has some internal value and its internal value is a integer of
+
+02:23.350 --> 02:26.980
+value 1 and then false is the same thing.
+
+02:26.990 --> 02:34.370
+Basically it's just an alias or a label that points to an object of type bool in memory and some memory
+
+02:34.370 --> 02:38.500
+address which has an internal value of an 0.
+
+02:38.510 --> 02:43.960
+So true is that same thing as the integer 1 and FALSE is the integer 0.
+
+02:43.970 --> 02:49.280
+But of course it's got a little bit more than just one and 0 integers because they're booleans so they
+
+02:49.280 --> 02:51.200
+have some extra functionality.
+
+02:52.920 --> 02:54.770
+Now using is.
+
+02:54.780 --> 02:55.950
+And equals equals.
+
+02:55.950 --> 03:02.100
+If you remember from the earlier videos we had in the first section is is the identity operator that
+
+03:02.100 --> 03:08.670
+we can use to compare memory addresses and equals equals compares more than numerical values.
+
+03:09.770 --> 03:15.380
+So true and false are singleton objects which means that they retain the same memory address throughout
+
+03:15.380 --> 03:17.550
+the lifetime of the application.
+
+03:17.570 --> 03:23.360
+So true will be some memory address when your application starts up and it will stay at that memory
+
+03:23.360 --> 03:26.540
+address the entire time of the program and will never change.
+
+03:26.600 --> 03:31.820
+Whenever you use true it will always be a memory address and say thing were false.
+
+03:31.850 --> 03:38.330
+So when you're comparing a boolean expression to True and False you can use either the is operation
+
+03:38.600 --> 03:40.440
+or the equals equals operator.
+
+03:40.460 --> 03:45.570
+So either the identity or the equality operator It doesn't matter which it's actually completely equivalent
+
+03:46.280 --> 03:51.440
+and that's only because true is a singleton object and so forth.
+
+03:51.950 --> 03:54.880
+And of course a has to be some kind of Boolean object.
+
+03:55.010 --> 03:59.500
+So it might be a boolean expression like three less than four.
+
+03:59.680 --> 04:02.710
+Well three less than four will return true.
+
+04:02.720 --> 04:03.320
+Right.
+
+04:03.330 --> 04:05.620
+That's that will evaluate to true.
+
+04:05.720 --> 04:11.720
+And that true that gets returned from the expression three less than four is the same true as just the
+
+04:11.720 --> 04:12.440
+constant.
+
+04:12.470 --> 04:17.930
+True because it's a singleton object and therefore there's only one instance of it throughout the lifetime
+
+04:17.960 --> 04:20.850
+of your code.
+
+04:20.910 --> 04:27.030
+Now boolean objects are also integer objects and they just inherit from ints so they can also just be
+
+04:27.030 --> 04:29.710
+interpreted as the integers 1 and 0.
+
+04:29.820 --> 04:33.920
+If we look at end of truth so we can actually cast true to an end.
+
+04:33.960 --> 04:34.230
+Right.
+
+04:34.230 --> 04:39.270
+We can call the constructor of end and essentially cast true to an end while we get a one back which
+
+04:39.270 --> 04:44.670
+is what we expect since True's internal value is an end of one and the same thing were false.
+
+04:44.670 --> 04:48.590
+If we cast false to an end then we get zero.
+
+04:48.940 --> 04:52.670
+But and this is really important to understand.
+
+04:52.890 --> 04:57.720
+True and one are not the same objects right.
+
+04:57.720 --> 05:04.260
+They have the same value but they are not the same objects true lives at some memory address and one
+
+05:04.530 --> 05:08.490
+lives at some different memory address that not even the same types.
+
+05:08.550 --> 05:08.820
+Right.
+
+05:08.820 --> 05:10.230
+True is boolean.
+
+05:10.290 --> 05:16.680
+One is int Yes boolean inherit from int but there are still not the same object.
+
+05:16.680 --> 05:22.110
+So that's really important to understand because what it means is that the idea of true the memory address
+
+05:22.110 --> 05:29.980
+of true is not the same as the memory address of one the same thing goes with false and zero they are
+
+05:29.980 --> 05:31.080
+not the same objects.
+
+05:31.090 --> 05:36.700
+The idea of fault is not the same thing as the id of 0 which means that if you were to write something
+
+05:36.700 --> 05:38.650
+like this true is one.
+
+05:38.800 --> 05:45.310
+Remember the is the identity operator checks the memory address will that will return therefore false
+
+05:45.340 --> 05:50.640
+because while they're not the same objects that don't live at the same memory address on the other hand
+
+05:50.710 --> 05:52.590
+if you use the quality operator.
+
+05:52.720 --> 05:57.900
+True equals equals one that will return true because it is true right.
+
+05:57.910 --> 06:01.560
+True is equal to one but it is not one.
+
+06:01.630 --> 06:05.540
+So a distinction that has to be made and that you have to remember.
+
+06:06.160 --> 06:11.710
+So though this whole thing can lead to a kind of strange maybe behavior that you may not expect and
+
+06:11.740 --> 06:17.470
+it's this whole thing with the polymorphism that comes into play but you can write an expression like
+
+06:17.600 --> 06:17.920
+true.
+
+06:17.940 --> 06:19.300
+Greater than false.
+
+06:19.300 --> 06:23.800
+Now I'm not saying that any of these expressions we're going to write here make a lot of sense or that
+
+06:23.890 --> 06:27.650
+these are things you necessarily want to write in your code.
+
+06:27.790 --> 06:29.140
+Most of the time you don't.
+
+06:29.140 --> 06:35.080
+There are exceptions when it is useful and we'll see that later when we look at things like list comprehensions
+
+06:35.080 --> 06:35.620
+and so on.
+
+06:35.620 --> 06:43.900
+But for now these are probably you know code samples that you might shy away from in your own code but
+
+06:43.900 --> 06:44.920
+they do work.
+
+06:44.920 --> 06:47.280
+So true greater than false will return true.
+
+06:47.350 --> 06:51.880
+Well because true is really one and false is also 0 right.
+
+06:51.880 --> 06:53.590
+So one is greater than zero.
+
+06:53.620 --> 06:54.850
+That is true.
+
+06:55.120 --> 06:56.680
+You can also write this.
+
+06:56.770 --> 06:59.780
+One equals equals two equals equals fault for that.
+
+06:59.830 --> 07:02.220
+You know that kind of makes sense right.
+
+07:02.250 --> 07:05.370
+That's that's a piece of code that you know looks fine.
+
+07:05.670 --> 07:06.410
+What's going to happen.
+
+07:06.410 --> 07:08.760
+One equals equals two is false.
+
+07:08.800 --> 07:09.040
+Right.
+
+07:09.040 --> 07:10.120
+One is not equal to two.
+
+07:10.120 --> 07:16.330
+So we'll get a false result out of this expression here in the parentheses and false equals equals false.
+
+07:16.330 --> 07:18.500
+Well we know that that is true.
+
+07:18.670 --> 07:22.160
+But another way you could have written this is this way.
+
+07:22.210 --> 07:25.030
+One equals equals two equals equals zero.
+
+07:25.270 --> 07:26.780
+So that one really looks we have now.
+
+07:26.790 --> 07:33.700
+I mean this is kind of a weird syntax but remember that 0 and false are kind of the same thing.
+
+07:33.760 --> 07:36.960
+False is 0 for some extra functionality.
+
+07:36.970 --> 07:43.750
+So in this case we'll also get true because one equals equals two is false which is 0 and 0 is equal
+
+07:43.750 --> 07:44.350
+to zero.
+
+07:44.350 --> 07:46.480
+So we get true.
+
+07:46.580 --> 07:50.720
+Now the parentheses here are important then we'll see that in an upcoming video.
+
+07:50.720 --> 07:53.650
+When we look at change operations and Python.
+
+07:54.020 --> 07:59.470
+But they are important here and we'll explain why later section.
+
+07:59.510 --> 08:05.370
+So in fact any integer operation will also work with booleans you know addition subtraction are the
+
+08:05.770 --> 08:07.970
+the model you know and all those things.
+
+08:08.180 --> 08:14.680
+So for example you could write true plus true plus true there that will return 3.
+
+08:14.780 --> 08:20.690
+Again I don't necessarily are propose that you should write things like this in your code.
+
+08:20.690 --> 08:26.550
+There are some actually use cases where this actually can be useful but we'll see those later.
+
+08:27.670 --> 08:28.790
+You could also do this.
+
+08:28.780 --> 08:31.610
+True plus true plus true parentheses Montu.
+
+08:31.630 --> 08:35.630
+Well that's going to be three month two which is going to be one.
+
+08:35.730 --> 08:40.300
+You can also write minus true negative true which is just negative 1.
+
+08:40.470 --> 08:40.740
+Right.
+
+08:40.740 --> 08:47.160
+So you can write these kinds of weird things you know a hundred times false with false zeros or a hundred
+
+08:47.160 --> 08:51.480
+times zero will return 0 5 so you can do all these kinds of weird things.
+
+08:52.340 --> 08:57.770
+Now the boolean constructor writes Does Boole and then we pass in a single parameter X..
+
+08:57.920 --> 09:03.080
+And the way it's to find is that it will return TRUE right when X is true.
+
+09:03.080 --> 09:09.940
+So if you pass in true or an expression that evaluates to true in this it will return true.
+
+09:10.100 --> 09:13.260
+And if you pass in false it will return false.
+
+09:13.430 --> 09:16.450
+So you might think that that's a pretty useless constructor.
+
+09:16.460 --> 09:18.060
+That's the only thing it can do.
+
+09:18.290 --> 09:19.970
+But not at all.
+
+09:20.030 --> 09:26.960
+And the reason why this is actually very useful is because every class in Python implements something
+
+09:26.960 --> 09:33.860
+called its truth value and its truth value is basically saying and asking a class if I were to ask you
+
+09:34.070 --> 09:37.710
+how you would describe yourself as a boolean What would you say.
+
+09:38.030 --> 09:44.690
+And each class implements that and it says well you know if I'm in this kind of state then I'm going
+
+09:44.690 --> 09:49.400
+to say I'm in a true state and if I'm in this state I'm in a false state.
+
+09:49.550 --> 09:56.090
+And that's that's basically how most of the classes and even the our own classes or custom classes that
+
+09:56.090 --> 10:02.120
+we write We'll also have that property and we can actually define what that property should be and how
+
+10:02.120 --> 10:03.000
+it should behave.
+
+10:03.080 --> 10:07.170
+And we'll get into that in the section on object oriented programming.
+
+10:07.970 --> 10:14.660
+But this is sometimes called the truth value of an object or the truthiness arm is used or so are quite
+
+10:14.660 --> 10:16.140
+commonly to describe this.
+
+10:16.160 --> 10:23.180
+And basically it's just what is the truth value of an object and will have an upcoming video that discusses
+
+10:23.180 --> 10:30.980
+that in a lot more detail but integers have a truth that integers have truthiness and they do that according
+
+10:30.980 --> 10:37.180
+to a very simple rule which is if the integer is 0 its truth value is false.
+
+10:37.310 --> 10:37.820
+Right.
+
+10:37.880 --> 10:45.740
+And so we say that 0 is falsie because it has a truth value or false and bhool of X is true for any
+
+10:45.740 --> 10:48.350
+integer x other than 0.
+
+10:48.860 --> 10:55.310
+And so we would say in this case that X is truth the one has a truth value of true 2 has a truth value
+
+10:55.310 --> 10:57.550
+of two of truth and so on.
+
+10:57.540 --> 11:00.480
+I will check in now and see some examples of that.
+
+11:00.830 --> 11:03.050
+So Bullpup 0 is false.
+
+11:03.050 --> 11:05.330
+So 0 is falsie bull of 1 is true.
+
+11:05.360 --> 11:12.050
+1 is truthy a 100 will also return true negative 1 will also return true.
+
+11:12.050 --> 11:13.780
+So don't fall into that trap.
+
+11:13.790 --> 11:16.610
+Some languages will use negative one is false.
+
+11:16.700 --> 11:17.980
+Not in Python.
+
+11:17.990 --> 11:19.140
+False is zero.
+
+11:19.190 --> 11:19.970
+And that's it.
+
+11:19.970 --> 11:21.760
+Everything else is true.
+
+11:21.800 --> 11:23.560
+We're talking about integers right.
+
+11:23.780 --> 11:29.750
+So it's a very simple rule and it's the truth value of integers and then the next video will take a
+
+11:29.750 --> 11:31.870
+look at how that actually works.
+
+11:31.920 --> 11:36.140
+OK for now let's just switch to some code and take a look at all this in action.
+
+11:36.260 --> 11:39.380
+So let's start by looking at the boolean class.
+
+11:39.500 --> 11:46.390
+So bool is a class that's built in to Python and that supports boolean values.
+
+11:46.670 --> 11:49.440
+Bool is actually a subclass of it.
+
+11:49.790 --> 11:59.630
+So we can look at that by looking at this method here is subclassed and we can pass the classes that
+
+11:59.630 --> 12:00.530
+we want to look at.
+
+12:00.530 --> 12:09.240
+In particular we're going to want to know is bool a subclass of int and need to spell it correctly.
+
+12:09.890 --> 12:11.220
+And the answer is true.
+
+12:11.270 --> 12:17.150
+So bool is a subclass of int which means that bool inherits all the properties and methods of integers
+
+12:17.540 --> 12:19.340
+and then adds its own as well.
+
+12:19.340 --> 12:23.480
+It adds a few like for example and or X or and so on.
+
+12:24.880 --> 12:31.210
+So there we also have built in values and here's this true here right.
+
+12:31.300 --> 12:35.390
+True is actually a built in value it's a built in object built in.
+
+12:35.390 --> 12:37.540
+Instance of bool of Python.
+
+12:37.750 --> 12:43.600
+And so is false and there are singleton objects which means that throughout the lifetime of our program
+
+12:43.990 --> 12:47.450
+the memory location where true and false live will never change.
+
+12:47.470 --> 12:53.560
+It will always stay the same so it's very similar to what we saw with Singleton objects like none or
+
+12:53.590 --> 13:01.750
+like interned strings in an earlier section so we can take a look at for example the type of true and
+
+13:01.750 --> 13:04.560
+we'll look at the idea of true as well.
+
+13:04.840 --> 13:10.810
+And we're also going to look at the integer value of true because since a boolean is an instance of
+
+13:10.890 --> 13:13.830
+int it has an associated integer value.
+
+13:14.020 --> 13:18.500
+Let's take a look at those three so that we can see the type of truth bool.
+
+13:18.520 --> 13:24.290
+This is the memory address of true and this is the integer value that corresponds to true.
+
+13:24.340 --> 13:27.680
+So true and one are very much interrelated.
+
+13:27.730 --> 13:33.280
+We can do the same thing with false or we can look at the type of false we can look at the idea of false
+
+13:33.310 --> 13:39.810
+and we can look at the integer value of false and there we go.
+
+13:39.850 --> 13:41.890
+So false is a bold type.
+
+13:41.890 --> 13:48.670
+The memory address of false is some memory address which of course is different than true and the integer
+
+13:48.670 --> 13:51.730
+value that's associated with false is 0.
+
+13:51.730 --> 13:56.010
+Now we can look at let's say the result of a boolean expression.
+
+13:56.020 --> 13:58.530
+Let's say 3 is less than 4.
+
+13:59.710 --> 14:01.540
+That is going to return a true or false.
+
+14:01.540 --> 14:03.390
+In this case it returns true.
+
+14:03.610 --> 14:07.120
+Now we can look at the idea.
+
+14:07.180 --> 14:09.670
+Well first of all let's look at the type of three.
+
+14:09.790 --> 14:11.050
+Less than four.
+
+14:11.440 --> 14:12.610
+That's a ball right.
+
+14:12.610 --> 14:13.780
+That's what we expect.
+
+14:13.780 --> 14:16.880
+Those comparison expressions return a boolean value.
+
+14:17.170 --> 14:24.940
+But if we look at the ID of 3 less than 4 you'll notice that that ID here is the same as the ID over
+
+14:24.940 --> 14:25.290
+here.
+
+14:25.330 --> 14:28.800
+The same memory address is the same object.
+
+14:28.900 --> 14:37.780
+So what that means is that we can compare to a boolean values to boolean values using either the equality
+
+14:37.780 --> 14:42.810
+operator that equals equals or the is operator which is the identity operate.
+
+14:42.820 --> 14:48.620
+So it doesn't matter which one we use in this case because true and false are singletons.
+
+14:48.950 --> 14:54.790
+So for example what I mean by that is we can look and say we can either say three is less than four
+
+14:54.940 --> 14:56.440
+equals equals true.
+
+14:56.440 --> 14:58.320
+Obviously that's kind of silly doing that.
+
+14:58.320 --> 15:00.090
+But anyway let's try it.
+
+15:00.100 --> 15:03.190
+And that returns true because true is equal to true.
+
+15:03.370 --> 15:07.270
+But just as well we could say this none is.
+
+15:07.290 --> 15:09.160
+There are three less than 4 is true.
+
+15:09.190 --> 15:12.460
+That will also return true.
+
+15:12.830 --> 15:14.840
+And this is the same way we might test for none.
+
+15:14.840 --> 15:21.740
+For example we might say none is false and nung is indeed false and we'll get to what that is.
+
+15:21.740 --> 15:33.900
+Later on so we have that and true and false are essentially just singleton classes so we can use either
+
+15:33.900 --> 15:35.700
+is or equals equals It doesn't matter.
+
+15:35.700 --> 15:36.720
+That's safe to do.
+
+15:36.720 --> 15:40.480
+In either case and it's not like one really performs better than the other.
+
+15:40.520 --> 15:42.280
+It's pretty much identical.
+
+15:43.790 --> 15:47.960
+Now one other thing that we pointed out in the lecture was something like this.
+
+15:47.960 --> 15:52.200
+One equals equals two equals equals false.
+
+15:52.290 --> 15:52.970
+OK.
+
+15:53.180 --> 15:59.700
+So this code what it's doing its first evaluating what's inside the parentheses precedence.
+
+15:59.870 --> 16:01.420
+So one equals equals two.
+
+16:01.460 --> 16:04.780
+Well that is false and is false equal to false.
+
+16:04.970 --> 16:06.350
+Yeah absolutely.
+
+16:06.350 --> 16:07.300
+That is correct.
+
+16:07.340 --> 16:09.640
+We could have read or written it this way.
+
+16:09.680 --> 16:10.990
+That would be the same thing.
+
+16:11.000 --> 16:12.410
+False is false.
+
+16:12.500 --> 16:15.770
+All the way back as equals equals.
+
+16:15.800 --> 16:22.010
+Now one thing I want to point out is doing this will not work the same way.
+
+16:22.910 --> 16:30.200
+We get false for a result and we'll get into this operate a chain in a later video or an upcoming video
+
+16:30.200 --> 16:31.370
+on booleans.
+
+16:31.370 --> 16:33.280
+But for now just be careful.
+
+16:33.410 --> 16:33.710
+Right.
+
+16:33.710 --> 16:40.430
+What's happening here is that it's not actually evaluating this nor is it even evaluating two equals
+
+16:40.430 --> 16:42.630
+equals false equals equal to one.
+
+16:42.680 --> 16:44.980
+It's doing something else it's actually doing.
+
+16:44.980 --> 16:48.710
+One equals equals two and two equals equals false.
+
+16:48.710 --> 16:50.260
+That's actually what it's doing.
+
+16:50.480 --> 16:54.350
+Well we'll discuss that in a lot more detail in an upcoming video.
+
+16:54.380 --> 16:56.680
+So be careful with chains but that's OK.
+
+16:56.810 --> 16:58.240
+We'll deal with it later.
+
+16:59.090 --> 16:59.620
+All right.
+
+16:59.690 --> 17:03.460
+So the under lying integer values.
+
+17:03.470 --> 17:13.230
+Let's get back to that a little bit of true and false are 1 and 0 respectively.
+
+17:14.300 --> 17:20.940
+So because of polymorphous them really true and one and false and zero kind of behave in similar ways
+
+17:20.980 --> 17:28.020
+true can either be a boolean in that context or it can be an event in another context.
+
+17:28.100 --> 17:35.300
+And what I mean by that is for example let's say we take on one class.
+
+17:35.330 --> 17:36.260
+True.
+
+17:36.740 --> 17:39.230
+While here we're doing addition and.
+
+17:39.260 --> 17:40.020
+True.
+
+17:40.100 --> 17:43.140
+Well true is also one writes a little bit like a chameleon.
+
+17:43.160 --> 17:45.370
+It can be true or it can be one.
+
+17:45.380 --> 17:46.280
+This case is one.
+
+17:46.280 --> 17:53.430
+So one plus one is to write and we say the same thing like a hundred times false well false is zero.
+
+17:53.450 --> 17:57.420
+So a 100 times zero is going to be zero.
+
+17:57.980 --> 18:00.080
+In fact we can even do things like this.
+
+18:00.120 --> 18:01.580
+True greater than false.
+
+18:01.650 --> 18:08.110
+I'm not sure that I would ever write code like that but that will work since one is greater than zero.
+
+18:08.150 --> 18:10.590
+That is actually technically true.
+
+18:12.180 --> 18:22.250
+We also have even weirder things we can take may be true plus true plus true and we can mob those with
+
+18:22.260 --> 18:22.860
+two.
+
+18:23.010 --> 18:26.930
+So really what's happening here is that we have three month two.
+
+18:27.390 --> 18:30.810
+And indeed we get one back get even to negative.
+
+18:30.810 --> 18:33.780
+True as we saw in the slides we get negative 1 back.
+
+18:33.960 --> 18:39.750
+So true and false can behave as booleans or they can behave as integers because remember at the end
+
+18:39.750 --> 18:42.870
+of the day True and False are in fact integers.
+
+18:42.870 --> 18:44.940
+They're just more specialized integers.
+
+18:44.940 --> 18:52.570
+They have a few more things that we can do with booleans like an's and on so we can say true and false.
+
+18:52.730 --> 18:53.090
+Right.
+
+18:53.110 --> 18:59.430
+That's defined or true or false typewrite true or false.
+
+18:59.450 --> 18:59.970
+OK.
+
+19:00.270 --> 19:02.390
+So we have that now.
+
+19:02.400 --> 19:09.090
+Lastly what I want to talk about is going from an end to a boolean so we can certainly do something
+
+19:09.090 --> 19:09.660
+like this.
+
+19:09.660 --> 19:10.640
+Rule zero.
+
+19:10.650 --> 19:17.570
+So we can pass in zero and it's going to return false and same thing with ball 1.
+
+19:17.600 --> 19:23.150
+That's going to return TRUE SO 0 will map back to false one will my back to true.
+
+19:23.160 --> 19:28.650
+And of course end of true as we saw maps to 1 and into false maps to 0.
+
+19:28.980 --> 19:36.720
+But what's happening here is it's a little subtle but we have a number of integers and we're passing
+
+19:36.720 --> 19:38.710
+that to the Boolean constructors.
+
+19:38.760 --> 19:45.240
+Now remember the boolean constructor what we said is that the boolean constructor will return true if
+
+19:45.240 --> 19:47.050
+what's passed in is true.
+
+19:47.300 --> 19:48.900
+But we didn't pass truing here.
+
+19:48.930 --> 19:49.330
+Right.
+
+19:49.350 --> 19:52.430
+We didn't do bhool of truth.
+
+19:52.680 --> 19:53.870
+That's true as well.
+
+19:53.880 --> 19:55.620
+And that's exactly what we would expect.
+
+19:55.620 --> 19:57.060
+Same thing with bouillotte false.
+
+19:57.090 --> 20:01.170
+Would expect that to return false because that's what the constructor does.
+
+20:01.440 --> 20:05.530
+So how do we go from zero to false and from 1 to true.
+
+20:05.880 --> 20:08.850
+Well we'll get into the details of that in the next video.
+
+20:09.150 --> 20:13.890
+But for now let me also show you that bhool of let's say a hundred.
+
+20:14.160 --> 20:15.480
+That's also true.
+
+20:15.760 --> 20:17.860
+Bhool of negative 1.
+
+20:18.210 --> 20:19.420
+That's also true.
+
+20:19.680 --> 20:23.630
+The only time when we will get false is when we use 0.
+
+20:23.970 --> 20:29.670
+And so this this kind of rule I will explain why it works and how it works in the next video.
+
+20:29.850 --> 20:34.860
+But it basically says any number other than zero is going to evaluate to true.
+
+20:34.890 --> 20:39.590
+It's going to have an associated truth value and that truth value will be true.
+
+20:39.930 --> 20:43.660
+And the only time when it's false is when the value is zero.
+
+20:43.830 --> 20:47.440
+We're not really converting an end to a bull.
+
+20:47.540 --> 20:56.040
+We are looking at the truthiness of the truth value of a number and that is what we use then to generate
+
+20:56.040 --> 20:57.040
+this view.
+
+20:57.210 --> 20:57.630
+All right.
+
+20:57.660 --> 20:59.940
+Thanks for watching and I'll see you in the next video.

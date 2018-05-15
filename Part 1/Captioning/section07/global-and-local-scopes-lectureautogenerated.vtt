@@ -1,0 +1,1555 @@
+WEBVTT
+
+00:00.700 --> 00:05.390
+High in this video we're going to talk about global and local scopes.
+
+00:05.680 --> 00:07.550
+So scopes and name spaces.
+
+00:07.600 --> 00:13.570
+Well let's take a look at what happens when we assign a value to a variable or we assign an object technically
+
+00:13.570 --> 00:16.770
+to a variable right like a equals 10.
+
+00:16.810 --> 00:24.100
+Then as we know we've created this variable this label called 10 and it now references an object in
+
+00:24.100 --> 00:27.640
+memory at some memory address that contains that integer 10.
+
+00:27.940 --> 00:31.300
+So we always use to say the variable points to that object.
+
+00:31.300 --> 00:34.970
+Another way that we can say is that the variable that name.
+
+00:35.020 --> 00:39.970
+Right because the variable is just a label right it's a name is bound to that object.
+
+00:39.970 --> 00:43.100
+That's just another way of saying it references that object.
+
+00:43.180 --> 00:48.940
+Now that object can be accessed using that name using that label in various parts of our code.
+
+00:48.940 --> 00:55.060
+So for example if we say equals 10 and then we say print a when we are actually asking Python to give
+
+00:55.060 --> 00:57.820
+us back whatever aid was bound to.
+
+00:57.910 --> 01:01.770
+And maybe you know a few lines down the road we say equals a plus one.
+
+01:01.840 --> 01:05.700
+We're doing the same thing with taking the value of current value of A.
+
+01:05.800 --> 01:10.550
+So we're asking Python to give us back the value that that label is bound to.
+
+01:10.600 --> 01:13.860
+We add one to it and then we store that back.
+
+01:13.870 --> 01:17.040
+We bound we bind that to a new value too.
+
+01:17.070 --> 01:21.670
+In this case all depending what started off as if it's of 10 would have 11.
+
+01:21.730 --> 01:26.330
+Now we bind a to a new object 11.
+
+01:26.380 --> 01:33.210
+Right so we've seen that in the past but of course we can't just reference A anywhere in our code that
+
+01:33.220 --> 01:35.740
+might be places where that label doesn't exist.
+
+01:35.830 --> 01:39.460
+Or maybe that they will exist but it means something else.
+
+01:39.670 --> 01:41.850
+And we've seen that before.
+
+01:41.890 --> 01:47.890
+If you have code let's say in your module you have variable A and then you define a function that has
+
+01:47.890 --> 01:49.630
+a parameter called a.
+
+01:49.720 --> 01:55.970
+Then when you pass that value inside let's say you pass in a value to that function as an argument.
+
+01:56.080 --> 02:02.260
+Well the aid that is inside the function isn't necessarily the same value as the that's in the global
+
+02:02.260 --> 02:03.180
+module.
+
+02:03.670 --> 02:06.570
+So you can't just reference A anyway.
+
+02:06.640 --> 02:12.760
+And even if you could it doesn't mean that it's necessarily the same object that you're talking about.
+
+02:12.820 --> 02:19.930
+So there is this concept that the name of the object that is bound to only exist in certain sections
+
+02:19.930 --> 02:22.930
+of our code in specific parts of our code.
+
+02:22.930 --> 02:28.030
+Now the portion of the code where that specific name binding that we're looking at that we're interested
+
+02:28.030 --> 02:33.430
+in exists is called the lexical scope or simply the scope of the variable.
+
+02:33.970 --> 02:36.550
+So we'll take a look at that in more detail.
+
+02:36.790 --> 02:42.400
+But one of the things that's associated with that scope is that these bindings are stored somewhere.
+
+02:42.400 --> 02:44.800
+So yes they exist in that scope.
+
+02:44.800 --> 02:48.190
+Right so equals 10 exists in some scope.
+
+02:48.190 --> 02:54.060
+Right because that binding exists but where is it store and what is stolen something called a namespace.
+
+02:54.070 --> 02:59.370
+And we can think of a namespace simply as a table that contains the label and the reference that it's
+
+02:59.380 --> 03:01.210
+pointing to it's bound to.
+
+03:01.360 --> 03:08.740
+So name spaces and scopes go hand in hand because every scope has a namespace.
+
+03:08.740 --> 03:15.000
+So let's talk about the global scope thost now the global scope is essentially the module scope.
+
+03:15.010 --> 03:23.370
+It spans a single file only so when you create a module in python you have a global scope in that module.
+
+03:23.440 --> 03:29.380
+There is really no such thing as a truly global scope that goes across all of the modules in our entire
+
+03:29.380 --> 03:31.670
+application not in Python.
+
+03:31.690 --> 03:36.690
+Now you do have something that's that's kind of global truly global across all the modules.
+
+03:36.700 --> 03:43.790
+But that's the built in scope that's the scope where objects like true or false or even non.
+
+03:43.870 --> 03:44.250
+Right.
+
+03:44.350 --> 03:47.270
+But also dict and also print print as a function.
+
+03:47.280 --> 03:48.540
+But it's just an object.
+
+03:48.640 --> 03:51.060
+So it has to live somewhere right.
+
+03:51.070 --> 03:53.020
+It's living in a namespace somewhere.
+
+03:53.020 --> 03:59.830
+When you when you ask for Python to use print to call the print function it has to go and look up and
+
+03:59.830 --> 04:02.080
+say well where's the object footprint.
+
+04:02.320 --> 04:04.930
+So you can think of that as another scope.
+
+04:04.990 --> 04:07.490
+And that's kind of available everywhere.
+
+04:07.540 --> 04:14.930
+That's called a built in scope so the built in and global variables can be used anywhere inside our
+
+04:14.930 --> 04:16.650
+module.
+
+04:16.780 --> 04:17.030
+Right.
+
+04:17.030 --> 04:21.570
+So anything that you define in the module let's say aik will turn at the module level.
+
+04:21.650 --> 04:23.810
+You can now access that equals 10.
+
+04:23.810 --> 04:29.510
+After that point and it will reference that particular label a Everywhere in your code.
+
+04:29.540 --> 04:32.460
+Even inside functions will see how to do that.
+
+04:34.900 --> 04:39.270
+So global scopes are nested inside the built in scope.
+
+04:39.280 --> 04:40.480
+See what I mean by that.
+
+04:40.630 --> 04:42.380
+So we think of this.
+
+04:42.610 --> 04:49.120
+These scopes basically with things live right where we have name spaces and things live in those name
+
+04:49.120 --> 04:55.600
+spaces so that built in scope has a name space and the name space is just a label and basically a pointer
+
+04:55.600 --> 04:57.780
+to an object whatever its bound to.
+
+04:57.970 --> 05:01.030
+So its the bindings of the label to the objects.
+
+05:01.300 --> 05:07.460
+So in the built in scope you might have bindings for true and false in print and so on.
+
+05:08.380 --> 05:14.020
+But now when we load up our module lets say we have a module called module 1 well that module has its
+
+05:14.170 --> 05:22.240
+own scope and it has its own namespace space but we think of those as being nested one inside the other.
+
+05:23.480 --> 05:27.780
+Same thing if we have another module we have module to it has its own scope.
+
+05:27.800 --> 05:30.600
+Now its this thing from Module 1 it doesn't intersect.
+
+05:30.620 --> 05:35.900
+There is no overlap between those two modules scopes but it has its own namespace.
+
+05:35.900 --> 05:39.900
+However it does live inside the built in scope.
+
+05:40.070 --> 05:43.040
+So why do we think of it as being nested.
+
+05:43.100 --> 05:49.610
+Well because when you ask for Python to give you the object that's bound to a label it needs to go look
+
+05:49.610 --> 05:52.670
+it up in a namespace in one of those tables.
+
+05:52.670 --> 05:54.030
+So where does it look.
+
+05:54.260 --> 06:00.740
+Well if your code is sitting inside module one it's going to look in the namespace for that module one
+
+06:00.770 --> 06:04.370
+scope it's going to look in this namespace right here.
+
+06:04.910 --> 06:10.000
+If it doesn't find that binding it doesn't find that label that you're asking for.
+
+06:10.130 --> 06:16.850
+Let's say you're in Module 1 and you ask for true you want to say you know a equals true and it needs
+
+06:16.850 --> 06:19.200
+to go look for this object called True.
+
+06:19.490 --> 06:27.800
+Well if it doesn't find true inside your module ones namespace it's going to then go up into the enclosing
+
+06:27.800 --> 06:31.470
+namespace which in this case is the built in scope namespace.
+
+06:31.700 --> 06:33.650
+And it's going to look for it in there.
+
+06:33.920 --> 06:35.930
+And if it finds it great.
+
+06:36.200 --> 06:36.760
+Right.
+
+06:36.860 --> 06:39.050
+So that's how Python works.
+
+06:39.050 --> 06:45.430
+It always looks at the current scope and if it can't find the binding it starts looking outwards and
+
+06:45.430 --> 06:46.870
+in closing.
+
+06:48.930 --> 06:55.420
+Solist do an example let's say we have module one Doppie Y and we say print true right.
+
+06:55.430 --> 06:57.730
+That's the only line in that module.
+
+06:57.740 --> 06:58.930
+So what's happening here.
+
+06:59.000 --> 07:06.580
+Well Python doesn't find true and it doesn't fine print in the current the module or the global scope.
+
+07:06.590 --> 07:06.790
+Right.
+
+07:06.800 --> 07:11.620
+It doesn't fine print and true in Module 1 we haven't defined print and true in Module 1.
+
+07:11.690 --> 07:12.980
+We're just saying print true.
+
+07:13.040 --> 07:16.910
+So we're using these things without having defined them already.
+
+07:17.120 --> 07:22.240
+So they're not in the local scope or this they're sorry they're not in the module scope.
+
+07:22.240 --> 07:24.920
+So now Python says OK well let me go look.
+
+07:24.950 --> 07:28.000
+You know one step up let's look in the built in scope.
+
+07:28.280 --> 07:34.120
+And of course it finds both the print function and the true object of the true label.
+
+07:34.130 --> 07:39.050
+So the print label and the true label in the enclosing scope in the built in scope.
+
+07:39.110 --> 07:40.980
+And so it's going to use those.
+
+07:41.210 --> 07:43.130
+And that's why it prints up.
+
+07:43.140 --> 07:50.060
+True for second look at another module let's say module number two and this is the only line of code
+
+07:50.060 --> 07:52.980
+that we have in the module we have print a.
+
+07:53.300 --> 07:58.170
+Well you probably should know by now that print a is going to cause a runtime error.
+
+07:58.190 --> 07:59.100
+Why.
+
+07:59.480 --> 08:01.170
+Well it is not defined.
+
+08:01.220 --> 08:03.070
+Well what does that mean not defined right.
+
+08:03.320 --> 08:05.240
+Well here's what happens.
+
+08:05.240 --> 08:11.000
+Python doesn't find a print in the current which is the module or the global scope.
+
+08:11.000 --> 08:14.610
+So what does it do what it's going to go and look for them in the built in scope.
+
+08:14.710 --> 08:14.960
+Right.
+
+08:14.990 --> 08:18.070
+It looks up if it can't find it in the current scope.
+
+08:18.260 --> 08:19.270
+So it finds print.
+
+08:19.340 --> 08:21.830
+That's great but it doesn't find a.
+
+08:22.190 --> 08:24.590
+And there is nothing above the built in scope.
+
+08:24.650 --> 08:29.060
+So at that point Python says Sorry but I can't find it anywhere.
+
+08:29.210 --> 08:29.900
+You can't use it.
+
+08:29.900 --> 08:31.480
+It hasn't been defined.
+
+08:31.640 --> 08:39.290
+And so you get this runtime name ever Let's take a look at module number three and let's say that we
+
+08:39.290 --> 08:40.680
+have this.
+
+08:40.730 --> 08:47.710
+Now here we have where I was signing something to this variable this label called print.
+
+08:48.230 --> 08:55.740
+But remember that print is also a builtin So print is a label that exists in the built in scope.
+
+08:55.760 --> 09:02.240
+However here we're defining we're assigning a value to print which means that print now lives in the
+
+09:02.240 --> 09:06.070
+local scope of module 3 in the global scope.
+
+09:06.170 --> 09:08.780
+Right in our Mondial scope.
+
+09:08.780 --> 09:14.300
+And while we've just defined it to be a function so a single print is still a function and it's going
+
+09:14.300 --> 09:19.760
+to take in a single parameter and it's going to return the string hello and then whatever the parameter
+
+09:19.760 --> 09:20.550
+was.
+
+09:20.930 --> 09:28.250
+So now if we say s equals print world it's not going to call Python's built in print function because
+
+09:28.580 --> 09:30.590
+Python is going to say oh you want print.
+
+09:30.600 --> 09:34.990
+Well let me look in the current scope which is the module scope.
+
+09:35.210 --> 09:36.200
+I found it.
+
+09:36.270 --> 09:37.940
+All right I'm going to use that.
+
+09:38.120 --> 09:40.450
+So it uses the print function.
+
+09:40.580 --> 09:48.620
+And so what happens here is that we've essentially overridden what Python's print does right well we've
+
+09:48.620 --> 09:51.460
+changed the you know the meaning of print.
+
+09:54.130 --> 09:55.960
+So that's also called masking.
+
+09:55.960 --> 09:56.210
+Right.
+
+09:56.230 --> 10:02.080
+We've masked the original print so usually it's not a good idea to do that right because you want to
+
+10:02.230 --> 10:05.500
+keep your print function so you redefine it to mean something else.
+
+10:05.500 --> 10:06.940
+How do you tell Python.
+
+10:06.940 --> 10:09.960
+Well I don't want my local one I want the one that's above.
+
+10:10.300 --> 10:13.200
+You can't so you have you would have to delete it.
+
+10:13.420 --> 10:14.500
+And we can do that.
+
+10:14.500 --> 10:16.710
+I'll show you in the code how you can do that.
+
+10:18.560 --> 10:25.130
+So we've talked about the built in scope and then we've talked about the global Amadeo scope that lives
+
+10:25.190 --> 10:28.790
+inside the built in scope if we think of them as nested scopes.
+
+10:29.300 --> 10:34.310
+But when we create functions functions also have their own scope.
+
+10:34.310 --> 10:40.970
+So when we create variable names inside those functions so we take labels and we assign an object to
+
+10:40.970 --> 10:49.410
+them with extensionally binding a label to an object while that lives in the scope of that function.
+
+10:49.420 --> 10:49.820
+Right.
+
+10:49.850 --> 10:51.560
+When we assign a value.
+
+10:52.010 --> 10:58.520
+So for example when we say equals 10 well variables defined inside a function though are not created
+
+10:58.580 --> 11:05.450
+until the function is called because remember how does it work when you have a def let's say in a module
+
+11:05.690 --> 11:07.880
+and you load up the module.
+
+11:07.880 --> 11:11.860
+Python goes through and it basically compiles everything.
+
+11:12.080 --> 11:13.850
+So it finds your function.
+
+11:13.940 --> 11:16.050
+It says OK you've created a function fine.
+
+11:16.100 --> 11:21.410
+I'm going to take that function name and I'm going to put that into the glow into the modules scope
+
+11:21.410 --> 11:27.630
+into the module namespace but the contents of the function what's inside the function doesn't run.
+
+11:27.860 --> 11:31.370
+So there's nothing that's actually running there's no code running.
+
+11:31.370 --> 11:36.220
+So there is no scope that's being created when the function is created.
+
+11:36.410 --> 11:42.120
+The scope will get created when the function is called but not before that.
+
+11:42.130 --> 11:48.210
+So every time the function is called a new scope is created for when that function runs.
+
+11:48.330 --> 11:52.450
+And that kind of makes sense because you can call a function let's say with different values for its
+
+11:52.450 --> 11:53.540
+parameters.
+
+11:53.710 --> 11:59.300
+And of course that means that every time the function is called It's got different bindings for it.
+
+11:59.430 --> 12:02.580
+You know for its variables the parameters are variables.
+
+12:02.580 --> 12:09.330
+The arguments you know are labels that are bound to some value that we pass in when we pass the arguments.
+
+12:09.400 --> 12:12.480
+And every time we call the function those values could be different.
+
+12:12.520 --> 12:18.240
+So the bindings could be different which means we really have a different scope every time.
+
+12:18.400 --> 12:24.370
+So variables are defined inside the function that are assigned to that scope.
+
+12:24.370 --> 12:31.810
+So in other words if you if you make an assignment like equals 10 inside a function then that variable
+
+12:31.880 --> 12:38.530
+A that label a is put inside the scope of that function and it's called a local scope it's called the
+
+12:38.520 --> 12:42.270
+scope of the function the local scope.
+
+12:42.450 --> 12:47.610
+So the actual object of the variable references of course could be different every time the function
+
+12:47.610 --> 12:48.470
+is called.
+
+12:48.750 --> 12:49.010
+Right.
+
+12:49.020 --> 12:53.120
+And that's why recursion was because we're able to call the function from inside the function.
+
+12:53.130 --> 12:59.160
+But every time we pass a different value and every time we call the function it gets its own scope and
+
+12:59.160 --> 13:00.340
+we'll see that in the code.
+
+13:00.350 --> 13:01.990
+We'll we'll look at some examples.
+
+13:02.370 --> 13:03.390
+Let's look at one here.
+
+13:03.510 --> 13:10.200
+Let's say we have def my phunk a comma B and C equals eight times b and then we return C..
+
+13:10.530 --> 13:14.870
+So what are the labels that are local to this function here.
+
+13:15.330 --> 13:17.790
+Well obviously a and b.
+
+13:17.870 --> 13:19.920
+The parameter names right.
+
+13:19.950 --> 13:23.780
+These are going to be local to that function that don't exist outside of the function.
+
+13:23.790 --> 13:25.950
+They exist inside the function.
+
+13:26.160 --> 13:27.440
+C is another one.
+
+13:27.450 --> 13:33.570
+We are signing something to see so we've just created this new label C and we're binding it to some
+
+13:33.570 --> 13:36.200
+value with the product of a and b.
+
+13:36.810 --> 13:43.560
+So when Python looks at this at compile time and this is really important not to differentiate between
+
+13:43.560 --> 13:50.820
+compile time and runtime because at compile time when Python encounters this piece of code it makes
+
+13:50.820 --> 13:52.230
+some determinations.
+
+13:52.290 --> 13:55.560
+It looks at everything in here and it says OK.
+
+13:55.650 --> 14:00.820
+So for my fund a b and c are going to be local variables.
+
+14:00.990 --> 14:07.170
+It doesn't create the scope or the namespace because we haven't called the function but it predetermines
+
+14:07.260 --> 14:14.040
+at compilation time that a b and c when there are when they will be created and put into a namespace
+
+14:14.350 --> 14:21.480
+will be into a local namespace not the module namespace and certainly not the built in namespace.
+
+14:21.900 --> 14:24.630
+So these names will be considered local.
+
+14:24.630 --> 14:26.310
+Once they get created.
+
+14:26.970 --> 14:31.230
+So now if we call my func Z comma two what happens.
+
+14:31.230 --> 14:37.650
+Well now Python creates a scope and the scope is of this function as it's running.
+
+14:37.650 --> 14:44.760
+So when the function runs we have these three variables a b and c that are in the local namespace and
+
+14:44.760 --> 14:49.400
+they have values z 2 and z z.
+
+14:49.410 --> 14:54.680
+Now once the function exits the scope by the way goes away because the function is finished.
+
+14:54.720 --> 14:59.680
+So that's Koepp is no longer needed and it's cleaned up and will come back to that in a second.
+
+15:00.150 --> 15:04.380
+Let's say we call my phone again with two different variables 10 and five this time.
+
+15:04.470 --> 15:05.230
+What happens.
+
+15:05.280 --> 15:11.970
+Well at that point we call it the function by some creates a new scope and it creates those variables
+
+15:12.030 --> 15:20.990
+a b and c in the local namespace and it binds them to these values 10 5 and 50 so we have different
+
+15:20.990 --> 15:21.680
+scopes.
+
+15:21.680 --> 15:28.000
+Every time a function is called the scope does not get created when the function is defined.
+
+15:28.010 --> 15:33.620
+The only thing that happens then is that Python makes the determination of all the labels that are going
+
+15:33.620 --> 15:39.440
+to be in that are in that function that will be used or referenced or assigned and it figures out are
+
+15:39.440 --> 15:41.930
+they local or are they something else.
+
+15:41.930 --> 15:44.990
+Because they could be global in the module or they could be built in.
+
+15:45.170 --> 15:45.630
+Right.
+
+15:47.660 --> 15:49.520
+So same names right.
+
+15:49.520 --> 15:54.620
+The same variable names but they're in different scopes and therefore they're not bound to the same
+
+15:54.620 --> 15:55.070
+objects.
+
+15:55.070 --> 15:56.040
+They have different values.
+
+15:58.040 --> 16:03.590
+So what about nested scopes we've already seen global scopes or modules scopes being nested inside the
+
+16:03.590 --> 16:04.650
+built in scope.
+
+16:04.820 --> 16:07.670
+Well the same thing happens with functions as well.
+
+16:07.940 --> 16:12.510
+So if we start with the built in scope then we have the module scope that's nested inside.
+
+16:12.530 --> 16:18.600
+And we think of this nesting thing because that's how Python looks for variable names and labels right.
+
+16:18.600 --> 16:21.020
+It starts in the current scope.
+
+16:21.020 --> 16:27.540
+So if you've got code in your module it's going to look for the labels binding in the module namespace.
+
+16:27.550 --> 16:32.240
+If it doesn't find it it's going to go and look in the built in namespace and if it doesn't find it
+
+16:32.270 --> 16:33.840
+then we have an error.
+
+16:34.250 --> 16:39.770
+But if we have a local scope like when we have a function and we reference something inside that local
+
+16:39.770 --> 16:45.660
+scope then Python is going to look in the local scope first if it doesn't find it then we'll go look
+
+16:45.660 --> 16:49.120
+in the module scope and then it will go look in the built in scope.
+
+16:49.250 --> 16:52.930
+So we always think of scopes as being nested.
+
+16:53.060 --> 16:57.530
+Now when we call the function the second time then we have a different local scope.
+
+16:57.530 --> 16:57.800
+Right.
+
+16:57.800 --> 17:02.990
+Or maybe it's a different function that's obviously going to have a different local scope as well.
+
+17:03.050 --> 17:08.690
+So we think of the scopes as being nested.
+
+17:08.860 --> 17:10.690
+So the namespace look ups.
+
+17:10.750 --> 17:16.150
+So when requesting the object bound to a variable name I just want to repeat that that's really important
+
+17:16.270 --> 17:17.480
+what happens.
+
+17:17.710 --> 17:19.560
+Let's say we say print a.
+
+17:20.170 --> 17:25.420
+Well let's not worry about print we know print is going to go into the built in scope so it will try
+
+17:25.420 --> 17:29.070
+and find the object that's bound to the variable somewhere.
+
+17:29.100 --> 17:29.590
+Right.
+
+17:29.590 --> 17:32.280
+It's where we're referencing this label called a.
+
+17:32.290 --> 17:34.220
+It now needs to look for it.
+
+17:34.690 --> 17:37.740
+So it's going to look in the current local scope first.
+
+17:37.750 --> 17:43.810
+So if we're running a function then it's going to look in that current local scope for a for can't find
+
+17:43.810 --> 17:44.500
+it.
+
+17:44.500 --> 17:48.300
+It's going to go and work its way up the inclosing scopes.
+
+17:48.450 --> 17:52.700
+So we'll look in the modules scope and then we'll look in the built in scope.
+
+17:52.990 --> 18:00.340
+Now we'll see in the next video over the one after that we can actually create functions inside functions
+
+18:00.430 --> 18:06.070
+so you can have of course a lot more nesting than just local 2 module to built and you can have local
+
+18:06.070 --> 18:09.730
+within local right within module within built in.
+
+18:09.800 --> 18:11.330
+We'll we'll we'll take a look at that.
+
+18:12.870 --> 18:14.490
+So let's take a look at another example.
+
+18:14.700 --> 18:17.260
+So the built in scope contains true.
+
+18:17.370 --> 18:19.160
+We know that true lives there.
+
+18:19.740 --> 18:24.180
+So let's say that we have now a module that we've created let's say Module 1.
+
+18:24.180 --> 18:29.910
+So as soon as we load module 1 a global scope is created for the module module scope if you want to
+
+18:29.910 --> 18:31.700
+call it that.
+
+18:32.040 --> 18:38.790
+Now our first line of code says equals 10 what happens well Python says OK you're making an assignment
+
+18:39.200 --> 18:40.460
+to a label a.
+
+18:40.500 --> 18:43.850
+So I need to create this label and bind it to 10.
+
+18:43.950 --> 18:45.610
+Where am I going to create it.
+
+18:45.870 --> 18:48.890
+I'm in the module I'm going to create it in the module scope.
+
+18:49.020 --> 18:56.070
+So it puts a and binds it to 10 in the global scope namespace.
+
+18:56.080 --> 19:03.010
+Now we define a function that say def my func takes a single parameter called B and then we have these
+
+19:03.010 --> 19:03.820
+three lines of code.
+
+19:03.820 --> 19:04.420
+Print true.
+
+19:04.420 --> 19:06.490
+Print a print B.
+
+19:06.580 --> 19:07.430
+So what happens.
+
+19:07.440 --> 19:13.150
+As soon as Python encounters this line of code it's compiling the function.
+
+19:13.150 --> 19:19.340
+It's not running it right but it is going to make the determination that my phunk.
+
+19:19.360 --> 19:20.480
+It has to create it.
+
+19:20.590 --> 19:22.120
+So that's being created.
+
+19:22.120 --> 19:26.060
+That's a label that's going to be in the global scope but that's it.
+
+19:26.170 --> 19:33.310
+As far as it goes in terms of creating variables and bindings However it does look at this and it says
+
+19:33.360 --> 19:43.200
+ok b is going to be local and a Hiver is going to be global because well it actually doesn't say he's
+
+19:43.200 --> 19:43.940
+going to be go.
+
+19:44.040 --> 19:51.550
+It's going to look at a and b here that because it's a parameter to say OK this is local here.
+
+19:51.750 --> 19:53.040
+It's not going to do anything.
+
+19:53.070 --> 19:57.300
+It's going to say well don't know yet we'll find out at runtime what's happening.
+
+19:57.570 --> 20:00.400
+But it's a non-local variable and we'll come back to that.
+
+20:00.900 --> 20:04.320
+So now when we call my funk of 300 what happens.
+
+20:04.310 --> 20:06.290
+Well now with calling the function.
+
+20:06.360 --> 20:08.580
+So the local scope was created.
+
+20:08.820 --> 20:12.730
+We've passed 300 as an argument to my phunk.
+
+20:12.900 --> 20:19.820
+So now Python says OK now I'm assigning 300 to be it's an assignment right.
+
+20:19.860 --> 20:27.620
+So it creates B and binds it to the object 300 in the local namespace.
+
+20:27.690 --> 20:28.730
+And now when we print.
+
+20:28.800 --> 20:36.790
+True it's going to go ahead and find true in the built in scope when we print a doesn't find a in the
+
+20:36.810 --> 20:38.520
+local scope you'll notice.
+
+20:38.520 --> 20:41.500
+So it goes up one and finds it in the global sculptor's.
+
+20:41.520 --> 20:42.150
+OK.
+
+20:42.240 --> 20:49.140
+So I will print 10 out and then when we say print B can look for b starting in the local scope finds
+
+20:49.140 --> 20:56.310
+it going to print 300 Fickell my phunk of a we're creating a different local scope.
+
+20:56.760 --> 21:01.080
+And here we're passing a and we're assigning it to the label b.
+
+21:01.080 --> 21:07.550
+So now B is going to be bound to the string object A in the local scope.
+
+21:07.690 --> 21:11.410
+And so we're going to print again true 10 and 8.
+
+21:11.800 --> 21:16.030
+Now if you remember reference counting that we were way back in the beginning of the course right we
+
+21:16.030 --> 21:21.340
+talked about objects and then every time we referenced them that means we have let's say a label that
+
+21:21.340 --> 21:24.530
+points to it that increases the reference by one.
+
+21:24.820 --> 21:33.070
+Well what happens with the local scope is that once the function finishes running all these all these
+
+21:33.160 --> 21:37.970
+bindings go away they're cleaned up the local scope is destroyed.
+
+21:38.110 --> 21:38.380
+Right.
+
+21:38.380 --> 21:42.280
+The namespace is destroyed which means that all these references are gone.
+
+21:42.460 --> 21:51.040
+So whenever you have you run my phunk 300 Well this 300 object if it doesn't already exist gets created
+
+21:51.250 --> 21:53.660
+and it's reference's incremented by 1.
+
+21:53.680 --> 21:59.170
+So it has you know a reference count of 1 but maybe it already existed and then it just increases the
+
+21:59.170 --> 22:01.680
+reference count and points to it.
+
+22:01.780 --> 22:07.270
+But as soon as my func finishes running the scope is destroyed and the reference count for that object
+
+22:07.570 --> 22:15.270
+is decreased by 1 and then potentially we have garbage collection and memory management that happens.
+
+22:15.360 --> 22:22.890
+So we say that the reference count is decremented right because we're removing a reference and we say
+
+22:22.890 --> 22:25.520
+that the variable goes out of scope.
+
+22:25.560 --> 22:31.590
+So now this label here that was B is no longer available once the function finishes running.
+
+22:31.590 --> 22:37.980
+So inside the function B is available outside of the function once the function is finished running
+
+22:38.370 --> 22:40.500
+B is gone out of scope.
+
+22:40.500 --> 22:42.380
+It doesn't exist anymore.
+
+22:42.840 --> 22:49.970
+Or at least not that particular B with its particular binding.
+
+22:49.980 --> 22:54.160
+So how about accessing the global scope from the local scope.
+
+22:54.180 --> 23:01.720
+Now we've seen that when we try and access something let's say we want to reference the value true.
+
+23:01.860 --> 23:03.660
+Right the label true.
+
+23:03.880 --> 23:10.260
+Then we know that Python is going to look at the local scope doesn't find it might go to the next scope
+
+23:10.320 --> 23:16.590
+up maybe not the module scope doesn't find it looks at the next scope up which is the built in scope
+
+23:16.710 --> 23:18.500
+finds it uses it.
+
+23:18.720 --> 23:19.240
+Right.
+
+23:19.470 --> 23:25.000
+So when retrieving the value of a global variable from inside a function Python automatically searches
+
+23:25.020 --> 23:31.620
+the local scope first and if it doesn't find it then it works its way up the chain of scopes and the
+
+23:31.620 --> 23:34.040
+name spaces.
+
+23:34.170 --> 23:39.810
+So it starts at the local goes to global and then we'll see that we can have multiple locals in between.
+
+23:39.810 --> 23:42.980
+But for now let's assume it's just a function inside a module.
+
+23:43.020 --> 23:45.950
+So it goes from local to global to built in.
+
+23:46.140 --> 23:46.370
+Right.
+
+23:46.380 --> 23:49.930
+That's the way it searches for that particular label.
+
+23:50.490 --> 23:55.110
+But what about modifying the global variable from inside the function.
+
+23:55.110 --> 23:56.370
+So let's look at this code.
+
+23:56.400 --> 24:03.420
+Let's say we have equal 0 and then we define my funk and inside of my funk we set equal to 100 and then
+
+24:03.420 --> 24:09.450
+we print out what's critical here to see is that this is an assignment operation.
+
+24:09.570 --> 24:14.540
+Whenever there's an assignment Python says OK I'm creating something right.
+
+24:14.550 --> 24:16.640
+I'm creating a new label.
+
+24:16.740 --> 24:18.800
+I'm going to bind it to something.
+
+24:19.260 --> 24:26.010
+So at compile time not when the function is called but when the function is actually compiled when Python
+
+24:26.010 --> 24:33.150
+actually sees the code not runs it but actually sees this function I creates the function it makes the
+
+24:33.150 --> 24:39.540
+determination that a is going to be a local variable to the function doesn't get created yet but it's
+
+24:39.540 --> 24:48.500
+going to be local that gets determined at compile time so the local variable here is masking the global
+
+24:48.500 --> 24:49.990
+variable a.
+
+24:50.240 --> 24:57.050
+Right because when we say print a here which is this going to refer to what Python is going to look
+
+24:57.050 --> 24:59.880
+for that label a in the local scope for us.
+
+24:59.900 --> 25:03.090
+That's where it's living that's where it's going to start.
+
+25:03.100 --> 25:06.110
+It doesn't find it then it will go and look at the global scope.
+
+25:06.260 --> 25:12.890
+However in this case it finds it because when we said equal to 100 when the functions running because
+
+25:13.010 --> 25:20.460
+a determined that because Python determined that a is going to be a local variable it says OK a is equal
+
+25:20.460 --> 25:27.180
+to 100 goes in the local scope and that namespace when we say print a python finds in the local namespace
+
+25:27.240 --> 25:33.360
+it uses that value for a that binding not the one that's in the global namespace.
+
+25:33.360 --> 25:35.910
+So we set a masques the global variable.
+
+25:35.970 --> 25:37.470
+So let's see what's happening.
+
+25:37.470 --> 25:38.610
+So we got a built in.
+
+25:38.640 --> 25:44.050
+We run our modules so we get our global namespace we create a equals zero.
+
+25:44.220 --> 25:48.670
+OK so now we have a zero right in the namespace.
+
+25:48.990 --> 25:50.660
+Then we create this function.
+
+25:50.670 --> 25:55.320
+So now we have my phunk which is bound to this function whatever the function is in memory.
+
+25:55.320 --> 26:01.900
+It's just an object and the label as my phone is bound to that function but that's it.
+
+26:01.920 --> 26:08.320
+Now when we run my func then we get this local namespace that gets created at that point.
+
+26:08.730 --> 26:12.140
+The first line of code says equals 100.
+
+26:12.150 --> 26:18.780
+So Python is now going to set a is going to bind to the object 100 but which namespace is it going to
+
+26:18.780 --> 26:19.650
+put it in.
+
+26:19.710 --> 26:24.870
+It's going to put it into the local namespace because it made that determination that if you're assigning
+
+26:24.870 --> 26:28.550
+a value inside the function it goes into the local namespace.
+
+26:30.410 --> 26:36.160
+And so when we print my phunk it's going to print 100 when we run my Funk's or it's going to print 100
+
+26:36.260 --> 26:45.460
+because a is 100 not going to print 0 and if we print a after my phunk has finished running what are
+
+26:45.460 --> 26:46.640
+we going to get.
+
+26:47.090 --> 26:48.250
+Well we're going to get zero.
+
+26:48.250 --> 26:50.890
+We didn't modify the global A.
+
+26:50.910 --> 26:51.340
+Right.
+
+26:51.370 --> 26:57.840
+Within when we said equal to 100 it didn't change the value of a module because it wasn't the same way
+
+26:58.360 --> 27:01.510
+because there were different scopes.
+
+27:01.570 --> 27:03.360
+So what if we do want to do that.
+
+27:03.400 --> 27:10.540
+What if we want to set you know change the value of a variable that's in the global scope from inside
+
+27:10.600 --> 27:11.780
+a local scope.
+
+27:11.830 --> 27:17.590
+What we can do that by using the global keyword it's kind of almost like a declaration.
+
+27:17.710 --> 27:22.750
+We're going to tell Python so you know and we're going to tell it say well look I'm going to use this
+
+27:22.750 --> 27:24.240
+variable eighth years.
+
+27:24.430 --> 27:26.180
+I'm going to sign it a value.
+
+27:26.320 --> 27:29.260
+But this variable a is not local.
+
+27:29.260 --> 27:34.810
+Please make sure that it lives in the global namespace that doesn't exist create that there if it exists
+
+27:34.810 --> 27:37.680
+already used that.
+
+27:37.690 --> 27:39.300
+So let's see how we do that.
+
+27:39.310 --> 27:41.130
+So let's start again with the same example.
+
+27:41.140 --> 27:42.110
+Equals zero.
+
+27:42.310 --> 27:46.400
+So now we've got a built in and our global with a zero was in there.
+
+27:46.450 --> 27:47.840
+Now we have this function.
+
+27:47.860 --> 27:48.130
+Right.
+
+27:48.130 --> 27:50.400
+So we run this function.
+
+27:50.560 --> 27:51.910
+Sorry we don't run the function.
+
+27:51.910 --> 27:58.810
+Python looks at the function compiles it creates the label my func in the global namespace in the module
+
+27:58.810 --> 28:04.070
+namespace and at that point it sees that we have equals 100.
+
+28:04.240 --> 28:10.270
+So normally I would say well is going to be local but you'll notice this line of code right here where
+
+28:10.270 --> 28:11.880
+we say global A.
+
+28:12.040 --> 28:17.000
+This is telling Python it's like wait a minute yes I'm assigning a value to a.
+
+28:17.320 --> 28:20.480
+But this a is actually in the global namespace.
+
+28:20.500 --> 28:26.430
+So you're basically forcing Python to recognize that this a which means this a.
+
+28:26.440 --> 28:32.170
+Out here in the module means the one that's in the global namespace right.
+
+28:32.180 --> 28:40.630
+So now this a is going to be when this function runs this in here is going to be referencing this namespace.
+
+28:40.670 --> 28:50.220
+This this label a in the global namespace so if we call my phunk then a local namespace a local scope
+
+28:50.220 --> 28:51.330
+was created.
+
+28:51.910 --> 28:56.440
+And when we print a what are we going to do now we're finished running.
+
+28:56.440 --> 29:02.890
+So the scope disappears but when we print a we're going to get a hundred because yeah inside of my phunk
+
+29:02.890 --> 29:08.520
+when we called it we modified a we said equal to 100 but which label a was it.
+
+29:08.650 --> 29:11.860
+It was the one in the global namespace.
+
+29:11.940 --> 29:14.170
+All right global and local scoping.
+
+29:14.310 --> 29:19.740
+So I really want to emphasize this a few times because that's really important.
+
+29:19.830 --> 29:27.390
+So when Python encounters a function at compile time not at runtime but when it first sees that def
+
+29:27.900 --> 29:31.630
+right or that lambda it says oh I'm going to create a function.
+
+29:31.940 --> 29:33.850
+I'm not going to have to do that.
+
+29:34.380 --> 29:35.270
+So what happens.
+
+29:35.310 --> 29:42.030
+It will scan basically for any labels or variables however you want to call those things that have values
+
+29:42.150 --> 29:43.730
+assigned to them.
+
+29:44.210 --> 29:44.500
+Right.
+
+29:44.550 --> 29:48.510
+Anywhere in the function it doesn't matter where it occurs in the function it's going to find all these
+
+29:48.510 --> 29:54.630
+assignments and what it was on the left hand side of that assignment those labels it's going to say
+
+29:54.930 --> 30:00.570
+hey if you haven't told me these are global they're going to be local.
+
+30:00.650 --> 30:05.270
+Remember it doesn't create the variables yet it doesn't create the namespace it doesn't create the scope
+
+30:05.300 --> 30:07.120
+because we haven't called the function.
+
+30:07.430 --> 30:11.220
+But it basically puts a side saying these are going to be local.
+
+30:11.240 --> 30:12.750
+These are going to be global.
+
+30:12.750 --> 30:13.960
+Right.
+
+30:14.120 --> 30:21.090
+So variables that are referenced but not assigned of value anywhere in the function will not be local.
+
+30:21.140 --> 30:27.650
+So if you say print true it's not going to say all true is a very is a you know has to be a local variable.
+
+30:27.650 --> 30:29.540
+And I'd say no it's not local.
+
+30:29.630 --> 30:31.850
+You're not assigning a value to it.
+
+30:31.910 --> 30:32.370
+Right.
+
+30:32.420 --> 30:34.250
+And you didn't declare it as global.
+
+30:34.250 --> 30:35.930
+So it's it's not local.
+
+30:35.990 --> 30:40.390
+I don't know what it is but it's not local and at runtime.
+
+30:40.390 --> 30:46.010
+Python will then look through the inclosing scopes to figure out what it is and if it's available somewhere.
+
+30:46.670 --> 30:50.180
+But it's only in cases where you're referencing a variable.
+
+30:50.270 --> 30:58.850
+But assigning a value to it as soon as you assign it becomes local unless you use the global keyword.
+
+30:58.870 --> 31:00.140
+So let's look at an example.
+
+31:00.220 --> 31:03.500
+Let's say we have equals 10 and we have this function here.
+
+31:03.550 --> 31:04.610
+Def phunk 1.
+
+31:04.720 --> 31:05.540
+Print a.
+
+31:05.890 --> 31:11.370
+What's happening here is that is referenced only and this entire function.
+
+31:11.450 --> 31:15.450
+So at compile time python the term is that is non-local.
+
+31:15.560 --> 31:20.870
+So when we run this we're actually going to print the value of the global variable when we call func
+
+31:20.870 --> 31:21.670
+1.
+
+31:21.890 --> 31:24.440
+It's going to print out 10.
+
+31:24.460 --> 31:25.900
+Now let's have another function let's say.
+
+31:25.900 --> 31:27.530
+Def phunk 2.
+
+31:27.670 --> 31:33.100
+And we set 8 equal to 100 what's happening here is that it's an assignment.
+
+31:33.100 --> 31:37.060
+So at compile time python says a is local.
+
+31:37.300 --> 31:44.670
+And so when we run phunk to when we call phunk to it will create a set and bind it to a hundred.
+
+31:44.680 --> 31:52.240
+Said its reference to that object in the local namespace so it will basically mask this a that in the
+
+31:52.240 --> 31:56.830
+global namespace let's say we have this function here.
+
+31:56.840 --> 32:01.520
+Def phunk three and global a and equal to 100.
+
+32:01.610 --> 32:04.760
+Now here Python sees the assignment.
+
+32:04.760 --> 32:12.670
+So normally it would say local but before we've actually assigned we said no global is global.
+
+32:12.710 --> 32:14.450
+So now Python recognizes that.
+
+32:14.530 --> 32:18.680
+OK so you mean the a that's in the global namespace.
+
+32:18.860 --> 32:22.640
+So it's going to say a will be in the global namespace.
+
+32:22.730 --> 32:23.970
+Now they may not exist.
+
+32:24.020 --> 32:26.610
+You could say global B because one hundred.
+
+32:26.720 --> 32:32.370
+After the function has exited you'll now have a variable called B in the global namespace.
+
+32:32.410 --> 32:32.810
+OK.
+
+32:32.840 --> 32:39.110
+Python will do that it's fine to assign a value or you can't reference one before it's been assigned
+
+32:39.110 --> 32:45.650
+something right you can't reference B if you haven't assigned a value to B but you can certainly assign
+
+32:45.740 --> 32:46.620
+a value to B.
+
+32:46.640 --> 32:48.160
+It will just create it.
+
+32:48.890 --> 32:53.780
+So at compile time it determines that a is global.
+
+32:53.780 --> 32:55.890
+What about this phone.
+
+32:55.910 --> 32:59.590
+For this is kind of the interesting one and this is where it kind of all comes together.
+
+32:59.720 --> 33:01.410
+What's going to happen here.
+
+33:02.120 --> 33:07.330
+Well remember at compile time Python looks at phunk fool.
+
+33:07.560 --> 33:09.870
+And what does it see and assignment.
+
+33:10.130 --> 33:10.810
+OK.
+
+33:11.560 --> 33:15.320
+Do we have we define that as global anywhere in this function.
+
+33:15.460 --> 33:16.280
+Nope.
+
+33:16.480 --> 33:19.280
+So what happens is local.
+
+33:19.370 --> 33:21.570
+So now is going to be local.
+
+33:21.620 --> 33:23.700
+So what happens when we call fonk for.
+
+33:23.810 --> 33:27.890
+I mean here we are referencing a is going to go and look at the A in the module.
+
+33:28.250 --> 33:33.620
+It should write because we said well if we can't find it in the local namespace then you need to look
+
+33:33.620 --> 33:39.020
+up in the enclosing namespace which is the global namespace so he doesn't exist.
+
+33:39.110 --> 33:47.500
+So we need to go look in the module but it does exist at that point in time when the function runs exists.
+
+33:47.500 --> 33:49.080
+It's in the namespace.
+
+33:49.100 --> 33:50.940
+It hasn't been assigned a value though.
+
+33:51.020 --> 33:54.370
+Right because we assign the value in the second line of code.
+
+33:54.470 --> 34:01.610
+So a exists and we're trying to reference it before we've assigned a value to it because now when we
+
+34:01.610 --> 34:08.600
+say print a Python knows is local because it's already made the determination at compile time that a
+
+34:08.600 --> 34:09.530
+was local.
+
+34:09.740 --> 34:13.020
+And so when we called func for we get a runtime error.
+
+34:13.460 --> 34:13.900
+Right.
+
+34:14.060 --> 34:20.730
+So it's not like it's it's going to use the global variable here and then make a local variable here.
+
+34:20.820 --> 34:21.260
+Right.
+
+34:21.320 --> 34:27.590
+If you have an assignment to a anywhere in the function it will then and you haven't said global 8 it
+
+34:27.590 --> 34:28.790
+will make it local.
+
+34:29.280 --> 34:33.060
+And so you can't start referencing it before you've assigned a value to it.
+
+34:33.140 --> 34:33.350
+Right.
+
+34:33.350 --> 34:39.200
+If you took this outside of the function and just had print it equals 100 in the module you would expect
+
+34:39.320 --> 34:43.420
+a runtime error because it's like while I haven't created a yet.
+
+34:43.550 --> 34:43.900
+Right.
+
+34:43.970 --> 34:45.640
+I haven't assigned a value to it yet.
+
+34:48.550 --> 34:52.790
+So let's switch to some code and let's see all these nitty gritty details in action.
+
+34:52.900 --> 34:53.650
+Thanks for watching.
+
+34:53.650 --> 34:54.610
+I'll see you in a bit.

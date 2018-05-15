@@ -1,0 +1,484 @@
+WEBVTT
+
+00:00.210 --> 00:03.590
+High I want to talk about using parameter defaults.
+
+00:03.630 --> 00:08.270
+And very often with function parameters we use none as a default.
+
+00:08.310 --> 00:13.380
+And then that allows us to determine if the user specified an argument for that parameter or not.
+
+00:13.380 --> 00:21.660
+Because if the parameter value inside the function is none then we say OK the user doesn't specify an
+
+00:21.660 --> 00:27.900
+actual value for that parameter but there's a potential issue because what happens if we need to differentiate
+
+00:27.900 --> 00:29.330
+between the following.
+
+00:29.370 --> 00:31.940
+The argument wasn't provided at all.
+
+00:31.950 --> 00:35.940
+So in other words we're using our current system we'd say well if it's none.
+
+00:36.180 --> 00:42.170
+But what if we wanted to differentiate that the user actually passed a non value for the argument.
+
+00:42.540 --> 00:44.820
+Well we don't have a way of differentiating those two things.
+
+00:44.820 --> 00:49.990
+We can tell if there is a non non-value we can tell if the value is none.
+
+00:50.070 --> 00:56.400
+But if the value is none we can't tell the difference between it was just the default or it was actually
+
+00:56.400 --> 00:58.080
+passed in as an argument.
+
+00:58.350 --> 00:59.500
+So let's try this function.
+
+00:59.520 --> 01:05.750
+Let's try this validate function and or take a single parameter with a default of none.
+
+01:05.880 --> 01:18.550
+And then we'll say if 8 is not none will print that the argument was provided else.
+
+01:18.570 --> 01:23.160
+In other words we don't have a is none will say print argument
+
+01:26.670 --> 01:29.290
+was not provided.
+
+01:29.370 --> 01:30.070
+OK.
+
+01:31.170 --> 01:34.250
+So now if we use this function you'll see what the problem is.
+
+01:34.260 --> 01:39.280
+Let's say that I call validate with nothing and it says The argument was not provided.
+
+01:39.300 --> 01:44.660
+Which is correct if we call validate we have some value tells us the argument was provided.
+
+01:44.880 --> 01:48.340
+But what happens if I do this validate and I actually pass in.
+
+01:48.380 --> 01:49.480
+None right.
+
+01:49.490 --> 01:52.490
+I could also pass it in as a keyword argument if I wanted to.
+
+01:52.710 --> 01:54.810
+But even this way it doesn't matter.
+
+01:54.930 --> 01:57.570
+It tells me that the argument was not provided.
+
+01:57.570 --> 01:59.920
+And of course just to verify.
+
+01:59.920 --> 02:02.720
+The same thing happens if I pass it as a keyword argument.
+
+02:02.790 --> 02:06.780
+So that's a problem we now can no longer differentiate between.
+
+02:06.780 --> 02:08.600
+It was passed in as none.
+
+02:08.640 --> 02:12.620
+Or it wasn't passed in and sometimes we may want to be able to do that.
+
+02:12.630 --> 02:15.310
+So how could we approach that situation.
+
+02:15.510 --> 02:17.660
+Well we can use what's called a sentinel value.
+
+02:17.670 --> 02:23.670
+So it's set up a sentinel value and we have to make it something that's maybe very unlikely that the
+
+02:23.670 --> 02:25.050
+user is going to pass in.
+
+02:25.050 --> 02:28.640
+But what is it going to be what is an unlikely value.
+
+02:28.650 --> 02:33.990
+Well you know sometimes you'll see people will use maybe minus nine nine nine or they'll say something
+
+02:33.990 --> 02:37.020
+like you know this is the default value.
+
+02:37.290 --> 02:38.590
+You know something like that.
+
+02:38.610 --> 02:42.260
+Well this is an empty default value you know.
+
+02:42.270 --> 02:43.940
+And then you can test for that in your code.
+
+02:43.950 --> 02:49.470
+But that's always going to be a problem because you'll never know the user could actually pass in that
+
+02:49.470 --> 02:55.200
+string or that sentinel value to the argument in which case that logic would break down.
+
+02:55.470 --> 02:57.790
+So that's not the safest way to do it.
+
+02:57.810 --> 03:04.450
+The Sentinel is certainly a good approach but using a fixed value of some kind is dangerous.
+
+03:04.680 --> 03:06.140
+So what can we do.
+
+03:06.180 --> 03:13.380
+Well you have to remember what happens when we create objects we get IDs we have memory IDs and if we
+
+03:13.380 --> 03:19.170
+create two different objects even though they're the same type we are going to have two different memory
+
+03:19.170 --> 03:19.830
+addresses.
+
+03:19.830 --> 03:25.170
+So what I mean by this is let's say I create this object and I'm going to use the generic object that
+
+03:25.170 --> 03:26.510
+we have in Python.
+
+03:26.670 --> 03:29.400
+I can look at the idea and I have a of memory address.
+
+03:29.400 --> 03:35.540
+Now I can go ahead and create another instance of Object and our user may be doing that somewhere else
+
+03:35.550 --> 03:38.640
+here I'm just doing it in the same you know model it doesn't matter.
+
+03:38.790 --> 03:45.360
+But the idea of B will not be the same and there is no way for me to create another object and that
+
+03:45.450 --> 03:48.060
+memory specific memory address.
+
+03:48.390 --> 03:53.800
+The only way that I can get back to this memory address is by referencing the memory address that a
+
+03:53.850 --> 03:55.200
+is referencing.
+
+03:55.200 --> 04:00.810
+So if a user is calling a function and we've used this object here as long as they have no way of getting
+
+04:00.810 --> 04:03.840
+their hands on this will be safe.
+
+04:03.840 --> 04:05.750
+So that's the basic idea.
+
+04:05.850 --> 04:11.100
+So we're going to create an instance of the Object class because that's guaranteed to result in the
+
+04:11.100 --> 04:13.650
+object that a user cannot pass to us.
+
+04:13.650 --> 04:15.560
+They have no way of getting their hands on that object.
+
+04:15.560 --> 04:16.970
+At least they can.
+
+04:16.980 --> 04:21.220
+They always can of course but they have to actually really work hard to do that.
+
+04:21.390 --> 04:24.660
+And so therefore they'll be wanting to do that very specifically.
+
+04:24.660 --> 04:27.110
+It's not going to be an accidental mistake.
+
+04:27.240 --> 04:32.380
+So let's go ahead and create a variable in our global scope.
+
+04:32.380 --> 04:36.990
+I am going to call it underscore Sentinel ingenues they underscore that if somebody sees this they'll
+
+04:36.990 --> 04:39.260
+understand this is supposed to be a private variable
+
+04:42.500 --> 04:48.020
+so we'll create that Sentinel object and know what I'm going to do is I'm going to take this code over
+
+04:48.020 --> 04:48.960
+here.
+
+04:49.220 --> 04:53.840
+So I'm going to change it to be the default center.
+
+04:54.200 --> 04:56.990
+And now of course I'm not checking if is not None.
+
+04:57.020 --> 05:00.800
+I am going to check to say that A is not the Sentinel.
+
+05:01.040 --> 05:06.430
+So if is not the central That means that the argument was provided otherwise it wasn't provided.
+
+05:06.500 --> 05:09.570
+And let's see how that now changes what's happening here.
+
+05:09.760 --> 05:11.590
+Vakil validate without any arguments.
+
+05:11.600 --> 05:16.380
+We get that the argument was not provided by call it with some value.
+
+05:16.520 --> 05:21.620
+It tells me the argument was provided and here's the differentiating thing if I called with none.
+
+05:21.620 --> 05:27.220
+Now I get the same result that the argument was provided and that's exactly what I was looking for.
+
+05:29.300 --> 05:36.350
+So this involved having to really set up the sentinel value in the model so we can actually achieve
+
+05:36.350 --> 05:41.180
+the same results without having to create our sentinel object outside of the function we can put it
+
+05:41.180 --> 05:43.130
+directly inside the function.
+
+05:43.130 --> 05:47.840
+Of course we're going to need to be able to get our hands on what that specific object is.
+
+05:47.840 --> 05:48.160
+Right.
+
+05:48.170 --> 05:49.780
+We cannot do something like that.
+
+05:49.790 --> 05:50.840
+Let me show you.
+
+05:51.230 --> 05:55.480
+If you try and do something like that as a equals object.
+
+05:55.610 --> 06:02.200
+And then if A is not object then the an argument was provided.
+
+06:02.840 --> 06:04.850
+Let's see what happens if we do something like this.
+
+06:04.850 --> 06:07.840
+Now if I say validate with let's say 10.
+
+06:07.850 --> 06:09.280
+The argument was provided.
+
+06:09.500 --> 06:15.590
+If I say validate you have none it says The argument was provided and if I validate not passing anything
+
+06:15.590 --> 06:18.160
+else it says The argument was provided.
+
+06:18.170 --> 06:18.880
+Why.
+
+06:18.920 --> 06:24.560
+Because this object instance and this object instance are not the same.
+
+06:24.560 --> 06:27.450
+So we can try this approach over here.
+
+06:27.470 --> 06:33.560
+The only difference is how we recover what the default is for a what this value is we need to be able
+
+06:33.560 --> 06:40.240
+to get a hold of that and we can do that by using a special dictionary that the function has.
+
+06:40.300 --> 06:50.000
+So we look at the Dunder defaults and we've seen the full dictionary when we were looking at named tables
+
+06:50.000 --> 06:52.610
+and setting up the full values for named tables.
+
+06:52.880 --> 06:56.070
+But here in this instance I have a single element.
+
+06:56.300 --> 07:01.260
+And so the default is going to be the first element in the default dictionary.
+
+07:01.430 --> 07:09.180
+So my default for a is simply that over here and now I can go ahead and test it this way.
+
+07:09.800 --> 07:12.470
+So if it's not the fault of the argument was provided.
+
+07:12.530 --> 07:13.840
+So now let's see what happens.
+
+07:13.840 --> 07:16.540
+We can validate with a value that's fine.
+
+07:16.550 --> 07:22.380
+We can validate with nothing that's fine the argument was not provided and we can validate passing in
+
+07:22.490 --> 07:26.920
+none in which case we get correctly that the argument was provided.
+
+07:27.900 --> 07:33.990
+Now we can expand this finally to be with multiple parameters and key word only parameters as well.
+
+07:34.020 --> 07:34.990
+Let's try it out.
+
+07:35.220 --> 07:43.380
+Let's say validate and a is going to be the default of object B is going to be again a default of object.
+
+07:43.380 --> 07:47.910
+Now you'll realize that these two objects are not going to be the same because they're instantiated
+
+07:47.910 --> 07:50.370
+separately so they will not be the same.
+
+07:50.760 --> 07:53.400
+Then I'm going to make some keyword only argument.
+
+07:53.550 --> 07:56.610
+And I'm also going to make it with a default of object.
+
+07:56.610 --> 08:00.750
+So now I've got free variables in here and I need to retrieve the defaults.
+
+08:00.890 --> 08:08.760
+These memory addresses essentially of each of these three objects that were specified as default because
+
+08:08.760 --> 08:12.300
+remember they get created when the function is created.
+
+08:12.300 --> 08:17.060
+So now in the when the function is running I need to be able to get a handle on those objects.
+
+08:17.070 --> 08:20.200
+So let's go ahead positionally are straightforward.
+
+08:20.370 --> 08:24.810
+We are just going to retrieve them by position position unless we retrieve them by position.
+
+08:24.810 --> 08:32.150
+So they will be a 0 and B will be at position 1.
+
+08:32.150 --> 08:33.410
+Now what about the keyword.
+
+08:33.570 --> 08:41.810
+Well the default for the keyword we can actually get from a different dictionary called the KW defaults.
+
+08:41.910 --> 08:43.500
+So we got this dictionary here.
+
+08:43.590 --> 08:50.150
+And I just pass in the name of the keyword argument that I want to retrieve the default for.
+
+08:50.760 --> 08:56.310
+So this is how I would get all three objects and obviously these are not going to be the same values.
+
+08:56.310 --> 09:03.840
+In fact if you want we can from inside here we can print default A is default B and then we can also
+
+09:03.840 --> 09:05.480
+print default.
+
+09:05.480 --> 09:07.190
+B is default.
+
+09:07.200 --> 09:10.240
+KW So we'll have a function print that out.
+
+09:10.440 --> 09:13.290
+And now we have the same logic we had before.
+
+09:13.350 --> 09:15.030
+For each of our arguments.
+
+09:15.030 --> 09:20.370
+So now if a is not default a we can do the same thing with B.
+
+09:20.690 --> 09:22.200
+So I'm just cutting and pasting
+
+09:27.290 --> 09:36.340
+pro-se argument a was provided argument a was not provided argument B was provided argument B was not
+
+09:36.340 --> 09:37.110
+provided.
+
+09:37.360 --> 09:41.560
+And then we could of course do the same thing with KW as well.
+
+09:42.820 --> 09:50.560
+So now that we have that we can just simply call a function so we may say validate 100 200 KW equals
+
+09:50.560 --> 09:50.920
+none.
+
+09:50.920 --> 09:54.630
+So you'll notice I'm actually passing in the keyword only argument.
+
+09:54.820 --> 10:00.300
+So first of all a print statement is false in both cases so that's what exactly what we expected.
+
+10:00.310 --> 10:04.890
+This object is not the same as this object and it's not the same as this object.
+
+10:05.020 --> 10:06.610
+So we may remove the print statements.
+
+10:06.610 --> 10:07.820
+We don't need them now.
+
+10:08.230 --> 10:10.950
+Rerun that and as we can see argument was provided.
+
+10:10.990 --> 10:14.810
+B was provided and the keyword argument was provided.
+
+10:14.860 --> 10:25.280
+If we call validate let's say we miss out we say maybe B equals 200 and kw equals non.
+
+10:26.200 --> 10:27.970
+Then we'll see that was not provided.
+
+10:27.970 --> 10:30.350
+B was provided KW was provided.
+
+10:30.470 --> 10:34.710
+If we do it this way then obviously a was provided and B was not provided.
+
+10:34.870 --> 10:42.330
+And if we don't specify KW we'll see that the type of right that KW was not provided either.
+
+10:43.760 --> 10:50.210
+So this is a safe way of setting up defaults for parameters and functions where you want to be able
+
+10:50.210 --> 10:55.640
+to differentiate between of value was provided including none.
+
+10:55.970 --> 11:00.050
+Or it wasn't provided at all.
+
+11:00.050 --> 11:00.520
+All right.
+
+11:00.560 --> 11:02.630
+Thanks for watching and I'll see you in the next video.
