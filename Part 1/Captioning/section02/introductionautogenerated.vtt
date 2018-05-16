@@ -4,7 +4,7 @@ WEBVTT
 Hi and welcome to the section which is going to be a quick refresher on Python 3.
 
 00:06.090 --> 00:11.820
-First thing we'll look at will be the Python type hierarchy and we'll limit our focus to the data types
+First thing we'll look at will be the Python type hierarchy, and we'll limit our focus to the data types
 
 00:11.820 --> 00:15.450
 that we're going to work with in the schools.
@@ -16,10 +16,10 @@ Next we'll look at multi-line statements and strings.
 Now we are interested in multi-line statements because we sometimes want to write our code over multiple
 
 00:24.030 --> 00:29.610
-lines for readability reasons we don't want to have to scroll back and forth necessarily as we're looking
+lines for readability reasons. We don't want to have to scroll back and forth necessarily as we're looking
 
 00:29.610 --> 00:32.670
-at a line of code well just to break things up neatly.
+at a line of code, well, just to break things up neatly.
 
 00:32.910 --> 00:36.510
 And then while we're at it we'll also look at multiline strings.
@@ -28,10 +28,10 @@ And then while we're at it we'll also look at multiline strings.
 Then we'll look at naming conventions.
 
 00:38.640 --> 00:41.540
-How do we name our variables how do we name our methods.
+How do we name our variables, how do we name our methods.
 
 00:41.550 --> 00:48.780
-How do we name classes and we'll look at some of the rules and some of the suggestions for these naming
+How do we name classes, and we'll look at some of the rules and some of the suggestions for these naming
 
 00:48.960 --> 00:50.130
 conventions.
@@ -43,16 +43,16 @@ And it really becomes important to understand these naming conventions when we s
 oriented programming.
 
 00:55.650 --> 01:00.890
-But we'll cover that in a later section in the course next we'll look at conditionals.
+But we'll cover that in a later section in this course. Next we'll look at conditionals.
 
 01:00.940 --> 01:05.850
-So like if statements for example are conditionals then we'll look at functions.
+So like if statements for example are conditionals. Then we'll look at functions.
 
 01:05.850 --> 01:10.710
-Now this is not going to be a deep dive into functions which is going to look at the basics of how to
+Now this is not going to be a deep dive into functions, which is going to look at the basics of how to
 
 01:10.860 --> 01:15.130
-call a function how to define our own functions and parameters.
+call a function, how to define our own functions, and parameters.
 
 01:15.240 --> 01:16.520
 But very simple stuff.
@@ -61,10 +61,10 @@ But very simple stuff.
 Just the basics.
 
 01:18.630 --> 01:23.940
-Then we'll take a look at loops and in particular we'll cover the while loop and the for loop and then
+Then we'll take a look at loops, and in particular we'll cover the while loop and the for loop, and then
 
 01:23.940 --> 01:30.210
-we'll also look at the break and continue statements and we'll also look at how they behave when you
+we'll also look at the break and continue statements, and we'll also look at how they behave when you
 
 01:30.210 --> 01:32.640
 have them and try statements inside a loop.
