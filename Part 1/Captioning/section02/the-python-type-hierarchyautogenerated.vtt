@@ -1,25 +1,25 @@
 WEBVTT
 
 00:00.360 --> 00:04.860
-Hi and welcome to this lesson on the Python type hierarchy.
+Hi, and welcome to this lesson on the Python type hierarchy.
 
 00:04.950 --> 00:11.220
-Now we're only going to cover a subset of this hierarchy and in particular this is the subset that we're
+Now we're only going to cover a subset of this hierarchy, and in particular this is the subset that we're
 
 00:11.220 --> 00:12.670
-going to cover in this cause.
+going to cover in this course
 
 00:12.720 --> 00:16.630
-And quite a bit of depth along with some other things as well.
+in quite a bit of depth, along with some other things as well.
 
 00:17.040 --> 00:18.970
 So we can start with numbers.
 
 00:18.990 --> 00:24.990
-Numbers are something we use you know all the time in programming and we can divide numbers up into
+Numbers are something we use you know all the time in programming, and we can divide numbers up into
 
 00:24.990 --> 00:30.810
-two different sections integral numbers and non integral numbers and by interval numbers I mean things
+two different sections: integral numbers and non integral numbers. and by integral numbers I mean things
 
 00:30.810 --> 00:32.040
 like integers right.
@@ -28,22 +28,22 @@ like integers right.
 One two three.
 
 00:33.210 --> 00:37.440
-But we also have booleans booleans are actually also integral numbers.
+But we also have booleans. Booleans are actually also integral numbers.
 
 00:37.500 --> 00:43.560
-They're actually integers and non-integral numbers we've got a few more floats is probably the most
+They're actually integers. And non-integral numbers we've got a few more: floats is probably the most
 
 00:43.560 --> 00:44.220
 common one.
 
 00:44.220 --> 00:51.540
-So if you write you know equals 3.1 for less 3.1 for is a float which is implemented as a double in
+So if you write you know a equals 3.14 that 3.14 is a float, which is implemented as a double in
 
 00:51.700 --> 01:00.000
-the underlying see who also have complex numbers complex numbers remember numbers that have a real and
+the underline c. Who also have complex numbers. Complex numbers, remember, are numbers that have a real and
 
 01:00.000 --> 01:01.130
-imaginary payout.
+imaginary part.
 
 01:01.290 --> 01:02.210
 So we'll cover that.
@@ -52,13 +52,13 @@ So we'll cover that.
 Not really in depth.
 
 01:03.570 --> 01:08.890
-The Course is not about complex numbers but they are actually implemented in Python.
+This Course is not about complex numbers. But they are actually implemented in Python.
 
 01:09.330 --> 01:15.540
-We also look at decimal numbers now decimals and floats kind of values for the same thing to represent
+We'll also look at decimal numbers. Now decimals and floats kind of are used for the same thing, to represent
 
 01:15.540 --> 01:21.990
-real numbers that are not integral numbers like 3.1 for but it gives us a little bit more control on
+real numbers that are not integral numbers like 3.14 But it gives us a little bit more control on
 
 01:21.990 --> 01:24.180
 the precision of the numbers.
@@ -70,67 +70,67 @@ Right.
 And there's different ways that that precision is implemented between decimals and floats.
 
 01:29.460 --> 01:36.990
-And we'll cover that in some detail in a later cause fractions while fractions is just basically your
+And we'll cover that in some detail in a later course. Fractions, well, fractions is just basically your
 
 01:36.990 --> 01:42.960
-rational numbers you know one third one fifth one eighth on twenty seven teens.
+rational numbers you know one third one fifth one eighth, you know, twenty seventeens.
 
 01:43.080 --> 01:44.660
 Things like that.
 
 01:45.030 --> 01:50.070
-That's an interesting way of dealing with numbers because let's say you deal with a number like one
+That's an interesting way of dealing with numbers, because let's say you deal with a number like one
 
 01:50.210 --> 01:51.210
-third.
+third. Ok.
 
 01:51.360 --> 01:52.950
 That's irrational numbers.
 
 01:53.280 --> 01:55.590
-And it has a value a very specific value.
+And it has a value, a very specific value.
 
 01:55.830 --> 02:01.650
 ONE-THIRD But if you try and represent that as a float or even a decimal then you're really looking
 
 02:01.650 --> 02:04.350
-at 0.3 3:03 recurring.
+at 0.333 recurring.
 
 02:04.470 --> 02:10.710
-And we cannot represent that exactly in the programming language that we're using in any programming
+And we cannot represent that exactly in the programming language that we're using. In any programming
 
 02:10.710 --> 02:14.880
-language because we don't have an infinite number of precision right.
+language, because we don't have an infinite number of precision, right.
 
 02:14.880 --> 02:20.250
-We don't have an infinite amount of precision to store 0.3 3:03 recurring which is an infinite you know
+We don't have an infinite amount of precision to store 0.333 recurring, which is an infinite you know
 
 02:20.370 --> 02:21.170
 recurrence.
 
 02:21.390 --> 02:28.290
-So if we have to really deal with exact numbers so we want one third plus one third plus one third to
+So, if we have to really deal with exact numbers, so we want one third plus one third plus one third to
 
 02:28.290 --> 02:30.240
 be precisely equal to 1.
 
 02:30.390 --> 02:35.600
-Then we need to use fractions the next time.
+Then we need to use fractions. The next part
 
 02:35.620 --> 02:42.910
-Our collections now collections can be broadly divided into three different but we have sequences sets
+are collections. Now collections can be broadly divided into three different parts. We have sequences, sets
 
 02:42.970 --> 02:44.220
 and mappings.
 
 02:44.560 --> 02:50.380
-So in the sequences we can further subdivide that into mutable sequences and immutable sequences and
+So in the sequences, we can further subdivide that into mutable sequences and immutable sequences and
 
 02:50.380 --> 02:56.920
-the ones that will cover in those calls are lists which are mutable sequences and tuples which are immutable
+the ones that we'll cover in this course are lists, which are mutable sequences, and tuples which are immutable
 
 02:56.920 --> 03:04.270
-sequences they're essentially the immutable variant of lists but strings is also a sequence type and
+sequences. They're essentially the immutable variant of lists. But strings is also a sequence type. And
 
 03:04.360 --> 03:08.160
 it is also an immutable type.
@@ -139,43 +139,43 @@ it is also an immutable type.
 Then we have sets.
 
 03:09.410 --> 03:15.910
-Now sets can also be broken down into mutable and immutable and in this case will cover sets which other
+Now sets can also be broken down into mutable and immutable, and in this case we'll cover sets which other
 
 03:15.940 --> 03:17.530
 mutable sets.
 
 03:17.600 --> 03:23.010
-And we also have something called Frozen sets which are the immutable equivalent of sets.
+And we also have something called Frozen Sets which are the immutable equivalent of sets.
 
 03:23.060 --> 03:29.450
-And lastly we'll look at dictionaries now dictionaries and sets will see later are actually related.
+And lastly we'll look at dictionaries. Now dictionaries and sets, we'll see later, are actually related.
 
 03:29.450 --> 03:32.000
 They're actually implemented very similarly.
 
 03:32.060 --> 03:36.630
-You know both sets and dictionaries are basically hash maps.
+You know, both sets and dictionaries, are basically hash maps.
 
 03:36.740 --> 03:39.680
 The only difference is that sets are not key value pairs.
 
 03:39.680 --> 03:44.220
-It's basically like having a dictionary that only has keys have no values.
+It's basically like having a dictionary that only has keys but no values.
 
 03:44.240 --> 03:48.830
-So we'll look at into that in a lot more detail in a later car.
+So we'll look at into that in a lot more detail in a later par..
 
 03:48.880 --> 03:53.660
-Section then we also have something called callable.
+section. Then we also have something called Callables.
 
 03:53.680 --> 03:54.690
-Now what are callable.
+Now what are callables?
 
 03:54.780 --> 03:55.500
-Callable is.
+Well Callables are
 
 03:55.540 --> 04:00.590
-Anything that you can invoke anything that you can call so like a function for example a function is
+anything that you can invoke, anything that you can call. So like a function for example. A function is
 
 04:00.590 --> 04:01.770
 a callable.
@@ -184,16 +184,16 @@ a callable.
 So obviously user defined functions.
 
 04:05.110 --> 04:10.810
-Then we have generators which are things that we can use to do iteration and we'll get into a lot more
+Then we have generators, which are things that we can use to do iteration and we'll get into a lot more
 
 04:10.810 --> 04:15.610
-detail about generators in a later class than we have classes themselves.
+detail about generators in a later class, than we have classes themselves.
 
 04:15.610 --> 04:17.220
 Classes are callable.
 
 04:17.380 --> 04:22.720
-We have instance methods which are just functions but they're you know inside a class so they become
+We have instance methods, which are just functions, but they're you know inside a class so they become
 
 04:22.780 --> 04:26.840
 instance methods once the class gets instantiated.
@@ -202,19 +202,19 @@ instance methods once the class gets instantiated.
 We also have class instances that are actually callable.
 
 04:30.310 --> 04:35.190
-You can define this method here dhanda called under.
+You can define this method here, dunder call dunder.
 
 04:35.380 --> 04:41.440
-That allows the class to become callable the object or the class instance to become callable and we'll
+That allows the class to become callable, the object or the class instance to become callable. And we'll
 
 04:41.440 --> 04:46.760
 get into that again in a lot more detail in the object oriented section.
 
 04:46.940 --> 04:51.430
-And then you have built in functions right Python has a lot of built in functions like Len.
+And then you have built in functions, right. Python has a lot of built in functions like len().
 
 04:51.540 --> 04:57.320
-You know to get the length of the sequence for example open you want to open a file you also have built
+You know to get the length of the sequence for example or open() you want to open a file. You also have built
 
 04:57.320 --> 04:58.330
 in methods.
@@ -223,16 +223,16 @@ in methods.
 And really they're no different than instance methods.
 
 05:01.640 --> 05:06.920
-But for example if you have a list where lists have an append method so you can append an element to
+But for example if you have a list, well, lists have an append() method so you can append an element to
 
 05:06.920 --> 05:08.200
 the end of the list.
 
 05:08.210 --> 05:14.120
-These are all called ovals and then we have these things hanging out there that kind of are you know
+These are all callables. And then we have these things hanging out there that, kind of are you know,
 
 05:14.120 --> 05:18.890
-out on their own and the singleton objects like none that we've seen before.
+out on their own, and are singleton objects like None that we've seen before.
 
 05:18.980 --> 05:19.270
 Right.
@@ -244,19 +244,19 @@ None.
 Is it as an object that exists.
 
 05:22.130 --> 05:28.160
-And whenever you set a variable to none it always points back to the same memory address that we have
+And whenever you set a variable to None it always points back to the same memory address that we have
 
 05:29.230 --> 05:30.760
-for the non-object.
+for the None object.
 
 05:30.870 --> 05:32.770
-We also have something called not implemented.
+We also have something called NotImplemented.
 
 05:32.770 --> 05:36.430
 We'll take a look at that in more detail when we do object oriented programming.
 
 05:36.850 --> 05:41.710
-And then we have the ellipsis operator again we'll look into that in detail when we look at sequences
+And then we have the ellipsis() operator. Again we'll look into that in detail when we look at sequences
 
 05:42.040 --> 05:44.440
 and you know strings and lists and so on.
