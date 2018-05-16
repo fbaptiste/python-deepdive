@@ -19,40 +19,40 @@ Right.
 So that's we'd call that a physical new line.
 
 00:25.260 --> 00:33.840
-Now that our code is then passed by the python compilers and it's then combines Southern lines and makes
+Now that our code is then passed by the python compilers and it then combines certain lines and makes
 
 00:33.840 --> 00:37.660
-up logical lines of code and illogical lines of code.
+up logical lines of code and your logical lines of code are
 
 00:37.690 --> 00:43.710
-Then tokenized so that the Python compiler and the interpreter can you know basically interpret what
+then tokenized, so that the Python compiler and the interpreter can, you know, basically interpret what
 
 00:43.770 --> 00:47.540
 your code is trying to do and actually execute that on the computer.
 
 00:48.210 --> 00:55.050
-So physical lines of code will end of a physical newline character and logical lines of code once they've
+So - physical lines of code will end on a physical newline character; and logical lines of code, once they've
 
 00:55.050 --> 00:59.470
-been tokenized and passed and so on will end over a new line token.
+been tokenized and passed and so on, will end on a newline token.
 
 00:59.520 --> 01:04.710
-So how that gets done and so on isn't really important but what's important is that we have to realize
+So how that gets done and so on isn't really important, but what's important is that we have to realize
 
 01:04.710 --> 01:10.910
-that there's a difference between a physical newline character and not a logical newline token that
+that there's a difference between a physical newline character and a logical newline token. They're
 
 01:10.920 --> 01:12.570
 not necessarily the same thing.
 
 01:12.570 --> 01:15.810
-Very often they are but not always.
+Very often they are, but not always.
 
 01:15.870 --> 01:22.860
-So sometimes physical new lines are ignored and they're ignored in order to combine multiple physical
+So sometimes, physical new lines are ignored, and they're ignored in order to combine multiple physical
 
 01:22.860 --> 01:30.160
-lines into a single logical line of code which is then terminated by the logical newline token.
+lines into a single logical line of code ,which is then terminated by the logical newline token.
 
 01:30.360 --> 01:35.700
 And that's what allows us to write code you know over multiple lines that technically should be written
@@ -67,13 +67,13 @@ Right.
 We can actually write it over multiple lines.
 
 01:39.600 --> 01:40.860
-And why would we do that.
+And why would we do that?
 
 01:40.860 --> 01:42.820
-It's really for readability right.
+It's really for readability, right.
 
 01:42.840 --> 01:49.890
-It allows us to make our code more easy to read and that's really really important because you know
+It allows us to make our code more easy to read, and that's really really important. Because you know
 
 01:49.920 --> 01:55.740
 the compiler the interpreter really doesn't care you know whether you you know write it over one line
@@ -85,31 +85,31 @@ over two lines you know at the end of the day it's going to recombine lines into
 as needed.
 
 02:02.260 --> 02:04.390
-It's going to tokenize everything you know.
+It's going to tokenize everything, you know.
 
 02:04.410 --> 02:07.140
 It doesn't care about human readability.
 
 02:07.140 --> 02:11.970
-But as developers we need to care about human readability because we are reading our code.
+But as developers, we need to care about human readability, because we are reading our code.
 
 02:11.970 --> 02:17.730
-Other people might be reading our code or you might even be reading your code six months later and trying
+Other people might be reading our code or - you might even be reading your code six months later and trying
 
 02:17.730 --> 02:19.730
-to figure out what was I doing.
+to figure out: what was I doing?
 
 02:19.740 --> 02:24.810
-So it's really important to make code readable simple to put comments it's important to format things
+So it's really important to make code readable. It's important to put comments, it's important to format things
 
 02:24.810 --> 02:25.580
 nicely.
 
 02:25.830 --> 02:33.190
-And this allows us to do that so the conversion between physical and logical newlines right.
+And this allows us to do that. So this conversion between physical and logical newlines, right,
 
 02:33.190 --> 02:40.730
-Thus the removal of physical newline characters is done either implicitly or explicitly implicitly in
+this removal of physical newline characters, is done either implicitly or explicitly. Implicitly in
 
 02:40.730 --> 02:45.580
 some cases and in other cases we have to do explicit line breaks.
@@ -121,13 +121,13 @@ So let's take a look at the implicit first.
 So for implicit really we can use things like expressions which are like lists literals right that start
 
 02:54.650 --> 03:01.520
-and end with square brackets topples with the round parentheses dictionaries that use the curly braces
+and end with square brackets [], tuples with the round parentheses (), dictionaries that use the curly braces {}
 
 03:01.880 --> 03:04.180
 and sets that also use curly braces.
 
 03:04.220 --> 03:11.060
-And as I said before it kind of makes sense because dictionaries and sets are very very tightly related.
+And as I said before, it kind of makes sense, because dictionaries and sets are very very tightly related.
 
 03:12.270 --> 03:18.060
 And then also function arguments and parameters can also be split over multiple lines.
@@ -139,16 +139,16 @@ And they also support inline comments.
 So let's take a look at how this works.
 
 03:23.940 --> 03:27.820
-So for example for this list over here one two three.
+So for example for this list over here one two three,
 
 03:28.020 --> 03:30.270
-You don't have to write it over a single line.
+you don't have to write it over a single line.
 
 03:30.270 --> 03:33.090
 You could actually break it up over multiple lines.
 
 03:33.300 --> 03:38.100
-And these physical new lines will be implicitly removed by Python.
+And these physical newlines will be implicitly removed by Python.
 
 03:38.100 --> 03:42.330
 Now in this case it doesn't make much sense to write this list this way but suppose that these were
@@ -163,7 +163,7 @@ to read.
 Or maybe you have a nested structure where you have dictionaries that contain lists that contain dictionaries
 
 03:55.020 --> 03:59.220
-that are very typical of you of things like Jaison objects for example.
+that are very typical of you know things like JSON objects for example.
 
 03:59.220 --> 04:04.800
 Then you probably will want to break that over multiple lines and do nice indenting so it's easy to
@@ -175,37 +175,37 @@ understand and read that particular object.
 You can also include inline comments.
 
 04:11.610 --> 04:17.940
-So at the end of every line after your you know before your physical newline character you can insert
+So at the end of every line after your you know before your physical newline character, you can insert
 
 04:17.940 --> 04:20.220
 a comment that will be stripped out by Python.
 
 04:20.220 --> 04:24.600
-So this is perfectly legal to do something with functions.
+So this is perfectly legal to do. Same thing with functions.
 
 04:24.600 --> 04:29.850
-You don't have to write all your parameters over a single line you may write over multiple lines.
+You don't have to write all your parameters over a single line, you may write over multiple lines.
 
 04:29.850 --> 04:32.130
 And again it's for readability.
 
 04:32.130 --> 04:36.390
-You can even comment let's say certain parameters if you want this way.
+You can even comment, let's say, certain parameters if you want this way.
 
 04:36.840 --> 04:41.580
-And then when you call the function while you can do the same thing you can break up your arguments
+And then when you call the function, well, you can do the same thing, you can break up your arguments
 
 04:41.580 --> 04:43.080
 over multiple lines.
 
 04:43.080 --> 04:48.970
-You can even insert comments rights within you know before you do your newline character.
+You can even insert comments, right, within you know before you do your newline character.
 
 04:49.830 --> 04:55.710
-So remember that what happens at the end of the day is that this comment is tricked out and this new
+So, remember that what happens at the end of the day, is that this comment is stripped out, and this new
 
 04:55.710 --> 05:01.590
-line and this new line are stripped out and you end up with def my phunk a comma becomes seems as if
+line and this new line are stripped out, and you end up with def my_func(a, b, c) as if
 
 05:01.590 --> 05:02.730
 you had written that.
@@ -220,76 +220,76 @@ line.
 And the same thing happens here.
 
 05:11.130 --> 05:15.830
-This comment here is going to get stripped out the newline character overyear is going to get stripped
+This comment here is going to get stripped out the newline character over here is going to get stripped
 
 05:15.830 --> 05:16.280
 out.
 
 05:16.470 --> 05:22.430
-And this is going to become my phunk 10 comma 20 30.
+And this is going to become my_func(10, 20, 30).
 
 05:22.640 --> 05:25.340
-So this is where implicit works.
+So, this is where implicit works.
 
 05:25.360 --> 05:31.540
-Now there are sometimes cases where we have long statements and we want to break those up over multiple
+Now there are sometimes cases where we have long statements, and we want to break those up over multiple
 
 05:31.540 --> 05:39.750
-physical lines as well but Python will not do implicit removal of your newline characters in that case.
+physical lines as well, but Python will not do implicit removal of your newline characters in that case.
 
 05:39.880 --> 05:42.230
 You have to explicitly specify that.
 
 05:42.460 --> 05:48.130
-I'm doing a continuation of the code and you do that by using the continuation character the backslash
+I'm doing a continuation of the code. And you do that by using the continuation character, the backslash
 
 05:48.130 --> 05:49.370
 character.
 
 05:49.870 --> 05:55.660
-So multiple line statements are not implicitly converted into a single logical line.
+So multiple line statements are not implicitly converted, ok, into a single logical line.
 
 05:55.660 --> 05:57.870
-Keep that in mind so you have to use the backslash.
+Keep that in mind, so you have to use the backslash.
 
 05:58.120 --> 06:03.790
-So for example if you want to break up an if statement that has multiple ands and all and it gets really
+So for example if you want to break up an if statement that has multiple ands and ors and it gets really
 
 06:03.790 --> 06:10.000
-complicated you know and it might make more sense to break it out over multiple lines in order to understand
+complicated, you know, and it might make more sense to break it up over multiple lines in order to understand
 
 06:10.000 --> 06:12.480
-what's happening with that piece of code is doing.
+what's happening what that piece of code is doing.
 
 06:12.530 --> 06:15.420
-Again readability this won't work.
+Again, readability - this won't work.
 
 06:15.460 --> 06:17.110
-You cannot do that right.
+You cannot do that, right.
 
 06:17.140 --> 06:22.270
-If a Python is going to look at this it's going to put the new line token here is going to say well
+If a Python is going to look at this, it's going to put the new line token here, it's going to say well
 
 06:22.330 --> 06:27.150
-this isn't valid doesn't work right because I don't find the long.
+this isn't valid doesn't work right because I didn't find the colon.
 
 06:27.520 --> 06:33.580
-So instead what you can do is you can do an explicit line continuation using this backslash characters
+So instead what you can do is you can do an explicit line continuation, using this backslash character,
 
 06:33.850 --> 06:36.190
 and this will work just fine.
 
 06:36.190 --> 06:42.760
-Now the one thing is you cannot put in comments after these you know backslashes or even before them
+Now the one thing is, you cannot put in comments after these you know backslashes, or even before them.
 
 06:43.600 --> 06:48.600
-you have to put it if you want to put a comment you're going to have to put it either above or below
+You have to put it - if you want to put a comment you're going to have to put it either above or below
 
 06:48.640 --> 06:54.490
-or you can put it right after the call on as well that's fine but you cannot make a comment about a
+or you can put it right after the colon as well, that's fine, but you cannot make a comment part of a
 
 06:54.500 --> 06:56.920
-statement you know being inside the statement.
+statement, you know being inside the statement.
 
 06:56.950 --> 06:58.630
 Not even a multi-line statement.
@@ -298,10 +298,10 @@ Not even a multi-line statement.
 So that won't work.
 
 07:01.080 --> 07:04.630
-This for example is not legal that won't work.
+This for example is not legal, that won't work.
 
 07:06.590 --> 07:12.710
-All right the next thing we need to look at are multi string literals so we can also create strings
+All right. The next thing we need to look at are multi-string literals. So we can also create strings
 
 07:12.710 --> 07:18.050
 that span multiple lines in our physical you know code.
@@ -316,7 +316,7 @@ You just triple them up.
 So instead of using a single single quote or a single double quote to delimit the string on either end
 
 07:31.100 --> 07:37.300
-you used triple and that then allows you to write strings over multiple lines of multiple physical lines
+you used triple and that then allows you to write strings over multiple lines or multiple physical lines,
 
 07:37.490 --> 07:38.680
 as in this example.
@@ -325,34 +325,34 @@ as in this example.
 So we have a triple single quote.
 
 07:40.340 --> 07:42.190
-This is good a new line.
+This is, got a new line,
 
 07:42.200 --> 07:45.830
-Hit the enter key here and a multi-line string continues.
+hit the enter key here, and a multi-line string continues,
 
 07:45.980 --> 07:49.700
-And then we end the string and you can do the same thing using double quotes.
+and then we end the string. And you can do the same thing using double quotes.
 
 07:49.700 --> 07:57.520
-So whatever you want to use now you have to really be aware that this works a little differently than
+So whatever you want to use. Now you have to really be aware that this works a little differently than
 
 07:57.610 --> 08:03.760
-the implicit For example our continuation that we had with lists where it was stripping out the newline
+the implicit, for example, our continuation that we had with lists, where it was stripping out the newline
 
 08:03.790 --> 08:05.480
-character here.
+character. Here,
 
 08:05.710 --> 08:08.820
 Python is not going to strip out the newline character.
 
 08:09.070 --> 08:14.320
-So when you print the string out it will retain this newline character.
+So when you print the string out, it will retain this newline character.
 
 08:14.320 --> 08:20.680
-In fact it will retain any character that you've typed into that string whether it be a new line whether
+In fact it will retain any character that you've typed into that string whether it be a new line, whether
 
 08:20.680 --> 08:27.220
-it be a tab whether it be a Unicode character you know some hidden you know characters that doesn't
+it be a tab whether it be a Unicode character, you know some hidden you know characters that doesn't
 
 08:27.220 --> 08:29.070
 print but it's still there.
@@ -364,7 +364,7 @@ Right.
 So anything you type is going to be in that string including multiple spaces and things like that and
 
 08:35.350 --> 08:41.440
-so it's important if you're trying to get a string that's formatted for display you want to be sure
+so it's important if you're trying to get a string that's formatted for display, you want to be sure
 
 08:41.440 --> 08:46.510
 that you don't type extra characters that allows you to line things up in your code but then doesn't
@@ -373,13 +373,13 @@ that you don't type extra characters that allows you to line things up in your c
 line up when you print.
 
 08:47.680 --> 08:50.790
-And we'll see examples of that throughout the scores.
+And we'll see examples of that throughout this course.
 
 08:51.310 --> 08:57.620
-So these are just regular strings so you can use escape characters if you want like backslash and backslash.
+So these are just regular strings, so you can use escape characters if you want like backslash n and backslash t.
 
 08:57.880 --> 09:02.770
-You can use string formatting you know you can apply the format method you can do all that stuff.
+You can use string formatting, you know, you can apply the format method, you can do all that stuff.
 
 09:02.770 --> 09:04.150
 They're just normal strings.
@@ -391,61 +391,61 @@ They are no different.
 So multi-line string is just a regular string.
 
 09:08.350 --> 09:15.850
-The only difference is that you can have that string you are content that literal span multiple lines.
+The only difference is that you can have that string, you know, content that literal span multiple lines.
 
 09:17.480 --> 09:22.080
 Now one thing I want to point out is that multi-line strings are not the same thing as comments.
 
 09:22.220 --> 09:27.080
-Now they can be used as comments especially with things where you know that we called docstring strings
+Now, they can be used as comments, especially with things where you know that we called docstring strings
 
 09:27.110 --> 09:32.540
-that we'll look at and a lot more detail in the Object-Oriented section but strings and comments are
+that we'll look at in a lot more detail in the Object-Oriented section, but strings and comments are
 
 09:32.540 --> 09:33.590
 not the same thing.
 
 09:33.590 --> 09:40.550
-So yes you can put strings inside your code that are not assigned to a variable that are just sitting
+So yes, you can put strings inside your code that are not assigned to a variable, that are just sitting
 
 09:40.550 --> 09:46.750
-there in your code that's perfectly fine and you can use that for doctrine's for documentation.
+there in your code, that's perfectly fine. And you can use that for docstrings, for documentation.
 
 09:47.000 --> 09:50.530
-But these are not comments they're not the same thing.
+But these are not comments, they're not the same thing.
 
 09:50.540 --> 09:55.750
-So when Python compiles your code those strings will be part of your code they'll be compiled and they
+So when Python compiles your code, those strings will be part of your code. They'll be compiled and they
 
 09:55.750 --> 09:58.400
 will be put into your compiled bytecode.
 
 09:58.400 --> 10:04.680
-However comments are tossed out they're not so they're different things not the same.
+However comments are tossed out, they're not. So they're different things, not the same.
 
 10:04.790 --> 10:05.290
 All right.
 
 10:05.330 --> 10:09.020
-So let's switch to some code and take a look at how all of this works.
+So let's switch to some code, and take a look at how all of this works.
 
 10:09.020 --> 10:13.730
-So we're going to start of a list now a list can be written over one line.
+So we're going to start of a list. Now a list can be written over one line.
 
 10:13.740 --> 10:15.080
 Let's say something like that.
 
 10:15.350 --> 10:20.950
-But sometimes you may want to write it over multiple lines in which case we can do something like this.
+But sometimes you may want to write it over multiple lines, in which case we can do something like this.
 
 10:21.320 --> 10:26.140
-And you don't have to put one item by line you can put how many you don't have a mini you want.
+And you don't have to put one item per line, you can put how many, you know, how many you want.
 
 10:26.510 --> 10:28.550
 And we'll still get a regular list.
 
 10:28.550 --> 10:32.710
-Nothing has changed it's just implicit line continuation.
+Nothing has changed, it's just implicit line continuation.
 
 10:32.720 --> 10:34.290
 Now you can also add comments.
@@ -457,25 +457,25 @@ So let's say we say one and let's call it.
 Item 1.
 
 10:39.650 --> 10:45.560
-Now you have to be careful where you place the comma to separate your items because if you put a comma
+Now you have to be careful where you place the comma to separate your items, because if you put a comma
 
 10:45.560 --> 10:54.210
-here then this comma is part of the comment which means that it's not going to be a valid Python statement.
+here, then this comma is part of the comment which means that it's not going to be a valid Python statement.
 
 10:54.210 --> 10:58.490
 So if we do two here and we try and run this we get an invalid syntax error.
 
 10:58.490 --> 11:03.760
-Well yeah because there's no comma between the two but there is a newline right.
+Well yeah, because there's no comma between the two, but there is a newline, right.
 
 11:03.770 --> 11:11.060
-So instead what we'll have to do to fix that is one of two solutions first one is to put the comma right
+So instead what we'll have to do, to fix that, is one of two solutions. First one is to put the comma right
 
 11:11.060 --> 11:13.810
 after the element but before the comment.
 
 11:14.150 --> 11:19.700
-That's one way of doing it the other way of doing it is just to put the comma before the next element.
+That's one way of doing it. The other way of doing it is just to put the comma before the next element.
 
 11:19.880 --> 11:21.210
 And you can do that as well.
@@ -484,55 +484,55 @@ And you can do that as well.
 And in both cases it will do the same thing.
 
 11:24.500 --> 11:30.600
-And if we look at the contents of a you'll notice it's just one comment to the comment was ignored.
+And if we look at the contents of a you'll notice it's just 1 comma 2, the comment was ignored.
 
 11:30.640 --> 11:31.080
 OK.
 
 11:31.130 --> 11:35.160
-Now this works the same way for you know topples.
+Now this works the same way for you know tuples.
 
 11:35.180 --> 11:43.210
-So a equals one comma to comma three we can put a comment.
+So a equals 1 comma 2 comma 3. We can put a comment.
 
 11:43.450 --> 11:46.480
-Wish we can put a comment here.
+here, we can put a comment here.
 
 11:46.580 --> 11:48.870
 Put as many comments as we want.
 
 11:49.520 --> 11:52.460
-And we just get a regular topical nothing different there.
+And we just get a regular tupel, nothing different there.
 
 11:53.620 --> 11:58.720
-Same thing with sets which I won't show you it's the same thing and dictionaries as well I will show
+Same thing with sets, which I won't show you, it's the same thing, and dictionaries as well. I will show
 
 11:58.720 --> 12:00.460
 you that one very quickly.
 
 12:00.460 --> 12:06.990
-So let's say we have a key value like this so let's make it a value of 1.
+So let's say we have a key value like this, so let's make it a value of 1.
 
 12:07.030 --> 12:16.840
-We can add a comment right so we can say this is our value for the one and again where we place the
+We can add a comment right, so we can say this is our value for key one. And again, where we place the
 
 12:16.840 --> 12:20.870
-comma is important either here or at the beginning of the next item.
+comma is important, either here or at the beginning of the next item.
 
 12:20.890 --> 12:22.950
 I'll put it at the beginning of the next item.
 
 12:23.080 --> 12:29.740
-Key to to value the full two.
+Key2 2 value for key two.
 
 12:29.780 --> 12:35.890
-Now we have to be careful here as well because you'll notice that I have a comment on the last line
+Now. We have to be careful here as well, because you'll notice that I have a comment on the last line,
 
 12:36.320 --> 12:41.060
 which was at that closing brace over here is actually part of the comment.
 
 12:41.080 --> 12:45.520
-So if I try and run that I'll get a syntax error right.
+So if I try and run that I'll get a syntax error, right.
 
 12:45.550 --> 12:50.960
 So we have to fix that by putting it on its own line.
@@ -544,22 +544,22 @@ Right.
 We have to do it that way.
 
 12:53.380 --> 13:01.240
-And now that will work and we get a regular dictionary or can now you can do the same thing when you
+And now that will work,  and we get a regular dictionary, ok. Now you can do the same thing when you
 
 13:01.240 --> 13:02.050
 have a function.
 
 13:02.050 --> 13:04.910
-So let's look there's my func.
+So let's look def my_func().
 
 13:04.930 --> 13:09.510
-We can certainly put a comma commas C in this fashion.
+We can certainly put a, b, c in this fashion.
 
 13:09.640 --> 13:15.130
-But maybe I want to break it up maybe I've got lots of parameters in the function or I got long names
+But maybe I want to break it up, maybe I've got lots of parameters in the function or I got long names
 
 13:15.130 --> 13:18.830
-or maybe some other reason why I want to break it up.
+or maybe there's some other reason why I want to break it up.
 
 13:19.090 --> 13:23.410
 And in this case I'm going to break it up let's say this way.
@@ -577,16 +577,16 @@ And we can add a comment.
 Right.
 
 13:28.510 --> 13:34.380
-We can say this is used to indicate blah blah blah.
+We can say: this is used to indicate blah blah blah.
 
 13:34.630 --> 13:37.770
-You know and another comment.
+You know and another comment here.
 
 13:38.050 --> 13:41.500
 Right now again you've got to be careful about the placement of your commas.
 
 13:41.500 --> 13:45.760
-Don't place them after the comments otherwise they will be part of the comment and ignored and you'll
+Don't place them after the comments, otherwise they will be part of the comment and ignored, and you'll
 
 13:45.820 --> 13:47.730
 have a syntax error.
@@ -595,16 +595,16 @@ have a syntax error.
 OK so we can start with that.
 
 13:49.660 --> 13:55.040
-And then we can just say you know print a comma to become a c.
+And then we can just say you know print a, b, c.
 
 13:55.150 --> 13:59.370
-So this function will just print whatever was passed then.
+So this function will just print whatever was passed in.
 
 13:59.380 --> 14:01.890
 Now when we call the function we can do the same thing.
 
 14:01.960 --> 14:07.800
-We can call function with let's say 10 20 30 K that works just fine.
+We can call function with let's say 10 20 30 OK that works just fine.
 
 14:07.960 --> 14:15.210
 But we can also call it by splitting the values over multiple lines.
@@ -619,7 +619,7 @@ And again that's fairly useful when you're dealing with functions that take in a
 And maybe the parameter names are long maybe it's something that allows you to connect to a database
 
 14:26.270 --> 14:32.320
-so you need to specify the database you know the solver the database maybe the table maybe the query
+so you need to specify the database, you know, the solver the database maybe the table maybe the query
 
 14:32.320 --> 14:33.460
 that you're trying to run.
@@ -628,22 +628,22 @@ that you're trying to run.
 So very often you know you end up writing function calls over multiple lines probably more often than
 
 14:39.100 --> 14:42.370
-you do writing the function head as themselves.
+you do writing the function headers themselves.
 
 14:42.370 --> 14:44.330
 So in this case we could do something like this.
 
 14:44.510 --> 14:45.970
-Phunk 10.
+my_func 10.
 
 14:46.150 --> 14:52.070
-And you know comment here that describes maybe what the value is 20.
+And, you know, comment here that describes maybe what the value is.
 
 14:52.170 --> 14:56.170
-Another comment 30 and another comment.
+20 another comment, 30 and another comment.
 
 14:56.170 --> 15:01.960
-And again we have to be careful not to make that closing parentheses part of the comment itself.
+And again, we have to be careful not to make that closing parentheses part of the comment itself.
 
 15:02.380 --> 15:04.450
 And this works just as before.
@@ -658,19 +658,19 @@ OK.
 So that's kind of the line continuation the implicit line continuation.
 
 15:12.800 --> 15:21.020
-Now let's take a look at explicit line continuation so let's see if we have a 10 B equals 20 sequel's
+Now let's take a look at explicit line continuation. So let's say we have a equals 10 b equals 20 
 
 15:21.050 --> 15:21.420
-thought.
+c equals 30.
 
 15:21.440 --> 15:27.260
-Let's say we have these three variables and we write an IF statement then we say if a is greater than
+Let's say we have these three variables. And we write an IF statement. Then we say if a is greater than
 
 15:27.260 --> 15:34.700
 5 and B is greater than 10 and C is greater than 20 which is going to be true in this particular case
 
 15:35.270 --> 15:38.930
-then we can print Yes.
+then we can print: Yes.
 
 15:39.730 --> 15:40.260
 OK.
@@ -679,10 +679,10 @@ OK.
 So that works just fine.
 
 15:42.230 --> 15:48.980
-Now sometimes your expressions might become very long or there could be other statements too it's not
+Now sometimes your expressions here might become very long or there could be other statements too, it's not
 
 15:48.980 --> 15:54.830
-just an if statement but maybe the line just becomes too long and it is preferred in Python to keep
+just an if statement. But maybe the line just becomes too long, and it is preferred in Python to keep
 
 15:54.830 --> 16:00.920
 your you know your line length under a certain number of characters to make it more readable on a variety
@@ -691,28 +691,28 @@ your you know your line length under a certain number of characters to make it m
 of screen resolutions and screen sizes.
 
 16:04.490 --> 16:10.100
-So proud of some of the best practices in Python which we'll talk about later.
+So part of some of the best practices in Python which we'll talk about later.
 
 16:10.100 --> 16:14.620
-Actually it's called a pep pep 8 and we'll tell you take a look at that.
+Actually it's called a pep, pep 8, and we'll tell you take a look at that.
 
 16:14.750 --> 16:16.520
 Well in an upcoming video.
 
 16:16.580 --> 16:23.100
-So let's change this and let's put in line continuations let's say that I want to have each expression.
+So let's change this and let's put in line continuations. Let's say that I want to have each expression,
 
 16:23.210 --> 16:27.870
-Each subexpression you know those those comparisons on different lines.
+each subexpression, you know, those those comparisons, on different lines.
 
 16:28.010 --> 16:35.300
-Then I can do a line continuation character essentially using a backslash OK and then we'll do another
+Then I can do a line continuation character essentially using a backslash, OK. And then we'll do another
 
 16:35.300 --> 16:38.650
 one here and then we go over three lines.
 
 16:38.660 --> 16:43.940
-Now the indentation actually doesn't matter at this point because remember it doesn't matter how you
+Now the indentation actually doesn't matter at this point because remember, it doesn't matter how you
 
 16:43.940 --> 16:49.970
 indent your code here because those new lines are going to get removed and it's going to become a single
@@ -721,7 +721,7 @@ indent your code here because those new lines are going to get removed and it's 
 line.
 
 16:50.750 --> 16:54.640
-So in this case I'm going to choose two indented maybe this way.
+So in this case I'm going to choose to indent it maybe this way.
 
 16:55.470 --> 16:57.050
 And that's perfectly fine too.
@@ -733,7 +733,7 @@ And as you can see it ran fine.
 So the line continuation character is just something you can put in wherever you want to break a physical
 
 17:04.620 --> 17:09.440
-line or a logical line into two physical lines or more physical lines.
+line or a logical line into two physical lines, or more physical lines.
 
 17:11.470 --> 17:14.770
 The next one are multiline strings.
@@ -742,7 +742,7 @@ The next one are multiline strings.
 Now multiline strings are done with triple delimiters.
 
 17:18.850 --> 17:25.070
-So here I have three single quotes followed by three single quotes that's the ending closing quotes
+So here I have three single quotes followed by three single quotes, that's the ending and closing quotes
 
 17:26.500 --> 17:28.280
 and we can type something in there.
@@ -754,13 +754,13 @@ This is a string.
 OK.
 
 17:30.930 --> 17:32.310
-And if will print out a.
+And if we print out a,
 
 17:32.350 --> 17:33.390
-This is a string.
+this is a string.
 
 17:33.430 --> 17:34.240
-It's the string.
+It's still a string.
 
 17:34.240 --> 17:37.450
 So the triple delimiter just is a regular string.
@@ -769,34 +769,34 @@ So the triple delimiter just is a regular string.
 But what's different about the triple delimiter is that we can split it over multiple lines as in this
 
 17:47.230 --> 17:52.430
-case and you'll see the result is this backslash n Right.
+case and you'll see the result is this backslash n, Right.
 
 17:52.430 --> 17:58.030
-And this is why I just wanted to print it out this way it is a string so that newline character was
+And this is why I just wanted to print it out this way, it's a string, so that newline character was
 
 17:58.030 --> 17:59.120
 preserved.
 
 17:59.140 --> 18:05.100
-So if we print it for display let's say from the program we would actually get it over two lines.
+So if we print it for display let's say from the program, we would actually get it over two lines.
 
 18:05.110 --> 18:09.510
 Now what's important to realize is that anything you type in here.
 
 18:09.880 --> 18:16.800
-So if we do something like this say equals trouble quote.
+So if we do something like this A equals tripple quote -
 
 18:16.880 --> 18:18.700
-So now we have a multi line.
+So now we have a multi line -
 
 18:18.740 --> 18:22.060
 This is a string.
 
 18:22.490 --> 18:32.950
-And let's say I put in a few extra spaces and maybe I'll put in an extra carriage returns here.
+And let's say I put in a few extra spaces and maybe I'll put in an extra carriage return here.
 
 18:33.190 --> 18:34.740
-And then add some more.
+I'll indent it some more.
 
 18:34.790 --> 18:39.320
 This is a string that is created
@@ -820,7 +820,7 @@ Then we get exactly what we type over here.
 So that's kind of important to remember because if you're trying to let's say define a multi-line string
 
 19:05.540 --> 19:13.100
-to you know create some text that you want to display to a user let's say on the console then if you're
+to you know create some text that you want to display to a user let's say on the console, then if you're
 
 19:13.100 --> 19:19.340
 trying to line things up so that the string looks good in your code it may actually not look good in
@@ -829,19 +829,19 @@ trying to line things up so that the string looks good in your code it may actua
 the actual console.
 
 19:21.510 --> 19:32.040
-You know for example if we do something like this A equals let's say some items and I'm trying to you
+You know, for example if we do something like this A equals let's say some items, and I'm trying to, you
 
 19:32.040 --> 19:40.210
-know line it up here's my list Psagot one item one to item to get.
+know, line it up here's my list so I go 1 item1 2 item2, ok.
 
 19:40.220 --> 19:46.070
-It looks good in the code but if you print it then it doesn't look that great right.
+It looks good in the code, but if you print it then it doesn't look that great, right.
 
 19:46.070 --> 19:48.360
 It was indented over here.
 
 19:49.340 --> 19:55.760
-A lot more than I had right because this seemed to line up with just one character difference right
+A lot more than I had, right, because this seemed to line up with just one character difference, right
 
 19:55.820 --> 19:57.970
 between this line and these items.
@@ -853,28 +853,28 @@ And this no longer does.
 So just something to be aware of.
 
 20:02.430 --> 20:06.360
-Ken in particular let's look at it this way.
+ok. In particular let's look at it this way.
 
 20:06.400 --> 20:11.800
-So we have def my funk and so now we have indentation already right.
+So we have def my_func and so now we have indentation already, right.
 
 20:11.800 --> 20:20.120
-We were using a equals that's indented inside the function and we do a multi-line string and say a multi
+We were using a equals, that's indented inside the function, and we do a multi-line string and say a multi-
 
 20:20.320 --> 20:23.070
 line string.
 
 20:23.350 --> 20:28.520
-I hit enter that is now the program automatically shifts.
+I hit enter that is now the program automatically shifts
 
 20:28.530 --> 20:34.600
-My my you know my line of code to the proper indentation and most of the python ideas will do that as
+my, my you know, my line of code to the proper indentation and most of the Python IDEs will do that as
 
 20:34.600 --> 20:35.790
 well.
 
 20:35.860 --> 20:46.000
-So a multi-line string that is indented in the second line and it will just this function will just
+So a multi-line string that is indented in the second line. And it will just this function will just
 
 20:46.000 --> 20:47.560
 return that string.
@@ -886,31 +886,31 @@ OK.
 So there we go.
 
 20:49.510 --> 20:57.890
-Now if we print my funk code then you'll notice what happened.
+Now if we print my_func call, then you'll notice what happened.
 
 20:57.910 --> 21:01.740
-That is in the second line was actually invented because why.
+'that is indented in the second line' was actually indented. Because why?
 
 21:01.900 --> 21:10.460
-Well this entire thing here is the string which means it includes that indentation that was put in automatically
+Well this entire thing here is the string, which means it includes that indentation that was put in automatically
 
 21:10.460 --> 21:11.620
 for us.
 
 21:11.630 --> 21:17.990
-So in a case like this you've got to be careful you have to really undented if you want it to be not
+So in a case like this you've got to be careful. You have to really undent it if you want it to be not
 
 21:17.990 --> 21:23.990
-indented in the display so it looks weird it looks like you're breaking you know the indentation but
+indented in the display. So it looks weird. It looks like you're breaking you know the indentation, but
 
 21:23.990 --> 21:31.250
-you're not that's because remember that this is basically you know a line continuation this is a single
+you're not. That's because remember that this is basically you know a line continuation, this is a single
 
 21:31.340 --> 21:32.230
-entity Right.
+entity, right here.
 
 21:32.370 --> 21:39.820
-This is a single string literal and so whatever's inside it doesn't matter if it's indented or not.
+This is a single string literal. And so whatever's inside it doesn't matter if it's indented or not.
 
 21:39.830 --> 21:42.520
 So in this case we do this and now we print it.
