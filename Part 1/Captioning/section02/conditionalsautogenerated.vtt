@@ -1,16 +1,16 @@
 WEBVTT
 
 00:00.390 --> 00:06.030
-High in this video we're going to take a quick look at conditionals so conditionals will look at the
+Hi, in this video we're going to take a quick look at conditionals. So conditionals - we'll look at the
 
 00:06.120 --> 00:13.860
-if statement and we can write something like this or a girls let's say two and then if A is less than
+if statement, and we can write something like this: a equals let's say 2 and then if a is less than
 
 00:13.860 --> 00:20.480
-five print is less than five and we can leave it at that.
+5 print "a is less than five" and we can leave it at that.
 
 00:20.490 --> 00:21.670
-That's the statement.
+That's the if statement.
 
 00:21.780 --> 00:23.440
 So in this case it was two.
@@ -22,49 +22,49 @@ So it was less than five.
 So we printed that.
 
 00:26.010 --> 00:31.580
-If it's something greater than five maybe six then it won't do anything because well that's it.
+If it's something greater than five maybe six then it won't do anything because, well that's it.
 
 00:31.590 --> 00:33.520
 It's not going to execute this line.
 
 00:33.690 --> 00:41.100
-If A is a group is greater than equal to 5 if we wanted to execute we can put an else statement and
+If a is ah is greater than or equal to 5. If we wanted to execute we can put in an else statement and
 
 00:41.100 --> 00:48.600
-that will therefore happen when the condition is not met and we can say print A is greater than equal
+that will therefore happen when the condition is not met. And we can say print "a is greater than equal
 
 00:48.600 --> 00:52.310
-to 5 and we have that result there.
+to 5" and we have that result there.
 
 00:54.170 --> 00:56.620
 IF statements can also be nested within each other.
 
 00:56.690 --> 01:03.050
-So let's say we have a called 10 and we can say this if A is less than five and you can test the IF
+So let's say we have a equals 10 and we can say this: if a is less than five and you can test the IF
 
 01:03.080 --> 01:07.950
-statements either inside the if block or in the else block it doesn't matter either one will support
+statements either inside the if block or in the else block, it doesn't matter, either one will support
 
 01:07.950 --> 01:12.770
-it basically you know this is just a code block that can contain anything you want.
+it. Basically, you know, this is just a code block that can contain anything you want.
 
 01:12.770 --> 01:16.630
-Any other view or Python code you want comments anything you want.
+Any other, you know, Python code you want, comments, anything you want.
 
 01:17.210 --> 01:20.240
-So if it is less than five it's print again.
+So a is less than five it's print again:
 
 01:20.570 --> 01:27.500
-Pay is less than 5 else and you will do another test.
+"a is less than 5" else and you will do another test.
 
 01:27.530 --> 01:39.050
-If is less than 10 well we'll print and say that a is greater than or equal to 5 and less than 10 that's
+If a is less than 10 well we'll print and say that "a is greater than or equal to 5 and less than 10" that's
 
 01:39.050 --> 01:40.810
 going to be between five and 10.
 
 01:40.820 --> 01:48.320
-Obviously if a was is less than 10 but greater than 5 while it's greater than five it's going to fall
+Obviously a was, is less than 10 but greater than 5. While it's greater than five it's going to fall
 
 01:48.320 --> 01:49.510
 into the else statement.
@@ -76,103 +76,103 @@ So it's going to be greater than or equal to 5 and here less than 10.
 OK.
 
 01:53.960 --> 02:06.570
-And then we can also put in an else statement I will say print pay is greater than or equal to 10.
+And then we can also put in an else statement I will say: print "a is greater than or equal to 10".
 
 02:07.360 --> 02:08.030
 OK.
 
 02:08.390 --> 02:14.470
-So because I was 10 we printed was greater than or equal to 10 would make a equal to 8.
+So because a was 10 we printed was greater than or equal to 10 would make a equal to 8.
 
 02:14.690 --> 02:17.520
-And we see that is between 5 and 10.
+And we see that a is between 5 and 10.
 
 02:17.690 --> 02:24.470
-And if we make a call to 4 we get A's less than five and we can test the edge conditions like five.
+And if we make a equal to 4 we get a is less than five; and we can test the edge conditions like five.
 
 02:24.560 --> 02:33.210
-And we get precisely A's you know greater than equal to five and less than 10.
+And we get precisely a is you know greater than equal to five and less than 10.
 
 02:33.230 --> 02:39.120
-There is of course an easier way to do it than writing nested if statements this way in other languages.
+There is of course an easier way to do it than writing nested if statements this way. In other languages.
 
 02:39.140 --> 02:45.270
-You have something called the switch or a case statement and you have that in you know Java and Z Shompen
+you have something called the switch or a case statement, and you have that in you know Java and C Sharp
 
 02:45.500 --> 02:52.430
-and swift and so on what you don't have that in Python the closest that we have to a switch case statement
+and swift and so on. What you don't have that in Python. The closest that we have to a switch case statement
 
 02:52.430 --> 02:54.810
-in Python is the L if.
+in Python is the elif.
 
 02:55.100 --> 02:58.720
-So let's Like a look at that will do the same problem again.
+So let's take a look at that. We'll do the same problem again.
 
 02:58.920 --> 03:04.840
-We'll say if a is less than 5 percent pays less than 5.
+We'll say if a is less than 5 print "a is less than 5".
 
 03:05.150 --> 03:11.190
-If so it's like saying else if and now we have to give the condition again.
+Elif. So it's like saying else if and now we have to give the condition again.
 
 03:11.240 --> 03:15.110
-So we'll say A is less than 10.
+So we'll say a is less than 10.
 
 03:15.360 --> 03:18.740
-We'll print that A.
+We'll print that a, ah well
 
 03:19.040 --> 03:24.940
-That 5 is less than or equal to A is less than 10.
+that "5 is less than or equal to a is less than 10".
 
 03:25.280 --> 03:31.850
-And we can put as many statements as we want so we can say if A is less than 15 then we'll print and
+And we can put as many elif statements as we want. So we can say if a is less than 15 then we'll print and
 
 03:31.850 --> 03:40.520
-say that 10 is less when we go to a less than 15 and we can even put another one in as I said we can
+say that "10 is less than equal to a is less than 15" and we can even put another one in. As I said, we can
 
 03:40.520 --> 03:50.030
-put as many as we want to put 20 here and printed 20 15 people to pay less than 20.
+put as many as we want to put 20 here, and print: "20 no 15 less equal to a less than 20".
 
 03:50.540 --> 03:54.660
-And then we can finally put up or else at the very end.
+And then we can finally put our else at the very end.
 
 03:54.850 --> 03:58.440
-And so it is greater than 20 10.
+And say "a is greater than 20". OK?
 
 03:58.610 --> 04:00.300
-So this is how it works.
+So, this is how it works.
 
 04:00.300 --> 04:04.840
-Now obviously we can test out each branch so we can put a call to three.
+Now obviously we can test out each branch so we can put a equal to three.
 
 04:04.900 --> 04:07.610
 It falls inside this branch here.
 
 04:07.810 --> 04:11.130
-Equal to eight falls inside this branch.
+we put a equal to eight falls inside this branch.
 
 04:11.270 --> 04:18.440
-If we put a bill to 12 fold inside this one 18 you get the picture.
+If we put a equal to 12 falls inside this one, 18 - you get the picture.
 
 04:18.650 --> 04:21.970
-And then the last one is well kept.
+And then the last one as well. ok.
 
 04:22.040 --> 04:27.070
-So that's the F and L if else statements.
+So that's the if and elif and else statements.
 
 04:27.110 --> 04:33.530
-And that's the most common way of branching off basically you know having a conditional evaluation so
+And that's the most common way of branching of basically you know having a conditional evaluation so
 
 04:33.530 --> 04:40.700
-we execute a piece of block a piece of code a block of code based on the condition being satisfied or
+we execute a piece of block a piece of code, a block of code based on the condition being satisfied or
 
 04:40.700 --> 04:49.610
-not the other thing is that Python also has something called a conditional expression also known as
+not. The other thing is that Python also has something called a conditional expression also known as
 
 04:49.610 --> 04:51.030
-the TONRY operator.
+the ternary operator.
 
 04:51.140 --> 05:01.980
-And the way it works is that it says the following it will return X so it will evaluate and return x
+And the way it works is that it says the following: it will return x, so it will evaluate and return x
 
 05:02.360 --> 05:05.470
 if some condition is true.
@@ -184,28 +184,28 @@ Otherwise it will return y.
 So it's a bit like saying the following.
 
 05:13.140 --> 05:19.900
-So if we say equals 25 if a is less than 5 percent.
+So if we say a equals 25 if a is less than 5, ahm, print...
 
 05:20.310 --> 05:23.230
-Well I'm going to put a B.
+Well I'm going to put a b here,
 
 05:23.420 --> 05:27.330
-I'm going to say B is equal to A.
+I'm going to say b is equal to 
 
 05:27.490 --> 05:30.850
-Is less than five.
+'a is less than five'.
 
 05:31.340 --> 05:37.100
-ELSE B equals A is greater than or equal to 5.
+else b equals 'a is greater than or equal to 5'.
 
 05:37.210 --> 05:41.730
-And now we'll just print B.
+And now we'll just print b.
 
 05:41.800 --> 05:45.630
 So this is a just a regular if else statement.
 
 05:46.030 --> 05:48.510
-But we can use the term free operator.
+But we can use the ternary operator.
 
 05:48.530 --> 05:51.960
 We fix that type over here and we like seeing that.
@@ -217,13 +217,13 @@ OK.
 So we can write this in a different way.
 
 05:56.050 --> 05:57.430
-We can say the following.
+We can say the following:
 
 05:57.520 --> 06:02.860
-We can say B equals A is less than 5.
+We can say b equals 'a is less than 5'
 
 06:03.310 --> 06:14.860
-If A is less than 5 else A is greater than or equal to 5 and it just reads pretty straightforward.
+if a is less than 5 else 'a is greater than or equal to 5'; and it just reads pretty straightforward.
 
 06:15.330 --> 06:19.720
 B is equal to this if this otherwise this.
@@ -235,10 +235,10 @@ Right.
 And that's a pretty natural way of reading that.
 
 06:22.660 --> 06:31.850
-And if we print B you'll see that we get a greater than equal to 5 if we make a equal to 4 and we redo.
+And if we print b you'll see that we get a is greater than equal to 5 if we make a equal to 4 and we redo.
 
 06:31.870 --> 06:35.290
-Now this just returns a value right.
+Now this just returns a value, right.
 
 06:35.290 --> 06:38.520
 This is an expression that gets evaluated to a value.
@@ -250,7 +250,7 @@ So we don't have to assign it to a variable.
 In this interactive python as usual.
 
 06:43.210 --> 06:50.830
-Because remember if we do something like this in the notebook it just returns the value of whatever
+Because, remember, if we do something like this in the notebook, it just returns the value of whatever
 
 06:50.830 --> 06:52.070
 expression is there.
@@ -259,16 +259,16 @@ expression is there.
 Well we can do the same thing with this over here.
 
 06:55.840 --> 06:57.850
-We can just return the van.
+We can just return the value.
 
 06:58.000 --> 07:00.140
 So let's make a equal to 4.
 
 07:00.510 --> 07:06.210
-OK and let's just print out what that returns and it returned the string is less than 5.
+OK and let's just print out what that returns, and it returned the string a is less than 5.
 
 07:06.790 --> 07:08.410
-So that's the TONRY operator.
+So that's the tarnery operator.
 
 07:08.410 --> 07:11.560
 It's pretty useful for having short kind of one liners.
@@ -280,16 +280,16 @@ But of course you know it can't handle blocks of code in here.
 It's really almost more like an and or boolean operator in the sense that it's good but it's not going
 
 07:21.790 --> 07:22.560
-to return.
+to return,
 
 07:22.750 --> 07:25.330
-You know what the ends and the always returns.
+you know, what the ands and the ors returns.
 
 07:25.330 --> 07:29.980
-But it's a slightly different construct but it's an expression that returns a value.
+But it's a slightly different construct, but it's an expression that returns a value.
 
 07:29.980 --> 07:35.940
-It's not something to evaluate blocks of code for that you have to use the F and L statements.
+It's not something to evaluate blocks of code. For that you have to use the if and else statements.
 
 07:35.950 --> 07:36.190
 All right.
