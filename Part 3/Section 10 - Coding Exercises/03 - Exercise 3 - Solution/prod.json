@@ -1,0 +1,10 @@
+{
+  "data": {
+    "input_root": "$DATA_INPUT_PATH",
+    "output_root": "$DATA_OUTPUT_PATH"
+  },
+  "database": {
+    "user": "$PG_USER",
+    "pwd": "$PG_PWD"
+  }
+}

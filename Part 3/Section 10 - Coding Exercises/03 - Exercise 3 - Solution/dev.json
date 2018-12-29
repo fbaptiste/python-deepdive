@@ -1,0 +1,20 @@
+{
+  "data": {
+    "input_root": "/dev/path/inputs",
+    "output_root": "/dev/path/outputs",
+    "numerics": {
+      "type": "float"
+    },
+    "operators": {
+      "add": "__add__"
+    }
+  },
+  "database": {
+    "user": "test",
+    "pwd": "test"
+  },
+  "logs": {
+    "level": "trace",
+    "format": "%(asctime)s: %(levelname)s: %(clientip)s %(user)s %(filename)s %(funcName)s %(message)s"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "data": {
+    "input_root": "/default/path/inputs",
+    "output_root": "/default/path/outputs",
+    "numerics": {
+        "type": "Decimal",
+        "precision": 6
+    }
+  },
+  "database": {
+    "db_name": "deepdive",
+    "schema": "public",
+    "port": 5432
+  },
+  "logs": {
+    "level": "info",
+    "format": "%(asctime)s: %(levelname)s: %(clientip)s %(user)s %(message)s"
+  }
+}
