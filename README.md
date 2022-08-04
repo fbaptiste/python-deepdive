@@ -3043,7 +3043,7 @@ def main():
         pg.init()
         return pg.display.set_mode((W*16, H*16))
     def get_images():
-        url = 'https://gto76.github.io/python-cheatsheet/web/mario_bros.png'
+        url = ''
         img = pg.image.load(io.BytesIO(urllib.request.urlopen(url).read()))
         return [img.subsurface(get_rect(x, 0)) for x in range(img.get_width() // 16)]
     def get_mario():
