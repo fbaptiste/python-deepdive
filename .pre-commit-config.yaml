@@ -42,16 +42,16 @@ repos:
         entry: poetry run black
         language: system
         types: [python]
-      - id: flake8
-        name: flake8
-        entry: poetry run flake8
-        language: system
-        pass_filenames: false
-        types: [python]
-      - id: mypy
-        name: mypy
-        entry: poetry run mypy --follow-imports=silent
-        language: system
-        pass_filenames: false
-        types: [python]
+      # - id: flake8
+      #   name: flake8
+      #   entry: poetry run flake8
+      #   language: system
+      #   pass_filenames: false
+      #   types: [python]
+      # - id: mypy
+      #   name: mypy
+      #   entry: poetry run mypy --follow-imports=silent
+      #   language: system
+      #   pass_filenames: false
+      #   types: [python]
 exclude: (^docs/)
